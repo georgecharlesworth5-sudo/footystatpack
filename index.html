@@ -200,6 +200,61 @@
     text-align: right;
   }
 
+  /* ---------- Track Record ---------- */
+  .tr-summary {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 18px;
+    margin: 14px 0 20px;
+  }
+  .tr-summary-main {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .tr-summary-pct {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 32px;
+  }
+  .tr-summary-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+  }
+  .tr-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px;
+  }
+  .tr-category-chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 8px 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+  }
+  .tr-chip-n { color: var(--meta); font-size: 10px; }
+  .tr-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    padding: 3px 8px;
+    white-space: nowrap;
+  }
+  .tr-hit { color: var(--green); border: 1px solid var(--green); }
+  .tr-miss { color: var(--red); border: 1px solid var(--red); }
+  .tr-pending { color: var(--meta); border: 1px solid var(--meta); }
+
   /* ---------- Fixture list ---------- */
   main {
     max-width: 920px;
@@ -401,10 +456,12 @@
   </footer>
 
 <script src="statpack_data.js"></script>
+<script src="bets_log.js"></script>
 <script>
 (function () {
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0"];
   const BEST_BETS = "__BEST_BETS__";
+  const TRACK_RECORD = "__TRACK_RECORD__";
   const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
   let showFullSeason = false; // toggled by the "Show full season" link in league views
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
@@ -451,6 +508,14 @@
     bbBtn.innerHTML = "★ Best Bets";
     bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; render(); });
     tabsEl.appendChild(bbBtn);
+
+    const trBtn = document.createElement("button");
+    trBtn.className = "tab tab-bestbets" + (activeLeague === TRACK_RECORD ? " active" : "");
+    const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
+      ? ` ${BETS_LOG.summary.overall.pct}%` : "";
+    trBtn.innerHTML = "Track Record" + trPct;
+    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; render(); });
+    tabsEl.appendChild(trBtn);
 
     availableLeagues.forEach(code => {
       const league = data[code];
@@ -541,100 +606,33 @@
     second_half_goals: "2nd-Half Goals",
   };
 
-  function computeBestBets() {
-    const now = new Date();
-    const windowEnd = new Date(now);
-    windowEnd.setDate(now.getDate() + NEAR_TERM_WINDOW_DAYS);
-
-    // Pull every eligible fixture (within the window, and NOT flagged as
-    // thin-sample/cross-league/fuzzy-matched - best bets should be the
-    // most reliable reads, not ones already carrying a caution note)
-    // across every league into one flat list.
-    const pool = [];
-    availableLeagues.forEach(code => {
-      const league = data[code];
-      league.upcoming_fixtures.forEach(fx => {
-        const fxDate = parseFixtureDate(fx.date);
-        if (fxDate && fxDate > windowEnd) return;
-        if (fx.cross_league_data || fx.fuzzy_name_match || fx.low_sample) return;
-        pool.push({ ...fx, leagueCode: code, leagueName: league.league_name });
-      });
-    });
-
-    const categories = {};
-
-    Object.keys(METRIC_LABELS).forEach(metricKey => {
-      // Over and Under are ranked independently - each fixture can supply
-      // its best Over line to the Over list AND its best Under line to
-      // the Under list, so one strong direction doesn't crowd the other
-      // off the board entirely.
-      const bestOverPerFixture = [];
-      const bestUnderPerFixture = [];
-      pool.forEach(fx => {
-        const m = fx.predictions[metricKey];
-        if (!m || !m.over_under || !m.over_under.length) return;
-        let bestOver = null, bestUnder = null;
-        m.over_under.forEach(ou => {
-          if (!bestOver || ou.over > bestOver.confidence) {
-            bestOver = { line: ou.line, direction: "Over", confidence: ou.over };
-          }
-          const underConf = 1 - ou.over;
-          if (!bestUnder || underConf > bestUnder.confidence) {
-            bestUnder = { line: ou.line, direction: "Under", confidence: underConf };
-          }
-        });
-        if (bestOver) bestOverPerFixture.push({ fixture: fx, ...bestOver });
-        if (bestUnder) bestUnderPerFixture.push({ fixture: fx, ...bestUnder });
-      });
-      bestOverPerFixture.sort((a, b) => b.confidence - a.confidence);
-      bestUnderPerFixture.sort((a, b) => b.confidence - a.confidence);
-      categories[metricKey] = {
-        over: bestOverPerFixture.slice(0, 5),
-        under: bestUnderPerFixture.slice(0, 5),
-      };
-    });
-
-    // BTTS is its own thing (lives on the goals metric, not a line-based
-    // O/U) - same split treatment: best "Yes" picks and best "No" picks
-    // ranked independently.
-    const bttsYes = [], bttsNo = [];
-    pool.forEach(fx => {
-      const g = fx.predictions.goals;
-      if (!g || g.btts_yes === undefined) return;
-      bttsYes.push({ fixture: fx, direction: "Yes", confidence: g.btts_yes });
-      bttsNo.push({ fixture: fx, direction: "No", confidence: g.btts_no });
-    });
-    bttsYes.sort((a, b) => b.confidence - a.confidence);
-    bttsNo.sort((a, b) => b.confidence - a.confidence);
-    categories.btts = { over: bttsYes.slice(0, 5), under: bttsNo.slice(0, 5) };
-
-    return categories;
-  }
-
+  // Best Bets is now computed in Python (best_bets.py) at build time, not
+  // recalculated here - this is so track_bets.py can log exactly what the
+  // dashboard shows, with one shared source of truth. This function just
+  // renders whatever STATPACK_DATA.best_bets already contains.
   function bestBetRow(entry, rank, isBtts) {
-    const fx = entry.fixture;
     const label = isBtts ? entry.direction : `${entry.direction} ${entry.line}`;
     return `<div class="bb-row">
       <span class="bb-rank">${rank}</span>
-      <span class="bb-teams">${fx.home_team}<span class="v">v</span>${fx.away_team}</span>
-      <span class="bb-league">${fx.leagueName}</span>
+      <span class="bb-teams">${entry.home_team}<span class="v">v</span>${entry.away_team}</span>
+      <span class="bb-league">${entry.league_name}</span>
       <span class="bb-label">${label}</span>
       <span class="bb-pct ${entry.confidence >= 0.55 ? 'pct-hi' : entry.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(entry.confidence)}</span>
     </div>`;
   }
 
   function renderBestBets() {
-    const categories = computeBestBets();
-    const hasAny = Object.values(categories).some(c => c.over.length > 0 || c.under.length > 0);
+    const categories = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.best_bets) || {};
+    const hasAny = Object.values(categories).some(c => c.over?.length > 0 || c.under?.length > 0);
 
     if (!hasAny) {
-      mainEl.innerHTML = `<div class="empty">No eligible fixtures in the next ${NEAR_TERM_WINDOW_DAYS} days yet.<br>
+      mainEl.innerHTML = `<div class="empty">No eligible fixtures in the near-term window yet.<br>
         (Fixtures with a thin sample, cross-league, or name-match flag are excluded from Best Bets - check the league tabs for those.)</div>`;
       return;
     }
 
     const order = ["goals", "btts", "corners", "cards", "first_half_goals", "second_half_goals"];
-    mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues, next ${NEAR_TERM_WINDOW_DAYS} days. Thin-sample and cross-league fixtures are excluded.</div>` +
+    mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues. Thin-sample and cross-league fixtures are excluded.</div>` +
       order.map(key => {
         const c = categories[key];
         if (!c || (c.over.length === 0 && c.under.length === 0)) return "";
@@ -657,12 +655,64 @@
       }).join("");
   }
 
+  function trackRecordRow(pick) {
+    const isPending = pick.status === "pending";
+    const label = pick.metric === "btts"
+      ? `BTTS: ${pick.direction}`
+      : `${pick.direction} ${pick.line} ${METRIC_LABELS[pick.metric] || pick.metric}`;
+    const resultBadge = isPending
+      ? '<span class="tr-badge tr-pending">Pending</span>'
+      : `<span class="tr-badge ${pick.result === 'hit' ? 'tr-hit' : 'tr-miss'}">${pick.result === 'hit' ? 'Hit' : 'Miss'}</span>`;
+    return `<div class="bb-row">
+      <span class="bb-teams">${pick.home_team}<span class="v">v</span>${pick.away_team}</span>
+      <span class="bb-league">${pick.league_name}</span>
+      <span class="bb-label">${label}</span>
+      ${resultBadge}
+    </div>`;
+  }
+
+  function renderTrackRecord() {
+    if (typeof BETS_LOG === "undefined") {
+      mainEl.innerHTML = `<div class="empty">No bets_log.js found yet.<br>This is generated by track_bets.py, which runs automatically as part of the daily Action - check back after the next run.</div>`;
+      return;
+    }
+
+    const { summary, recent } = BETS_LOG;
+    const overall = summary.overall;
+
+    const summaryHtml = `<div class="tr-summary">
+      <div class="tr-summary-main">
+        <span class="tr-summary-pct ${overall.pct >= 55 ? 'pct-hi' : overall.pct <= 40 ? 'pct-lo' : ''}">${overall.total > 0 ? overall.pct + '%' : '—'}</span>
+        <span class="tr-summary-label">${overall.hits}/${overall.total} settled picks hit${summary.pending_count ? ` · ${summary.pending_count} pending` : ''}</span>
+      </div>
+      <div class="tr-category-grid">
+        ${summary.by_category.map(c => {
+          const label = c.metric === "btts" ? `BTTS ${c.direction}` : `${METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
+          return `<div class="tr-category-chip">
+            <span>${label}</span>
+            <span class="${c.pct >= 55 ? 'pct-hi' : c.pct <= 40 ? 'pct-lo' : ''}">${c.pct}% <span class="tr-chip-n">(${c.hits}/${c.total})</span></span>
+          </div>`;
+        }).join("") || '<div class="bb-empty">No settled picks yet</div>'}
+      </div>
+    </div>`;
+
+    const logHtml = recent.length
+      ? `<div class="bb-category-title">Recent Picks</div>${recent.map(trackRecordRow).join("")}`
+      : `<div class="bb-empty">No picks logged yet</div>`;
+
+    mainEl.innerHTML = `<div class="bb-intro">Tracking every Best Bets pick since logging started - settled automatically once each match is played.</div>` +
+      summaryHtml + logHtml;
+  }
 
   function render() {
     buildTabs();
 
     if (activeLeague === BEST_BETS) {
       renderBestBets();
+      return;
+    }
+    if (activeLeague === TRACK_RECORD) {
+      renderTrackRecord();
       return;
     }
 
