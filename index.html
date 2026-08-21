@@ -135,6 +135,25 @@
     border-bottom: 1px solid var(--rule);
     margin-bottom: 6px;
   }
+  .bb-split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .bb-column-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    padding: 2px 4px 6px;
+  }
+  .bb-empty {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--meta);
+    padding: 8px 4px;
+  }
   .bb-row {
     display: flex;
     align-items: center;
@@ -545,47 +564,56 @@
     const categories = {};
 
     Object.keys(METRIC_LABELS).forEach(metricKey => {
-      const bestPerFixture = [];
+      // Over and Under are ranked independently - each fixture can supply
+      // its best Over line to the Over list AND its best Under line to
+      // the Under list, so one strong direction doesn't crowd the other
+      // off the board entirely.
+      const bestOverPerFixture = [];
+      const bestUnderPerFixture = [];
       pool.forEach(fx => {
         const m = fx.predictions[metricKey];
         if (!m || !m.over_under || !m.over_under.length) return;
-        // best (most confident, whichever side) line for this fixture/metric
-        let best = null;
+        let bestOver = null, bestUnder = null;
         m.over_under.forEach(ou => {
-          const overConf = ou.over;
+          if (!bestOver || ou.over > bestOver.confidence) {
+            bestOver = { line: ou.line, direction: "Over", confidence: ou.over };
+          }
           const underConf = 1 - ou.over;
-          const conf = Math.max(overConf, underConf);
-          const direction = overConf >= underConf ? "Over" : "Under";
-          if (!best || conf > best.confidence) {
-            best = { line: ou.line, direction, confidence: conf };
+          if (!bestUnder || underConf > bestUnder.confidence) {
+            bestUnder = { line: ou.line, direction: "Under", confidence: underConf };
           }
         });
-        if (best) bestPerFixture.push({ fixture: fx, ...best });
+        if (bestOver) bestOverPerFixture.push({ fixture: fx, ...bestOver });
+        if (bestUnder) bestUnderPerFixture.push({ fixture: fx, ...bestUnder });
       });
-      bestPerFixture.sort((a, b) => b.confidence - a.confidence);
-      categories[metricKey] = bestPerFixture.slice(0, 5);
+      bestOverPerFixture.sort((a, b) => b.confidence - a.confidence);
+      bestUnderPerFixture.sort((a, b) => b.confidence - a.confidence);
+      categories[metricKey] = {
+        over: bestOverPerFixture.slice(0, 5),
+        under: bestUnderPerFixture.slice(0, 5),
+      };
     });
 
-    // BTTS is its own thing (lives on the goals metric, not a line-based O/U)
-    const bttsBest = [];
+    // BTTS is its own thing (lives on the goals metric, not a line-based
+    // O/U) - same split treatment: best "Yes" picks and best "No" picks
+    // ranked independently.
+    const bttsYes = [], bttsNo = [];
     pool.forEach(fx => {
       const g = fx.predictions.goals;
       if (!g || g.btts_yes === undefined) return;
-      const conf = Math.max(g.btts_yes, g.btts_no);
-      const direction = g.btts_yes >= g.btts_no ? "Yes" : "No";
-      bttsBest.push({ fixture: fx, direction, confidence: conf });
+      bttsYes.push({ fixture: fx, direction: "Yes", confidence: g.btts_yes });
+      bttsNo.push({ fixture: fx, direction: "No", confidence: g.btts_no });
     });
-    bttsBest.sort((a, b) => b.confidence - a.confidence);
-    categories.btts = bttsBest.slice(0, 5);
+    bttsYes.sort((a, b) => b.confidence - a.confidence);
+    bttsNo.sort((a, b) => b.confidence - a.confidence);
+    categories.btts = { over: bttsYes.slice(0, 5), under: bttsNo.slice(0, 5) };
 
     return categories;
   }
 
   function bestBetRow(entry, rank, isBtts) {
     const fx = entry.fixture;
-    const label = isBtts
-      ? `BTTS: ${entry.direction}`
-      : `${entry.direction} ${entry.line}`;
+    const label = isBtts ? entry.direction : `${entry.direction} ${entry.line}`;
     return `<div class="bb-row">
       <span class="bb-rank">${rank}</span>
       <span class="bb-teams">${fx.home_team}<span class="v">v</span>${fx.away_team}</span>
@@ -597,10 +625,10 @@
 
   function renderBestBets() {
     const categories = computeBestBets();
-    const hasAny = Object.values(categories).some(list => list.length > 0);
+    const hasAny = Object.values(categories).some(c => c.over.length > 0 || c.under.length > 0);
 
     if (!hasAny) {
-      mainEl.innerHTML = `<div class="empty">No eligible fixtures in the next 8 days yet.<br>
+      mainEl.innerHTML = `<div class="empty">No eligible fixtures in the next ${NEAR_TERM_WINDOW_DAYS} days yet.<br>
         (Fixtures with a thin sample, cross-league, or name-match flag are excluded from Best Bets - check the league tabs for those.)</div>`;
       return;
     }
@@ -608,15 +636,27 @@
     const order = ["goals", "btts", "corners", "cards", "first_half_goals", "second_half_goals"];
     mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues, next ${NEAR_TERM_WINDOW_DAYS} days. Thin-sample and cross-league fixtures are excluded.</div>` +
       order.map(key => {
-        const list = categories[key];
-        if (!list || list.length === 0) return "";
+        const c = categories[key];
+        if (!c || (c.over.length === 0 && c.under.length === 0)) return "";
         const title = key === "btts" ? "Both Teams To Score" : METRIC_LABELS[key];
+        const overLabel = key === "btts" ? "Yes" : "Over";
+        const underLabel = key === "btts" ? "No" : "Under";
         return `<div class="bb-category">
           <div class="bb-category-title">${title}</div>
-          ${list.map((e, i) => bestBetRow(e, i + 1, key === "btts")).join("")}
+          <div class="bb-split">
+            <div class="bb-column">
+              <div class="bb-column-title">${overLabel}</div>
+              ${c.over.map((e, i) => bestBetRow(e, i + 1, key === "btts")).join("") || '<div class="bb-empty">No eligible fixtures</div>'}
+            </div>
+            <div class="bb-column">
+              <div class="bb-column-title">${underLabel}</div>
+              ${c.under.map((e, i) => bestBetRow(e, i + 1, key === "btts")).join("") || '<div class="bb-empty">No eligible fixtures</div>'}
+            </div>
+          </div>
         </div>`;
       }).join("");
   }
+
 
   function render() {
     buildTabs();
