@@ -217,15 +217,26 @@ def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
     print(f"[debug] {len(combined_team_logs)} distinct teams found across all leagues: "
           f"{sorted(combined_team_logs.keys())}")
 
-    # Track, per team, which league their most recent match was actually
-    # in - used to flag cross-league fixtures.
+    # Track, per team, which league their TRUE most recent match was in
+    # (by actual date, not by which league's CSV happened to be processed
+    # last) - used to flag cross-league fixtures. Getting this wrong in
+    # one direction matters a lot: a promoted team's old, lower-division
+    # form would otherwise look "current" indefinitely, since their new
+    # league's rows and old league's rows don't arrive in date order just
+    # from concatenating each league's file.
     most_recent_league: dict[str, str] = {}
+    most_recent_date: dict[str, date] = {}
     for row in combined_rows:
         home, away, div = row.get("HomeTeam"), row.get("AwayTeam"), row.get("Div") or row.get("League")
-        if home:
-            most_recent_league[home] = div
-        if away:
-            most_recent_league[away] = div
+        row_date = _parse_fixture_date(row.get("Date", ""))
+        if row_date is None:
+            continue  # can't compare undated rows - skip rather than risk a wrong overwrite
+        for team in (home, away):
+            if not team:
+                continue
+            if team not in most_recent_date or row_date > most_recent_date[team]:
+                most_recent_date[team] = row_date
+                most_recent_league[team] = div
 
     for code, name in LEAGUE_NAMES.items():
         rows = all_rows_by_league[code]
