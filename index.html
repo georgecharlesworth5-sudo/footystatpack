@@ -110,6 +110,18 @@
     color: var(--meta);
     padding: 14px 4px 4px;
   }
+  .window-toggle {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--meta);
+    padding: 14px 4px 8px;
+  }
+  .window-toggle a {
+    color: var(--amber);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--amber);
+  }
+  .window-toggle a:hover { opacity: 0.8; }
   .bb-category {
     margin: 18px 0 8px;
   }
@@ -374,6 +386,8 @@
 (function () {
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0"];
   const BEST_BETS = "__BEST_BETS__";
+  const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
+  let showFullSeason = false; // toggled by the "Show full season" link in league views
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
   let activeLeague = null;
 
@@ -509,10 +523,9 @@
   };
 
   function computeBestBets() {
-    const WINDOW_DAYS = 8; // "upcoming game week" - covers a weekend + midweek fixtures
     const now = new Date();
     const windowEnd = new Date(now);
-    windowEnd.setDate(now.getDate() + WINDOW_DAYS);
+    windowEnd.setDate(now.getDate() + NEAR_TERM_WINDOW_DAYS);
 
     // Pull every eligible fixture (within the window, and NOT flagged as
     // thin-sample/cross-league/fuzzy-matched - best bets should be the
@@ -593,7 +606,7 @@
     }
 
     const order = ["goals", "btts", "corners", "cards", "first_half_goals", "second_half_goals"];
-    mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues, next ${8} days. Thin-sample and cross-league fixtures are excluded.</div>` +
+    mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues, next ${NEAR_TERM_WINDOW_DAYS} days. Thin-sample and cross-league fixtures are excluded.</div>` +
       order.map(key => {
         const list = categories[key];
         if (!list || list.length === 0) return "";
@@ -614,10 +627,33 @@
     }
 
     const league = data[activeLeague];
-    const fixtures = league.upcoming_fixtures;
+    const allFixtures = league.upcoming_fixtures;
+
+    if (allFixtures.length === 0) {
+      mainEl.innerHTML = `<div class="empty">No upcoming fixtures loaded for ${league.league_name}.<br>Check fixtures_manual/ has the right CSV for this league.</div>`;
+      return;
+    }
+
+    const now = new Date();
+    const windowEnd = new Date(now);
+    windowEnd.setDate(now.getDate() + NEAR_TERM_WINDOW_DAYS);
+
+    const nearTerm = allFixtures.filter(fx => {
+      const d = parseFixtureDate(fx.date);
+      return !d || d <= windowEnd; // undated fixtures stay visible rather than vanishing
+    });
+    const fixtures = showFullSeason ? allFixtures : nearTerm;
+    const hiddenCount = allFixtures.length - nearTerm.length;
+
+    const toggle = hiddenCount > 0
+      ? (showFullSeason
+          ? `<div class="window-toggle">Showing full season (${allFixtures.length} fixtures) · <a href="#" id="toggle-window">Show next ${NEAR_TERM_WINDOW_DAYS} days only</a></div>`
+          : `<div class="window-toggle">Showing next ${NEAR_TERM_WINDOW_DAYS} days · <a href="#" id="toggle-window">Show full season (${hiddenCount} more)</a></div>`)
+      : "";
 
     if (fixtures.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No upcoming fixtures loaded for ${league.league_name}.<br>Check fixtures_manual/ has the right CSV for this league.</div>`;
+      mainEl.innerHTML = toggle + `<div class="empty">No fixtures in the next ${NEAR_TERM_WINDOW_DAYS} days for ${league.league_name}.<br>Try "Show full season" above.</div>`;
+      attachToggleHandler();
       return;
     }
 
@@ -633,12 +669,24 @@
       currentGroup.items.push(fx);
     });
 
-    mainEl.innerHTML = groups.map(g => `
+    mainEl.innerHTML = toggle + groups.map(g => `
       <div class="date-group">
         <div class="date-label">${fmtDate(g.date)}</div>
         ${g.items.map(fixtureCard).join("")}
       </div>
     `).join("");
+    attachToggleHandler();
+  }
+
+  function attachToggleHandler() {
+    const link = document.getElementById("toggle-window");
+    if (link) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        showFullSeason = !showFullSeason;
+        render();
+      });
+    }
   }
 
   render();
