@@ -54,11 +54,15 @@ jobs:
       - name: Build stat pack
         run: python build_statpack.py
 
+      - name: Log and reconcile Best Bets
+        run: python track_bets.py
+
       - name: Commit and push if anything changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ statpack.json statpack_data.js
+          git add data/ statpack.json statpack_data.js bets_log.csv bets_log.js
+          git diff --staged --quiet || git commit -m "Auto-update stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
           git diff --staged --quiet || git commit -m "Auto-update stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
 
           # Belt-and-braces: even with the concurrency guard above, a
