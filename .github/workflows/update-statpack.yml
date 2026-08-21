@@ -49,4 +49,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ statpack.json statpack_data.js
           git diff --staged --quiet || git commit -m "Auto-update stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Someone may have pushed to main (e.g. editing a file directly
+          # on GitHub) while this run was fetching/building - catch up
+          # with any such changes before pushing, rather than assuming
+          # main hasn't moved since this run started.
+          git pull --rebase origin main
           git push
