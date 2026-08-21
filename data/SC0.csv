@@ -1,0 +1,241 @@
+Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HC,AC,HY,AY,HR,AR,League,Season
+SC0,02/08/2025,15:00,Kilmarnock,Livingston,2,2,D,2,0,H,M MacDermid,8,15,2,6,3,5,2,2,1,0,SC0,2526
+SC0,02/08/2025,17:30,Motherwell,Rangers,1,1,D,0,1,A,S McLean,17,15,5,5,1,12,1,4,0,0,SC0,2526
+SC0,03/08/2025,14:00,Falkirk,Dundee United,2,2,D,0,1,A,J Beaton,14,11,4,5,2,4,1,5,0,0,SC0,2526
+SC0,03/08/2025,15:00,Dundee,Hibernian,1,2,A,1,2,A,D Dickinson,2,15,1,5,3,11,3,1,0,0,SC0,2526
+SC0,03/08/2025,16:30,Celtic,St Mirren,1,0,H,0,0,D,D Robertson,14,4,6,2,12,1,2,1,0,0,SC0,2526
+SC0,04/08/2025,20:00,Hearts,Aberdeen,2,0,H,1,0,H,N Walsh,13,11,3,1,3,3,3,2,0,0,SC0,2526
+SC0,09/08/2025,15:00,Livingston,Falkirk,3,1,H,2,0,H,C Graham,8,8,5,3,4,5,4,2,0,0,SC0,2526
+SC0,09/08/2025,15:00,St Mirren,Motherwell,0,0,D,0,0,D,R Hardie,9,7,4,3,7,4,5,1,0,0,SC0,2526
+SC0,09/08/2025,17:45,Rangers,Dundee,1,1,D,0,0,D,D Robertson,20,7,5,2,7,4,2,1,1,0,SC0,2526
+SC0,10/08/2025,12:30,Aberdeen,Celtic,0,2,A,0,1,A,J Beaton,6,13,2,4,1,6,2,3,0,0,SC0,2526
+SC0,10/08/2025,15:00,Dundee United,Hearts,2,3,A,2,1,H,D Dickinson,13,16,5,8,2,9,3,4,0,0,SC0,2526
+SC0,10/08/2025,15:00,Hibernian,Kilmarnock,2,2,D,2,1,H,N Walsh,12,10,6,2,4,7,1,2,0,0,SC0,2526
+SC0,23/08/2025,15:00,Celtic,Livingston,3,0,H,0,0,D,K Clancy,19,6,9,2,10,4,0,1,0,0,SC0,2526
+SC0,23/08/2025,15:00,Hearts,Motherwell,3,3,D,0,1,A,J Beaton,19,9,9,3,9,3,3,2,0,0,SC0,2526
+SC0,23/08/2025,15:00,Kilmarnock,Dundee,0,0,D,0,0,D,R Lee,12,6,5,1,7,3,3,3,0,0,SC0,2526
+SC0,24/08/2025,12:00,St Mirren,Rangers,1,1,D,1,0,H,N Walsh,13,13,4,6,6,6,3,3,0,0,SC0,2526
+SC0,30/08/2025,15:00,Livingston,Hearts,1,2,A,1,0,H,D Nicolson,6,14,2,3,5,9,7,2,0,0,SC0,2526
+SC0,30/08/2025,15:00,Motherwell,Kilmarnock,2,2,D,1,1,D,D McFarlane,15,7,4,5,9,0,2,5,0,0,SC0,2526
+SC0,31/08/2025,12:00,Rangers,Celtic,0,0,D,0,0,D,D Robertson,4,5,0,2,8,1,3,0,0,0,SC0,2526
+SC0,31/08/2025,14:00,Dundee,Dundee United,0,2,A,0,1,A,S McLean,5,10,1,5,3,2,0,1,0,0,SC0,2526
+SC0,31/08/2025,15:00,Aberdeen,Falkirk,0,1,A,0,0,D,R Hardie,12,19,4,9,5,6,3,5,1,0,SC0,2526
+SC0,31/08/2025,15:00,Hibernian,St Mirren,1,1,D,0,0,D,M MacDermid,17,10,5,4,10,7,1,1,0,0,SC0,2526
+SC0,13/09/2025,15:00,Aberdeen,Livingston,0,0,D,0,0,D,N Walsh,16,6,2,2,6,6,4,3,0,0,SC0,2526
+SC0,13/09/2025,15:00,Dundee,Motherwell,1,1,D,0,1,A,C Scott,7,16,4,4,2,6,1,1,1,0,SC0,2526
+SC0,13/09/2025,15:00,Falkirk,St Mirren,1,2,A,0,0,D,D Nicolson,10,13,2,5,4,2,1,2,0,0,SC0,2526
+SC0,13/09/2025,15:00,Rangers,Hearts,0,2,A,0,1,A,S McLean,14,12,5,5,9,2,2,1,0,0,SC0,2526
+SC0,13/09/2025,17:45,Hibernian,Dundee United,3,3,D,1,2,A,D McFarlane,27,13,12,9,6,4,2,4,0,1,SC0,2526
+SC0,14/09/2025,15:00,Kilmarnock,Celtic,1,2,A,0,0,D,J Beaton,12,21,2,6,6,7,2,3,0,0,SC0,2526
+SC0,20/09/2025,15:00,Dundee,Livingston,3,2,H,1,0,H,R Hardie,11,10,4,6,8,3,1,3,0,0,SC0,2526
+SC0,23/09/2025,19:45,Dundee United,Aberdeen,2,0,H,1,0,H,S McLean,15,16,5,2,11,3,2,1,0,0,SC0,2526
+SC0,23/09/2025,19:45,Falkirk,Hibernian,2,2,D,1,2,A,C Scott,7,16,6,8,5,5,2,0,0,0,SC0,2526
+SC0,27/09/2025,15:00,Celtic,Hibernian,0,0,D,0,0,D,D Robertson,26,4,6,1,7,2,2,1,0,0,SC0,2526
+SC0,27/09/2025,15:00,Dundee United,Kilmarnock,0,2,A,0,1,A,R Hardie,18,17,7,7,9,6,4,2,0,0,SC0,2526
+SC0,27/09/2025,15:00,Hearts,Falkirk,3,0,H,2,0,H,L Wilson,20,10,10,3,9,5,0,1,0,0,SC0,2526
+SC0,27/09/2025,15:00,St Mirren,Dundee,1,0,H,1,0,H,M MacDermid,10,11,4,4,5,5,3,2,0,0,SC0,2526
+SC0,27/09/2025,17:45,Motherwell,Aberdeen,2,0,H,0,0,D,R Lee,10,10,3,4,3,4,0,3,0,0,SC0,2526
+SC0,28/09/2025,15:00,Livingston,Rangers,1,2,A,0,1,A,J Beaton,9,15,3,7,4,8,4,1,0,0,SC0,2526
+SC0,04/10/2025,15:00,Dundee United,Livingston,1,1,D,0,1,A,D Nicolson,19,7,6,4,4,5,1,1,0,0,SC0,2526
+SC0,04/10/2025,15:00,Kilmarnock,St Mirren,2,0,H,2,0,H,N Walsh,9,7,5,0,4,9,1,2,0,0,SC0,2526
+SC0,04/10/2025,17:45,Hearts,Hibernian,1,0,H,0,0,D,D Dickinson,11,5,3,1,4,2,2,1,0,0,SC0,2526
+SC0,05/10/2025,15:00,Aberdeen,Dundee,4,0,H,3,0,H,D Robertson,20,8,9,2,11,2,1,0,0,0,SC0,2526
+SC0,05/10/2025,15:00,Celtic,Motherwell,3,2,H,1,1,D,C Scott,16,5,9,3,10,0,2,0,0,0,SC0,2526
+SC0,05/10/2025,15:00,Falkirk,Rangers,1,1,D,0,1,A,M MacDermid,16,11,4,2,7,6,1,4,0,0,SC0,2526
+SC0,18/10/2025,15:00,Hibernian,Livingston,4,0,H,1,0,H,R Lee,23,8,12,2,7,10,1,2,0,0,SC0,2526
+SC0,18/10/2025,15:00,Motherwell,Falkirk,1,2,A,1,0,H,S McLean,15,9,5,5,6,4,1,5,0,0,SC0,2526
+SC0,18/10/2025,15:00,Rangers,Dundee United,2,2,D,1,0,H,D Robertson,29,10,8,4,7,2,0,4,0,0,SC0,2526
+SC0,18/10/2025,15:00,St Mirren,Aberdeen,0,1,A,0,0,D,L Wilson,9,17,1,4,5,2,2,4,0,0,SC0,2526
+SC0,18/10/2025,17:45,Kilmarnock,Hearts,0,3,A,0,1,A,R Hardie,7,19,2,5,4,5,2,2,0,0,SC0,2526
+SC0,19/10/2025,12:00,Dundee,Celtic,2,0,H,2,0,H,M MacDermid,10,23,2,3,2,12,2,2,0,0,SC0,2526
+SC0,25/10/2025,15:00,Dundee United,St Mirren,3,1,H,1,1,D,J Beaton,13,23,5,3,4,12,1,1,0,1,SC0,2526
+SC0,25/10/2025,15:00,Falkirk,Dundee,2,1,H,0,1,A,R Hardie,12,13,5,3,5,3,2,2,0,0,SC0,2526
+SC0,25/10/2025,15:00,Livingston,Motherwell,1,2,A,1,0,H,N Walsh,11,15,4,2,0,3,2,2,0,0,SC0,2526
+SC0,26/10/2025,12:00,Hearts,Celtic,3,1,H,1,1,D,S McLean,12,8,7,2,5,9,4,1,0,0,SC0,2526
+SC0,26/10/2025,14:30,Aberdeen,Hibernian,1,2,A,0,1,A,D Robertson,16,19,5,6,6,3,0,2,0,0,SC0,2526
+SC0,26/10/2025,15:00,Rangers,Kilmarnock,3,1,H,1,1,D,K Clancy,13,7,6,3,9,2,1,2,0,0,SC0,2526
+SC0,29/10/2025,19:45,Celtic,Falkirk,4,0,H,2,0,H,R Lee,26,8,11,4,6,3,1,2,0,0,SC0,2526
+SC0,29/10/2025,19:45,Hibernian,Rangers,0,1,A,0,1,A,J Beaton,7,7,4,3,5,4,2,3,0,0,SC0,2526
+SC0,29/10/2025,19:45,Kilmarnock,Aberdeen,0,1,A,0,1,A,D Nicolson,14,6,4,3,7,2,4,6,0,0,SC0,2526
+SC0,29/10/2025,19:45,Motherwell,Dundee United,2,0,H,1,0,H,C Graham,10,9,5,1,4,2,1,2,0,0,SC0,2526
+SC0,29/10/2025,19:45,St Mirren,Hearts,2,2,D,1,1,D,M MacDermid,12,20,6,8,6,7,2,2,0,0,SC0,2526
+SC0,01/11/2025,15:00,Falkirk,Kilmarnock,3,1,H,3,0,H,D Dickinson,12,9,7,5,2,6,0,1,0,0,SC0,2526
+SC0,01/11/2025,15:00,Hearts,Dundee,4,0,H,2,0,H,K Clancy,17,5,10,0,6,2,0,2,0,0,SC0,2526
+SC0,01/11/2025,15:00,Livingston,Hibernian,2,2,D,1,1,D,C Scott,10,7,5,5,6,1,2,1,0,0,SC0,2526
+SC0,08/11/2025,15:00,Falkirk,Livingston,1,1,D,1,0,H,G Irvine,12,11,2,5,6,1,3,2,0,0,SC0,2526
+SC0,08/11/2025,17:45,St Mirren,Hibernian,0,3,A,0,1,A,D Dickinson,9,15,4,5,5,6,4,1,0,0,SC0,2526
+SC0,09/11/2025,15:00,Aberdeen,Motherwell,1,1,D,0,0,D,S McLean,6,10,2,3,4,6,3,1,0,0,SC0,2526
+SC0,09/11/2025,15:00,Dundee,Rangers,0,3,A,0,2,A,M MacDermid,10,15,5,10,4,6,0,1,0,0,SC0,2526
+SC0,09/11/2025,15:00,Hearts,Dundee United,1,1,D,1,1,D,J Beaton,11,7,2,3,4,3,2,4,0,0,SC0,2526
+SC0,09/11/2025,16:00,Celtic,Kilmarnock,4,0,H,1,0,H,D Robertson,21,3,7,1,8,7,2,2,0,0,SC0,2526
+SC0,22/11/2025,15:00,Dundee United,Falkirk,0,3,A,0,2,A,N Walsh,13,16,5,4,5,5,3,3,0,0,SC0,2526
+SC0,22/11/2025,15:00,Hibernian,Dundee,2,0,H,1,0,H,S McLean,17,7,5,4,8,3,2,1,0,0,SC0,2526
+SC0,22/11/2025,15:00,Kilmarnock,Motherwell,1,3,A,0,2,A,R Lee,18,12,6,5,3,3,1,5,0,0,SC0,2526
+SC0,22/11/2025,15:00,Rangers,Livingston,2,1,H,1,1,D,R Hardie,9,9,2,2,2,1,2,4,0,0,SC0,2526
+SC0,22/11/2025,20:00,St Mirren,Celtic,0,1,A,0,0,D,K Clancy,13,16,2,2,2,4,2,1,0,0,SC0,2526
+SC0,23/11/2025,15:00,Aberdeen,Hearts,1,0,H,1,0,H,D Dickinson,6,16,2,4,6,3,3,4,0,0,SC0,2526
+SC0,25/11/2025,19:45,Motherwell,Hibernian,2,0,H,2,0,H,D Nicolson,16,2,5,1,0,2,0,1,0,1,SC0,2526
+SC0,29/11/2025,15:00,Dundee,St Mirren,3,1,H,2,1,H,J Beaton,8,19,4,3,1,11,0,2,0,0,SC0,2526
+SC0,29/11/2025,15:00,Motherwell,Hearts,0,0,D,0,0,D,K Clancy,9,9,5,1,3,4,2,4,0,0,SC0,2526
+SC0,29/11/2025,17:45,Kilmarnock,Dundee United,1,1,D,1,0,H,M MacDermid,11,11,3,3,3,3,3,2,0,0,SC0,2526
+SC0,30/11/2025,12:00,Hibernian,Celtic,1,2,A,0,2,A,N Walsh,9,6,4,2,4,3,3,3,0,0,SC0,2526
+SC0,30/11/2025,14:00,Rangers,Falkirk,0,0,D,0,0,D,S McLean,14,5,4,2,4,5,0,3,0,0,SC0,2526
+SC0,30/11/2025,15:00,Livingston,Aberdeen,0,1,A,0,0,D,D Robertson,15,14,3,4,7,4,1,1,0,0,SC0,2526
+SC0,03/12/2025,19:45,Aberdeen,St Mirren,3,3,D,0,0,D,S McLean,18,15,8,4,8,6,0,1,0,0,SC0,2526
+SC0,03/12/2025,19:45,Celtic,Dundee,1,0,H,1,0,H,D Nicolson,17,4,6,3,6,0,3,0,0,0,SC0,2526
+SC0,03/12/2025,19:45,Dundee United,Rangers,2,2,D,1,1,D,D Dickinson,13,32,6,10,8,9,3,3,0,0,SC0,2526
+SC0,03/12/2025,19:45,Falkirk,Motherwell,0,0,D,0,0,D,C Graham,14,7,1,1,6,3,2,0,0,0,SC0,2526
+SC0,03/12/2025,19:45,Hearts,Kilmarnock,1,1,D,0,0,D,J Beaton,17,11,3,5,9,1,1,2,0,0,SC0,2526
+SC0,06/12/2025,15:00,Dundee,Aberdeen,1,3,A,0,2,A,G Irvine,15,21,2,8,6,4,2,1,0,0,SC0,2526
+SC0,06/12/2025,15:00,Hibernian,Falkirk,3,0,H,2,0,H,M MacDermid,10,8,5,4,10,4,1,4,0,0,SC0,2526
+SC0,06/12/2025,15:00,Motherwell,Livingston,3,0,H,1,0,H,R Lee,14,12,7,1,4,5,2,3,0,0,SC0,2526
+SC0,06/12/2025,15:00,St Mirren,Dundee United,2,0,H,1,0,H,N Walsh,13,13,5,3,3,2,2,2,0,0,SC0,2526
+SC0,06/12/2025,20:00,Kilmarnock,Rangers,0,3,A,0,1,A,K Clancy,15,11,3,6,7,2,2,2,0,0,SC0,2526
+SC0,07/12/2025,15:00,Celtic,Hearts,1,2,A,0,1,A,D Robertson,15,8,5,3,5,3,1,3,0,0,SC0,2526
+SC0,13/12/2025,15:00,Dundee United,Motherwell,0,0,D,0,0,D,D Nicolson,9,13,1,3,1,4,3,3,0,0,SC0,2526
+SC0,13/12/2025,15:00,Livingston,Dundee,2,2,D,0,2,A,D McFarlane,15,6,6,3,7,0,2,2,1,0,SC0,2526
+SC0,13/12/2025,20:00,Falkirk,Hearts,0,2,A,0,1,A,C Scott,6,13,1,5,3,7,2,2,0,0,SC0,2526
+SC0,14/12/2025,15:00,Aberdeen,Kilmarnock,2,1,H,0,1,A,R Hardie,21,8,8,5,9,3,2,5,0,0,SC0,2526
+SC0,15/12/2025,19:45,Rangers,Hibernian,1,0,H,1,0,H,D Robertson,19,8,8,3,5,5,1,3,0,0,SC0,2526
+SC0,17/12/2025,20:00,Dundee United,Celtic,2,1,H,0,1,A,J Beaton,16,17,7,2,7,6,2,1,0,0,SC0,2526
+SC0,20/12/2025,15:00,Dundee United,Hibernian,1,1,D,1,1,D,S McLean,12,23,2,5,5,7,2,2,0,0,SC0,2526
+SC0,20/12/2025,15:00,Kilmarnock,Falkirk,0,1,A,0,0,D,R Lee,15,10,3,4,2,2,2,1,0,0,SC0,2526
+SC0,20/12/2025,15:00,Motherwell,Dundee,1,0,H,0,0,D,M MacDermid,16,5,7,2,2,3,1,2,0,0,SC0,2526
+SC0,20/12/2025,15:00,St Mirren,Livingston,1,0,H,0,0,D,C Graham,16,5,4,1,7,4,0,1,0,0,SC0,2526
+SC0,21/12/2025,13:30,Hearts,Rangers,2,1,H,2,0,H,N Walsh,14,11,5,2,6,10,2,1,0,0,SC0,2526
+SC0,21/12/2025,15:00,Celtic,Aberdeen,3,1,H,1,0,H,D Dickinson,31,10,10,2,8,4,1,2,0,0,SC0,2526
+SC0,27/12/2025,12:30,Hibernian,Hearts,3,2,H,2,0,H,J Beaton,12,16,7,7,3,8,1,0,0,0,SC0,2526
+SC0,27/12/2025,15:00,Dundee,Falkirk,1,0,H,1,0,H,S McLean,10,23,4,1,1,9,3,2,0,0,SC0,2526
+SC0,27/12/2025,15:00,Livingston,Celtic,2,4,A,2,4,A,M MacDermid,13,18,3,7,11,4,1,0,0,0,SC0,2526
+SC0,27/12/2025,15:00,Rangers,Motherwell,1,0,H,0,0,D,D Dickinson,28,12,13,5,5,1,3,1,0,0,SC0,2526
+SC0,27/12/2025,15:00,St Mirren,Kilmarnock,0,0,D,0,0,D,D Robertson,19,11,7,3,11,4,1,0,0,0,SC0,2526
+SC0,27/12/2025,17:45,Aberdeen,Dundee United,1,1,D,0,1,A,C Scott,14,13,6,3,9,5,2,3,0,0,SC0,2526
+SC0,30/12/2025,19:45,Dundee,Kilmarnock,2,1,H,0,1,A,N Walsh,26,8,6,4,7,5,2,4,0,0,SC0,2526
+SC0,30/12/2025,19:45,Hibernian,Aberdeen,2,0,H,0,0,D,D McFarlane,20,8,5,2,4,5,1,2,0,0,SC0,2526
+SC0,30/12/2025,19:45,Livingston,Dundee United,1,3,A,0,1,A,G Irvine,10,22,6,10,2,7,4,0,0,0,SC0,2526
+SC0,30/12/2025,19:45,Rangers,St Mirren,2,1,H,1,0,H,R Lee,16,10,5,4,5,4,1,2,0,0,SC0,2526
+SC0,30/12/2025,20:00,Motherwell,Celtic,2,0,H,1,0,H,K Clancy,11,8,6,3,1,3,0,4,0,0,SC0,2526
+SC0,03/01/2026,12:30,Celtic,Rangers,1,3,A,1,0,H,S Steven ,21,9,9,4,8,5,0,3,0,0,SC0,2526
+SC0,03/01/2026,15:00,Dundee United,Dundee,0,1,A,0,1,A,D Robertson,22,16,5,3,8,2,2,1,0,0,SC0,2526
+SC0,03/01/2026,15:00,Falkirk,Aberdeen,1,0,H,0,0,D,J Beaton,21,7,7,0,5,4,2,4,0,0,SC0,2526
+SC0,03/01/2026,15:00,Hearts,Livingston,1,0,H,1,0,H,C Graham,17,10,3,2,7,3,0,3,0,0,SC0,2526
+SC0,03/01/2026,15:00,Kilmarnock,Hibernian,1,3,A,0,1,A,D Dickinson,8,15,1,9,5,3,3,3,1,0,SC0,2526
+SC0,03/01/2026,15:00,Motherwell,St Mirren,2,0,H,1,0,H,C Scott,15,9,8,2,9,8,0,4,0,0,SC0,2526
+SC0,06/01/2026,20:00,Rangers,Aberdeen,2,0,H,2,0,H,N Walsh,22,9,8,3,7,4,0,2,0,0,SC0,2526
+SC0,10/01/2026,15:00,Celtic,Dundee United,4,0,H,2,0,H,N Walsh,22,3,8,0,12,3,1,0,0,0,SC0,2526
+SC0,10/01/2026,15:00,Hibernian,Motherwell,1,1,D,0,0,D,M MacDermid,14,14,4,5,4,4,2,5,0,0,SC0,2526
+SC0,10/01/2026,15:00,Livingston,Kilmarnock,1,1,D,1,0,H,D Robertson,12,9,5,4,7,5,4,1,0,0,SC0,2526
+SC0,10/01/2026,15:00,St Mirren,Falkirk,0,2,A,0,0,D,S McLean,9,11,3,3,4,8,2,1,0,0,SC0,2526
+SC0,11/01/2026,14:00,Dundee,Hearts,0,1,A,0,1,A,R Lee,17,7,5,2,6,4,2,0,0,1,SC0,2526
+SC0,11/01/2026,16:30,Aberdeen,Rangers,0,2,A,0,1,A,D Dickinson,7,18,5,9,6,6,2,3,0,0,SC0,2526
+SC0,14/01/2026,19:45,Falkirk,Celtic,0,1,A,0,1,A,J Beaton,11,8,6,2,3,4,0,1,0,0,SC0,2526
+SC0,14/01/2026,19:45,Hearts,St Mirren,2,0,H,0,0,D,K Clancy,14,14,7,2,3,5,0,1,1,0,SC0,2526
+SC0,20/01/2026,19:45,Livingston,St Mirren,1,1,D,0,0,D,D Nicolson,11,11,4,5,3,4,3,3,0,0,SC0,2526
+SC0,24/01/2026,15:00,Aberdeen,Livingston,6,2,H,3,2,H,R Hardie,17,7,7,4,8,2,4,2,1,1,SC0,2526
+SC0,24/01/2026,15:00,Falkirk,Hibernian,4,1,H,2,0,H,L Wilson,17,10,5,4,7,4,2,2,0,0,SC0,2526
+SC0,24/01/2026,15:00,Motherwell,Kilmarnock,4,0,H,2,0,H,N Walsh,22,7,11,1,2,1,0,0,0,1,SC0,2526
+SC0,25/01/2026,15:00,Hearts,Celtic,2,2,D,0,1,A,S McLean,16,9,8,3,2,2,3,6,0,1,SC0,2526
+SC0,25/01/2026,15:00,Rangers,Dundee,3,0,H,0,0,D,K Clancy,19,4,8,1,7,1,1,1,0,0,SC0,2526
+SC0,31/01/2026,15:00,Kilmarnock,Aberdeen,3,0,H,2,0,H,L Wilson,19,8,9,4,7,3,3,3,0,1,SC0,2526
+SC0,31/01/2026,15:00,Livingston,Motherwell,0,2,A,0,2,A,S McLean,4,14,1,6,7,7,1,0,0,0,SC0,2526
+SC0,31/01/2026,15:00,St Mirren,Dundee,0,0,D,0,0,D,N Walsh,10,11,2,2,5,6,0,0,1,0,SC0,2526
+SC0,31/01/2026,20:00,Dundee United,Hearts,0,3,A,0,2,A,C Scott,3,22,2,12,0,6,3,1,2,0,SC0,2526
+SC0,01/02/2026,14:00,Hibernian,Rangers,0,0,D,0,0,D,R Macleod,17,11,6,2,9,8,3,2,0,0,SC0,2526
+SC0,01/02/2026,15:00,Celtic,Falkirk,2,0,H,1,0,H,D Dickinson,10,14,5,4,9,4,0,2,0,0,SC0,2526
+SC0,03/02/2026,20:00,St Mirren,Hearts,1,0,H,0,0,D,S McLean,21,5,5,2,7,2,1,1,0,1,SC0,2526
+SC0,04/02/2026,19:45,Hibernian,Dundee United,3,2,H,1,0,H,C Steven,20,16,3,4,4,6,2,0,0,0,SC0,2526
+SC0,04/02/2026,19:45,Livingston,Falkirk,1,2,A,0,2,A,M MacDermid,10,16,3,3,6,4,3,4,0,0,SC0,2526
+SC0,04/02/2026,19:45,Rangers,Kilmarnock,5,1,H,1,0,H,D Dickinson,28,8,11,2,10,1,1,1,0,0,SC0,2526
+SC0,10/02/2026,20:00,Hearts,Hibernian,1,0,H,0,0,D,N Walsh,11,5,2,1,4,8,0,3,0,0,SC0,2526
+SC0,11/02/2026,19:45,Celtic,Livingston,2,1,H,1,0,H,C Scott,29,4,12,2,10,3,2,3,0,0,SC0,2526
+SC0,11/02/2026,19:45,Falkirk,Dundee,1,0,H,0,0,D,D Dickinson,16,15,3,4,4,4,3,1,0,0,SC0,2526
+SC0,11/02/2026,19:45,Kilmarnock,St Mirren,4,3,H,2,1,H,G Irvine,20,15,7,7,9,4,1,3,0,0,SC0,2526
+SC0,11/02/2026,20:00,Motherwell,Rangers,1,1,D,0,1,A,S McLean,18,10,5,4,6,3,2,5,0,0,SC0,2526
+SC0,14/02/2026,15:00,Dundee,Livingston,2,2,D,2,2,D,N Walsh,16,16,7,3,10,2,2,2,0,0,SC0,2526
+SC0,14/02/2026,15:00,Falkirk,Dundee United,2,3,A,1,1,D,R Lee,10,14,4,5,4,5,0,3,1,0,SC0,2526
+SC0,14/02/2026,15:00,Hibernian,St Mirren,2,0,H,1,0,H,D McFarlane,13,7,6,2,6,8,0,3,0,0,SC0,2526
+SC0,15/02/2026,14:00,Kilmarnock,Celtic,2,3,A,2,0,H,D Nicolson,17,24,7,10,6,7,1,3,0,0,SC0,2526
+SC0,15/02/2026,14:30,Motherwell,Aberdeen,2,0,H,1,0,H,D Dickinson,18,10,8,2,4,2,1,6,0,0,SC0,2526
+SC0,15/02/2026,16:30,Rangers,Hearts,4,2,H,2,2,D,D Robertson,19,7,4,3,7,3,4,3,0,0,SC0,2526
+SC0,21/02/2026,15:00,Aberdeen,Dundee,2,3,A,1,2,A,S McLean,11,23,4,7,2,9,3,2,1,0,SC0,2526
+SC0,21/02/2026,15:00,Dundee United,Kilmarnock,1,1,D,0,0,D,J Beaton,12,8,4,2,6,3,1,3,0,1,SC0,2526
+SC0,21/02/2026,15:00,Hearts,Falkirk,1,0,H,1,0,H,D Nicolson,17,8,4,2,8,4,1,3,0,0,SC0,2526
+SC0,21/02/2026,19:30,St Mirren,Motherwell,0,5,A,0,2,A,C Scott,11,17,5,6,4,7,4,0,1,0,SC0,2526
+SC0,22/02/2026,15:00,Celtic,Hibernian,1,2,A,1,1,D,M MacDermid,21,8,3,4,11,1,2,1,1,0,SC0,2526
+SC0,22/02/2026,15:00,Livingston,Rangers,2,2,D,1,0,H,R Lee,5,31,3,14,3,15,3,2,1,0,SC0,2526
+SC0,24/02/2026,19:45,Dundee United,Aberdeen,0,0,D,0,0,D,D Robertson,15,12,2,2,4,6,0,0,0,0,SC0,2526
+SC0,28/02/2026,15:00,Dundee,Hibernian,3,3,D,1,1,D,R Hardie,10,13,4,6,6,6,1,4,0,0,SC0,2526
+SC0,28/02/2026,15:00,Falkirk,Kilmarnock,5,1,H,3,1,H,C Steven,20,6,10,3,3,2,3,2,0,0,SC0,2526
+SC0,28/02/2026,15:00,Hearts,Aberdeen,1,0,H,1,0,H,K Clancy,21,5,7,0,7,4,3,5,0,0,SC0,2526
+SC0,28/02/2026,15:00,Livingston,St Mirren,1,1,D,0,1,A,D Robertson,10,12,3,2,7,2,1,2,0,0,SC0,2526
+SC0,28/02/2026,15:00,Motherwell,Dundee United,2,0,H,1,0,H,N Walsh,16,7,5,3,5,3,2,3,0,0,SC0,2526
+SC0,01/03/2026,12:00,Rangers,Celtic,2,2,D,2,0,H,J Beaton,12,17,3,7,6,7,2,1,0,0,SC0,2526
+SC0,03/03/2026,19:45,Dundee United,St Mirren,2,1,H,1,0,H,M MacDermid,18,9,4,2,8,4,2,1,0,0,SC0,2526
+SC0,04/03/2026,20:00,Aberdeen,Celtic,1,2,A,1,1,D,N Walsh,8,18,2,4,6,6,2,2,0,0,SC0,2526
+SC0,07/03/2026,15:00,Dundee,Motherwell,2,1,H,1,0,H,D McFarlane,9,21,2,9,3,1,4,2,0,0,SC0,2526
+SC0,14/03/2026,15:00,Aberdeen,Falkirk,1,1,D,0,0,D,C Scott,9,7,3,3,4,10,1,0,0,0,SC0,2526
+SC0,14/03/2026,15:00,Celtic,Motherwell,3,1,H,1,1,D,J Beaton,13,12,6,3,2,3,4,2,0,1,SC0,2526
+SC0,14/03/2026,15:00,Hibernian,Livingston,0,0,D,0,0,D,L Wilson,22,6,5,2,12,0,2,1,0,0,SC0,2526
+SC0,14/03/2026,20:00,Kilmarnock,Hearts,1,0,H,1,0,H,D Dickinson,11,15,4,3,2,9,2,2,0,0,SC0,2526
+SC0,15/03/2026,12:00,St Mirren,Rangers,0,1,A,0,1,A,S McLean,6,17,1,7,1,11,0,1,0,0,SC0,2526
+SC0,15/03/2026,14:00,Dundee,Dundee United,2,2,D,0,0,D,D Nicolson,6,20,1,10,4,7,1,4,0,0,SC0,2526
+SC0,21/03/2026,15:00,Falkirk,St Mirren,1,2,A,1,1,D,R Hardie,11,11,2,4,7,4,1,2,0,0,SC0,2526
+SC0,21/03/2026,15:00,Hearts,Dundee,1,0,H,0,0,D,D Robertson,15,8,6,1,4,7,1,2,1,0,SC0,2526
+SC0,21/03/2026,15:00,Kilmarnock,Livingston,2,0,H,1,0,H,R Lee,17,10,4,1,3,4,0,1,0,1,SC0,2526
+SC0,21/03/2026,15:00,Motherwell,Hibernian,0,0,D,0,0,D,D Dickinson,7,7,3,1,2,4,3,4,0,0,SC0,2526
+SC0,21/03/2026,17:45,Rangers,Aberdeen,4,1,H,1,0,H,M MacDermid,18,6,7,1,2,4,0,4,0,0,SC0,2526
+SC0,22/03/2026,12:30,Dundee United,Celtic,2,0,H,0,0,D,N Walsh,19,13,8,3,7,6,2,2,0,0,SC0,2526
+SC0,04/04/2026,15:00,Hibernian,Kilmarnock,3,0,H,2,0,H,C Scott,5,11,3,2,3,9,1,3,0,0,SC0,2526
+SC0,04/04/2026,15:00,Motherwell,Falkirk,2,3,A,1,2,A,D Nicolson,14,12,7,5,6,2,2,3,0,0,SC0,2526
+SC0,04/04/2026,15:00,Rangers,Dundee United,4,2,H,2,1,H,J Beaton,21,14,10,4,10,1,1,2,0,0,SC0,2526
+SC0,04/04/2026,15:00,St Mirren,Aberdeen,2,0,H,1,0,H,N Walsh,11,7,4,0,8,5,1,3,0,0,SC0,2526
+SC0,05/04/2026,14:00,Livingston,Hearts,2,2,D,1,1,D,K Clancy,15,19,3,6,5,5,2,1,0,1,SC0,2526
+SC0,05/04/2026,16:30,Dundee,Celtic,1,2,A,0,1,A,S McLean,8,17,3,8,1,4,0,2,1,0,SC0,2526
+SC0,11/04/2026,15:00,Aberdeen,Hibernian,2,0,H,1,0,H,D Dickinson,17,4,5,1,3,3,2,2,0,1,SC0,2526
+SC0,11/04/2026,15:00,Celtic,St Mirren,1,0,H,1,0,H,D Nicolson,7,5,4,1,3,7,0,2,0,0,SC0,2526
+SC0,11/04/2026,15:00,Dundee United,Livingston,3,2,H,1,0,H,C Graham,15,14,5,6,4,3,0,0,0,0,SC0,2526
+SC0,11/04/2026,15:00,Hearts,Motherwell,3,1,H,0,0,D,M MacDermid,12,12,5,3,6,4,1,2,0,0,SC0,2526
+SC0,11/04/2026,15:00,Kilmarnock,Dundee,2,2,D,2,1,H,R Hardie,13,8,3,6,4,2,4,2,0,0,SC0,2526
+SC0,12/04/2026,12:00,Falkirk,Rangers,3,6,A,2,1,H,D Robertson,7,20,3,9,2,1,3,4,0,0,SC0,2526
+SC0,25/04/2026,15:00,Aberdeen,Kilmarnock,1,0,H,1,0,H,N Walsh,10,11,4,3,6,5,1,4,0,0,SC0,2526
+SC0,25/04/2026,15:00,St Mirren,Livingston,0,2,A,0,0,D,D Dickinson,17,4,4,2,8,7,2,2,0,0,SC0,2526
+SC0,25/04/2026,17:30,Celtic,Falkirk,3,1,H,2,0,H,R Lee,14,11,7,3,9,7,2,3,0,0,SC0,2526
+SC0,26/04/2026,14:00,Dundee United,Dundee,3,0,H,1,0,H,M MacDermid,18,10,5,4,2,4,1,0,0,0,SC0,2526
+SC0,26/04/2026,15:00,Rangers,Motherwell,2,3,A,0,2,A,K Clancy,16,9,6,5,7,5,1,2,0,0,SC0,2526
+SC0,26/04/2026,16:30,Hibernian,Hearts,1,2,A,1,0,H,D Robertson,4,23,1,6,0,11,3,3,2,0,SC0,2526
+SC0,01/05/2026,19:45,Livingston,Aberdeen,2,2,D,0,1,A,C Scott,16,7,5,2,6,4,3,1,0,0,SC0,2526
+SC0,02/05/2026,15:00,Dundee,St Mirren,1,0,H,1,0,H,S McLean,10,11,5,6,5,6,1,2,0,0,SC0,2526
+SC0,02/05/2026,15:00,Falkirk,Motherwell,1,0,H,0,0,D,D McFarlane,18,14,5,3,2,5,4,5,0,0,SC0,2526
+SC0,02/05/2026,15:00,Kilmarnock,Dundee United,3,0,H,1,0,H,K Clancy,11,19,8,5,4,8,0,1,0,0,SC0,2526
+SC0,03/05/2026,12:00,Hibernian,Celtic,1,2,A,1,1,D,D Dickinson,4,27,1,6,0,13,3,3,1,0,SC0,2526
+SC0,04/05/2026,17:30,Hearts,Rangers,2,1,H,0,1,A,J Beaton,11,13,5,3,2,6,1,2,0,0,SC0,2526
+SC0,09/05/2026,15:00,Aberdeen,Dundee United,2,0,H,1,0,H,D Nicolson,15,7,5,1,4,2,1,3,0,1,SC0,2526
+SC0,09/05/2026,15:00,Dundee,Livingston,3,0,H,1,0,H,C Steven,16,10,4,3,7,5,1,1,0,0,SC0,2526
+SC0,09/05/2026,15:00,Falkirk,Hibernian,1,3,A,0,3,A,R Lee,8,10,1,4,6,5,0,1,0,0,SC0,2526
+SC0,09/05/2026,15:00,St Mirren,Kilmarnock,0,3,A,0,1,A,D Robertson,12,10,2,4,1,4,3,1,0,0,SC0,2526
+SC0,09/05/2026,20:00,Motherwell,Hearts,1,1,D,1,1,D,S McLean,8,11,1,5,2,6,1,3,0,0,SC0,2526
+SC0,10/05/2026,12:00,Celtic,Rangers,3,1,H,1,1,D,N Walsh,9,9,4,3,1,7,6,2,0,0,SC0,2526
+SC0,12/05/2026,19:45,Aberdeen,St Mirren,0,2,A,0,1,A,D Dickinson,8,9,1,5,6,1,1,2,0,0,SC0,2526
+SC0,12/05/2026,19:45,Dundee United,Livingston,0,0,D,0,0,D,G Irvine,15,14,5,3,7,8,2,4,0,0,SC0,2526
+SC0,12/05/2026,19:45,Kilmarnock,Dundee,3,1,H,0,0,D,C Scott,19,7,8,2,6,2,4,3,0,0,SC0,2526
+SC0,13/05/2026,20:00,Hearts,Falkirk,3,0,H,2,0,H,N Walsh,12,4,4,1,5,5,1,3,0,0,SC0,2526
+SC0,13/05/2026,20:00,Motherwell,Celtic,2,3,A,1,1,D,J Beaton,15,10,5,3,4,3,2,3,0,0,SC0,2526
+SC0,13/05/2026,20:00,Rangers,Hibernian,1,2,A,1,1,D,M MacDermid,21,8,7,4,9,3,2,2,0,0,SC0,2526
+SC0,16/05/2026,12:30,Celtic,Hearts,3,1,H,1,1,D,D Robertson,14,12,5,2,9,6,6,3,0,0,SC0,2526
+SC0,16/05/2026,12:30,Falkirk,Rangers,2,5,A,2,3,A,D Nicolson,8,15,3,7,7,4,3,0,0,0,SC0,2526
+SC0,16/05/2026,12:30,Hibernian,Motherwell,0,1,A,0,1,A,N Walsh,11,14,1,6,7,4,5,3,0,1,SC0,2526
+SC0,17/05/2026,14:00,Dundee,Aberdeen,3,2,H,1,2,A,R Hardie,11,9,6,2,7,2,0,0,0,0,SC0,2526
+SC0,17/05/2026,14:00,Livingston,Kilmarnock,1,4,A,1,2,A,R Lee,9,14,4,4,6,1,1,2,0,0,SC0,2526
+SC0,17/05/2026,14:00,St Mirren,Dundee United,1,1,D,0,1,A,S McLean,17,6,8,3,10,2,0,2,0,0,SC0,2526
+SC0,31/07/2026,20:00,Dundee United,Rangers,1,1,D,1,0,H,N Walsh,11,21,3,6,5,10,1,3,0,0,SC0,2627
+SC0,01/08/2026,15:00,Falkirk,St Mirren,0,2,A,0,1,A,D Nicolson,10,15,1,5,7,7,0,4,0,0,SC0,2627
+SC0,01/08/2026,17:30,Aberdeen,Hearts,2,1,H,0,1,A,D Dickinson,11,21,3,4,4,6,3,2,0,1,SC0,2627
+SC0,02/08/2026,14:00,St Johnstone,Kilmarnock,4,3,H,1,1,D,J Beaton,15,7,5,5,6,3,2,2,0,0,SC0,2627
+SC0,02/08/2026,16:30,Hibernian,Motherwell,1,2,A,0,1,A,S McLean,19,9,6,5,9,2,1,3,0,0,SC0,2627
+SC0,03/08/2026,19:30,Celtic,Dundee,1,0,H,0,0,D,M MacDermid,18,11,4,3,9,4,1,1,0,0,SC0,2627
+SC0,08/08/2026,15:00,Dundee,Aberdeen,2,0,H,1,0,H,C Scott,18,9,7,3,5,4,1,3,0,0,SC0,2627
+SC0,08/08/2026,15:00,St Mirren,St Johnstone,1,0,H,0,0,D,R Hardie,13,9,4,2,5,2,2,1,0,0,SC0,2627
+SC0,09/08/2026,13:30,Kilmarnock,Celtic,1,5,A,0,3,A,R Lee,10,33,6,16,5,7,1,0,0,0,SC0,2627
+SC0,09/08/2026,15:00,Hearts,Dundee United,4,0,H,2,0,H,K Clancy,12,10,7,0,7,2,1,2,0,0,SC0,2627
+SC0,09/08/2026,15:00,Motherwell,Falkirk,0,0,D,0,0,D,C Graham,11,10,1,1,2,2,2,2,0,0,SC0,2627
+SC0,09/08/2026,16:00,Rangers,Hibernian,1,2,A,0,1,A,D Robertson,25,8,9,2,7,4,1,1,0,0,SC0,2627

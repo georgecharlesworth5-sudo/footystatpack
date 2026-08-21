@@ -1,0 +1,565 @@
+Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HC,AC,HY,AY,HR,AR,League,Season
+E2,01/08/2025,20:00,Luton,AFC Wimbledon,1,0,H,0,0,D,T Parsons,6,2,1,0,5,2,1,1,0,0,E2,2526
+E2,02/08/2025,12:30,Cardiff,Peterboro,2,1,H,0,1,A,B Speedie,17,7,6,3,4,2,3,1,0,0,E2,2526
+E2,02/08/2025,15:00,Blackpool,Stevenage,2,3,A,1,2,A,M Corlett,8,7,2,4,2,2,1,4,0,0,E2,2526
+E2,02/08/2025,15:00,Bradford,Wycombe,2,1,H,2,0,H,S Stockbridge,12,11,6,3,2,6,3,4,0,0,E2,2526
+E2,02/08/2025,15:00,Burton,Mansfield,2,1,H,1,0,H,E Duckworth,12,12,4,3,1,7,2,2,0,0,E2,2526
+E2,02/08/2025,15:00,Doncaster,Exeter,1,0,H,0,0,D,R Joyce,16,2,3,0,7,1,0,0,0,0,E2,2526
+E2,02/08/2025,15:00,Huddersfield,Leyton Orient,3,0,H,1,0,H,S Mather,13,14,8,3,6,3,3,0,0,0,E2,2526
+E2,02/08/2025,15:00,Lincoln,Reading,2,0,H,1,0,H,M Woods,6,9,2,2,3,9,1,0,0,0,E2,2526
+E2,02/08/2025,15:00,Plymouth,Barnsley,1,3,A,0,2,A,D Bourne,15,12,3,7,9,5,2,3,0,1,E2,2526
+E2,02/08/2025,15:00,Rotherham,Port Vale,2,1,H,2,0,H,J Miles,12,19,4,4,6,3,1,1,1,1,E2,2526
+E2,02/08/2025,15:00,Wigan,Northampton,3,1,H,2,0,H,A Chilowicz,20,7,8,4,9,3,0,2,0,0,E2,2526
+E2,03/08/2025,12:00,Stockport,Bolton,2,0,H,1,0,H,E Bell,5,15,2,2,9,7,2,1,0,0,E2,2526
+E2,07/08/2025,20:00,Port Vale,Cardiff,0,0,D,0,0,D,T Reeves,16,9,1,1,5,4,3,1,0,0,E2,2526
+E2,09/08/2025,12:30,Peterboro,Luton,0,2,A,0,0,D,S Oldham,6,8,2,3,3,6,2,2,0,0,E2,2526
+E2,09/08/2025,12:30,Reading,Huddersfield,0,2,A,0,0,D,M Corlett,8,12,2,6,4,10,4,2,0,0,E2,2526
+E2,09/08/2025,15:00,AFC Wimbledon,Lincoln,2,0,H,1,0,H,M Russell,15,2,3,0,6,3,0,0,0,1,E2,2526
+E2,09/08/2025,15:00,Barnsley,Burton,3,2,H,0,2,A,D Rock,12,7,7,3,7,4,3,1,0,0,E2,2526
+E2,09/08/2025,15:00,Bolton,Plymouth,2,0,H,1,0,H,R Joyce,13,3,2,0,8,3,2,4,0,0,E2,2526
+E2,09/08/2025,15:00,Exeter,Blackpool,4,1,H,2,1,H,C Brook,17,10,7,3,6,5,1,1,0,0,E2,2526
+E2,09/08/2025,15:00,Leyton Orient,Wigan,2,0,H,1,0,H,N Hair,14,4,5,0,2,3,0,1,0,1,E2,2526
+E2,09/08/2025,15:00,Mansfield,Doncaster,1,2,A,0,0,D,A Humphries,7,13,3,2,2,5,2,1,0,0,E2,2526
+E2,09/08/2025,15:00,Northampton,Bradford,0,0,D,0,0,D,S Mather,4,14,1,2,6,3,2,5,0,0,E2,2526
+E2,09/08/2025,15:00,Stevenage,Rotherham,1,0,H,1,0,H,J Durkin,12,5,2,0,5,5,3,2,0,0,E2,2526
+E2,09/08/2025,15:00,Wycombe,Stockport,1,2,A,0,1,A,O Yates,14,9,6,3,8,4,3,1,0,0,E2,2526
+E2,16/08/2025,12:30,Burton,Port Vale,0,0,D,0,0,D,S Oldham,13,12,3,0,9,3,4,1,0,1,E2,2526
+E2,16/08/2025,12:30,Exeter,Mansfield,1,2,A,0,1,A,O Yates,5,7,4,3,3,4,2,1,0,0,E2,2526
+E2,16/08/2025,15:00,Barnsley,Bolton,1,1,D,0,0,D,L Doughty,5,17,2,7,3,2,2,2,1,0,E2,2526
+E2,16/08/2025,15:00,Blackpool,Huddersfield,3,2,H,3,2,H,B Bell,8,17,4,3,1,7,0,2,1,0,E2,2526
+E2,16/08/2025,15:00,Bradford,Luton,2,1,H,1,0,H,E Duckworth,13,9,7,3,2,9,2,2,0,0,E2,2526
+E2,16/08/2025,15:00,Cardiff,Rotherham,3,0,H,1,0,H,T Parsons,13,1,6,1,7,0,2,3,0,0,E2,2526
+E2,16/08/2025,15:00,Doncaster,Wycombe,1,1,D,0,0,D,M Coy,10,8,1,3,6,3,3,2,0,0,E2,2526
+E2,16/08/2025,15:00,Leyton Orient,Stockport,2,2,D,0,2,A,R Ricardo,13,8,2,4,6,4,2,2,0,0,E2,2526
+E2,16/08/2025,15:00,Lincoln,Plymouth,3,2,H,1,0,H,C Brook,14,15,8,4,4,6,6,3,0,1,E2,2526
+E2,16/08/2025,15:00,Reading,AFC Wimbledon,1,2,A,0,1,A,J O'Connor,14,8,3,2,3,5,1,1,0,0,E2,2526
+E2,16/08/2025,15:00,Stevenage,Northampton,2,0,H,0,0,D,T Reeves,9,10,3,0,2,6,2,0,0,0,E2,2526
+E2,16/08/2025,15:00,Wigan,Peterboro,2,0,H,2,0,H,S Parkinson,10,15,4,2,3,10,1,2,0,0,E2,2526
+E2,19/08/2025,19:45,AFC Wimbledon,Cardiff,0,1,A,0,0,D,D Rock,16,16,2,1,5,2,2,2,0,0,E2,2526
+E2,19/08/2025,19:45,Huddersfield,Doncaster,2,0,H,0,0,D,L Doughty,11,12,7,3,7,6,3,3,0,0,E2,2526
+E2,19/08/2025,19:45,Luton,Wigan,1,0,H,1,0,H,C Brook,13,9,4,3,8,4,1,2,0,0,E2,2526
+E2,19/08/2025,19:45,Mansfield,Blackpool,2,0,H,0,0,D,B Toner,15,6,6,1,4,0,0,0,0,0,E2,2526
+E2,19/08/2025,19:45,Northampton,Lincoln,0,1,A,0,1,A,O Yates,10,3,3,1,6,1,3,4,0,0,E2,2526
+E2,19/08/2025,19:45,Peterboro,Barnsley,0,1,A,0,1,A,S Jackson,7,15,1,5,2,5,1,3,0,0,E2,2526
+E2,19/08/2025,19:45,Plymouth,Leyton Orient,0,1,A,0,0,D,B Speedie,12,10,5,5,4,2,1,2,0,0,E2,2526
+E2,19/08/2025,19:45,Port Vale,Stevenage,1,2,A,1,0,H,S Stockbridge,15,11,6,3,4,2,1,2,0,0,E2,2526
+E2,19/08/2025,19:45,Stockport,Bradford,1,2,A,1,0,H,T Parsons,19,10,8,3,8,8,1,2,0,0,E2,2526
+E2,19/08/2025,19:45,Wycombe,Exeter,0,1,A,0,0,D,B Atkinson,19,6,8,1,6,7,4,3,0,0,E2,2526
+E2,20/08/2025,20:00,Bolton,Reading,1,1,D,0,0,D,T Reeves,21,5,4,2,3,1,0,5,0,0,E2,2526
+E2,23/08/2025,12:30,Luton,Cardiff,0,1,A,0,0,D,M Drysdale,23,16,7,3,5,8,2,1,0,0,E2,2526
+E2,23/08/2025,12:30,Rotherham,Wigan,2,2,D,0,1,A,O Langford,12,13,5,5,4,6,1,3,0,0,E2,2526
+E2,23/08/2025,15:00,AFC Wimbledon,Barnsley,2,0,H,1,0,H,O Yates,16,16,5,3,3,3,2,1,0,0,E2,2526
+E2,23/08/2025,15:00,Bolton,Lincoln,1,1,D,0,1,A,J Miles,18,5,6,3,13,2,2,2,0,0,E2,2526
+E2,23/08/2025,15:00,Huddersfield,Stevenage,1,0,H,0,0,D,D Drysdale,12,11,6,4,7,4,2,1,0,0,E2,2526
+E2,23/08/2025,15:00,Mansfield,Leyton Orient,4,1,H,2,1,H,C Brook,18,8,5,3,7,7,2,0,0,1,E2,2526
+E2,23/08/2025,15:00,Northampton,Exeter,2,0,H,2,0,H,E Duckworth,10,6,3,1,1,4,0,4,0,0,E2,2526
+E2,23/08/2025,15:00,Peterboro,Bradford,1,1,D,0,0,D,J Durkin,12,15,4,4,8,6,1,1,0,0,E2,2526
+E2,23/08/2025,15:00,Plymouth,Blackpool,1,0,H,0,0,D,D Rock,14,9,3,2,4,4,1,3,0,0,E2,2526
+E2,23/08/2025,15:00,Port Vale,Doncaster,0,1,A,0,0,D,R Ricardo,13,6,3,1,7,6,1,2,0,0,E2,2526
+E2,23/08/2025,15:00,Stockport,Burton,2,1,H,0,1,A,S Stockbridge,14,20,5,3,4,8,3,0,1,0,E2,2526
+E2,23/08/2025,15:00,Wycombe,Reading,2,2,D,1,2,A,A Chilowicz,14,16,6,6,5,8,1,3,0,0,E2,2526
+E2,30/08/2025,12:30,Cardiff,Plymouth,4,0,H,2,0,H,S Oldham,16,8,10,3,5,5,3,1,0,0,E2,2526
+E2,30/08/2025,12:30,Doncaster,Rotherham,1,0,H,1,0,H,E Bell,13,14,3,3,2,6,3,1,0,0,E2,2526
+E2,30/08/2025,15:00,Barnsley,Huddersfield,3,1,H,2,0,H,E Duckworth,7,9,5,1,3,6,1,2,0,1,E2,2526
+E2,30/08/2025,15:00,Blackpool,Bolton,1,1,D,1,0,H,T Nield,6,17,1,4,0,5,1,2,0,0,E2,2526
+E2,30/08/2025,15:00,Bradford,AFC Wimbledon,3,2,H,1,1,D,M Coy,16,13,6,4,7,2,0,1,0,0,E2,2526
+E2,30/08/2025,15:00,Burton,Luton,0,3,A,0,2,A,P Wright,8,12,3,6,6,4,0,1,0,0,E2,2526
+E2,30/08/2025,15:00,Exeter,Peterboro,3,0,H,1,0,H,M Corlett,12,6,5,1,5,5,3,2,0,0,E2,2526
+E2,30/08/2025,15:00,Leyton Orient,Northampton,0,1,A,0,0,D,J Miles,6,8,4,4,6,6,5,0,0,0,E2,2526
+E2,30/08/2025,15:00,Lincoln,Mansfield,1,1,D,1,0,H,A Bannister,7,14,2,4,3,11,6,2,1,0,E2,2526
+E2,30/08/2025,15:00,Reading,Port Vale,1,0,H,0,0,D,T Parsons,11,14,5,3,2,6,2,2,0,0,E2,2526
+E2,30/08/2025,15:00,Stevenage,Wycombe,1,0,H,1,0,H,S Mather,9,10,5,0,5,2,2,2,0,0,E2,2526
+E2,30/08/2025,15:00,Wigan,Stockport,1,1,D,0,1,A,R Joyce,13,8,3,3,2,3,1,2,0,0,E2,2526
+E2,06/09/2025,15:00,Bolton,AFC Wimbledon,3,0,H,1,0,H,D Drysdale,24,9,8,1,8,2,2,1,0,2,E2,2526
+E2,06/09/2025,15:00,Doncaster,Bradford,3,1,H,3,1,H,A Chilowicz,15,7,5,1,3,7,0,2,0,0,E2,2526
+E2,06/09/2025,15:00,Huddersfield,Peterboro,3,2,H,0,0,D,M Coy,11,5,5,3,1,3,1,1,0,0,E2,2526
+E2,06/09/2025,15:00,Lincoln,Wigan,2,2,D,2,1,H,A Young,12,14,6,7,7,11,3,0,1,1,E2,2526
+E2,06/09/2025,15:00,Plymouth,Stockport,4,2,H,2,1,H,N Hair,10,9,5,3,8,7,2,1,0,0,E2,2526
+E2,06/09/2025,15:00,Port Vale,Leyton Orient,2,3,A,1,2,A,R Joyce,16,11,8,4,5,2,1,3,0,0,E2,2526
+E2,06/09/2025,15:00,Rotherham,Exeter,1,0,H,1,0,H,M Woods,14,5,5,1,9,5,1,0,0,0,E2,2526
+E2,06/09/2025,15:00,Wycombe,Mansfield,2,0,H,1,0,H,S Oldham,10,11,3,2,7,5,3,3,0,0,E2,2526
+E2,13/09/2025,12:30,Bradford,Huddersfield,3,1,H,3,0,H,S Oldham,13,8,4,2,5,11,1,5,0,0,E2,2526
+E2,13/09/2025,12:30,Northampton,Blackpool,1,0,H,0,0,D,S Stockbridge,9,15,4,4,5,5,1,1,0,0,E2,2526
+E2,13/09/2025,15:00,AFC Wimbledon,Rotherham,2,1,H,0,1,A,L Swabey,10,7,5,3,5,5,2,3,0,0,E2,2526
+E2,13/09/2025,15:00,Barnsley,Reading,3,2,H,1,1,D,E Bell,15,14,5,5,5,4,3,5,0,0,E2,2526
+E2,13/09/2025,15:00,Burton,Lincoln,0,1,A,0,1,A,M Corlett,16,10,2,3,6,3,2,3,0,0,E2,2526
+E2,13/09/2025,15:00,Exeter,Port Vale,0,2,A,0,2,A,M Russell,11,5,4,2,8,2,1,2,0,0,E2,2526
+E2,13/09/2025,15:00,Leyton Orient,Bolton,1,1,D,0,0,D,D Rock,6,11,1,4,3,8,3,2,0,0,E2,2526
+E2,13/09/2025,15:00,Luton,Plymouth,2,3,A,1,2,A,O Yates,22,6,7,3,16,3,2,3,0,1,E2,2526
+E2,13/09/2025,15:00,Mansfield,Stevenage,1,1,D,0,0,D,M Woods,7,9,2,4,3,9,2,4,0,0,E2,2526
+E2,13/09/2025,15:00,Peterboro,Wycombe,2,1,H,2,0,H,J Miles,16,12,6,5,3,3,3,1,0,0,E2,2526
+E2,13/09/2025,15:00,Stockport,Cardiff,1,1,D,1,0,H,S Mather,14,4,3,2,7,2,0,1,0,0,E2,2526
+E2,13/09/2025,15:00,Wigan,Doncaster,3,0,H,2,0,H,C Hicks,13,9,8,3,10,10,2,1,0,0,E2,2526
+E2,20/09/2025,12:30,Blackpool,Barnsley,1,0,H,0,0,D,M Coy,10,10,3,1,7,3,2,1,0,0,E2,2526
+E2,20/09/2025,12:30,Bolton,Wigan,4,1,H,3,0,H,B Speedie,13,9,7,1,4,16,0,1,0,0,E2,2526
+E2,20/09/2025,12:30,Lincoln,Luton,3,1,H,1,0,H,S Stockbridge,15,13,6,2,2,7,1,5,0,0,E2,2526
+E2,20/09/2025,15:00,Cardiff,Bradford,1,3,A,0,2,A,M Woods,15,16,5,6,4,7,4,4,0,0,E2,2526
+E2,20/09/2025,15:00,Doncaster,AFC Wimbledon,1,2,A,0,0,D,P Wright,12,9,1,4,2,6,1,2,0,0,E2,2526
+E2,20/09/2025,15:00,Huddersfield,Burton,0,0,D,0,0,D,A Humphries,13,9,4,3,15,5,0,1,0,0,E2,2526
+E2,20/09/2025,15:00,Plymouth,Peterboro,0,1,A,0,1,A,J Linington,19,8,4,4,7,1,3,2,0,0,E2,2526
+E2,20/09/2025,15:00,Port Vale,Mansfield,2,1,H,0,0,D,A Chilowicz,19,2,8,1,7,0,2,1,0,1,E2,2526
+E2,20/09/2025,15:00,Reading,Leyton Orient,2,1,H,1,0,H,O Yates,12,17,6,6,2,6,5,3,0,0,E2,2526
+E2,20/09/2025,15:00,Rotherham,Stockport,0,1,A,0,0,D,D Rock,7,11,1,5,1,4,3,2,0,0,E2,2526
+E2,20/09/2025,15:00,Stevenage,Exeter,2,1,H,1,1,D,C Hicks,17,12,5,6,6,3,1,1,0,0,E2,2526
+E2,20/09/2025,15:00,Wycombe,Northampton,2,0,H,1,0,H,A Madley,20,7,6,1,6,3,1,1,0,0,E2,2526
+E2,27/09/2025,12:30,AFC Wimbledon,Wycombe,2,1,H,2,0,H,S Jackson,6,12,2,1,0,7,0,0,0,0,E2,2526
+E2,27/09/2025,12:30,Leyton Orient,Stevenage,2,3,A,1,1,D,A Humphries,5,11,2,8,6,7,0,1,0,0,E2,2526
+E2,27/09/2025,15:00,Barnsley,Port Vale,0,2,A,0,0,D,J Linington,13,13,0,8,4,3,1,2,0,0,E2,2526
+E2,27/09/2025,15:00,Bradford,Blackpool,1,0,H,0,0,D,B Atkinson,15,10,3,3,3,5,3,0,0,0,E2,2526
+E2,27/09/2025,15:00,Burton,Plymouth,0,4,A,0,2,A,T Reeves,12,15,3,9,6,5,0,1,0,0,E2,2526
+E2,27/09/2025,15:00,Exeter,Huddersfield,0,1,A,0,1,A,D Rock,12,22,3,1,5,8,3,1,0,0,E2,2526
+E2,27/09/2025,15:00,Luton,Doncaster,1,0,H,1,0,H,T Robinson,8,9,3,1,6,3,2,1,0,0,E2,2526
+E2,27/09/2025,15:00,Mansfield,Rotherham,2,1,H,0,1,A,S Mather,15,8,7,3,4,2,3,4,0,0,E2,2526
+E2,27/09/2025,15:00,Northampton,Bolton,2,0,H,0,0,D,S Oldham,10,19,3,7,4,10,2,1,0,0,E2,2526
+E2,27/09/2025,15:00,Peterboro,Lincoln,0,3,A,0,1,A,T Parsons,9,7,0,5,1,0,0,2,0,0,E2,2526
+E2,27/09/2025,15:00,Stockport,Reading,1,1,D,1,0,H,O Mackey,16,8,5,4,5,3,1,1,0,0,E2,2526
+E2,27/09/2025,15:00,Wigan,Cardiff,0,2,A,0,1,A,D Drysdale,6,15,1,5,7,5,1,1,1,0,E2,2526
+E2,30/09/2025,19:45,Blackpool,Luton,2,2,D,1,0,H,M Woods,11,15,3,3,3,8,2,1,0,0,E2,2526
+E2,30/09/2025,19:45,Cardiff,Burton,0,1,A,0,0,D,J Miles,20,9,8,2,8,3,2,4,0,0,E2,2526
+E2,02/10/2025,20:00,Rotherham,Bradford,2,2,D,1,0,H,O Yates,13,10,5,5,5,4,4,4,0,0,E2,2526
+E2,04/10/2025,12:30,Doncaster,Burton,1,1,D,1,0,H,T Parsons,15,15,3,5,5,10,1,1,0,0,E2,2526
+E2,04/10/2025,12:30,Wycombe,Barnsley,2,2,D,0,1,A,R Joyce,12,8,2,4,11,4,1,2,0,0,E2,2526
+E2,04/10/2025,15:00,Blackpool,AFC Wimbledon,0,2,A,0,1,A,B Speedie,3,8,2,4,1,2,3,1,0,0,E2,2526
+E2,04/10/2025,15:00,Bolton,Peterboro,2,1,H,2,1,H,S Stockbridge,19,9,6,2,7,1,2,3,0,0,E2,2526
+E2,04/10/2025,15:00,Cardiff,Leyton Orient,4,3,H,1,1,D,M Corlett,16,26,7,11,6,8,2,2,0,0,E2,2526
+E2,04/10/2025,15:00,Huddersfield,Stockport,1,2,A,0,1,A,B Toner,16,13,5,7,10,2,2,1,0,1,E2,2526
+E2,04/10/2025,15:00,Lincoln,Exeter,0,1,A,0,0,D,A Humphries,16,7,3,2,7,2,0,2,0,0,E2,2526
+E2,04/10/2025,15:00,Plymouth,Wigan,1,1,D,0,0,D,B Atkinson,9,9,1,5,7,5,2,5,0,0,E2,2526
+E2,04/10/2025,15:00,Port Vale,Northampton,0,0,D,0,0,D,M Woods,8,6,2,2,3,4,2,1,0,0,E2,2526
+E2,04/10/2025,15:00,Reading,Mansfield,1,1,D,0,1,A,P Tierney,16,14,3,2,4,5,2,1,0,0,E2,2526
+E2,04/10/2025,15:00,Stevenage,Luton,2,0,H,0,0,D,J Bell,7,9,5,3,1,5,3,1,0,0,E2,2526
+E2,11/10/2025,14:00,Northampton,Rotherham,1,2,A,1,0,H,P Tierney,3,11,1,2,4,4,3,2,0,0,E2,2526
+E2,11/10/2025,15:00,AFC Wimbledon,Port Vale,1,1,D,0,0,D,C Brook,6,16,4,3,5,11,2,2,0,0,E2,2526
+E2,11/10/2025,15:00,Burton,Bolton,3,0,H,1,0,H,N Hair,12,18,6,7,2,5,1,2,0,0,E2,2526
+E2,11/10/2025,15:00,Exeter,Reading,1,1,D,1,1,D,J Durkin,5,8,2,1,5,5,1,1,0,0,E2,2526
+E2,11/10/2025,15:00,Leyton Orient,Doncaster,4,0,H,2,0,H,E Duckworth,13,16,6,5,4,5,1,1,0,0,E2,2526
+E2,11/10/2025,15:00,Stockport,Blackpool,1,0,H,0,0,D,J Miles,16,9,5,2,4,4,0,2,0,0,E2,2526
+E2,11/10/2025,15:00,Wigan,Wycombe,0,1,A,0,1,A,A Humphries,12,5,2,3,3,1,1,2,0,0,E2,2526
+E2,16/10/2025,20:00,Huddersfield,Bolton,1,2,A,1,0,H,O Yates,7,14,2,7,6,8,1,4,0,0,E2,2526
+E2,18/10/2025,12:30,Burton,Peterboro,0,1,A,0,0,D,E Bell,15,7,4,4,6,3,2,2,0,1,E2,2526
+E2,18/10/2025,12:30,Lincoln,Stevenage,1,0,H,0,0,D,M Coy,18,4,5,1,1,2,1,1,0,0,E2,2526
+E2,18/10/2025,15:00,Blackpool,Wycombe,1,1,D,1,0,H,N Hair,6,14,1,6,2,2,3,0,0,0,E2,2526
+E2,18/10/2025,15:00,Bradford,Barnsley,2,2,D,2,1,H,A Humphries,25,9,7,4,11,11,0,1,0,0,E2,2526
+E2,18/10/2025,15:00,Cardiff,Reading,2,1,H,0,1,A,L Swabey,11,26,3,10,4,10,1,0,0,0,E2,2526
+E2,18/10/2025,15:00,Doncaster,Northampton,1,2,A,1,0,H,J Busby,10,13,4,5,2,7,1,1,0,0,E2,2526
+E2,18/10/2025,15:00,Luton,Mansfield,0,2,A,0,1,A,R Joyce,16,10,4,4,5,1,0,0,0,0,E2,2526
+E2,18/10/2025,15:00,Plymouth,AFC Wimbledon,1,2,A,1,1,D,M Corlett,9,8,4,2,10,2,0,3,0,0,E2,2526
+E2,18/10/2025,15:00,Rotherham,Leyton Orient,1,0,H,0,0,D,S Oldham,4,12,2,3,2,12,3,3,0,0,E2,2526
+E2,18/10/2025,15:00,Stockport,Exeter,1,0,H,1,0,H,A Bannister,12,9,5,2,4,3,1,1,0,0,E2,2526
+E2,18/10/2025,15:00,Wigan,Port Vale,1,0,H,0,0,D,R Martin,10,13,4,2,4,7,1,2,1,0,E2,2526
+E2,21/10/2025,20:00,Reading,Northampton,1,0,H,0,0,D,A Byrne,14,5,5,1,8,4,3,0,0,0,E2,2526
+E2,23/10/2025,20:00,Exeter,Plymouth,2,0,H,1,0,H,A Chilowicz,13,9,5,2,4,4,3,2,0,0,E2,2526
+E2,25/10/2025,12:30,Bolton,Cardiff,1,0,H,0,0,D,B Toner,17,4,1,0,7,3,2,1,0,0,E2,2526
+E2,25/10/2025,12:30,Mansfield,Wigan,1,1,D,1,0,H,S Stockbridge,16,7,2,1,10,3,1,3,0,0,E2,2526
+E2,25/10/2025,15:00,AFC Wimbledon,Burton,0,1,A,0,0,D,B Atkinson,13,10,3,2,9,2,2,3,0,0,E2,2526
+E2,25/10/2025,15:00,Barnsley,Rotherham,0,1,A,0,0,D,B Speedie,19,4,5,2,11,3,4,0,0,0,E2,2526
+E2,25/10/2025,15:00,Leyton Orient,Lincoln,1,0,H,0,0,D,S Parkinson,11,9,4,0,5,3,0,2,0,0,E2,2526
+E2,25/10/2025,15:00,Northampton,Luton,0,1,A,0,0,D,M Corlett,11,14,5,4,6,10,2,2,0,0,E2,2526
+E2,25/10/2025,15:00,Peterboro,Blackpool,1,2,A,1,1,D,S Mulhall,27,9,6,2,9,1,3,4,0,0,E2,2526
+E2,25/10/2025,15:00,Reading,Doncaster,1,1,D,0,0,D,M Russell,15,13,4,7,1,6,1,1,0,0,E2,2526
+E2,25/10/2025,15:00,Stevenage,Bradford,1,1,D,1,1,D,S Allison,11,4,2,2,4,1,3,3,0,0,E2,2526
+E2,25/10/2025,15:00,Wycombe,Huddersfield,3,0,H,1,0,H,L Swabey,22,5,10,1,8,1,1,0,0,1,E2,2526
+E2,27/10/2025,20:00,Port Vale,Stockport,0,3,A,0,3,A,E Duckworth,9,17,1,6,4,5,0,1,0,0,E2,2526
+E2,28/10/2025,19:45,Bradford,Lincoln,0,0,D,0,0,D,E Bell,16,15,3,4,2,2,2,0,0,0,E2,2526
+E2,28/10/2025,19:45,Mansfield,Plymouth,2,0,H,1,0,H,M Russell,12,14,4,4,7,4,1,2,0,0,E2,2526
+E2,04/11/2025,19:45,Rotherham,Burton,2,2,D,0,0,D,R Joyce,11,15,3,6,5,3,0,3,0,0,E2,2526
+E2,06/11/2025,20:00,Reading,Stevenage,1,0,H,1,0,H,B Speedie,11,10,4,2,4,7,3,4,0,0,E2,2526
+E2,08/11/2025,12:30,Northampton,Mansfield,2,1,H,0,1,A,E Bell,11,12,4,2,5,4,1,0,0,0,E2,2526
+E2,08/11/2025,12:30,Wycombe,Leyton Orient,4,1,H,3,1,H,M Woods,14,13,9,4,5,5,3,3,0,0,E2,2526
+E2,08/11/2025,15:00,Blackpool,Cardiff,3,1,H,0,0,D,R Madley,19,28,9,11,5,7,2,2,0,0,E2,2526
+E2,08/11/2025,15:00,Bolton,Port Vale,4,0,H,2,0,H,M Coy,15,8,10,4,7,5,1,2,0,0,E2,2526
+E2,08/11/2025,15:00,Bradford,Burton,1,2,A,0,2,A,C Hicks,17,13,3,6,7,2,2,4,0,0,E2,2526
+E2,08/11/2025,15:00,Doncaster,Barnsley,1,2,A,1,1,D,D Drysdale,18,10,5,4,5,8,1,3,0,0,E2,2526
+E2,08/11/2025,15:00,Exeter,Wigan,1,1,D,0,1,A,S Parkinson,14,13,4,7,8,4,1,1,0,0,E2,2526
+E2,08/11/2025,15:00,Huddersfield,Plymouth,3,1,H,1,0,H,S Stockbridge,20,8,9,2,11,3,2,6,0,0,E2,2526
+E2,08/11/2025,15:00,Peterboro,AFC Wimbledon,5,0,H,3,0,H,S Mather,13,11,5,4,3,5,2,1,0,0,E2,2526
+E2,08/11/2025,15:00,Rotherham,Lincoln,3,0,H,2,0,H,A Chilowicz,13,10,5,4,4,6,1,1,0,0,E2,2526
+E2,08/11/2025,15:00,Stockport,Luton,0,3,A,0,2,A,J Smith,13,8,3,6,5,3,0,4,1,0,E2,2526
+E2,15/11/2025,15:00,Burton,Blackpool,1,0,H,0,0,D,L Swabey,9,11,1,3,7,5,3,4,0,0,E2,2526
+E2,15/11/2025,15:00,Leyton Orient,Exeter,2,1,H,0,1,A,R Ricardo,12,6,3,2,10,3,3,2,0,0,E2,2526
+E2,15/11/2025,15:00,Lincoln,Doncaster,2,1,H,1,0,H,D Rock,7,15,3,5,3,1,2,3,0,0,E2,2526
+E2,15/11/2025,15:00,Luton,Rotherham,0,0,D,0,0,D,C Hicks,12,2,3,1,3,4,1,1,0,0,E2,2526
+E2,15/11/2025,15:00,Port Vale,Wycombe,0,0,D,0,0,D,J Miles,15,18,2,3,7,6,6,1,0,0,E2,2526
+E2,20/11/2025,20:00,Peterboro,Stockport,3,0,H,2,0,H,M Russell,11,11,5,5,3,6,1,1,0,0,E2,2526
+E2,22/11/2025,12:30,Port Vale,Plymouth,0,1,A,0,0,D,A Byrne,13,5,3,2,8,2,1,3,0,0,E2,2526
+E2,22/11/2025,15:00,AFC Wimbledon,Wigan,1,2,A,0,0,D,R Eley,8,13,2,3,3,4,2,1,0,0,E2,2526
+E2,22/11/2025,15:00,Barnsley,Luton,5,0,H,3,0,H,T Parsons,14,6,5,1,2,4,2,2,0,0,E2,2526
+E2,22/11/2025,15:00,Bolton,Bradford,0,0,D,0,0,D,D Drysdale,19,9,3,3,4,4,3,3,0,0,E2,2526
+E2,22/11/2025,15:00,Leyton Orient,Blackpool,1,1,D,1,0,H,S Allison,12,10,6,6,3,9,3,3,1,0,E2,2526
+E2,22/11/2025,15:00,Mansfield,Huddersfield,1,3,A,0,3,A,C Hicks,10,20,1,11,4,4,1,1,0,0,E2,2526
+E2,22/11/2025,15:00,Northampton,Cardiff,1,3,A,0,1,A,N Hair,16,10,4,4,6,2,0,2,0,0,E2,2526
+E2,22/11/2025,15:00,Reading,Rotherham,1,1,D,0,1,A,A Young,11,8,6,1,4,3,2,3,0,0,E2,2526
+E2,22/11/2025,15:00,Stevenage,Doncaster,0,0,D,0,0,D,E Bell,5,9,1,2,4,4,1,2,0,0,E2,2526
+E2,22/11/2025,15:00,Wycombe,Lincoln,3,2,H,2,0,H,O Langford,11,12,7,4,1,7,2,1,0,0,E2,2526
+E2,25/11/2025,19:45,Luton,Huddersfield,2,1,H,1,0,H,A Humphries,13,6,5,2,12,7,0,1,0,0,E2,2526
+E2,25/11/2025,19:45,Peterboro,Stevenage,0,1,A,0,1,A,E Duckworth,12,7,2,3,4,3,3,2,0,0,E2,2526
+E2,29/11/2025,12:30,Blackpool,Reading,0,3,A,0,1,A,T Parsons,14,15,5,6,2,5,1,0,0,0,E2,2526
+E2,29/11/2025,12:30,Stockport,Barnsley,1,1,D,0,1,A,C Hicks,10,11,2,5,4,6,0,1,0,0,E2,2526
+E2,29/11/2025,15:00,Bradford,Exeter,1,0,H,1,0,H,R Eley,11,19,4,4,7,7,3,2,0,0,E2,2526
+E2,29/11/2025,15:00,Burton,Leyton Orient,0,4,A,0,2,A,P Howard,5,14,0,6,2,6,3,0,0,0,E2,2526
+E2,29/11/2025,15:00,Cardiff,Mansfield,3,0,H,1,0,H,B Atkinson,19,7,9,1,6,4,1,1,0,0,E2,2526
+E2,29/11/2025,15:00,Doncaster,Peterboro,2,1,H,2,0,H,O Yates,11,10,4,5,3,4,5,2,0,0,E2,2526
+E2,29/11/2025,15:00,Huddersfield,AFC Wimbledon,3,3,D,0,1,A,S Oldham,25,7,10,4,11,2,2,2,0,0,E2,2526
+E2,29/11/2025,15:00,Lincoln,Port Vale,1,0,H,1,0,H,P Wright,8,5,3,1,3,5,3,2,0,0,E2,2526
+E2,29/11/2025,15:00,Luton,Bolton,1,1,D,0,1,A,R Ricardo,19,8,4,1,13,2,1,1,0,1,E2,2526
+E2,29/11/2025,15:00,Plymouth,Northampton,0,3,A,0,0,D,S Parkinson,14,12,1,5,4,8,1,5,1,0,E2,2526
+E2,29/11/2025,15:00,Rotherham,Wycombe,1,1,D,0,1,A,S Stockbridge,14,10,6,4,6,5,3,2,0,0,E2,2526
+E2,29/11/2025,15:00,Wigan,Stevenage,0,0,D,0,0,D,R Joyce,11,6,3,4,3,7,0,1,0,0,E2,2526
+E2,02/12/2025,19:45,Wigan,Burton,1,0,H,1,0,H,M Woods,9,10,3,2,7,7,1,1,0,0,E2,2526
+E2,06/12/2025,12:30,Cardiff,Huddersfield,3,2,H,1,0,H,E Bell,15,13,8,3,4,9,2,1,0,0,E2,2526
+E2,06/12/2025,12:30,Plymouth,Bradford,0,1,A,0,0,D,T Parsons,14,9,2,3,5,2,1,3,0,0,E2,2526
+E2,09/12/2025,19:45,Doncaster,Stockport,0,2,A,0,0,D,M Woods,8,12,0,5,5,9,4,2,0,0,E2,2526
+E2,09/12/2025,19:45,Exeter,AFC Wimbledon,1,0,H,0,0,D,W Finnie,9,9,3,2,6,4,2,0,0,0,E2,2526
+E2,09/12/2025,19:45,Leyton Orient,Luton,1,1,D,0,0,D,D Drysdale,7,7,2,1,2,2,1,2,0,0,E2,2526
+E2,09/12/2025,19:45,Lincoln,Barnsley,3,1,H,1,0,H,D Baines,15,15,8,4,7,8,0,1,0,0,E2,2526
+E2,09/12/2025,19:45,Mansfield,Bolton,0,1,A,0,1,A,T Parsons,6,20,1,5,3,5,0,1,1,0,E2,2526
+E2,09/12/2025,19:45,Northampton,Huddersfield,1,1,D,1,1,D,J Durkin,3,12,2,5,5,1,0,0,0,0,E2,2526
+E2,09/12/2025,19:45,Wycombe,Plymouth,0,1,A,0,0,D,P Wright,16,5,3,4,6,2,0,6,0,0,E2,2526
+E2,09/12/2025,20:00,Reading,Peterboro,1,2,A,0,1,A,C Hicks,16,8,4,4,5,3,1,3,0,0,E2,2526
+E2,09/12/2025,20:00,Stevenage,Cardiff,0,1,A,0,0,D,J Oldham,2,11,0,2,4,6,4,1,0,0,E2,2526
+E2,10/12/2025,19:45,Rotherham,Blackpool,0,3,A,0,2,A,N Hair,17,11,4,8,10,3,1,3,0,0,E2,2526
+E2,13/12/2025,12:30,AFC Wimbledon,Mansfield,0,0,D,0,0,D,E Bell,7,5,1,1,7,2,2,3,0,0,E2,2526
+E2,13/12/2025,12:30,Huddersfield,Wigan,1,1,D,1,0,H,D Drysdale,11,10,6,3,6,3,2,2,0,0,E2,2526
+E2,13/12/2025,15:00,Barnsley,Leyton Orient,3,2,H,1,2,A,S Mather,14,11,5,2,8,3,1,3,0,0,E2,2526
+E2,13/12/2025,15:00,Blackpool,Lincoln,2,2,D,1,2,A,S Stockbridge,17,9,4,2,8,6,1,2,0,0,E2,2526
+E2,13/12/2025,15:00,Bolton,Exeter,2,1,H,0,1,A,B Speedie,24,3,7,2,6,2,0,4,0,0,E2,2526
+E2,13/12/2025,15:00,Bradford,Reading,2,0,H,0,0,D,P Howard,10,8,4,2,3,2,1,3,0,0,E2,2526
+E2,13/12/2025,15:00,Burton,Wycombe,0,0,D,0,0,D,N Hair,13,11,5,1,6,6,0,1,0,0,E2,2526
+E2,13/12/2025,15:00,Cardiff,Doncaster,4,3,H,2,2,D,A Chilowicz,18,13,9,6,4,2,2,2,0,0,E2,2526
+E2,13/12/2025,15:00,Luton,Port Vale,2,2,D,1,1,D,L Swabey,12,10,4,3,8,4,1,2,0,0,E2,2526
+E2,13/12/2025,15:00,Peterboro,Northampton,2,1,H,1,0,H,J Busby,31,9,10,3,4,8,3,0,0,1,E2,2526
+E2,13/12/2025,15:00,Plymouth,Rotherham,1,0,H,1,0,H,D Rock,7,15,2,2,1,12,3,2,0,0,E2,2526
+E2,13/12/2025,15:00,Stockport,Stevenage,1,3,A,0,1,A,W Finnie,14,7,4,4,5,3,1,2,0,0,E2,2526
+E2,18/12/2025,20:00,Reading,Luton,3,2,H,1,0,H,E Duckworth,6,11,4,4,0,5,2,1,0,0,E2,2526
+E2,19/12/2025,19:45,Northampton,AFC Wimbledon,3,1,H,1,1,D,C Brook,12,15,3,6,4,1,2,2,0,0,E2,2526
+E2,20/12/2025,12:30,Stevenage,Burton,2,2,D,0,1,A,S Oldham,14,12,4,4,5,2,1,1,0,0,E2,2526
+E2,20/12/2025,12:30,Wigan,Blackpool,0,2,A,0,0,D,J Busby,22,8,3,3,6,1,2,4,0,0,E2,2526
+E2,20/12/2025,15:00,Doncaster,Plymouth,1,5,A,1,3,A,T Reeves,12,14,4,7,15,4,2,2,0,0,E2,2526
+E2,20/12/2025,15:00,Exeter,Barnsley,3,0,H,1,0,H,B Atkinson,16,9,7,1,6,3,1,2,0,0,E2,2526
+E2,20/12/2025,15:00,Leyton Orient,Bradford,2,1,H,1,1,D,W Finnie,14,18,5,8,2,10,3,3,0,0,E2,2526
+E2,20/12/2025,15:00,Lincoln,Cardiff,2,1,H,1,0,H,R Eley,18,11,7,4,4,3,3,1,0,0,E2,2526
+E2,20/12/2025,15:00,Mansfield,Stockport,1,2,A,1,1,D,A Young,18,9,3,6,5,0,2,2,0,0,E2,2526
+E2,20/12/2025,15:00,Port Vale,Peterboro,0,1,A,0,0,D,K Dowle,12,13,2,6,8,5,3,2,0,0,E2,2526
+E2,20/12/2025,15:00,Rotherham,Huddersfield,1,3,A,0,3,A,M Russell,4,9,1,6,5,4,2,1,0,0,E2,2526
+E2,20/12/2025,15:00,Wycombe,Bolton,2,1,H,2,1,H,C Hicks,9,15,3,1,5,7,2,0,0,0,E2,2526
+E2,26/12/2025,15:00,AFC Wimbledon,Stevenage,0,0,D,0,0,D,D Rock,5,11,1,1,2,9,1,3,0,0,E2,2526
+E2,26/12/2025,15:00,Barnsley,Mansfield,2,3,A,2,1,H,M Coy,13,7,5,4,6,1,0,4,0,0,E2,2526
+E2,26/12/2025,15:00,Blackpool,Doncaster,1,0,H,1,0,H,M Corlett,11,10,6,3,5,4,3,3,0,0,E2,2526
+E2,26/12/2025,15:00,Bolton,Rotherham,2,1,H,1,0,H,E Bell,28,13,12,5,10,0,1,2,0,0,E2,2526
+E2,26/12/2025,15:00,Bradford,Wigan,2,1,H,1,0,H,S Stockbridge,14,5,5,1,7,2,2,1,0,2,E2,2526
+E2,26/12/2025,15:00,Burton,Northampton,5,1,H,4,1,H,S Mulhall,15,13,8,2,5,7,3,2,0,0,E2,2526
+E2,26/12/2025,15:00,Cardiff,Exeter,1,0,H,0,0,D,T Reeves,13,9,4,1,5,4,3,1,0,0,E2,2526
+E2,26/12/2025,15:00,Huddersfield,Port Vale,5,0,H,3,0,H,M Woods,17,9,9,0,6,5,2,2,0,0,E2,2526
+E2,26/12/2025,15:00,Luton,Wycombe,4,0,H,2,0,H,D Whitestone,16,3,6,1,6,1,0,2,0,0,E2,2526
+E2,26/12/2025,15:00,Peterboro,Leyton Orient,1,0,H,0,0,D,A Byrne,14,6,5,1,8,6,2,3,0,0,E2,2526
+E2,26/12/2025,15:00,Plymouth,Reading,1,4,A,0,3,A,J Durkin,8,19,2,7,5,7,3,3,1,0,E2,2526
+E2,26/12/2025,15:00,Stockport,Lincoln,1,2,A,0,1,A,P Marsden,12,21,5,5,3,3,2,2,0,0,E2,2526
+E2,29/12/2025,19:45,AFC Wimbledon,Exeter,0,1,A,0,1,A,J Miles,11,10,1,6,7,5,3,4,0,0,E2,2526
+E2,29/12/2025,19:45,Barnsley,Lincoln,0,2,A,0,1,A,P Howard,14,8,2,3,5,2,4,2,0,0,E2,2526
+E2,29/12/2025,19:45,Blackpool,Rotherham,4,0,H,2,0,H,O Yates,14,11,6,4,6,3,1,2,0,1,E2,2526
+E2,29/12/2025,19:45,Bolton,Mansfield,0,1,A,0,1,A,P Wright,22,7,4,3,14,2,2,3,0,0,E2,2526
+E2,29/12/2025,19:45,Bradford,Port Vale,1,0,H,0,0,D,S Oldham,15,7,2,1,11,3,3,3,0,0,E2,2526
+E2,29/12/2025,19:45,Burton,Wigan,0,2,A,0,0,D,R Watkins,16,10,5,6,8,1,0,1,0,0,E2,2526
+E2,29/12/2025,19:45,Cardiff,Stevenage,2,1,H,0,0,D,C Breakspear,22,5,4,1,6,4,1,2,0,0,E2,2526
+E2,29/12/2025,19:45,Huddersfield,Northampton,2,0,H,1,0,H,W Finnie,16,8,5,2,8,3,0,3,0,0,E2,2526
+E2,29/12/2025,19:45,Luton,Leyton Orient,3,0,H,3,0,H,N Hair,9,10,4,3,2,9,2,0,0,0,E2,2526
+E2,29/12/2025,19:45,Peterboro,Reading,1,1,D,0,1,A,A Chilowicz,20,3,6,3,7,2,2,3,0,0,E2,2526
+E2,29/12/2025,19:45,Plymouth,Wycombe,1,1,D,0,1,A,C Brook,16,13,5,1,10,6,2,2,0,0,E2,2526
+E2,29/12/2025,19:45,Stockport,Doncaster,4,2,H,1,1,D,T Parsons,14,12,6,5,4,3,3,2,0,0,E2,2526
+E2,01/01/2026,15:00,Doncaster,Bolton,1,1,D,0,0,D,M Coy,13,11,6,1,3,3,2,3,0,0,E2,2526
+E2,01/01/2026,15:00,Exeter,Luton,1,0,H,0,0,D,M Russell,16,7,5,0,6,1,3,1,0,0,E2,2526
+E2,01/01/2026,15:00,Leyton Orient,AFC Wimbledon,1,3,A,1,1,D,B Atkinson,5,10,2,5,3,6,2,1,0,0,E2,2526
+E2,01/01/2026,15:00,Lincoln,Huddersfield,1,1,D,0,0,D,J O'Connor,17,6,4,3,4,3,3,2,0,0,E2,2526
+E2,01/01/2026,15:00,Mansfield,Bradford,3,0,H,2,0,H,R Joyce,15,11,8,2,2,4,2,0,0,0,E2,2526
+E2,01/01/2026,15:00,Northampton,Stockport,0,0,D,0,0,D,D Drysdale,11,5,5,1,5,5,1,3,0,0,E2,2526
+E2,01/01/2026,15:00,Port Vale,Blackpool,5,1,H,0,1,A,E Duckworth,17,2,6,1,5,2,3,3,0,1,E2,2526
+E2,01/01/2026,15:00,Reading,Burton,2,0,H,2,0,H,T Reeves,19,6,4,2,5,3,0,0,0,0,E2,2526
+E2,01/01/2026,15:00,Rotherham,Peterboro,0,2,A,0,0,D,M Corlett,9,20,3,7,5,5,5,1,0,0,E2,2526
+E2,01/01/2026,15:00,Stevenage,Plymouth,1,1,D,0,0,D,R Eley,10,9,3,2,6,5,2,1,0,0,E2,2526
+E2,01/01/2026,15:00,Wigan,Barnsley,1,1,D,1,0,H,B Speedie,14,8,4,3,8,6,1,0,0,1,E2,2526
+E2,01/01/2026,15:00,Wycombe,Cardiff,1,1,D,1,1,D,A Young,9,17,2,6,2,2,1,3,0,0,E2,2526
+E2,04/01/2026,12:00,Bolton,Northampton,0,0,D,0,0,D,A Chilowicz,17,8,0,0,8,3,0,0,0,0,E2,2526
+E2,04/01/2026,12:00,Lincoln,Peterboro,5,2,H,3,1,H,C Breakspear,17,13,8,3,6,7,2,3,0,0,E2,2526
+E2,04/01/2026,15:00,Blackpool,Bradford,1,2,A,0,1,A,S Mather,7,8,3,3,6,6,0,2,0,0,E2,2526
+E2,04/01/2026,15:00,Cardiff,Wigan,1,0,H,1,0,H,W Finnie,17,3,7,1,18,1,0,0,0,0,E2,2526
+E2,04/01/2026,15:00,Huddersfield,Exeter,2,2,D,2,1,H,A Byrne,15,11,4,6,6,5,1,1,0,0,E2,2526
+E2,04/01/2026,15:00,Plymouth,Burton,3,0,H,1,0,H,O Yates,20,8,5,2,9,4,2,2,0,0,E2,2526
+E2,04/01/2026,15:00,Reading,Stockport,1,0,H,0,0,D,J Miles,12,15,3,2,1,5,1,0,0,0,E2,2526
+E2,04/01/2026,15:00,Wycombe,AFC Wimbledon,2,0,H,1,0,H,T Parsons,13,7,7,0,4,2,2,2,0,0,E2,2526
+E2,10/01/2026,12:30,Luton,Stevenage,2,1,H,0,0,D,S Mather,15,15,7,3,3,7,1,2,0,0,E2,2526
+E2,10/01/2026,12:30,Stockport,Huddersfield,1,0,H,0,0,D,D Rock,15,7,5,3,8,2,3,1,0,0,E2,2526
+E2,10/01/2026,15:00,Leyton Orient,Cardiff,1,1,D,1,1,D,S Oldham,17,11,5,4,4,3,1,1,0,0,E2,2526
+E2,10/01/2026,15:00,Peterboro,Bolton,3,1,H,1,0,H,O Yates,16,15,7,2,5,5,2,0,0,0,E2,2526
+E2,17/01/2026,12:30,Bradford,Cardiff,1,2,A,0,2,A,D Rock,12,10,1,5,2,2,3,2,0,0,E2,2526
+E2,17/01/2026,12:30,Wigan,Bolton,0,1,A,0,0,D,S Martin,6,16,0,4,1,6,0,1,0,0,E2,2526
+E2,17/01/2026,15:00,AFC Wimbledon,Doncaster,0,1,A,0,0,D,J Durkin,11,10,2,3,7,4,2,2,1,0,E2,2526
+E2,17/01/2026,15:00,Barnsley,Blackpool,2,1,H,1,0,H,A Humphries,9,12,2,5,3,7,2,2,0,0,E2,2526
+E2,17/01/2026,15:00,Burton,Huddersfield,3,1,H,1,1,D,S Mather,11,13,6,5,3,8,1,4,0,0,E2,2526
+E2,17/01/2026,15:00,Exeter,Stevenage,3,0,H,0,0,D,M Woods,14,7,5,3,1,4,2,2,0,0,E2,2526
+E2,17/01/2026,15:00,Leyton Orient,Reading,3,1,H,1,0,H,E Bell,15,7,5,1,6,1,3,3,0,0,E2,2526
+E2,17/01/2026,15:00,Luton,Lincoln,2,2,D,2,2,D,S Oldham,18,11,5,3,8,7,1,5,0,0,E2,2526
+E2,17/01/2026,15:00,Mansfield,Port Vale,3,0,H,0,0,D,A Byrne,10,3,4,1,3,2,2,0,0,0,E2,2526
+E2,17/01/2026,15:00,Northampton,Wycombe,1,2,A,1,1,D,L Swabey,8,9,3,4,6,6,2,3,0,0,E2,2526
+E2,17/01/2026,15:00,Peterboro,Plymouth,0,1,A,0,1,A,B Atkinson,8,22,2,3,8,10,5,4,1,0,E2,2526
+E2,17/01/2026,15:00,Stockport,Rotherham,3,2,H,1,1,D,A Bannister,13,9,4,3,2,4,3,3,0,0,E2,2526
+E2,20/01/2026,19:45,Stevenage,Bolton,0,0,D,0,0,D,S Parkinson,10,6,3,4,6,4,0,1,0,0,E2,2526
+E2,22/01/2026,20:00,Lincoln,Burton,2,1,H,1,1,D,M Corlett,10,10,4,2,2,5,3,0,0,0,E2,2526
+E2,24/01/2026,12:30,Cardiff,Stockport,1,1,D,1,1,D,P Howard,14,11,3,2,9,1,3,2,0,0,E2,2526
+E2,24/01/2026,12:30,Huddersfield,Bradford,1,0,H,1,0,H,E Duckworth,14,5,6,2,3,2,2,1,1,0,E2,2526
+E2,24/01/2026,12:30,Plymouth,Luton,1,0,H,1,0,H,E Bell,16,13,6,3,6,5,4,1,0,0,E2,2526
+E2,24/01/2026,15:00,Blackpool,Northampton,2,0,H,1,0,H,P Wright,21,10,5,3,4,3,1,1,0,0,E2,2526
+E2,24/01/2026,15:00,Bolton,Leyton Orient,2,1,H,0,0,D,S Stockbridge,13,10,5,1,4,1,3,1,0,0,E2,2526
+E2,24/01/2026,15:00,Doncaster,Wigan,3,3,D,2,0,H,D Rock,28,8,9,7,13,6,3,2,0,0,E2,2526
+E2,24/01/2026,15:00,Port Vale,Exeter,1,3,A,0,1,A,D Bourne,13,11,3,4,12,4,1,4,0,0,E2,2526
+E2,24/01/2026,15:00,Reading,Barnsley,2,2,D,1,1,D,L Doughty,10,3,3,2,9,6,0,3,0,0,E2,2526
+E2,24/01/2026,15:00,Rotherham,AFC Wimbledon,1,1,D,0,0,D,R Eley,16,7,6,1,8,4,2,2,0,0,E2,2526
+E2,24/01/2026,15:00,Stevenage,Mansfield,1,1,D,0,0,D,B Atkinson,15,5,5,2,5,1,4,2,0,0,E2,2526
+E2,24/01/2026,15:00,Wycombe,Peterboro,0,2,A,0,1,A,T Reeves,14,7,4,4,6,3,0,1,0,0,E2,2526
+E2,27/01/2026,19:45,Blackpool,Stockport,1,2,A,0,2,A,B Speedie,6,22,1,9,2,10,1,1,0,0,E2,2526
+E2,27/01/2026,19:45,Bolton,Burton,2,1,H,0,0,D,T Parsons,13,11,6,1,5,4,3,1,0,0,E2,2526
+E2,27/01/2026,19:45,Cardiff,Barnsley,4,0,H,2,0,H,L Swabey,15,7,6,4,6,3,1,2,0,0,E2,2526
+E2,27/01/2026,19:45,Huddersfield,Luton,1,0,H,0,0,D,M Corlett,9,12,1,1,6,9,1,2,1,0,E2,2526
+E2,27/01/2026,19:45,Lincoln,Bradford,3,0,H,2,0,H,S Parkinson,18,2,8,1,5,1,1,1,0,0,E2,2526
+E2,27/01/2026,19:45,Plymouth,Mansfield,1,1,D,1,1,D,W Finnie,17,10,7,3,6,2,2,2,0,0,E2,2526
+E2,27/01/2026,19:45,Rotherham,Northampton,2,1,H,0,1,A,A Young,18,10,5,4,13,4,3,0,0,0,E2,2526
+E2,27/01/2026,19:45,Stevenage,Peterboro,1,0,H,0,0,D,A Humphries,14,5,8,0,8,4,3,1,0,0,E2,2526
+E2,27/01/2026,19:45,Wycombe,Wigan,2,0,H,1,0,H,P Howard,6,7,4,1,3,9,0,0,0,0,E2,2526
+E2,27/01/2026,20:00,Doncaster,Leyton Orient,3,0,H,2,0,H,M Woods,20,6,7,0,3,3,2,3,0,0,E2,2526
+E2,27/01/2026,20:00,Reading,Exeter,2,2,D,1,1,D,C Breakspear,9,10,5,2,5,3,4,2,0,0,E2,2526
+E2,31/01/2026,12:30,AFC Wimbledon,Bolton,0,1,A,0,1,A,A Humphries,15,16,0,6,5,4,1,1,0,0,E2,2526
+E2,31/01/2026,12:30,Bradford,Doncaster,1,0,H,0,0,D,C Hicks,9,9,4,4,8,3,2,1,0,0,E2,2526
+E2,31/01/2026,14:00,Northampton,Reading,0,2,A,0,0,D,J O'Connor,14,10,5,6,9,3,2,3,0,0,E2,2526
+E2,31/01/2026,15:00,Barnsley,Stevenage,3,1,H,2,1,H,S Stockbridge,12,11,6,1,3,7,3,2,0,0,E2,2526
+E2,31/01/2026,15:00,Burton,Cardiff,2,2,D,1,0,H,M Coy,10,7,2,3,5,4,2,1,0,0,E2,2526
+E2,31/01/2026,15:00,Exeter,Rotherham,0,4,A,0,1,A,P Howard,13,11,2,7,4,5,3,1,0,0,E2,2526
+E2,31/01/2026,15:00,Leyton Orient,Port Vale,0,1,A,0,1,A,D Rock,11,7,2,3,5,6,2,2,0,0,E2,2526
+E2,31/01/2026,15:00,Luton,Blackpool,1,0,H,0,0,D,M Woods,13,5,5,0,5,3,1,0,0,0,E2,2526
+E2,31/01/2026,15:00,Mansfield,Wycombe,0,0,D,0,0,D,B Speedie,8,18,1,2,5,6,0,1,0,0,E2,2526
+E2,31/01/2026,15:00,Peterboro,Huddersfield,2,3,A,0,1,A,L Swabey,9,16,3,6,7,4,5,3,0,0,E2,2526
+E2,31/01/2026,15:00,Stockport,Plymouth,2,1,H,0,1,A,S Allison,6,13,2,4,6,6,0,4,0,0,E2,2526
+E2,31/01/2026,15:00,Wigan,Lincoln,0,1,A,0,1,A,C Brook,10,8,4,3,6,1,1,1,0,0,E2,2526
+E2,03/02/2026,19:00,Port Vale,AFC Wimbledon,0,1,A,0,0,D,J Oldham,10,10,2,1,10,1,3,2,0,0,E2,2526
+E2,03/02/2026,19:45,Barnsley,Northampton,2,2,D,1,1,D,T Parsons,22,14,5,4,6,7,2,1,0,0,E2,2526
+E2,03/02/2026,19:45,Burton,Doncaster,1,2,A,0,2,A,C Breakspear,20,13,4,6,20,7,1,2,0,0,E2,2526
+E2,07/02/2026,12:31,Luton,Bradford,2,1,H,1,0,H,R Eley,17,10,7,3,5,5,2,2,0,0,E2,2526
+E2,07/02/2026,12:31,Port Vale,Burton,2,2,D,2,1,H,W Finnie,14,13,5,6,5,6,2,3,0,0,E2,2526
+E2,07/02/2026,15:01,AFC Wimbledon,Reading,3,2,H,1,1,D,D Baines,15,10,7,3,6,3,0,1,0,0,E2,2526
+E2,07/02/2026,15:01,Bolton,Barnsley,3,2,H,3,0,H,S Oldham,23,10,8,6,11,1,3,2,0,0,E2,2526
+E2,07/02/2026,15:01,Huddersfield,Blackpool,2,2,D,0,2,A,R Joyce,9,8,3,4,4,6,2,5,0,0,E2,2526
+E2,07/02/2026,15:01,Mansfield,Exeter,0,0,D,0,0,D,S Mather,13,8,5,2,4,4,1,4,0,0,E2,2526
+E2,07/02/2026,15:01,Northampton,Stevenage,3,1,H,2,1,H,O Yates,11,14,5,5,7,3,4,3,0,0,E2,2526
+E2,07/02/2026,15:01,Peterboro,Wigan,6,1,H,3,1,H,S Parkinson,11,11,6,5,3,10,1,3,0,0,E2,2526
+E2,07/02/2026,15:01,Plymouth,Lincoln,1,4,A,1,1,D,S Martin,11,12,4,4,5,8,2,4,0,0,E2,2526
+E2,07/02/2026,15:01,Rotherham,Cardiff,0,3,A,0,1,A,S Stockbridge,10,15,1,6,5,5,3,3,0,1,E2,2526
+E2,07/02/2026,15:01,Stockport,Leyton Orient,0,0,D,0,0,D,A Humphries,19,8,2,5,4,2,1,2,1,0,E2,2526
+E2,07/02/2026,15:01,Wycombe,Doncaster,4,0,H,1,0,H,K Dowle,22,5,9,0,8,1,1,1,0,0,E2,2526
+E2,10/02/2026,19:45,Mansfield,Peterboro,1,2,A,0,0,D,C Brook,26,7,10,3,19,0,2,2,0,0,E2,2526
+E2,10/02/2026,19:45,Wigan,Reading,1,2,A,0,0,D,L Swabey,11,13,3,3,3,4,1,1,0,0,E2,2526
+E2,14/02/2026,12:30,Reading,Wycombe,3,2,H,2,0,H,M Woods,7,24,4,10,1,8,3,2,0,0,E2,2526
+E2,14/02/2026,12:30,Stevenage,Huddersfield,1,0,H,0,0,D,N Hair,8,5,3,0,3,4,3,3,0,0,E2,2526
+E2,14/02/2026,15:00,Barnsley,AFC Wimbledon,3,3,D,2,2,D,C Breakspear,18,9,7,4,10,5,2,0,0,0,E2,2526
+E2,14/02/2026,15:00,Blackpool,Plymouth,0,4,A,0,3,A,P Howard,5,22,2,11,4,6,1,3,1,0,E2,2526
+E2,14/02/2026,15:00,Bradford,Peterboro,2,0,H,1,0,H,S Allison,29,4,10,2,10,5,3,3,0,0,E2,2526
+E2,14/02/2026,15:00,Cardiff,Luton,3,1,H,3,1,H,O Yates,18,3,7,1,7,3,3,2,0,0,E2,2526
+E2,14/02/2026,15:00,Exeter,Northampton,0,0,D,0,0,D,O Mackey,17,3,5,0,11,1,0,1,0,0,E2,2526
+E2,14/02/2026,15:00,Lincoln,Bolton,1,1,D,1,0,H,W Finnie,22,8,10,3,4,3,2,5,0,0,E2,2526
+E2,17/02/2026,19:45,Barnsley,Peterboro,2,1,H,1,1,D,Z Kennard-Kettle,11,17,3,7,3,5,2,1,0,0,E2,2526
+E2,17/02/2026,19:45,Bradford,Stockport,1,0,H,0,0,D,R Joyce,8,11,2,2,4,2,3,2,0,0,E2,2526
+E2,17/02/2026,19:45,Burton,Rotherham,1,0,H,1,0,H,A Byrne,11,13,3,4,10,3,1,2,0,0,E2,2526
+E2,17/02/2026,19:45,Cardiff,AFC Wimbledon,4,1,H,1,1,D,S Mather,16,17,8,6,4,5,0,2,0,0,E2,2526
+E2,17/02/2026,19:45,Doncaster,Huddersfield,1,0,H,1,0,H,S Stockbridge,6,12,2,0,0,5,4,1,0,0,E2,2526
+E2,17/02/2026,19:45,Exeter,Wycombe,1,1,D,0,1,A,G Ward,20,7,5,3,8,4,0,2,0,0,E2,2526
+E2,17/02/2026,19:45,Leyton Orient,Plymouth,1,3,A,1,1,D,A Chilowicz,12,16,4,9,6,6,4,2,0,0,E2,2526
+E2,17/02/2026,19:45,Lincoln,Northampton,4,0,H,1,0,H,K Dowle,23,4,13,0,9,1,1,1,0,1,E2,2526
+E2,17/02/2026,19:45,Stevenage,Port Vale,2,1,H,2,1,H,J Durkin,16,5,7,1,6,1,3,2,0,0,E2,2526
+E2,17/02/2026,20:00,Blackpool,Mansfield,1,0,H,1,0,H,A Kitchen,6,11,3,2,4,1,5,0,0,0,E2,2526
+E2,17/02/2026,20:00,Reading,Bolton,1,1,D,1,0,H,P Wright,6,16,2,5,4,6,4,1,0,0,E2,2526
+E2,18/02/2026,19:45,Wigan,Luton,1,0,H,0,0,D,J O'Connor,7,13,5,2,7,4,4,2,0,0,E2,2526
+E2,21/02/2026,12:30,Plymouth,Cardiff,5,2,H,3,2,H,D Drysdale,16,18,9,6,3,8,3,4,0,0,E2,2526
+E2,21/02/2026,12:30,Rotherham,Doncaster,1,2,A,1,0,H,S Mather,9,10,2,3,2,3,3,3,0,0,E2,2526
+E2,21/02/2026,12:30,Wycombe,Stevenage,3,1,H,1,0,H,M Russell,8,11,5,3,6,4,1,1,0,0,E2,2526
+E2,21/02/2026,15:00,AFC Wimbledon,Bradford,3,1,H,2,0,H,R Martin,10,6,5,3,3,2,1,0,0,0,E2,2526
+E2,21/02/2026,15:00,Bolton,Blackpool,2,2,D,0,0,D,R Eley,20,14,6,3,15,5,1,3,0,0,E2,2526
+E2,21/02/2026,15:00,Huddersfield,Barnsley,2,1,H,0,1,A,P Wright,15,10,4,3,10,7,1,2,0,0,E2,2526
+E2,21/02/2026,15:00,Luton,Burton,1,1,D,1,0,H,S Stockbridge,5,7,2,1,1,6,3,3,0,0,E2,2526
+E2,21/02/2026,15:00,Mansfield,Lincoln,0,2,A,0,1,A,D Rock,11,13,1,4,2,4,2,3,0,0,E2,2526
+E2,21/02/2026,15:00,Northampton,Leyton Orient,1,2,A,0,1,A,E Duckworth,15,9,3,6,7,4,1,2,0,0,E2,2526
+E2,21/02/2026,15:00,Peterboro,Exeter,3,3,D,1,0,H,E Swallow,16,10,8,4,6,1,1,4,0,0,E2,2526
+E2,21/02/2026,15:00,Port Vale,Reading,1,1,D,0,1,A,C Brook,13,10,6,2,9,3,0,2,0,0,E2,2526
+E2,21/02/2026,15:00,Stockport,Wigan,4,2,H,2,2,D,M Corlett,22,8,9,4,6,1,1,1,0,2,E2,2526
+E2,24/02/2026,19:45,Bradford,Rotherham,1,0,H,1,0,H,M Woods,14,7,3,0,6,7,1,1,0,0,E2,2526
+E2,24/02/2026,19:45,Burton,Stockport,3,0,H,0,0,D,S Parkinson,9,6,6,3,1,3,1,4,0,0,E2,2526
+E2,24/02/2026,19:45,Northampton,Port Vale,0,1,A,0,1,A,C Breakspear,7,7,0,2,6,0,1,0,0,0,E2,2526
+E2,28/02/2026,12:30,Leyton Orient,Barnsley,1,3,A,1,1,D,C Brook,17,10,4,5,5,1,1,1,0,0,E2,2526
+E2,28/02/2026,12:30,Northampton,Peterboro,1,1,D,1,0,H,D Rock,11,10,6,4,5,2,1,2,0,0,E2,2526
+E2,28/02/2026,15:00,Doncaster,Cardiff,0,4,A,0,1,A,E Duckworth,15,14,1,4,3,9,2,0,0,0,E2,2526
+E2,28/02/2026,15:00,Exeter,Bolton,1,5,A,0,1,A,C Hicks,10,22,4,10,4,3,2,1,0,0,E2,2526
+E2,28/02/2026,15:00,Lincoln,Blackpool,4,0,H,1,0,H,T Parsons,13,9,7,3,7,6,1,4,0,0,E2,2526
+E2,28/02/2026,15:00,Mansfield,AFC Wimbledon,2,2,D,2,1,H,S Stockbridge,14,16,6,4,7,6,2,1,0,0,E2,2526
+E2,28/02/2026,15:00,Port Vale,Luton,1,1,D,1,1,D,L Swabey,12,12,5,5,6,6,3,3,0,0,E2,2526
+E2,28/02/2026,15:00,Reading,Bradford,2,1,H,0,0,D,B Speedie,9,12,2,2,5,6,3,0,0,0,E2,2526
+E2,28/02/2026,15:00,Rotherham,Plymouth,1,0,H,1,0,H,Z Kennard-Kettle,18,20,7,4,3,8,5,5,0,0,E2,2526
+E2,28/02/2026,15:00,Stevenage,Stockport,2,1,H,1,1,D,J O'Connor,8,11,7,5,2,7,1,5,0,0,E2,2526
+E2,28/02/2026,15:00,Wigan,Huddersfield,1,0,H,0,0,D,C Breakspear,12,9,4,4,4,6,2,3,0,0,E2,2526
+E2,28/02/2026,15:00,Wycombe,Burton,3,0,H,1,0,H,A Chilowicz,8,6,3,3,3,4,3,2,0,0,E2,2526
+E2,03/03/2026,19:45,Barnsley,Wycombe,0,1,A,0,0,D,O Yates,4,19,0,8,2,3,3,3,0,0,E2,2526
+E2,03/03/2026,19:45,Exeter,Burton,1,1,D,0,0,D,P Howard,12,11,3,4,11,5,1,2,0,0,E2,2526
+E2,03/03/2026,19:45,Rotherham,Mansfield,0,0,D,0,0,D,S Oldham,7,13,2,3,3,6,2,1,0,0,E2,2526
+E2,07/03/2026,12:30,Cardiff,Lincoln,0,2,A,0,0,D,T Reeves,9,11,3,4,6,2,0,3,0,0,E2,2526
+E2,07/03/2026,12:30,Huddersfield,Rotherham,1,0,H,0,0,D,M Coy,6,13,2,5,3,2,0,1,0,0,E2,2526
+E2,07/03/2026,15:00,Barnsley,Exeter,2,1,H,2,0,H,R Joyce,9,11,4,1,6,6,1,1,0,0,E2,2526
+E2,07/03/2026,15:00,Blackpool,Wigan,1,1,D,1,1,D,M Russell,8,7,1,2,3,5,2,1,0,0,E2,2526
+E2,07/03/2026,15:00,Bolton,Wycombe,3,2,H,0,2,A,M Corlett,16,12,8,9,6,4,3,4,0,0,E2,2526
+E2,07/03/2026,15:00,Bradford,Leyton Orient,2,1,H,1,1,D,O Yates,17,5,7,1,11,2,6,3,1,0,E2,2526
+E2,07/03/2026,15:00,Burton,Stevenage,0,1,A,0,1,A,C Hicks,5,10,1,6,9,5,1,3,0,0,E2,2526
+E2,07/03/2026,15:00,Luton,Reading,2,3,A,1,1,D,O Mackey,19,10,2,6,10,4,1,4,0,0,E2,2526
+E2,07/03/2026,15:00,Plymouth,Doncaster,2,1,H,1,1,D,S Parkinson,12,15,6,2,1,2,5,4,0,0,E2,2526
+E2,08/03/2026,12:00,AFC Wimbledon,Northampton,1,0,H,1,0,H,E Bell,12,9,4,3,9,6,0,1,0,0,E2,2526
+E2,10/03/2026,19:45,Barnsley,Cardiff,1,1,D,1,1,D,W Finnie,11,12,2,4,4,13,0,1,0,0,E2,2526
+E2,10/03/2026,19:45,Doncaster,Luton,1,1,D,0,1,A,A Humphries,17,9,7,2,5,3,1,3,0,0,E2,2526
+E2,10/03/2026,19:45,Exeter,Lincoln,0,1,A,0,1,A,C Brook,10,18,3,3,6,7,2,4,0,0,E2,2526
+E2,10/03/2026,19:45,Mansfield,Reading,1,0,H,0,0,D,T Parsons,17,7,7,2,13,6,0,2,0,0,E2,2526
+E2,10/03/2026,19:45,Stevenage,Leyton Orient,1,2,A,1,1,D,C Breakspear,12,7,4,4,5,2,1,4,0,0,E2,2526
+E2,10/03/2026,19:45,Wigan,Plymouth,0,3,A,0,2,A,S Oldham,9,11,2,6,5,8,0,2,0,0,E2,2526
+E2,11/03/2026,19:45,AFC Wimbledon,Blackpool,4,1,H,1,0,H,L Swabey,14,9,7,2,6,8,0,0,0,0,E2,2526
+E2,11/03/2026,19:45,Port Vale,Bradford,0,2,A,0,1,A,P Howard,7,33,1,13,2,11,2,2,0,0,E2,2526
+E2,14/03/2026,12:30,Lincoln,Stockport,3,1,H,1,0,H,C Breakspear,17,12,6,3,4,5,3,1,0,0,E2,2526
+E2,14/03/2026,12:30,Rotherham,Bolton,2,2,D,2,0,H,J Oldham,10,19,5,10,8,6,3,1,0,0,E2,2526
+E2,14/03/2026,15:00,Doncaster,Blackpool,2,1,H,1,0,H,C Brook,13,7,5,1,7,1,0,3,0,1,E2,2526
+E2,14/03/2026,15:00,Exeter,Cardiff,0,4,A,0,2,A,B Speedie,7,30,1,10,0,10,0,0,0,0,E2,2526
+E2,14/03/2026,15:00,Leyton Orient,Peterboro,2,1,H,1,0,H,R Madley,16,15,6,4,7,2,2,2,0,0,E2,2526
+E2,14/03/2026,15:00,Mansfield,Barnsley,2,2,D,0,1,A,M Woods,17,13,4,4,3,5,0,3,0,0,E2,2526
+E2,14/03/2026,15:00,Northampton,Burton,0,2,A,0,1,A,L Swabey,9,12,2,4,7,4,2,2,0,0,E2,2526
+E2,14/03/2026,15:00,Port Vale,Huddersfield,0,0,D,0,0,D,T Parsons,11,17,5,4,2,6,3,1,0,0,E2,2526
+E2,14/03/2026,15:00,Reading,Plymouth,2,2,D,2,1,H,S Stockbridge,14,18,8,2,3,3,1,3,0,0,E2,2526
+E2,14/03/2026,15:00,Stevenage,AFC Wimbledon,1,0,H,1,0,H,D Bourne,9,7,4,1,1,7,2,2,0,0,E2,2526
+E2,14/03/2026,15:00,Wigan,Bradford,2,0,H,1,0,H,A Humphries,5,7,3,2,2,2,4,2,0,0,E2,2526
+E2,14/03/2026,15:00,Wycombe,Luton,1,2,A,0,2,A,C Hicks,15,10,5,3,3,3,3,1,0,0,E2,2526
+E2,17/03/2026,19:45,AFC Wimbledon,Leyton Orient,2,4,A,2,1,H,A Dale,15,14,7,7,3,3,1,1,0,0,E2,2526
+E2,17/03/2026,19:45,Blackpool,Port Vale,3,2,H,0,1,A,W Finnie,14,12,4,5,6,5,0,3,0,0,E2,2526
+E2,17/03/2026,19:45,Bolton,Doncaster,0,0,D,0,0,D,D Drysdale,23,14,3,1,9,6,2,4,0,0,E2,2526
+E2,17/03/2026,19:45,Bradford,Mansfield,1,1,D,0,1,A,J Oldham,14,9,3,1,11,5,4,2,0,0,E2,2526
+E2,17/03/2026,19:45,Burton,Reading,1,2,A,1,1,D,E Duckworth,16,10,4,3,4,3,1,1,0,0,E2,2526
+E2,17/03/2026,19:45,Cardiff,Wycombe,0,2,A,0,0,D,C Brook,19,16,3,4,8,5,2,1,1,0,E2,2526
+E2,17/03/2026,19:45,Huddersfield,Lincoln,2,2,D,2,1,H,B Speedie,8,18,2,7,3,7,4,2,0,0,E2,2526
+E2,17/03/2026,19:45,Luton,Exeter,3,2,H,3,1,H,A Chilowicz,16,8,7,3,7,2,2,2,0,0,E2,2526
+E2,17/03/2026,19:45,Peterboro,Rotherham,5,0,H,2,0,H,M Russell,14,11,9,3,3,5,1,1,0,0,E2,2526
+E2,17/03/2026,19:45,Plymouth,Stevenage,1,0,H,0,0,D,E Bell,11,11,4,1,6,7,2,2,0,0,E2,2526
+E2,17/03/2026,19:45,Stockport,Northampton,2,1,H,1,1,D,S Oldham,22,4,8,1,8,3,1,1,0,0,E2,2526
+E2,17/03/2026,20:00,Barnsley,Wigan,1,1,D,0,1,A,R Martin,14,16,6,4,11,5,3,1,0,1,E2,2526
+E2,21/03/2026,12:30,Cardiff,Blackpool,0,0,D,0,0,D,S Parkinson,26,6,5,1,11,2,2,3,0,0,E2,2526
+E2,21/03/2026,12:30,Luton,Stockport,1,1,D,1,0,H,R Madley,13,10,5,2,8,6,1,2,0,0,E2,2526
+E2,21/03/2026,15:00,AFC Wimbledon,Peterboro,1,1,D,1,0,H,S Jackson,24,10,8,6,11,2,2,3,0,0,E2,2526
+E2,21/03/2026,15:00,Barnsley,Doncaster,0,1,A,0,0,D,D Rock,17,9,3,2,4,2,2,2,0,0,E2,2526
+E2,21/03/2026,15:00,Burton,Bradford,2,1,H,1,0,H,C Brook,10,11,5,4,3,8,1,5,0,0,E2,2526
+E2,21/03/2026,15:00,Leyton Orient,Wycombe,2,0,H,1,0,H,S Mather,13,5,3,2,8,7,3,0,0,1,E2,2526
+E2,21/03/2026,15:00,Lincoln,Rotherham,3,0,H,3,0,H,C Hicks,16,5,6,0,7,4,0,1,0,0,E2,2526
+E2,21/03/2026,15:00,Mansfield,Northampton,4,1,H,1,0,H,M Corlett,17,11,9,4,3,3,1,3,0,0,E2,2526
+E2,21/03/2026,15:00,Plymouth,Huddersfield,3,1,H,0,1,A,R Ricardo,17,13,9,5,5,3,3,3,0,0,E2,2526
+E2,21/03/2026,15:00,Port Vale,Bolton,1,0,H,1,0,H,T Reeves,11,8,2,2,2,5,0,2,0,0,E2,2526
+E2,21/03/2026,15:00,Stevenage,Reading,1,0,H,0,0,D,S Oldham,14,4,4,1,4,2,2,2,0,0,E2,2526
+E2,21/03/2026,15:00,Wigan,Exeter,2,0,H,1,0,H,E Duckworth,8,7,4,2,3,4,1,3,0,0,E2,2526
+E2,24/03/2026,19:45,Doncaster,Port Vale,1,0,H,1,0,H,M Barlow,12,5,2,3,4,1,3,0,0,0,E2,2526
+E2,28/03/2026,15:00,Blackpool,Burton,1,0,H,0,0,D,M Coy,9,1,4,1,6,8,5,3,0,0,E2,2526
+E2,28/03/2026,15:00,Exeter,Leyton Orient,0,0,D,0,0,D,T Robinson,14,12,2,4,6,3,2,3,0,0,E2,2526
+E2,28/03/2026,15:00,Reading,Wigan,3,0,H,2,0,H,S Copeland,13,6,5,1,3,9,0,0,0,0,E2,2526
+E2,28/03/2026,15:00,Stockport,AFC Wimbledon,3,0,H,2,0,H,C Hicks,10,10,4,4,3,8,1,0,0,0,E2,2526
+E2,28/03/2026,15:00,Wycombe,Port Vale,4,0,H,1,0,H,D Drysdale,21,10,9,2,9,1,1,2,0,0,E2,2526
+E2,02/04/2026,19:45,Wigan,Leyton Orient,0,0,D,0,0,D,T Reeves,13,9,0,5,4,4,1,2,0,0,E2,2526
+E2,03/04/2026,12:30,Doncaster,Mansfield,0,2,A,0,0,D,L Swabey,10,8,0,3,2,6,2,1,0,0,E2,2526
+E2,03/04/2026,15:00,Blackpool,Exeter,1,0,H,1,0,H,N Hair,15,9,3,3,5,10,1,1,0,0,E2,2526
+E2,03/04/2026,15:00,Bradford,Northampton,1,0,H,1,0,H,M Coy,18,11,7,1,5,6,3,1,0,0,E2,2526
+E2,03/04/2026,15:00,Burton,Barnsley,1,1,D,0,0,D,K Dowle,11,11,5,2,9,0,1,3,0,0,E2,2526
+E2,03/04/2026,15:00,Huddersfield,Reading,1,1,D,0,1,A,W Finnie,13,4,6,2,4,2,1,4,0,0,E2,2526
+E2,03/04/2026,15:00,Lincoln,AFC Wimbledon,1,0,H,0,0,D,E Duckworth,8,10,4,1,2,7,1,4,0,0,E2,2526
+E2,03/04/2026,15:00,Luton,Peterboro,2,1,H,1,0,H,I Searle,17,10,6,3,7,4,3,2,0,0,E2,2526
+E2,03/04/2026,15:00,Plymouth,Bolton,1,2,A,0,0,D,C Breakspear,14,9,4,2,4,4,0,2,0,1,E2,2526
+E2,03/04/2026,15:00,Rotherham,Stevenage,0,0,D,0,0,D,C Brook,10,11,1,3,4,4,1,4,1,0,E2,2526
+E2,03/04/2026,15:00,Stockport,Wycombe,3,0,H,2,0,H,E Bell,17,12,11,3,8,10,3,1,0,0,E2,2526
+E2,06/04/2026,15:00,AFC Wimbledon,Luton,0,3,A,0,1,A,C Brook,6,23,0,8,8,3,1,1,0,0,E2,2526
+E2,06/04/2026,15:00,Barnsley,Plymouth,0,3,A,0,1,A,T Reeves,11,15,1,8,4,8,1,1,0,0,E2,2526
+E2,06/04/2026,15:00,Bolton,Stockport,2,2,D,1,1,D,S Martin,13,12,3,4,12,4,0,1,0,1,E2,2526
+E2,06/04/2026,15:00,Exeter,Doncaster,3,0,H,1,0,H,A Dale,13,19,6,10,7,4,1,0,0,0,E2,2526
+E2,06/04/2026,15:00,Leyton Orient,Huddersfield,1,2,A,1,1,D,M Corlett,6,10,2,4,7,3,2,3,0,0,E2,2526
+E2,06/04/2026,15:00,Mansfield,Burton,0,0,D,0,0,D,M Russell,11,11,4,1,3,3,3,1,0,0,E2,2526
+E2,06/04/2026,15:00,Northampton,Wigan,1,3,A,0,2,A,A Chilowicz,7,10,3,3,2,8,0,2,0,0,E2,2526
+E2,06/04/2026,15:00,Peterboro,Cardiff,1,1,D,0,0,D,T Parsons,8,29,3,8,6,16,2,2,0,0,E2,2526
+E2,06/04/2026,15:00,Reading,Lincoln,1,2,A,0,1,A,S Mather,11,6,1,2,3,3,1,2,0,0,E2,2526
+E2,06/04/2026,15:00,Stevenage,Blackpool,1,0,H,0,0,D,D Rock,11,4,4,0,6,2,1,2,0,0,E2,2526
+E2,06/04/2026,15:00,Wycombe,Bradford,1,2,A,1,0,H,W Finnie,10,7,3,3,2,4,1,4,0,0,E2,2526
+E2,07/04/2026,19:45,Port Vale,Rotherham,1,0,H,1,0,H,R Joyce,7,10,2,5,4,6,1,0,0,0,E2,2526
+E2,11/04/2026,12:30,Cardiff,Bolton,2,0,H,0,0,D,E Bell,19,6,5,1,8,1,1,0,0,0,E2,2526
+E2,11/04/2026,12:30,Lincoln,Leyton Orient,2,1,H,2,0,H,R Joyce,18,12,6,6,4,6,2,4,0,0,E2,2526
+E2,11/04/2026,12:30,Plymouth,Exeter,2,2,D,0,0,D,M Corlett,20,5,10,2,12,2,2,4,0,0,E2,2526
+E2,11/04/2026,15:00,Blackpool,Peterboro,3,1,H,1,1,D,C Breakspear,16,11,9,4,11,3,1,2,1,0,E2,2526
+E2,11/04/2026,15:00,Bradford,Stevenage,0,1,A,0,0,D,T Reeves,13,3,5,1,1,0,2,3,0,0,E2,2526
+E2,11/04/2026,15:00,Burton,AFC Wimbledon,1,0,H,0,0,D,M Woods,12,5,3,1,9,2,1,0,0,0,E2,2526
+E2,11/04/2026,15:00,Doncaster,Reading,1,0,H,0,0,D,S Jackson,9,8,6,1,2,4,1,2,0,0,E2,2526
+E2,11/04/2026,15:00,Huddersfield,Wycombe,3,3,D,0,1,A,J Oldham,22,8,6,4,10,5,0,2,0,0,E2,2526
+E2,11/04/2026,15:00,Rotherham,Barnsley,1,3,A,0,1,A,L Swabey,7,9,2,9,3,2,0,4,0,0,E2,2526
+E2,11/04/2026,15:00,Wigan,Mansfield,2,1,H,1,1,D,O Yates,8,13,4,4,2,4,2,1,0,0,E2,2526
+E2,14/04/2026,19:45,Bolton,Stevenage,5,1,H,2,0,H,T Parsons,24,10,9,3,8,3,0,1,0,1,E2,2526
+E2,14/04/2026,19:45,Huddersfield,Cardiff,1,1,D,1,0,H,A Humphries,19,16,7,3,4,7,1,4,0,0,E2,2526
+E2,14/04/2026,19:45,Leyton Orient,Mansfield,0,0,D,0,0,D,R Martin,10,11,1,2,5,8,0,1,0,0,E2,2526
+E2,14/04/2026,19:45,Port Vale,Barnsley,0,0,D,0,0,D,O Mackey,8,19,1,4,8,9,1,1,0,0,E2,2526
+E2,14/04/2026,19:45,Wigan,Rotherham,3,0,H,1,0,H,B Speedie,13,6,6,0,11,1,2,2,0,0,E2,2526
+E2,15/04/2026,19:45,AFC Wimbledon,Stockport,0,2,A,0,0,D,D Drysdale,12,13,5,6,7,3,1,4,0,0,E2,2526
+E2,15/04/2026,19:45,Luton,Northampton,2,1,H,1,1,D,J Durkin,25,12,5,3,11,5,2,3,0,0,E2,2526
+E2,16/04/2026,19:45,Peterboro,Port Vale,1,3,A,1,2,A,H Wager,17,7,3,4,9,1,1,1,0,0,E2,2526
+E2,18/04/2026,12:30,Barnsley,Bradford,2,2,D,0,0,D,C Breakspear,9,14,4,5,5,10,2,3,1,0,E2,2526
+E2,18/04/2026,12:30,Bolton,Huddersfield,3,3,D,1,0,H,J Miles,24,9,6,3,6,4,4,5,1,0,E2,2526
+E2,18/04/2026,15:00,AFC Wimbledon,Plymouth,1,3,A,0,1,A,E Swallow,15,22,4,10,5,7,2,3,0,0,E2,2526
+E2,18/04/2026,15:00,Exeter,Stockport,3,3,D,1,2,A,K Dowle,15,20,8,11,4,6,0,1,0,0,E2,2526
+E2,18/04/2026,15:00,Leyton Orient,Rotherham,0,2,A,0,1,A,J Bell,9,13,1,5,6,6,1,3,0,0,E2,2526
+E2,18/04/2026,15:00,Mansfield,Luton,2,2,D,2,1,H,E Duckworth,13,21,5,8,3,9,2,1,0,0,E2,2526
+E2,18/04/2026,15:00,Northampton,Doncaster,1,3,A,0,0,D,D Baines,7,19,2,6,5,5,5,2,0,0,E2,2526
+E2,18/04/2026,15:00,Reading,Cardiff,1,3,A,0,1,A,M Corlett,15,15,7,9,7,9,3,4,0,0,E2,2526
+E2,18/04/2026,15:00,Stevenage,Lincoln,2,2,D,2,1,H,N Hair,6,7,3,4,2,8,1,3,0,0,E2,2526
+E2,18/04/2026,15:00,Wycombe,Blackpool,0,1,A,0,0,D,A Humphries,15,5,6,1,10,6,2,2,0,1,E2,2526
+E2,19/04/2026,13:00,Peterboro,Burton,1,1,D,0,1,A,R Watkins,15,14,3,4,4,4,1,2,0,0,E2,2526
+E2,19/04/2026,15:00,Port Vale,Wigan,0,0,D,0,0,D,E Bell,18,8,3,1,8,3,0,1,0,0,E2,2526
+E2,21/04/2026,19:45,Bradford,Plymouth,1,1,D,0,1,A,J O'Connor,13,11,3,3,5,4,1,5,0,0,E2,2526
+E2,21/04/2026,19:45,Doncaster,Lincoln,0,2,A,0,1,A,S Stockbridge,3,21,0,5,1,8,3,0,0,0,E2,2526
+E2,21/04/2026,19:45,Rotherham,Luton,0,2,A,0,2,A,S Mulhall,15,14,3,4,2,6,1,2,0,0,E2,2526
+E2,21/04/2026,19:45,Stevenage,Barnsley,1,0,H,1,0,H,B Speedie,13,10,5,2,5,3,0,0,0,0,E2,2526
+E2,21/04/2026,19:45,Stockport,Mansfield,0,1,A,0,0,D,S Jackson,16,9,3,4,6,5,3,5,0,0,E2,2526
+E2,22/04/2026,19:45,Cardiff,Port Vale,1,0,H,0,0,D,D Rock,14,6,4,2,6,6,1,0,0,0,E2,2526
+E2,25/04/2026,12:30,Doncaster,Stevenage,1,1,D,0,1,A,M Coy,12,8,3,4,4,3,2,1,0,0,E2,2526
+E2,25/04/2026,12:30,Stockport,Peterboro,3,1,H,1,1,D,J Miles,28,11,11,6,7,7,2,1,0,0,E2,2526
+E2,25/04/2026,15:00,Blackpool,Leyton Orient,1,0,H,1,0,H,D Drysdale,17,12,8,1,6,4,1,3,0,0,E2,2526
+E2,25/04/2026,15:00,Bradford,Bolton,1,1,D,0,0,D,S Stockbridge,12,17,2,3,6,5,2,2,0,0,E2,2526
+E2,25/04/2026,15:00,Burton,Exeter,1,1,D,0,1,A,E Bell,16,6,5,1,3,1,0,1,0,0,E2,2526
+E2,25/04/2026,15:00,Cardiff,Northampton,5,1,H,3,0,H,E Duckworth,25,10,11,5,3,2,1,1,0,0,E2,2526
+E2,25/04/2026,15:00,Huddersfield,Mansfield,1,4,A,0,2,A,R Joyce,15,10,2,3,6,3,1,2,0,0,E2,2526
+E2,25/04/2026,15:00,Lincoln,Wycombe,4,3,H,2,0,H,S Oldham,13,28,7,8,2,10,2,1,0,0,E2,2526
+E2,25/04/2026,15:00,Luton,Barnsley,2,1,H,1,1,D,H Wager,17,13,4,2,9,5,1,5,0,0,E2,2526
+E2,25/04/2026,15:00,Plymouth,Port Vale,2,1,H,1,1,D,I Searle,16,15,4,5,6,11,2,2,1,0,E2,2526
+E2,25/04/2026,15:00,Rotherham,Reading,1,1,D,1,0,H,J Brooks,15,6,3,3,3,2,3,2,0,0,E2,2526
+E2,25/04/2026,15:00,Wigan,AFC Wimbledon,0,1,A,0,0,D,M Corlett,16,4,0,2,10,3,3,4,0,0,E2,2526
+E2,28/04/2026,19:45,Northampton,Barnsley,0,1,A,0,1,A,J O'Connor,14,10,2,3,5,2,1,1,0,0,E2,2526
+E2,28/04/2026,19:45,Peterboro,Mansfield,0,0,D,0,0,D,L Sandoe,9,13,3,2,5,7,0,2,0,0,E2,2526
+E2,28/04/2026,19:45,Stockport,Port Vale,1,2,A,0,2,A,A Chilowicz,13,10,2,5,7,1,2,0,0,0,E2,2526
+E2,02/05/2026,15:00,AFC Wimbledon,Huddersfield,0,4,A,0,1,A,G Laflin,3,21,1,9,5,3,2,1,0,0,E2,2526
+E2,02/05/2026,15:00,Barnsley,Stockport,1,3,A,0,1,A,S Stockbridge,9,14,5,9,5,11,1,3,0,0,E2,2526
+E2,02/05/2026,15:00,Bolton,Luton,2,3,A,2,1,H,M Corlett,24,12,12,5,5,3,4,3,0,0,E2,2526
+E2,02/05/2026,15:00,Exeter,Bradford,1,2,A,0,1,A,O Yates,11,12,3,3,6,7,3,1,0,0,E2,2526
+E2,02/05/2026,15:00,Leyton Orient,Burton,2,2,D,1,1,D,P Howard,13,14,4,8,5,1,1,1,0,0,E2,2526
+E2,02/05/2026,15:00,Mansfield,Cardiff,5,4,H,3,0,H,C Breakspear,12,20,10,7,6,8,2,1,0,0,E2,2526
+E2,02/05/2026,15:00,Northampton,Plymouth,2,3,A,2,2,D,B Speedie,7,26,4,10,2,8,2,4,1,0,E2,2526
+E2,02/05/2026,15:00,Peterboro,Doncaster,1,3,A,0,0,D,E Duckworth,16,21,6,13,6,3,1,3,0,0,E2,2526
+E2,02/05/2026,15:00,Port Vale,Lincoln,0,2,A,0,1,A,A Humphries,13,11,1,3,2,6,0,2,0,0,E2,2526
+E2,02/05/2026,15:00,Reading,Blackpool,0,1,A,0,0,D,B Bell,13,11,0,5,3,8,0,1,0,0,E2,2526
+E2,02/05/2026,15:00,Stevenage,Wigan,1,0,H,0,0,D,M Russell,14,12,5,6,3,3,1,1,0,0,E2,2526
+E2,02/05/2026,15:00,Wycombe,Rotherham,3,2,H,2,2,D,H Blair,20,6,9,3,15,1,1,2,0,0,E2,2526
+E2,15/08/2026,12:30,Notts County,Leicester,1,1,D,0,0,D,E Duckworth,16,11,2,2,3,5,2,1,0,0,E2,2627
+E2,15/08/2026,12:30,Oxford,Milton Keynes Dons,2,2,D,1,2,A,O Yates,17,24,4,6,8,9,2,3,0,0,E2,2627
+E2,15/08/2026,12:30,Reading,Luton,3,4,A,3,1,H,L Doughty,17,12,5,5,5,2,1,2,0,0,E2,2627
+E2,15/08/2026,15:00,Barnsley,Bromley,0,1,A,0,0,D,R Martin,22,12,8,3,12,2,3,2,0,0,E2,2627
+E2,15/08/2026,15:00,Blackpool,Wycombe,1,1,D,0,1,A,S Stockbridge,20,11,7,4,5,4,2,3,0,0,E2,2627
+E2,15/08/2026,15:00,Bradford,Peterboro,2,0,H,0,0,D,T Harrington,17,7,5,2,7,3,2,3,0,1,E2,2627
+E2,15/08/2026,15:00,Burton,Stevenage,1,1,D,0,0,D,M Coy,10,5,2,3,2,0,0,1,0,0,E2,2627
+E2,15/08/2026,15:00,Cambridge,Wigan,3,2,H,2,0,H,A Chilowicz,17,18,6,4,8,5,1,0,0,0,E2,2627
+E2,15/08/2026,15:00,Huddersfield,AFC Wimbledon,3,0,H,2,0,H,J Miles,10,10,3,1,4,5,1,2,1,0,E2,2627
+E2,15/08/2026,15:00,Leyton Orient,Sheffield Weds,1,2,A,1,1,D,S Allison,10,15,3,5,5,7,2,2,0,0,E2,2627
+E2,15/08/2026,15:00,Mansfield,Doncaster,2,1,H,1,0,H,D Whitestone,18,9,4,4,7,1,2,1,0,0,E2,2627
+E2,15/08/2026,15:00,Plymouth,Stockport,1,3,A,0,2,A,D Rock,15,9,4,4,5,3,2,0,0,0,E2,2627

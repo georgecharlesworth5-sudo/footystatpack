@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stat Pack — Vidiprinter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0D0A;
+    --surface: #171813;
+    --surface-hover: #1D1F18;
+    --ink: #EDE8D8;
+    --ink-dim: #B8B3A0;
+    --amber: #E8A33D;
+    --green: #6B9B6E;
+    --red: #B5533E;
+    --meta: #6E6A5C;
+    --rule: #2A2C22;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Ticker ---------- */
+  /* ---------- Header ---------- */
+  header {
+    padding: 28px 20px 16px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--meta);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 40px);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  h1 .dot { color: var(--amber); }
+  .subhead {
+    color: var(--ink-dim);
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  /* ---------- League tabs ---------- */
+  .tabs {
+    display: flex;
+    gap: 2px;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tab {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--meta);
+    background: none;
+    border: none;
+    padding: 12px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s;
+  }
+  .tab:hover { color: var(--ink-dim); }
+  .tab.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+  .tab:focus-visible, .fixture summary:focus-visible, button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+  .tab .count {
+    color: var(--meta);
+    font-size: 10px;
+    margin-left: 4px;
+  }
+
+  /* ---------- Fixture list ---------- */
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .date-group {
+    margin-bottom: 6px;
+  }
+  .date-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--meta);
+    padding: 18px 4px 8px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 8px;
+  }
+  .fixture {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    transition: background 0.15s;
+  }
+  .fixture:hover { background: var(--surface-hover); }
+  .fixture summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .fixture summary::-webkit-details-marker { display: none; }
+  .kickoff {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--meta);
+    min-width: 44px;
+  }
+  .teams {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 600;
+    flex: 1;
+    min-width: 180px;
+  }
+  .teams .v { color: var(--meta); font-weight: 400; margin: 0 6px; }
+  .quick-stats {
+    display: flex;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .quick-stat { color: var(--ink-dim); white-space: nowrap; }
+  .quick-stat b { color: var(--ink); }
+  .pct-hi { color: var(--green); }
+  .pct-lo { color: var(--red); }
+  .flag {
+    font-size: 10px;
+    font-family: var(--mono);
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 2px;
+    padding: 2px 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .chev {
+    color: var(--meta);
+    font-family: var(--mono);
+    transition: transform 0.15s;
+  }
+  .fixture[open] .chev { transform: rotate(90deg); }
+
+  /* ---------- Expanded detail ---------- */
+  .detail {
+    padding: 4px 16px 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .note {
+    font-size: 12px;
+    color: var(--amber);
+    background: rgba(232,163,61,0.08);
+    border: 1px solid rgba(232,163,61,0.25);
+    border-radius: 3px;
+    padding: 8px 10px;
+    margin: 12px 0;
+    line-height: 1.5;
+  }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .metric-card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+  .metric-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--meta);
+    margin-bottom: 8px;
+  }
+  .metric-expected {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .metric-expected .label { font-size: 10px; color: var(--meta); font-weight: 400; margin-left: 4px; }
+  .ou-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 4px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .ou-row:first-of-type { border-top: none; }
+  .ou-line { color: var(--ink-dim); }
+  .ou-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: var(--rule);
+    border-radius: 3px;
+    margin: 0 10px;
+    overflow: hidden;
+  }
+  .ou-bar {
+    height: 100%;
+    background: var(--amber);
+  }
+  .ou-pct { min-width: 38px; text-align: right; }
+  .btts-row {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+  }
+  .sample-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--meta);
+    margin-top: 12px;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--meta);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  footer {
+    max-width: 920px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
+    color: var(--meta);
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+
+  @media (max-width: 560px) {
+    .quick-stats { display: none; }
+    .teams { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="eyebrow">Pre-Gameday Stat Pack</div>
+    <h1>Vidiprinter<span class="dot">.</span></h1>
+    <div class="subhead" id="generated-note">Goals, corners, cards &amp; half splits — Poisson model, 5 leagues.</div>
+  </header>
+
+  <nav class="tabs" id="tabs"></nav>
+
+  <main id="main">
+    <div class="empty">Loading…</div>
+  </main>
+
+  <footer>
+    Data: football-data.co.uk (results) + fixturedownload.com (fixtures). Poisson model — treat as a signal, not a certainty.
+  </footer>
+
+<script src="statpack_data.js"></script>
+<script>
+(function () {
+  const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0"];
+  let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
+  let activeLeague = null;
+
+  const tabsEl = document.getElementById("tabs");
+  const mainEl = document.getElementById("main");
+
+  if (!data) {
+    mainEl.innerHTML = '<div class="empty">No statpack_data.js found next to this file.<br>Run build_statpack.py, then open this page from the same folder.</div>';
+    return;
+  }
+
+  const availableLeagues = LEAGUE_ORDER.filter(code => data[code]);
+  if (availableLeagues.length === 0) {
+    mainEl.innerHTML = '<div class="empty">No league data found. Run fetch_data.py and build_statpack.py first.</div>';
+    return;
+  }
+  activeLeague = availableLeagues[0];
+
+  function pct(n) { return Math.round(n * 100) + "%"; }
+
+  function fmtDate(d) {
+    // d like "22/08/2026" -> "FRI 22 AUG"
+    const parts = (d || "").split("/");
+    if (parts.length !== 3) return d || "TBC";
+    const dt = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+    if (isNaN(dt)) return d;
+    return dt.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }).toUpperCase();
+  }
+
+  function buildTabs() {
+    tabsEl.innerHTML = "";
+    availableLeagues.forEach(code => {
+      const league = data[code];
+      const btn = document.createElement("button");
+      btn.className = "tab" + (code === activeLeague ? " active" : "");
+      btn.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
+      btn.addEventListener("click", () => { activeLeague = code; render(); });
+      tabsEl.appendChild(btn);
+    });
+  }
+
+  function metricBlock(title, m) {
+    if (!m) return "";
+    const ouRows = (m.over_under || []).map(ou => {
+      const overPct = ou.over;
+      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--amber)";
+      return `<div class="ou-row">
+        <span class="ou-line">O/U ${ou.line}</span>
+        <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
+        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pct(overPct)}</span>
+      </div>`;
+    }).join("");
+
+    const btts = (m.btts_yes !== undefined)
+      ? `<div class="btts-row">BTTS: <b>${pct(m.btts_yes)}</b> yes / ${pct(m.btts_no)} no</div>`
+      : "";
+
+    return `<div class="metric-card">
+      <div class="metric-title">${title} <span style="opacity:0.6">· over %</span></div>
+      <div class="metric-expected">${m.expected_total}<span class="label">expected</span></div>
+      ${ouRows}
+      ${btts}
+    </div>`;
+  }
+
+  function quickStat(fixture) {
+    const g = fixture.predictions.goals;
+    const c = fixture.predictions.corners;
+    if (!g || !c) return "";
+    const goalsLine = g.over_under.find(o => o.line === 2.5) || g.over_under[0];
+    const cornersLine = c.over_under.find(o => o.line === 9.5) || c.over_under[0];
+    return `<div class="quick-stats">
+      <span class="quick-stat">O${goalsLine.line} GLS <b class="${goalsLine.over >= 0.55 ? 'pct-hi' : ''}">${pct(goalsLine.over)}</b></span>
+      <span class="quick-stat">O${cornersLine.line} CRN <b class="${cornersLine.over >= 0.55 ? 'pct-hi' : ''}">${pct(cornersLine.over)}</b></span>
+    </div>`;
+  }
+
+  function flagBadges(fixture) {
+    const flags = [];
+    if (fixture.cross_league_data) flags.push('cross-league');
+    if (fixture.fuzzy_name_match) flags.push('name check');
+    if (fixture.low_sample) flags.push('thin sample');
+    return flags.map(f => `<span class="flag">${f}</span>`).join("");
+  }
+
+  function fixtureCard(fixture) {
+    const p = fixture.predictions;
+    const flag = flagBadges(fixture);
+    const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
+
+    return `<details class="fixture">
+      <summary>
+        <span class="kickoff">${fixture.time || "--:--"}</span>
+        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
+        ${flag}
+        ${quickStat(fixture)}
+        <span class="chev">▸</span>
+      </summary>
+      <div class="detail">
+        ${note}
+        <div class="metric-grid">
+          ${metricBlock("Full-Time Goals", p.goals)}
+          ${metricBlock("Corners", p.corners)}
+          ${metricBlock("Cards", p.cards)}
+          ${metricBlock("1st-Half Goals", p.first_half_goals)}
+          ${metricBlock("2nd-Half Goals", p.second_half_goals)}
+        </div>
+        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
+      </div>
+    </details>`;
+  }
+
+  function render() {
+    buildTabs();
+    const league = data[activeLeague];
+    const fixtures = league.upcoming_fixtures;
+
+    if (fixtures.length === 0) {
+      mainEl.innerHTML = `<div class="empty">No upcoming fixtures loaded for ${league.league_name}.<br>Check fixtures_manual/ has the right CSV for this league.</div>`;
+      return;
+    }
+
+    // group by date, preserving original order (already chronological from source)
+    const groups = [];
+    let currentDate = null, currentGroup = null;
+    fixtures.forEach(fx => {
+      if (fx.date !== currentDate) {
+        currentDate = fx.date;
+        currentGroup = { date: fx.date, items: [] };
+        groups.push(currentGroup);
+      }
+      currentGroup.items.push(fx);
+    });
+
+    mainEl.innerHTML = groups.map(g => `
+      <div class="date-group">
+        <div class="date-label">${fmtDate(g.date)}</div>
+        ${g.items.map(fixtureCard).join("")}
+      </div>
+    `).join("");
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

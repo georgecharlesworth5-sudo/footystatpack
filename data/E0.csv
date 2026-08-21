@@ -1,0 +1,381 @@
+Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HC,AC,HY,AY,HR,AR,League,Season
+E0,15/08/2025,20:00,Liverpool,Bournemouth,4,2,H,1,0,H,A Taylor,19,10,10,3,6,7,1,2,0,0,E0,2526
+E0,16/08/2025,12:30,Aston Villa,Newcastle,0,0,D,0,0,D,C Pawson,3,16,3,3,3,6,1,1,1,0,E0,2526
+E0,16/08/2025,15:00,Brighton,Fulham,1,1,D,0,0,D,S Barrott,10,7,4,2,4,3,3,3,0,0,E0,2526
+E0,16/08/2025,15:00,Sunderland,West Ham,3,0,H,0,0,D,R Jones,10,12,5,4,5,7,0,1,0,0,E0,2526
+E0,16/08/2025,15:00,Tottenham,Burnley,3,0,H,1,0,H,M Oliver,16,14,6,4,6,5,0,0,0,0,E0,2526
+E0,16/08/2025,17:30,Wolves,Man City,0,4,A,0,2,A,J Gillett,9,15,3,4,4,6,1,2,0,0,E0,2526
+E0,17/08/2025,14:00,Chelsea,Crystal Palace,0,0,D,0,0,D,D England,19,12,3,4,11,2,2,3,0,0,E0,2526
+E0,17/08/2025,14:00,Nott'm Forest,Brentford,3,1,H,3,0,H,P Bankes,11,10,5,3,5,5,1,2,0,0,E0,2526
+E0,17/08/2025,16:30,Man United,Arsenal,0,1,A,0,1,A,S Hooper,22,9,7,3,3,4,1,4,0,0,E0,2526
+E0,18/08/2025,20:00,Leeds,Everton,1,0,H,0,0,D,C Kavanagh,21,7,3,1,7,2,0,2,0,0,E0,2526
+E0,22/08/2025,20:00,West Ham,Chelsea,1,5,A,1,3,A,M Oliver,12,12,4,7,7,5,0,1,0,0,E0,2526
+E0,23/08/2025,12:30,Man City,Tottenham,0,2,A,0,2,A,P Bankes,10,12,4,5,7,2,1,4,0,0,E0,2526
+E0,23/08/2025,15:00,Bournemouth,Wolves,1,0,H,1,0,H,T Bramall,14,6,4,1,8,3,2,4,0,1,E0,2526
+E0,23/08/2025,15:00,Brentford,Aston Villa,1,0,H,1,0,H,T Harrington,9,17,2,2,2,9,1,2,0,0,E0,2526
+E0,23/08/2025,15:00,Burnley,Sunderland,2,0,H,0,0,D,M Salisbury,7,9,2,1,4,3,0,1,0,0,E0,2526
+E0,23/08/2025,17:30,Arsenal,Leeds,5,0,H,2,0,H,J Gillett,18,3,5,1,2,2,0,2,0,0,E0,2526
+E0,24/08/2025,14:00,Crystal Palace,Nott'm Forest,1,1,D,1,0,H,A Taylor,8,9,4,1,1,3,3,3,0,0,E0,2526
+E0,24/08/2025,14:00,Everton,Brighton,2,0,H,1,0,H,S Attwell,11,13,3,4,2,2,4,3,0,0,E0,2526
+E0,24/08/2025,16:30,Fulham,Man United,1,1,D,0,0,D,C Kavanagh,13,10,4,3,9,6,1,1,0,0,E0,2526
+E0,25/08/2025,20:00,Newcastle,Liverpool,2,3,A,0,1,A,S Hooper,10,5,3,4,7,1,2,3,1,0,E0,2526
+E0,30/08/2025,12:30,Chelsea,Fulham,2,0,H,1,0,H,R Jones,13,11,6,3,6,4,2,2,0,0,E0,2526
+E0,30/08/2025,15:00,Man United,Burnley,3,2,H,1,0,H,S Barrott,26,6,6,3,7,1,1,5,0,0,E0,2526
+E0,30/08/2025,15:00,Sunderland,Brentford,2,1,H,0,0,D,A Taylor,12,7,3,4,3,4,3,2,0,0,E0,2526
+E0,30/08/2025,15:00,Tottenham,Bournemouth,0,1,A,0,1,A,S Hooper,5,20,1,6,0,8,2,4,0,0,E0,2526
+E0,30/08/2025,15:00,Wolves,Everton,2,3,A,1,2,A,M Oliver,12,10,4,4,2,2,0,1,0,0,E0,2526
+E0,30/08/2025,17:30,Leeds,Newcastle,0,0,D,0,0,D,P Bankes,10,8,1,2,5,5,1,1,0,0,E0,2526
+E0,31/08/2025,14:00,Brighton,Man City,2,1,H,0,1,A,D England,12,12,7,3,3,2,2,2,0,0,E0,2526
+E0,31/08/2025,14:00,Nott'm Forest,West Ham,0,3,A,0,0,D,C Pawson,11,12,3,8,9,7,0,0,0,0,E0,2526
+E0,31/08/2025,16:30,Liverpool,Arsenal,1,0,H,0,0,D,C Kavanagh,9,11,3,1,3,8,2,2,0,0,E0,2526
+E0,31/08/2025,19:00,Aston Villa,Crystal Palace,0,3,A,0,1,A,S Attwell,13,6,4,4,10,1,2,3,0,0,E0,2526
+E0,13/09/2025,12:30,Arsenal,Nott'm Forest,3,0,H,1,0,H,D England,16,5,5,1,8,4,1,1,0,0,E0,2526
+E0,13/09/2025,15:00,Bournemouth,Brighton,2,1,H,1,0,H,P Bankes,13,6,5,2,4,4,4,4,0,0,E0,2526
+E0,13/09/2025,15:00,Crystal Palace,Sunderland,0,0,D,0,0,D,T Bramall,14,6,6,0,5,3,1,1,0,0,E0,2526
+E0,13/09/2025,15:00,Everton,Aston Villa,0,0,D,0,0,D,S Hooper,20,7,2,1,10,3,3,3,0,0,E0,2526
+E0,13/09/2025,15:00,Fulham,Leeds,1,0,H,0,0,D,C Pawson,5,10,3,3,3,3,1,2,0,0,E0,2526
+E0,13/09/2025,15:00,Newcastle,Wolves,1,0,H,1,0,H,C Kavanagh,16,8,4,3,10,4,1,4,0,0,E0,2526
+E0,13/09/2025,17:30,West Ham,Tottenham,0,3,A,0,0,D,J Gillett,7,14,4,5,2,13,0,1,1,0,E0,2526
+E0,13/09/2025,20:00,Brentford,Chelsea,2,2,D,1,0,H,S Attwell,7,16,4,6,5,6,3,2,0,0,E0,2526
+E0,14/09/2025,14:00,Burnley,Liverpool,0,1,A,0,0,D,M Oliver,3,27,0,4,1,13,0,2,0,0,E0,2526
+E0,14/09/2025,16:30,Man City,Man United,3,0,H,1,0,H,A Taylor,13,12,6,2,2,4,0,0,0,0,E0,2526
+E0,20/09/2025,12:30,Liverpool,Everton,2,1,H,2,0,H,D England,11,9,3,2,5,4,2,3,0,0,E0,2526
+E0,20/09/2025,15:00,Brighton,Tottenham,2,2,D,2,1,H,C Kavanagh,12,11,4,3,2,10,1,2,0,0,E0,2526
+E0,20/09/2025,15:00,Burnley,Nott'm Forest,1,1,D,1,1,D,T Bramall,12,17,5,8,4,5,1,1,0,0,E0,2526
+E0,20/09/2025,15:00,West Ham,Crystal Palace,1,2,A,0,1,A,T Harrington,8,18,3,3,8,8,3,3,0,0,E0,2526
+E0,20/09/2025,15:00,Wolves,Leeds,1,3,A,1,3,A,A Taylor,16,6,6,4,4,0,1,1,0,0,E0,2526
+E0,20/09/2025,17:30,Man United,Chelsea,2,1,H,2,0,H,P Bankes,11,5,4,1,5,5,0,5,1,1,E0,2526
+E0,20/09/2025,20:00,Fulham,Brentford,3,1,H,2,1,H,M Oliver,14,8,3,3,2,10,4,1,0,0,E0,2526
+E0,21/09/2025,14:00,Bournemouth,Newcastle,0,0,D,0,0,D,R Jones,11,4,2,1,5,2,2,1,0,0,E0,2526
+E0,21/09/2025,14:00,Sunderland,Aston Villa,1,1,D,0,0,D,S Barrott,14,12,4,2,6,5,2,1,1,0,E0,2526
+E0,21/09/2025,16:30,Arsenal,Man City,1,1,D,0,1,A,S Attwell,12,5,3,3,11,2,1,2,0,0,E0,2526
+E0,27/09/2025,12:30,Brentford,Man United,3,1,H,2,1,H,C Pawson,10,14,8,6,4,2,2,2,0,0,E0,2526
+E0,27/09/2025,15:00,Chelsea,Brighton,1,3,A,1,0,H,S Hooper,13,12,3,3,5,7,3,5,1,0,E0,2526
+E0,27/09/2025,15:00,Crystal Palace,Liverpool,2,1,H,1,0,H,C Kavanagh,16,20,7,4,2,6,1,3,0,0,E0,2526
+E0,27/09/2025,15:00,Leeds,Bournemouth,2,2,D,1,1,D,M Oliver,19,12,8,5,7,4,2,2,0,0,E0,2526
+E0,27/09/2025,15:00,Man City,Burnley,5,1,H,1,1,D,R Jones,21,9,8,2,10,2,1,3,0,0,E0,2526
+E0,27/09/2025,17:30,Nott'm Forest,Sunderland,0,1,A,0,1,A,T Harrington,22,11,6,3,7,4,4,2,0,0,E0,2526
+E0,27/09/2025,20:00,Tottenham,Wolves,1,1,D,0,0,D,M Salisbury,10,9,3,3,10,9,3,2,0,0,E0,2526
+E0,28/09/2025,14:00,Aston Villa,Fulham,3,1,H,1,1,D,A Madley,9,11,4,4,2,8,1,4,0,0,E0,2526
+E0,28/09/2025,16:30,Newcastle,Arsenal,1,2,A,1,0,H,J Gillett,8,20,3,7,7,12,2,1,0,0,E0,2526
+E0,29/09/2025,20:00,Everton,West Ham,1,1,D,1,0,H,S Barrott,12,14,6,3,3,5,3,4,0,0,E0,2526
+E0,03/10/2025,20:00,Bournemouth,Fulham,3,1,H,0,0,D,S Hooper,11,12,6,4,4,3,0,1,0,0,E0,2526
+E0,04/10/2025,12:30,Leeds,Tottenham,1,2,A,1,1,D,T Bramall,16,9,4,3,4,1,2,3,0,0,E0,2526
+E0,04/10/2025,15:00,Arsenal,West Ham,2,0,H,1,0,H,J Brooks,21,4,5,0,8,3,0,2,0,0,E0,2526
+E0,04/10/2025,15:00,Man United,Sunderland,2,0,H,2,0,H,S Attwell,15,8,6,3,2,3,1,4,0,0,E0,2526
+E0,04/10/2025,17:30,Chelsea,Liverpool,2,1,H,1,0,H,A Taylor,12,12,6,2,7,2,0,2,0,0,E0,2526
+E0,05/10/2025,14:00,Aston Villa,Burnley,2,1,H,1,0,H,A Kitchen,15,5,7,2,6,4,3,1,0,0,E0,2526
+E0,05/10/2025,14:00,Everton,Crystal Palace,2,1,H,0,1,A,M Salisbury,14,15,7,8,2,4,2,3,0,0,E0,2526
+E0,05/10/2025,14:00,Newcastle,Nott'm Forest,2,0,H,0,0,D,P Bankes,18,5,9,4,8,1,0,4,0,0,E0,2526
+E0,05/10/2025,14:00,Wolves,Brighton,1,1,D,1,0,H,J Gillett,6,17,3,6,2,8,2,4,0,0,E0,2526
+E0,05/10/2025,16:30,Brentford,Man City,0,1,A,0,1,A,D England,6,10,1,4,3,2,3,2,0,0,E0,2526
+E0,18/10/2025,12:30,Nott'm Forest,Chelsea,0,3,A,0,0,D,C Kavanagh,12,17,2,6,5,2,2,2,0,1,E0,2526
+E0,18/10/2025,15:00,Brighton,Newcastle,2,1,H,1,0,H,C Pawson,13,16,5,3,8,4,0,1,0,0,E0,2526
+E0,18/10/2025,15:00,Burnley,Leeds,2,0,H,1,0,H,T Robinson,4,19,3,4,1,5,2,1,0,0,E0,2526
+E0,18/10/2025,15:00,Crystal Palace,Bournemouth,3,3,D,0,2,A,J Gillett,20,8,7,5,6,5,1,4,0,0,E0,2526
+E0,18/10/2025,15:00,Man City,Everton,2,0,H,0,0,D,T Harrington,19,5,7,1,11,3,0,2,0,0,E0,2526
+E0,18/10/2025,15:00,Sunderland,Wolves,2,0,H,1,0,H,R Jones,8,16,2,3,3,2,0,0,0,0,E0,2526
+E0,18/10/2025,17:30,Fulham,Arsenal,0,1,A,0,0,D,A Taylor,9,16,0,5,6,10,0,0,0,0,E0,2526
+E0,19/10/2025,14:00,Tottenham,Aston Villa,1,2,A,1,1,D,S Hooper,9,8,3,2,6,6,2,0,0,0,E0,2526
+E0,19/10/2025,16:30,Liverpool,Man United,1,2,A,0,1,A,M Oliver,19,12,6,4,9,4,0,2,0,0,E0,2526
+E0,20/10/2025,20:00,West Ham,Brentford,0,2,A,0,1,A,A Madley,7,22,1,7,6,10,1,1,0,0,E0,2526
+E0,24/10/2025,20:00,Leeds,West Ham,2,1,H,2,0,H,S Attwell,13,9,5,3,3,4,3,3,0,0,E0,2526
+E0,25/10/2025,15:00,Chelsea,Sunderland,1,2,A,1,1,D,A Madley,16,10,7,4,9,1,1,1,0,0,E0,2526
+E0,25/10/2025,15:00,Newcastle,Fulham,2,1,H,1,0,H,P Bankes,18,12,7,5,4,3,0,2,0,0,E0,2526
+E0,25/10/2025,17:30,Man United,Brighton,4,2,H,2,0,H,A Taylor,13,17,9,5,1,6,2,2,0,0,E0,2526
+E0,25/10/2025,20:00,Brentford,Liverpool,3,2,H,2,1,H,S Hooper,17,18,8,5,5,4,3,2,0,0,E0,2526
+E0,26/10/2025,14:00,Arsenal,Crystal Palace,1,0,H,1,0,H,T Bramall,10,7,3,1,4,3,0,0,0,0,E0,2526
+E0,26/10/2025,14:00,Aston Villa,Man City,1,0,H,1,0,H,M Oliver,9,18,3,4,5,6,1,4,0,0,E0,2526
+E0,26/10/2025,14:00,Bournemouth,Nott'm Forest,2,0,H,2,0,H,S Barrott,13,8,5,4,6,4,3,1,0,0,E0,2526
+E0,26/10/2025,14:00,Wolves,Burnley,2,3,A,2,2,D,T Harrington,15,11,7,7,5,3,1,0,0,0,E0,2526
+E0,26/10/2025,16:30,Everton,Tottenham,0,3,A,0,2,A,C Pawson,12,7,2,4,9,8,2,0,0,0,E0,2526
+E0,01/11/2025,15:00,Brighton,Leeds,3,0,H,1,0,H,M Oliver,14,5,7,2,4,7,0,1,0,0,E0,2526
+E0,01/11/2025,15:00,Burnley,Arsenal,0,2,A,0,2,A,C Kavanagh,3,12,0,8,1,6,2,1,0,0,E0,2526
+E0,01/11/2025,15:00,Crystal Palace,Brentford,2,0,H,1,0,H,P Bankes,9,6,2,2,6,5,0,3,0,0,E0,2526
+E0,01/11/2025,15:00,Fulham,Wolves,3,0,H,1,0,H,J Brooks,19,5,6,2,10,1,1,3,0,1,E0,2526
+E0,01/11/2025,15:00,Nott'm Forest,Man United,2,2,D,0,1,A,D England,17,18,3,7,8,5,1,1,0,0,E0,2526
+E0,01/11/2025,17:30,Tottenham,Chelsea,0,1,A,0,1,A,J Gillett,3,15,1,9,6,5,4,2,0,0,E0,2526
+E0,01/11/2025,20:00,Liverpool,Aston Villa,2,0,H,1,0,H,S Attwell,16,10,4,3,1,4,2,3,0,0,E0,2526
+E0,02/11/2025,14:00,West Ham,Newcastle,3,1,H,2,1,H,R Jones,15,12,9,4,7,6,1,2,0,0,E0,2526
+E0,02/11/2025,16:30,Man City,Bournemouth,3,1,H,2,1,H,A Taylor,15,8,8,5,10,4,2,2,0,0,E0,2526
+E0,03/11/2025,20:00,Sunderland,Everton,1,1,D,0,1,A,T Bramall,17,8,3,2,4,1,3,2,0,0,E0,2526
+E0,08/11/2025,12:30,Tottenham,Man United,2,2,D,0,1,A,S Barrott,10,5,4,2,5,3,5,1,0,0,E0,2526
+E0,08/11/2025,15:00,Everton,Fulham,2,0,H,1,0,H,A Madley,14,8,5,4,7,5,2,2,0,0,E0,2526
+E0,08/11/2025,15:00,West Ham,Burnley,3,2,H,1,1,D,M Salisbury,15,16,6,7,7,4,2,2,0,0,E0,2526
+E0,08/11/2025,17:30,Sunderland,Arsenal,2,2,D,1,0,H,C Pawson,6,17,2,7,2,2,2,1,0,0,E0,2526
+E0,08/11/2025,20:00,Chelsea,Wolves,3,0,H,0,0,D,A Kitchen,20,3,8,0,10,1,1,2,0,0,E0,2526
+E0,09/11/2025,14:00,Aston Villa,Bournemouth,4,0,H,2,0,H,J Brooks,16,13,8,4,6,9,2,2,0,0,E0,2526
+E0,09/11/2025,14:00,Brentford,Newcastle,3,1,H,0,1,A,S Attwell,15,5,7,1,6,2,2,1,0,0,E0,2526
+E0,09/11/2025,14:00,Crystal Palace,Brighton,0,0,D,0,0,D,T Robinson,10,7,2,3,4,8,1,4,0,0,E0,2526
+E0,09/11/2025,14:00,Nott'm Forest,Leeds,3,1,H,1,1,D,J Gillett,14,10,6,3,6,4,2,1,0,0,E0,2526
+E0,09/11/2025,16:30,Man City,Liverpool,3,0,H,2,0,H,C Kavanagh,14,7,6,1,7,7,2,4,0,0,E0,2526
+E0,22/11/2025,12:30,Burnley,Chelsea,0,2,A,0,1,A,P Bankes,8,15,2,5,1,9,2,3,0,0,E0,2526
+E0,22/11/2025,15:00,Bournemouth,West Ham,2,2,D,0,2,A,T Bramall,28,5,10,2,9,2,3,2,0,0,E0,2526
+E0,22/11/2025,15:00,Brighton,Brentford,2,1,H,0,1,A,C Kavanagh,14,10,5,4,7,4,4,2,0,0,E0,2526
+E0,22/11/2025,15:00,Fulham,Sunderland,1,0,H,0,0,D,D England,24,4,6,2,7,4,3,3,0,0,E0,2526
+E0,22/11/2025,15:00,Liverpool,Nott'm Forest,0,3,A,0,1,A,A Madley,21,15,4,7,8,6,2,0,0,0,E0,2526
+E0,22/11/2025,15:00,Wolves,Crystal Palace,0,2,A,0,0,D,A Taylor,8,10,1,4,1,4,2,3,0,0,E0,2526
+E0,22/11/2025,17:30,Newcastle,Man City,2,1,H,0,0,D,S Barrott,9,17,5,4,5,9,1,3,0,0,E0,2526
+E0,23/11/2025,14:00,Leeds,Aston Villa,1,2,A,1,0,H,R Jones,14,14,5,3,3,3,5,1,0,0,E0,2526
+E0,23/11/2025,16:30,Arsenal,Tottenham,4,1,H,2,0,H,M Oliver,17,3,8,2,4,1,1,3,0,0,E0,2526
+E0,24/11/2025,20:00,Man United,Everton,0,1,A,0,1,A,T Harrington,25,3,6,1,9,1,2,0,0,1,E0,2526
+E0,29/11/2025,15:00,Brentford,Burnley,3,1,H,0,0,D,S Barrott,14,6,4,2,5,6,0,2,0,0,E0,2526
+E0,29/11/2025,15:00,Man City,Leeds,3,2,H,2,0,H,P Bankes,18,9,9,4,8,1,4,1,0,0,E0,2526
+E0,29/11/2025,15:00,Sunderland,Bournemouth,3,2,H,1,2,A,T Robinson,12,18,6,6,6,3,5,5,0,1,E0,2526
+E0,29/11/2025,17:30,Everton,Newcastle,1,4,A,0,3,A,C Pawson,10,13,2,8,8,7,0,0,0,0,E0,2526
+E0,29/11/2025,20:00,Tottenham,Fulham,1,2,A,0,2,A,S Attwell,14,7,2,3,8,2,3,2,0,0,E0,2526
+E0,30/11/2025,12:00,Crystal Palace,Man United,1,2,A,1,0,H,R Jones,14,14,3,6,4,4,3,2,0,0,E0,2526
+E0,30/11/2025,14:05,Aston Villa,Wolves,1,0,H,0,0,D,C Kavanagh,16,9,6,4,7,3,0,4,0,0,E0,2526
+E0,30/11/2025,14:05,Nott'm Forest,Brighton,0,2,A,0,1,A,M Oliver,19,17,3,6,9,2,0,1,0,0,E0,2526
+E0,30/11/2025,14:05,West Ham,Liverpool,0,2,A,0,0,D,D England,7,9,0,5,7,2,1,0,1,0,E0,2526
+E0,30/11/2025,16:30,Chelsea,Arsenal,1,1,D,0,0,D,A Taylor,11,8,4,4,3,3,1,6,1,0,E0,2526
+E0,02/12/2025,19:30,Bournemouth,Everton,0,1,A,0,0,D,M Salisbury,5,13,2,3,1,6,3,3,0,0,E0,2526
+E0,02/12/2025,19:30,Fulham,Man City,4,5,A,1,3,A,C Pawson,12,11,6,4,7,2,0,1,0,0,E0,2526
+E0,02/12/2025,20:15,Newcastle,Tottenham,2,2,D,0,0,D,T Bramall,19,8,7,2,11,8,0,3,0,0,E0,2526
+E0,03/12/2025,19:30,Arsenal,Brentford,2,0,H,1,0,H,T Harrington,15,6,7,1,4,8,0,1,0,0,E0,2526
+E0,03/12/2025,19:30,Brighton,Aston Villa,3,4,A,2,2,D,A Madley,16,14,7,10,5,6,2,2,0,0,E0,2526
+E0,03/12/2025,19:30,Burnley,Crystal Palace,0,1,A,0,1,A,T Kirk,11,3,4,3,3,4,0,0,0,0,E0,2526
+E0,03/12/2025,19:30,Wolves,Nott'm Forest,0,1,A,0,0,D,T Robinson,5,10,1,3,3,9,2,2,0,0,E0,2526
+E0,03/12/2025,20:15,Leeds,Chelsea,3,1,H,2,0,H,D England,17,14,5,2,4,2,1,1,0,0,E0,2526
+E0,03/12/2025,20:15,Liverpool,Sunderland,1,1,D,0,0,D,S Attwell,23,9,4,6,7,3,1,1,0,0,E0,2526
+E0,04/12/2025,20:00,Man United,West Ham,1,1,D,0,0,D,A Kitchen,17,11,4,3,6,6,2,2,0,0,E0,2526
+E0,06/12/2025,12:30,Aston Villa,Arsenal,2,1,H,1,0,H,P Bankes,15,15,6,9,3,3,0,2,0,0,E0,2526
+E0,06/12/2025,15:00,Bournemouth,Chelsea,0,0,D,0,0,D,M Oliver,13,11,5,4,5,0,0,2,0,0,E0,2526
+E0,06/12/2025,15:00,Everton,Nott'm Forest,3,0,H,2,0,H,C Kavanagh,11,7,5,3,6,3,4,3,0,0,E0,2526
+E0,06/12/2025,15:00,Man City,Sunderland,3,0,H,2,0,H,A Madley,18,8,6,1,6,5,1,0,0,1,E0,2526
+E0,06/12/2025,15:00,Newcastle,Burnley,2,1,H,2,0,H,S Attwell,17,9,7,3,9,9,2,2,0,1,E0,2526
+E0,06/12/2025,15:00,Tottenham,Brentford,2,0,H,2,0,H,R Jones,15,4,7,1,7,6,3,4,0,0,E0,2526
+E0,06/12/2025,17:30,Leeds,Liverpool,3,3,D,0,0,D,A Taylor,12,16,5,7,5,4,3,3,0,0,E0,2526
+E0,07/12/2025,14:00,Brighton,West Ham,1,1,D,0,0,D,S Hooper,22,14,4,5,10,6,2,2,0,0,E0,2526
+E0,07/12/2025,16:30,Fulham,Crystal Palace,1,2,A,1,1,D,S Barrott,12,11,4,5,6,4,0,0,0,0,E0,2526
+E0,08/12/2025,20:00,Wolves,Man United,1,4,A,1,1,D,M Salisbury,8,27,2,10,1,9,3,2,0,0,E0,2526
+E0,13/12/2025,15:00,Chelsea,Everton,2,0,H,2,0,H,T Bramall,17,11,5,2,4,7,1,0,0,0,E0,2526
+E0,13/12/2025,15:00,Liverpool,Brighton,2,0,H,1,0,H,C Pawson,18,14,4,1,2,2,1,2,0,0,E0,2526
+E0,13/12/2025,17:30,Burnley,Fulham,2,3,A,1,2,A,M Oliver,16,6,8,4,10,4,1,2,0,0,E0,2526
+E0,13/12/2025,20:00,Arsenal,Wolves,2,1,H,0,0,D,R Jones,16,3,2,2,8,0,0,4,0,0,E0,2526
+E0,14/12/2025,14:00,Crystal Palace,Man City,0,3,A,0,1,A,D England,16,7,4,6,2,2,2,0,0,0,E0,2526
+E0,14/12/2025,14:00,Nott'm Forest,Tottenham,3,0,H,1,0,H,S Barrott,15,6,6,1,3,3,1,3,0,0,E0,2526
+E0,14/12/2025,14:00,Sunderland,Newcastle,1,0,H,0,0,D,P Bankes,5,6,1,2,3,6,5,4,0,0,E0,2526
+E0,14/12/2025,14:00,West Ham,Aston Villa,2,3,A,2,1,H,A Taylor,10,7,3,4,5,3,1,2,0,0,E0,2526
+E0,14/12/2025,16:30,Brentford,Leeds,1,1,D,0,0,D,J Brooks,7,18,2,4,0,3,0,0,0,0,E0,2526
+E0,15/12/2025,20:00,Man United,Bournemouth,4,4,D,2,1,H,S Hooper,25,14,9,9,5,4,2,3,0,0,E0,2526
+E0,20/12/2025,12:30,Newcastle,Chelsea,2,2,D,2,0,H,A Madley,11,13,5,4,6,4,3,6,0,0,E0,2526
+E0,20/12/2025,15:00,Bournemouth,Burnley,1,1,D,0,0,D,C Kavanagh,16,4,1,1,5,3,1,1,0,0,E0,2526
+E0,20/12/2025,15:00,Brighton,Sunderland,0,0,D,0,0,D,D England,16,14,4,6,3,4,2,2,0,0,E0,2526
+E0,20/12/2025,15:00,Man City,West Ham,3,0,H,2,0,H,P Tierney,17,7,8,3,6,0,1,1,0,0,E0,2526
+E0,20/12/2025,15:00,Wolves,Brentford,0,2,A,0,0,D,M Donohue,9,7,2,6,3,4,2,4,0,0,E0,2526
+E0,20/12/2025,17:30,Tottenham,Liverpool,1,2,A,0,0,D,J Brooks,15,8,4,4,2,6,3,3,2,0,E0,2526
+E0,20/12/2025,20:00,Everton,Arsenal,0,1,A,0,1,A,S Barrott,5,13,1,2,2,3,2,2,0,0,E0,2526
+E0,20/12/2025,20:00,Leeds,Crystal Palace,4,1,H,2,0,H,T Bramall,20,9,8,3,9,5,1,3,0,0,E0,2526
+E0,21/12/2025,16:30,Aston Villa,Man United,2,1,H,1,1,D,M Oliver,12,15,4,6,5,5,1,2,0,0,E0,2526
+E0,22/12/2025,20:00,Fulham,Nott'm Forest,1,0,H,1,0,H,A Taylor,11,12,1,2,1,5,5,4,0,0,E0,2526
+E0,26/12/2025,20:00,Man United,Newcastle,1,0,H,1,0,H,A Taylor,10,16,4,3,2,11,2,1,0,0,E0,2526
+E0,27/12/2025,12:30,Nott'm Forest,Man City,1,2,A,0,0,D,R Jones,7,16,2,5,5,5,1,2,0,0,E0,2526
+E0,27/12/2025,15:00,Arsenal,Brighton,2,1,H,1,0,H,J Brooks,24,8,6,3,7,2,2,3,0,0,E0,2526
+E0,27/12/2025,15:00,Brentford,Bournemouth,4,1,H,2,0,H,P Bankes,15,20,7,10,2,15,2,2,0,0,E0,2526
+E0,27/12/2025,15:00,Burnley,Everton,0,0,D,0,0,D,C Pawson,16,15,0,6,6,5,0,2,0,0,E0,2526
+E0,27/12/2025,15:00,Liverpool,Wolves,2,1,H,2,0,H,S Hooper,14,9,4,4,6,4,0,1,0,0,E0,2526
+E0,27/12/2025,15:00,West Ham,Fulham,0,1,A,0,0,D,C Kavanagh,11,15,2,4,5,4,1,3,0,0,E0,2526
+E0,27/12/2025,17:30,Chelsea,Aston Villa,1,2,A,1,0,H,S Attwell,14,11,3,8,6,7,5,3,0,0,E0,2526
+E0,28/12/2025,14:00,Sunderland,Leeds,1,1,D,1,0,H,T Harrington,8,17,3,6,3,9,1,0,0,0,E0,2526
+E0,28/12/2025,16:30,Crystal Palace,Tottenham,0,1,A,0,1,A,J Gillett,15,8,2,4,3,2,3,2,0,0,E0,2526
+E0,30/12/2025,19:30,Burnley,Newcastle,1,3,A,1,2,A,R Jones,15,20,4,9,3,4,2,1,0,0,E0,2526
+E0,30/12/2025,19:30,Chelsea,Bournemouth,2,2,D,2,2,D,S Barrott,17,17,3,6,12,3,1,1,0,0,E0,2526
+E0,30/12/2025,19:30,Nott'm Forest,Everton,0,2,A,0,1,A,M Oliver,21,11,6,3,9,2,1,0,0,0,E0,2526
+E0,30/12/2025,19:30,West Ham,Brighton,2,2,D,2,1,H,M Salisbury,10,16,4,6,5,5,3,5,0,0,E0,2526
+E0,30/12/2025,20:15,Arsenal,Aston Villa,4,1,H,0,0,D,D England,22,11,7,3,3,3,2,3,0,0,E0,2526
+E0,30/12/2025,20:15,Man United,Wolves,1,1,D,1,1,D,T Bramall,15,11,6,4,8,4,0,2,0,0,E0,2526
+E0,01/01/2026,17:30,Crystal Palace,Fulham,1,1,D,1,0,H,T Harrington,11,17,2,5,6,3,0,5,0,0,E0,2526
+E0,01/01/2026,17:30,Liverpool,Leeds,0,0,D,0,0,D,C Kavanagh,19,4,4,2,8,3,0,2,0,0,E0,2526
+E0,01/01/2026,20:00,Brentford,Tottenham,0,0,D,0,0,D,A Madley,7,9,2,3,3,1,1,2,0,0,E0,2526
+E0,01/01/2026,20:00,Sunderland,Man City,0,0,D,0,0,D,J Gillett,10,14,4,4,3,5,1,1,0,0,E0,2526
+E0,03/01/2026,12:30,Aston Villa,Nott'm Forest,3,1,H,1,0,H,S Hooper,11,10,4,5,4,4,1,2,0,0,E0,2526
+E0,03/01/2026,15:00,Brighton,Burnley,2,0,H,1,0,H,T Robinson,15,5,4,3,4,4,0,4,0,0,E0,2526
+E0,03/01/2026,15:00,Wolves,West Ham,3,0,H,3,0,H,P Bankes,11,6,8,0,6,7,1,0,0,0,E0,2526
+E0,03/01/2026,17:30,Bournemouth,Arsenal,2,3,A,1,1,D,C Kavanagh,15,12,3,5,7,5,3,1,0,0,E0,2526
+E0,04/01/2026,12:30,Leeds,Man United,1,1,D,0,0,D,J Gillett,11,15,3,2,6,4,0,1,0,0,E0,2526
+E0,04/01/2026,15:00,Everton,Brentford,2,4,A,0,1,A,A Taylor,14,11,6,7,4,5,0,2,0,0,E0,2526
+E0,04/01/2026,15:00,Newcastle,Crystal Palace,2,0,H,0,0,D,J Brooks,12,11,7,1,8,6,1,3,0,0,E0,2526
+E0,04/01/2026,15:00,Tottenham,Sunderland,1,1,D,1,0,H,S Attwell,13,10,5,3,3,5,2,3,0,0,E0,2526
+E0,04/01/2026,15:15,Fulham,Liverpool,2,2,D,1,0,H,C Pawson,8,10,2,2,3,8,1,1,0,0,E0,2526
+E0,04/01/2026,17:30,Man City,Chelsea,1,1,D,1,0,H,M Oliver,14,8,3,3,8,2,3,3,0,0,E0,2526
+E0,06/01/2026,20:00,West Ham,Nott'm Forest,1,2,A,1,0,H,T Harrington,14,13,3,5,6,5,3,0,0,0,E0,2526
+E0,07/01/2026,19:30,Bournemouth,Tottenham,3,2,H,2,1,H,D England,11,16,3,4,3,7,3,3,0,0,E0,2526
+E0,07/01/2026,19:30,Brentford,Sunderland,3,0,H,1,0,H,M Donohue,18,11,6,3,7,4,2,1,0,0,E0,2526
+E0,07/01/2026,19:30,Crystal Palace,Aston Villa,0,0,D,0,0,D,A Madley,11,15,5,3,3,5,2,0,0,0,E0,2526
+E0,07/01/2026,19:30,Everton,Wolves,1,1,D,1,0,H,T Kirk,13,13,2,4,2,7,1,3,2,0,E0,2526
+E0,07/01/2026,19:30,Fulham,Chelsea,2,1,H,0,0,D,P Bankes,16,14,5,6,2,11,3,3,0,1,E0,2526
+E0,07/01/2026,19:30,Man City,Brighton,1,1,D,1,0,H,T Bramall,22,6,6,3,6,2,1,6,0,0,E0,2526
+E0,07/01/2026,20:15,Burnley,Man United,2,2,D,1,0,H,S Attwell,7,30,1,10,2,6,2,0,0,0,E0,2526
+E0,07/01/2026,20:15,Newcastle,Leeds,4,3,H,1,2,A,M Salisbury,18,14,8,6,8,4,3,2,0,0,E0,2526
+E0,08/01/2026,20:00,Arsenal,Liverpool,0,0,D,0,0,D,A Taylor,9,8,4,0,3,0,2,2,0,0,E0,2526
+E0,17/01/2026,12:30,Man United,Man City,2,0,H,0,0,D,A Taylor,11,7,7,1,1,6,2,3,0,0,E0,2526
+E0,17/01/2026,15:00,Chelsea,Brentford,2,0,H,1,0,H,J Brooks,6,15,2,5,3,9,3,2,0,0,E0,2526
+E0,17/01/2026,15:00,Leeds,Fulham,1,0,H,0,0,D,C Kavanagh,14,8,5,1,7,3,1,5,0,0,E0,2526
+E0,17/01/2026,15:00,Liverpool,Burnley,1,1,D,1,0,H,A Madley,32,7,11,1,9,1,1,2,0,0,E0,2526
+E0,17/01/2026,15:00,Sunderland,Crystal Palace,2,1,H,1,1,D,R Jones,13,6,7,2,3,4,3,3,0,0,E0,2526
+E0,17/01/2026,15:00,Tottenham,West Ham,1,2,A,0,1,A,J Gillett,21,17,6,4,11,5,5,3,0,0,E0,2526
+E0,17/01/2026,17:30,Nott'm Forest,Arsenal,0,0,D,0,0,D,M Oliver,6,15,0,3,4,9,1,1,0,0,E0,2526
+E0,18/01/2026,14:00,Wolves,Newcastle,0,0,D,0,0,D,S Barrott,6,12,2,2,4,7,2,2,0,0,E0,2526
+E0,18/01/2026,16:30,Aston Villa,Everton,0,1,A,0,0,D,T Harrington,18,9,5,3,6,4,1,2,0,0,E0,2526
+E0,19/01/2026,20:00,Brighton,Bournemouth,1,1,D,0,1,A,P Tierney,17,11,5,2,11,6,2,3,0,0,E0,2526
+E0,24/01/2026,12:30,West Ham,Sunderland,3,1,H,3,0,H,T Bramall,13,7,5,2,3,3,2,4,0,0,E0,2526
+E0,24/01/2026,15:00,Burnley,Tottenham,2,2,D,1,1,D,P Bankes,9,18,4,11,1,3,1,0,0,0,E0,2526
+E0,24/01/2026,15:00,Fulham,Brighton,2,1,H,0,1,A,M Oliver,12,13,4,5,6,6,1,1,0,0,E0,2526
+E0,24/01/2026,15:00,Man City,Wolves,2,0,H,2,0,H,F Hallam,11,11,4,1,4,6,1,3,0,0,E0,2526
+E0,24/01/2026,17:30,Bournemouth,Liverpool,3,2,H,2,1,H,M Salisbury,12,14,5,4,3,11,1,1,0,0,E0,2526
+E0,25/01/2026,14:00,Brentford,Nott'm Forest,0,2,A,0,1,A,S Barrott,10,7,1,2,6,5,1,0,0,0,E0,2526
+E0,25/01/2026,14:00,Crystal Palace,Chelsea,1,3,A,0,1,A,D England,13,10,7,6,4,5,2,2,1,0,E0,2526
+E0,25/01/2026,14:00,Newcastle,Aston Villa,0,2,A,0,1,A,J Gillett,15,14,4,8,6,5,1,2,0,0,E0,2526
+E0,25/01/2026,16:30,Arsenal,Man United,2,3,A,1,1,D,C Pawson,15,10,4,3,9,2,2,0,0,0,E0,2526
+E0,26/01/2026,20:00,Everton,Leeds,1,1,D,0,1,A,S Hooper,10,14,3,4,4,4,0,3,0,0,E0,2526
+E0,31/01/2026,15:00,Brighton,Everton,1,1,D,0,0,D,C Kavanagh,11,7,2,4,5,2,1,2,0,0,E0,2526
+E0,31/01/2026,15:00,Leeds,Arsenal,0,4,A,0,2,A,S Attwell,3,14,1,8,4,12,1,1,0,0,E0,2526
+E0,31/01/2026,15:00,Wolves,Bournemouth,0,2,A,0,1,A,M Oliver,17,9,7,4,5,6,3,3,0,0,E0,2526
+E0,31/01/2026,17:30,Chelsea,West Ham,3,2,H,0,2,A,A Taylor,14,11,6,6,9,3,3,2,0,1,E0,2526
+E0,31/01/2026,20:00,Liverpool,Newcastle,4,1,H,2,1,H,S Hooper,17,8,7,2,7,11,1,3,0,0,E0,2526
+E0,01/02/2026,14:00,Aston Villa,Brentford,0,1,A,0,1,A,T Robinson,27,6,5,2,12,1,0,3,0,0,E0,2526
+E0,01/02/2026,14:00,Man United,Fulham,3,2,H,1,0,H,J Brooks,13,14,6,6,3,7,2,1,0,0,E0,2526
+E0,01/02/2026,14:00,Nott'm Forest,Crystal Palace,1,1,D,1,1,D,M Salisbury,9,14,1,3,5,7,1,3,0,0,E0,2526
+E0,01/02/2026,16:30,Tottenham,Man City,2,2,D,0,2,A,R Jones,12,15,6,3,3,4,3,3,0,0,E0,2526
+E0,02/02/2026,20:00,Sunderland,Burnley,3,0,H,2,0,H,P Tierney,14,5,5,0,1,2,1,4,0,0,E0,2526
+E0,06/02/2026,20:00,Leeds,Nott'm Forest,3,1,H,2,0,H,P Bankes,14,16,5,6,5,10,1,1,0,0,E0,2526
+E0,07/02/2026,12:30,Man United,Tottenham,2,0,H,1,0,H,M Oliver,23,7,10,1,7,0,1,2,0,1,E0,2526
+E0,07/02/2026,15:00,Arsenal,Sunderland,3,0,H,1,0,H,S Barrott,16,5,5,3,5,2,1,2,0,0,E0,2526
+E0,07/02/2026,15:00,Bournemouth,Aston Villa,1,1,D,0,1,A,A Taylor,20,7,9,4,11,4,1,1,0,0,E0,2526
+E0,07/02/2026,15:00,Burnley,West Ham,0,2,A,0,2,A,D England,18,6,5,4,5,2,3,1,0,0,E0,2526
+E0,07/02/2026,15:00,Fulham,Everton,1,2,A,1,0,H,S Attwell,13,16,3,3,6,6,1,5,0,0,E0,2526
+E0,07/02/2026,15:00,Wolves,Chelsea,1,3,A,0,3,A,J Gillett,11,15,3,6,3,4,1,1,0,0,E0,2526
+E0,07/02/2026,17:30,Newcastle,Brentford,2,3,A,1,2,A,A Madley,16,11,4,5,9,3,2,2,0,0,E0,2526
+E0,08/02/2026,14:00,Brighton,Crystal Palace,0,1,A,0,0,D,T Bramall,7,7,2,4,3,4,1,3,0,0,E0,2526
+E0,08/02/2026,16:30,Liverpool,Man City,1,2,A,0,0,D,C Pawson,15,17,4,7,5,4,2,4,1,0,E0,2526
+E0,10/02/2026,19:30,Chelsea,Leeds,2,2,D,1,0,H,R Jones,19,4,4,2,4,1,4,4,0,0,E0,2526
+E0,10/02/2026,19:30,Everton,Bournemouth,1,2,A,1,0,H,A Madley,16,11,6,4,7,2,1,3,1,0,E0,2526
+E0,10/02/2026,19:30,Tottenham,Newcastle,1,2,A,0,1,A,A Taylor,16,21,2,5,2,12,3,2,0,0,E0,2526
+E0,10/02/2026,20:15,West Ham,Man United,1,1,D,0,0,D,S Hooper,7,9,3,3,5,3,1,1,0,0,E0,2526
+E0,11/02/2026,19:30,Aston Villa,Brighton,1,0,H,0,0,D,P Bankes,15,9,1,3,7,5,2,3,0,0,E0,2526
+E0,11/02/2026,19:30,Crystal Palace,Burnley,2,3,A,2,3,A,F Hallam,21,8,3,3,8,2,2,1,0,0,E0,2526
+E0,11/02/2026,19:30,Man City,Fulham,3,0,H,3,0,H,P Tierney,13,14,5,3,4,4,3,1,0,0,E0,2526
+E0,11/02/2026,19:30,Nott'm Forest,Wolves,0,0,D,0,0,D,T Robinson,35,7,10,3,8,2,0,2,0,0,E0,2526
+E0,11/02/2026,20:15,Sunderland,Liverpool,0,1,A,0,0,D,C Kavanagh,11,23,2,3,3,11,1,0,0,0,E0,2526
+E0,12/02/2026,20:00,Brentford,Arsenal,1,1,D,0,0,D,J Brooks,12,7,3,2,6,4,3,2,0,0,E0,2526
+E0,18/02/2026,20:00,Wolves,Arsenal,2,2,D,0,1,A,P Tierney,5,10,2,4,1,3,2,1,0,0,E0,2526
+E0,21/02/2026,15:00,Aston Villa,Leeds,1,1,D,0,1,A,M Oliver,16,14,4,4,7,2,1,4,0,0,E0,2526
+E0,21/02/2026,15:00,Brentford,Brighton,0,2,A,0,2,A,J Gillett,13,11,3,7,6,4,1,2,0,0,E0,2526
+E0,21/02/2026,15:00,Chelsea,Burnley,1,1,D,1,0,H,L Smith,12,12,2,4,9,5,2,2,1,0,E0,2526
+E0,21/02/2026,17:30,West Ham,Bournemouth,0,0,D,0,0,D,S Barrott,20,10,3,5,9,5,1,1,0,0,E0,2526
+E0,21/02/2026,20:00,Man City,Newcastle,2,1,H,2,1,H,T Bramall,15,13,7,7,5,5,2,5,0,0,E0,2526
+E0,22/02/2026,14:00,Crystal Palace,Wolves,1,0,H,0,0,D,T Kirk,14,12,3,7,7,3,5,1,0,1,E0,2526
+E0,22/02/2026,14:00,Nott'm Forest,Liverpool,0,1,A,0,0,D,A Taylor,18,10,2,4,7,2,2,0,0,0,E0,2526
+E0,22/02/2026,14:00,Sunderland,Fulham,1,3,A,0,0,D,C Pawson,12,12,2,4,6,4,1,1,0,0,E0,2526
+E0,22/02/2026,16:30,Tottenham,Arsenal,1,4,A,1,1,D,P Bankes,6,20,5,7,2,5,2,1,0,0,E0,2526
+E0,23/02/2026,20:00,Everton,Man United,0,1,A,0,0,D,D England,12,11,4,3,10,1,2,3,0,0,E0,2526
+E0,27/02/2026,20:00,Wolves,Aston Villa,2,0,H,0,0,D,C Pawson,9,14,2,5,0,5,3,3,0,0,E0,2526
+E0,28/02/2026,12:30,Bournemouth,Sunderland,1,1,D,0,1,A,J Gillett,21,8,5,4,7,3,4,2,0,0,E0,2526
+E0,28/02/2026,15:00,Burnley,Brentford,3,4,A,1,3,A,S Barrott,12,16,3,7,4,8,2,2,0,0,E0,2526
+E0,28/02/2026,15:00,Liverpool,West Ham,5,2,H,3,0,H,T Robinson,18,11,7,4,10,5,2,2,0,0,E0,2526
+E0,28/02/2026,15:00,Newcastle,Everton,2,3,A,1,2,A,S Attwell,17,9,7,5,7,2,2,3,0,0,E0,2526
+E0,28/02/2026,17:30,Leeds,Man City,0,1,A,0,1,A,P Bankes,14,14,2,5,5,3,0,3,0,0,E0,2526
+E0,01/03/2026,14:00,Brighton,Nott'm Forest,2,1,H,2,1,H,A Madley,14,13,7,4,4,4,3,1,0,0,E0,2526
+E0,01/03/2026,14:00,Fulham,Tottenham,2,1,H,2,0,H,T Bramall,18,13,4,1,5,8,3,3,0,0,E0,2526
+E0,01/03/2026,14:00,Man United,Crystal Palace,2,1,H,0,1,A,C Kavanagh,20,8,11,3,7,1,2,2,0,1,E0,2526
+E0,01/03/2026,16:30,Arsenal,Chelsea,2,1,H,1,1,D,D England,12,9,5,3,5,10,1,3,0,1,E0,2526
+E0,03/03/2026,19:30,Bournemouth,Brentford,0,0,D,0,0,D,C Pawson,13,5,2,2,4,3,2,1,0,0,E0,2526
+E0,03/03/2026,19:30,Everton,Burnley,2,0,H,1,0,H,T Robinson,14,5,5,2,6,3,0,1,0,0,E0,2526
+E0,03/03/2026,19:30,Leeds,Sunderland,0,1,A,0,0,D,S Attwell,18,3,4,1,9,2,1,3,0,0,E0,2526
+E0,03/03/2026,20:15,Wolves,Liverpool,2,1,H,0,0,D,T Bramall,4,19,3,7,2,11,2,1,0,0,E0,2526
+E0,04/03/2026,19:30,Aston Villa,Chelsea,1,4,A,1,2,A,J Gillett,9,15,4,8,3,8,3,2,0,0,E0,2526
+E0,04/03/2026,19:30,Brighton,Arsenal,0,1,A,0,1,A,C Kavanagh,11,7,3,2,4,3,4,1,0,0,E0,2526
+E0,04/03/2026,19:30,Fulham,West Ham,0,1,A,0,0,D,M Donohue,13,9,5,3,7,5,2,4,0,0,E0,2526
+E0,04/03/2026,19:30,Man City,Nott'm Forest,2,2,D,1,0,H,D England,21,9,7,4,6,1,0,4,0,0,E0,2526
+E0,04/03/2026,20:15,Newcastle,Man United,2,1,H,1,1,D,P Bankes,12,14,5,5,2,4,2,3,1,0,E0,2526
+E0,05/03/2026,20:00,Tottenham,Crystal Palace,1,3,A,1,3,A,A Madley,12,9,4,4,6,3,3,2,0,0,E0,2526
+E0,14/03/2026,15:00,Burnley,Bournemouth,0,0,D,0,0,D,P Bankes,15,22,2,3,5,8,1,0,0,0,E0,2526
+E0,14/03/2026,15:00,Sunderland,Brighton,0,1,A,0,0,D,T Kirk,14,12,4,4,7,3,1,2,0,0,E0,2526
+E0,14/03/2026,17:30,Arsenal,Everton,2,0,H,0,0,D,A Madley,25,9,7,3,8,3,0,0,0,0,E0,2526
+E0,14/03/2026,17:30,Chelsea,Newcastle,0,1,A,0,1,A,P Tierney,22,7,3,5,8,1,2,2,0,0,E0,2526
+E0,14/03/2026,20:00,West Ham,Man City,1,1,D,1,1,D,M Oliver,1,24,1,6,1,15,2,2,0,0,E0,2526
+E0,15/03/2026,14:00,Crystal Palace,Leeds,0,0,D,0,0,D,T Bramall,12,10,0,3,8,3,2,1,0,1,E0,2526
+E0,15/03/2026,14:00,Man United,Aston Villa,3,1,H,0,0,D,A Taylor,16,9,6,2,6,6,3,2,0,0,E0,2526
+E0,15/03/2026,14:00,Nott'm Forest,Fulham,0,0,D,0,0,D,S Barrott,11,5,2,0,5,4,2,3,0,0,E0,2526
+E0,15/03/2026,16:30,Liverpool,Tottenham,1,1,D,1,0,H,C Kavanagh,17,13,4,7,3,4,0,0,0,0,E0,2526
+E0,16/03/2026,20:00,Brentford,Wolves,2,2,D,2,1,H,S Attwell,10,13,3,4,1,5,2,4,0,0,E0,2526
+E0,20/03/2026,20:00,Bournemouth,Man United,2,2,D,0,0,D,S Attwell,16,14,5,5,6,8,2,2,0,1,E0,2526
+E0,21/03/2026,12:30,Brighton,Liverpool,2,1,H,1,1,D,D England,16,12,7,5,4,8,5,5,0,0,E0,2526
+E0,21/03/2026,15:00,Fulham,Burnley,3,1,H,0,0,D,C Kavanagh,22,9,6,5,6,6,2,2,0,1,E0,2526
+E0,21/03/2026,17:30,Everton,Chelsea,3,0,H,1,0,H,S Barrott,10,12,9,4,3,9,0,2,0,0,E0,2526
+E0,21/03/2026,20:00,Leeds,Brentford,0,0,D,0,0,D,J Gillett,14,6,4,2,6,2,2,0,0,0,E0,2526
+E0,22/03/2026,12:00,Newcastle,Sunderland,1,2,A,1,0,H,A Taylor,16,17,4,7,9,5,1,6,0,0,E0,2526
+E0,22/03/2026,14:15,Aston Villa,West Ham,2,0,H,1,0,H,P Tierney,23,9,7,1,6,6,0,1,0,0,E0,2526
+E0,22/03/2026,14:15,Tottenham,Nott'm Forest,0,3,A,0,1,A,M Oliver,14,8,3,7,13,3,1,2,0,0,E0,2526
+E0,10/04/2026,20:00,West Ham,Wolves,4,0,H,1,0,H,J Gillett,18,14,7,3,5,2,2,2,0,0,E0,2526
+E0,11/04/2026,12:30,Arsenal,Bournemouth,1,2,A,1,1,D,M Oliver,15,8,3,3,10,1,1,3,0,0,E0,2526
+E0,11/04/2026,15:00,Brentford,Everton,2,2,D,1,1,D,F Hallam,17,14,4,7,2,3,0,2,0,0,E0,2526
+E0,11/04/2026,15:00,Burnley,Brighton,0,2,A,0,1,A,T Bramall,10,13,5,6,8,2,2,1,0,0,E0,2526
+E0,11/04/2026,17:30,Liverpool,Fulham,2,0,H,2,0,H,A Taylor,18,19,5,4,6,9,0,0,0,0,E0,2526
+E0,12/04/2026,14:00,Crystal Palace,Newcastle,2,1,H,0,1,A,A Madley,11,7,5,3,2,4,0,3,0,0,E0,2526
+E0,12/04/2026,14:00,Nott'm Forest,Aston Villa,1,1,D,1,1,D,M Salisbury,15,12,4,5,7,3,2,2,0,0,E0,2526
+E0,12/04/2026,14:00,Sunderland,Tottenham,1,0,H,0,0,D,R Jones,13,11,2,7,2,6,3,3,0,0,E0,2526
+E0,12/04/2026,16:30,Chelsea,Man City,0,3,A,0,0,D,C Kavanagh,12,18,3,8,4,12,3,1,0,0,E0,2526
+E0,13/04/2026,20:00,Man United,Leeds,1,2,A,0,2,A,P Tierney,20,15,9,6,11,4,3,2,1,0,E0,2526
+E0,18/04/2026,12:30,Brentford,Fulham,0,0,D,0,0,D,P Tierney,13,11,4,0,9,3,0,1,0,0,E0,2526
+E0,18/04/2026,15:00,Leeds,Wolves,3,0,H,2,0,H,F Hallam,17,7,6,2,5,6,2,1,0,0,E0,2526
+E0,18/04/2026,15:00,Newcastle,Bournemouth,1,2,A,0,1,A,T Bramall,12,12,3,3,2,3,2,4,0,0,E0,2526
+E0,18/04/2026,17:30,Tottenham,Brighton,2,2,D,1,1,D,S Attwell,13,10,6,3,7,5,3,1,0,0,E0,2526
+E0,18/04/2026,20:00,Chelsea,Man United,0,1,A,0,1,A,M Oliver,21,4,3,1,7,1,1,3,0,0,E0,2526
+E0,19/04/2026,14:00,Aston Villa,Sunderland,4,3,H,2,1,H,S Barrott,15,10,7,7,4,5,1,3,0,0,E0,2526
+E0,19/04/2026,14:00,Everton,Liverpool,1,2,A,0,1,A,C Kavanagh,10,14,4,6,1,6,2,0,0,0,E0,2526
+E0,19/04/2026,14:00,Nott'm Forest,Burnley,4,1,H,0,1,A,T Kirk,10,4,4,3,4,4,0,2,0,0,E0,2526
+E0,19/04/2026,16:30,Man City,Arsenal,2,1,H,1,1,D,A Taylor,15,9,5,3,8,5,2,2,0,0,E0,2526
+E0,20/04/2026,20:00,Crystal Palace,West Ham,0,0,D,0,0,D,D England,9,9,1,4,4,6,2,1,0,0,E0,2526
+E0,21/04/2026,20:00,Brighton,Chelsea,3,0,H,1,0,H,C Pawson,15,6,9,0,6,5,1,1,0,0,E0,2526
+E0,22/04/2026,20:00,Bournemouth,Leeds,2,2,D,0,0,D,M Salisbury,17,10,7,3,12,1,3,0,0,0,E0,2526
+E0,22/04/2026,20:00,Burnley,Man City,0,1,A,0,1,A,A Madley,9,28,1,9,3,11,0,0,0,0,E0,2526
+E0,24/04/2026,20:00,Sunderland,Nott'm Forest,0,5,A,0,4,A,D England,14,10,4,6,3,6,2,5,0,0,E0,2526
+E0,25/04/2026,12:30,Fulham,Aston Villa,1,0,H,1,0,H,M Oliver,13,10,6,1,2,5,2,2,0,0,E0,2526
+E0,25/04/2026,15:00,Liverpool,Crystal Palace,3,1,H,2,0,H,A Madley,9,14,3,7,5,8,1,3,0,0,E0,2526
+E0,25/04/2026,15:00,West Ham,Everton,2,1,H,0,0,D,S Attwell,10,11,3,3,3,4,3,4,0,0,E0,2526
+E0,25/04/2026,15:00,Wolves,Tottenham,0,1,A,0,0,D,A Taylor,11,11,2,2,5,5,3,4,0,0,E0,2526
+E0,25/04/2026,17:30,Arsenal,Newcastle,1,0,H,1,0,H,S Barrott,11,13,4,3,7,2,2,2,0,0,E0,2526
+E0,27/04/2026,20:00,Man United,Brentford,2,1,H,2,0,H,C Kavanagh,11,12,6,4,7,8,2,4,0,0,E0,2526
+E0,01/05/2026,20:00,Leeds,Burnley,3,1,H,1,0,H,T Bramall,18,9,8,3,5,0,4,3,0,0,E0,2526
+E0,02/05/2026,15:00,Brentford,West Ham,3,0,H,1,0,H,C Pawson,14,13,6,4,2,6,1,3,0,0,E0,2526
+E0,02/05/2026,15:00,Newcastle,Brighton,3,1,H,2,0,H,C Kavanagh,13,13,6,4,2,10,3,3,0,0,E0,2526
+E0,02/05/2026,15:00,Wolves,Sunderland,1,1,D,0,1,A,P Tierney,20,10,7,2,6,3,0,4,0,1,E0,2526
+E0,02/05/2026,17:30,Arsenal,Fulham,3,0,H,3,0,H,J Gillett,18,10,9,1,3,4,0,1,0,0,E0,2526
+E0,03/05/2026,14:00,Bournemouth,Crystal Palace,3,0,H,2,0,H,R Jones,16,7,5,1,7,1,0,2,0,0,E0,2526
+E0,03/05/2026,15:30,Man United,Liverpool,3,2,H,2,0,H,D England,18,13,6,5,3,2,2,2,0,0,E0,2526
+E0,03/05/2026,19:00,Aston Villa,Tottenham,1,2,A,0,2,A,S Barrott,5,10,1,5,5,5,2,5,0,0,E0,2526
+E0,04/05/2026,15:00,Chelsea,Nott'm Forest,1,3,A,0,2,A,A Taylor,21,6,5,4,10,1,3,1,0,0,E0,2526
+E0,04/05/2026,20:00,Everton,Man City,3,3,D,0,1,A,M Oliver,14,21,6,4,5,9,4,1,0,0,E0,2526
+E0,09/05/2026,12:30,Liverpool,Chelsea,1,1,D,1,1,D,C Pawson,8,6,3,3,5,2,2,4,0,0,E0,2526
+E0,09/05/2026,15:00,Brighton,Wolves,3,0,H,2,0,H,J Brooks,14,5,6,1,7,1,1,2,0,0,E0,2526
+E0,09/05/2026,15:00,Fulham,Bournemouth,0,1,A,0,0,D,A Madley,14,10,2,5,11,2,4,2,1,1,E0,2526
+E0,09/05/2026,15:00,Sunderland,Man United,0,0,D,0,0,D,S Attwell,15,11,4,1,7,8,0,3,0,0,E0,2526
+E0,09/05/2026,17:30,Man City,Brentford,3,0,H,0,0,D,M Salisbury,25,4,10,2,10,2,4,2,0,0,E0,2526
+E0,10/05/2026,14:00,Burnley,Aston Villa,2,2,D,1,1,D,A Taylor,15,18,6,7,2,8,1,1,0,0,E0,2526
+E0,10/05/2026,14:00,Crystal Palace,Everton,2,2,D,1,1,D,T Bramall,21,13,8,6,5,10,0,2,0,0,E0,2526
+E0,10/05/2026,14:00,Nott'm Forest,Newcastle,1,1,D,0,0,D,P Tierney,17,16,6,6,2,1,2,0,0,0,E0,2526
+E0,10/05/2026,16:30,West Ham,Arsenal,0,1,A,0,0,D,C Kavanagh,9,15,3,4,4,3,3,4,0,0,E0,2526
+E0,11/05/2026,20:00,Tottenham,Leeds,1,1,D,0,0,D,J Gillett,16,11,3,4,14,2,3,1,0,0,E0,2526
+E0,13/05/2026,20:00,Man City,Crystal Palace,3,0,H,2,0,H,S Attwell,15,6,4,2,9,4,0,2,0,0,E0,2526
+E0,15/05/2026,20:00,Aston Villa,Liverpool,4,2,H,1,0,H,C Kavanagh,14,16,9,5,4,9,3,1,0,0,E0,2526
+E0,17/05/2026,12:30,Man United,Nott'm Forest,3,2,H,1,0,H,M Salisbury,29,11,8,4,7,6,2,1,0,0,E0,2526
+E0,17/05/2026,15:00,Brentford,Crystal Palace,2,2,D,1,1,D,S Barrott,14,16,3,5,9,4,1,3,0,0,E0,2526
+E0,17/05/2026,15:00,Everton,Sunderland,1,3,A,1,0,H,J Brooks,10,7,4,3,3,2,3,0,0,0,E0,2526
+E0,17/05/2026,15:00,Leeds,Brighton,1,0,H,0,0,D,M Oliver,7,19,1,8,7,8,1,0,0,0,E0,2526
+E0,17/05/2026,15:00,Wolves,Fulham,1,1,D,1,1,D,T Kirk,11,13,3,5,3,6,1,0,0,0,E0,2526
+E0,17/05/2026,17:30,Newcastle,West Ham,3,1,H,2,0,H,J Gillett,15,15,7,8,9,1,1,3,0,0,E0,2526
+E0,18/05/2026,20:00,Arsenal,Burnley,1,0,H,1,0,H,P Tierney,13,5,3,0,3,3,1,3,0,0,E0,2526
+E0,19/05/2026,19:30,Bournemouth,Man City,1,1,D,1,0,H,A Taylor,10,14,2,5,7,6,4,2,0,0,E0,2526
+E0,19/05/2026,20:15,Chelsea,Tottenham,2,1,H,1,0,H,S Attwell,9,9,4,3,3,4,4,3,0,0,E0,2526
+E0,24/05/2026,16:00,Brighton,Man United,0,3,A,0,2,A,S Barrott,13,11,2,7,0,3,0,1,0,0,E0,2526
+E0,24/05/2026,16:00,Burnley,Wolves,1,1,D,0,1,A,A Kitchen,16,16,8,4,7,7,2,2,0,0,E0,2526
+E0,24/05/2026,16:00,Crystal Palace,Arsenal,1,2,A,0,1,A,F Hallam,8,17,3,7,3,4,0,1,0,0,E0,2526
+E0,24/05/2026,16:00,Fulham,Newcastle,2,0,H,1,0,H,R Jones,21,7,6,2,6,6,2,2,0,0,E0,2526
+E0,24/05/2026,16:00,Liverpool,Brentford,1,1,D,0,0,D,D England,24,11,8,2,14,2,2,3,0,0,E0,2526
+E0,24/05/2026,16:00,Man City,Aston Villa,1,2,A,1,0,H,A Madley,16,12,3,5,9,4,1,0,0,0,E0,2526
+E0,24/05/2026,16:00,Nott'm Forest,Bournemouth,1,1,D,1,0,H,C Pawson,15,17,5,4,6,3,1,1,0,0,E0,2526
+E0,24/05/2026,16:00,Sunderland,Chelsea,2,1,H,1,0,H,C Kavanagh,20,10,2,1,7,7,3,2,0,0,E0,2526
+E0,24/05/2026,16:00,Tottenham,Everton,1,0,H,1,0,H,M Oliver,21,8,6,3,6,2,5,3,0,1,E0,2526
+E0,24/05/2026,16:00,West Ham,Leeds,3,0,H,0,0,D,A Taylor,16,13,9,3,6,4,0,3,0,0,E0,2526
