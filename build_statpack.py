@@ -42,6 +42,7 @@ from pathlib import Path
 
 from stats_engine import build_team_match_log, team_form_summary, league_averages
 from poisson_model import predict_fixture
+from best_bets import compute_best_bets
 
 
 def _parse_fixture_date(d: str) -> date | None:
@@ -304,6 +305,11 @@ def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
             "team_form": relevant_team_forms,
             "upcoming_fixtures": fixture_cards,
         }
+
+    # Computed here (not in the dashboard's JS) so there's one
+    # authoritative version of "what the best bets are right now" -
+    # track_bets.py logs exactly this, and the dashboard just displays it.
+    statpack["best_bets"] = compute_best_bets(statpack)
 
     return statpack
 
