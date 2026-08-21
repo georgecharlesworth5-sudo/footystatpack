@@ -96,36 +96,44 @@ def _core_name(name: str) -> str:
     return " ".join(words).strip().lower() or name.strip().lower()
 
 
-def resolve_team_name(name: str, known_names: list[str]) -> str | None:
+def resolve_team_name(name: str, known_names: list[str]) -> tuple[str | None, str]:
     """
     Team names aren't always consistent across data sources (e.g.
     football-data.co.uk's own results/fixtures files disagreeing:
     "Sheffield Wed" vs "Sheffield Weds"; fixturedownload.com using
     fuller or shorter names: "Derby County" vs "Derby", "Spurs" vs
-    "Tottenham"). Resolution order:
+    "Tottenham"). Resolution order, cheapest/most-certain first:
       1. Exact match.
-      2. Known nickname/abbreviation table.
+      2. Known nickname/abbreviation table - hand-verified, treated as
+         fully reliable.
       3. Match on the "core" name with generic suffix words (City,
          County, Town, United, etc.) stripped - if exactly ONE known
          name shares that same stripped core, it's almost certainly
-         the same club, and this avoids generic-suffix words creating
-         false matches between unrelated clubs.
+         the same club; deterministic, treated as fully reliable.
       4. Fall back to closest-match fuzzy string matching on the full
-         name. Returns None if nothing close enough is found.
+         name - this is the only tier that's actually produced a wrong
+         match in practice (Derby County briefly resolved to Newport
+         County, since "County" inflated the character-similarity
+         score). Flagged as uncertain in the caller.
+
+    Returns (resolved_name_or_None, tier) where tier is one of
+    "exact", "alias", "core", "fuzzy", "none".
     """
     if name in known_names:
-        return name
+        return name, "exact"
 
     if name in KNOWN_ALIASES and KNOWN_ALIASES[name] in known_names:
-        return KNOWN_ALIASES[name]
+        return KNOWN_ALIASES[name], "alias"
 
     target_core = _core_name(name)
     core_matches = [k for k in known_names if _core_name(k) == target_core]
     if len(core_matches) == 1:
-        return core_matches[0]
+        return core_matches[0], "core"
 
     matches = difflib.get_close_matches(name, known_names, n=1, cutoff=0.6)
-    return matches[0] if matches else None
+    if matches:
+        return matches[0], "fuzzy"
+    return None, "none"
 
 
 # Known nickname/abbreviation pairs that don't share enough characters
@@ -253,8 +261,8 @@ def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
         known_names = list(team_forms.keys())
         for fx in league_fixtures:
             home_raw, away_raw = fx["HomeTeam"], fx["AwayTeam"]
-            home = resolve_team_name(home_raw, known_names)
-            away = resolve_team_name(away_raw, known_names)
+            home, home_tier = resolve_team_name(home_raw, known_names)
+            away, away_tier = resolve_team_name(away_raw, known_names)
 
             if home is None or away is None:
                 missing = [n for n, resolved in [(home_raw, home), (away_raw, away)] if resolved is None]
@@ -262,13 +270,20 @@ def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
                       f"(even after fuzzy matching)")
                 continue
 
+            # Only the "fuzzy" tier is genuinely uncertain (alias-table
+            # and core-stripped matches are deterministic and reliable,
+            # so they're resolved silently without a caution flag - see
+            # resolve_team_name's docstring).
             name_matches = {}
-            if home != home_raw:
+            if home_tier == "fuzzy":
                 name_matches[home_raw] = home
-            if away != away_raw:
+            if away_tier == "fuzzy":
                 name_matches[away_raw] = away
             if name_matches:
-                print(f"[debug] fuzzy-matched fixture name(s): {name_matches}")
+                print(f"[debug] fuzzy-matched fixture name(s) (flagged, uncertain): {name_matches}")
+            elif home != home_raw or away != away_raw:
+                print(f"[debug] resolved fixture name(s) via alias/core match (trusted, not flagged): "
+                      f"{ {k: v for k, v in [(home_raw, home), (away_raw, away)] if k != v} }")
 
             cross_league = most_recent_league.get(home) != code or most_recent_league.get(away) != code
             card = build_fixture_card(home, away, team_forms[home], team_forms[away],
