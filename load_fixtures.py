@@ -38,21 +38,18 @@ any row with no result as an upcoming fixture.
 
 ## Timezone note
 
-fixturedownload.com's site defaults to "(UTC+00:00) Dublin, Edinburgh,
-Lisbon, London" - note that's *fixed* UTC+0, not "Europe/London" -
-i.e. it does NOT shift forward for British Summer Time. During BST
-(late March to late October) the times in the CSV are genuinely an
-hour behind UK clock time - a "15:00" kickoff in the file is actually
-16:00 local. We correct for this below using the UK's own DST rule
-(clocks forward last Sunday in March, back last Sunday in October -
-the whole EU shares this rule) rather than relying on the zoneinfo
-module, since Windows Python installs often lack the IANA timezone
-database zoneinfo needs (a separate `tzdata` package would otherwise
-be required).
+Earlier versions of this file assumed fixturedownload.com's times were
+fixed UTC+0 (no daylight-saving adjustment) and added an hour during
+BST. That assumption turned out to be WRONG - verified directly
+against a real fixture: fixturedownload.com's EPL page shows "20:00"
+for the Arsenal v Coventry season-opener, and that match's actual
+kickoff (per Arsenal's own site and the Premier League) is confirmed
+as 8pm UK time - i.e. the site's raw value was already correct local
+UK clock time, and our "correction" was pushing it an hour late. The
+BST-adjustment code has been removed - times are now used as-is.
 """
 
 import csv
-from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 LEAGUE_FILES = {
@@ -62,37 +59,6 @@ LEAGUE_FILES = {
     "E3": "E3.csv",
     "SC0": "SC0.csv",
 }
-
-
-def _last_sunday(year: int, month: int) -> int:
-    """Day-of-month of the last Sunday in a given month/year."""
-    import calendar
-    last_day = calendar.monthrange(year, month)[1]
-    d = datetime(year, month, last_day)
-    return last_day - ((d.weekday() + 1) % 7)  # weekday(): Mon=0 .. Sun=6
-
-
-def _is_bst(dt_utc: datetime) -> bool:
-    """UK clocks go forward 1 hour at 01:00 UTC on the last Sunday of
-    March, and back at 01:00 UTC on the last Sunday of October."""
-    year = dt_utc.year
-    start = datetime(year, 3, _last_sunday(year, 3), 1, 0, tzinfo=timezone.utc)
-    end = datetime(year, 10, _last_sunday(year, 10), 1, 0, tzinfo=timezone.utc)
-    return start <= dt_utc < end
-
-
-def _to_uk_local(date_str: str, time_str: str) -> tuple[str, str]:
-    """Given a fixturedownload.com date/time (treated as fixed UTC+0),
-    return (date, time) adjusted to actual UK local clock time."""
-    try:
-        dt = datetime.strptime(f"{date_str} {time_str}", "%d/%m/%Y %H:%M")
-    except ValueError:
-        return date_str, time_str  # malformed/missing time - leave as-is
-
-    dt_utc = dt.replace(tzinfo=timezone.utc)
-    if _is_bst(dt_utc):
-        dt_utc += timedelta(hours=1)
-    return dt_utc.strftime("%d/%m/%Y"), dt_utc.strftime("%H:%M")
 
 
 def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
@@ -113,8 +79,6 @@ def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
 
             date_time = (row.get("Date") or "").strip()
             date_part, _, time_part = date_time.partition(" ")
-            if time_part:
-                date_part, time_part = _to_uk_local(date_part, time_part)
 
             fixtures.append({
                 "Div": div_code,
