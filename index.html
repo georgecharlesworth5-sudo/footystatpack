@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stat Pack — Vidiprinter</title>
+<title>Footy Stat Pack</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -98,6 +98,75 @@
     color: var(--meta);
     font-size: 10px;
     margin-left: 4px;
+  }
+  .tab-bestbets {
+    color: var(--amber);
+    font-weight: 600;
+  }
+
+  /* ---------- Best Bets ---------- */
+  .bb-intro {
+    font-size: 12px;
+    color: var(--meta);
+    padding: 14px 4px 4px;
+  }
+  .bb-category {
+    margin: 18px 0 8px;
+  }
+  .bb-category-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    padding: 8px 4px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 6px;
+  }
+  .bb-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .bb-rank {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--meta);
+    width: 16px;
+  }
+  .bb-teams {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
+    flex: 1;
+    min-width: 160px;
+  }
+  .bb-teams .v { color: var(--meta); font-weight: 400; margin: 0 5px; }
+  .bb-league {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--meta);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .bb-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    min-width: 90px;
+  }
+  .bb-pct {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 44px;
+    text-align: right;
   }
 
   /* ---------- Fixture list ---------- */
@@ -286,8 +355,7 @@
 <body>
 
   <header>
-    <div class="eyebrow">Pre-Gameday Stat Pack</div>
-    <h1>Vidiprinter<span class="dot">.</span></h1>
+    <h1>Footy Stat Pack<span class="dot">.</span></h1>
     <div class="subhead" id="generated-note">Goals, corners, cards &amp; half splits — Poisson model, 5 leagues.</div>
   </header>
 
@@ -305,6 +373,7 @@
 <script>
 (function () {
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0"];
+  const BEST_BETS = "__BEST_BETS__";
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
   let activeLeague = null;
 
@@ -325,6 +394,13 @@
 
   function pct(n) { return Math.round(n * 100) + "%"; }
 
+  function parseFixtureDate(d) {
+    const parts = (d || "").split("/");
+    if (parts.length !== 3) return null;
+    const dt = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+    return isNaN(dt) ? null : dt;
+  }
+
   function fmtDate(d) {
     // d like "22/08/2026" -> "FRI 22 AUG"
     const parts = (d || "").split("/");
@@ -336,6 +412,13 @@
 
   function buildTabs() {
     tabsEl.innerHTML = "";
+
+    const bbBtn = document.createElement("button");
+    bbBtn.className = "tab tab-bestbets" + (activeLeague === BEST_BETS ? " active" : "");
+    bbBtn.innerHTML = "★ Best Bets";
+    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; render(); });
+    tabsEl.appendChild(bbBtn);
+
     availableLeagues.forEach(code => {
       const league = data[code];
       const btn = document.createElement("button");
@@ -417,8 +500,119 @@
     </details>`;
   }
 
+  const METRIC_LABELS = {
+    goals: "Full-Time Goals",
+    corners: "Corners",
+    cards: "Cards",
+    first_half_goals: "1st-Half Goals",
+    second_half_goals: "2nd-Half Goals",
+  };
+
+  function computeBestBets() {
+    const WINDOW_DAYS = 8; // "upcoming game week" - covers a weekend + midweek fixtures
+    const now = new Date();
+    const windowEnd = new Date(now);
+    windowEnd.setDate(now.getDate() + WINDOW_DAYS);
+
+    // Pull every eligible fixture (within the window, and NOT flagged as
+    // thin-sample/cross-league/fuzzy-matched - best bets should be the
+    // most reliable reads, not ones already carrying a caution note)
+    // across every league into one flat list.
+    const pool = [];
+    availableLeagues.forEach(code => {
+      const league = data[code];
+      league.upcoming_fixtures.forEach(fx => {
+        const fxDate = parseFixtureDate(fx.date);
+        if (fxDate && fxDate > windowEnd) return;
+        if (fx.cross_league_data || fx.fuzzy_name_match || fx.low_sample) return;
+        pool.push({ ...fx, leagueCode: code, leagueName: league.league_name });
+      });
+    });
+
+    const categories = {};
+
+    Object.keys(METRIC_LABELS).forEach(metricKey => {
+      const bestPerFixture = [];
+      pool.forEach(fx => {
+        const m = fx.predictions[metricKey];
+        if (!m || !m.over_under || !m.over_under.length) return;
+        // best (most confident, whichever side) line for this fixture/metric
+        let best = null;
+        m.over_under.forEach(ou => {
+          const overConf = ou.over;
+          const underConf = 1 - ou.over;
+          const conf = Math.max(overConf, underConf);
+          const direction = overConf >= underConf ? "Over" : "Under";
+          if (!best || conf > best.confidence) {
+            best = { line: ou.line, direction, confidence: conf };
+          }
+        });
+        if (best) bestPerFixture.push({ fixture: fx, ...best });
+      });
+      bestPerFixture.sort((a, b) => b.confidence - a.confidence);
+      categories[metricKey] = bestPerFixture.slice(0, 5);
+    });
+
+    // BTTS is its own thing (lives on the goals metric, not a line-based O/U)
+    const bttsBest = [];
+    pool.forEach(fx => {
+      const g = fx.predictions.goals;
+      if (!g || g.btts_yes === undefined) return;
+      const conf = Math.max(g.btts_yes, g.btts_no);
+      const direction = g.btts_yes >= g.btts_no ? "Yes" : "No";
+      bttsBest.push({ fixture: fx, direction, confidence: conf });
+    });
+    bttsBest.sort((a, b) => b.confidence - a.confidence);
+    categories.btts = bttsBest.slice(0, 5);
+
+    return categories;
+  }
+
+  function bestBetRow(entry, rank, isBtts) {
+    const fx = entry.fixture;
+    const label = isBtts
+      ? `BTTS: ${entry.direction}`
+      : `${entry.direction} ${entry.line}`;
+    return `<div class="bb-row">
+      <span class="bb-rank">${rank}</span>
+      <span class="bb-teams">${fx.home_team}<span class="v">v</span>${fx.away_team}</span>
+      <span class="bb-league">${fx.leagueName}</span>
+      <span class="bb-label">${label}</span>
+      <span class="bb-pct ${entry.confidence >= 0.55 ? 'pct-hi' : entry.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(entry.confidence)}</span>
+    </div>`;
+  }
+
+  function renderBestBets() {
+    const categories = computeBestBets();
+    const hasAny = Object.values(categories).some(list => list.length > 0);
+
+    if (!hasAny) {
+      mainEl.innerHTML = `<div class="empty">No eligible fixtures in the next 8 days yet.<br>
+        (Fixtures with a thin sample, cross-league, or name-match flag are excluded from Best Bets - check the league tabs for those.)</div>`;
+      return;
+    }
+
+    const order = ["goals", "btts", "corners", "cards", "first_half_goals", "second_half_goals"];
+    mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues, next ${8} days. Thin-sample and cross-league fixtures are excluded.</div>` +
+      order.map(key => {
+        const list = categories[key];
+        if (!list || list.length === 0) return "";
+        const title = key === "btts" ? "Both Teams To Score" : METRIC_LABELS[key];
+        return `<div class="bb-category">
+          <div class="bb-category-title">${title}</div>
+          ${list.map((e, i) => bestBetRow(e, i + 1, key === "btts")).join("")}
+        </div>`;
+      }).join("");
+  }
+
   function render() {
     buildTabs();
+
+    if (activeLeague === BEST_BETS) {
+      renderBestBets();
+      return;
+    }
+
     const league = data[activeLeague];
     const fixtures = league.upcoming_fixtures;
 
