@@ -25,6 +25,17 @@ on:
 permissions:
   contents: write   # needed to commit the refreshed data back to the repo
 
+# Only ever run one instance of this workflow at a time. Without this,
+# clicking "Run workflow" while a previous run is still going (or a
+# manual run overlapping with the daily schedule) lets two runs execute
+# genuinely in parallel - each can then push a commit in the narrow
+# window between the other's pull and push, causing repeated rejected
+# pushes even with the retry logic below. Queuing instead of racing
+# eliminates that at the source.
+concurrency:
+  group: update-statpack
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -49,9 +60,13 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ statpack.json statpack_data.js
           git diff --staged --quiet || git commit -m "Auto-update stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
-          # Someone may have pushed to main (e.g. editing a file directly
-          # on GitHub) while this run was fetching/building - catch up
-          # with any such changes before pushing, rather than assuming
-          # main hasn't moved since this run started.
-          git pull --rebase origin main
-          git push
+
+          # Belt-and-braces: even with the concurrency guard above, a
+          # manual edit on GitHub while this run was fetching/building
+          # can still land in between - retry pull+push a few times
+          # rather than failing on the first collision.
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && break
+            echo "Push attempt $attempt failed - retrying..."
+            sleep $((attempt * 5))
+          done
