@@ -38,18 +38,28 @@ any row with no result as an upcoming fixture.
 
 ## Timezone note
 
-Earlier versions of this file assumed fixturedownload.com's times were
-fixed UTC+0 (no daylight-saving adjustment) and added an hour during
-BST. That assumption turned out to be WRONG - verified directly
-against a real fixture: fixturedownload.com's EPL page shows "20:00"
-for the Arsenal v Coventry season-opener, and that match's actual
-kickoff (per Arsenal's own site and the Premier League) is confirmed
-as 8pm UK time - i.e. the site's raw value was already correct local
-UK clock time, and our "correction" was pushing it an hour late. The
-BST-adjustment code has been removed - times are now used as-is.
+fixturedownload.com shows the exact same generic "your time zone is
+not set" disclaimer on every competition page, but that text turns out
+to be meaningless as a signal - it appears regardless of what the page
+actually does underneath. Verified directly against real fixtures:
+
+  - Premier League (epl-2026): raw time is ALREADY correct UK local
+    time. Confirmed against Arsenal v Coventry - the site shows
+    "20:00", and that match's real kickoff (per Arsenal's own site and
+    the Premier League) is 8pm UK time. No adjustment needed.
+  - The other leagues: reported wrong (an hour off) once the BST
+    correction below was removed for everyone - i.e. unlike the EPL
+    page, they DO need it.
+
+So this isn't a single site-wide behaviour - it's inconsistent
+per-competition-page, for reasons we can't see into. Rather than
+guess further, NEEDS_BST_CORRECTION below is a per-league flag you can
+flip based on what you actually observe. If a league's times ever look
+an hour out (either direction), that's the fix: toggle its flag here.
 """
 
 import csv
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 LEAGUE_FILES = {
@@ -60,6 +70,48 @@ LEAGUE_FILES = {
     "SC0": "SC0.csv",
 }
 
+# See "Timezone note" above. True = this league's raw fixturedownload.com
+# times are fixed UTC+0 and need +1hr during BST; False = already correct
+# local UK time, use as-is.
+NEEDS_BST_CORRECTION = {
+    "E0": False,  # Premier League - confirmed correct as-is (Arsenal v Coventry check)
+    "E1": True,   # Championship
+    "E2": True,   # League One
+    "E3": True,   # League Two
+    "SC0": True,  # Scottish Premiership
+}
+
+
+def _last_sunday(year: int, month: int) -> int:
+    """Day-of-month of the last Sunday in a given month/year."""
+    import calendar
+    last_day = calendar.monthrange(year, month)[1]
+    d = datetime(year, month, last_day)
+    return last_day - ((d.weekday() + 1) % 7)  # weekday(): Mon=0 .. Sun=6
+
+
+def _is_bst(dt_utc: datetime) -> bool:
+    """UK clocks go forward 1 hour at 01:00 UTC on the last Sunday of
+    March, and back at 01:00 UTC on the last Sunday of October."""
+    year = dt_utc.year
+    start = datetime(year, 3, _last_sunday(year, 3), 1, 0, tzinfo=timezone.utc)
+    end = datetime(year, 10, _last_sunday(year, 10), 1, 0, tzinfo=timezone.utc)
+    return start <= dt_utc < end
+
+
+def _to_uk_local(date_str: str, time_str: str) -> tuple[str, str]:
+    """Given a fixturedownload.com date/time treated as fixed UTC+0,
+    return (date, time) adjusted to actual UK local clock time."""
+    try:
+        dt = datetime.strptime(f"{date_str} {time_str}", "%d/%m/%Y %H:%M")
+    except ValueError:
+        return date_str, time_str  # malformed/missing time - leave as-is
+
+    dt_utc = dt.replace(tzinfo=timezone.utc)
+    if _is_bst(dt_utc):
+        dt_utc += timedelta(hours=1)
+    return dt_utc.strftime("%d/%m/%Y"), dt_utc.strftime("%H:%M")
+
 
 def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
     """Load one league's manually-downloaded fixturedownload.com CSV,
@@ -68,6 +120,8 @@ def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
     path = fixtures_dir / LEAGUE_FILES[div_code]
     if not path.exists():
         return []
+
+    needs_correction = NEEDS_BST_CORRECTION.get(div_code, True)
 
     fixtures = []
     with open(path, newline="", encoding="utf-8-sig") as f:
@@ -79,6 +133,8 @@ def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
 
             date_time = (row.get("Date") or "").strip()
             date_part, _, time_part = date_time.partition(" ")
+            if time_part and needs_correction:
+                date_part, time_part = _to_uk_local(date_part, time_part)
 
             fixtures.append({
                 "Div": div_code,
