@@ -85,6 +85,42 @@ def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: 
     return round(lam_home, 3), round(lam_away, 3)
 
 
+def match_result(lam_home: float, lam_away: float, max_goals: int = 10) -> dict:
+    """
+    Home Win / Draw / Away Win probabilities, from the same expected-goals
+    values (lambda_home, lambda_away) already used for the goals O/U
+    market. Builds the full grid of realistic scorelines (0-0 up to
+    max_goals-max_goals), treating home and away goals as independent
+    Poisson variables, then buckets each scoreline by which side has more
+    goals. max_goals=10 each way is already far past any realistic
+    scoreline's probability, so the bucketed totals sum to ~1.0.
+    """
+    home_win = draw = away_win = 0.0
+    for h in range(max_goals + 1):
+        p_h = poisson_pmf(h, lam_home)
+        for a in range(max_goals + 1):
+            p = p_h * poisson_pmf(a, lam_away)
+            if h > a:
+                home_win += p
+            elif h == a:
+                draw += p
+            else:
+                away_win += p
+
+    # The three buckets won't sum to exactly 1.0 (scorelines above
+    # max_goals each are vanishingly unlikely but not zero) - rescale so
+    # they read as clean percentages that actually add up.
+    total = home_win + draw + away_win
+    if total > 0:
+        home_win, draw, away_win = home_win / total, draw / total, away_win / total
+
+    return {
+        "home_win": round(home_win, 3),
+        "draw": round(draw, 3),
+        "away_win": round(away_win, 3),
+    }
+
+
 def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: dict) -> dict:
     """
     home_form / away_form: output of stats_engine.rolling_form() for the
@@ -97,7 +133,7 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
         but skip the over/under breakdown.
 
     Returns predictions for every tracked metric (see stats_engine.METRICS)
-    plus BTTS-style markets for full-match goals.
+    plus BTTS and match-result (1X2) markets for full-match goals.
     """
     result = {}
 
@@ -118,6 +154,9 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
             p_away_scores = 1 - poisson_pmf(0, lam_away)
             market["btts_yes"] = round(p_home_scores * p_away_scores, 3)
             market["btts_no"] = round(1 - p_home_scores * p_away_scores, 3)
+
+            # Match result (1X2), from the same lam_home/lam_away
+            market["match_result"] = match_result(lam_home, lam_away)
 
         result[metric] = market
 
