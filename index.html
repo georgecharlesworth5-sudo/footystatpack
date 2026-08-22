@@ -354,6 +354,39 @@
     gap: 14px;
     margin-top: 14px;
   }
+  .mr-block {
+    margin-top: 14px;
+  }
+  .mr-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .mr-option {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .mr-option.mr-favourite {
+    border-color: var(--green);
+  }
+  .mr-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mr-pct {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 18px;
+  }
   .metric-card {
     background: var(--bg);
     border: 1px solid var(--rule);
@@ -571,6 +604,30 @@
     return flags.map(f => `<span class="flag">${f}</span>`).join("");
   }
 
+  function matchResultBlock(fixture) {
+    const mr = fixture.predictions.goals?.match_result;
+    if (!mr) return "";
+
+    const options = [
+      { label: fixture.home_team, key: "home_win", pct: mr.home_win },
+      { label: "Draw", key: "draw", pct: mr.draw },
+      { label: fixture.away_team, key: "away_win", pct: mr.away_win },
+    ];
+    const highest = Math.max(mr.home_win, mr.draw, mr.away_win);
+
+    return `<div class="mr-block">
+      <div class="metric-title">Match Result</div>
+      <div class="mr-row">
+        ${options.map(o => `
+          <div class="mr-option ${o.pct === highest ? 'mr-favourite' : ''}">
+            <div class="mr-label">${o.label}</div>
+            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pct(o.pct)}</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>`;
+  }
+
   function fixtureCard(fixture) {
     const p = fixture.predictions;
     const flag = flagBadges(fixture);
@@ -586,6 +643,7 @@
       </summary>
       <div class="detail">
         ${note}
+        ${matchResultBlock(fixture)}
         <div class="metric-grid">
           ${metricBlock("Full-Time Goals", p.goals)}
           ${metricBlock("Corners", p.corners)}
