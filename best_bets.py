@@ -18,6 +18,14 @@ from datetime import date, timedelta
 
 NEAR_TERM_WINDOW_DAYS = 4  # one weekend round (Fri-Mon) - matches the dashboard's league-view default
 
+# A pick needs to clear this bar to count as a "best bet" at all. Without
+# this, when the eligible pool shrinks late in a gameweek (most fixtures
+# already played), whatever's left gets forced into the top-5 regardless
+# of how weak the signal actually is - e.g. a near-50/50 BTTS call
+# showing up as the "best" pick on BOTH the Yes and No side of the same
+# match, just because nothing better was left to compare it against.
+MIN_CONFIDENCE = 0.6
+
 METRIC_LABELS = {
     "goals": "Full-Time Goals",
     "corners": "Corners",
@@ -87,6 +95,8 @@ def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
                 best_under.append(_entry(fx, top_under))
         best_over.sort(key=lambda e: e["confidence"], reverse=True)
         best_under.sort(key=lambda e: e["confidence"], reverse=True)
+        best_over = [e for e in best_over if e["confidence"] >= MIN_CONFIDENCE]
+        best_under = [e for e in best_under if e["confidence"] >= MIN_CONFIDENCE]
         categories[metric_key] = {"over": best_over[:5], "under": best_under[:5]}
 
     btts_yes, btts_no = [], []
@@ -98,6 +108,8 @@ def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
         btts_no.append(_entry(fx, {"line": None, "direction": "No", "confidence": g["btts_no"]}))
     btts_yes.sort(key=lambda e: e["confidence"], reverse=True)
     btts_no.sort(key=lambda e: e["confidence"], reverse=True)
+    btts_yes = [e for e in btts_yes if e["confidence"] >= MIN_CONFIDENCE]
+    btts_no = [e for e in btts_no if e["confidence"] >= MIN_CONFIDENCE]
     categories["btts"] = {"over": btts_yes[:5], "under": btts_no[:5]}
 
     return categories
