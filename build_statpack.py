@@ -199,6 +199,33 @@ def build_fixture_card(home_team: str, away_team: str, home_form: dict, away_for
     return card
 
 
+def compute_data_freshness(all_rows_by_league: dict[str, list[dict]]) -> dict:
+    """For each league, find the most recent played-match date in its
+    data, plus how many days old that is. Surfaces the publishing-lag
+    issue directly on the dashboard rather than requiring anyone to dig
+    through CSVs on GitHub to notice a league's results have gone stale."""
+    today = date.today()
+    freshness = {}
+    for code, name in LEAGUE_NAMES.items():
+        rows = all_rows_by_league.get(code, [])
+        latest = None
+        for row in rows:
+            if not row.get("FTHG"):
+                continue  # not yet played
+            d = _parse_fixture_date(row.get("Date", ""))
+            if d and (latest is None or d > latest):
+                latest = d
+        if latest is None:
+            freshness[code] = {"league_name": name, "latest_date": None, "days_old": None}
+        else:
+            freshness[code] = {
+                "league_name": name,
+                "latest_date": latest.strftime("%d/%m/%Y"),
+                "days_old": (today - latest).days,
+            }
+    return freshness
+
+
 def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
     statpack = {"generated_leagues": {}}
 
@@ -321,6 +348,7 @@ def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
     # authoritative version of "what the best bets are right now" -
     # track_bets.py logs exactly this, and the dashboard just displays it.
     statpack["best_bets"] = compute_best_bets(statpack)
+    statpack["data_freshness"] = compute_data_freshness(all_rows_by_league)
 
     return statpack
 
