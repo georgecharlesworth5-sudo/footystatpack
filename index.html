@@ -376,6 +376,14 @@
     margin: 12px 0;
     line-height: 1.5;
   }
+  .cup-leagues {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--meta);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+  }
   .metric-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -524,6 +532,7 @@
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0"];
   const BEST_BETS = "__BEST_BETS__";
   const TRACK_RECORD = "__TRACK_RECORD__";
+  const EFL_CUP = "__EFL_CUP__";
   const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
   let showFullSeason = false; // toggled by the "Show full season" link in league views
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
@@ -579,6 +588,16 @@
     trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; render(); });
     tabsEl.appendChild(trBtn);
 
+    const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
+      ? STATPACK_DATA.efl_cup.fixtures : [];
+    if (cupFixtures.length > 0) {
+      const cupBtn = document.createElement("button");
+      cupBtn.className = "tab tab-bestbets" + (activeLeague === EFL_CUP ? " active" : "");
+      cupBtn.innerHTML = "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`;
+      cupBtn.addEventListener("click", () => { activeLeague = EFL_CUP; render(); });
+      tabsEl.appendChild(cupBtn);
+    }
+
     availableLeagues.forEach(code => {
       const league = data[code];
       const btn = document.createElement("button");
@@ -628,6 +647,7 @@
   function flagBadges(fixture) {
     const flags = [];
     if (fixture.cross_league_data) flags.push('cross-league');
+    if (fixture.cross_division) flags.push('cross-division');
     if (fixture.fuzzy_name_match) flags.push('name check');
     if (fixture.low_sample) flags.push('thin sample');
     return flags.map(f => `<span class="flag">${f}</span>`).join("");
@@ -791,6 +811,71 @@
       summaryHtml + logHtml;
   }
 
+  function cupFixtureCard(fixture) {
+    const p = fixture.predictions;
+    const flag = flagBadges(fixture);
+    const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
+    const leagueLine = fixture.cross_division
+      ? `<div class="cup-leagues">${fixture.home_league} v ${fixture.away_league}</div>`
+      : "";
+
+    return `<details class="fixture">
+      <summary>
+        <span class="kickoff">${fixture.time || "--:--"}</span>
+        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
+        ${flag}
+        ${quickStat(fixture)}
+        <span class="chev">▸</span>
+      </summary>
+      <div class="detail">
+        ${leagueLine}
+        ${note}
+        ${matchResultBlock(fixture)}
+        <div class="metric-grid">
+          ${metricBlock("Full-Time Goals", p.goals)}
+          ${metricBlock("Corners", p.corners)}
+          ${metricBlock("Cards", p.cards)}
+          ${metricBlock("1st-Half Goals", p.first_half_goals)}
+          ${metricBlock("2nd-Half Goals", p.second_half_goals)}
+        </div>
+        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
+      </div>
+    </details>`;
+  }
+
+  function renderEflCup() {
+    const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
+      ? STATPACK_DATA.efl_cup.fixtures : [];
+
+    if (cupFixtures.length === 0) {
+      mainEl.innerHTML = `<div class="empty">No EFL Cup fixtures loaded.<br>Add them to cup_fixtures_manual/efl_cup.txt.</div>`;
+      return;
+    }
+
+    const intro = `<div class="bb-intro">Fixtures crossing divisions ("cross-division") use each team's own
+      league form with a rough cross-league adjustment (see cross_league.py) - treat these with more caution
+      than same-league predictions.</div>`;
+
+    // group by date, same pattern as league fixture lists
+    const groups = [];
+    let currentDate = null, currentGroup = null;
+    cupFixtures.forEach(fx => {
+      if (fx.date !== currentDate) {
+        currentDate = fx.date;
+        currentGroup = { date: fx.date, items: [] };
+        groups.push(currentGroup);
+      }
+      currentGroup.items.push(fx);
+    });
+
+    mainEl.innerHTML = intro + groups.map(g => `
+      <div class="date-group">
+        <div class="date-label">${fmtDate(g.date)}</div>
+        ${g.items.map(cupFixtureCard).join("")}
+      </div>
+    `).join("");
+  }
+
   function render() {
     buildTabs();
 
@@ -800,6 +885,10 @@
     }
     if (activeLeague === TRACK_RECORD) {
       renderTrackRecord();
+      return;
+    }
+    if (activeLeague === EFL_CUP) {
+      renderEflCup();
       return;
     }
 
