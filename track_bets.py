@@ -219,7 +219,7 @@ def _find_result_row(candidates: list[dict], match_date: date, max_drift_days: i
     return row
 
 
-def reaudit_settled(log: dict[str, dict], data_dir: Path) -> list[dict]:
+def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], list[dict]]:
     """
     Re-check every ALREADY-SETTLED pick against the current matching
     logic and data, and correct any that were reconciled incorrectly.
@@ -234,8 +234,19 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> list[dict]:
     is safe to leave running on every future run too: it's a no-op for
     anything that was already reconciled correctly.
 
-    Returns a list of correction records (empty if nothing needed
-    fixing) for reporting - doesn't save anything itself.
+    A second, related problem this also handles: if NO candidate exists
+    within tolerance for a settled pick, that pick's original settlement
+    can no longer be verified against current data - meaning it was very
+    likely one of the picks wrongly settled by the old buggy logic
+    against a different season's meeting (exactly the Man City v
+    Bournemouth and Doncaster v Barnsley cases this was built to catch).
+    Rather than silently leaving a value we can no longer verify sitting
+    there looking like ground truth, those picks are REVERTED to
+    "pending" - they'll get properly re-settled once the real match
+    result is published and a genuine within-tolerance candidate exists.
+
+    Returns (corrections, reverted) - two lists of records for
+    reporting. Doesn't save anything itself.
     """
     results_by_pair: dict[tuple[str, str], list[dict]] = {}
     for csv_path in data_dir.glob("*.csv"):
@@ -246,7 +257,7 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> list[dict]:
                 key = (row["HomeTeam"], row["AwayTeam"])
                 results_by_pair.setdefault(key, []).append(row)
 
-    corrections = []
+    corrections, reverted = [], []
     for pick in log.values():
         if pick["status"] != "settled":
             continue
@@ -257,7 +268,20 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> list[dict]:
         candidates = results_by_pair.get((pick["home_team"], pick["away_team"]), [])
         row = _find_result_row(candidates, match_date)
         if row is None:
-            continue  # can't verify against current data - leave as-is
+            # No verifiable candidate exists right now - can't confirm
+            # this settlement is correct, so don't let it keep counting
+            # toward the hit rate. Revert to pending; it'll be properly
+            # re-settled once the real result is published.
+            reverted.append({
+                "pick_id": pick["pick_id"], "home_team": pick["home_team"], "away_team": pick["away_team"],
+                "metric": pick["metric"], "direction": pick["direction"], "line": pick["line"],
+                "old_actual": pick["actual_value"], "old_result": pick["result"],
+            })
+            pick["status"] = "pending"
+            pick["actual_value"] = ""
+            pick["result"] = ""
+            pick["settled_date"] = ""
+            continue
 
         actual = _actual_metric_value(row, pick["metric"])
         if actual is None:
@@ -277,7 +301,7 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> list[dict]:
             pick["actual_value"] = actual
             pick["result"] = correct_result
 
-    return corrections
+    return corrections, reverted
 
 
 def compute_summary(log: dict[str, dict]) -> dict:
@@ -333,12 +357,18 @@ if __name__ == "__main__":
     # incorrectly (this is what catches the season-collision class of
     # bug even for picks that already settled before the fix). A no-op
     # for anything that was already correct.
-    corrections = reaudit_settled(log, data_dir)
+    corrections, reverted = reaudit_settled(log, data_dir)
     if corrections:
         print(f"Corrected {len(corrections)} previously-settled pick(s):")
         for c in corrections:
             print(f"  {c['home_team']} v {c['away_team']} - {c['direction']} {c['line']} {c['metric']}: "
                   f"actual {c['old_actual']} -> {c['new_actual']}, result {c['old_result']} -> {c['new_result']}")
+    if reverted:
+        print(f"Reverted {len(reverted)} unverifiable settled pick(s) back to pending "
+              f"(no current-season result available yet to confirm them):")
+        for r in reverted:
+            print(f"  {r['home_team']} v {r['away_team']} - {r['direction']} {r['line']} {r['metric']} "
+                  f"(was: actual {r['old_actual']}, result {r['old_result']})")
 
     save_log(log_path, log)
     print(f"Log saved to {log_path} ({len(log)} total picks).")
