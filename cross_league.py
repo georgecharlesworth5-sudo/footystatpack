@@ -65,10 +65,13 @@ from poisson_model import poisson_pmf, over_under
 # deliberate, always-present signal.
 TIER_STRENGTH = {
     "E0": 1.00,   # Premier League
-    "E1": 0.75,   # Championship
-    "E2": 0.60,   # League One
-    "E3": 0.48,   # League Two
-    "SC0": 0.70,  # Scottish Premiership
+    "E1": 0.70,   # Championship
+    "E2": 0.55,   # League One
+    "E3": 0.45,   # League Two
+    "SC0": 0.63,  # Scottish Premiership - not specified directly; kept at the
+                  # same relative position between E1/E2 as before (proportional
+                  # interpolation, not independently reasoned about - revisit if
+                  # a Scottish cross-division fixture ever looks off)
 }
 
 
