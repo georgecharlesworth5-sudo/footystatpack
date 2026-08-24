@@ -60,6 +60,34 @@
     font-size: 14px;
     margin-top: 8px;
   }
+  .freshness-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .freshness-chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    border-radius: 3px;
+    padding: 5px 9px;
+    border: 1px solid var(--rule);
+    color: var(--ink-dim);
+    white-space: nowrap;
+  }
+  .freshness-chip .dot-status {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  .freshness-fresh .dot-status { background: var(--green); }
+  .freshness-lagging .dot-status { background: var(--amber); }
+  .freshness-stale .dot-status { background: var(--red); }
+  .freshness-fresh { border-color: rgba(107,155,110,0.4); }
+  .freshness-lagging { border-color: rgba(232,163,61,0.4); }
+  .freshness-stale { border-color: rgba(181,83,62,0.4); }
 
   /* ---------- League tabs ---------- */
   .tabs {
@@ -476,6 +504,7 @@
   <header>
     <h1>Footy Stat Pack<span class="dot">.</span></h1>
     <div class="subhead" id="generated-note">Goals, corners, cards &amp; half splits — Poisson model, 5 leagues.</div>
+    <div class="freshness-strip" id="freshness-strip"></div>
   </header>
 
   <nav class="tabs" id="tabs"></nav>
@@ -837,6 +866,23 @@
     }
   }
 
+  function renderFreshnessStrip() {
+    const strip = document.getElementById("freshness-strip");
+    const freshness = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.data_freshness : null;
+    if (!freshness) { strip.innerHTML = ""; return; }
+
+    strip.innerHTML = LEAGUE_ORDER.filter(code => freshness[code]).map(code => {
+      const f = freshness[code];
+      if (f.days_old === null) {
+        return `<span class="freshness-chip freshness-stale"><span class="dot-status"></span>${f.league_name}: no current-season data yet</span>`;
+      }
+      const status = f.days_old <= 3 ? "fresh" : f.days_old <= 7 ? "lagging" : "stale";
+      const label = f.days_old === 0 ? "today" : f.days_old === 1 ? "1 day ago" : `${f.days_old} days ago`;
+      return `<span class="freshness-chip freshness-${status}"><span class="dot-status"></span>${f.league_name}: ${label}</span>`;
+    }).join("");
+  }
+
+  renderFreshnessStrip();
   render();
 })();
 </script>
