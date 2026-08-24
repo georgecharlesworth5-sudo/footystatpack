@@ -153,6 +153,7 @@ def build_cup_predictions(
             predictions = predict_cross_league_fixture(
                 team_forms[home]["home"], team_forms[away]["away"],
                 league_averages_by_code[home_league], league_averages_by_code[away_league],
+                home_league, away_league,
                 home_mult, away_mult, DEFAULT_LINES,
             )
 
