@@ -143,18 +143,33 @@ def _check_hit(actual: float, direction: str, line) -> bool:
 def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tuple[int, int]:
     """Try to settle any pending picks whose match date has passed.
     Returns (settled_count, still_pending_past_date_count)."""
-    # Load every league's results once, keyed by (home, away) -> row.
+    # Load every league's results, keyed by (home, away) -> LIST of rows.
     # Team names in the log are already the canonical resolved names
     # (same ones used in data/<LEAGUE>.csv), so exact match is enough -
     # no fuzzy resolution needed at this stage.
-    results_by_pair: dict[tuple[str, str], dict] = {}
+    #
+    # A plain dict overwrite here was the bug behind a real reported
+    # issue: fetch_data.py pulls TWO seasons of history, and a fixture
+    # pairing (e.g. Man City v Bournemouth) recurs every season, so
+    # there can genuinely be two rows with the same (home, away) key -
+    # last season's meeting and this season's. Overwriting silently
+    # picked whichever happened to be read last, which could reconcile
+    # a pick against the wrong season's score entirely. Keeping every
+    # row and selecting the one closest to the pick's own match_date
+    # fixes that.
+    results_by_pair: dict[tuple[str, str], list[dict]] = {}
     for csv_path in data_dir.glob("*.csv"):
         with open(csv_path, newline="") as f:
             for row in csv.DictReader(f):
                 if not row.get("FTHG") or not row.get("HomeTeam"):
                     continue  # not yet played, or malformed row
                 key = (row["HomeTeam"], row["AwayTeam"])
-                results_by_pair[key] = row
+                results_by_pair.setdefault(key, []).append(row)
+
+    # Only accept a match within this many days of the pick's logged
+    # match_date - close enough to absorb a postponed/rearranged fixture,
+    # far enough to never accidentally grab a different season's meeting.
+    MAX_DATE_DRIFT_DAYS = 14
 
     settled, still_waiting = 0, 0
     for pick in log.values():
@@ -164,7 +179,9 @@ def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tupl
         if match_date is None or match_date >= today:
             continue  # not due yet
 
-        row = results_by_pair.get((pick["home_team"], pick["away_team"]))
+        candidates = results_by_pair.get((pick["home_team"], pick["away_team"]), [])
+        row = _find_result_row(candidates, match_date, MAX_DATE_DRIFT_DAYS)
+
         if row is None:
             still_waiting += 1  # result not published yet - retry next run
             continue
@@ -184,6 +201,83 @@ def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tupl
         settled += 1
 
     return settled, still_waiting
+
+
+def _find_result_row(candidates: list[dict], match_date: date, max_drift_days: int = 14) -> dict | None:
+    """Pick the candidate row whose date is closest to match_date, within
+    max_drift_days. Shared by reconcile_pending and reaudit_settled so
+    both use identical matching logic."""
+    row, best_drift = None, None
+    for candidate in candidates:
+        candidate_date = _parse_date(candidate.get("Date", ""))
+        if candidate_date is None:
+            continue
+        drift = abs((candidate_date - match_date).days)
+        if drift <= max_drift_days and (best_drift is None or drift < best_drift):
+            row = candidate
+            best_drift = drift
+    return row
+
+
+def reaudit_settled(log: dict[str, dict], data_dir: Path) -> list[dict]:
+    """
+    Re-check every ALREADY-SETTLED pick against the current matching
+    logic and data, and correct any that were reconciled incorrectly.
+
+    This exists because a real bug was found and fixed here: results
+    were looked up by (home, away) team names alone, with no season/date
+    awareness. Since a fixture pairing recurs every season, that could
+    silently match a pick against the WRONG season's score. Settled
+    picks are never touched by the normal pending->settled flow, so
+    fixing the matching logic alone doesn't correct rows that already
+    settled incorrectly under the old logic - this does that, once, and
+    is safe to leave running on every future run too: it's a no-op for
+    anything that was already reconciled correctly.
+
+    Returns a list of correction records (empty if nothing needed
+    fixing) for reporting - doesn't save anything itself.
+    """
+    results_by_pair: dict[tuple[str, str], list[dict]] = {}
+    for csv_path in data_dir.glob("*.csv"):
+        with open(csv_path, newline="") as f:
+            for row in csv.DictReader(f):
+                if not row.get("FTHG") or not row.get("HomeTeam"):
+                    continue
+                key = (row["HomeTeam"], row["AwayTeam"])
+                results_by_pair.setdefault(key, []).append(row)
+
+    corrections = []
+    for pick in log.values():
+        if pick["status"] != "settled":
+            continue
+        match_date = _parse_date(pick["match_date"])
+        if match_date is None:
+            continue
+
+        candidates = results_by_pair.get((pick["home_team"], pick["away_team"]), [])
+        row = _find_result_row(candidates, match_date)
+        if row is None:
+            continue  # can't verify against current data - leave as-is
+
+        actual = _actual_metric_value(row, pick["metric"])
+        if actual is None:
+            continue
+
+        line = float(pick["line"]) if pick["line"] not in ("", None) else None
+        correct_result = "hit" if _check_hit(actual, pick["direction"], line) else "miss"
+
+        old_actual, old_result = pick["actual_value"], pick["result"]
+        if str(old_actual) != str(actual) or old_result != correct_result:
+            corrections.append({
+                "pick_id": pick["pick_id"], "home_team": pick["home_team"], "away_team": pick["away_team"],
+                "metric": pick["metric"], "direction": pick["direction"], "line": pick["line"],
+                "old_actual": old_actual, "new_actual": actual,
+                "old_result": old_result, "new_result": correct_result,
+            })
+            pick["actual_value"] = actual
+            pick["result"] = correct_result
+
+    return corrections
 
 
 def compute_summary(log: dict[str, dict]) -> dict:
@@ -233,6 +327,18 @@ if __name__ == "__main__":
 
     settled, still_waiting = reconcile_pending(log, data_dir, today)
     print(f"Settled {settled} pick(s) this run; {still_waiting} past-due pick(s) still waiting on results.")
+
+    # Cheap safety net: re-check every already-settled pick against the
+    # current matching logic too, in case any of them were reconciled
+    # incorrectly (this is what catches the season-collision class of
+    # bug even for picks that already settled before the fix). A no-op
+    # for anything that was already correct.
+    corrections = reaudit_settled(log, data_dir)
+    if corrections:
+        print(f"Corrected {len(corrections)} previously-settled pick(s):")
+        for c in corrections:
+            print(f"  {c['home_team']} v {c['away_team']} - {c['direction']} {c['line']} {c['metric']}: "
+                  f"actual {c['old_actual']} -> {c['new_actual']}, result {c['old_result']} -> {c['new_result']}")
 
     save_log(log_path, log)
     print(f"Log saved to {log_path} ({len(log)} total picks).")
