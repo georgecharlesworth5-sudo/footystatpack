@@ -53,12 +53,22 @@ from poisson_model import poisson_pmf, over_under
 # recently relegated ones; the gap widens further down). Scottish
 # Premiership is placed roughly alongside the Championship/League One
 # range - genuinely uncertain, adjust if it feels wrong.
+#
+# Widened from an earlier, too-timid version after real testing showed
+# it wasn't enough: Tottenham (home, Premier League) came out only 23%
+# to beat Charlton (Championship) - far too low for what should be a
+# fairly strong home-tie favourite in reality. Two things were fixed:
+# the gaps below are now bigger, and (see FORM_CLAMP further down) the
+# tier adjustment no longer shares a clamp with the form-noise
+# protection - the two were fighting each other, since the same limit
+# meant to stop noisy form data compounding was also swallowing this
+# deliberate, always-present signal.
 TIER_STRENGTH = {
     "E0": 1.00,   # Premier League
-    "E1": 0.88,   # Championship
-    "E2": 0.78,   # League One
-    "E3": 0.68,   # League Two
-    "SC0": 0.85,  # Scottish Premiership
+    "E1": 0.75,   # Championship
+    "E2": 0.60,   # League One
+    "E3": 0.48,   # League Two
+    "SC0": 0.70,  # Scottish Premiership
 }
 
 
@@ -88,18 +98,23 @@ def position_multiplier(position: int, total_teams: int) -> float:
     return 1.0 + POSITION_SWING * (2 * normalized - 1)
 
 
-# The combined attack*defense product for one side gets clamped to this
-# range, rather than clamping each input ratio separately - clamping
-# inputs alone doesn't work, since two only-moderately-elevated ratios
-# (neither individually extreme) can still multiply together into an
-# extreme joint result. Confirmed by testing: with per-input clamping
-# of [0.5, 1.8], a Chelsea (weak home defense, ratio 1.6) vs Luton
-# (strong away attack, ratio 1.7) case still produced a 74% away-win
-# probability for a League One side at a Premier League ground -
-# 1.6 x 1.7 = 2.72, still way beyond what either factor alone would
-# suggest. Clamping the PRODUCT directly is what actually bounds the
-# final result.
-COMBINED_CLAMP = (0.6, 1.6)
+# The combined attack*defense FORM product for one side gets clamped to
+# this range, rather than clamping each input ratio separately -
+# clamping inputs alone doesn't work, since two only-moderately-elevated
+# ratios (neither individually extreme) can still multiply together
+# into an extreme joint result. Confirmed by testing: with per-input
+# clamping of [0.5, 1.8], a Chelsea (weak home defense, ratio 1.6) vs
+# Luton (strong away attack, ratio 1.7) case still produced a 74%
+# away-win probability for a League One side at a Premier League
+# ground - 1.6 x 1.7 = 2.72, still way beyond what either factor alone
+# would suggest. Clamping the PRODUCT directly is what actually bounds
+# the final result.
+#
+# This ONLY applies to the form ratios (protecting against noisy/
+# unreliable data compounding) - TIER_STRENGTH is applied afterward,
+# separately, so the deliberate quality signal can't get squeezed by a
+# limit meant for a different problem.
+FORM_CLAMP = (0.6, 1.6)
 
 
 def _clamp(value: float, bounds: tuple[float, float]) -> float:
@@ -150,8 +165,15 @@ def cross_league_expected_values(
     else:
         tier_ratio_home = tier_ratio_away = 1.0
 
-    home_factor = _clamp(home_attack * away_defense * tier_ratio_home, COMBINED_CLAMP)
-    away_factor = _clamp(away_attack * home_defense * tier_ratio_away, COMBINED_CLAMP)
+    # Form ratios clamped first (protects against noisy/unreliable data
+    # compounding), THEN the deliberate tier signal is applied on top,
+    # unclamped - see FORM_CLAMP's docstring for why these are kept
+    # separate.
+    form_factor_home = _clamp(home_attack * away_defense, FORM_CLAMP)
+    form_factor_away = _clamp(away_attack * home_defense, FORM_CLAMP)
+
+    home_factor = form_factor_home * tier_ratio_home
+    away_factor = form_factor_away * tier_ratio_away
 
     shared_home_baseline = _geomean(home_league_home_avg, away_league_home_avg)
     shared_away_baseline = _geomean(home_league_away_avg, away_league_away_avg)
