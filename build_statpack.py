@@ -43,6 +43,7 @@ from pathlib import Path
 from stats_engine import build_team_match_log, team_form_summary, league_averages
 from poisson_model import predict_fixture
 from best_bets import compute_best_bets
+from cup_predictions import build_cup_predictions
 
 
 def _parse_fixture_date(d: str) -> date | None:
@@ -226,7 +227,7 @@ def compute_data_freshness(all_rows_by_league: dict[str, list[dict]]) -> dict:
     return freshness
 
 
-def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
+def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path | None = None) -> dict:
     statpack = {"generated_leagues": {}}
 
     # Load every league's rows once and build ONE combined match log across
@@ -265,12 +266,15 @@ def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
                 most_recent_date[team] = row_date
                 most_recent_league[team] = div
 
+    league_averages_by_code: dict[str, dict] = {}
+
     for code, name in LEAGUE_NAMES.items():
         rows = all_rows_by_league[code]
         if not rows:
             continue
 
         league_avg = league_averages(rows)
+        league_averages_by_code[code] = league_avg
         # Only compute form summaries for teams that appear somewhere in
         # the combined log AND have played in (or been promoted/relegated
         # into) this league - i.e. every team, using their full combined
@@ -350,6 +354,14 @@ def build_statpack(data_dir: Path, fixtures: list[dict]) -> dict:
     statpack["best_bets"] = compute_best_bets(statpack)
     statpack["data_freshness"] = compute_data_freshness(all_rows_by_league)
 
+    if cup_fixtures_path is not None:
+        cup_cards = build_cup_predictions(
+            cup_fixtures_path, all_rows_by_league, team_forms, most_recent_league,
+            league_averages_by_code, LEAGUE_NAMES, resolve_team_name,
+        )
+        statpack["efl_cup"] = {"fixtures": cup_cards}
+        print(f"[debug] EFL Cup: {len(cup_cards)} fixture(s) predicted")
+
     return statpack
 
 
@@ -359,10 +371,13 @@ if __name__ == "__main__":
     data_dir = Path(__file__).parent / "data"
     fixtures_dir = Path(__file__).parent / "fixtures_manual"
     fixtures_dir.mkdir(exist_ok=True)
+    cup_fixtures_dir = Path(__file__).parent / "cup_fixtures_manual"
+    cup_fixtures_dir.mkdir(exist_ok=True)
+    cup_fixtures_path = cup_fixtures_dir / "efl_cup.txt"
 
     fixtures = load_all_fixtures(fixtures_dir)
 
-    pack = build_statpack(data_dir, fixtures)
+    pack = build_statpack(data_dir, fixtures, cup_fixtures_path=cup_fixtures_path)
 
     out_path = Path(__file__).parent / "statpack.json"
     with open(out_path, "w") as f:
@@ -382,5 +397,3 @@ if __name__ == "__main__":
 
     print(f"Stat pack written to {out_path}")
     print(f"Dashboard data written to {js_path}")
-
-    print(f"Stat pack written to {out_path}")
