@@ -44,7 +44,7 @@ caution, which is why they're visibly flagged as cross-division in the
 output.
 """
 
-from poisson_model import poisson_pmf, over_under
+from poisson_model import poisson_pmf, over_under, PER_SIDE_LINES
 
 # Rough, hand-set relative quality between English divisions - see
 # "TIER_STRENGTH" note above. Premier League = 1.0 baseline; each tier
@@ -213,6 +213,10 @@ def predict_cross_league_fixture(
             "expected_total": round(lam_total, 2),
             "over_under": [over_under(lam_total, line) for line in lines.get(metric, [])],
         }
+
+        if metric in PER_SIDE_LINES:
+            market["home_over_under"] = [over_under(lam_home, line) for line in PER_SIDE_LINES[metric]]
+            market["away_over_under"] = [over_under(lam_away, line) for line in PER_SIDE_LINES[metric]]
 
         if metric == "goals":
             p_home_scores = 1 - poisson_pmf(0, lam_home)
