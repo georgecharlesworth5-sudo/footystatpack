@@ -197,3 +197,7 @@ Milton Keynes Dons|Leicester|29/08/2026|btts|No,2026-08-25,29/08/2026,E2,League 
 Blackburn|QPR|29/08/2026|btts|No,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,btts,No,,0.769,pending,,,
 Oldham|Swindon|29/08/2026|btts|No,2026-08-25,29/08/2026,E3,League Two,Oldham,Swindon,btts,No,,0.766,pending,,,
 Middlesbrough|West Brom|29/08/2026|btts|No,2026-08-25,29/08/2026,E1,Championship,Middlesbrough,West Brom,btts,No,,0.743,pending,,,
+Plymouth|Bradford|29/08/2026|goals|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,goals,Over,1.5,0.893,pending,,,
+Plymouth|Bradford|29/08/2026|cards|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,cards,Over,2.5,0.929,pending,,,
+Plymouth|Bradford|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,second_half_goals,Over,0.5,0.929,pending,,,
+Plymouth|Bradford|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,btts,Yes,,0.723,pending,,,
