@@ -63,6 +63,12 @@ KEEP_COLUMNS = [
     "HS", "AS", "HST", "AST",
     "HC", "AC",          # corners
     "HY", "AY", "HR", "AR",  # cards
+    "HxG", "AxG",         # expected goals - not documented in football-data.co.uk's
+                           # own notes.txt, and not present for every league/season
+                           # (older data and some divisions may lack it entirely) -
+                           # everything downstream treats a missing/blank value here
+                           # as "no xG for this match" and falls back to actual goals,
+                           # never assumes it's always present.
 ]
 
 USER_AGENT = "Mozilla/5.0 (compatible; StatPackBot/1.0; personal use)"
