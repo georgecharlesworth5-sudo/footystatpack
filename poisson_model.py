@@ -41,6 +41,13 @@ from stats_engine import METRICS
 XG_BLEND_WEIGHT = 0.4  # how much weight xG gets vs actual goals, when both are available
 MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - use actual goals alone
 
+# Per-side O/U lines (a single team's own corner count, not the combined
+# match total) - roughly half of the usual total-match lines, since one
+# team's corners typically run a bit lower than the full-match total.
+PER_SIDE_LINES = {
+    "corners": [2.5, 3.5, 4.5, 5.5, 6.5],
+}
+
 
 def _blended_goal_value(actual: float, xg: float | None, xg_matches: int) -> float:
     """actual goals, blended toward xG when we have enough xG data to
@@ -191,6 +198,14 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
             "expected_total": round(lam_total, 2),
             "over_under": [over_under(lam_total, line) for line in lines.get(metric, [])],
         }
+
+        if metric in PER_SIDE_LINES:
+            # Home/away split: each side's OWN expected value, treated as
+            # its own Poisson distribution - same over_under() function,
+            # just applied to lam_home/lam_away individually instead of
+            # the combined total.
+            market["home_over_under"] = [over_under(lam_home, line) for line in PER_SIDE_LINES[metric]]
+            market["away_over_under"] = [over_under(lam_away, line) for line in PER_SIDE_LINES[metric]]
 
         if metric == "goals":
             # BTTS: both teams score >= 1
