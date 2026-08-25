@@ -476,6 +476,40 @@
     padding-top: 10px;
     border-top: 1px solid var(--rule);
   }
+  .metric-split {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+  }
+  .metric-split-col {
+    flex: 1;
+    min-width: 0;
+  }
+  .metric-split-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--meta);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .metric-split-expected {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 15px;
+    margin: 2px 0 4px;
+  }
+  .split-ou-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 0;
+    color: var(--ink-dim);
+  }
+  .split-ou-line { color: var(--meta); }
   .sample-note {
     font-family: var(--mono);
     font-size: 10px;
@@ -608,7 +642,7 @@
     });
   }
 
-  function metricBlock(title, m) {
+  function metricBlock(title, m, homeTeam, awayTeam) {
     if (!m) return "";
     const ouRows = (m.over_under || []).map(ou => {
       const overPct = ou.over;
@@ -624,11 +658,36 @@
       ? `<div class="btts-row">BTTS: <b>${pct(m.btts_yes)}</b> yes / ${pct(m.btts_no)} no</div>`
       : "";
 
+    const split = m.home_over_under ? splitBlock(m, homeTeam, awayTeam) : "";
+
     return `<div class="metric-card">
       <div class="metric-title">${title} <span style="opacity:0.6">· over %</span></div>
       <div class="metric-expected">${m.expected_total}<span class="label">expected</span></div>
       ${ouRows}
       ${btts}
+      ${split}
+    </div>`;
+  }
+
+  function splitSideRows(entries) {
+    return entries.map(ou => `<div class="split-ou-row">
+      <span class="split-ou-line">${ou.line}</span>
+      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pct(ou.over)}</span>
+    </div>`).join("");
+  }
+
+  function splitBlock(m, homeTeam, awayTeam) {
+    return `<div class="metric-split">
+      <div class="metric-split-col">
+        <div class="metric-split-title">${homeTeam || 'Home'}</div>
+        <div class="metric-split-expected">${m.expected_home}</div>
+        ${splitSideRows(m.home_over_under)}
+      </div>
+      <div class="metric-split-col">
+        <div class="metric-split-title">${awayTeam || 'Away'}</div>
+        <div class="metric-split-expected">${m.expected_away}</div>
+        ${splitSideRows(m.away_over_under)}
+      </div>
     </div>`;
   }
 
@@ -694,11 +753,11 @@
         ${note}
         ${matchResultBlock(fixture)}
         <div class="metric-grid">
-          ${metricBlock("Full-Time Goals", p.goals)}
-          ${metricBlock("Corners", p.corners)}
-          ${metricBlock("Cards", p.cards)}
-          ${metricBlock("1st-Half Goals", p.first_half_goals)}
-          ${metricBlock("2nd-Half Goals", p.second_half_goals)}
+          ${metricBlock("Full-Time Goals", p.goals, fixture.home_team, fixture.away_team)}
+          ${metricBlock("Corners", p.corners, fixture.home_team, fixture.away_team)}
+          ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team)}
+          ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team)}
+          ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team)}
         </div>
         <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
       </div>
@@ -832,11 +891,11 @@
         ${note}
         ${matchResultBlock(fixture)}
         <div class="metric-grid">
-          ${metricBlock("Full-Time Goals", p.goals)}
-          ${metricBlock("Corners", p.corners)}
-          ${metricBlock("Cards", p.cards)}
-          ${metricBlock("1st-Half Goals", p.first_half_goals)}
-          ${metricBlock("2nd-Half Goals", p.second_half_goals)}
+          ${metricBlock("Full-Time Goals", p.goals, fixture.home_team, fixture.away_team)}
+          ${metricBlock("Corners", p.corners, fixture.home_team, fixture.away_team)}
+          ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team)}
+          ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team)}
+          ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team)}
         </div>
         <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
       </div>
