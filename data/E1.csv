@@ -1,577 +1,577 @@
-Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HC,AC,HY,AY,HR,AR,League,Season
-E1,08/08/2025,20:00,Birmingham,Ipswich,1,1,D,0,0,D,A Kitchen,11,7,3,1,1,4,2,3,0,0,E1,2526
-E1,09/08/2025,12:30,Charlton,Watford,1,0,H,0,0,D,S Martin,12,10,5,1,3,2,1,2,0,0,E1,2526
-E1,09/08/2025,12:30,Coventry,Hull,0,0,D,0,0,D,R Madley,18,7,3,3,8,2,3,3,0,0,E1,2526
-E1,09/08/2025,12:30,Southampton,Wrexham,2,1,H,0,1,A,J Bell,27,10,10,2,7,4,2,2,0,0,E1,2526
-E1,09/08/2025,15:00,Middlesbrough,Swansea,1,0,H,0,0,D,F Hallam,6,3,3,1,7,2,2,5,0,0,E1,2526
-E1,09/08/2025,15:00,Norwich,Millwall,1,2,A,0,0,D,A Herczeg,15,15,3,3,6,5,1,4,0,0,E1,2526
-E1,09/08/2025,15:00,Oxford,Portsmouth,0,1,A,0,1,A,D Whitestone,18,9,4,4,8,4,1,2,0,0,E1,2526
-E1,09/08/2025,15:00,QPR,Preston,1,1,D,1,0,H,O Langford,13,11,3,3,5,4,0,3,0,0,E1,2526
-E1,09/08/2025,15:00,Stoke,Derby,3,1,H,0,0,D,E Bell,12,3,7,2,7,3,1,2,0,0,E1,2526
-E1,09/08/2025,15:00,West Brom,Blackburn,1,0,H,1,0,H,D Webb,13,10,5,1,3,7,2,0,1,0,E1,2526
-E1,09/08/2025,17:30,Sheffield United,Bristol City,1,4,A,1,2,A,J Smith,20,9,6,5,14,3,0,0,0,0,E1,2526
-E1,10/08/2025,16:30,Leicester,Sheffield Weds,2,1,H,0,1,A,M Donohue,27,7,13,3,13,3,0,0,0,1,E1,2526
-E1,16/08/2025,12:30,Derby,Coventry,3,5,A,2,2,D,A Backhouse,13,20,4,10,6,5,2,5,0,0,E1,2526
-E1,16/08/2025,12:30,Portsmouth,Norwich,1,2,A,0,2,A,S Martin,19,11,3,5,9,0,3,3,0,0,E1,2526
-E1,16/08/2025,12:30,Wrexham,West Brom,2,3,A,1,1,D,J Busby,15,17,3,5,5,5,2,0,0,0,E1,2526
-E1,16/08/2025,15:00,Blackburn,Birmingham,1,2,A,0,0,D,O Langford,5,8,2,4,3,5,1,2,0,0,E1,2526
-E1,16/08/2025,15:00,Bristol City,Charlton,0,0,D,0,0,D,B Speedie,14,8,1,2,4,6,0,1,0,0,E1,2526
-E1,16/08/2025,15:00,Millwall,Middlesbrough,0,3,A,0,0,D,T Nield,11,12,1,5,6,10,4,5,0,0,E1,2526
-E1,16/08/2025,15:00,Preston,Leicester,2,1,H,1,0,H,G Ward,14,14,4,2,6,4,2,0,0,0,E1,2526
-E1,16/08/2025,15:00,Sheffield Weds,Stoke,0,3,A,0,1,A,L Smith,15,12,5,6,6,7,0,3,0,0,E1,2526
-E1,16/08/2025,15:00,Swansea,Sheffield United,1,0,H,0,0,D,T Kirk,13,8,4,0,4,8,1,3,0,0,E1,2526
-E1,16/08/2025,15:00,Watford,QPR,2,1,H,2,1,H,T Harrington,17,13,4,3,2,4,1,2,1,0,E1,2526
-E1,17/08/2025,12:00,Ipswich,Southampton,1,1,D,1,1,D,R Madley,14,11,1,3,4,5,2,2,0,0,E1,2526
-E1,17/08/2025,15:00,Hull,Oxford,3,2,H,2,2,D,A Kitchen,19,11,7,6,10,4,1,1,0,0,E1,2526
-E1,22/08/2025,20:00,Derby,Bristol City,1,1,D,0,1,A,D Webb,5,11,2,3,4,5,3,0,0,0,E1,2526
-E1,23/08/2025,12:30,Charlton,Leicester,0,1,A,0,0,D,D Whitestone,20,6,7,2,13,4,2,1,0,0,E1,2526
-E1,23/08/2025,12:30,Hull,Blackburn,0,3,A,0,1,A,T Nield,8,14,2,6,2,1,3,3,0,0,E1,2526
-E1,23/08/2025,12:30,Swansea,Watford,1,1,D,0,1,A,S Martin,11,9,2,4,7,2,3,5,0,0,E1,2526
-E1,23/08/2025,15:00,Birmingham,Oxford,1,0,H,1,0,H,R Jones,16,6,1,1,4,1,0,0,0,0,E1,2526
-E1,23/08/2025,15:00,Coventry,QPR,7,1,H,5,0,H,A Herczeg,19,10,8,1,9,4,1,2,0,0,E1,2526
-E1,23/08/2025,15:00,Norwich,Middlesbrough,1,2,A,0,2,A,L Doughty,14,11,3,4,5,3,0,3,1,0,E1,2526
-E1,23/08/2025,15:00,Preston,Ipswich,1,0,H,1,0,H,M Donohue,2,15,1,2,3,6,6,2,0,0,E1,2526
-E1,23/08/2025,15:00,Sheffield United,Millwall,0,1,A,0,1,A,J Busby,14,17,4,6,8,7,3,2,0,0,E1,2526
-E1,23/08/2025,15:00,Southampton,Stoke,1,2,A,0,0,D,J Smith,18,12,2,4,7,3,1,3,0,1,E1,2526
-E1,23/08/2025,15:00,West Brom,Portsmouth,1,1,D,1,0,H,E Bell,13,8,3,4,2,3,2,5,0,0,E1,2526
-E1,23/08/2025,15:00,Wrexham,Sheffield Weds,2,2,D,2,0,H,F Hallam,11,21,4,7,3,9,0,0,0,0,E1,2526
-E1,29/08/2025,20:00,Leicester,Birmingham,2,0,H,1,0,H,J Smith,5,11,2,1,1,7,3,3,0,0,E1,2526
-E1,30/08/2025,12:30,Middlesbrough,Sheffield United,1,0,H,0,0,D,L Smith,15,8,6,0,5,9,0,3,0,0,E1,2526
-E1,30/08/2025,12:30,QPR,Charlton,3,1,H,1,0,H,A Kitchen,13,13,6,3,1,2,2,2,0,0,E1,2526
-E1,30/08/2025,12:30,Stoke,West Brom,0,1,A,0,1,A,M Donohue,13,12,3,3,5,5,1,2,0,0,E1,2526
-E1,30/08/2025,15:00,Blackburn,Norwich,0,2,A,0,1,A,B Speedie,12,15,3,4,3,9,2,0,1,0,E1,2526
-E1,30/08/2025,15:00,Bristol City,Hull,4,2,H,3,1,H,G Ward,29,20,5,9,8,5,1,1,0,0,E1,2526
-E1,30/08/2025,15:00,Ipswich,Derby,2,2,D,1,0,H,L Doughty,18,10,5,2,6,3,2,7,0,0,E1,2526
-E1,30/08/2025,15:00,Millwall,Wrexham,0,2,A,0,0,D,T Kirk,21,6,2,3,5,2,1,3,0,0,E1,2526
-E1,30/08/2025,15:00,Oxford,Coventry,2,2,D,1,2,A,R Ricardo,14,15,3,6,0,5,1,2,0,0,E1,2526
-E1,30/08/2025,15:00,Portsmouth,Preston,1,0,H,1,0,H,T Harrington,10,13,2,2,6,4,1,2,0,0,E1,2526
-E1,30/08/2025,15:00,Sheffield Weds,Swansea,0,2,A,0,0,D,A Backhouse,9,17,1,8,2,7,0,2,0,0,E1,2526
-E1,30/08/2025,15:00,Watford,Southampton,2,2,D,0,1,A,F Hallam,10,12,4,7,4,5,2,5,0,0,E1,2526
-E1,12/09/2025,20:00,Ipswich,Sheffield United,5,0,H,1,0,H,F Hallam,21,10,11,2,3,5,0,2,0,0,E1,2526
-E1,13/09/2025,12:30,Charlton,Millwall,1,1,D,1,0,H,R Madley,14,15,3,3,3,4,1,1,1,0,E1,2526
-E1,13/09/2025,12:30,Oxford,Leicester,2,2,D,2,1,H,B Toner,19,8,2,5,4,4,1,2,0,1,E1,2526
-E1,13/09/2025,12:30,Preston,Middlesbrough,2,2,D,1,0,H,T Kirk,7,14,2,3,3,4,1,3,0,0,E1,2526
-E1,13/09/2025,15:00,Coventry,Norwich,1,1,D,0,1,A,G Ward,28,4,4,1,11,2,2,6,0,0,E1,2526
-E1,13/09/2025,15:00,Sheffield Weds,Bristol City,0,3,A,0,3,A,T Nield,6,9,0,4,4,1,2,0,0,0,E1,2526
-E1,13/09/2025,15:00,Stoke,Birmingham,1,0,H,1,0,H,M Salisbury,8,7,3,0,5,3,3,1,0,0,E1,2526
-E1,13/09/2025,15:00,Swansea,Hull,2,2,D,1,1,D,D Webb,9,15,2,6,5,2,1,1,0,0,E1,2526
-E1,13/09/2025,15:00,Watford,Blackburn,0,1,A,0,0,D,D Whitestone,14,14,1,5,5,7,1,2,0,0,E1,2526
-E1,13/09/2025,15:00,West Brom,Derby,0,1,A,0,0,D,R Ricardo,18,4,3,1,11,0,1,2,0,0,E1,2526
-E1,13/09/2025,15:00,Wrexham,QPR,1,3,A,0,2,A,B Speedie,21,15,8,6,12,9,1,0,0,0,E1,2526
-E1,14/09/2025,12:00,Southampton,Portsmouth,0,0,D,0,0,D,M Donohue,9,10,1,1,7,5,4,2,0,0,E1,2526
-E1,19/09/2025,20:00,Middlesbrough,West Brom,2,1,H,1,0,H,A Kitchen,9,15,4,3,2,3,0,0,0,0,E1,2526
-E1,20/09/2025,12:30,Birmingham,Swansea,1,0,H,0,0,D,J Busby,23,9,7,2,7,2,5,4,0,0,E1,2526
-E1,20/09/2025,12:30,Leicester,Coventry,0,0,D,0,0,D,O Langford,17,11,9,3,10,3,0,3,0,0,E1,2526
-E1,20/09/2025,12:30,QPR,Stoke,1,0,H,0,0,D,T Robinson,14,7,7,1,3,6,5,3,0,0,E1,2526
-E1,20/09/2025,15:00,Derby,Preston,0,1,A,0,1,A,L Smith,7,10,2,6,3,4,2,2,0,0,E1,2526
-E1,20/09/2025,15:00,Hull,Southampton,3,1,H,1,0,H,A Backhouse,11,14,4,4,1,6,5,3,0,0,E1,2526
-E1,20/09/2025,15:00,Norwich,Wrexham,2,3,A,1,0,H,D Webb,14,11,5,8,2,3,1,3,0,0,E1,2526
-E1,20/09/2025,15:00,Portsmouth,Sheffield Weds,0,2,A,0,1,A,R Ricardo,25,13,5,8,11,5,1,5,0,0,E1,2526
-E1,20/09/2025,15:00,Sheffield United,Charlton,0,1,A,0,0,D,B Toner,13,13,1,4,6,1,1,3,0,0,E1,2526
-E1,21/09/2025,15:00,Bristol City,Oxford,1,3,A,0,2,A,J Brooks,12,18,2,6,8,5,4,1,0,0,E1,2526
-E1,22/09/2025,20:00,Millwall,Watford,1,0,H,1,0,H,J Smith,9,11,2,4,7,4,1,0,0,0,E1,2526
-E1,26/09/2025,20:00,West Brom,Leicester,1,1,D,1,0,H,S Martin,11,13,5,1,3,3,2,5,0,0,E1,2526
-E1,27/09/2025,12:30,Coventry,Birmingham,3,0,H,1,0,H,T Kirk,14,5,5,0,3,4,1,2,0,1,E1,2526
-E1,27/09/2025,12:30,Swansea,Millwall,1,1,D,1,1,D,D Whitestone,13,11,2,3,6,4,1,2,0,0,E1,2526
-E1,27/09/2025,12:30,Wrexham,Derby,1,1,D,0,0,D,T Nield,10,5,5,3,4,3,1,5,0,0,E1,2526
-E1,27/09/2025,15:00,Charlton,Blackburn,3,0,H,1,0,H,A Backhouse,16,9,7,2,3,3,4,2,0,0,E1,2526
-E1,27/09/2025,15:00,Ipswich,Portsmouth,2,1,H,2,0,H,A Kitchen,14,8,5,4,5,4,1,2,0,0,E1,2526
-E1,27/09/2025,15:00,Oxford,Sheffield United,0,1,A,0,0,D,B Speedie,14,6,3,2,3,5,1,1,0,0,E1,2526
-E1,27/09/2025,15:00,Preston,Bristol City,0,0,D,0,0,D,R Madley,7,19,2,7,2,9,4,1,0,0,E1,2526
-E1,27/09/2025,15:00,Sheffield Weds,QPR,1,1,D,1,0,H,J Brooks,14,14,5,4,5,4,2,2,0,0,E1,2526
-E1,27/09/2025,15:00,Southampton,Middlesbrough,1,1,D,0,0,D,F Hallam,14,7,2,1,6,3,2,6,0,0,E1,2526
-E1,27/09/2025,15:00,Stoke,Norwich,1,1,D,0,1,A,E Bell,23,6,6,3,12,2,0,3,0,0,E1,2526
-E1,27/09/2025,15:00,Watford,Hull,2,1,H,0,1,A,O Langford,21,11,8,4,6,6,1,5,0,0,E1,2526
-E1,30/09/2025,19:45,Birmingham,Sheffield Weds,2,2,D,1,1,D,M Donohue,20,5,5,3,10,4,3,2,0,0,E1,2526
-E1,30/09/2025,19:45,Blackburn,Swansea,1,2,A,1,1,D,L Doughty,14,7,3,4,7,3,3,2,0,0,E1,2526
-E1,30/09/2025,19:45,Bristol City,Ipswich,1,1,D,1,0,H,J Busby,13,15,3,3,3,6,4,2,0,0,E1,2526
-E1,30/09/2025,19:45,Hull,Preston,2,2,D,0,2,A,J Smith,10,13,5,5,5,3,0,1,0,0,E1,2526
-E1,30/09/2025,19:45,Leicester,Wrexham,1,1,D,1,0,H,E Bell,16,9,1,1,7,1,3,1,0,0,E1,2526
-E1,30/09/2025,19:45,Middlesbrough,Stoke,0,0,D,0,0,D,D Webb,12,18,4,5,5,8,2,0,0,0,E1,2526
-E1,30/09/2025,19:45,Sheffield United,Southampton,1,2,A,1,0,H,A Herczeg,8,12,3,5,4,5,3,4,0,0,E1,2526
-E1,30/09/2025,20:00,Derby,Charlton,1,1,D,0,1,A,G Ward,18,11,3,3,5,2,2,0,0,0,E1,2526
-E1,01/10/2025,19:45,Millwall,Coventry,0,4,A,0,1,A,L Smith,13,13,3,5,3,3,2,2,0,0,E1,2526
-E1,01/10/2025,19:45,Norwich,West Brom,0,1,A,0,1,A,S Allison,16,5,5,1,4,3,1,4,0,0,E1,2526
-E1,01/10/2025,19:45,Portsmouth,Watford,2,2,D,1,0,H,B Toner,15,12,5,6,3,3,2,5,0,0,E1,2526
-E1,01/10/2025,20:00,QPR,Oxford,0,0,D,0,0,D,R Ricardo,13,9,1,0,9,1,3,1,0,0,E1,2526
-E1,03/10/2025,20:00,Wrexham,Birmingham,1,1,D,1,0,H,R Madley,12,8,4,3,5,5,0,2,0,0,E1,2526
-E1,04/10/2025,12:30,Blackburn,Stoke,1,1,D,0,0,D,R Ricardo,17,11,5,6,7,6,1,1,0,0,E1,2526
-E1,04/10/2025,12:30,Hull,Sheffield United,1,0,H,1,0,H,G Ward,5,13,2,4,4,9,2,2,0,0,E1,2526
-E1,04/10/2025,12:30,Sheffield Weds,Coventry,0,5,A,0,3,A,A Herczeg,9,21,0,10,13,8,1,1,0,0,E1,2526
-E1,04/10/2025,15:00,Bristol City,QPR,1,2,A,1,0,H,E Duckworth,11,8,1,2,4,1,5,1,0,0,E1,2526
-E1,04/10/2025,15:00,Derby,Southampton,1,1,D,1,1,D,O Langford,9,13,5,6,3,5,4,2,0,0,E1,2526
-E1,04/10/2025,15:00,Millwall,West Brom,3,0,H,1,0,H,T Robinson,11,10,4,1,4,5,1,2,0,0,E1,2526
-E1,04/10/2025,15:00,Portsmouth,Middlesbrough,1,0,H,1,0,H,A Backhouse,8,12,1,1,2,8,2,1,0,0,E1,2526
-E1,04/10/2025,15:00,Preston,Charlton,2,0,H,0,0,D,J Linington,15,8,3,0,3,4,0,2,0,0,E1,2526
-E1,04/10/2025,15:00,Swansea,Leicester,1,3,A,0,1,A,D Webb,13,17,7,7,2,5,2,1,0,0,E1,2526
-E1,04/10/2025,15:00,Watford,Oxford,2,1,H,2,1,H,L Smith,27,15,10,5,9,3,3,4,0,0,E1,2526
-E1,05/10/2025,12:00,Ipswich,Norwich,3,1,H,2,1,H,T Kirk,19,12,9,4,8,8,1,3,0,0,E1,2526
-E1,17/10/2025,20:00,Middlesbrough,Ipswich,2,1,H,1,0,H,M Donohue,15,17,5,5,5,9,3,1,0,0,E1,2526
-E1,18/10/2025,12:30,Oxford,Derby,1,0,H,1,0,H,J Bell,19,6,7,1,4,12,4,1,0,0,E1,2526
-E1,18/10/2025,12:30,QPR,Millwall,1,2,A,0,2,A,A Herczeg,20,5,3,5,8,3,2,4,0,0,E1,2526
-E1,18/10/2025,12:30,Southampton,Swansea,0,0,D,0,0,D,J Smith,21,6,8,1,5,3,0,4,0,0,E1,2526
-E1,18/10/2025,15:00,Birmingham,Hull,2,3,A,1,2,A,R Ricardo,29,14,8,7,9,7,2,7,1,0,E1,2526
-E1,18/10/2025,15:00,Charlton,Sheffield Weds,2,1,H,2,0,H,T Reeves,12,12,5,4,2,4,1,2,0,1,E1,2526
-E1,18/10/2025,15:00,Coventry,Blackburn,2,0,H,0,0,D,S Allison,14,17,5,3,2,7,0,2,0,0,E1,2526
-E1,18/10/2025,15:00,Norwich,Bristol City,0,1,A,0,0,D,T Nield,11,21,4,6,3,9,2,3,0,0,E1,2526
-E1,18/10/2025,15:00,Sheffield United,Watford,1,0,H,0,0,D,R Madley,18,13,6,1,7,3,0,1,0,0,E1,2526
-E1,18/10/2025,15:00,Stoke,Wrexham,1,0,H,1,0,H,T Bramall,12,5,3,3,6,4,2,0,0,0,E1,2526
-E1,18/10/2025,15:00,West Brom,Preston,2,1,H,1,0,H,A Kitchen,16,17,6,5,8,4,2,1,0,0,E1,2526
-E1,18/10/2025,19:45,Leicester,Portsmouth,1,1,D,1,0,H,F Hallam,19,8,6,3,14,4,1,2,0,0,E1,2526
-E1,21/10/2025,19:45,Blackburn,Sheffield United,1,3,A,1,0,H,D Webb,12,11,3,5,5,5,1,1,0,0,E1,2526
-E1,21/10/2025,19:45,Derby,Norwich,1,0,H,0,0,D,B Toner,8,17,3,3,5,13,2,1,0,0,E1,2526
-E1,21/10/2025,19:45,Hull,Leicester,2,1,H,2,0,H,M Donohue,9,18,6,4,1,7,1,2,0,0,E1,2526
-E1,21/10/2025,19:45,Ipswich,Charlton,0,3,A,0,0,D,F Hallam,31,15,5,8,16,3,0,3,0,0,E1,2526
-E1,21/10/2025,19:45,Millwall,Stoke,2,0,H,2,0,H,J Linington,15,10,7,3,3,2,2,1,0,0,E1,2526
-E1,21/10/2025,19:45,Portsmouth,Coventry,1,2,A,0,1,A,G Ward,15,19,5,7,6,5,1,1,0,0,E1,2526
-E1,21/10/2025,19:45,Preston,Birmingham,0,1,A,0,1,A,L Smith,17,9,6,2,9,3,2,5,0,0,E1,2526
-E1,21/10/2025,20:00,Bristol City,Southampton,3,1,H,1,1,D,A Backhouse,13,14,4,7,2,3,1,2,0,0,E1,2526
-E1,22/10/2025,19:45,Swansea,QPR,0,1,A,0,1,A,J Busby,11,15,2,4,6,3,1,4,1,0,E1,2526
-E1,22/10/2025,19:45,Watford,West Brom,2,1,H,1,1,D,L Doughty,19,9,5,4,4,5,0,2,0,0,E1,2526
-E1,22/10/2025,19:45,Wrexham,Oxford,1,0,H,1,0,H,E Bell,11,6,6,2,6,3,3,1,1,0,E1,2526
-E1,22/10/2025,20:00,Sheffield Weds,Middlesbrough,0,1,A,0,1,A,T Kirk,11,19,3,7,6,5,3,1,0,0,E1,2526
-E1,24/10/2025,20:00,Preston,Sheffield United,3,2,H,1,2,A,F Hallam,15,12,3,3,2,4,4,1,0,0,E1,2526
-E1,25/10/2025,12:30,Coventry,Watford,3,1,H,3,0,H,D Whitestone,12,13,3,8,5,7,3,2,0,1,E1,2526
-E1,25/10/2025,12:30,Ipswich,West Brom,1,0,H,0,0,D,J Smith,15,10,4,1,4,5,1,1,0,0,E1,2526
-E1,25/10/2025,12:30,Portsmouth,Stoke,0,1,A,0,0,D,T Kirk,14,11,3,2,6,2,2,3,0,0,E1,2526
-E1,25/10/2025,15:00,Blackburn,Southampton,2,1,H,0,1,A,R Madley,18,12,6,5,6,5,3,1,0,1,E1,2526
-E1,25/10/2025,15:00,Bristol City,Birmingham,1,0,H,1,0,H,J Linington,5,13,1,1,0,6,2,1,0,0,E1,2526
-E1,25/10/2025,15:00,Derby,QPR,1,0,H,1,0,H,E Bell,12,6,4,1,5,2,2,2,0,0,E1,2526
-E1,25/10/2025,15:00,Hull,Charlton,1,1,D,0,0,D,A Kitchen,15,11,4,5,6,2,2,1,0,0,E1,2526
-E1,25/10/2025,15:00,Middlesbrough,Wrexham,1,1,D,0,1,A,S Martin,14,6,4,2,4,4,0,5,0,0,E1,2526
-E1,25/10/2025,15:00,Millwall,Leicester,1,0,H,1,0,H,J Bell,9,12,4,3,5,9,1,2,0,0,E1,2526
-E1,25/10/2025,15:00,Sheffield Weds,Oxford,1,2,A,0,2,A,P Tierney,17,11,5,4,8,3,0,0,0,0,E1,2526
-E1,25/10/2025,15:00,Swansea,Norwich,2,1,H,1,1,D,A Herczeg,9,7,3,3,2,3,3,1,0,0,E1,2526
-E1,31/10/2025,20:00,Wrexham,Coventry,3,2,H,0,1,A,A Backhouse,13,18,7,5,3,6,2,1,0,0,E1,2526
-E1,01/11/2025,12:30,Leicester,Blackburn,0,2,A,0,1,A,T Nield,12,9,1,5,7,4,0,1,0,0,E1,2526
-E1,01/11/2025,12:30,Norwich,Hull,0,2,A,0,0,D,J Smith,15,9,3,4,6,4,1,2,0,0,E1,2526
-E1,01/11/2025,12:30,West Brom,Sheffield Weds,0,0,D,0,0,D,B Toner,13,5,6,2,8,3,1,1,0,0,E1,2526
-E1,01/11/2025,15:00,Birmingham,Portsmouth,4,0,H,1,0,H,A Kitchen,19,5,7,0,9,5,1,2,0,0,E1,2526
-E1,01/11/2025,15:00,Charlton,Swansea,1,1,D,0,0,D,D Webb,11,11,4,2,4,7,0,0,0,0,E1,2526
-E1,01/11/2025,15:00,Oxford,Millwall,2,2,D,1,1,D,F Hallam,14,11,6,4,5,8,0,0,0,0,E1,2526
-E1,01/11/2025,15:00,QPR,Ipswich,1,4,A,1,1,D,S Allison,12,12,5,7,3,2,4,0,0,0,E1,2526
-E1,01/11/2025,15:00,Sheffield United,Derby,1,3,A,0,1,A,M Salisbury,15,12,5,4,9,4,2,1,0,0,E1,2526
-E1,01/11/2025,15:00,Southampton,Preston,0,2,A,0,1,A,M Donohue,10,12,2,3,8,2,1,3,0,0,E1,2526
-E1,01/11/2025,15:00,Stoke,Bristol City,5,1,H,3,0,H,J Bell,13,16,8,5,4,10,3,0,0,0,E1,2526
-E1,01/11/2025,15:00,Watford,Middlesbrough,3,0,H,2,0,H,J Busby,9,14,4,4,1,7,2,1,0,0,E1,2526
-E1,04/11/2025,19:45,Birmingham,Millwall,4,0,H,2,0,H,G Ward,12,4,6,2,2,3,0,0,0,0,E1,2526
-E1,04/11/2025,19:45,Bristol City,Blackburn,0,1,A,0,1,A,D Whitestone,12,16,0,5,6,3,0,3,0,0,E1,2526
-E1,04/11/2025,19:45,Charlton,West Brom,1,0,H,0,0,D,L Smith,11,13,3,1,4,3,0,0,0,0,E1,2526
-E1,04/11/2025,19:45,Derby,Hull,2,1,H,1,0,H,S Martin,9,8,3,2,6,5,1,0,0,0,E1,2526
-E1,04/11/2025,19:45,Ipswich,Watford,1,1,D,1,1,D,D Webb,16,4,4,2,2,5,1,2,0,0,E1,2526
-E1,04/11/2025,19:45,Leicester,Middlesbrough,1,1,D,1,0,H,A Herczeg,6,17,2,4,3,6,6,1,0,1,E1,2526
-E1,04/11/2025,19:45,Oxford,Stoke,0,3,A,0,2,A,L Doughty,16,14,1,6,10,7,1,3,0,0,E1,2526
-E1,04/11/2025,20:00,Coventry,Sheffield United,3,1,H,0,1,A,J Linington,17,11,8,4,6,13,3,2,0,0,E1,2526
-E1,05/11/2025,19:45,Preston,Swansea,2,1,H,1,0,H,A Backhouse,4,18,3,5,2,8,3,1,0,0,E1,2526
-E1,05/11/2025,19:45,QPR,Southampton,1,2,A,0,0,D,J Bell,20,9,5,2,12,1,1,3,0,0,E1,2526
-E1,05/11/2025,19:45,Sheffield Weds,Norwich,1,1,D,1,0,H,E Duckworth,15,13,6,3,9,4,0,4,0,0,E1,2526
-E1,05/11/2025,20:00,Portsmouth,Wrexham,0,0,D,0,0,D,R Madley,19,8,7,3,10,3,3,3,0,0,E1,2526
-E1,07/11/2025,20:00,Watford,Bristol City,1,1,D,1,1,D,P Tierney,16,10,10,4,6,4,2,1,0,0,E1,2526
-E1,08/11/2025,12:30,Blackburn,Derby,1,2,A,0,2,A,T Kirk,8,6,3,4,13,3,1,3,0,0,E1,2526
-E1,08/11/2025,12:30,Hull,Portsmouth,3,2,H,2,2,D,T Nield,13,13,4,5,5,5,1,3,0,0,E1,2526
-E1,08/11/2025,12:30,Millwall,Preston,1,1,D,1,1,D,S Martin,14,8,4,6,10,6,2,2,0,0,E1,2526
-E1,08/11/2025,15:00,Middlesbrough,Birmingham,2,1,H,2,1,H,S Allison,8,13,4,5,3,5,1,1,0,0,E1,2526
-E1,08/11/2025,15:00,Norwich,Leicester,1,2,A,0,0,D,D Whitestone,8,14,3,7,6,3,1,1,0,0,E1,2526
-E1,08/11/2025,15:00,Sheffield United,QPR,0,0,D,0,0,D,L Smith,20,13,3,4,14,5,0,2,0,0,E1,2526
-E1,08/11/2025,15:00,Southampton,Sheffield Weds,3,1,H,2,1,H,R Ricardo,12,11,7,3,4,5,2,2,0,0,E1,2526
-E1,08/11/2025,15:00,Stoke,Coventry,0,1,A,0,0,D,J Busby,10,17,2,3,3,6,3,3,0,0,E1,2526
-E1,08/11/2025,15:00,Swansea,Ipswich,1,4,A,0,1,A,E Duckworth,9,11,4,4,4,5,5,3,0,0,E1,2526
-E1,08/11/2025,15:00,West Brom,Oxford,2,1,H,0,0,D,J Miles,26,9,6,4,11,5,0,0,0,0,E1,2526
-E1,08/11/2025,15:00,Wrexham,Charlton,1,0,H,0,0,D,L Doughty,18,11,6,4,8,2,1,4,0,0,E1,2526
-E1,21/11/2025,20:00,Preston,Blackburn,1,2,A,1,1,D,P Tierney,15,12,4,6,3,7,1,0,0,0,E1,2526
-E1,22/11/2025,12:30,Bristol City,Swansea,3,0,H,2,0,H,J Smith,15,17,8,5,5,6,2,0,0,0,E1,2526
-E1,22/11/2025,12:30,Charlton,Southampton,1,5,A,1,5,A,S Martin,12,23,2,8,3,4,4,0,0,0,E1,2526
-E1,22/11/2025,12:30,Coventry,West Brom,3,2,H,1,2,A,A Kitchen,24,7,11,5,8,1,2,1,0,1,E1,2526
-E1,22/11/2025,15:00,Birmingham,Norwich,4,1,H,3,1,H,A Backhouse,16,15,6,7,3,8,1,2,0,0,E1,2526
-E1,22/11/2025,15:00,Derby,Watford,2,3,A,1,0,H,G Ward,9,14,2,4,9,3,2,1,0,0,E1,2526
-E1,22/11/2025,15:00,Ipswich,Wrexham,0,0,D,0,0,D,D Whitestone,19,2,8,0,5,2,2,3,0,0,E1,2526
-E1,22/11/2025,15:00,Leicester,Stoke,2,1,H,2,0,H,M Donohue,6,11,2,5,0,10,6,2,0,0,E1,2526
-E1,22/11/2025,15:00,Oxford,Middlesbrough,1,1,D,1,0,H,B Toner,9,19,2,3,1,8,3,2,0,0,E1,2526
-E1,22/11/2025,15:00,Portsmouth,Millwall,3,1,H,1,0,H,M Salisbury,15,7,7,2,3,4,2,1,0,1,E1,2526
-E1,22/11/2025,15:00,QPR,Hull,3,2,H,1,1,D,J Linington,26,8,8,4,9,5,0,1,0,0,E1,2526
-E1,23/11/2025,12:00,Sheffield Weds,Sheffield United,0,3,A,0,1,A,D Webb,5,11,0,7,4,7,3,0,0,0,E1,2526
-E1,25/11/2025,19:45,Hull,Ipswich,0,2,A,0,0,D,L Smith,11,16,2,6,3,6,2,2,0,0,E1,2526
-E1,25/11/2025,19:45,Middlesbrough,Coventry,2,4,A,1,2,A,M Donohue,11,20,2,8,8,3,0,0,0,0,E1,2526
-E1,25/11/2025,19:45,Norwich,Oxford,1,1,D,1,0,H,T Reeves,15,12,6,4,8,4,1,0,0,0,E1,2526
-E1,25/11/2025,19:45,Stoke,Charlton,3,0,H,3,0,H,T Nield,15,4,4,2,5,0,1,1,0,0,E1,2526
-E1,25/11/2025,19:45,Swansea,Derby,1,2,A,0,1,A,A Kitchen,9,13,4,5,4,2,0,2,0,0,E1,2526
-E1,25/11/2025,19:45,Watford,Preston,1,1,D,1,1,D,J Bell,24,9,5,3,6,2,2,4,0,0,E1,2526
-E1,25/11/2025,20:00,Southampton,Leicester,3,0,H,3,0,H,G Ward,18,7,8,2,11,3,1,0,0,1,E1,2526
-E1,26/11/2025,19:45,Blackburn,QPR,0,1,A,0,0,D,A Herczeg,9,10,1,3,6,4,3,0,0,0,E1,2526
-E1,26/11/2025,19:45,Millwall,Sheffield Weds,1,0,H,0,0,D,J Miles,24,11,8,3,9,5,0,3,0,0,E1,2526
-E1,26/11/2025,19:45,Sheffield United,Portsmouth,3,0,H,1,0,H,L Doughty,15,4,5,2,7,2,0,1,0,1,E1,2526
-E1,26/11/2025,19:45,Wrexham,Bristol City,2,0,H,1,0,H,R Ricardo,12,13,4,3,2,4,1,2,0,0,E1,2526
-E1,26/11/2025,20:00,West Brom,Birmingham,1,1,D,1,0,H,T Kirk,13,14,4,4,3,3,1,2,0,0,E1,2526
-E1,28/11/2025,20:00,Oxford,Ipswich,2,1,H,1,0,H,M Donohue,13,17,8,7,3,6,0,0,0,0,E1,2526
-E1,29/11/2025,12:30,Leicester,Sheffield United,2,3,A,0,3,A,A Backhouse,15,13,3,3,4,9,2,1,0,0,E1,2526
-E1,29/11/2025,12:30,Portsmouth,Bristol City,0,1,A,0,1,A,S Allison,13,15,2,5,4,4,3,0,0,0,E1,2526
-E1,29/11/2025,12:30,Stoke,Hull,1,2,A,1,0,H,L Doughty,12,11,7,6,7,8,2,4,0,0,E1,2526
-E1,29/11/2025,15:00,Coventry,Charlton,3,1,H,2,1,H,D Webb,26,9,8,4,6,3,1,1,0,0,E1,2526
-E1,29/11/2025,15:00,Middlesbrough,Derby,2,1,H,0,1,A,J Linington,21,6,4,1,9,8,0,2,0,0,E1,2526
-E1,29/11/2025,15:00,Millwall,Southampton,3,2,H,0,0,D,B Toner,21,11,7,8,9,6,1,2,0,0,E1,2526
-E1,29/11/2025,15:00,Norwich,QPR,3,1,H,3,1,H,L Smith,17,12,6,5,9,6,2,2,0,0,E1,2526
-E1,29/11/2025,15:00,Sheffield Weds,Preston,2,3,A,2,1,H,O Langford,12,7,5,5,3,3,1,1,0,0,E1,2526
-E1,29/11/2025,15:00,West Brom,Swansea,3,2,H,0,2,A,T Nield,26,3,10,2,7,1,1,2,0,0,E1,2526
-E1,29/11/2025,15:00,Wrexham,Blackburn,1,1,D,0,1,A,T Reeves,16,12,2,3,7,7,1,3,0,0,E1,2526
-E1,01/12/2025,20:00,Birmingham,Watford,2,1,H,2,0,H,A Herczeg,13,12,5,4,6,6,3,2,0,0,E1,2526
-E1,02/12/2025,19:45,Blackburn,Ipswich,1,1,D,0,0,D,O Langford,14,11,3,2,9,3,1,3,0,0,E1,2526
-E1,05/12/2025,20:00,Hull,Middlesbrough,1,4,A,0,4,A,D Whitestone,5,10,2,5,2,5,1,0,0,0,E1,2526
-E1,06/12/2025,12:30,Derby,Leicester,1,3,A,0,3,A,J Smith,18,5,5,4,6,3,3,2,0,0,E1,2526
-E1,06/12/2025,12:30,Watford,Norwich,3,2,H,1,2,A,T Nield,13,15,6,4,6,5,1,2,0,0,E1,2526
-E1,06/12/2025,15:00,Bristol City,Millwall,0,1,A,0,0,D,E Duckworth,13,12,3,6,8,1,1,5,0,0,E1,2526
-E1,06/12/2025,15:00,Ipswich,Coventry,3,0,H,1,0,H,P Tierney,10,11,6,5,2,5,5,2,0,0,E1,2526
-E1,06/12/2025,15:00,Preston,Wrexham,1,1,D,0,1,A,L Smith,24,9,7,3,16,2,1,1,0,0,E1,2526
-E1,06/12/2025,15:00,QPR,West Brom,3,1,H,1,0,H,G Ward,9,13,4,5,4,3,1,1,0,0,E1,2526
-E1,06/12/2025,15:00,Sheffield United,Stoke,4,0,H,3,0,H,S Martin,19,7,8,1,9,7,1,2,0,0,E1,2526
-E1,06/12/2025,15:00,Southampton,Birmingham,3,1,H,2,0,H,D Webb,18,22,8,4,7,8,1,1,0,0,E1,2526
-E1,06/12/2025,15:00,Swansea,Oxford,2,0,H,2,0,H,A Backhouse,15,12,4,4,10,2,2,4,0,0,E1,2526
-E1,09/12/2025,19:45,Blackburn,Oxford,1,1,D,0,1,A,L Doughty,16,6,5,1,9,3,1,2,0,0,E1,2526
-E1,09/12/2025,19:45,Charlton,Middlesbrough,1,2,A,0,2,A,O Langford,6,13,3,7,5,5,4,1,0,0,E1,2526
-E1,09/12/2025,19:45,Preston,Coventry,1,1,D,0,0,D,B Toner,6,21,2,5,4,8,1,0,1,0,E1,2526
-E1,09/12/2025,19:45,Sheffield United,Norwich,1,1,D,0,0,D,J Smith,17,13,4,6,6,2,2,3,0,0,E1,2526
-E1,09/12/2025,19:45,Southampton,West Brom,3,2,H,3,0,H,S Allison,8,18,4,7,2,9,2,2,0,0,E1,2526
-E1,09/12/2025,19:45,Swansea,Portsmouth,1,0,H,0,0,D,T Reeves,15,10,6,3,5,6,2,3,0,0,E1,2526
-E1,09/12/2025,19:45,Watford,Sheffield Weds,1,1,D,0,1,A,D Whitestone,23,4,9,1,7,4,1,1,0,0,E1,2526
-E1,09/12/2025,20:00,QPR,Birmingham,2,1,H,1,0,H,J Bell,16,3,3,1,6,3,2,1,0,0,E1,2526
-E1,10/12/2025,19:45,Bristol City,Leicester,2,2,D,0,2,A,J Linington,21,12,11,5,10,3,2,3,0,0,E1,2526
-E1,10/12/2025,19:45,Derby,Millwall,1,1,D,0,0,D,T Kirk,13,12,4,2,11,7,2,3,0,0,E1,2526
-E1,10/12/2025,19:45,Ipswich,Stoke,1,0,H,1,0,H,A Herczeg,16,6,6,1,3,4,1,1,0,0,E1,2526
-E1,10/12/2025,20:00,Hull,Wrexham,2,0,H,1,0,H,A Kitchen,19,8,6,1,8,2,0,1,0,0,E1,2526
-E1,12/12/2025,20:00,West Brom,Sheffield United,2,0,H,0,0,D,M Donohue,16,11,5,3,8,4,0,1,0,0,E1,2526
-E1,13/12/2025,12:30,Norwich,Southampton,2,1,H,0,0,D,J Bell,16,12,5,4,6,5,2,2,0,0,E1,2526
-E1,13/12/2025,12:30,Oxford,Preston,1,2,A,0,1,A,J Linington,24,8,8,2,9,9,1,2,0,0,E1,2526
-E1,13/12/2025,12:30,Stoke,Swansea,2,1,H,1,0,H,R Ricardo,8,14,5,6,6,7,3,4,0,0,E1,2526
-E1,13/12/2025,15:00,Birmingham,Charlton,1,1,D,1,0,H,A Kitchen,24,7,5,1,10,3,3,4,0,0,E1,2526
-E1,13/12/2025,15:00,Coventry,Bristol City,1,0,H,0,0,D,S Martin,21,15,4,8,4,5,1,3,0,0,E1,2526
-E1,13/12/2025,15:00,Leicester,Ipswich,3,1,H,2,0,H,T Kirk,11,13,4,2,6,5,1,2,0,0,E1,2526
-E1,13/12/2025,15:00,Middlesbrough,QPR,3,1,H,2,0,H,J Smith,18,13,7,5,9,4,1,0,0,0,E1,2526
-E1,13/12/2025,15:00,Millwall,Hull,1,3,A,0,2,A,G Ward,11,10,6,6,5,1,0,3,1,0,E1,2526
-E1,13/12/2025,15:00,Portsmouth,Blackburn,2,1,H,0,1,A,T Robinson,18,11,7,2,7,6,2,3,0,0,E1,2526
-E1,13/12/2025,15:00,Wrexham,Watford,2,2,D,1,2,A,J Miles,16,12,3,3,7,1,3,6,0,0,E1,2526
-E1,15/12/2025,20:00,Sheffield Weds,Derby,0,3,A,0,1,A,L Smith,3,15,1,7,1,5,4,1,0,0,E1,2526
-E1,19/12/2025,20:00,Swansea,Wrexham,2,1,H,0,1,A,O Langford,22,5,5,1,5,7,2,2,0,0,E1,2526
-E1,20/12/2025,12:30,Blackburn,Millwall,2,0,H,2,0,H,S Allison,11,10,5,3,3,6,3,3,0,0,E1,2526
-E1,20/12/2025,12:30,Preston,Norwich,1,1,D,0,0,D,S Martin,11,8,4,1,4,3,2,3,0,0,E1,2526
-E1,20/12/2025,12:30,Southampton,Coventry,1,1,D,0,1,A,A Herczeg,23,8,7,4,7,2,1,1,0,1,E1,2526
-E1,20/12/2025,15:00,Bristol City,Middlesbrough,2,0,H,1,0,H,A Backhouse,13,28,8,3,3,13,2,3,0,0,E1,2526
-E1,20/12/2025,15:00,Charlton,Oxford,1,0,H,0,0,D,E Bell,13,12,4,1,5,6,2,1,0,0,E1,2526
-E1,20/12/2025,15:00,Derby,Portsmouth,1,1,D,1,1,D,F Hallam,12,4,6,1,6,4,1,1,0,0,E1,2526
-E1,20/12/2025,15:00,Hull,West Brom,1,0,H,1,0,H,R Ricardo,10,13,1,1,8,3,4,4,0,1,E1,2526
-E1,20/12/2025,15:00,Ipswich,Sheffield Weds,3,1,H,1,0,H,D Webb,20,11,8,3,5,3,1,1,0,0,E1,2526
-E1,20/12/2025,15:00,QPR,Leicester,4,1,H,4,0,H,T Nield,12,9,6,2,2,3,1,2,0,0,E1,2526
-E1,20/12/2025,15:00,Sheffield United,Birmingham,3,0,H,2,0,H,S Hooper,20,7,9,1,8,4,1,3,0,1,E1,2526
-E1,20/12/2025,15:00,Watford,Stoke,1,0,H,0,0,D,B Toner,10,7,5,1,7,5,3,3,0,0,E1,2526
-E1,26/12/2025,12:30,Birmingham,Derby,1,1,D,0,1,A,B Toner,25,5,9,1,12,1,3,1,1,1,E1,2526
-E1,26/12/2025,13:00,Millwall,Ipswich,0,0,D,0,0,D,T Robinson,11,16,6,4,2,4,1,2,0,0,E1,2526
-E1,26/12/2025,15:00,Coventry,Swansea,1,0,H,1,0,H,S Allison,16,11,7,2,7,4,0,2,0,0,E1,2526
-E1,26/12/2025,15:00,Leicester,Watford,1,2,A,1,1,D,J Smith,9,13,2,3,5,6,3,2,0,0,E1,2526
-E1,26/12/2025,15:00,Middlesbrough,Blackburn,0,0,D,0,0,D,J Bell,10,13,2,2,4,4,2,2,0,0,E1,2526
-E1,26/12/2025,15:00,Norwich,Charlton,1,0,H,0,0,D,M Donohue,14,4,5,0,5,6,3,2,0,0,E1,2526
-E1,26/12/2025,15:00,Oxford,Southampton,2,1,H,1,1,D,L Doughty,17,19,6,5,5,7,2,1,0,0,E1,2526
-E1,26/12/2025,15:00,Portsmouth,QPR,1,1,D,1,0,H,J Linington,8,8,2,3,9,3,1,2,0,0,E1,2526
-E1,26/12/2025,15:00,Sheffield Weds,Hull,2,2,D,1,1,D,S Martin,12,14,3,6,4,4,2,4,0,0,E1,2526
-E1,26/12/2025,15:00,Stoke,Preston,0,0,D,0,0,D,T Kirk,14,8,3,4,10,2,4,2,0,0,E1,2526
-E1,26/12/2025,15:00,West Brom,Bristol City,1,2,A,0,2,A,W Finnie,16,6,4,3,9,4,1,3,0,0,E1,2526
-E1,26/12/2025,17:30,Wrexham,Sheffield United,5,3,H,2,3,A,A Kitchen,18,13,8,7,7,5,1,2,0,0,E1,2526
-E1,29/12/2025,18:00,Coventry,Ipswich,0,2,A,0,0,D,A Backhouse,10,18,3,7,3,6,1,2,0,0,E1,2526
-E1,29/12/2025,19:45,Leicester,Derby,2,1,H,2,1,H,G Ward,8,9,2,2,3,4,1,2,0,0,E1,2526
-E1,29/12/2025,19:45,Middlesbrough,Hull,0,1,A,0,1,A,L Doughty,23,4,5,1,10,2,1,4,0,0,E1,2526
-E1,29/12/2025,19:45,Millwall,Bristol City,2,1,H,1,0,H,D Webb,8,16,2,3,1,8,4,1,0,0,E1,2526
-E1,29/12/2025,19:45,Norwich,Watford,0,1,A,0,0,D,M Corlett,9,8,1,2,8,3,0,1,0,0,E1,2526
-E1,29/12/2025,19:45,Oxford,Swansea,0,1,A,0,1,A,A Herczeg,11,10,2,5,1,5,2,4,0,0,E1,2526
-E1,29/12/2025,19:45,Portsmouth,Charlton,2,1,H,0,0,D,P Tierney,15,16,5,4,5,11,2,2,0,0,E1,2526
-E1,29/12/2025,19:45,Sheffield Weds,Blackburn,0,0,D,0,0,D,O Langford,5,14,0,2,2,7,2,3,0,0,E1,2526
-E1,29/12/2025,19:45,Stoke,Sheffield United,1,2,A,0,0,D,J Busby,7,15,3,4,6,2,0,1,1,0,E1,2526
-E1,29/12/2025,19:45,West Brom,QPR,2,1,H,1,1,D,L Smith,12,3,4,0,9,4,0,2,0,0,E1,2526
-E1,29/12/2025,19:45,Wrexham,Preston,2,1,H,1,0,H,R Ricardo,14,13,6,4,3,3,0,0,0,0,E1,2526
-E1,29/12/2025,20:15,Birmingham,Southampton,1,1,D,0,0,D,M Donohue,20,13,4,5,2,5,1,2,0,0,E1,2526
-E1,01/01/2026,12:30,Blackburn,Wrexham,0,2,A,0,2,A,T Kirk,12,7,1,3,4,8,4,2,0,0,E1,2526
-E1,01/01/2026,15:00,Bristol City,Portsmouth,5,0,H,2,0,H,J Bell,14,5,7,2,1,1,0,1,0,0,E1,2526
-E1,01/01/2026,15:00,Charlton,Coventry,1,1,D,0,1,A,J Smith,15,20,3,7,9,3,3,2,0,0,E1,2526
-E1,01/01/2026,15:00,Derby,Middlesbrough,1,0,H,0,0,D,R Ricardo,7,19,3,5,4,9,2,2,0,0,E1,2526
-E1,01/01/2026,15:00,Hull,Stoke,0,1,A,0,1,A,C Pawson,15,12,1,6,6,6,3,2,0,0,E1,2526
-E1,01/01/2026,15:00,Ipswich,Oxford,2,1,H,2,1,H,W Finnie,19,8,6,1,9,2,1,4,0,0,E1,2526
-E1,01/01/2026,15:00,Preston,Sheffield Weds,3,0,H,1,0,H,G Ward,12,6,7,1,4,7,2,0,0,0,E1,2526
-E1,01/01/2026,15:00,QPR,Norwich,1,2,A,0,0,D,D Whitestone,10,11,2,5,7,3,0,3,0,0,E1,2526
-E1,01/01/2026,15:00,Southampton,Millwall,0,0,D,0,0,D,T Nield,12,12,2,3,6,6,1,3,0,0,E1,2526
-E1,01/01/2026,15:00,Swansea,West Brom,1,0,H,0,0,D,J Linington,13,12,3,7,4,5,2,5,0,0,E1,2526
-E1,01/01/2026,15:00,Watford,Birmingham,3,0,H,2,0,H,L Smith,13,6,6,2,4,4,1,2,0,0,E1,2526
-E1,01/01/2026,17:30,Sheffield United,Leicester,3,1,H,1,0,H,F Hallam,13,6,5,1,7,3,1,2,0,0,E1,2526
-E1,04/01/2026,12:00,Birmingham,Coventry,3,2,H,2,1,H,J Linington,9,17,4,6,2,6,3,1,0,1,E1,2526
-E1,04/01/2026,12:00,QPR,Sheffield Weds,3,0,H,1,0,H,S Allison,13,4,7,2,5,2,0,0,0,0,E1,2526
-E1,04/01/2026,15:00,Blackburn,Charlton,2,2,D,1,2,A,D Webb,17,11,5,4,2,5,1,4,0,0,E1,2526
-E1,04/01/2026,15:00,Bristol City,Preston,0,2,A,0,1,A,P Tierney,11,12,2,3,6,3,0,2,0,0,E1,2526
-E1,04/01/2026,15:00,Derby,Wrexham,1,2,A,1,1,D,M Corlett,13,11,5,3,12,2,1,2,0,0,E1,2526
-E1,04/01/2026,15:00,Middlesbrough,Southampton,4,0,H,0,0,D,O Langford,22,16,5,5,11,5,0,4,0,0,E1,2526
-E1,04/01/2026,15:00,Millwall,Swansea,2,1,H,1,0,H,J Busby,17,13,9,7,12,3,2,0,0,0,E1,2526
-E1,04/01/2026,15:00,Norwich,Stoke,0,2,A,0,0,D,F Hallam,7,14,1,4,3,3,1,2,0,0,E1,2526
-E1,05/01/2026,20:00,Leicester,West Brom,2,1,H,1,1,D,S Martin,11,16,3,8,4,4,1,0,0,0,E1,2526
-E1,16/01/2026,20:00,West Brom,Middlesbrough,2,3,A,0,1,A,J Smith,12,9,6,5,4,1,2,0,0,0,E1,2526
-E1,17/01/2026,12:30,Coventry,Leicester,2,1,H,0,1,A,L Smith,19,14,6,6,5,3,1,4,0,0,E1,2526
-E1,17/01/2026,12:30,Ipswich,Blackburn,3,0,H,2,0,H,A Kitchen,17,10,7,0,7,6,0,4,0,0,E1,2526
-E1,17/01/2026,12:30,Watford,Millwall,0,2,A,0,0,D,R Ricardo,9,13,3,4,4,4,4,4,0,0,E1,2526
-E1,17/01/2026,15:00,Charlton,Sheffield United,1,0,H,0,0,D,O Langford,12,11,4,2,9,7,4,1,0,2,E1,2526
-E1,17/01/2026,15:00,Oxford,Bristol City,0,0,D,0,0,D,T Robinson,9,6,3,1,6,5,2,3,0,0,E1,2526
-E1,17/01/2026,15:00,Preston,Derby,0,1,A,0,0,D,F Hallam,13,18,2,4,5,10,2,5,0,0,E1,2526
-E1,17/01/2026,15:00,Sheffield Weds,Portsmouth,0,1,A,0,0,D,J Busby,7,12,1,3,7,6,0,2,0,0,E1,2526
-E1,17/01/2026,15:00,Southampton,Hull,1,2,A,0,2,A,S Allison,22,9,7,3,8,2,0,2,0,0,E1,2526
-E1,17/01/2026,15:00,Stoke,QPR,0,0,D,0,0,D,M Donohue,12,7,3,2,6,2,3,4,0,0,E1,2526
-E1,17/01/2026,15:00,Wrexham,Norwich,1,2,A,1,1,D,W Finnie,17,7,3,3,7,1,0,1,0,0,E1,2526
-E1,17/01/2026,17:30,Swansea,Birmingham,1,1,D,1,0,H,T Nield,19,12,4,1,5,5,0,0,0,0,E1,2526
-E1,20/01/2026,19:45,Charlton,Derby,1,2,A,0,1,A,J Linington,11,15,4,5,4,0,0,2,0,1,E1,2526
-E1,20/01/2026,19:45,Coventry,Millwall,2,1,H,1,1,D,A Kitchen,15,14,4,4,4,3,2,1,0,0,E1,2526
-E1,20/01/2026,19:45,Ipswich,Bristol City,2,0,H,1,0,H,D Whitestone,11,8,3,3,9,2,1,6,0,0,E1,2526
-E1,20/01/2026,19:45,Oxford,QPR,0,0,D,0,0,D,W Finnie,9,14,1,2,2,6,1,2,0,0,E1,2526
-E1,20/01/2026,19:45,Preston,Hull,0,3,A,0,2,A,S Martin,17,17,5,9,6,6,2,3,1,0,E1,2526
-E1,20/01/2026,19:45,Sheffield Weds,Birmingham,0,2,A,0,0,D,L Doughty,7,22,1,7,3,11,2,1,0,0,E1,2526
-E1,20/01/2026,19:45,Swansea,Blackburn,3,1,H,1,1,D,A Backhouse,14,5,4,2,4,3,2,3,0,0,E1,2526
-E1,20/01/2026,19:45,West Brom,Norwich,0,5,A,0,1,A,J Bell,13,9,2,7,10,2,3,1,0,0,E1,2526
-E1,20/01/2026,20:00,Wrexham,Leicester,1,1,D,0,0,D,M Donohue,16,5,3,4,3,1,1,2,0,0,E1,2526
-E1,21/01/2026,19:45,Southampton,Sheffield United,1,0,H,1,0,H,T Kirk,15,16,3,4,6,7,3,1,0,0,E1,2526
-E1,21/01/2026,19:45,Watford,Portsmouth,1,1,D,0,0,D,B Toner,15,10,4,2,8,7,1,1,0,0,E1,2526
-E1,21/01/2026,20:00,Stoke,Middlesbrough,1,2,A,1,0,H,A Herczeg,10,16,4,7,5,4,1,1,1,0,E1,2526
-E1,23/01/2026,20:00,Derby,West Brom,1,1,D,1,0,H,A Backhouse,5,12,1,4,1,6,2,3,0,0,E1,2526
-E1,24/01/2026,12:30,Middlesbrough,Preston,4,0,H,3,0,H,A Madley,16,4,8,1,8,3,0,2,0,1,E1,2526
-E1,24/01/2026,12:30,Millwall,Charlton,4,0,H,1,0,H,G Ward,23,3,6,1,6,3,1,1,0,0,E1,2526
-E1,24/01/2026,15:00,Birmingham,Stoke,1,1,D,1,0,H,J Bell,18,7,5,1,6,6,1,1,0,0,E1,2526
-E1,24/01/2026,15:00,Blackburn,Watford,1,1,D,1,1,D,A Herczeg,7,14,3,4,7,8,0,2,0,0,E1,2526
-E1,24/01/2026,15:00,Bristol City,Sheffield Weds,2,0,H,0,0,D,B Speedie,16,3,7,0,9,7,0,0,0,0,E1,2526
-E1,24/01/2026,15:00,Hull,Swansea,2,1,H,2,0,H,J Smith,10,16,7,4,6,7,3,2,0,0,E1,2526
-E1,24/01/2026,15:00,Leicester,Oxford,1,2,A,0,1,A,J Linington,13,8,4,2,12,4,0,3,0,0,E1,2526
-E1,24/01/2026,15:00,QPR,Wrexham,2,3,A,1,0,H,O Langford,13,11,3,7,7,3,1,2,1,0,E1,2526
-E1,24/01/2026,15:00,Sheffield United,Ipswich,3,1,H,2,0,H,T Nield,15,11,8,5,4,5,0,4,1,0,E1,2526
-E1,25/01/2026,12:00,Portsmouth,Southampton,1,1,D,0,0,D,L Smith,14,6,3,4,4,2,2,1,0,0,E1,2526
-E1,26/01/2026,20:00,Norwich,Coventry,2,1,H,0,1,A,T Kirk,16,16,5,5,4,7,1,1,0,0,E1,2526
-E1,30/01/2026,20:00,Bristol City,Derby,0,5,A,0,3,A,T Nield,7,17,1,7,4,1,1,1,0,0,E1,2526
-E1,31/01/2026,12:30,Leicester,Charlton,0,2,A,0,2,A,A Kitchen,21,9,1,5,6,2,0,2,1,0,E1,2526
-E1,31/01/2026,12:30,Sheffield Weds,Wrexham,0,1,A,0,0,D,D Webb,5,12,2,4,3,8,0,0,0,0,E1,2526
-E1,31/01/2026,12:30,Stoke,Southampton,0,2,A,0,1,A,F Hallam,10,11,3,4,4,5,2,3,0,0,E1,2526
-E1,31/01/2026,15:00,Blackburn,Hull,0,1,A,0,0,D,T Bramall,9,12,3,4,8,4,2,0,0,0,E1,2526
-E1,31/01/2026,15:00,Ipswich,Preston,1,1,D,0,0,D,J Busby,16,11,5,4,9,3,1,2,0,0,E1,2526
-E1,31/01/2026,15:00,Middlesbrough,Norwich,1,0,H,1,0,H,B Toner,9,8,5,3,3,5,2,2,0,0,E1,2526
-E1,31/01/2026,15:00,Millwall,Sheffield United,1,1,D,1,1,D,L Smith,14,12,6,6,6,8,2,1,0,0,E1,2526
-E1,31/01/2026,15:00,Oxford,Birmingham,0,2,A,0,1,A,S Martin,10,11,4,2,4,4,2,2,0,0,E1,2526
-E1,31/01/2026,15:00,Portsmouth,West Brom,3,0,H,2,0,H,M Donohue,20,4,6,1,3,3,0,2,0,0,E1,2526
-E1,31/01/2026,15:00,QPR,Coventry,2,1,H,0,0,D,J Smith,15,9,8,2,5,5,1,2,0,0,E1,2526
-E1,31/01/2026,15:00,Watford,Swansea,0,2,A,0,0,D,M Corlett,17,14,5,7,5,8,1,2,1,0,E1,2526
-E1,03/02/2026,19:45,Blackburn,Sheffield Weds,1,0,H,1,0,H,D Whitestone,9,2,6,1,8,2,4,2,0,0,E1,2526
-E1,03/02/2026,19:45,Hull,Watford,0,0,D,0,0,D,L Doughty,6,16,3,2,7,5,4,3,0,0,E1,2526
-E1,03/02/2026,19:45,Sheffield United,Oxford,3,1,H,1,1,D,A Backhouse,11,6,3,2,10,2,3,4,0,0,E1,2526
-E1,06/02/2026,20:01,Charlton,QPR,0,0,D,0,0,D,T Nield,16,18,5,4,7,5,2,1,0,0,E1,2526
-E1,07/02/2026,12:31,Derby,Ipswich,1,2,A,0,1,A,J Smith,9,13,1,5,3,7,1,4,1,0,E1,2526
-E1,07/02/2026,12:31,Norwich,Blackburn,2,0,H,0,0,D,J Linington,12,6,3,0,5,4,2,2,0,0,E1,2526
-E1,07/02/2026,12:31,Southampton,Watford,1,0,H,0,0,D,E Bell,6,11,4,2,3,9,3,1,0,0,E1,2526
-E1,07/02/2026,15:01,Birmingham,Leicester,2,1,H,1,1,D,J Busby,22,7,6,2,10,1,0,2,0,1,E1,2526
-E1,07/02/2026,15:01,Coventry,Oxford,0,0,D,0,0,D,R Ricardo,24,4,5,0,10,0,1,6,0,1,E1,2526
-E1,07/02/2026,15:01,Hull,Bristol City,2,3,A,1,2,A,O Langford,10,11,5,6,2,4,2,0,0,0,E1,2526
-E1,07/02/2026,15:01,Preston,Portsmouth,1,0,H,1,0,H,A Herczeg,7,12,3,4,2,14,3,1,0,0,E1,2526
-E1,07/02/2026,15:01,West Brom,Stoke,0,0,D,0,0,D,D Webb,10,8,2,3,2,2,1,1,0,0,E1,2526
-E1,07/02/2026,15:01,Wrexham,Millwall,0,2,A,0,0,D,T Robinson,16,7,5,1,5,4,1,3,0,0,E1,2526
-E1,08/02/2026,12:01,Swansea,Sheffield Weds,4,0,H,1,0,H,T Kirk,22,3,6,0,8,2,2,2,0,0,E1,2526
-E1,09/02/2026,20:01,Sheffield United,Middlesbrough,1,2,A,0,2,A,G Ward,13,19,5,9,8,8,3,2,1,0,E1,2526
-E1,10/02/2026,19:45,Leicester,Southampton,3,4,A,3,0,H,B Toner,8,16,3,7,3,9,0,1,0,0,E1,2526
-E1,10/02/2026,19:45,Oxford,Norwich,0,3,A,0,2,A,S Allison,7,8,1,4,2,4,1,1,0,0,E1,2526
-E1,10/02/2026,20:00,Birmingham,West Brom,0,0,D,0,0,D,A Herczeg,16,9,5,1,11,3,1,5,0,0,E1,2526
-E1,11/02/2026,19:45,Charlton,Stoke,1,0,H,0,0,D,A Backhouse,17,6,4,2,6,5,2,4,0,0,E1,2526
-E1,14/02/2026,15:00,Derby,Swansea,2,0,H,0,0,D,A Kitchen,11,15,6,2,6,2,2,2,0,0,E1,2526
-E1,14/02/2026,15:00,Portsmouth,Sheffield United,0,1,A,0,0,D,J Linington,23,11,7,2,11,4,1,4,0,0,E1,2526
-E1,14/02/2026,15:00,Preston,Watford,2,2,D,1,0,H,D Whitestone,8,20,3,5,9,7,1,1,0,0,E1,2526
-E1,14/02/2026,15:00,QPR,Blackburn,1,3,A,1,2,A,S Martin,21,7,4,4,8,1,2,3,0,0,E1,2526
-E1,14/02/2026,15:00,Sheffield Weds,Millwall,1,2,A,0,0,D,E Duckworth,11,20,3,6,3,11,3,2,0,0,E1,2526
-E1,16/02/2026,20:00,Coventry,Middlesbrough,3,1,H,1,0,H,T Bramall,9,18,4,4,3,2,3,2,0,0,E1,2526
-E1,17/02/2026,19:45,Bristol City,Wrexham,2,2,D,0,1,A,R Ricardo,8,9,5,3,3,2,2,3,0,0,E1,2526
-E1,17/02/2026,19:45,Charlton,Portsmouth,1,3,A,0,2,A,L Doughty,12,12,4,6,3,2,7,2,0,0,E1,2526
-E1,20/02/2026,20:00,Blackburn,Preston,1,0,H,0,0,D,A Backhouse,13,3,3,2,5,3,2,2,0,0,E1,2526
-E1,21/02/2026,12:30,Hull,QPR,1,3,A,1,1,D,A Madley,14,12,4,8,8,4,3,1,0,0,E1,2526
-E1,21/02/2026,12:30,Stoke,Leicester,2,2,D,1,0,H,G Ward,11,15,3,5,7,4,2,1,0,0,E1,2526
-E1,21/02/2026,12:30,Swansea,Bristol City,1,0,H,1,0,H,W Finnie,8,12,3,2,3,5,2,4,0,0,E1,2526
-E1,21/02/2026,12:30,West Brom,Coventry,0,2,A,0,2,A,J Linington,11,10,1,3,3,2,0,3,0,0,E1,2526
-E1,21/02/2026,15:00,Middlesbrough,Oxford,0,0,D,0,0,D,O Langford,24,13,7,2,9,5,3,1,0,0,E1,2526
-E1,21/02/2026,15:00,Millwall,Portsmouth,1,3,A,0,0,D,S Martin,6,15,3,8,6,4,1,2,0,0,E1,2526
-E1,21/02/2026,15:00,Norwich,Birmingham,1,2,A,0,2,A,F Hallam,18,9,9,5,6,5,0,1,0,0,E1,2526
-E1,21/02/2026,15:00,Southampton,Charlton,1,1,D,0,0,D,J Busby,23,6,8,3,10,1,2,1,0,0,E1,2526
-E1,21/02/2026,15:00,Watford,Derby,2,0,H,1,0,H,D Webb,18,5,8,1,2,2,2,2,0,0,E1,2526
-E1,21/02/2026,15:00,Wrexham,Ipswich,5,3,H,2,2,D,L Doughty,17,13,10,6,5,2,5,4,0,0,E1,2526
-E1,22/02/2026,12:00,Sheffield United,Sheffield Weds,2,1,H,2,0,H,J Smith,10,6,4,2,2,6,1,5,1,1,E1,2526
-E1,24/02/2026,19:45,Blackburn,Bristol City,1,2,A,1,2,A,M Donohue,19,10,7,5,6,4,2,2,0,0,E1,2526
-E1,24/02/2026,19:45,Hull,Derby,4,2,H,2,2,D,A Herczeg,9,18,3,6,7,3,2,2,0,0,E1,2526
-E1,24/02/2026,19:45,Middlesbrough,Leicester,1,1,D,1,1,D,A Kitchen,17,11,4,6,8,5,1,1,0,0,E1,2526
-E1,24/02/2026,19:45,Swansea,Preston,1,1,D,0,1,A,D Webb,12,14,2,3,4,8,2,2,0,0,E1,2526
-E1,24/02/2026,19:45,Watford,Ipswich,0,2,A,0,1,A,B Toner,11,11,2,3,3,4,2,3,0,0,E1,2526
-E1,24/02/2026,19:45,West Brom,Charlton,1,1,D,1,0,H,S Allison,18,3,2,2,7,0,2,3,0,0,E1,2526
-E1,24/02/2026,19:45,Wrexham,Portsmouth,2,1,H,2,0,H,T Reeves,10,9,5,1,3,15,0,1,0,0,E1,2526
-E1,24/02/2026,20:00,Southampton,QPR,5,0,H,2,0,H,O Langford,14,5,9,1,5,3,1,0,0,0,E1,2526
-E1,25/02/2026,19:45,Millwall,Birmingham,3,0,H,2,0,H,D Whitestone,11,5,5,2,7,5,1,0,0,1,E1,2526
-E1,25/02/2026,19:45,Norwich,Sheffield Weds,2,0,H,2,0,H,R Ricardo,19,4,6,1,3,4,0,0,0,0,E1,2526
-E1,25/02/2026,19:45,Sheffield United,Coventry,1,2,A,0,0,D,J Busby,22,11,4,5,7,3,3,2,0,0,E1,2526
-E1,25/02/2026,20:00,Stoke,Oxford,2,1,H,1,1,D,J Linington,21,9,9,2,8,7,2,1,0,0,E1,2526
-E1,27/02/2026,20:00,Bristol City,Watford,1,2,A,1,1,D,L Smith,11,11,4,4,3,3,2,3,0,0,E1,2526
-E1,28/02/2026,12:30,Derby,Blackburn,3,1,H,0,1,A,L Doughty,14,11,6,3,2,3,3,4,0,0,E1,2526
-E1,28/02/2026,12:30,Leicester,Norwich,0,2,A,0,0,D,A Herczeg,10,12,3,8,6,7,2,2,0,0,E1,2526
-E1,28/02/2026,12:30,Portsmouth,Hull,0,1,A,0,0,D,S Allison,22,2,6,2,11,2,0,3,0,0,E1,2526
-E1,28/02/2026,15:00,Charlton,Wrexham,0,1,A,0,1,A,F Hallam,12,8,1,2,4,2,2,1,0,0,E1,2526
-E1,28/02/2026,15:00,Coventry,Stoke,2,1,H,1,1,D,A Kitchen,20,3,8,1,7,1,1,1,0,0,E1,2526
-E1,28/02/2026,15:00,Ipswich,Swansea,3,0,H,2,0,H,A Backhouse,11,10,6,3,4,0,1,0,0,0,E1,2526
-E1,28/02/2026,15:00,Oxford,West Brom,2,1,H,2,1,H,M Corlett,9,16,3,3,5,6,0,2,0,0,E1,2526
-E1,28/02/2026,15:00,Preston,Millwall,0,2,A,0,1,A,B Toner,6,16,2,5,2,6,3,2,0,0,E1,2526
-E1,28/02/2026,15:00,QPR,Sheffield United,0,2,A,0,2,A,T Nield,12,12,2,3,7,4,2,2,0,0,E1,2526
-E1,28/02/2026,15:00,Sheffield Weds,Southampton,1,3,A,0,2,A,G Ward,10,15,3,6,5,8,0,1,0,0,E1,2526
-E1,02/03/2026,20:00,Birmingham,Middlesbrough,1,3,A,0,2,A,T Kirk,11,10,7,3,6,2,2,4,0,0,E1,2526
-E1,03/03/2026,19:45,Ipswich,Hull,1,0,H,0,0,D,L Smith,15,6,7,0,6,4,2,4,0,0,E1,2526
-E1,06/03/2026,20:00,Preston,Oxford,1,3,A,1,1,D,A Kitchen,13,15,4,7,9,5,1,1,0,0,E1,2526
-E1,07/03/2026,12:30,Blackburn,Portsmouth,1,1,D,0,0,D,T Nield,10,14,1,1,4,5,2,0,0,0,E1,2526
-E1,07/03/2026,12:30,Hull,Millwall,1,3,A,1,1,D,D Webb,23,9,5,4,5,2,2,4,0,0,E1,2526
-E1,07/03/2026,15:00,Bristol City,Coventry,0,2,A,0,2,A,M Donohue,24,10,6,7,11,3,2,2,1,1,E1,2526
-E1,07/03/2026,15:00,Charlton,Birmingham,1,0,H,0,0,D,J Linington,12,7,4,1,3,3,0,1,0,0,E1,2526
-E1,07/03/2026,15:00,Derby,Sheffield Weds,2,1,H,2,1,H,O Langford,13,7,4,3,6,2,1,1,0,0,E1,2526
-E1,07/03/2026,15:00,Ipswich,Leicester,1,1,D,0,1,A,J Busby,18,7,3,3,10,2,3,3,0,0,E1,2526
-E1,07/03/2026,15:00,Sheffield United,West Brom,1,1,D,0,0,D,D Whitestone,13,12,2,3,5,7,2,1,0,0,E1,2526
-E1,07/03/2026,15:00,Swansea,Stoke,2,0,H,0,0,D,R Ricardo,23,8,4,2,13,5,2,4,0,1,E1,2526
-E1,08/03/2026,16:30,QPR,Middlesbrough,0,4,A,0,1,A,J Smith,9,16,3,7,3,8,0,0,0,0,E1,2526
-E1,10/03/2026,19:45,Leicester,Bristol City,2,0,H,2,0,H,T Nield,17,9,5,1,5,9,2,3,0,0,E1,2526
-E1,10/03/2026,19:45,Millwall,Derby,1,0,H,1,0,H,M Donohue,15,14,4,1,6,2,0,3,0,0,E1,2526
-E1,10/03/2026,19:45,Portsmouth,Swansea,1,2,A,0,2,A,G Ward,9,8,4,3,6,0,1,2,0,0,E1,2526
-E1,10/03/2026,19:45,Sheffield Weds,Watford,1,1,D,0,0,D,E Bell,11,19,4,5,5,5,3,3,0,0,E1,2526
-E1,10/03/2026,19:45,Wrexham,Hull,1,2,A,0,1,A,S Martin,10,12,2,5,8,4,3,4,0,0,E1,2526
-E1,10/03/2026,20:00,Stoke,Ipswich,3,3,D,2,0,H,T Kirk,15,17,6,5,5,9,0,4,0,0,E1,2526
-E1,11/03/2026,19:45,Birmingham,QPR,1,0,H,1,0,H,A Backhouse,21,10,6,1,10,1,4,0,0,0,E1,2526
-E1,11/03/2026,19:45,Middlesbrough,Charlton,0,1,A,0,0,D,A Herczeg,34,5,7,2,11,2,0,2,0,0,E1,2526
-E1,11/03/2026,19:45,Norwich,Sheffield United,2,1,H,0,1,A,B Toner,19,6,7,2,11,4,2,2,0,0,E1,2526
-E1,11/03/2026,19:45,Oxford,Blackburn,1,0,H,1,0,H,D Webb,14,10,7,2,6,4,0,2,0,0,E1,2526
-E1,11/03/2026,19:45,West Brom,Southampton,1,1,D,1,0,H,B Speedie,13,12,6,4,5,3,2,2,0,0,E1,2526
-E1,11/03/2026,20:00,Coventry,Preston,3,0,H,2,0,H,L Smith,25,5,9,2,8,1,0,0,0,0,E1,2526
-E1,13/03/2026,20:00,Wrexham,Swansea,2,0,H,1,0,H,T Nield,11,10,2,3,5,5,0,2,0,0,E1,2526
-E1,14/03/2026,12:30,Coventry,Southampton,1,2,A,0,0,D,F Hallam,20,8,6,3,7,5,3,2,0,0,E1,2526
-E1,14/03/2026,12:30,Middlesbrough,Bristol City,1,1,D,0,0,D,S Martin,19,4,7,1,9,4,1,5,0,0,E1,2526
-E1,14/03/2026,12:30,Oxford,Charlton,1,1,D,0,0,D,M Donohue,8,5,2,1,3,6,3,4,0,0,E1,2526
-E1,14/03/2026,15:00,Birmingham,Sheffield United,1,1,D,1,1,D,T Robinson,18,5,7,3,7,0,2,4,0,1,E1,2526
-E1,14/03/2026,15:00,Leicester,QPR,1,3,A,1,1,D,D Whitestone,9,14,2,3,3,6,1,3,0,0,E1,2526
-E1,14/03/2026,15:00,Millwall,Blackburn,1,2,A,0,0,D,A Kitchen,9,20,3,4,9,7,0,1,1,0,E1,2526
-E1,14/03/2026,15:00,Norwich,Preston,2,0,H,2,0,H,G Ward,9,15,4,4,5,3,1,1,0,0,E1,2526
-E1,14/03/2026,15:00,Sheffield Weds,Ipswich,0,2,A,0,0,D,T Reeves,5,16,2,6,4,4,3,1,0,0,E1,2526
-E1,14/03/2026,15:00,Stoke,Watford,3,1,H,1,0,H,L Doughty,19,15,12,4,6,7,4,2,0,0,E1,2526
-E1,14/03/2026,15:00,West Brom,Hull,3,0,H,1,0,H,J Smith,26,6,8,2,10,2,1,4,0,1,E1,2526
-E1,16/03/2026,20:00,Portsmouth,Derby,0,1,A,0,1,A,A Backhouse,27,10,9,4,11,3,2,6,0,0,E1,2526
-E1,17/03/2026,19:45,Watford,Wrexham,3,1,H,2,0,H,A Herczeg,13,8,6,1,4,5,2,0,0,0,E1,2526
-E1,18/03/2026,19:45,Southampton,Norwich,1,0,H,1,0,H,L Smith,9,14,4,7,5,6,4,4,0,0,E1,2526
-E1,20/03/2026,20:00,Preston,Stoke,3,1,H,1,1,D,F Hallam,13,13,3,2,7,9,2,1,0,0,E1,2526
-E1,21/03/2026,12:30,Blackburn,Middlesbrough,0,0,D,0,0,D,O Langford,5,12,1,3,3,11,0,2,0,0,E1,2526
-E1,21/03/2026,12:30,Derby,Birmingham,1,0,H,1,0,H,G Ward,17,3,6,0,6,2,1,4,0,0,E1,2526
-E1,21/03/2026,12:30,Ipswich,Millwall,1,1,D,1,0,H,M Salisbury,17,13,4,3,9,8,1,2,0,0,E1,2526
-E1,21/03/2026,15:00,Bristol City,West Brom,0,1,A,0,1,A,T Kirk,4,19,1,6,5,4,1,1,0,0,E1,2526
-E1,21/03/2026,15:00,Charlton,Norwich,0,1,A,0,1,A,W Finnie,13,17,2,5,7,7,2,2,0,0,E1,2526
-E1,21/03/2026,15:00,Hull,Sheffield Weds,3,1,H,2,1,H,D Whitestone,9,7,5,3,4,4,3,1,0,0,E1,2526
-E1,21/03/2026,15:00,QPR,Portsmouth,6,1,H,3,1,H,J Busby,9,20,8,7,1,9,4,2,0,0,E1,2526
-E1,21/03/2026,15:00,Sheffield United,Wrexham,1,2,A,0,0,D,S Allison,20,10,7,4,8,5,1,3,0,0,E1,2526
-E1,21/03/2026,15:00,Southampton,Oxford,2,0,H,2,0,H,B Toner,20,9,7,1,6,4,0,3,0,0,E1,2526
-E1,21/03/2026,15:00,Watford,Leicester,0,0,D,0,0,D,J Smith,6,15,2,5,7,4,3,4,0,0,E1,2526
-E1,21/03/2026,17:15,Swansea,Coventry,0,3,A,0,3,A,S Martin,11,14,2,7,2,7,3,1,0,0,E1,2526
-E1,03/04/2026,12:30,Middlesbrough,Millwall,1,2,A,1,0,H,A Backhouse,32,11,5,5,17,6,1,1,0,0,E1,2526
-E1,03/04/2026,15:00,Birmingham,Blackburn,0,1,A,0,0,D,J Busby,12,16,5,4,9,10,0,1,0,0,E1,2526
-E1,03/04/2026,15:00,Charlton,Bristol City,1,2,A,1,1,D,B Toner,13,17,4,8,7,3,2,2,0,0,E1,2526
-E1,03/04/2026,15:00,Leicester,Preston,2,2,D,1,2,A,B Speedie,28,8,10,3,7,2,0,4,0,0,E1,2526
-E1,03/04/2026,15:00,Norwich,Portsmouth,1,1,D,1,0,H,S Martin,6,5,2,1,5,6,3,5,0,0,E1,2526
-E1,03/04/2026,15:00,Oxford,Hull,1,1,D,1,1,D,O Langford,16,9,4,2,1,5,0,1,0,0,E1,2526
-E1,03/04/2026,15:00,QPR,Watford,2,1,H,1,0,H,R Ricardo,15,7,8,3,2,3,6,4,0,0,E1,2526
-E1,03/04/2026,15:00,Sheffield United,Swansea,3,3,D,1,1,D,D Whitestone,13,8,4,6,4,2,1,1,0,0,E1,2526
-E1,03/04/2026,15:00,Stoke,Sheffield Weds,2,0,H,1,0,H,M Salisbury,12,16,6,2,7,2,2,1,0,0,E1,2526
-E1,03/04/2026,15:00,West Brom,Wrexham,2,2,D,2,0,H,R Madley,9,13,4,3,4,6,2,1,0,0,E1,2526
-E1,03/04/2026,20:00,Coventry,Derby,3,2,H,1,1,D,T Nield,13,8,7,3,6,2,0,2,0,0,E1,2526
-E1,06/04/2026,12:30,Portsmouth,Oxford,2,2,D,1,0,H,J Smith,9,9,3,3,6,5,2,3,1,0,E1,2526
-E1,06/04/2026,13:00,Millwall,Norwich,1,2,A,0,0,D,S Allison,10,12,2,5,2,5,1,2,0,0,E1,2526
-E1,06/04/2026,15:00,Blackburn,West Brom,0,0,D,0,0,D,R Jones,11,6,0,3,4,2,3,2,0,0,E1,2526
-E1,06/04/2026,15:00,Bristol City,Sheffield United,1,0,H,1,0,H,L Smith,5,21,1,7,0,5,1,3,0,0,E1,2526
-E1,06/04/2026,15:00,Derby,Stoke,2,0,H,0,0,D,E Bell,20,7,3,0,5,3,2,1,0,0,E1,2526
-E1,06/04/2026,15:00,Ipswich,Birmingham,2,1,H,2,1,H,A Herczeg,11,9,5,4,6,4,1,1,0,0,E1,2526
-E1,06/04/2026,15:00,Preston,QPR,1,1,D,0,0,D,T Kirk,8,18,2,5,2,6,1,3,0,0,E1,2526
-E1,06/04/2026,15:00,Sheffield Weds,Leicester,1,1,D,1,0,H,L Doughty,6,24,1,12,1,10,0,0,0,0,E1,2526
-E1,06/04/2026,15:00,Watford,Charlton,1,1,D,0,0,D,A Kitchen,31,14,10,4,17,3,2,2,0,0,E1,2526
-E1,06/04/2026,17:30,Swansea,Middlesbrough,2,2,D,2,1,H,M Donohue,12,29,3,6,2,10,3,3,0,0,E1,2526
-E1,06/04/2026,20:00,Hull,Coventry,0,0,D,0,0,D,D Webb,13,6,5,1,2,4,1,1,0,0,E1,2526
-E1,07/04/2026,20:00,Wrexham,Southampton,1,5,A,1,2,A,G Ward,11,16,2,9,3,4,2,3,0,0,E1,2526
-E1,10/04/2026,20:00,West Brom,Millwall,0,0,D,0,0,D,L Smith,16,11,1,3,7,5,1,2,0,0,E1,2526
-E1,11/04/2026,12:30,Coventry,Sheffield Weds,0,0,D,0,0,D,M Donohue,20,8,3,0,7,2,0,3,0,0,E1,2526
-E1,11/04/2026,12:30,Norwich,Ipswich,0,2,A,0,2,A,A Backhouse,15,9,3,5,13,1,5,5,0,0,E1,2526
-E1,11/04/2026,12:30,QPR,Bristol City,0,0,D,0,0,D,E Duckworth,10,13,2,6,3,6,4,2,0,0,E1,2526
-E1,11/04/2026,15:00,Charlton,Preston,1,2,A,1,1,D,J Busby,17,14,6,5,7,4,2,3,0,0,E1,2526
-E1,11/04/2026,15:00,Leicester,Swansea,0,1,A,0,0,D,S Allison,19,8,6,1,12,2,2,0,0,0,E1,2526
-E1,11/04/2026,15:00,Middlesbrough,Portsmouth,0,1,A,0,0,D,T Kirk,20,3,8,1,14,2,1,4,0,0,E1,2526
-E1,11/04/2026,15:00,Oxford,Watford,2,0,H,1,0,H,S Martin,15,12,6,3,10,5,1,2,0,0,E1,2526
-E1,11/04/2026,15:00,Sheffield United,Hull,2,1,H,0,1,A,J Brooks,15,18,7,4,15,4,2,5,0,1,E1,2526
-E1,11/04/2026,15:00,Southampton,Derby,2,1,H,0,1,A,A Kitchen,15,9,5,4,6,2,1,2,0,0,E1,2526
-E1,11/04/2026,15:00,Stoke,Blackburn,1,1,D,0,1,A,R Madley,10,11,3,3,4,3,3,3,1,0,E1,2526
-E1,12/04/2026,12:00,Birmingham,Wrexham,2,0,H,0,0,D,D Webb,15,4,8,0,6,3,1,1,0,0,E1,2526
-E1,14/04/2026,20:00,Portsmouth,Ipswich,2,0,H,2,0,H,F Hallam,11,11,4,2,3,7,2,2,0,0,E1,2526
-E1,14/04/2026,20:00,Southampton,Blackburn,3,0,H,2,0,H,J Smith,16,8,7,3,7,4,0,2,0,0,E1,2526
-E1,17/04/2026,20:00,Blackburn,Coventry,1,1,D,0,0,D,L Smith,7,12,2,2,3,3,4,1,0,0,E1,2526
-E1,18/04/2026,12:30,Derby,Oxford,1,0,H,1,0,H,S Allison,15,11,2,0,7,3,4,1,0,0,E1,2526
-E1,18/04/2026,12:30,Millwall,QPR,2,0,H,2,0,H,T Nield,11,5,4,1,6,10,1,3,0,0,E1,2526
-E1,18/04/2026,12:30,Portsmouth,Leicester,1,0,H,0,0,D,G Ward,11,14,2,3,5,7,2,3,0,0,E1,2526
-E1,18/04/2026,15:00,Bristol City,Norwich,2,4,A,1,0,H,R Ricardo,9,19,6,9,2,10,0,2,0,0,E1,2526
-E1,18/04/2026,15:00,Hull,Birmingham,1,1,D,1,0,H,S Martin,14,11,3,5,2,6,4,4,0,0,E1,2526
-E1,18/04/2026,15:00,Preston,West Brom,0,2,A,0,1,A,J Smith,9,8,1,3,8,6,0,0,0,0,E1,2526
-E1,18/04/2026,15:00,Sheffield Weds,Charlton,1,1,D,0,0,D,T Parsons,9,12,2,3,7,2,1,2,0,0,E1,2526
-E1,18/04/2026,15:00,Swansea,Southampton,1,2,A,1,0,H,O Langford,10,16,3,6,4,12,2,2,0,0,E1,2526
-E1,18/04/2026,15:00,Watford,Sheffield United,0,2,A,0,0,D,J Busby,14,11,3,5,8,5,2,4,0,0,E1,2526
-E1,18/04/2026,15:00,Wrexham,Stoke,2,0,H,2,0,H,A Herczeg,9,6,4,0,2,6,0,1,0,0,E1,2526
-E1,19/04/2026,12:00,Ipswich,Middlesbrough,2,2,D,1,1,D,J Gillett,17,15,5,9,6,3,2,4,0,0,E1,2526
-E1,21/04/2026,19:45,Coventry,Portsmouth,5,1,H,1,0,H,A Kitchen,15,4,6,2,3,1,0,1,0,0,E1,2526
-E1,21/04/2026,19:45,Leicester,Hull,2,2,D,0,1,A,T Kirk,20,13,4,4,9,8,3,2,0,0,E1,2526
-E1,21/04/2026,19:45,Norwich,Derby,2,1,H,1,0,H,T Reeves,14,11,6,8,3,4,2,3,0,0,E1,2526
-E1,21/04/2026,19:45,Oxford,Wrexham,0,1,A,0,1,A,M Donohue,19,11,4,4,9,5,2,3,0,0,E1,2526
-E1,21/04/2026,19:45,QPR,Swansea,1,2,A,0,1,A,L Doughty,12,17,5,11,4,5,3,1,0,0,E1,2526
-E1,21/04/2026,19:45,Southampton,Bristol City,2,2,D,1,1,D,E Bell,10,8,4,5,7,3,3,3,0,0,E1,2526
-E1,21/04/2026,19:45,Stoke,Millwall,1,3,A,0,1,A,J Smith,12,14,4,6,11,1,0,3,0,0,E1,2526
-E1,21/04/2026,19:45,West Brom,Watford,3,0,H,2,0,H,A Backhouse,14,8,6,3,4,3,4,3,0,0,E1,2526
-E1,22/04/2026,19:45,Birmingham,Preston,2,1,H,2,1,H,B Toner,18,16,5,6,3,3,0,2,0,0,E1,2526
-E1,22/04/2026,19:45,Charlton,Ipswich,1,2,A,1,1,D,R Madley,6,13,3,5,1,4,2,2,0,0,E1,2526
-E1,22/04/2026,19:45,Middlesbrough,Sheffield Weds,1,0,H,1,0,H,D Webb,18,8,4,1,9,1,2,2,0,0,E1,2526
-E1,22/04/2026,19:45,Sheffield United,Blackburn,1,3,A,0,3,A,F Hallam,13,8,4,5,2,4,2,4,0,0,E1,2526
-E1,24/04/2026,20:00,Leicester,Millwall,1,1,D,0,0,D,F Hallam,10,22,3,4,2,12,1,3,0,0,E1,2526
-E1,25/04/2026,12:30,Charlton,Hull,2,1,H,1,1,D,T Nield,12,14,7,4,5,11,2,1,0,0,E1,2526
-E1,25/04/2026,12:30,Middlesbrough,Watford,5,1,H,2,0,H,A Herczeg,20,12,9,3,6,3,1,2,0,0,E1,2526
-E1,25/04/2026,12:30,West Brom,Ipswich,0,0,D,0,0,D,M Donohue,12,13,6,3,2,6,2,3,0,0,E1,2526
-E1,25/04/2026,15:00,Birmingham,Bristol City,2,1,H,2,0,H,R Jones,11,9,6,2,6,5,3,1,0,0,E1,2526
-E1,25/04/2026,15:00,Norwich,Swansea,1,1,D,0,0,D,T Parsons,16,8,8,2,5,2,3,5,0,0,E1,2526
-E1,25/04/2026,15:00,Oxford,Sheffield Weds,4,1,H,2,0,H,R Madley,20,9,10,3,5,3,1,0,0,0,E1,2526
-E1,25/04/2026,15:00,QPR,Derby,2,3,A,1,1,D,J Busby,23,12,12,3,10,6,1,3,0,0,E1,2526
-E1,25/04/2026,15:00,Sheffield United,Preston,2,3,A,0,2,A,A Kitchen,17,12,3,6,10,5,0,3,0,0,E1,2526
-E1,25/04/2026,15:00,Stoke,Portsmouth,1,3,A,0,1,A,D Webb,13,8,3,4,8,1,0,2,0,0,E1,2526
-E1,26/04/2026,12:00,Coventry,Wrexham,3,1,H,1,1,D,S Allison,15,13,6,2,5,4,2,2,0,0,E1,2526
-E1,28/04/2026,19:45,Southampton,Ipswich,2,2,D,0,0,D,T Kirk,18,19,4,9,5,9,0,2,0,0,E1,2526
-E1,02/05/2026,12:30,Blackburn,Leicester,0,1,A,0,0,D,L Doughty,12,22,3,9,9,11,1,1,0,0,E1,2526
-E1,02/05/2026,12:30,Bristol City,Stoke,2,0,H,1,0,H,B Toner,13,16,5,2,2,15,1,3,0,0,E1,2526
-E1,02/05/2026,12:30,Derby,Sheffield United,1,2,A,1,0,H,T Nield,17,15,6,8,6,4,4,3,0,0,E1,2526
-E1,02/05/2026,12:30,Hull,Norwich,2,1,H,1,1,D,J Smith,8,12,6,2,1,7,2,2,0,0,E1,2526
-E1,02/05/2026,12:30,Ipswich,QPR,3,0,H,2,0,H,G Ward,14,13,7,4,4,2,2,1,0,0,E1,2526
-E1,02/05/2026,12:30,Millwall,Oxford,2,0,H,1,0,H,A Backhouse,22,4,8,1,14,1,1,0,0,0,E1,2526
-E1,02/05/2026,12:30,Portsmouth,Birmingham,1,1,D,1,1,D,J Brooks,14,13,2,5,3,9,2,2,0,0,E1,2526
-E1,02/05/2026,12:30,Preston,Southampton,1,3,A,0,1,A,S Martin,16,18,5,5,10,5,3,1,0,0,E1,2526
-E1,02/05/2026,12:30,Sheffield Weds,West Brom,2,1,H,2,0,H,L Smith,11,13,5,5,5,2,3,2,0,0,E1,2526
-E1,02/05/2026,12:30,Swansea,Charlton,3,1,H,0,0,D,W Finnie,20,12,8,3,10,4,0,0,0,0,E1,2526
-E1,02/05/2026,12:30,Watford,Coventry,0,4,A,0,2,A,R Ricardo,13,18,4,7,0,6,2,1,0,0,E1,2526
-E1,02/05/2026,12:30,Wrexham,Middlesbrough,2,2,D,2,2,D,O Langford,20,11,8,5,6,3,0,0,0,0,E1,2526
-E1,14/08/2026,20:00,Wolves,Blackburn,2,2,D,1,1,D,F Hallam,18,10,3,5,5,5,1,3,0,0,E1,2627
-E1,15/08/2026,12:30,Bolton,Preston,2,1,H,2,0,H,A Herczeg,15,10,6,3,5,2,2,3,0,0,E1,2627
-E1,15/08/2026,15:00,Bristol City,Millwall,0,2,A,0,1,A,L Smith,8,24,0,3,6,6,2,2,1,0,E1,2627
-E1,15/08/2026,15:00,Charlton,Derby,2,1,H,0,1,A,B Speedie,13,15,4,4,5,4,0,3,0,0,E1,2627
-E1,15/08/2026,15:00,Middlesbrough,Lincoln,2,1,H,0,1,A,R Madley,23,10,7,2,5,5,0,2,0,0,E1,2627
-E1,15/08/2026,15:00,Norwich,West Brom,1,2,A,0,0,D,T Robinson,20,9,7,4,8,2,0,2,0,0,E1,2627
-E1,15/08/2026,15:00,Portsmouth,QPR,1,3,A,1,3,A,W Finnie,17,13,6,6,6,3,0,1,0,0,E1,2627
-E1,15/08/2026,15:00,Stoke,Swansea,1,2,A,1,1,D,O Langford,6,7,2,3,4,5,1,3,0,0,E1,2627
-E1,15/08/2026,17:30,Sheffield United,Birmingham,0,0,D,0,0,D,G Ward,3,10,1,2,2,8,0,0,0,0,E1,2627
-E1,16/08/2026,13:30,Watford,Southampton,2,1,H,2,0,H,M Donohue,16,17,3,3,4,8,6,3,0,0,E1,2627
-E1,16/08/2026,16:00,Burnley,West Ham,2,2,D,0,1,A,J Smith,18,11,6,2,5,6,1,4,0,0,E1,2627
-E1,17/08/2026,20:00,Cardiff,Wrexham,1,1,D,0,1,A,A Kitchen,11,18,3,8,9,9,0,2,0,0,E1,2627
-E1,22/08/2026,12:30,Birmingham,Bristol City,2,2,D,1,1,D,W Finnie,8,14,2,6,7,3,2,1,0,0,E1,2627
-E1,22/08/2026,12:30,Lincoln,Portsmouth,1,3,A,1,2,A,T Harrington,15,13,4,7,8,3,3,1,0,0,E1,2627
-E1,22/08/2026,12:30,Millwall,Norwich,3,0,H,1,0,H,S Allison,19,8,7,2,8,3,1,3,0,1,E1,2627
-E1,22/08/2026,15:00,Blackburn,Middlesbrough,2,1,H,0,1,A,T Reeves,6,22,5,3,2,10,4,1,0,0,E1,2627
-E1,22/08/2026,15:00,Derby,Cardiff,2,2,D,1,2,A,R Ricardo,15,16,7,7,7,7,5,1,0,0,E1,2627
-E1,22/08/2026,15:00,Preston,Wolves,1,3,A,0,1,A,E Bell,13,16,2,5,5,4,4,1,0,0,E1,2627
-E1,22/08/2026,15:00,QPR,Bolton,0,0,D,0,0,D,E Duckworth,18,2,10,0,9,2,1,2,0,0,E1,2627
-E1,22/08/2026,15:00,Southampton,Stoke,3,1,H,1,1,D,S Martin,18,15,5,2,4,2,3,5,0,1,E1,2627
-E1,22/08/2026,15:00,Swansea,Sheffield United,0,0,D,0,0,D,T Nield,9,12,1,2,6,3,2,2,0,0,E1,2627
-E1,22/08/2026,15:00,West Ham,Charlton,1,2,A,0,1,A,A Kitchen,25,7,9,5,7,4,2,3,0,0,E1,2627
-E1,22/08/2026,15:00,Wrexham,Watford,1,1,D,1,1,D,J Busby,12,10,2,6,10,3,2,0,0,0,E1,2627
-E1,23/08/2026,12:00,West Brom,Burnley,3,1,H,1,1,D,A Backhouse,11,11,7,3,3,5,1,2,0,0,E1,2627
+Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HC,AC,HY,AY,HR,AR,HxG,AxG,League,Season
+E1,08/08/2025,20:00,Birmingham,Ipswich,1,1,D,0,0,D,A Kitchen,11,7,3,1,1,4,2,3,0,0,,,E1,2526
+E1,09/08/2025,12:30,Charlton,Watford,1,0,H,0,0,D,S Martin,12,10,5,1,3,2,1,2,0,0,,,E1,2526
+E1,09/08/2025,12:30,Coventry,Hull,0,0,D,0,0,D,R Madley,18,7,3,3,8,2,3,3,0,0,,,E1,2526
+E1,09/08/2025,12:30,Southampton,Wrexham,2,1,H,0,1,A,J Bell,27,10,10,2,7,4,2,2,0,0,,,E1,2526
+E1,09/08/2025,15:00,Middlesbrough,Swansea,1,0,H,0,0,D,F Hallam,6,3,3,1,7,2,2,5,0,0,,,E1,2526
+E1,09/08/2025,15:00,Norwich,Millwall,1,2,A,0,0,D,A Herczeg,15,15,3,3,6,5,1,4,0,0,,,E1,2526
+E1,09/08/2025,15:00,Oxford,Portsmouth,0,1,A,0,1,A,D Whitestone,18,9,4,4,8,4,1,2,0,0,,,E1,2526
+E1,09/08/2025,15:00,QPR,Preston,1,1,D,1,0,H,O Langford,13,11,3,3,5,4,0,3,0,0,,,E1,2526
+E1,09/08/2025,15:00,Stoke,Derby,3,1,H,0,0,D,E Bell,12,3,7,2,7,3,1,2,0,0,,,E1,2526
+E1,09/08/2025,15:00,West Brom,Blackburn,1,0,H,1,0,H,D Webb,13,10,5,1,3,7,2,0,1,0,,,E1,2526
+E1,09/08/2025,17:30,Sheffield United,Bristol City,1,4,A,1,2,A,J Smith,20,9,6,5,14,3,0,0,0,0,,,E1,2526
+E1,10/08/2025,16:30,Leicester,Sheffield Weds,2,1,H,0,1,A,M Donohue,27,7,13,3,13,3,0,0,0,1,,,E1,2526
+E1,16/08/2025,12:30,Derby,Coventry,3,5,A,2,2,D,A Backhouse,13,20,4,10,6,5,2,5,0,0,,,E1,2526
+E1,16/08/2025,12:30,Portsmouth,Norwich,1,2,A,0,2,A,S Martin,19,11,3,5,9,0,3,3,0,0,,,E1,2526
+E1,16/08/2025,12:30,Wrexham,West Brom,2,3,A,1,1,D,J Busby,15,17,3,5,5,5,2,0,0,0,,,E1,2526
+E1,16/08/2025,15:00,Blackburn,Birmingham,1,2,A,0,0,D,O Langford,5,8,2,4,3,5,1,2,0,0,,,E1,2526
+E1,16/08/2025,15:00,Bristol City,Charlton,0,0,D,0,0,D,B Speedie,14,8,1,2,4,6,0,1,0,0,,,E1,2526
+E1,16/08/2025,15:00,Millwall,Middlesbrough,0,3,A,0,0,D,T Nield,11,12,1,5,6,10,4,5,0,0,,,E1,2526
+E1,16/08/2025,15:00,Preston,Leicester,2,1,H,1,0,H,G Ward,14,14,4,2,6,4,2,0,0,0,,,E1,2526
+E1,16/08/2025,15:00,Sheffield Weds,Stoke,0,3,A,0,1,A,L Smith,15,12,5,6,6,7,0,3,0,0,,,E1,2526
+E1,16/08/2025,15:00,Swansea,Sheffield United,1,0,H,0,0,D,T Kirk,13,8,4,0,4,8,1,3,0,0,,,E1,2526
+E1,16/08/2025,15:00,Watford,QPR,2,1,H,2,1,H,T Harrington,17,13,4,3,2,4,1,2,1,0,,,E1,2526
+E1,17/08/2025,12:00,Ipswich,Southampton,1,1,D,1,1,D,R Madley,14,11,1,3,4,5,2,2,0,0,,,E1,2526
+E1,17/08/2025,15:00,Hull,Oxford,3,2,H,2,2,D,A Kitchen,19,11,7,6,10,4,1,1,0,0,,,E1,2526
+E1,22/08/2025,20:00,Derby,Bristol City,1,1,D,0,1,A,D Webb,5,11,2,3,4,5,3,0,0,0,,,E1,2526
+E1,23/08/2025,12:30,Charlton,Leicester,0,1,A,0,0,D,D Whitestone,20,6,7,2,13,4,2,1,0,0,,,E1,2526
+E1,23/08/2025,12:30,Hull,Blackburn,0,3,A,0,1,A,T Nield,8,14,2,6,2,1,3,3,0,0,,,E1,2526
+E1,23/08/2025,12:30,Swansea,Watford,1,1,D,0,1,A,S Martin,11,9,2,4,7,2,3,5,0,0,,,E1,2526
+E1,23/08/2025,15:00,Birmingham,Oxford,1,0,H,1,0,H,R Jones,16,6,1,1,4,1,0,0,0,0,,,E1,2526
+E1,23/08/2025,15:00,Coventry,QPR,7,1,H,5,0,H,A Herczeg,19,10,8,1,9,4,1,2,0,0,,,E1,2526
+E1,23/08/2025,15:00,Norwich,Middlesbrough,1,2,A,0,2,A,L Doughty,14,11,3,4,5,3,0,3,1,0,,,E1,2526
+E1,23/08/2025,15:00,Preston,Ipswich,1,0,H,1,0,H,M Donohue,2,15,1,2,3,6,6,2,0,0,,,E1,2526
+E1,23/08/2025,15:00,Sheffield United,Millwall,0,1,A,0,1,A,J Busby,14,17,4,6,8,7,3,2,0,0,,,E1,2526
+E1,23/08/2025,15:00,Southampton,Stoke,1,2,A,0,0,D,J Smith,18,12,2,4,7,3,1,3,0,1,,,E1,2526
+E1,23/08/2025,15:00,West Brom,Portsmouth,1,1,D,1,0,H,E Bell,13,8,3,4,2,3,2,5,0,0,,,E1,2526
+E1,23/08/2025,15:00,Wrexham,Sheffield Weds,2,2,D,2,0,H,F Hallam,11,21,4,7,3,9,0,0,0,0,,,E1,2526
+E1,29/08/2025,20:00,Leicester,Birmingham,2,0,H,1,0,H,J Smith,5,11,2,1,1,7,3,3,0,0,,,E1,2526
+E1,30/08/2025,12:30,Middlesbrough,Sheffield United,1,0,H,0,0,D,L Smith,15,8,6,0,5,9,0,3,0,0,,,E1,2526
+E1,30/08/2025,12:30,QPR,Charlton,3,1,H,1,0,H,A Kitchen,13,13,6,3,1,2,2,2,0,0,,,E1,2526
+E1,30/08/2025,12:30,Stoke,West Brom,0,1,A,0,1,A,M Donohue,13,12,3,3,5,5,1,2,0,0,,,E1,2526
+E1,30/08/2025,15:00,Blackburn,Norwich,0,2,A,0,1,A,B Speedie,12,15,3,4,3,9,2,0,1,0,,,E1,2526
+E1,30/08/2025,15:00,Bristol City,Hull,4,2,H,3,1,H,G Ward,29,20,5,9,8,5,1,1,0,0,,,E1,2526
+E1,30/08/2025,15:00,Ipswich,Derby,2,2,D,1,0,H,L Doughty,18,10,5,2,6,3,2,7,0,0,,,E1,2526
+E1,30/08/2025,15:00,Millwall,Wrexham,0,2,A,0,0,D,T Kirk,21,6,2,3,5,2,1,3,0,0,,,E1,2526
+E1,30/08/2025,15:00,Oxford,Coventry,2,2,D,1,2,A,R Ricardo,14,15,3,6,0,5,1,2,0,0,,,E1,2526
+E1,30/08/2025,15:00,Portsmouth,Preston,1,0,H,1,0,H,T Harrington,10,13,2,2,6,4,1,2,0,0,,,E1,2526
+E1,30/08/2025,15:00,Sheffield Weds,Swansea,0,2,A,0,0,D,A Backhouse,9,17,1,8,2,7,0,2,0,0,,,E1,2526
+E1,30/08/2025,15:00,Watford,Southampton,2,2,D,0,1,A,F Hallam,10,12,4,7,4,5,2,5,0,0,,,E1,2526
+E1,12/09/2025,20:00,Ipswich,Sheffield United,5,0,H,1,0,H,F Hallam,21,10,11,2,3,5,0,2,0,0,,,E1,2526
+E1,13/09/2025,12:30,Charlton,Millwall,1,1,D,1,0,H,R Madley,14,15,3,3,3,4,1,1,1,0,,,E1,2526
+E1,13/09/2025,12:30,Oxford,Leicester,2,2,D,2,1,H,B Toner,19,8,2,5,4,4,1,2,0,1,,,E1,2526
+E1,13/09/2025,12:30,Preston,Middlesbrough,2,2,D,1,0,H,T Kirk,7,14,2,3,3,4,1,3,0,0,,,E1,2526
+E1,13/09/2025,15:00,Coventry,Norwich,1,1,D,0,1,A,G Ward,28,4,4,1,11,2,2,6,0,0,,,E1,2526
+E1,13/09/2025,15:00,Sheffield Weds,Bristol City,0,3,A,0,3,A,T Nield,6,9,0,4,4,1,2,0,0,0,,,E1,2526
+E1,13/09/2025,15:00,Stoke,Birmingham,1,0,H,1,0,H,M Salisbury,8,7,3,0,5,3,3,1,0,0,,,E1,2526
+E1,13/09/2025,15:00,Swansea,Hull,2,2,D,1,1,D,D Webb,9,15,2,6,5,2,1,1,0,0,,,E1,2526
+E1,13/09/2025,15:00,Watford,Blackburn,0,1,A,0,0,D,D Whitestone,14,14,1,5,5,7,1,2,0,0,,,E1,2526
+E1,13/09/2025,15:00,West Brom,Derby,0,1,A,0,0,D,R Ricardo,18,4,3,1,11,0,1,2,0,0,,,E1,2526
+E1,13/09/2025,15:00,Wrexham,QPR,1,3,A,0,2,A,B Speedie,21,15,8,6,12,9,1,0,0,0,,,E1,2526
+E1,14/09/2025,12:00,Southampton,Portsmouth,0,0,D,0,0,D,M Donohue,9,10,1,1,7,5,4,2,0,0,,,E1,2526
+E1,19/09/2025,20:00,Middlesbrough,West Brom,2,1,H,1,0,H,A Kitchen,9,15,4,3,2,3,0,0,0,0,,,E1,2526
+E1,20/09/2025,12:30,Birmingham,Swansea,1,0,H,0,0,D,J Busby,23,9,7,2,7,2,5,4,0,0,,,E1,2526
+E1,20/09/2025,12:30,Leicester,Coventry,0,0,D,0,0,D,O Langford,17,11,9,3,10,3,0,3,0,0,,,E1,2526
+E1,20/09/2025,12:30,QPR,Stoke,1,0,H,0,0,D,T Robinson,14,7,7,1,3,6,5,3,0,0,,,E1,2526
+E1,20/09/2025,15:00,Derby,Preston,0,1,A,0,1,A,L Smith,7,10,2,6,3,4,2,2,0,0,,,E1,2526
+E1,20/09/2025,15:00,Hull,Southampton,3,1,H,1,0,H,A Backhouse,11,14,4,4,1,6,5,3,0,0,,,E1,2526
+E1,20/09/2025,15:00,Norwich,Wrexham,2,3,A,1,0,H,D Webb,14,11,5,8,2,3,1,3,0,0,,,E1,2526
+E1,20/09/2025,15:00,Portsmouth,Sheffield Weds,0,2,A,0,1,A,R Ricardo,25,13,5,8,11,5,1,5,0,0,,,E1,2526
+E1,20/09/2025,15:00,Sheffield United,Charlton,0,1,A,0,0,D,B Toner,13,13,1,4,6,1,1,3,0,0,,,E1,2526
+E1,21/09/2025,15:00,Bristol City,Oxford,1,3,A,0,2,A,J Brooks,12,18,2,6,8,5,4,1,0,0,,,E1,2526
+E1,22/09/2025,20:00,Millwall,Watford,1,0,H,1,0,H,J Smith,9,11,2,4,7,4,1,0,0,0,,,E1,2526
+E1,26/09/2025,20:00,West Brom,Leicester,1,1,D,1,0,H,S Martin,11,13,5,1,3,3,2,5,0,0,,,E1,2526
+E1,27/09/2025,12:30,Coventry,Birmingham,3,0,H,1,0,H,T Kirk,14,5,5,0,3,4,1,2,0,1,,,E1,2526
+E1,27/09/2025,12:30,Swansea,Millwall,1,1,D,1,1,D,D Whitestone,13,11,2,3,6,4,1,2,0,0,,,E1,2526
+E1,27/09/2025,12:30,Wrexham,Derby,1,1,D,0,0,D,T Nield,10,5,5,3,4,3,1,5,0,0,,,E1,2526
+E1,27/09/2025,15:00,Charlton,Blackburn,3,0,H,1,0,H,A Backhouse,16,9,7,2,3,3,4,2,0,0,,,E1,2526
+E1,27/09/2025,15:00,Ipswich,Portsmouth,2,1,H,2,0,H,A Kitchen,14,8,5,4,5,4,1,2,0,0,,,E1,2526
+E1,27/09/2025,15:00,Oxford,Sheffield United,0,1,A,0,0,D,B Speedie,14,6,3,2,3,5,1,1,0,0,,,E1,2526
+E1,27/09/2025,15:00,Preston,Bristol City,0,0,D,0,0,D,R Madley,7,19,2,7,2,9,4,1,0,0,,,E1,2526
+E1,27/09/2025,15:00,Sheffield Weds,QPR,1,1,D,1,0,H,J Brooks,14,14,5,4,5,4,2,2,0,0,,,E1,2526
+E1,27/09/2025,15:00,Southampton,Middlesbrough,1,1,D,0,0,D,F Hallam,14,7,2,1,6,3,2,6,0,0,,,E1,2526
+E1,27/09/2025,15:00,Stoke,Norwich,1,1,D,0,1,A,E Bell,23,6,6,3,12,2,0,3,0,0,,,E1,2526
+E1,27/09/2025,15:00,Watford,Hull,2,1,H,0,1,A,O Langford,21,11,8,4,6,6,1,5,0,0,,,E1,2526
+E1,30/09/2025,19:45,Birmingham,Sheffield Weds,2,2,D,1,1,D,M Donohue,20,5,5,3,10,4,3,2,0,0,,,E1,2526
+E1,30/09/2025,19:45,Blackburn,Swansea,1,2,A,1,1,D,L Doughty,14,7,3,4,7,3,3,2,0,0,,,E1,2526
+E1,30/09/2025,19:45,Bristol City,Ipswich,1,1,D,1,0,H,J Busby,13,15,3,3,3,6,4,2,0,0,,,E1,2526
+E1,30/09/2025,19:45,Hull,Preston,2,2,D,0,2,A,J Smith,10,13,5,5,5,3,0,1,0,0,,,E1,2526
+E1,30/09/2025,19:45,Leicester,Wrexham,1,1,D,1,0,H,E Bell,16,9,1,1,7,1,3,1,0,0,,,E1,2526
+E1,30/09/2025,19:45,Middlesbrough,Stoke,0,0,D,0,0,D,D Webb,12,18,4,5,5,8,2,0,0,0,,,E1,2526
+E1,30/09/2025,19:45,Sheffield United,Southampton,1,2,A,1,0,H,A Herczeg,8,12,3,5,4,5,3,4,0,0,,,E1,2526
+E1,30/09/2025,20:00,Derby,Charlton,1,1,D,0,1,A,G Ward,18,11,3,3,5,2,2,0,0,0,,,E1,2526
+E1,01/10/2025,19:45,Millwall,Coventry,0,4,A,0,1,A,L Smith,13,13,3,5,3,3,2,2,0,0,,,E1,2526
+E1,01/10/2025,19:45,Norwich,West Brom,0,1,A,0,1,A,S Allison,16,5,5,1,4,3,1,4,0,0,,,E1,2526
+E1,01/10/2025,19:45,Portsmouth,Watford,2,2,D,1,0,H,B Toner,15,12,5,6,3,3,2,5,0,0,,,E1,2526
+E1,01/10/2025,20:00,QPR,Oxford,0,0,D,0,0,D,R Ricardo,13,9,1,0,9,1,3,1,0,0,,,E1,2526
+E1,03/10/2025,20:00,Wrexham,Birmingham,1,1,D,1,0,H,R Madley,12,8,4,3,5,5,0,2,0,0,,,E1,2526
+E1,04/10/2025,12:30,Blackburn,Stoke,1,1,D,0,0,D,R Ricardo,17,11,5,6,7,6,1,1,0,0,,,E1,2526
+E1,04/10/2025,12:30,Hull,Sheffield United,1,0,H,1,0,H,G Ward,5,13,2,4,4,9,2,2,0,0,,,E1,2526
+E1,04/10/2025,12:30,Sheffield Weds,Coventry,0,5,A,0,3,A,A Herczeg,9,21,0,10,13,8,1,1,0,0,,,E1,2526
+E1,04/10/2025,15:00,Bristol City,QPR,1,2,A,1,0,H,E Duckworth,11,8,1,2,4,1,5,1,0,0,,,E1,2526
+E1,04/10/2025,15:00,Derby,Southampton,1,1,D,1,1,D,O Langford,9,13,5,6,3,5,4,2,0,0,,,E1,2526
+E1,04/10/2025,15:00,Millwall,West Brom,3,0,H,1,0,H,T Robinson,11,10,4,1,4,5,1,2,0,0,,,E1,2526
+E1,04/10/2025,15:00,Portsmouth,Middlesbrough,1,0,H,1,0,H,A Backhouse,8,12,1,1,2,8,2,1,0,0,,,E1,2526
+E1,04/10/2025,15:00,Preston,Charlton,2,0,H,0,0,D,J Linington,15,8,3,0,3,4,0,2,0,0,,,E1,2526
+E1,04/10/2025,15:00,Swansea,Leicester,1,3,A,0,1,A,D Webb,13,17,7,7,2,5,2,1,0,0,,,E1,2526
+E1,04/10/2025,15:00,Watford,Oxford,2,1,H,2,1,H,L Smith,27,15,10,5,9,3,3,4,0,0,,,E1,2526
+E1,05/10/2025,12:00,Ipswich,Norwich,3,1,H,2,1,H,T Kirk,19,12,9,4,8,8,1,3,0,0,,,E1,2526
+E1,17/10/2025,20:00,Middlesbrough,Ipswich,2,1,H,1,0,H,M Donohue,15,17,5,5,5,9,3,1,0,0,,,E1,2526
+E1,18/10/2025,12:30,Oxford,Derby,1,0,H,1,0,H,J Bell,19,6,7,1,4,12,4,1,0,0,,,E1,2526
+E1,18/10/2025,12:30,QPR,Millwall,1,2,A,0,2,A,A Herczeg,20,5,3,5,8,3,2,4,0,0,,,E1,2526
+E1,18/10/2025,12:30,Southampton,Swansea,0,0,D,0,0,D,J Smith,21,6,8,1,5,3,0,4,0,0,,,E1,2526
+E1,18/10/2025,15:00,Birmingham,Hull,2,3,A,1,2,A,R Ricardo,29,14,8,7,9,7,2,7,1,0,,,E1,2526
+E1,18/10/2025,15:00,Charlton,Sheffield Weds,2,1,H,2,0,H,T Reeves,12,12,5,4,2,4,1,2,0,1,,,E1,2526
+E1,18/10/2025,15:00,Coventry,Blackburn,2,0,H,0,0,D,S Allison,14,17,5,3,2,7,0,2,0,0,,,E1,2526
+E1,18/10/2025,15:00,Norwich,Bristol City,0,1,A,0,0,D,T Nield,11,21,4,6,3,9,2,3,0,0,,,E1,2526
+E1,18/10/2025,15:00,Sheffield United,Watford,1,0,H,0,0,D,R Madley,18,13,6,1,7,3,0,1,0,0,,,E1,2526
+E1,18/10/2025,15:00,Stoke,Wrexham,1,0,H,1,0,H,T Bramall,12,5,3,3,6,4,2,0,0,0,,,E1,2526
+E1,18/10/2025,15:00,West Brom,Preston,2,1,H,1,0,H,A Kitchen,16,17,6,5,8,4,2,1,0,0,,,E1,2526
+E1,18/10/2025,19:45,Leicester,Portsmouth,1,1,D,1,0,H,F Hallam,19,8,6,3,14,4,1,2,0,0,,,E1,2526
+E1,21/10/2025,19:45,Blackburn,Sheffield United,1,3,A,1,0,H,D Webb,12,11,3,5,5,5,1,1,0,0,,,E1,2526
+E1,21/10/2025,19:45,Derby,Norwich,1,0,H,0,0,D,B Toner,8,17,3,3,5,13,2,1,0,0,,,E1,2526
+E1,21/10/2025,19:45,Hull,Leicester,2,1,H,2,0,H,M Donohue,9,18,6,4,1,7,1,2,0,0,,,E1,2526
+E1,21/10/2025,19:45,Ipswich,Charlton,0,3,A,0,0,D,F Hallam,31,15,5,8,16,3,0,3,0,0,,,E1,2526
+E1,21/10/2025,19:45,Millwall,Stoke,2,0,H,2,0,H,J Linington,15,10,7,3,3,2,2,1,0,0,,,E1,2526
+E1,21/10/2025,19:45,Portsmouth,Coventry,1,2,A,0,1,A,G Ward,15,19,5,7,6,5,1,1,0,0,,,E1,2526
+E1,21/10/2025,19:45,Preston,Birmingham,0,1,A,0,1,A,L Smith,17,9,6,2,9,3,2,5,0,0,,,E1,2526
+E1,21/10/2025,20:00,Bristol City,Southampton,3,1,H,1,1,D,A Backhouse,13,14,4,7,2,3,1,2,0,0,,,E1,2526
+E1,22/10/2025,19:45,Swansea,QPR,0,1,A,0,1,A,J Busby,11,15,2,4,6,3,1,4,1,0,,,E1,2526
+E1,22/10/2025,19:45,Watford,West Brom,2,1,H,1,1,D,L Doughty,19,9,5,4,4,5,0,2,0,0,,,E1,2526
+E1,22/10/2025,19:45,Wrexham,Oxford,1,0,H,1,0,H,E Bell,11,6,6,2,6,3,3,1,1,0,,,E1,2526
+E1,22/10/2025,20:00,Sheffield Weds,Middlesbrough,0,1,A,0,1,A,T Kirk,11,19,3,7,6,5,3,1,0,0,,,E1,2526
+E1,24/10/2025,20:00,Preston,Sheffield United,3,2,H,1,2,A,F Hallam,15,12,3,3,2,4,4,1,0,0,,,E1,2526
+E1,25/10/2025,12:30,Coventry,Watford,3,1,H,3,0,H,D Whitestone,12,13,3,8,5,7,3,2,0,1,,,E1,2526
+E1,25/10/2025,12:30,Ipswich,West Brom,1,0,H,0,0,D,J Smith,15,10,4,1,4,5,1,1,0,0,,,E1,2526
+E1,25/10/2025,12:30,Portsmouth,Stoke,0,1,A,0,0,D,T Kirk,14,11,3,2,6,2,2,3,0,0,,,E1,2526
+E1,25/10/2025,15:00,Blackburn,Southampton,2,1,H,0,1,A,R Madley,18,12,6,5,6,5,3,1,0,1,,,E1,2526
+E1,25/10/2025,15:00,Bristol City,Birmingham,1,0,H,1,0,H,J Linington,5,13,1,1,0,6,2,1,0,0,,,E1,2526
+E1,25/10/2025,15:00,Derby,QPR,1,0,H,1,0,H,E Bell,12,6,4,1,5,2,2,2,0,0,,,E1,2526
+E1,25/10/2025,15:00,Hull,Charlton,1,1,D,0,0,D,A Kitchen,15,11,4,5,6,2,2,1,0,0,,,E1,2526
+E1,25/10/2025,15:00,Middlesbrough,Wrexham,1,1,D,0,1,A,S Martin,14,6,4,2,4,4,0,5,0,0,,,E1,2526
+E1,25/10/2025,15:00,Millwall,Leicester,1,0,H,1,0,H,J Bell,9,12,4,3,5,9,1,2,0,0,,,E1,2526
+E1,25/10/2025,15:00,Sheffield Weds,Oxford,1,2,A,0,2,A,P Tierney,17,11,5,4,8,3,0,0,0,0,,,E1,2526
+E1,25/10/2025,15:00,Swansea,Norwich,2,1,H,1,1,D,A Herczeg,9,7,3,3,2,3,3,1,0,0,,,E1,2526
+E1,31/10/2025,20:00,Wrexham,Coventry,3,2,H,0,1,A,A Backhouse,13,18,7,5,3,6,2,1,0,0,,,E1,2526
+E1,01/11/2025,12:30,Leicester,Blackburn,0,2,A,0,1,A,T Nield,12,9,1,5,7,4,0,1,0,0,,,E1,2526
+E1,01/11/2025,12:30,Norwich,Hull,0,2,A,0,0,D,J Smith,15,9,3,4,6,4,1,2,0,0,,,E1,2526
+E1,01/11/2025,12:30,West Brom,Sheffield Weds,0,0,D,0,0,D,B Toner,13,5,6,2,8,3,1,1,0,0,,,E1,2526
+E1,01/11/2025,15:00,Birmingham,Portsmouth,4,0,H,1,0,H,A Kitchen,19,5,7,0,9,5,1,2,0,0,,,E1,2526
+E1,01/11/2025,15:00,Charlton,Swansea,1,1,D,0,0,D,D Webb,11,11,4,2,4,7,0,0,0,0,,,E1,2526
+E1,01/11/2025,15:00,Oxford,Millwall,2,2,D,1,1,D,F Hallam,14,11,6,4,5,8,0,0,0,0,,,E1,2526
+E1,01/11/2025,15:00,QPR,Ipswich,1,4,A,1,1,D,S Allison,12,12,5,7,3,2,4,0,0,0,,,E1,2526
+E1,01/11/2025,15:00,Sheffield United,Derby,1,3,A,0,1,A,M Salisbury,15,12,5,4,9,4,2,1,0,0,,,E1,2526
+E1,01/11/2025,15:00,Southampton,Preston,0,2,A,0,1,A,M Donohue,10,12,2,3,8,2,1,3,0,0,,,E1,2526
+E1,01/11/2025,15:00,Stoke,Bristol City,5,1,H,3,0,H,J Bell,13,16,8,5,4,10,3,0,0,0,,,E1,2526
+E1,01/11/2025,15:00,Watford,Middlesbrough,3,0,H,2,0,H,J Busby,9,14,4,4,1,7,2,1,0,0,,,E1,2526
+E1,04/11/2025,19:45,Birmingham,Millwall,4,0,H,2,0,H,G Ward,12,4,6,2,2,3,0,0,0,0,,,E1,2526
+E1,04/11/2025,19:45,Bristol City,Blackburn,0,1,A,0,1,A,D Whitestone,12,16,0,5,6,3,0,3,0,0,,,E1,2526
+E1,04/11/2025,19:45,Charlton,West Brom,1,0,H,0,0,D,L Smith,11,13,3,1,4,3,0,0,0,0,,,E1,2526
+E1,04/11/2025,19:45,Derby,Hull,2,1,H,1,0,H,S Martin,9,8,3,2,6,5,1,0,0,0,,,E1,2526
+E1,04/11/2025,19:45,Ipswich,Watford,1,1,D,1,1,D,D Webb,16,4,4,2,2,5,1,2,0,0,,,E1,2526
+E1,04/11/2025,19:45,Leicester,Middlesbrough,1,1,D,1,0,H,A Herczeg,6,17,2,4,3,6,6,1,0,1,,,E1,2526
+E1,04/11/2025,19:45,Oxford,Stoke,0,3,A,0,2,A,L Doughty,16,14,1,6,10,7,1,3,0,0,,,E1,2526
+E1,04/11/2025,20:00,Coventry,Sheffield United,3,1,H,0,1,A,J Linington,17,11,8,4,6,13,3,2,0,0,,,E1,2526
+E1,05/11/2025,19:45,Preston,Swansea,2,1,H,1,0,H,A Backhouse,4,18,3,5,2,8,3,1,0,0,,,E1,2526
+E1,05/11/2025,19:45,QPR,Southampton,1,2,A,0,0,D,J Bell,20,9,5,2,12,1,1,3,0,0,,,E1,2526
+E1,05/11/2025,19:45,Sheffield Weds,Norwich,1,1,D,1,0,H,E Duckworth,15,13,6,3,9,4,0,4,0,0,,,E1,2526
+E1,05/11/2025,20:00,Portsmouth,Wrexham,0,0,D,0,0,D,R Madley,19,8,7,3,10,3,3,3,0,0,,,E1,2526
+E1,07/11/2025,20:00,Watford,Bristol City,1,1,D,1,1,D,P Tierney,16,10,10,4,6,4,2,1,0,0,,,E1,2526
+E1,08/11/2025,12:30,Blackburn,Derby,1,2,A,0,2,A,T Kirk,8,6,3,4,13,3,1,3,0,0,,,E1,2526
+E1,08/11/2025,12:30,Hull,Portsmouth,3,2,H,2,2,D,T Nield,13,13,4,5,5,5,1,3,0,0,,,E1,2526
+E1,08/11/2025,12:30,Millwall,Preston,1,1,D,1,1,D,S Martin,14,8,4,6,10,6,2,2,0,0,,,E1,2526
+E1,08/11/2025,15:00,Middlesbrough,Birmingham,2,1,H,2,1,H,S Allison,8,13,4,5,3,5,1,1,0,0,,,E1,2526
+E1,08/11/2025,15:00,Norwich,Leicester,1,2,A,0,0,D,D Whitestone,8,14,3,7,6,3,1,1,0,0,,,E1,2526
+E1,08/11/2025,15:00,Sheffield United,QPR,0,0,D,0,0,D,L Smith,20,13,3,4,14,5,0,2,0,0,,,E1,2526
+E1,08/11/2025,15:00,Southampton,Sheffield Weds,3,1,H,2,1,H,R Ricardo,12,11,7,3,4,5,2,2,0,0,,,E1,2526
+E1,08/11/2025,15:00,Stoke,Coventry,0,1,A,0,0,D,J Busby,10,17,2,3,3,6,3,3,0,0,,,E1,2526
+E1,08/11/2025,15:00,Swansea,Ipswich,1,4,A,0,1,A,E Duckworth,9,11,4,4,4,5,5,3,0,0,,,E1,2526
+E1,08/11/2025,15:00,West Brom,Oxford,2,1,H,0,0,D,J Miles,26,9,6,4,11,5,0,0,0,0,,,E1,2526
+E1,08/11/2025,15:00,Wrexham,Charlton,1,0,H,0,0,D,L Doughty,18,11,6,4,8,2,1,4,0,0,,,E1,2526
+E1,21/11/2025,20:00,Preston,Blackburn,1,2,A,1,1,D,P Tierney,15,12,4,6,3,7,1,0,0,0,,,E1,2526
+E1,22/11/2025,12:30,Bristol City,Swansea,3,0,H,2,0,H,J Smith,15,17,8,5,5,6,2,0,0,0,,,E1,2526
+E1,22/11/2025,12:30,Charlton,Southampton,1,5,A,1,5,A,S Martin,12,23,2,8,3,4,4,0,0,0,,,E1,2526
+E1,22/11/2025,12:30,Coventry,West Brom,3,2,H,1,2,A,A Kitchen,24,7,11,5,8,1,2,1,0,1,,,E1,2526
+E1,22/11/2025,15:00,Birmingham,Norwich,4,1,H,3,1,H,A Backhouse,16,15,6,7,3,8,1,2,0,0,,,E1,2526
+E1,22/11/2025,15:00,Derby,Watford,2,3,A,1,0,H,G Ward,9,14,2,4,9,3,2,1,0,0,,,E1,2526
+E1,22/11/2025,15:00,Ipswich,Wrexham,0,0,D,0,0,D,D Whitestone,19,2,8,0,5,2,2,3,0,0,,,E1,2526
+E1,22/11/2025,15:00,Leicester,Stoke,2,1,H,2,0,H,M Donohue,6,11,2,5,0,10,6,2,0,0,,,E1,2526
+E1,22/11/2025,15:00,Oxford,Middlesbrough,1,1,D,1,0,H,B Toner,9,19,2,3,1,8,3,2,0,0,,,E1,2526
+E1,22/11/2025,15:00,Portsmouth,Millwall,3,1,H,1,0,H,M Salisbury,15,7,7,2,3,4,2,1,0,1,,,E1,2526
+E1,22/11/2025,15:00,QPR,Hull,3,2,H,1,1,D,J Linington,26,8,8,4,9,5,0,1,0,0,,,E1,2526
+E1,23/11/2025,12:00,Sheffield Weds,Sheffield United,0,3,A,0,1,A,D Webb,5,11,0,7,4,7,3,0,0,0,,,E1,2526
+E1,25/11/2025,19:45,Hull,Ipswich,0,2,A,0,0,D,L Smith,11,16,2,6,3,6,2,2,0,0,,,E1,2526
+E1,25/11/2025,19:45,Middlesbrough,Coventry,2,4,A,1,2,A,M Donohue,11,20,2,8,8,3,0,0,0,0,,,E1,2526
+E1,25/11/2025,19:45,Norwich,Oxford,1,1,D,1,0,H,T Reeves,15,12,6,4,8,4,1,0,0,0,,,E1,2526
+E1,25/11/2025,19:45,Stoke,Charlton,3,0,H,3,0,H,T Nield,15,4,4,2,5,0,1,1,0,0,,,E1,2526
+E1,25/11/2025,19:45,Swansea,Derby,1,2,A,0,1,A,A Kitchen,9,13,4,5,4,2,0,2,0,0,,,E1,2526
+E1,25/11/2025,19:45,Watford,Preston,1,1,D,1,1,D,J Bell,24,9,5,3,6,2,2,4,0,0,,,E1,2526
+E1,25/11/2025,20:00,Southampton,Leicester,3,0,H,3,0,H,G Ward,18,7,8,2,11,3,1,0,0,1,,,E1,2526
+E1,26/11/2025,19:45,Blackburn,QPR,0,1,A,0,0,D,A Herczeg,9,10,1,3,6,4,3,0,0,0,,,E1,2526
+E1,26/11/2025,19:45,Millwall,Sheffield Weds,1,0,H,0,0,D,J Miles,24,11,8,3,9,5,0,3,0,0,,,E1,2526
+E1,26/11/2025,19:45,Sheffield United,Portsmouth,3,0,H,1,0,H,L Doughty,15,4,5,2,7,2,0,1,0,1,,,E1,2526
+E1,26/11/2025,19:45,Wrexham,Bristol City,2,0,H,1,0,H,R Ricardo,12,13,4,3,2,4,1,2,0,0,,,E1,2526
+E1,26/11/2025,20:00,West Brom,Birmingham,1,1,D,1,0,H,T Kirk,13,14,4,4,3,3,1,2,0,0,,,E1,2526
+E1,28/11/2025,20:00,Oxford,Ipswich,2,1,H,1,0,H,M Donohue,13,17,8,7,3,6,0,0,0,0,,,E1,2526
+E1,29/11/2025,12:30,Leicester,Sheffield United,2,3,A,0,3,A,A Backhouse,15,13,3,3,4,9,2,1,0,0,,,E1,2526
+E1,29/11/2025,12:30,Portsmouth,Bristol City,0,1,A,0,1,A,S Allison,13,15,2,5,4,4,3,0,0,0,,,E1,2526
+E1,29/11/2025,12:30,Stoke,Hull,1,2,A,1,0,H,L Doughty,12,11,7,6,7,8,2,4,0,0,,,E1,2526
+E1,29/11/2025,15:00,Coventry,Charlton,3,1,H,2,1,H,D Webb,26,9,8,4,6,3,1,1,0,0,,,E1,2526
+E1,29/11/2025,15:00,Middlesbrough,Derby,2,1,H,0,1,A,J Linington,21,6,4,1,9,8,0,2,0,0,,,E1,2526
+E1,29/11/2025,15:00,Millwall,Southampton,3,2,H,0,0,D,B Toner,21,11,7,8,9,6,1,2,0,0,,,E1,2526
+E1,29/11/2025,15:00,Norwich,QPR,3,1,H,3,1,H,L Smith,17,12,6,5,9,6,2,2,0,0,,,E1,2526
+E1,29/11/2025,15:00,Sheffield Weds,Preston,2,3,A,2,1,H,O Langford,12,7,5,5,3,3,1,1,0,0,,,E1,2526
+E1,29/11/2025,15:00,West Brom,Swansea,3,2,H,0,2,A,T Nield,26,3,10,2,7,1,1,2,0,0,,,E1,2526
+E1,29/11/2025,15:00,Wrexham,Blackburn,1,1,D,0,1,A,T Reeves,16,12,2,3,7,7,1,3,0,0,,,E1,2526
+E1,01/12/2025,20:00,Birmingham,Watford,2,1,H,2,0,H,A Herczeg,13,12,5,4,6,6,3,2,0,0,,,E1,2526
+E1,02/12/2025,19:45,Blackburn,Ipswich,1,1,D,0,0,D,O Langford,14,11,3,2,9,3,1,3,0,0,,,E1,2526
+E1,05/12/2025,20:00,Hull,Middlesbrough,1,4,A,0,4,A,D Whitestone,5,10,2,5,2,5,1,0,0,0,,,E1,2526
+E1,06/12/2025,12:30,Derby,Leicester,1,3,A,0,3,A,J Smith,18,5,5,4,6,3,3,2,0,0,,,E1,2526
+E1,06/12/2025,12:30,Watford,Norwich,3,2,H,1,2,A,T Nield,13,15,6,4,6,5,1,2,0,0,,,E1,2526
+E1,06/12/2025,15:00,Bristol City,Millwall,0,1,A,0,0,D,E Duckworth,13,12,3,6,8,1,1,5,0,0,,,E1,2526
+E1,06/12/2025,15:00,Ipswich,Coventry,3,0,H,1,0,H,P Tierney,10,11,6,5,2,5,5,2,0,0,,,E1,2526
+E1,06/12/2025,15:00,Preston,Wrexham,1,1,D,0,1,A,L Smith,24,9,7,3,16,2,1,1,0,0,,,E1,2526
+E1,06/12/2025,15:00,QPR,West Brom,3,1,H,1,0,H,G Ward,9,13,4,5,4,3,1,1,0,0,,,E1,2526
+E1,06/12/2025,15:00,Sheffield United,Stoke,4,0,H,3,0,H,S Martin,19,7,8,1,9,7,1,2,0,0,,,E1,2526
+E1,06/12/2025,15:00,Southampton,Birmingham,3,1,H,2,0,H,D Webb,18,22,8,4,7,8,1,1,0,0,,,E1,2526
+E1,06/12/2025,15:00,Swansea,Oxford,2,0,H,2,0,H,A Backhouse,15,12,4,4,10,2,2,4,0,0,,,E1,2526
+E1,09/12/2025,19:45,Blackburn,Oxford,1,1,D,0,1,A,L Doughty,16,6,5,1,9,3,1,2,0,0,,,E1,2526
+E1,09/12/2025,19:45,Charlton,Middlesbrough,1,2,A,0,2,A,O Langford,6,13,3,7,5,5,4,1,0,0,,,E1,2526
+E1,09/12/2025,19:45,Preston,Coventry,1,1,D,0,0,D,B Toner,6,21,2,5,4,8,1,0,1,0,,,E1,2526
+E1,09/12/2025,19:45,Sheffield United,Norwich,1,1,D,0,0,D,J Smith,17,13,4,6,6,2,2,3,0,0,,,E1,2526
+E1,09/12/2025,19:45,Southampton,West Brom,3,2,H,3,0,H,S Allison,8,18,4,7,2,9,2,2,0,0,,,E1,2526
+E1,09/12/2025,19:45,Swansea,Portsmouth,1,0,H,0,0,D,T Reeves,15,10,6,3,5,6,2,3,0,0,,,E1,2526
+E1,09/12/2025,19:45,Watford,Sheffield Weds,1,1,D,0,1,A,D Whitestone,23,4,9,1,7,4,1,1,0,0,,,E1,2526
+E1,09/12/2025,20:00,QPR,Birmingham,2,1,H,1,0,H,J Bell,16,3,3,1,6,3,2,1,0,0,,,E1,2526
+E1,10/12/2025,19:45,Bristol City,Leicester,2,2,D,0,2,A,J Linington,21,12,11,5,10,3,2,3,0,0,,,E1,2526
+E1,10/12/2025,19:45,Derby,Millwall,1,1,D,0,0,D,T Kirk,13,12,4,2,11,7,2,3,0,0,,,E1,2526
+E1,10/12/2025,19:45,Ipswich,Stoke,1,0,H,1,0,H,A Herczeg,16,6,6,1,3,4,1,1,0,0,,,E1,2526
+E1,10/12/2025,20:00,Hull,Wrexham,2,0,H,1,0,H,A Kitchen,19,8,6,1,8,2,0,1,0,0,,,E1,2526
+E1,12/12/2025,20:00,West Brom,Sheffield United,2,0,H,0,0,D,M Donohue,16,11,5,3,8,4,0,1,0,0,,,E1,2526
+E1,13/12/2025,12:30,Norwich,Southampton,2,1,H,0,0,D,J Bell,16,12,5,4,6,5,2,2,0,0,,,E1,2526
+E1,13/12/2025,12:30,Oxford,Preston,1,2,A,0,1,A,J Linington,24,8,8,2,9,9,1,2,0,0,,,E1,2526
+E1,13/12/2025,12:30,Stoke,Swansea,2,1,H,1,0,H,R Ricardo,8,14,5,6,6,7,3,4,0,0,,,E1,2526
+E1,13/12/2025,15:00,Birmingham,Charlton,1,1,D,1,0,H,A Kitchen,24,7,5,1,10,3,3,4,0,0,,,E1,2526
+E1,13/12/2025,15:00,Coventry,Bristol City,1,0,H,0,0,D,S Martin,21,15,4,8,4,5,1,3,0,0,,,E1,2526
+E1,13/12/2025,15:00,Leicester,Ipswich,3,1,H,2,0,H,T Kirk,11,13,4,2,6,5,1,2,0,0,,,E1,2526
+E1,13/12/2025,15:00,Middlesbrough,QPR,3,1,H,2,0,H,J Smith,18,13,7,5,9,4,1,0,0,0,,,E1,2526
+E1,13/12/2025,15:00,Millwall,Hull,1,3,A,0,2,A,G Ward,11,10,6,6,5,1,0,3,1,0,,,E1,2526
+E1,13/12/2025,15:00,Portsmouth,Blackburn,2,1,H,0,1,A,T Robinson,18,11,7,2,7,6,2,3,0,0,,,E1,2526
+E1,13/12/2025,15:00,Wrexham,Watford,2,2,D,1,2,A,J Miles,16,12,3,3,7,1,3,6,0,0,,,E1,2526
+E1,15/12/2025,20:00,Sheffield Weds,Derby,0,3,A,0,1,A,L Smith,3,15,1,7,1,5,4,1,0,0,,,E1,2526
+E1,19/12/2025,20:00,Swansea,Wrexham,2,1,H,0,1,A,O Langford,22,5,5,1,5,7,2,2,0,0,,,E1,2526
+E1,20/12/2025,12:30,Blackburn,Millwall,2,0,H,2,0,H,S Allison,11,10,5,3,3,6,3,3,0,0,,,E1,2526
+E1,20/12/2025,12:30,Preston,Norwich,1,1,D,0,0,D,S Martin,11,8,4,1,4,3,2,3,0,0,,,E1,2526
+E1,20/12/2025,12:30,Southampton,Coventry,1,1,D,0,1,A,A Herczeg,23,8,7,4,7,2,1,1,0,1,,,E1,2526
+E1,20/12/2025,15:00,Bristol City,Middlesbrough,2,0,H,1,0,H,A Backhouse,13,28,8,3,3,13,2,3,0,0,,,E1,2526
+E1,20/12/2025,15:00,Charlton,Oxford,1,0,H,0,0,D,E Bell,13,12,4,1,5,6,2,1,0,0,,,E1,2526
+E1,20/12/2025,15:00,Derby,Portsmouth,1,1,D,1,1,D,F Hallam,12,4,6,1,6,4,1,1,0,0,,,E1,2526
+E1,20/12/2025,15:00,Hull,West Brom,1,0,H,1,0,H,R Ricardo,10,13,1,1,8,3,4,4,0,1,,,E1,2526
+E1,20/12/2025,15:00,Ipswich,Sheffield Weds,3,1,H,1,0,H,D Webb,20,11,8,3,5,3,1,1,0,0,,,E1,2526
+E1,20/12/2025,15:00,QPR,Leicester,4,1,H,4,0,H,T Nield,12,9,6,2,2,3,1,2,0,0,,,E1,2526
+E1,20/12/2025,15:00,Sheffield United,Birmingham,3,0,H,2,0,H,S Hooper,20,7,9,1,8,4,1,3,0,1,,,E1,2526
+E1,20/12/2025,15:00,Watford,Stoke,1,0,H,0,0,D,B Toner,10,7,5,1,7,5,3,3,0,0,,,E1,2526
+E1,26/12/2025,12:30,Birmingham,Derby,1,1,D,0,1,A,B Toner,25,5,9,1,12,1,3,1,1,1,,,E1,2526
+E1,26/12/2025,13:00,Millwall,Ipswich,0,0,D,0,0,D,T Robinson,11,16,6,4,2,4,1,2,0,0,,,E1,2526
+E1,26/12/2025,15:00,Coventry,Swansea,1,0,H,1,0,H,S Allison,16,11,7,2,7,4,0,2,0,0,,,E1,2526
+E1,26/12/2025,15:00,Leicester,Watford,1,2,A,1,1,D,J Smith,9,13,2,3,5,6,3,2,0,0,,,E1,2526
+E1,26/12/2025,15:00,Middlesbrough,Blackburn,0,0,D,0,0,D,J Bell,10,13,2,2,4,4,2,2,0,0,,,E1,2526
+E1,26/12/2025,15:00,Norwich,Charlton,1,0,H,0,0,D,M Donohue,14,4,5,0,5,6,3,2,0,0,,,E1,2526
+E1,26/12/2025,15:00,Oxford,Southampton,2,1,H,1,1,D,L Doughty,17,19,6,5,5,7,2,1,0,0,,,E1,2526
+E1,26/12/2025,15:00,Portsmouth,QPR,1,1,D,1,0,H,J Linington,8,8,2,3,9,3,1,2,0,0,,,E1,2526
+E1,26/12/2025,15:00,Sheffield Weds,Hull,2,2,D,1,1,D,S Martin,12,14,3,6,4,4,2,4,0,0,,,E1,2526
+E1,26/12/2025,15:00,Stoke,Preston,0,0,D,0,0,D,T Kirk,14,8,3,4,10,2,4,2,0,0,,,E1,2526
+E1,26/12/2025,15:00,West Brom,Bristol City,1,2,A,0,2,A,W Finnie,16,6,4,3,9,4,1,3,0,0,,,E1,2526
+E1,26/12/2025,17:30,Wrexham,Sheffield United,5,3,H,2,3,A,A Kitchen,18,13,8,7,7,5,1,2,0,0,,,E1,2526
+E1,29/12/2025,18:00,Coventry,Ipswich,0,2,A,0,0,D,A Backhouse,10,18,3,7,3,6,1,2,0,0,,,E1,2526
+E1,29/12/2025,19:45,Leicester,Derby,2,1,H,2,1,H,G Ward,8,9,2,2,3,4,1,2,0,0,,,E1,2526
+E1,29/12/2025,19:45,Middlesbrough,Hull,0,1,A,0,1,A,L Doughty,23,4,5,1,10,2,1,4,0,0,,,E1,2526
+E1,29/12/2025,19:45,Millwall,Bristol City,2,1,H,1,0,H,D Webb,8,16,2,3,1,8,4,1,0,0,,,E1,2526
+E1,29/12/2025,19:45,Norwich,Watford,0,1,A,0,0,D,M Corlett,9,8,1,2,8,3,0,1,0,0,,,E1,2526
+E1,29/12/2025,19:45,Oxford,Swansea,0,1,A,0,1,A,A Herczeg,11,10,2,5,1,5,2,4,0,0,,,E1,2526
+E1,29/12/2025,19:45,Portsmouth,Charlton,2,1,H,0,0,D,P Tierney,15,16,5,4,5,11,2,2,0,0,,,E1,2526
+E1,29/12/2025,19:45,Sheffield Weds,Blackburn,0,0,D,0,0,D,O Langford,5,14,0,2,2,7,2,3,0,0,,,E1,2526
+E1,29/12/2025,19:45,Stoke,Sheffield United,1,2,A,0,0,D,J Busby,7,15,3,4,6,2,0,1,1,0,,,E1,2526
+E1,29/12/2025,19:45,West Brom,QPR,2,1,H,1,1,D,L Smith,12,3,4,0,9,4,0,2,0,0,,,E1,2526
+E1,29/12/2025,19:45,Wrexham,Preston,2,1,H,1,0,H,R Ricardo,14,13,6,4,3,3,0,0,0,0,,,E1,2526
+E1,29/12/2025,20:15,Birmingham,Southampton,1,1,D,0,0,D,M Donohue,20,13,4,5,2,5,1,2,0,0,,,E1,2526
+E1,01/01/2026,12:30,Blackburn,Wrexham,0,2,A,0,2,A,T Kirk,12,7,1,3,4,8,4,2,0,0,,,E1,2526
+E1,01/01/2026,15:00,Bristol City,Portsmouth,5,0,H,2,0,H,J Bell,14,5,7,2,1,1,0,1,0,0,,,E1,2526
+E1,01/01/2026,15:00,Charlton,Coventry,1,1,D,0,1,A,J Smith,15,20,3,7,9,3,3,2,0,0,,,E1,2526
+E1,01/01/2026,15:00,Derby,Middlesbrough,1,0,H,0,0,D,R Ricardo,7,19,3,5,4,9,2,2,0,0,,,E1,2526
+E1,01/01/2026,15:00,Hull,Stoke,0,1,A,0,1,A,C Pawson,15,12,1,6,6,6,3,2,0,0,,,E1,2526
+E1,01/01/2026,15:00,Ipswich,Oxford,2,1,H,2,1,H,W Finnie,19,8,6,1,9,2,1,4,0,0,,,E1,2526
+E1,01/01/2026,15:00,Preston,Sheffield Weds,3,0,H,1,0,H,G Ward,12,6,7,1,4,7,2,0,0,0,,,E1,2526
+E1,01/01/2026,15:00,QPR,Norwich,1,2,A,0,0,D,D Whitestone,10,11,2,5,7,3,0,3,0,0,,,E1,2526
+E1,01/01/2026,15:00,Southampton,Millwall,0,0,D,0,0,D,T Nield,12,12,2,3,6,6,1,3,0,0,,,E1,2526
+E1,01/01/2026,15:00,Swansea,West Brom,1,0,H,0,0,D,J Linington,13,12,3,7,4,5,2,5,0,0,,,E1,2526
+E1,01/01/2026,15:00,Watford,Birmingham,3,0,H,2,0,H,L Smith,13,6,6,2,4,4,1,2,0,0,,,E1,2526
+E1,01/01/2026,17:30,Sheffield United,Leicester,3,1,H,1,0,H,F Hallam,13,6,5,1,7,3,1,2,0,0,,,E1,2526
+E1,04/01/2026,12:00,Birmingham,Coventry,3,2,H,2,1,H,J Linington,9,17,4,6,2,6,3,1,0,1,,,E1,2526
+E1,04/01/2026,12:00,QPR,Sheffield Weds,3,0,H,1,0,H,S Allison,13,4,7,2,5,2,0,0,0,0,,,E1,2526
+E1,04/01/2026,15:00,Blackburn,Charlton,2,2,D,1,2,A,D Webb,17,11,5,4,2,5,1,4,0,0,,,E1,2526
+E1,04/01/2026,15:00,Bristol City,Preston,0,2,A,0,1,A,P Tierney,11,12,2,3,6,3,0,2,0,0,,,E1,2526
+E1,04/01/2026,15:00,Derby,Wrexham,1,2,A,1,1,D,M Corlett,13,11,5,3,12,2,1,2,0,0,,,E1,2526
+E1,04/01/2026,15:00,Middlesbrough,Southampton,4,0,H,0,0,D,O Langford,22,16,5,5,11,5,0,4,0,0,,,E1,2526
+E1,04/01/2026,15:00,Millwall,Swansea,2,1,H,1,0,H,J Busby,17,13,9,7,12,3,2,0,0,0,,,E1,2526
+E1,04/01/2026,15:00,Norwich,Stoke,0,2,A,0,0,D,F Hallam,7,14,1,4,3,3,1,2,0,0,,,E1,2526
+E1,05/01/2026,20:00,Leicester,West Brom,2,1,H,1,1,D,S Martin,11,16,3,8,4,4,1,0,0,0,,,E1,2526
+E1,16/01/2026,20:00,West Brom,Middlesbrough,2,3,A,0,1,A,J Smith,12,9,6,5,4,1,2,0,0,0,,,E1,2526
+E1,17/01/2026,12:30,Coventry,Leicester,2,1,H,0,1,A,L Smith,19,14,6,6,5,3,1,4,0,0,,,E1,2526
+E1,17/01/2026,12:30,Ipswich,Blackburn,3,0,H,2,0,H,A Kitchen,17,10,7,0,7,6,0,4,0,0,,,E1,2526
+E1,17/01/2026,12:30,Watford,Millwall,0,2,A,0,0,D,R Ricardo,9,13,3,4,4,4,4,4,0,0,,,E1,2526
+E1,17/01/2026,15:00,Charlton,Sheffield United,1,0,H,0,0,D,O Langford,12,11,4,2,9,7,4,1,0,2,,,E1,2526
+E1,17/01/2026,15:00,Oxford,Bristol City,0,0,D,0,0,D,T Robinson,9,6,3,1,6,5,2,3,0,0,,,E1,2526
+E1,17/01/2026,15:00,Preston,Derby,0,1,A,0,0,D,F Hallam,13,18,2,4,5,10,2,5,0,0,,,E1,2526
+E1,17/01/2026,15:00,Sheffield Weds,Portsmouth,0,1,A,0,0,D,J Busby,7,12,1,3,7,6,0,2,0,0,,,E1,2526
+E1,17/01/2026,15:00,Southampton,Hull,1,2,A,0,2,A,S Allison,22,9,7,3,8,2,0,2,0,0,,,E1,2526
+E1,17/01/2026,15:00,Stoke,QPR,0,0,D,0,0,D,M Donohue,12,7,3,2,6,2,3,4,0,0,,,E1,2526
+E1,17/01/2026,15:00,Wrexham,Norwich,1,2,A,1,1,D,W Finnie,17,7,3,3,7,1,0,1,0,0,,,E1,2526
+E1,17/01/2026,17:30,Swansea,Birmingham,1,1,D,1,0,H,T Nield,19,12,4,1,5,5,0,0,0,0,,,E1,2526
+E1,20/01/2026,19:45,Charlton,Derby,1,2,A,0,1,A,J Linington,11,15,4,5,4,0,0,2,0,1,,,E1,2526
+E1,20/01/2026,19:45,Coventry,Millwall,2,1,H,1,1,D,A Kitchen,15,14,4,4,4,3,2,1,0,0,,,E1,2526
+E1,20/01/2026,19:45,Ipswich,Bristol City,2,0,H,1,0,H,D Whitestone,11,8,3,3,9,2,1,6,0,0,,,E1,2526
+E1,20/01/2026,19:45,Oxford,QPR,0,0,D,0,0,D,W Finnie,9,14,1,2,2,6,1,2,0,0,,,E1,2526
+E1,20/01/2026,19:45,Preston,Hull,0,3,A,0,2,A,S Martin,17,17,5,9,6,6,2,3,1,0,,,E1,2526
+E1,20/01/2026,19:45,Sheffield Weds,Birmingham,0,2,A,0,0,D,L Doughty,7,22,1,7,3,11,2,1,0,0,,,E1,2526
+E1,20/01/2026,19:45,Swansea,Blackburn,3,1,H,1,1,D,A Backhouse,14,5,4,2,4,3,2,3,0,0,,,E1,2526
+E1,20/01/2026,19:45,West Brom,Norwich,0,5,A,0,1,A,J Bell,13,9,2,7,10,2,3,1,0,0,,,E1,2526
+E1,20/01/2026,20:00,Wrexham,Leicester,1,1,D,0,0,D,M Donohue,16,5,3,4,3,1,1,2,0,0,,,E1,2526
+E1,21/01/2026,19:45,Southampton,Sheffield United,1,0,H,1,0,H,T Kirk,15,16,3,4,6,7,3,1,0,0,,,E1,2526
+E1,21/01/2026,19:45,Watford,Portsmouth,1,1,D,0,0,D,B Toner,15,10,4,2,8,7,1,1,0,0,,,E1,2526
+E1,21/01/2026,20:00,Stoke,Middlesbrough,1,2,A,1,0,H,A Herczeg,10,16,4,7,5,4,1,1,1,0,,,E1,2526
+E1,23/01/2026,20:00,Derby,West Brom,1,1,D,1,0,H,A Backhouse,5,12,1,4,1,6,2,3,0,0,,,E1,2526
+E1,24/01/2026,12:30,Middlesbrough,Preston,4,0,H,3,0,H,A Madley,16,4,8,1,8,3,0,2,0,1,,,E1,2526
+E1,24/01/2026,12:30,Millwall,Charlton,4,0,H,1,0,H,G Ward,23,3,6,1,6,3,1,1,0,0,,,E1,2526
+E1,24/01/2026,15:00,Birmingham,Stoke,1,1,D,1,0,H,J Bell,18,7,5,1,6,6,1,1,0,0,,,E1,2526
+E1,24/01/2026,15:00,Blackburn,Watford,1,1,D,1,1,D,A Herczeg,7,14,3,4,7,8,0,2,0,0,,,E1,2526
+E1,24/01/2026,15:00,Bristol City,Sheffield Weds,2,0,H,0,0,D,B Speedie,16,3,7,0,9,7,0,0,0,0,,,E1,2526
+E1,24/01/2026,15:00,Hull,Swansea,2,1,H,2,0,H,J Smith,10,16,7,4,6,7,3,2,0,0,,,E1,2526
+E1,24/01/2026,15:00,Leicester,Oxford,1,2,A,0,1,A,J Linington,13,8,4,2,12,4,0,3,0,0,,,E1,2526
+E1,24/01/2026,15:00,QPR,Wrexham,2,3,A,1,0,H,O Langford,13,11,3,7,7,3,1,2,1,0,,,E1,2526
+E1,24/01/2026,15:00,Sheffield United,Ipswich,3,1,H,2,0,H,T Nield,15,11,8,5,4,5,0,4,1,0,,,E1,2526
+E1,25/01/2026,12:00,Portsmouth,Southampton,1,1,D,0,0,D,L Smith,14,6,3,4,4,2,2,1,0,0,,,E1,2526
+E1,26/01/2026,20:00,Norwich,Coventry,2,1,H,0,1,A,T Kirk,16,16,5,5,4,7,1,1,0,0,,,E1,2526
+E1,30/01/2026,20:00,Bristol City,Derby,0,5,A,0,3,A,T Nield,7,17,1,7,4,1,1,1,0,0,,,E1,2526
+E1,31/01/2026,12:30,Leicester,Charlton,0,2,A,0,2,A,A Kitchen,21,9,1,5,6,2,0,2,1,0,,,E1,2526
+E1,31/01/2026,12:30,Sheffield Weds,Wrexham,0,1,A,0,0,D,D Webb,5,12,2,4,3,8,0,0,0,0,,,E1,2526
+E1,31/01/2026,12:30,Stoke,Southampton,0,2,A,0,1,A,F Hallam,10,11,3,4,4,5,2,3,0,0,,,E1,2526
+E1,31/01/2026,15:00,Blackburn,Hull,0,1,A,0,0,D,T Bramall,9,12,3,4,8,4,2,0,0,0,,,E1,2526
+E1,31/01/2026,15:00,Ipswich,Preston,1,1,D,0,0,D,J Busby,16,11,5,4,9,3,1,2,0,0,,,E1,2526
+E1,31/01/2026,15:00,Middlesbrough,Norwich,1,0,H,1,0,H,B Toner,9,8,5,3,3,5,2,2,0,0,,,E1,2526
+E1,31/01/2026,15:00,Millwall,Sheffield United,1,1,D,1,1,D,L Smith,14,12,6,6,6,8,2,1,0,0,,,E1,2526
+E1,31/01/2026,15:00,Oxford,Birmingham,0,2,A,0,1,A,S Martin,10,11,4,2,4,4,2,2,0,0,,,E1,2526
+E1,31/01/2026,15:00,Portsmouth,West Brom,3,0,H,2,0,H,M Donohue,20,4,6,1,3,3,0,2,0,0,,,E1,2526
+E1,31/01/2026,15:00,QPR,Coventry,2,1,H,0,0,D,J Smith,15,9,8,2,5,5,1,2,0,0,,,E1,2526
+E1,31/01/2026,15:00,Watford,Swansea,0,2,A,0,0,D,M Corlett,17,14,5,7,5,8,1,2,1,0,,,E1,2526
+E1,03/02/2026,19:45,Blackburn,Sheffield Weds,1,0,H,1,0,H,D Whitestone,9,2,6,1,8,2,4,2,0,0,,,E1,2526
+E1,03/02/2026,19:45,Hull,Watford,0,0,D,0,0,D,L Doughty,6,16,3,2,7,5,4,3,0,0,,,E1,2526
+E1,03/02/2026,19:45,Sheffield United,Oxford,3,1,H,1,1,D,A Backhouse,11,6,3,2,10,2,3,4,0,0,,,E1,2526
+E1,06/02/2026,20:01,Charlton,QPR,0,0,D,0,0,D,T Nield,16,18,5,4,7,5,2,1,0,0,,,E1,2526
+E1,07/02/2026,12:31,Derby,Ipswich,1,2,A,0,1,A,J Smith,9,13,1,5,3,7,1,4,1,0,,,E1,2526
+E1,07/02/2026,12:31,Norwich,Blackburn,2,0,H,0,0,D,J Linington,12,6,3,0,5,4,2,2,0,0,,,E1,2526
+E1,07/02/2026,12:31,Southampton,Watford,1,0,H,0,0,D,E Bell,6,11,4,2,3,9,3,1,0,0,,,E1,2526
+E1,07/02/2026,15:01,Birmingham,Leicester,2,1,H,1,1,D,J Busby,22,7,6,2,10,1,0,2,0,1,,,E1,2526
+E1,07/02/2026,15:01,Coventry,Oxford,0,0,D,0,0,D,R Ricardo,24,4,5,0,10,0,1,6,0,1,,,E1,2526
+E1,07/02/2026,15:01,Hull,Bristol City,2,3,A,1,2,A,O Langford,10,11,5,6,2,4,2,0,0,0,,,E1,2526
+E1,07/02/2026,15:01,Preston,Portsmouth,1,0,H,1,0,H,A Herczeg,7,12,3,4,2,14,3,1,0,0,,,E1,2526
+E1,07/02/2026,15:01,West Brom,Stoke,0,0,D,0,0,D,D Webb,10,8,2,3,2,2,1,1,0,0,,,E1,2526
+E1,07/02/2026,15:01,Wrexham,Millwall,0,2,A,0,0,D,T Robinson,16,7,5,1,5,4,1,3,0,0,,,E1,2526
+E1,08/02/2026,12:01,Swansea,Sheffield Weds,4,0,H,1,0,H,T Kirk,22,3,6,0,8,2,2,2,0,0,,,E1,2526
+E1,09/02/2026,20:01,Sheffield United,Middlesbrough,1,2,A,0,2,A,G Ward,13,19,5,9,8,8,3,2,1,0,,,E1,2526
+E1,10/02/2026,19:45,Leicester,Southampton,3,4,A,3,0,H,B Toner,8,16,3,7,3,9,0,1,0,0,,,E1,2526
+E1,10/02/2026,19:45,Oxford,Norwich,0,3,A,0,2,A,S Allison,7,8,1,4,2,4,1,1,0,0,,,E1,2526
+E1,10/02/2026,20:00,Birmingham,West Brom,0,0,D,0,0,D,A Herczeg,16,9,5,1,11,3,1,5,0,0,,,E1,2526
+E1,11/02/2026,19:45,Charlton,Stoke,1,0,H,0,0,D,A Backhouse,17,6,4,2,6,5,2,4,0,0,,,E1,2526
+E1,14/02/2026,15:00,Derby,Swansea,2,0,H,0,0,D,A Kitchen,11,15,6,2,6,2,2,2,0,0,,,E1,2526
+E1,14/02/2026,15:00,Portsmouth,Sheffield United,0,1,A,0,0,D,J Linington,23,11,7,2,11,4,1,4,0,0,,,E1,2526
+E1,14/02/2026,15:00,Preston,Watford,2,2,D,1,0,H,D Whitestone,8,20,3,5,9,7,1,1,0,0,,,E1,2526
+E1,14/02/2026,15:00,QPR,Blackburn,1,3,A,1,2,A,S Martin,21,7,4,4,8,1,2,3,0,0,,,E1,2526
+E1,14/02/2026,15:00,Sheffield Weds,Millwall,1,2,A,0,0,D,E Duckworth,11,20,3,6,3,11,3,2,0,0,,,E1,2526
+E1,16/02/2026,20:00,Coventry,Middlesbrough,3,1,H,1,0,H,T Bramall,9,18,4,4,3,2,3,2,0,0,,,E1,2526
+E1,17/02/2026,19:45,Bristol City,Wrexham,2,2,D,0,1,A,R Ricardo,8,9,5,3,3,2,2,3,0,0,,,E1,2526
+E1,17/02/2026,19:45,Charlton,Portsmouth,1,3,A,0,2,A,L Doughty,12,12,4,6,3,2,7,2,0,0,,,E1,2526
+E1,20/02/2026,20:00,Blackburn,Preston,1,0,H,0,0,D,A Backhouse,13,3,3,2,5,3,2,2,0,0,,,E1,2526
+E1,21/02/2026,12:30,Hull,QPR,1,3,A,1,1,D,A Madley,14,12,4,8,8,4,3,1,0,0,,,E1,2526
+E1,21/02/2026,12:30,Stoke,Leicester,2,2,D,1,0,H,G Ward,11,15,3,5,7,4,2,1,0,0,,,E1,2526
+E1,21/02/2026,12:30,Swansea,Bristol City,1,0,H,1,0,H,W Finnie,8,12,3,2,3,5,2,4,0,0,,,E1,2526
+E1,21/02/2026,12:30,West Brom,Coventry,0,2,A,0,2,A,J Linington,11,10,1,3,3,2,0,3,0,0,,,E1,2526
+E1,21/02/2026,15:00,Middlesbrough,Oxford,0,0,D,0,0,D,O Langford,24,13,7,2,9,5,3,1,0,0,,,E1,2526
+E1,21/02/2026,15:00,Millwall,Portsmouth,1,3,A,0,0,D,S Martin,6,15,3,8,6,4,1,2,0,0,,,E1,2526
+E1,21/02/2026,15:00,Norwich,Birmingham,1,2,A,0,2,A,F Hallam,18,9,9,5,6,5,0,1,0,0,,,E1,2526
+E1,21/02/2026,15:00,Southampton,Charlton,1,1,D,0,0,D,J Busby,23,6,8,3,10,1,2,1,0,0,,,E1,2526
+E1,21/02/2026,15:00,Watford,Derby,2,0,H,1,0,H,D Webb,18,5,8,1,2,2,2,2,0,0,,,E1,2526
+E1,21/02/2026,15:00,Wrexham,Ipswich,5,3,H,2,2,D,L Doughty,17,13,10,6,5,2,5,4,0,0,,,E1,2526
+E1,22/02/2026,12:00,Sheffield United,Sheffield Weds,2,1,H,2,0,H,J Smith,10,6,4,2,2,6,1,5,1,1,,,E1,2526
+E1,24/02/2026,19:45,Blackburn,Bristol City,1,2,A,1,2,A,M Donohue,19,10,7,5,6,4,2,2,0,0,,,E1,2526
+E1,24/02/2026,19:45,Hull,Derby,4,2,H,2,2,D,A Herczeg,9,18,3,6,7,3,2,2,0,0,,,E1,2526
+E1,24/02/2026,19:45,Middlesbrough,Leicester,1,1,D,1,1,D,A Kitchen,17,11,4,6,8,5,1,1,0,0,,,E1,2526
+E1,24/02/2026,19:45,Swansea,Preston,1,1,D,0,1,A,D Webb,12,14,2,3,4,8,2,2,0,0,,,E1,2526
+E1,24/02/2026,19:45,Watford,Ipswich,0,2,A,0,1,A,B Toner,11,11,2,3,3,4,2,3,0,0,,,E1,2526
+E1,24/02/2026,19:45,West Brom,Charlton,1,1,D,1,0,H,S Allison,18,3,2,2,7,0,2,3,0,0,,,E1,2526
+E1,24/02/2026,19:45,Wrexham,Portsmouth,2,1,H,2,0,H,T Reeves,10,9,5,1,3,15,0,1,0,0,,,E1,2526
+E1,24/02/2026,20:00,Southampton,QPR,5,0,H,2,0,H,O Langford,14,5,9,1,5,3,1,0,0,0,,,E1,2526
+E1,25/02/2026,19:45,Millwall,Birmingham,3,0,H,2,0,H,D Whitestone,11,5,5,2,7,5,1,0,0,1,,,E1,2526
+E1,25/02/2026,19:45,Norwich,Sheffield Weds,2,0,H,2,0,H,R Ricardo,19,4,6,1,3,4,0,0,0,0,,,E1,2526
+E1,25/02/2026,19:45,Sheffield United,Coventry,1,2,A,0,0,D,J Busby,22,11,4,5,7,3,3,2,0,0,,,E1,2526
+E1,25/02/2026,20:00,Stoke,Oxford,2,1,H,1,1,D,J Linington,21,9,9,2,8,7,2,1,0,0,,,E1,2526
+E1,27/02/2026,20:00,Bristol City,Watford,1,2,A,1,1,D,L Smith,11,11,4,4,3,3,2,3,0,0,,,E1,2526
+E1,28/02/2026,12:30,Derby,Blackburn,3,1,H,0,1,A,L Doughty,14,11,6,3,2,3,3,4,0,0,,,E1,2526
+E1,28/02/2026,12:30,Leicester,Norwich,0,2,A,0,0,D,A Herczeg,10,12,3,8,6,7,2,2,0,0,,,E1,2526
+E1,28/02/2026,12:30,Portsmouth,Hull,0,1,A,0,0,D,S Allison,22,2,6,2,11,2,0,3,0,0,,,E1,2526
+E1,28/02/2026,15:00,Charlton,Wrexham,0,1,A,0,1,A,F Hallam,12,8,1,2,4,2,2,1,0,0,,,E1,2526
+E1,28/02/2026,15:00,Coventry,Stoke,2,1,H,1,1,D,A Kitchen,20,3,8,1,7,1,1,1,0,0,,,E1,2526
+E1,28/02/2026,15:00,Ipswich,Swansea,3,0,H,2,0,H,A Backhouse,11,10,6,3,4,0,1,0,0,0,,,E1,2526
+E1,28/02/2026,15:00,Oxford,West Brom,2,1,H,2,1,H,M Corlett,9,16,3,3,5,6,0,2,0,0,,,E1,2526
+E1,28/02/2026,15:00,Preston,Millwall,0,2,A,0,1,A,B Toner,6,16,2,5,2,6,3,2,0,0,,,E1,2526
+E1,28/02/2026,15:00,QPR,Sheffield United,0,2,A,0,2,A,T Nield,12,12,2,3,7,4,2,2,0,0,,,E1,2526
+E1,28/02/2026,15:00,Sheffield Weds,Southampton,1,3,A,0,2,A,G Ward,10,15,3,6,5,8,0,1,0,0,,,E1,2526
+E1,02/03/2026,20:00,Birmingham,Middlesbrough,1,3,A,0,2,A,T Kirk,11,10,7,3,6,2,2,4,0,0,,,E1,2526
+E1,03/03/2026,19:45,Ipswich,Hull,1,0,H,0,0,D,L Smith,15,6,7,0,6,4,2,4,0,0,,,E1,2526
+E1,06/03/2026,20:00,Preston,Oxford,1,3,A,1,1,D,A Kitchen,13,15,4,7,9,5,1,1,0,0,,,E1,2526
+E1,07/03/2026,12:30,Blackburn,Portsmouth,1,1,D,0,0,D,T Nield,10,14,1,1,4,5,2,0,0,0,,,E1,2526
+E1,07/03/2026,12:30,Hull,Millwall,1,3,A,1,1,D,D Webb,23,9,5,4,5,2,2,4,0,0,,,E1,2526
+E1,07/03/2026,15:00,Bristol City,Coventry,0,2,A,0,2,A,M Donohue,24,10,6,7,11,3,2,2,1,1,,,E1,2526
+E1,07/03/2026,15:00,Charlton,Birmingham,1,0,H,0,0,D,J Linington,12,7,4,1,3,3,0,1,0,0,,,E1,2526
+E1,07/03/2026,15:00,Derby,Sheffield Weds,2,1,H,2,1,H,O Langford,13,7,4,3,6,2,1,1,0,0,,,E1,2526
+E1,07/03/2026,15:00,Ipswich,Leicester,1,1,D,0,1,A,J Busby,18,7,3,3,10,2,3,3,0,0,,,E1,2526
+E1,07/03/2026,15:00,Sheffield United,West Brom,1,1,D,0,0,D,D Whitestone,13,12,2,3,5,7,2,1,0,0,,,E1,2526
+E1,07/03/2026,15:00,Swansea,Stoke,2,0,H,0,0,D,R Ricardo,23,8,4,2,13,5,2,4,0,1,,,E1,2526
+E1,08/03/2026,16:30,QPR,Middlesbrough,0,4,A,0,1,A,J Smith,9,16,3,7,3,8,0,0,0,0,,,E1,2526
+E1,10/03/2026,19:45,Leicester,Bristol City,2,0,H,2,0,H,T Nield,17,9,5,1,5,9,2,3,0,0,,,E1,2526
+E1,10/03/2026,19:45,Millwall,Derby,1,0,H,1,0,H,M Donohue,15,14,4,1,6,2,0,3,0,0,,,E1,2526
+E1,10/03/2026,19:45,Portsmouth,Swansea,1,2,A,0,2,A,G Ward,9,8,4,3,6,0,1,2,0,0,,,E1,2526
+E1,10/03/2026,19:45,Sheffield Weds,Watford,1,1,D,0,0,D,E Bell,11,19,4,5,5,5,3,3,0,0,,,E1,2526
+E1,10/03/2026,19:45,Wrexham,Hull,1,2,A,0,1,A,S Martin,10,12,2,5,8,4,3,4,0,0,,,E1,2526
+E1,10/03/2026,20:00,Stoke,Ipswich,3,3,D,2,0,H,T Kirk,15,17,6,5,5,9,0,4,0,0,,,E1,2526
+E1,11/03/2026,19:45,Birmingham,QPR,1,0,H,1,0,H,A Backhouse,21,10,6,1,10,1,4,0,0,0,,,E1,2526
+E1,11/03/2026,19:45,Middlesbrough,Charlton,0,1,A,0,0,D,A Herczeg,34,5,7,2,11,2,0,2,0,0,,,E1,2526
+E1,11/03/2026,19:45,Norwich,Sheffield United,2,1,H,0,1,A,B Toner,19,6,7,2,11,4,2,2,0,0,,,E1,2526
+E1,11/03/2026,19:45,Oxford,Blackburn,1,0,H,1,0,H,D Webb,14,10,7,2,6,4,0,2,0,0,,,E1,2526
+E1,11/03/2026,19:45,West Brom,Southampton,1,1,D,1,0,H,B Speedie,13,12,6,4,5,3,2,2,0,0,,,E1,2526
+E1,11/03/2026,20:00,Coventry,Preston,3,0,H,2,0,H,L Smith,25,5,9,2,8,1,0,0,0,0,,,E1,2526
+E1,13/03/2026,20:00,Wrexham,Swansea,2,0,H,1,0,H,T Nield,11,10,2,3,5,5,0,2,0,0,,,E1,2526
+E1,14/03/2026,12:30,Coventry,Southampton,1,2,A,0,0,D,F Hallam,20,8,6,3,7,5,3,2,0,0,,,E1,2526
+E1,14/03/2026,12:30,Middlesbrough,Bristol City,1,1,D,0,0,D,S Martin,19,4,7,1,9,4,1,5,0,0,,,E1,2526
+E1,14/03/2026,12:30,Oxford,Charlton,1,1,D,0,0,D,M Donohue,8,5,2,1,3,6,3,4,0,0,,,E1,2526
+E1,14/03/2026,15:00,Birmingham,Sheffield United,1,1,D,1,1,D,T Robinson,18,5,7,3,7,0,2,4,0,1,,,E1,2526
+E1,14/03/2026,15:00,Leicester,QPR,1,3,A,1,1,D,D Whitestone,9,14,2,3,3,6,1,3,0,0,,,E1,2526
+E1,14/03/2026,15:00,Millwall,Blackburn,1,2,A,0,0,D,A Kitchen,9,20,3,4,9,7,0,1,1,0,,,E1,2526
+E1,14/03/2026,15:00,Norwich,Preston,2,0,H,2,0,H,G Ward,9,15,4,4,5,3,1,1,0,0,,,E1,2526
+E1,14/03/2026,15:00,Sheffield Weds,Ipswich,0,2,A,0,0,D,T Reeves,5,16,2,6,4,4,3,1,0,0,,,E1,2526
+E1,14/03/2026,15:00,Stoke,Watford,3,1,H,1,0,H,L Doughty,19,15,12,4,6,7,4,2,0,0,,,E1,2526
+E1,14/03/2026,15:00,West Brom,Hull,3,0,H,1,0,H,J Smith,26,6,8,2,10,2,1,4,0,1,,,E1,2526
+E1,16/03/2026,20:00,Portsmouth,Derby,0,1,A,0,1,A,A Backhouse,27,10,9,4,11,3,2,6,0,0,,,E1,2526
+E1,17/03/2026,19:45,Watford,Wrexham,3,1,H,2,0,H,A Herczeg,13,8,6,1,4,5,2,0,0,0,,,E1,2526
+E1,18/03/2026,19:45,Southampton,Norwich,1,0,H,1,0,H,L Smith,9,14,4,7,5,6,4,4,0,0,,,E1,2526
+E1,20/03/2026,20:00,Preston,Stoke,3,1,H,1,1,D,F Hallam,13,13,3,2,7,9,2,1,0,0,,,E1,2526
+E1,21/03/2026,12:30,Blackburn,Middlesbrough,0,0,D,0,0,D,O Langford,5,12,1,3,3,11,0,2,0,0,,,E1,2526
+E1,21/03/2026,12:30,Derby,Birmingham,1,0,H,1,0,H,G Ward,17,3,6,0,6,2,1,4,0,0,,,E1,2526
+E1,21/03/2026,12:30,Ipswich,Millwall,1,1,D,1,0,H,M Salisbury,17,13,4,3,9,8,1,2,0,0,,,E1,2526
+E1,21/03/2026,15:00,Bristol City,West Brom,0,1,A,0,1,A,T Kirk,4,19,1,6,5,4,1,1,0,0,,,E1,2526
+E1,21/03/2026,15:00,Charlton,Norwich,0,1,A,0,1,A,W Finnie,13,17,2,5,7,7,2,2,0,0,,,E1,2526
+E1,21/03/2026,15:00,Hull,Sheffield Weds,3,1,H,2,1,H,D Whitestone,9,7,5,3,4,4,3,1,0,0,,,E1,2526
+E1,21/03/2026,15:00,QPR,Portsmouth,6,1,H,3,1,H,J Busby,9,20,8,7,1,9,4,2,0,0,,,E1,2526
+E1,21/03/2026,15:00,Sheffield United,Wrexham,1,2,A,0,0,D,S Allison,20,10,7,4,8,5,1,3,0,0,,,E1,2526
+E1,21/03/2026,15:00,Southampton,Oxford,2,0,H,2,0,H,B Toner,20,9,7,1,6,4,0,3,0,0,,,E1,2526
+E1,21/03/2026,15:00,Watford,Leicester,0,0,D,0,0,D,J Smith,6,15,2,5,7,4,3,4,0,0,,,E1,2526
+E1,21/03/2026,17:15,Swansea,Coventry,0,3,A,0,3,A,S Martin,11,14,2,7,2,7,3,1,0,0,,,E1,2526
+E1,03/04/2026,12:30,Middlesbrough,Millwall,1,2,A,1,0,H,A Backhouse,32,11,5,5,17,6,1,1,0,0,,,E1,2526
+E1,03/04/2026,15:00,Birmingham,Blackburn,0,1,A,0,0,D,J Busby,12,16,5,4,9,10,0,1,0,0,,,E1,2526
+E1,03/04/2026,15:00,Charlton,Bristol City,1,2,A,1,1,D,B Toner,13,17,4,8,7,3,2,2,0,0,,,E1,2526
+E1,03/04/2026,15:00,Leicester,Preston,2,2,D,1,2,A,B Speedie,28,8,10,3,7,2,0,4,0,0,,,E1,2526
+E1,03/04/2026,15:00,Norwich,Portsmouth,1,1,D,1,0,H,S Martin,6,5,2,1,5,6,3,5,0,0,,,E1,2526
+E1,03/04/2026,15:00,Oxford,Hull,1,1,D,1,1,D,O Langford,16,9,4,2,1,5,0,1,0,0,,,E1,2526
+E1,03/04/2026,15:00,QPR,Watford,2,1,H,1,0,H,R Ricardo,15,7,8,3,2,3,6,4,0,0,,,E1,2526
+E1,03/04/2026,15:00,Sheffield United,Swansea,3,3,D,1,1,D,D Whitestone,13,8,4,6,4,2,1,1,0,0,,,E1,2526
+E1,03/04/2026,15:00,Stoke,Sheffield Weds,2,0,H,1,0,H,M Salisbury,12,16,6,2,7,2,2,1,0,0,,,E1,2526
+E1,03/04/2026,15:00,West Brom,Wrexham,2,2,D,2,0,H,R Madley,9,13,4,3,4,6,2,1,0,0,,,E1,2526
+E1,03/04/2026,20:00,Coventry,Derby,3,2,H,1,1,D,T Nield,13,8,7,3,6,2,0,2,0,0,,,E1,2526
+E1,06/04/2026,12:30,Portsmouth,Oxford,2,2,D,1,0,H,J Smith,9,9,3,3,6,5,2,3,1,0,,,E1,2526
+E1,06/04/2026,13:00,Millwall,Norwich,1,2,A,0,0,D,S Allison,10,12,2,5,2,5,1,2,0,0,,,E1,2526
+E1,06/04/2026,15:00,Blackburn,West Brom,0,0,D,0,0,D,R Jones,11,6,0,3,4,2,3,2,0,0,,,E1,2526
+E1,06/04/2026,15:00,Bristol City,Sheffield United,1,0,H,1,0,H,L Smith,5,21,1,7,0,5,1,3,0,0,,,E1,2526
+E1,06/04/2026,15:00,Derby,Stoke,2,0,H,0,0,D,E Bell,20,7,3,0,5,3,2,1,0,0,,,E1,2526
+E1,06/04/2026,15:00,Ipswich,Birmingham,2,1,H,2,1,H,A Herczeg,11,9,5,4,6,4,1,1,0,0,,,E1,2526
+E1,06/04/2026,15:00,Preston,QPR,1,1,D,0,0,D,T Kirk,8,18,2,5,2,6,1,3,0,0,,,E1,2526
+E1,06/04/2026,15:00,Sheffield Weds,Leicester,1,1,D,1,0,H,L Doughty,6,24,1,12,1,10,0,0,0,0,,,E1,2526
+E1,06/04/2026,15:00,Watford,Charlton,1,1,D,0,0,D,A Kitchen,31,14,10,4,17,3,2,2,0,0,,,E1,2526
+E1,06/04/2026,17:30,Swansea,Middlesbrough,2,2,D,2,1,H,M Donohue,12,29,3,6,2,10,3,3,0,0,,,E1,2526
+E1,06/04/2026,20:00,Hull,Coventry,0,0,D,0,0,D,D Webb,13,6,5,1,2,4,1,1,0,0,,,E1,2526
+E1,07/04/2026,20:00,Wrexham,Southampton,1,5,A,1,2,A,G Ward,11,16,2,9,3,4,2,3,0,0,,,E1,2526
+E1,10/04/2026,20:00,West Brom,Millwall,0,0,D,0,0,D,L Smith,16,11,1,3,7,5,1,2,0,0,,,E1,2526
+E1,11/04/2026,12:30,Coventry,Sheffield Weds,0,0,D,0,0,D,M Donohue,20,8,3,0,7,2,0,3,0,0,,,E1,2526
+E1,11/04/2026,12:30,Norwich,Ipswich,0,2,A,0,2,A,A Backhouse,15,9,3,5,13,1,5,5,0,0,,,E1,2526
+E1,11/04/2026,12:30,QPR,Bristol City,0,0,D,0,0,D,E Duckworth,10,13,2,6,3,6,4,2,0,0,,,E1,2526
+E1,11/04/2026,15:00,Charlton,Preston,1,2,A,1,1,D,J Busby,17,14,6,5,7,4,2,3,0,0,,,E1,2526
+E1,11/04/2026,15:00,Leicester,Swansea,0,1,A,0,0,D,S Allison,19,8,6,1,12,2,2,0,0,0,,,E1,2526
+E1,11/04/2026,15:00,Middlesbrough,Portsmouth,0,1,A,0,0,D,T Kirk,20,3,8,1,14,2,1,4,0,0,,,E1,2526
+E1,11/04/2026,15:00,Oxford,Watford,2,0,H,1,0,H,S Martin,15,12,6,3,10,5,1,2,0,0,,,E1,2526
+E1,11/04/2026,15:00,Sheffield United,Hull,2,1,H,0,1,A,J Brooks,15,18,7,4,15,4,2,5,0,1,,,E1,2526
+E1,11/04/2026,15:00,Southampton,Derby,2,1,H,0,1,A,A Kitchen,15,9,5,4,6,2,1,2,0,0,,,E1,2526
+E1,11/04/2026,15:00,Stoke,Blackburn,1,1,D,0,1,A,R Madley,10,11,3,3,4,3,3,3,1,0,,,E1,2526
+E1,12/04/2026,12:00,Birmingham,Wrexham,2,0,H,0,0,D,D Webb,15,4,8,0,6,3,1,1,0,0,,,E1,2526
+E1,14/04/2026,20:00,Portsmouth,Ipswich,2,0,H,2,0,H,F Hallam,11,11,4,2,3,7,2,2,0,0,,,E1,2526
+E1,14/04/2026,20:00,Southampton,Blackburn,3,0,H,2,0,H,J Smith,16,8,7,3,7,4,0,2,0,0,,,E1,2526
+E1,17/04/2026,20:00,Blackburn,Coventry,1,1,D,0,0,D,L Smith,7,12,2,2,3,3,4,1,0,0,,,E1,2526
+E1,18/04/2026,12:30,Derby,Oxford,1,0,H,1,0,H,S Allison,15,11,2,0,7,3,4,1,0,0,,,E1,2526
+E1,18/04/2026,12:30,Millwall,QPR,2,0,H,2,0,H,T Nield,11,5,4,1,6,10,1,3,0,0,,,E1,2526
+E1,18/04/2026,12:30,Portsmouth,Leicester,1,0,H,0,0,D,G Ward,11,14,2,3,5,7,2,3,0,0,,,E1,2526
+E1,18/04/2026,15:00,Bristol City,Norwich,2,4,A,1,0,H,R Ricardo,9,19,6,9,2,10,0,2,0,0,,,E1,2526
+E1,18/04/2026,15:00,Hull,Birmingham,1,1,D,1,0,H,S Martin,14,11,3,5,2,6,4,4,0,0,,,E1,2526
+E1,18/04/2026,15:00,Preston,West Brom,0,2,A,0,1,A,J Smith,9,8,1,3,8,6,0,0,0,0,,,E1,2526
+E1,18/04/2026,15:00,Sheffield Weds,Charlton,1,1,D,0,0,D,T Parsons,9,12,2,3,7,2,1,2,0,0,,,E1,2526
+E1,18/04/2026,15:00,Swansea,Southampton,1,2,A,1,0,H,O Langford,10,16,3,6,4,12,2,2,0,0,,,E1,2526
+E1,18/04/2026,15:00,Watford,Sheffield United,0,2,A,0,0,D,J Busby,14,11,3,5,8,5,2,4,0,0,,,E1,2526
+E1,18/04/2026,15:00,Wrexham,Stoke,2,0,H,2,0,H,A Herczeg,9,6,4,0,2,6,0,1,0,0,,,E1,2526
+E1,19/04/2026,12:00,Ipswich,Middlesbrough,2,2,D,1,1,D,J Gillett,17,15,5,9,6,3,2,4,0,0,,,E1,2526
+E1,21/04/2026,19:45,Coventry,Portsmouth,5,1,H,1,0,H,A Kitchen,15,4,6,2,3,1,0,1,0,0,,,E1,2526
+E1,21/04/2026,19:45,Leicester,Hull,2,2,D,0,1,A,T Kirk,20,13,4,4,9,8,3,2,0,0,,,E1,2526
+E1,21/04/2026,19:45,Norwich,Derby,2,1,H,1,0,H,T Reeves,14,11,6,8,3,4,2,3,0,0,,,E1,2526
+E1,21/04/2026,19:45,Oxford,Wrexham,0,1,A,0,1,A,M Donohue,19,11,4,4,9,5,2,3,0,0,,,E1,2526
+E1,21/04/2026,19:45,QPR,Swansea,1,2,A,0,1,A,L Doughty,12,17,5,11,4,5,3,1,0,0,,,E1,2526
+E1,21/04/2026,19:45,Southampton,Bristol City,2,2,D,1,1,D,E Bell,10,8,4,5,7,3,3,3,0,0,,,E1,2526
+E1,21/04/2026,19:45,Stoke,Millwall,1,3,A,0,1,A,J Smith,12,14,4,6,11,1,0,3,0,0,,,E1,2526
+E1,21/04/2026,19:45,West Brom,Watford,3,0,H,2,0,H,A Backhouse,14,8,6,3,4,3,4,3,0,0,,,E1,2526
+E1,22/04/2026,19:45,Birmingham,Preston,2,1,H,2,1,H,B Toner,18,16,5,6,3,3,0,2,0,0,,,E1,2526
+E1,22/04/2026,19:45,Charlton,Ipswich,1,2,A,1,1,D,R Madley,6,13,3,5,1,4,2,2,0,0,,,E1,2526
+E1,22/04/2026,19:45,Middlesbrough,Sheffield Weds,1,0,H,1,0,H,D Webb,18,8,4,1,9,1,2,2,0,0,,,E1,2526
+E1,22/04/2026,19:45,Sheffield United,Blackburn,1,3,A,0,3,A,F Hallam,13,8,4,5,2,4,2,4,0,0,,,E1,2526
+E1,24/04/2026,20:00,Leicester,Millwall,1,1,D,0,0,D,F Hallam,10,22,3,4,2,12,1,3,0,0,,,E1,2526
+E1,25/04/2026,12:30,Charlton,Hull,2,1,H,1,1,D,T Nield,12,14,7,4,5,11,2,1,0,0,,,E1,2526
+E1,25/04/2026,12:30,Middlesbrough,Watford,5,1,H,2,0,H,A Herczeg,20,12,9,3,6,3,1,2,0,0,,,E1,2526
+E1,25/04/2026,12:30,West Brom,Ipswich,0,0,D,0,0,D,M Donohue,12,13,6,3,2,6,2,3,0,0,,,E1,2526
+E1,25/04/2026,15:00,Birmingham,Bristol City,2,1,H,2,0,H,R Jones,11,9,6,2,6,5,3,1,0,0,,,E1,2526
+E1,25/04/2026,15:00,Norwich,Swansea,1,1,D,0,0,D,T Parsons,16,8,8,2,5,2,3,5,0,0,,,E1,2526
+E1,25/04/2026,15:00,Oxford,Sheffield Weds,4,1,H,2,0,H,R Madley,20,9,10,3,5,3,1,0,0,0,,,E1,2526
+E1,25/04/2026,15:00,QPR,Derby,2,3,A,1,1,D,J Busby,23,12,12,3,10,6,1,3,0,0,,,E1,2526
+E1,25/04/2026,15:00,Sheffield United,Preston,2,3,A,0,2,A,A Kitchen,17,12,3,6,10,5,0,3,0,0,,,E1,2526
+E1,25/04/2026,15:00,Stoke,Portsmouth,1,3,A,0,1,A,D Webb,13,8,3,4,8,1,0,2,0,0,,,E1,2526
+E1,26/04/2026,12:00,Coventry,Wrexham,3,1,H,1,1,D,S Allison,15,13,6,2,5,4,2,2,0,0,,,E1,2526
+E1,28/04/2026,19:45,Southampton,Ipswich,2,2,D,0,0,D,T Kirk,18,19,4,9,5,9,0,2,0,0,,,E1,2526
+E1,02/05/2026,12:30,Blackburn,Leicester,0,1,A,0,0,D,L Doughty,12,22,3,9,9,11,1,1,0,0,,,E1,2526
+E1,02/05/2026,12:30,Bristol City,Stoke,2,0,H,1,0,H,B Toner,13,16,5,2,2,15,1,3,0,0,,,E1,2526
+E1,02/05/2026,12:30,Derby,Sheffield United,1,2,A,1,0,H,T Nield,17,15,6,8,6,4,4,3,0,0,,,E1,2526
+E1,02/05/2026,12:30,Hull,Norwich,2,1,H,1,1,D,J Smith,8,12,6,2,1,7,2,2,0,0,,,E1,2526
+E1,02/05/2026,12:30,Ipswich,QPR,3,0,H,2,0,H,G Ward,14,13,7,4,4,2,2,1,0,0,,,E1,2526
+E1,02/05/2026,12:30,Millwall,Oxford,2,0,H,1,0,H,A Backhouse,22,4,8,1,14,1,1,0,0,0,,,E1,2526
+E1,02/05/2026,12:30,Portsmouth,Birmingham,1,1,D,1,1,D,J Brooks,14,13,2,5,3,9,2,2,0,0,,,E1,2526
+E1,02/05/2026,12:30,Preston,Southampton,1,3,A,0,1,A,S Martin,16,18,5,5,10,5,3,1,0,0,,,E1,2526
+E1,02/05/2026,12:30,Sheffield Weds,West Brom,2,1,H,2,0,H,L Smith,11,13,5,5,5,2,3,2,0,0,,,E1,2526
+E1,02/05/2026,12:30,Swansea,Charlton,3,1,H,0,0,D,W Finnie,20,12,8,3,10,4,0,0,0,0,,,E1,2526
+E1,02/05/2026,12:30,Watford,Coventry,0,4,A,0,2,A,R Ricardo,13,18,4,7,0,6,2,1,0,0,,,E1,2526
+E1,02/05/2026,12:30,Wrexham,Middlesbrough,2,2,D,2,2,D,O Langford,20,11,8,5,6,3,0,0,0,0,,,E1,2526
+E1,14/08/2026,20:00,Wolves,Blackburn,2,2,D,1,1,D,F Hallam,18,10,3,5,5,5,1,3,0,0,1.97,0.84,E1,2627
+E1,15/08/2026,12:30,Bolton,Preston,2,1,H,2,0,H,A Herczeg,15,10,6,3,5,2,2,3,0,0,1.11,1.12,E1,2627
+E1,15/08/2026,15:00,Bristol City,Millwall,0,2,A,0,1,A,L Smith,8,24,0,3,6,6,2,2,1,0,0.52,3.4,E1,2627
+E1,15/08/2026,15:00,Charlton,Derby,2,1,H,0,1,A,B Speedie,13,15,4,4,5,4,0,3,0,0,0.97,1,E1,2627
+E1,15/08/2026,15:00,Middlesbrough,Lincoln,2,1,H,0,1,A,R Madley,23,10,7,2,5,5,0,2,0,0,2.23,0.57,E1,2627
+E1,15/08/2026,15:00,Norwich,West Brom,1,2,A,0,0,D,T Robinson,20,9,7,4,8,2,0,2,0,0,2.97,1.85,E1,2627
+E1,15/08/2026,15:00,Portsmouth,QPR,1,3,A,1,3,A,W Finnie,17,13,6,6,6,3,0,1,0,0,2.18,2.07,E1,2627
+E1,15/08/2026,15:00,Stoke,Swansea,1,2,A,1,1,D,O Langford,6,7,2,3,4,5,1,3,0,0,0.65,0.62,E1,2627
+E1,15/08/2026,17:30,Sheffield United,Birmingham,0,0,D,0,0,D,G Ward,3,10,1,2,2,8,0,0,0,0,0.29,0.76,E1,2627
+E1,16/08/2026,13:30,Watford,Southampton,2,1,H,2,0,H,M Donohue,16,17,3,3,4,8,6,3,0,0,0.81,1.71,E1,2627
+E1,16/08/2026,16:00,Burnley,West Ham,2,2,D,0,1,A,J Smith,18,11,6,2,5,6,1,4,0,0,2.33,1.33,E1,2627
+E1,17/08/2026,20:00,Cardiff,Wrexham,1,1,D,0,1,A,A Kitchen,11,18,3,8,9,9,0,2,0,0,0.9,1.55,E1,2627
+E1,22/08/2026,12:30,Birmingham,Bristol City,2,2,D,1,1,D,W Finnie,8,14,2,6,7,3,2,1,0,0,1.97,1.42,E1,2627
+E1,22/08/2026,12:30,Lincoln,Portsmouth,1,3,A,1,2,A,T Harrington,15,13,4,7,8,3,3,1,0,0,2.33,1.21,E1,2627
+E1,22/08/2026,12:30,Millwall,Norwich,3,0,H,1,0,H,S Allison,19,8,7,2,8,3,1,3,0,1,2.7,1.02,E1,2627
+E1,22/08/2026,15:00,Blackburn,Middlesbrough,2,1,H,0,1,A,T Reeves,6,22,5,3,2,10,4,1,0,0,0.91,1.43,E1,2627
+E1,22/08/2026,15:00,Derby,Cardiff,2,2,D,1,2,A,R Ricardo,15,16,7,7,7,7,5,1,0,0,1.62,1.98,E1,2627
+E1,22/08/2026,15:00,Preston,Wolves,1,3,A,0,1,A,E Bell,13,16,2,5,5,4,4,1,0,0,0.66,1.54,E1,2627
+E1,22/08/2026,15:00,QPR,Bolton,0,0,D,0,0,D,E Duckworth,18,2,10,0,9,2,1,2,0,0,1.81,0.19,E1,2627
+E1,22/08/2026,15:00,Southampton,Stoke,3,1,H,1,1,D,S Martin,18,15,5,2,4,2,3,5,0,1,2.32,0.93,E1,2627
+E1,22/08/2026,15:00,Swansea,Sheffield United,0,0,D,0,0,D,T Nield,9,12,1,2,6,3,2,2,0,0,0.57,1.46,E1,2627
+E1,22/08/2026,15:00,West Ham,Charlton,1,2,A,0,1,A,A Kitchen,25,7,9,5,7,4,2,3,0,0,2.84,0.62,E1,2627
+E1,22/08/2026,15:00,Wrexham,Watford,1,1,D,1,1,D,J Busby,12,10,2,6,10,3,2,0,0,0,1.92,0.65,E1,2627
+E1,23/08/2026,12:00,West Brom,Burnley,3,1,H,1,1,D,A Backhouse,11,11,7,3,3,5,1,2,0,0,1.63,1.18,E1,2627

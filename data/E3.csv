@@ -1,577 +1,577 @@
-Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HC,AC,HY,AY,HR,AR,League,Season
-E3,02/08/2025,15:00,Accrington,Gillingham,1,1,D,0,0,D,O Yates,10,8,3,0,3,3,2,2,0,0,E3,2526
-E3,02/08/2025,15:00,Barnet,Fleetwood Town,0,2,A,0,1,A,A Bannister,19,12,6,7,8,2,0,0,0,0,E3,2526
-E3,02/08/2025,15:00,Bristol Rvs,Harrogate,0,1,A,0,0,D,C Brook,17,7,2,3,13,4,1,3,0,0,E3,2526
-E3,02/08/2025,15:00,Cambridge,Cheltenham,1,0,H,0,0,D,C Hicks,13,7,4,2,4,2,0,2,0,0,E3,2526
-E3,02/08/2025,15:00,Chesterfield,Barrow,1,0,H,1,0,H,A Young,7,10,3,1,4,3,1,1,0,0,E3,2526
-E3,02/08/2025,15:00,Colchester,Tranmere,1,1,D,0,1,A,D Rock,10,10,2,2,4,5,2,2,0,0,E3,2526
-E3,02/08/2025,15:00,Grimsby,Crawley Town,3,0,H,2,0,H,S Jackson,20,5,6,1,10,3,0,2,0,0,E3,2526
-E3,02/08/2025,15:00,Milton Keynes Dons,Oldham,0,0,D,0,0,D,M Russell,5,5,0,1,7,3,1,3,0,0,E3,2526
-E3,02/08/2025,15:00,Salford,Crewe,1,3,A,1,3,A,N Hair,11,22,5,10,7,10,4,2,0,0,E3,2526
-E3,02/08/2025,15:00,Shrewsbury,Bromley,0,0,D,0,0,D,Z Kennard-Kettle,7,17,2,2,4,5,3,1,0,0,E3,2526
-E3,02/08/2025,15:00,Walsall,Swindon,2,1,H,1,0,H,O Mackey,5,16,4,5,1,5,2,1,1,0,E3,2526
-E3,02/08/2025,16:00,Newport County,Notts County,1,1,D,0,0,D,P Wright,6,13,1,5,2,6,1,1,0,0,E3,2526
-E3,09/08/2025,12:30,Notts County,Salford,1,2,A,0,1,A,A Bannister,9,11,3,5,1,7,3,3,0,0,E3,2526
-E3,09/08/2025,12:30,Tranmere,Shrewsbury,4,0,H,2,0,H,J O'Connor,10,12,6,3,2,5,1,1,0,1,E3,2526
-E3,09/08/2025,15:00,Barrow,Milton Keynes Dons,0,2,A,0,0,D,M Barlow,7,12,0,5,1,5,3,2,0,0,E3,2526
-E3,09/08/2025,15:00,Bromley,Barnet,2,0,H,1,0,H,L Swabey,9,10,3,2,6,6,3,1,0,0,E3,2526
-E3,09/08/2025,15:00,Cheltenham,Chesterfield,0,2,A,0,0,D,B Speedie,6,16,2,8,2,5,7,1,0,0,E3,2526
-E3,09/08/2025,15:00,Crawley Town,Newport County,1,2,A,0,0,D,J Oldham,18,7,6,3,6,3,0,2,0,0,E3,2526
-E3,09/08/2025,15:00,Crewe,Accrington,2,0,H,2,0,H,R Eley,15,9,4,3,8,2,1,2,0,0,E3,2526
-E3,09/08/2025,15:00,Fleetwood Town,Bristol Rvs,2,1,H,2,0,H,S Stockbridge,7,14,3,2,1,6,1,3,0,0,E3,2526
-E3,09/08/2025,15:00,Gillingham,Walsall,1,0,H,0,0,D,R Martin,8,6,2,2,5,2,3,3,0,0,E3,2526
-E3,09/08/2025,15:00,Harrogate,Grimsby,3,3,D,0,0,D,W Davis,8,13,3,4,3,4,5,3,0,0,E3,2526
-E3,09/08/2025,15:00,Oldham,Colchester,1,1,D,1,1,D,C Hicks,20,8,7,3,8,7,1,1,0,0,E3,2526
-E3,09/08/2025,15:00,Swindon,Cambridge,3,2,H,2,1,H,E Duckworth,9,10,5,4,2,7,2,1,0,0,E3,2526
-E3,16/08/2025,12:30,Chesterfield,Bristol Rvs,3,1,H,1,0,H,S Mulhall,21,7,10,3,5,4,3,3,0,1,E3,2526
-E3,16/08/2025,12:30,Oldham,Swindon,1,2,A,1,2,A,G Rollason,13,13,5,3,4,2,0,3,0,0,E3,2526
-E3,16/08/2025,15:00,Barnet,Walsall,1,2,A,1,2,A,A Byrne,10,6,3,2,7,1,2,0,1,0,E3,2526
-E3,16/08/2025,15:00,Barrow,Notts County,2,1,H,1,0,H,P Marsden,11,7,5,3,3,3,1,1,0,0,E3,2526
-E3,16/08/2025,15:00,Bromley,Fleetwood Town,2,2,D,1,1,D,O Mackey,17,14,5,4,7,2,4,2,0,0,E3,2526
-E3,16/08/2025,15:00,Cambridge,Harrogate,1,1,D,1,0,H,K Dowle,16,4,5,1,9,3,1,1,0,0,E3,2526
-E3,16/08/2025,15:00,Crewe,Crawley Town,1,0,H,1,0,H,S Stockbridge,13,16,2,4,7,3,4,2,0,0,E3,2526
-E3,16/08/2025,15:00,Grimsby,Newport County,2,1,H,1,0,H,Z Kennard-Kettle,22,12,6,3,12,3,2,3,0,0,E3,2526
-E3,16/08/2025,15:00,Milton Keynes Dons,Cheltenham,5,0,H,3,0,H,J Miles,16,9,8,2,3,1,1,4,0,0,E3,2526
-E3,16/08/2025,15:00,Salford,Accrington,2,1,H,2,0,H,M Corlett,10,12,3,4,5,1,1,1,0,0,E3,2526
-E3,16/08/2025,15:00,Shrewsbury,Colchester,0,2,A,0,0,D,M Barlow,8,9,1,4,6,1,2,1,1,0,E3,2526
-E3,16/08/2025,15:00,Tranmere,Gillingham,1,1,D,0,0,D,D Bourne,12,6,2,1,3,4,2,2,0,1,E3,2526
-E3,19/08/2025,19:30,Newport County,Salford,0,1,A,0,0,D,J Durkin,11,11,2,3,5,3,1,3,0,0,E3,2526
-E3,19/08/2025,19:45,Bristol Rvs,Oldham,0,0,D,0,0,D,J Oldham,13,10,4,1,4,1,3,2,0,0,E3,2526
-E3,19/08/2025,19:45,Cheltenham,Bromley,1,2,A,0,1,A,R Massey-Ellis,13,18,6,4,12,7,1,3,0,0,E3,2526
-E3,19/08/2025,19:45,Colchester,Cambridge,1,2,A,1,2,A,R Eley,9,12,3,4,2,11,2,4,0,0,E3,2526
-E3,19/08/2025,19:45,Crawley Town,Milton Keynes Dons,1,1,D,1,0,H,S Parkinson,12,15,6,6,8,11,4,1,0,0,E3,2526
-E3,19/08/2025,19:45,Fleetwood Town,Crewe,1,4,A,0,2,A,T Kirk,9,17,3,10,2,3,6,4,0,0,E3,2526
-E3,19/08/2025,19:45,Gillingham,Chesterfield,4,1,H,1,0,H,C Hicks,11,7,6,3,0,2,4,1,0,0,E3,2526
-E3,19/08/2025,19:45,Harrogate,Barrow,1,0,H,1,0,H,J O'Connor,22,17,5,1,4,6,0,0,0,0,E3,2526
-E3,19/08/2025,19:45,Swindon,Barnet,0,2,A,0,0,D,A Humphries,8,11,4,5,6,8,2,3,0,0,E3,2526
-E3,19/08/2025,20:00,Walsall,Grimsby,0,1,A,0,0,D,M Corlett,11,15,2,5,4,6,2,2,0,0,E3,2526
-E3,20/08/2025,19:45,Notts County,Shrewsbury,4,1,H,2,1,H,D Drysdale,11,7,8,2,4,4,3,3,0,0,E3,2526
-E3,23/08/2025,12:30,Newport County,Milton Keynes Dons,1,2,A,1,1,D,S Morland,10,17,3,4,3,7,1,2,0,0,E3,2526
-E3,23/08/2025,12:30,Walsall,Salford,1,0,H,1,0,H,J Oldham,18,6,6,3,5,2,2,1,0,0,E3,2526
-E3,23/08/2025,15:00,Accrington,Grimsby,1,1,D,0,1,A,R Martin,11,13,3,4,5,0,5,0,0,0,E3,2526
-E3,23/08/2025,15:00,Bristol Rvs,Cambridge,1,0,H,1,0,H,P Marsden,9,8,3,0,3,4,2,1,0,1,E3,2526
-E3,23/08/2025,15:00,Cheltenham,Barnet,0,1,A,0,0,D,S Jackson,11,15,1,6,1,4,1,1,0,1,E3,2526
-E3,23/08/2025,15:00,Colchester,Barrow,0,2,A,0,1,A,A Bannister,24,9,6,4,14,2,2,3,0,0,E3,2526
-E3,23/08/2025,15:00,Crawley Town,Tranmere,0,2,A,0,0,D,G Rollason,20,10,3,2,8,9,1,4,0,0,E3,2526
-E3,23/08/2025,15:00,Fleetwood Town,Oldham,1,1,D,1,1,D,B Speedie,12,22,4,3,4,8,2,0,0,0,E3,2526
-E3,23/08/2025,15:00,Gillingham,Crewe,1,0,H,0,0,D,A Byrne,17,7,5,2,4,3,2,2,0,0,E3,2526
-E3,23/08/2025,15:00,Harrogate,Chesterfield,1,2,A,0,1,A,S Copeland,9,13,3,5,6,5,0,1,0,0,E3,2526
-E3,23/08/2025,15:00,Notts County,Bromley,2,2,D,2,1,H,T Reeves,8,8,3,2,3,5,1,4,0,0,E3,2526
-E3,23/08/2025,15:00,Swindon,Shrewsbury,2,1,H,1,0,H,L Swabey,15,10,7,3,5,2,1,2,0,0,E3,2526
-E3,29/08/2025,19:45,Salford,Cheltenham,1,1,D,0,0,D,A Chilowicz,26,5,7,3,14,1,2,1,0,0,E3,2526
-E3,30/08/2025,12:30,Barrow,Fleetwood Town,0,1,A,0,1,A,T Reeves,8,19,1,6,4,9,2,3,1,0,E3,2526
-E3,30/08/2025,12:30,Crewe,Swindon,0,3,A,0,3,A,M Russell,9,19,3,9,3,4,1,1,0,0,E3,2526
-E3,30/08/2025,15:00,Barnet,Colchester,1,1,D,0,1,A,M Woods,15,7,6,2,8,3,2,0,0,0,E3,2526
-E3,30/08/2025,15:00,Bromley,Harrogate,2,0,H,0,0,D,A Young,17,7,6,3,3,4,2,2,0,0,E3,2526
-E3,30/08/2025,15:00,Cambridge,Newport County,2,0,H,1,0,H,G Rhodes,10,4,3,2,7,4,0,1,0,0,E3,2526
-E3,30/08/2025,15:00,Chesterfield,Crawley Town,2,2,D,0,2,A,B Toner,12,3,3,3,8,5,4,5,0,0,E3,2526
-E3,30/08/2025,15:00,Grimsby,Bristol Rvs,0,1,A,0,1,A,N Hair,12,7,2,3,9,8,1,3,0,0,E3,2526
-E3,30/08/2025,15:00,Milton Keynes Dons,Walsall,0,1,A,0,0,D,S Mulhall,18,6,5,2,5,3,2,1,0,0,E3,2526
-E3,30/08/2025,15:00,Oldham,Gillingham,0,1,A,0,0,D,S Jackson,11,8,3,2,7,2,5,3,0,0,E3,2526
-E3,30/08/2025,15:00,Shrewsbury,Accrington,0,0,D,0,0,D,O Mackey,17,9,5,4,2,6,3,3,0,0,E3,2526
-E3,30/08/2025,15:00,Tranmere,Notts County,1,2,A,1,0,H,Z Kennard-Kettle,15,7,2,4,8,3,5,2,0,0,E3,2526
-E3,06/09/2025,12:30,Newport County,Bristol Rvs,2,3,A,0,0,D,B Toner,11,12,5,4,1,3,1,3,0,0,E3,2526
-E3,06/09/2025,15:00,Barnet,Shrewsbury,1,3,A,1,3,A,K Dowle,15,11,6,4,6,3,1,5,0,0,E3,2526
-E3,06/09/2025,15:00,Barrow,Swindon,1,3,A,0,2,A,S Stockbridge,14,8,2,3,8,2,1,3,0,0,E3,2526
-E3,06/09/2025,15:00,Cambridge,Oldham,0,1,A,0,1,A,B Atkinson,14,6,3,4,11,2,3,2,0,0,E3,2526
-E3,06/09/2025,15:00,Cheltenham,Accrington,1,0,H,1,0,H,A Byrne,13,8,3,1,5,5,1,3,0,0,E3,2526
-E3,06/09/2025,15:00,Colchester,Crewe,1,1,D,0,1,A,G Rollason,14,5,7,1,3,2,2,4,0,0,E3,2526
-E3,06/09/2025,15:00,Harrogate,Crawley Town,0,1,A,0,1,A,T Parsons,21,13,6,3,5,7,1,3,0,1,E3,2526
-E3,06/09/2025,15:00,Milton Keynes Dons,Grimsby,2,3,A,0,3,A,O Mackey,8,13,2,8,6,5,2,1,1,0,E3,2526
-E3,06/09/2025,15:00,Notts County,Fleetwood Town,1,0,H,0,0,D,S Parkinson,13,13,4,6,9,5,3,3,0,0,E3,2526
-E3,06/09/2025,15:00,Salford,Tranmere,3,1,H,0,0,D,A Humphries,27,11,8,4,10,2,1,0,0,0,E3,2526
-E3,06/09/2025,15:00,Walsall,Chesterfield,1,0,H,1,0,H,Z Kennard-Kettle,7,9,2,0,7,2,2,4,1,0,E3,2526
-E3,06/09/2025,17:30,Bromley,Gillingham,2,2,D,2,0,H,J Durkin,16,15,6,5,5,7,2,2,0,0,E3,2526
-E3,13/09/2025,12:30,Accrington,Colchester,1,0,H,1,0,H,M Coy,16,5,8,0,5,4,2,3,0,1,E3,2526
-E3,13/09/2025,12:30,Crawley Town,Cheltenham,2,0,H,0,0,D,T Reeves,17,11,6,3,7,4,2,1,0,0,E3,2526
-E3,13/09/2025,15:00,Bristol Rvs,Barrow,2,1,H,2,0,H,S Allison,12,15,3,2,6,9,2,3,0,0,E3,2526
-E3,13/09/2025,15:00,Chesterfield,Milton Keynes Dons,1,1,D,0,1,A,E Duckworth,12,4,4,1,7,4,1,4,0,0,E3,2526
-E3,13/09/2025,15:00,Crewe,Barnet,1,2,A,0,0,D,D Bourne,11,12,5,5,5,6,0,4,0,0,E3,2526
-E3,13/09/2025,15:00,Fleetwood Town,Walsall,1,1,D,1,1,D,N Hair,9,13,2,2,6,6,1,1,0,0,E3,2526
-E3,13/09/2025,15:00,Gillingham,Notts County,1,0,H,0,0,D,S Mulhall,7,8,3,1,2,4,4,1,0,0,E3,2526
-E3,13/09/2025,15:00,Grimsby,Cambridge,1,1,D,0,1,A,G Rollason,11,11,5,4,5,5,3,4,0,0,E3,2526
-E3,13/09/2025,15:00,Oldham,Bromley,1,0,H,0,0,D,R Eley,16,14,6,3,8,8,2,1,0,0,E3,2526
-E3,13/09/2025,15:00,Shrewsbury,Salford,1,3,A,0,1,A,P Wright,17,11,3,3,7,4,1,2,0,0,E3,2526
-E3,13/09/2025,15:00,Swindon,Harrogate,3,1,H,1,1,D,S Jackson,22,7,7,4,6,7,2,2,0,0,E3,2526
-E3,13/09/2025,15:00,Tranmere,Newport County,1,1,D,1,0,H,A Young,14,11,4,4,3,2,2,3,0,0,E3,2526
-E3,20/09/2025,12:30,Cambridge,Fleetwood Town,2,1,H,0,0,D,L Swabey,23,9,5,3,10,1,1,0,0,0,E3,2526
-E3,20/09/2025,12:30,Harrogate,Shrewsbury,2,0,H,0,0,D,R Joyce,13,16,9,2,4,5,3,3,0,0,E3,2526
-E3,20/09/2025,15:00,Barnet,Grimsby,3,0,H,1,0,H,B Atkinson,19,7,5,1,9,4,2,0,0,0,E3,2526
-E3,20/09/2025,15:00,Barrow,Crewe,1,0,H,0,0,D,S Oldham,8,11,3,5,2,8,2,2,0,0,E3,2526
-E3,20/09/2025,15:00,Bromley,Chesterfield,2,2,D,1,1,D,C Brook,15,9,6,2,10,4,2,3,0,0,E3,2526
-E3,20/09/2025,15:00,Cheltenham,Oldham,0,3,A,0,1,A,P Tierney,9,22,2,9,6,7,3,0,0,0,E3,2526
-E3,20/09/2025,15:00,Colchester,Bristol Rvs,1,1,D,0,1,A,A Byrne,10,10,4,1,4,2,2,5,0,0,E3,2526
-E3,20/09/2025,15:00,Milton Keynes Dons,Accrington,1,2,A,0,1,A,S Jackson,7,15,3,6,3,5,3,2,1,0,E3,2526
-E3,20/09/2025,15:00,Newport County,Gillingham,1,3,A,1,3,A,L Doughty,15,12,7,6,5,5,2,4,0,0,E3,2526
-E3,20/09/2025,15:00,Notts County,Crawley Town,4,0,H,1,0,H,J Durkin,12,7,8,2,6,1,0,2,0,0,E3,2526
-E3,20/09/2025,15:00,Salford,Swindon,3,2,H,2,0,H,R Martin,11,11,7,6,6,10,1,2,0,0,E3,2526
-E3,20/09/2025,15:00,Walsall,Tranmere,4,2,H,2,1,H,E Duckworth,15,17,7,3,8,8,0,1,0,0,E3,2526
-E3,27/09/2025,12:30,Crewe,Notts County,2,1,H,1,1,D,P Tierney,9,17,3,6,8,5,3,4,0,0,E3,2526
-E3,27/09/2025,12:30,Oldham,Barnet,1,1,D,0,1,A,S Stockbridge,13,13,4,3,4,6,2,3,0,0,E3,2526
-E3,27/09/2025,15:00,Accrington,Walsall,1,3,A,0,0,D,R Joyce,19,8,5,5,8,3,0,1,0,0,E3,2526
-E3,27/09/2025,15:00,Bristol Rvs,Salford,2,1,H,1,1,D,G Rhodes,7,18,2,6,2,5,1,4,0,1,E3,2526
-E3,27/09/2025,15:00,Chesterfield,Newport County,4,1,H,2,0,H,S Parkinson,12,10,4,3,4,3,3,2,0,0,E3,2526
-E3,27/09/2025,15:00,Crawley Town,Barrow,1,2,A,0,2,A,M Corlett,20,18,6,8,12,7,3,3,0,0,E3,2526
-E3,27/09/2025,15:00,Fleetwood Town,Colchester,4,2,H,1,2,A,E Duckworth,18,12,7,4,4,1,0,0,0,0,E3,2526
-E3,27/09/2025,15:00,Gillingham,Harrogate,0,1,A,0,1,A,J Bell,18,7,2,2,12,1,1,1,0,0,E3,2526
-E3,27/09/2025,15:00,Grimsby,Cheltenham,7,1,H,2,1,H,C Brook,27,3,13,1,8,1,0,2,0,2,E3,2526
-E3,27/09/2025,15:00,Shrewsbury,Milton Keynes Dons,1,2,A,0,2,A,M Coy,11,7,4,4,7,1,2,0,0,0,E3,2526
-E3,27/09/2025,15:00,Swindon,Bromley,2,0,H,2,0,H,A Byrne,11,15,6,2,6,4,2,1,0,0,E3,2526
-E3,27/09/2025,15:00,Tranmere,Cambridge,0,0,D,0,0,D,A Herczeg,4,12,1,1,1,7,1,2,0,0,E3,2526
-E3,04/10/2025,12:30,Milton Keynes Dons,Gillingham,3,2,H,1,0,H,D Drysdale,13,14,4,4,3,4,2,3,0,0,E3,2526
-E3,04/10/2025,12:30,Newport County,Swindon,0,1,A,0,1,A,D Bourne,9,11,1,3,5,6,4,5,0,0,E3,2526
-E3,04/10/2025,15:00,Barnet,Accrington,2,0,H,1,0,H,N Hair,15,15,5,2,4,4,1,3,0,0,E3,2526
-E3,04/10/2025,15:00,Barrow,Shrewsbury,0,0,D,0,0,D,R Martin,7,10,2,1,3,7,2,2,0,0,E3,2526
-E3,04/10/2025,15:00,Bromley,Tranmere,3,3,D,2,1,H,J Oldham,17,9,8,4,8,2,2,3,1,0,E3,2526
-E3,04/10/2025,15:00,Cambridge,Crawley Town,3,1,H,1,0,H,C Brook,7,14,5,3,2,10,2,5,0,0,E3,2526
-E3,04/10/2025,15:00,Cheltenham,Fleetwood Town,2,0,H,0,0,D,S Mulhall,11,18,5,6,0,6,1,4,0,0,E3,2526
-E3,04/10/2025,15:00,Colchester,Chesterfield,6,2,H,4,1,H,L Swabey,23,6,13,2,3,3,1,1,0,0,E3,2526
-E3,04/10/2025,15:00,Notts County,Oldham,3,1,H,2,0,H,O Mackey,18,10,11,4,2,9,1,1,0,0,E3,2526
-E3,04/10/2025,15:00,Salford,Grimsby,0,2,A,0,2,A,S Parkinson,13,13,4,3,4,5,3,3,0,0,E3,2526
-E3,04/10/2025,15:00,Walsall,Bristol Rvs,2,1,H,0,1,A,S Martin,6,6,2,3,3,2,3,3,0,0,E3,2526
-E3,06/10/2025,20:00,Harrogate,Crewe,1,2,A,1,1,D,S Mather,10,14,1,3,3,6,2,0,0,0,E3,2526
-E3,11/10/2025,15:00,Accrington,Newport County,0,1,A,0,1,A,D Rock,12,7,2,2,4,3,1,1,0,0,E3,2526
-E3,11/10/2025,15:00,Bristol Rvs,Milton Keynes Dons,0,4,A,0,1,A,S Oldham,6,13,1,7,7,2,2,2,0,0,E3,2526
-E3,11/10/2025,15:00,Chesterfield,Salford,2,0,H,0,0,D,O Mackey,10,10,3,1,4,7,3,2,0,0,E3,2526
-E3,11/10/2025,15:00,Crawley Town,Walsall,1,1,D,1,0,H,A Young,16,9,8,4,4,7,2,2,0,0,E3,2526
-E3,11/10/2025,15:00,Crewe,Bromley,0,1,A,0,0,D,A Bannister,7,12,1,5,5,5,1,2,0,0,E3,2526
-E3,11/10/2025,15:00,Fleetwood Town,Harrogate,3,2,H,1,1,D,D Drysdale,16,13,5,5,4,3,0,0,0,0,E3,2526
-E3,11/10/2025,15:00,Gillingham,Cheltenham,1,1,D,0,0,D,A Chilowicz,30,11,10,1,11,2,0,2,0,0,E3,2526
-E3,11/10/2025,15:00,Grimsby,Colchester,1,2,A,1,1,D,J Bell,6,15,2,6,6,3,3,4,0,0,E3,2526
-E3,11/10/2025,15:00,Shrewsbury,Cambridge,2,0,H,2,0,H,M Russell,4,6,2,1,3,3,2,1,0,0,E3,2526
-E3,11/10/2025,15:00,Tranmere,Barnet,0,2,A,0,2,A,R Eley,13,14,0,4,2,6,0,4,0,1,E3,2526
-E3,11/10/2025,17:30,Oldham,Barrow,0,0,D,0,0,D,R Massey-Ellis,18,6,4,2,7,4,1,1,0,0,E3,2526
-E3,18/10/2025,12:30,Cambridge,Bromley,2,1,H,2,0,H,D Bourne,13,11,4,2,3,3,2,1,0,0,E3,2526
-E3,18/10/2025,12:30,Salford,Oldham,1,0,H,1,0,H,J Miles,29,15,8,5,7,7,3,2,0,1,E3,2526
-E3,18/10/2025,15:00,Accrington,Swindon,4,0,H,1,0,H,A Young,19,8,6,3,3,5,0,3,0,1,E3,2526
-E3,18/10/2025,15:00,Barnet,Notts County,0,1,A,0,0,D,M Woods,18,4,5,1,12,2,3,2,0,0,E3,2526
-E3,18/10/2025,15:00,Bristol Rvs,Tranmere,1,4,A,0,1,A,T Parsons,12,20,2,9,6,5,2,2,0,0,E3,2526
-E3,18/10/2025,15:00,Chesterfield,Fleetwood Town,1,1,D,1,1,D,D Whitestone,14,6,5,2,9,9,1,3,0,0,E3,2526
-E3,18/10/2025,15:00,Colchester,Harrogate,3,1,H,3,1,H,S Stockbridge,19,5,8,2,5,4,1,3,0,0,E3,2526
-E3,18/10/2025,15:00,Grimsby,Gillingham,1,0,H,0,0,D,Z Kennard-Kettle,24,3,9,2,6,2,3,4,0,2,E3,2526
-E3,18/10/2025,15:00,Milton Keynes Dons,Crewe,3,1,H,2,0,H,C Hicks,10,10,7,2,4,7,4,0,0,0,E3,2526
-E3,18/10/2025,15:00,Newport County,Cheltenham,0,2,A,0,1,A,P Wright,9,10,3,4,3,3,4,1,0,0,E3,2526
-E3,18/10/2025,15:00,Shrewsbury,Crawley Town,1,0,H,0,0,D,B Atkinson,13,15,4,3,6,6,3,3,0,1,E3,2526
-E3,18/10/2025,15:00,Walsall,Barrow,1,2,A,0,1,A,B Speedie,24,5,11,2,14,0,1,2,0,1,E3,2526
-E3,21/10/2025,19:45,Swindon,Notts County,2,2,D,1,1,D,D Rock,11,8,5,5,6,1,2,4,0,0,E3,2526
-E3,25/10/2025,12:30,Cheltenham,Walsall,1,0,H,0,0,D,O Yates,8,14,1,6,1,4,2,1,0,0,E3,2526
-E3,25/10/2025,12:30,Fleetwood Town,Accrington,2,1,H,0,1,A,T Reeves,15,13,7,2,7,9,1,3,0,0,E3,2526
-E3,25/10/2025,15:00,Barrow,Barnet,2,2,D,1,0,H,D Brown,6,18,3,9,4,7,2,1,1,0,E3,2526
-E3,25/10/2025,15:00,Bromley,Milton Keynes Dons,2,1,H,0,1,A,K Dowle,10,7,4,3,7,2,1,0,0,0,E3,2526
-E3,25/10/2025,15:00,Crawley Town,Bristol Rvs,4,0,H,1,0,H,R Eley,14,4,6,3,5,3,2,3,0,1,E3,2526
-E3,25/10/2025,15:00,Crewe,Grimsby,3,2,H,2,2,D,M Coy,11,12,5,2,3,3,1,1,0,0,E3,2526
-E3,25/10/2025,15:00,Gillingham,Salford,1,2,A,1,2,A,D Rock,14,13,7,2,5,5,2,5,0,0,E3,2526
-E3,25/10/2025,15:00,Harrogate,Newport County,0,3,A,0,1,A,S Mather,13,16,3,8,4,1,2,0,0,0,E3,2526
-E3,25/10/2025,15:00,Notts County,Cambridge,2,0,H,0,0,D,R Joyce,4,5,3,1,0,5,0,4,0,0,E3,2526
-E3,25/10/2025,15:00,Oldham,Shrewsbury,2,2,D,0,0,D,A Byrne,12,9,4,3,7,2,1,4,0,0,E3,2526
-E3,25/10/2025,15:00,Swindon,Colchester,0,0,D,0,0,D,L Doughty,9,9,1,1,1,5,1,0,0,0,E3,2526
-E3,25/10/2025,15:00,Tranmere,Chesterfield,1,1,D,0,1,A,S Oldham,13,9,6,4,4,7,0,2,0,0,E3,2526
-E3,28/10/2025,19:45,Accrington,Tranmere,1,1,D,1,0,H,M Woods,15,9,4,3,4,2,1,2,0,0,E3,2526
-E3,08/11/2025,12:30,Colchester,Bromley,0,2,A,0,0,D,A Humphries,10,7,2,3,9,2,2,3,0,0,E3,2526
-E3,08/11/2025,12:30,Crewe,Shrewsbury,3,1,H,1,1,D,T Reeves,21,16,6,2,7,4,2,4,0,0,E3,2526
-E3,08/11/2025,15:00,Barnet,Milton Keynes Dons,2,2,D,2,1,H,J Durkin,12,7,5,4,6,2,1,4,0,0,E3,2526
-E3,08/11/2025,15:00,Barrow,Grimsby,2,2,D,1,2,A,R Eley,11,17,4,6,3,2,3,1,0,0,E3,2526
-E3,08/11/2025,15:00,Bristol Rvs,Gillingham,0,1,A,0,0,D,A Young,17,7,4,2,12,3,1,4,0,0,E3,2526
-E3,08/11/2025,15:00,Chesterfield,Accrington,3,3,D,1,2,A,T Parsons,17,16,5,8,11,3,3,5,0,0,E3,2526
-E3,08/11/2025,15:00,Crawley Town,Fleetwood Town,2,1,H,1,0,H,L Swabey,21,7,5,1,11,3,2,2,0,1,E3,2526
-E3,08/11/2025,15:00,Harrogate,Oldham,0,1,A,0,1,A,D Rock,9,14,2,1,8,6,2,1,0,1,E3,2526
-E3,08/11/2025,15:00,Newport County,Walsall,2,4,A,2,3,A,B Atkinson,12,17,3,10,4,5,4,2,0,0,E3,2526
-E3,08/11/2025,15:00,Salford,Cambridge,0,0,D,0,0,D,O Yates,6,9,0,1,4,4,4,2,0,0,E3,2526
-E3,08/11/2025,15:00,Swindon,Tranmere,2,1,H,0,0,D,G Ward,18,8,7,2,8,3,3,3,0,0,E3,2526
-E3,10/11/2025,20:00,Cheltenham,Notts County,1,2,A,0,2,A,B Speedie,7,18,2,4,5,7,0,3,0,0,E3,2526
-E3,15/11/2025,15:00,Accrington,Bristol Rvs,3,1,H,1,0,H,S Stockbridge,9,10,5,2,3,5,3,3,0,0,E3,2526
-E3,15/11/2025,15:00,Bromley,Barrow,2,1,H,1,0,H,S Parkinson,15,7,6,2,4,1,1,2,0,0,E3,2526
-E3,15/11/2025,15:00,Cambridge,Barnet,0,0,D,0,0,D,S Mather,9,11,1,4,3,7,2,0,0,0,E3,2526
-E3,15/11/2025,15:00,Fleetwood Town,Swindon,1,1,D,1,1,D,R Eley,12,15,2,6,9,6,0,3,0,0,E3,2526
-E3,15/11/2025,15:00,Grimsby,Chesterfield,0,1,A,0,0,D,M Woods,12,8,4,1,11,5,2,3,0,0,E3,2526
-E3,15/11/2025,15:00,Milton Keynes Dons,Salford,2,0,H,1,0,H,R Joyce,6,11,4,4,3,4,2,2,0,0,E3,2526
-E3,15/11/2025,15:00,Notts County,Harrogate,1,1,D,0,1,A,S Oldham,15,3,3,1,11,1,0,2,0,0,E3,2526
-E3,15/11/2025,15:00,Oldham,Crewe,0,0,D,0,0,D,A Farmer,16,15,2,2,5,6,2,1,0,0,E3,2526
-E3,15/11/2025,15:00,Shrewsbury,Newport County,1,0,H,0,0,D,E Swallow,19,10,6,2,8,4,4,2,0,0,E3,2526
-E3,15/11/2025,15:00,Tranmere,Cheltenham,3,2,H,2,1,H,O Langford,13,14,4,4,2,7,2,1,0,0,E3,2526
-E3,15/11/2025,15:00,Walsall,Colchester,0,2,A,0,2,A,J Durkin,13,3,3,2,5,1,2,4,0,0,E3,2526
-E3,15/11/2025,17:30,Gillingham,Crawley Town,2,2,D,1,0,H,P Howard,17,20,9,8,8,7,1,2,0,0,E3,2526
-E3,22/11/2025,12:30,Gillingham,Barnet,1,1,D,1,1,D,B Atkinson,11,13,4,4,2,7,4,3,0,0,E3,2526
-E3,22/11/2025,12:30,Harrogate,Walsall,0,2,A,0,1,A,A Bannister,7,18,0,6,2,7,1,2,0,0,E3,2526
-E3,22/11/2025,15:00,Barrow,Cambridge,0,2,A,0,0,D,S Oldham,9,11,3,7,4,3,1,2,0,0,E3,2526
-E3,22/11/2025,15:00,Bromley,Salford,2,0,H,2,0,H,M Russell,10,15,3,5,4,7,0,2,0,0,E3,2526
-E3,22/11/2025,15:00,Cheltenham,Bristol Rvs,1,0,H,0,0,D,P Howard,4,17,1,3,6,7,4,1,0,0,E3,2526
-E3,22/11/2025,15:00,Crawley Town,Accrington,1,1,D,0,1,A,A Chilowicz,12,8,4,4,7,4,3,2,0,0,E3,2526
-E3,22/11/2025,15:00,Crewe,Chesterfield,3,3,D,1,2,A,D Rock,22,12,9,7,5,2,2,1,0,0,E3,2526
-E3,22/11/2025,15:00,Fleetwood Town,Shrewsbury,3,1,H,1,0,H,M Coy,13,13,6,3,3,2,0,1,1,0,E3,2526
-E3,22/11/2025,15:00,Notts County,Colchester,1,3,A,1,1,D,S Mather,15,8,4,4,4,3,1,3,0,0,E3,2526
-E3,22/11/2025,15:00,Oldham,Newport County,3,0,H,0,0,D,A Miller,19,10,7,3,9,6,2,1,0,0,E3,2526
-E3,22/11/2025,15:00,Swindon,Grimsby,2,2,D,2,2,D,O Yates,14,15,6,6,6,8,2,2,0,0,E3,2526
-E3,22/11/2025,15:00,Tranmere,Milton Keynes Dons,2,2,D,2,0,H,R Watkins,10,15,4,3,1,8,2,1,0,1,E3,2526
-E3,27/11/2025,20:00,Grimsby,Tranmere,1,2,A,0,1,A,W Finnie,13,6,6,2,5,1,0,4,0,0,E3,2526
-E3,29/11/2025,12:30,Accrington,Oldham,1,0,H,1,0,H,S Mather,7,16,1,5,2,6,4,2,0,0,E3,2526
-E3,29/11/2025,12:30,Milton Keynes Dons,Fleetwood Town,2,1,H,1,0,H,A Humphries,19,8,5,4,6,2,2,0,0,0,E3,2526
-E3,29/11/2025,15:00,Barnet,Harrogate,1,1,D,1,0,H,A Swallow,18,9,5,2,7,3,0,2,0,0,E3,2526
-E3,29/11/2025,15:00,Bristol Rvs,Notts County,0,1,A,0,0,D,E Duckworth,17,5,4,1,9,2,2,5,0,1,E3,2526
-E3,29/11/2025,15:00,Cambridge,Crewe,2,1,H,0,0,D,M Woods,16,5,6,4,10,1,1,2,0,0,E3,2526
-E3,29/11/2025,15:00,Chesterfield,Swindon,1,2,A,1,1,D,J Miles,13,11,2,5,7,3,1,3,0,1,E3,2526
-E3,29/11/2025,15:00,Colchester,Cheltenham,2,0,H,1,0,H,E Bell,9,9,5,2,1,1,1,2,0,0,E3,2526
-E3,29/11/2025,15:00,Newport County,Barrow,2,2,D,1,1,D,C Brook,10,13,5,4,2,2,0,1,0,0,E3,2526
-E3,29/11/2025,15:00,Salford,Crawley Town,4,3,H,1,1,D,M Coy,17,15,8,5,12,4,1,2,0,0,E3,2526
-E3,29/11/2025,15:00,Shrewsbury,Gillingham,3,3,D,3,1,H,A Farmer,17,16,5,3,1,9,2,2,0,0,E3,2526
-E3,29/11/2025,15:00,Walsall,Bromley,3,1,H,0,1,A,M Barlow,11,13,6,4,4,9,1,3,0,0,E3,2526
-E3,06/12/2025,12:30,Colchester,Gillingham,0,0,D,0,0,D,O Mackey,12,10,2,3,1,6,1,4,0,0,E3,2526
-E3,09/12/2025,19:45,Barnet,Bristol Rvs,4,0,H,2,0,H,L Swabey,20,10,9,3,9,5,2,1,0,0,E3,2526
-E3,09/12/2025,19:45,Barrow,Tranmere,0,3,A,0,0,D,A Miller,15,11,4,5,5,5,4,1,1,0,E3,2526
-E3,09/12/2025,19:45,Bromley,Crawley Town,3,1,H,1,1,D,D Rock,14,7,5,5,8,3,2,2,0,0,E3,2526
-E3,09/12/2025,19:45,Cambridge,Chesterfield,1,1,D,1,0,H,E Swallow,13,8,7,4,5,1,0,0,0,0,E3,2526
-E3,09/12/2025,19:45,Fleetwood Town,Salford,1,1,D,0,1,A,S Stockbridge,9,16,3,4,2,6,2,1,0,0,E3,2526
-E3,09/12/2025,19:45,Harrogate,Accrington,0,2,A,0,1,A,R Eley,5,8,1,4,3,6,2,1,0,0,E3,2526
-E3,09/12/2025,19:45,Notts County,Milton Keynes Dons,3,2,H,2,2,D,A Farmer,9,15,7,6,2,1,2,3,0,0,E3,2526
-E3,09/12/2025,19:45,Shrewsbury,Grimsby,1,1,D,1,1,D,S Mulhall,8,12,1,4,2,6,2,2,0,0,E3,2526
-E3,09/12/2025,19:45,Swindon,Cheltenham,0,1,A,0,0,D,S Mather,9,11,0,4,6,6,2,2,0,0,E3,2526
-E3,10/12/2025,19:45,Crewe,Newport County,2,2,D,1,0,H,E Duckworth,18,10,5,3,4,1,1,2,0,1,E3,2526
-E3,10/12/2025,19:45,Oldham,Walsall,0,1,A,0,1,A,S Parkinson,11,6,4,1,4,4,3,2,0,0,E3,2526
-E3,13/12/2025,12:30,Bristol Rvs,Swindon,0,3,A,0,3,A,A Bannister,11,18,1,6,4,7,1,0,1,1,E3,2526
-E3,13/12/2025,12:30,Salford,Colchester,4,3,H,1,1,D,S Oldham,16,14,10,7,5,3,3,0,0,0,E3,2526
-E3,13/12/2025,15:00,Accrington,Bromley,0,1,A,0,0,D,S Copeland,15,11,1,5,7,4,1,2,0,0,E3,2526
-E3,13/12/2025,15:00,Cheltenham,Harrogate,1,1,D,0,0,D,M Barlow,10,15,2,7,5,5,2,1,0,0,E3,2526
-E3,13/12/2025,15:00,Chesterfield,Barnet,3,1,H,2,1,H,P Wright,16,10,6,3,5,13,3,0,0,0,E3,2526
-E3,13/12/2025,15:00,Crawley Town,Oldham,2,2,D,1,0,H,C Breakspear,19,19,5,8,4,7,1,3,0,0,E3,2526
-E3,13/12/2025,15:00,Gillingham,Barrow,2,2,D,2,0,H,F Hallam,14,10,4,3,4,2,0,1,0,0,E3,2526
-E3,13/12/2025,15:00,Grimsby,Notts County,0,2,A,0,0,D,W Cartmel,16,9,4,2,6,3,1,3,0,0,E3,2526
-E3,13/12/2025,15:00,Milton Keynes Dons,Cambridge,1,1,D,1,0,H,J Oldham,13,12,4,3,7,4,2,1,0,0,E3,2526
-E3,13/12/2025,15:00,Newport County,Fleetwood Town,0,2,A,0,2,A,M Corlett,13,16,2,6,3,4,2,2,1,0,E3,2526
-E3,13/12/2025,15:00,Tranmere,Crewe,1,4,A,0,2,A,R Joyce,18,9,5,5,8,2,4,2,0,0,E3,2526
-E3,13/12/2025,15:00,Walsall,Shrewsbury,1,1,D,1,0,H,I Searle,12,10,4,4,5,5,1,4,0,0,E3,2526
-E3,19/12/2025,19:45,Barrow,Cheltenham,1,2,A,0,1,A,T Parsons,18,16,5,4,11,4,0,0,0,0,E3,2526
-E3,19/12/2025,19:45,Cambridge,Accrington,2,0,H,1,0,H,R Watkins,8,8,4,2,7,6,1,0,0,0,E3,2526
-E3,19/12/2025,19:45,Crewe,Bristol Rvs,1,1,D,1,1,D,M Barlow,10,15,3,3,3,3,2,3,1,0,E3,2526
-E3,20/12/2025,12:30,Bromley,Grimsby,2,0,H,1,0,H,J Durkin,9,9,6,2,2,7,2,3,0,0,E3,2526
-E3,20/12/2025,12:30,Notts County,Walsall,0,0,D,0,0,D,S Copeland,14,1,3,1,6,1,1,2,0,0,E3,2526
-E3,20/12/2025,15:00,Barnet,Salford,1,3,A,0,2,A,A Farmer,16,9,7,5,3,4,0,2,0,0,E3,2526
-E3,20/12/2025,15:00,Colchester,Newport County,4,1,H,2,0,H,H Wager,16,7,7,2,2,2,1,2,0,0,E3,2526
-E3,20/12/2025,15:00,Fleetwood Town,Gillingham,2,1,H,0,1,A,S Parkinson,11,10,6,1,10,3,3,2,0,0,E3,2526
-E3,20/12/2025,15:00,Harrogate,Milton Keynes Dons,0,4,A,0,3,A,D Bourne,7,20,2,9,2,3,2,0,0,0,E3,2526
-E3,20/12/2025,15:00,Oldham,Tranmere,3,1,H,1,1,D,M Coy,16,17,7,5,5,3,3,1,1,0,E3,2526
-E3,20/12/2025,15:00,Shrewsbury,Chesterfield,0,1,A,0,0,D,P Howard,16,9,2,3,4,3,0,3,0,0,E3,2526
-E3,20/12/2025,15:00,Swindon,Crawley Town,1,0,H,0,0,D,L Doughty,6,17,2,4,1,12,1,3,0,0,E3,2526
-E3,26/12/2025,15:00,Accrington,Barrow,2,1,H,1,1,D,E Duckworth,18,16,7,6,4,5,0,2,0,0,E3,2526
-E3,26/12/2025,15:00,Bristol Rvs,Bromley,2,3,A,2,0,H,J Miles,9,16,3,6,4,2,2,1,1,0,E3,2526
-E3,26/12/2025,15:00,Cheltenham,Shrewsbury,3,1,H,2,0,H,R Eley,16,7,6,3,4,5,2,3,0,0,E3,2526
-E3,26/12/2025,15:00,Chesterfield,Notts County,2,0,H,0,0,D,B Speedie,10,6,3,0,3,5,3,3,0,0,E3,2526
-E3,26/12/2025,15:00,Crawley Town,Colchester,1,1,D,1,1,D,A Young,7,7,4,3,4,6,2,2,0,0,E3,2526
-E3,26/12/2025,15:00,Gillingham,Cambridge,1,1,D,0,1,A,N Hair,17,4,6,1,6,5,1,0,0,0,E3,2526
-E3,26/12/2025,15:00,Grimsby,Oldham,0,0,D,0,0,D,R Joyce,8,12,3,7,11,2,1,2,0,0,E3,2526
-E3,26/12/2025,15:00,Milton Keynes Dons,Swindon,1,0,H,1,0,H,B Atkinson,15,11,5,3,5,8,1,2,0,0,E3,2526
-E3,26/12/2025,15:00,Newport County,Barnet,0,0,D,0,0,D,S Parkinson,9,15,3,2,1,7,1,0,0,0,E3,2526
-E3,26/12/2025,15:00,Salford,Harrogate,1,0,H,0,0,D,J O'Connor,24,9,9,2,7,3,1,1,0,0,E3,2526
-E3,26/12/2025,15:00,Tranmere,Fleetwood Town,1,0,H,1,0,H,D Baines,15,20,5,6,6,7,5,2,0,0,E3,2526
-E3,26/12/2025,15:00,Walsall,Crewe,1,0,H,1,0,H,S Mather,13,6,5,2,2,10,1,2,0,0,E3,2526
-E3,29/12/2025,19:30,Newport County,Crewe,2,0,H,1,0,H,A Byrne,19,14,8,3,6,4,1,3,0,0,E3,2526
-E3,29/12/2025,19:45,Accrington,Harrogate,1,0,H,1,0,H,D Brown,25,7,8,2,8,3,1,0,0,1,E3,2526
-E3,29/12/2025,19:45,Bristol Rvs,Barnet,0,2,A,0,1,A,D Bourne,7,10,3,3,3,5,3,2,0,0,E3,2526
-E3,29/12/2025,19:45,Cheltenham,Swindon,0,2,A,0,0,D,I Searle,8,12,0,8,7,4,0,2,0,0,E3,2526
-E3,29/12/2025,19:45,Chesterfield,Cambridge,0,1,A,0,1,A,S Jackson,14,6,1,1,5,5,1,4,0,0,E3,2526
-E3,29/12/2025,19:45,Crawley Town,Bromley,1,3,A,1,1,D,B Toner,11,15,4,5,1,8,1,1,0,0,E3,2526
-E3,29/12/2025,19:45,Gillingham,Colchester,1,1,D,0,0,D,M Russell,16,15,4,5,6,5,1,1,0,0,E3,2526
-E3,29/12/2025,19:45,Grimsby,Shrewsbury,1,0,H,0,0,D,S Copeland,16,6,5,1,6,2,2,2,0,0,E3,2526
-E3,29/12/2025,19:45,Milton Keynes Dons,Notts County,1,1,D,0,1,A,L Swabey,10,13,3,3,1,5,2,3,0,0,E3,2526
-E3,29/12/2025,19:45,Salford,Fleetwood Town,0,0,D,0,0,D,M Woods,16,14,3,5,6,4,2,2,0,0,E3,2526
-E3,29/12/2025,19:45,Tranmere,Barrow,1,3,A,0,3,A,E Swallow,25,16,8,7,7,3,2,2,0,1,E3,2526
-E3,29/12/2025,19:45,Walsall,Oldham,1,2,A,0,1,A,O Mackey,11,18,4,6,4,7,2,2,0,0,E3,2526
-E3,01/01/2026,15:00,Barnet,Crawley Town,2,1,H,1,1,D,R Martin,19,19,7,7,13,5,1,2,0,0,E3,2526
-E3,01/01/2026,15:00,Barrow,Salford,1,2,A,1,1,D,A Herczeg,9,13,4,5,5,3,2,1,0,0,E3,2526
-E3,01/01/2026,15:00,Bromley,Newport County,2,1,H,1,0,H,K Dowle,14,7,6,3,6,3,2,1,0,0,E3,2526
-E3,01/01/2026,15:00,Cambridge,Walsall,2,0,H,1,0,H,W Cartmel,8,10,3,3,2,6,0,1,0,0,E3,2526
-E3,01/01/2026,15:00,Colchester,Milton Keynes Dons,1,0,H,0,0,D,S Parkinson,10,10,3,4,6,3,1,2,0,0,E3,2526
-E3,01/01/2026,15:00,Crewe,Cheltenham,4,1,H,3,1,H,D Baines,15,13,6,3,6,5,0,1,0,0,E3,2526
-E3,01/01/2026,15:00,Fleetwood Town,Grimsby,0,1,A,0,0,D,E Bell,4,8,3,2,4,2,3,2,0,0,E3,2526
-E3,01/01/2026,15:00,Harrogate,Tranmere,0,2,A,0,0,D,S Stockbridge,17,18,2,7,10,4,2,1,0,0,E3,2526
-E3,01/01/2026,15:00,Notts County,Accrington,0,1,A,0,0,D,Z Kennard-Kettle,8,8,4,4,8,5,5,4,0,0,E3,2526
-E3,01/01/2026,15:00,Oldham,Chesterfield,1,1,D,0,1,A,S Allison,11,9,3,5,6,4,3,0,0,1,E3,2526
-E3,01/01/2026,15:00,Shrewsbury,Bristol Rvs,0,3,A,0,0,D,R Massey-Ellis,11,10,2,5,8,3,2,1,0,0,E3,2526
-E3,01/01/2026,15:00,Swindon,Gillingham,2,0,H,0,0,D,J Durkin,12,16,2,4,8,8,4,3,0,0,E3,2526
-E3,04/01/2026,12:00,Cheltenham,Crawley Town,3,0,H,0,0,D,C Hicks,12,9,7,2,8,2,1,2,0,0,E3,2526
-E3,04/01/2026,12:00,Milton Keynes Dons,Chesterfield,2,2,D,2,0,H,A Miller,10,10,3,3,4,6,4,2,0,0,E3,2526
-E3,10/01/2026,15:00,Crewe,Harrogate,1,1,D,0,0,D,C Breakspear,21,10,4,4,7,3,2,1,0,0,E3,2526
-E3,10/01/2026,15:00,Tranmere,Bromley,0,2,A,0,1,A,M Woods,16,7,4,4,4,4,2,3,0,0,E3,2526
-E3,17/01/2026,12:30,Chesterfield,Bromley,0,0,D,0,0,D,A Chilowicz,9,11,2,5,10,8,2,0,0,0,E3,2526
-E3,17/01/2026,12:30,Tranmere,Walsall,1,3,A,0,2,A,D Drysdale,11,8,2,4,3,10,1,2,0,0,E3,2526
-E3,17/01/2026,15:00,Accrington,Milton Keynes Dons,0,2,A,0,2,A,R Martin,13,11,4,2,2,3,2,2,0,0,E3,2526
-E3,17/01/2026,15:00,Bristol Rvs,Colchester,0,1,A,0,0,D,B Toner,5,10,1,2,4,5,4,2,0,0,E3,2526
-E3,17/01/2026,15:00,Crawley Town,Notts County,1,2,A,0,0,D,M Russell,9,12,3,6,5,7,1,2,1,0,E3,2526
-E3,17/01/2026,15:00,Crewe,Barrow,3,1,H,3,1,H,S Stockbridge,7,13,3,6,3,8,4,3,0,0,E3,2526
-E3,17/01/2026,15:00,Fleetwood Town,Cambridge,1,2,A,0,1,A,C Hicks,9,12,4,5,2,5,3,0,0,0,E3,2526
-E3,17/01/2026,15:00,Gillingham,Newport County,3,2,H,1,1,D,C Brook,19,22,6,7,4,5,3,2,0,0,E3,2526
-E3,17/01/2026,15:00,Grimsby,Barnet,1,0,H,0,0,D,J O'Connor,14,14,5,3,5,7,1,1,0,1,E3,2526
-E3,17/01/2026,15:00,Oldham,Cheltenham,2,1,H,1,1,D,N Hair,12,10,4,7,5,6,4,1,0,0,E3,2526
-E3,17/01/2026,15:00,Shrewsbury,Harrogate,1,0,H,0,0,D,P Wright,22,11,8,1,8,4,3,5,0,1,E3,2526
-E3,17/01/2026,15:00,Swindon,Salford,2,3,A,1,2,A,C Breakspear,14,9,6,4,6,4,2,4,0,0,E3,2526
-E3,24/01/2026,12:30,Barnet,Oldham,3,2,H,2,1,H,D Drysdale,5,9,4,5,1,6,3,1,1,0,E3,2526
-E3,24/01/2026,12:30,Notts County,Crewe,1,0,H,1,0,H,I Searle,16,9,4,0,7,5,2,2,0,0,E3,2526
-E3,24/01/2026,15:00,Barrow,Crawley Town,0,1,A,0,0,D,D Webb,11,9,2,3,11,1,2,0,0,0,E3,2526
-E3,24/01/2026,15:00,Bromley,Swindon,2,1,H,0,1,A,J Oldham,20,12,7,5,8,4,2,0,0,0,E3,2526
-E3,24/01/2026,15:00,Cambridge,Tranmere,4,2,H,0,1,A,R Martin,15,9,6,5,7,1,2,3,0,0,E3,2526
-E3,24/01/2026,15:00,Cheltenham,Grimsby,0,2,A,0,1,A,H Wager,11,9,2,5,7,2,2,3,0,0,E3,2526
-E3,24/01/2026,15:00,Colchester,Fleetwood Town,2,1,H,2,0,H,C Breakspear,9,11,3,2,4,5,3,2,0,0,E3,2526
-E3,24/01/2026,15:00,Harrogate,Gillingham,0,3,A,0,0,D,Z Kennard-Kettle,13,17,4,9,3,3,1,1,0,0,E3,2526
-E3,24/01/2026,15:00,Milton Keynes Dons,Shrewsbury,5,1,H,3,0,H,A Dale,13,11,8,3,1,1,1,4,0,0,E3,2526
-E3,24/01/2026,15:00,Newport County,Chesterfield,2,1,H,0,0,D,D Brown,8,6,4,3,2,8,3,0,0,0,E3,2526
-E3,24/01/2026,15:00,Salford,Bristol Rvs,1,0,H,1,0,H,S Mather,12,6,5,2,9,4,2,0,0,0,E3,2526
-E3,24/01/2026,15:00,Walsall,Accrington,0,0,D,0,0,D,E Swallow,9,11,2,3,5,5,5,3,0,0,E3,2526
-E3,27/01/2026,19:30,Newport County,Accrington,1,4,A,1,1,D,J Durkin,11,13,5,6,3,2,2,5,1,0,E3,2526
-E3,27/01/2026,19:45,Barnet,Tranmere,1,0,H,0,0,D,C Brook,21,5,6,2,10,2,2,3,0,0,E3,2526
-E3,27/01/2026,19:45,Bromley,Crewe,2,2,D,1,0,H,A Farmer,10,16,5,4,4,3,2,3,0,0,E3,2526
-E3,27/01/2026,19:45,Cambridge,Shrewsbury,1,0,H,0,0,D,A Byrne,10,2,7,0,2,3,1,1,0,0,E3,2526
-E3,27/01/2026,19:45,Colchester,Grimsby,0,1,A,0,1,A,B Atkinson,25,13,4,3,8,5,3,1,0,1,E3,2526
-E3,27/01/2026,19:45,Harrogate,Fleetwood Town,1,2,A,0,1,A,O Mackey,18,15,4,5,6,5,2,3,0,0,E3,2526
-E3,27/01/2026,19:45,Milton Keynes Dons,Bristol Rvs,1,0,H,1,0,H,C Hicks,12,14,3,3,4,3,3,3,0,0,E3,2526
-E3,27/01/2026,19:45,Notts County,Swindon,2,1,H,1,1,D,D Webb,15,9,4,4,7,3,0,0,0,0,E3,2526
-E3,27/01/2026,19:45,Salford,Chesterfield,0,1,A,0,0,D,O Yates,17,7,2,1,8,2,2,1,0,0,E3,2526
-E3,27/01/2026,19:45,Walsall,Crawley Town,0,0,D,0,0,D,S Oldham,8,22,1,5,1,12,3,5,0,0,E3,2526
-E3,31/01/2026,12:30,Bristol Rvs,Newport County,3,0,H,2,0,H,W Finnie,18,5,7,0,7,3,1,2,0,0,E3,2526
-E3,31/01/2026,12:30,Grimsby,Milton Keynes Dons,2,2,D,0,2,A,K Dowle,12,8,3,2,9,6,1,2,0,0,E3,2526
-E3,31/01/2026,15:00,Accrington,Cheltenham,3,1,H,2,0,H,S Parkinson,16,13,8,4,10,8,1,2,0,0,E3,2526
-E3,31/01/2026,15:00,Chesterfield,Walsall,2,2,D,2,1,H,C Breakspear,14,12,8,2,7,3,0,0,0,0,E3,2526
-E3,31/01/2026,15:00,Crawley Town,Harrogate,2,0,H,1,0,H,T Reeves,13,13,5,4,8,5,2,0,0,0,E3,2526
-E3,31/01/2026,15:00,Crewe,Colchester,1,0,H,0,0,D,E Bell,3,18,2,3,2,7,0,3,0,0,E3,2526
-E3,31/01/2026,15:00,Fleetwood Town,Notts County,1,2,A,0,1,A,R Joyce,10,8,2,3,2,8,2,4,0,0,E3,2526
-E3,31/01/2026,15:00,Gillingham,Bromley,1,4,A,1,3,A,A Young,20,13,11,6,8,0,1,3,0,0,E3,2526
-E3,31/01/2026,15:00,Oldham,Cambridge,0,3,A,0,0,D,R Ricardo,5,8,1,6,1,0,2,2,0,0,E3,2526
-E3,31/01/2026,15:00,Shrewsbury,Barnet,0,0,D,0,0,D,N Hair,9,18,1,7,3,6,3,1,0,0,E3,2526
-E3,31/01/2026,15:00,Swindon,Barrow,3,1,H,1,1,D,O Yates,14,15,7,4,8,9,1,1,0,0,E3,2526
-E3,31/01/2026,15:00,Tranmere,Salford,0,2,A,0,0,D,R Eley,17,12,7,4,9,4,2,0,0,0,E3,2526
-E3,03/02/2026,19:45,Barnet,Crewe,1,1,D,1,1,D,P Wright,15,8,3,4,8,2,0,3,0,0,E3,2526
-E3,03/02/2026,19:45,Bristol Rvs,Walsall,2,0,H,0,0,D,A Chilowicz,10,14,6,3,5,5,1,1,0,0,E3,2526
-E3,03/02/2026,19:45,Harrogate,Swindon,0,1,A,0,0,D,R Martin,21,18,4,8,7,9,1,1,0,0,E3,2526
-E3,03/02/2026,19:45,Notts County,Gillingham,1,0,H,1,0,H,A Byrne,14,12,4,4,4,3,1,3,0,0,E3,2526
-E3,05/02/2026,20:01,Accrington,Salford,1,0,H,1,0,H,D Drysdale,13,15,5,6,2,5,1,1,0,0,E3,2526
-E3,07/02/2026,12:31,Crawley Town,Crewe,0,1,A,0,0,D,B Speedie,9,17,3,6,3,7,2,0,0,0,E3,2526
-E3,07/02/2026,12:31,Swindon,Oldham,3,0,H,1,0,H,D Rock,10,13,6,5,4,3,3,2,0,0,E3,2526
-E3,07/02/2026,15:01,Bristol Rvs,Chesterfield,2,3,A,1,1,D,M Russell,13,15,2,8,6,6,3,2,0,0,E3,2526
-E3,07/02/2026,15:01,Cheltenham,Milton Keynes Dons,2,3,A,1,2,A,C Brook,14,19,2,9,7,8,1,4,0,0,E3,2526
-E3,07/02/2026,15:01,Colchester,Shrewsbury,2,0,H,2,0,H,J Oldham,6,15,4,4,0,2,4,2,0,0,E3,2526
-E3,07/02/2026,15:01,Fleetwood Town,Bromley,1,2,A,0,0,D,N Hair,11,11,4,4,2,2,2,2,0,0,E3,2526
-E3,07/02/2026,15:01,Gillingham,Tranmere,2,1,H,1,0,H,C Hicks,15,18,5,6,8,8,0,0,0,0,E3,2526
-E3,07/02/2026,15:01,Harrogate,Cambridge,2,1,H,2,1,H,E Duckworth,10,14,6,1,1,4,4,0,0,0,E3,2526
-E3,07/02/2026,15:01,Newport County,Grimsby,0,0,D,0,0,D,D Bourne,10,13,5,2,8,12,1,2,0,0,E3,2526
-E3,07/02/2026,15:01,Notts County,Barrow,2,1,H,1,1,D,M Barlow,13,7,5,4,7,4,1,3,0,0,E3,2526
-E3,07/02/2026,15:01,Walsall,Barnet,1,3,A,0,1,A,P Marsden,8,15,3,9,1,9,5,1,0,0,E3,2526
-E3,10/02/2026,19:45,Crawley Town,Cambridge,0,3,A,0,1,A,A Chilowicz,7,15,1,5,2,9,3,0,0,0,E3,2526
-E3,10/02/2026,19:45,Shrewsbury,Barrow,2,1,H,0,0,D,M Corlett,13,11,5,2,5,4,2,1,0,0,E3,2526
-E3,11/02/2026,19:45,Grimsby,Accrington,1,0,H,0,0,D,A Byrne,29,10,8,4,8,4,1,2,0,1,E3,2526
-E3,11/02/2026,20:00,Swindon,Newport County,2,0,H,0,0,D,D Drysdale,7,8,2,2,9,0,0,0,0,0,E3,2526
-E3,14/02/2026,12:30,Barnet,Cheltenham,0,0,D,0,0,D,S Mulhall,13,5,2,1,9,0,4,1,0,1,E3,2526
-E3,14/02/2026,15:00,Barrow,Colchester,1,0,H,0,0,D,P Wright,5,9,2,2,2,10,2,3,0,0,E3,2526
-E3,14/02/2026,15:00,Bromley,Notts County,1,1,D,1,0,H,D Drysdale,11,8,1,2,3,7,0,1,0,1,E3,2526
-E3,14/02/2026,15:00,Cambridge,Bristol Rvs,3,1,H,1,1,D,T Parsons,10,9,5,5,6,2,1,4,0,0,E3,2526
-E3,14/02/2026,15:00,Chesterfield,Harrogate,1,1,D,1,0,H,A Farmer,15,11,4,4,3,6,1,2,1,0,E3,2526
-E3,14/02/2026,15:00,Crewe,Gillingham,1,0,H,0,0,D,M Coy,7,20,2,5,2,8,0,1,0,0,E3,2526
-E3,14/02/2026,15:00,Milton Keynes Dons,Newport County,1,0,H,1,0,H,H Blair,20,3,9,0,6,2,1,2,0,0,E3,2526
-E3,14/02/2026,15:00,Oldham,Fleetwood Town,1,1,D,0,1,A,A Dale,12,14,3,3,7,7,0,2,0,0,E3,2526
-E3,14/02/2026,15:00,Shrewsbury,Swindon,3,1,H,1,1,D,H Wager,19,10,4,5,5,4,3,3,0,0,E3,2526
-E3,14/02/2026,15:00,Tranmere,Crawley Town,2,0,H,2,0,H,A Humphries,9,16,3,4,5,15,4,1,0,0,E3,2526
-E3,17/02/2026,19:45,Barnet,Swindon,1,2,A,1,0,H,C Hicks,8,8,2,4,3,1,1,1,0,0,E3,2526
-E3,17/02/2026,19:45,Barrow,Harrogate,0,1,A,0,1,A,S Copeland,14,7,2,2,1,6,1,2,0,0,E3,2526
-E3,17/02/2026,19:45,Bromley,Cheltenham,1,1,D,1,1,D,E Swallow,17,16,5,6,7,3,3,2,0,0,E3,2526
-E3,17/02/2026,19:45,Cambridge,Colchester,1,1,D,1,1,D,D Brown,14,9,2,3,5,3,2,2,0,0,E3,2526
-E3,17/02/2026,19:45,Chesterfield,Gillingham,1,0,H,1,0,H,W Finnie,19,14,5,2,8,7,0,3,0,0,E3,2526
-E3,17/02/2026,19:45,Crewe,Fleetwood Town,0,1,A,0,1,A,R Martin,7,17,0,5,3,5,0,3,0,0,E3,2526
-E3,17/02/2026,19:45,Milton Keynes Dons,Crawley Town,0,0,D,0,0,D,I Searle,13,11,4,4,9,2,1,3,0,0,E3,2526
-E3,17/02/2026,19:45,Oldham,Bristol Rvs,2,0,H,1,0,H,S Oldham,7,18,6,4,2,6,3,4,0,0,E3,2526
-E3,17/02/2026,19:45,Salford,Newport County,1,3,A,0,1,A,D Rock,19,6,2,3,9,1,4,5,0,0,E3,2526
-E3,17/02/2026,19:45,Shrewsbury,Notts County,1,0,H,0,0,D,W Davis,10,13,5,6,6,7,0,4,0,0,E3,2526
-E3,17/02/2026,19:45,Tranmere,Accrington,0,1,A,0,0,D,E Duckworth,18,13,2,6,7,1,1,3,0,2,E3,2526
-E3,18/02/2026,19:45,Grimsby,Walsall,2,2,D,0,1,A,T Parsons,17,7,8,4,10,6,1,2,0,1,E3,2526
-E3,21/02/2026,12:30,Fleetwood Town,Barrow,3,2,H,0,2,A,E Bell,11,5,6,3,4,3,2,3,0,0,E3,2526
-E3,21/02/2026,12:30,Swindon,Crewe,1,2,A,0,1,A,K Dowle,21,7,3,2,7,6,1,1,0,0,E3,2526
-E3,21/02/2026,15:00,Accrington,Shrewsbury,0,2,A,0,1,A,R Joyce,12,10,5,3,6,3,3,0,0,0,E3,2526
-E3,21/02/2026,15:00,Bristol Rvs,Grimsby,3,1,H,2,1,H,O Yates,18,9,3,6,5,4,3,0,0,0,E3,2526
-E3,21/02/2026,15:00,Cheltenham,Salford,3,2,H,0,1,A,A Byrne,13,6,5,4,7,3,1,5,0,1,E3,2526
-E3,21/02/2026,15:00,Colchester,Barnet,4,1,H,1,1,D,A Chilowicz,14,12,8,3,2,5,2,3,0,0,E3,2526
-E3,21/02/2026,15:00,Crawley Town,Chesterfield,1,1,D,0,1,A,P Howard,18,15,4,6,4,4,4,2,0,0,E3,2526
-E3,21/02/2026,15:00,Gillingham,Oldham,0,3,A,0,2,A,J Oldham,15,11,6,8,10,2,2,2,0,0,E3,2526
-E3,21/02/2026,15:00,Harrogate,Bromley,0,0,D,0,0,D,S Oldham,25,6,7,0,6,4,1,2,0,0,E3,2526
-E3,21/02/2026,15:00,Newport County,Cambridge,0,2,A,0,0,D,L Sandoe,6,14,1,4,2,9,2,2,0,0,E3,2526
-E3,21/02/2026,15:00,Notts County,Tranmere,5,0,H,1,0,H,H Wager,17,5,8,1,5,2,1,2,0,0,E3,2526
-E3,23/02/2026,20:00,Walsall,Milton Keynes Dons,0,2,A,0,1,A,P Wright,7,7,3,3,2,8,2,3,0,0,E3,2526
-E3,24/02/2026,19:45,Accrington,Barnet,0,1,A,0,0,D,M Barlow,3,21,1,4,2,3,1,0,0,0,E3,2526
-E3,24/02/2026,19:45,Salford,Shrewsbury,1,2,A,1,0,H,A Humphries,13,12,4,6,2,2,1,1,0,0,E3,2526
-E3,27/02/2026,19:45,Harrogate,Cheltenham,1,1,D,0,0,D,O Yates,21,11,5,1,9,5,0,2,0,0,E3,2526
-E3,28/02/2026,12:30,Cambridge,Milton Keynes Dons,1,1,D,0,0,D,D Bourne,7,9,3,4,3,2,1,2,0,0,E3,2526
-E3,28/02/2026,12:30,Shrewsbury,Walsall,1,2,A,1,1,D,R Eley,13,11,4,4,8,2,1,1,1,0,E3,2526
-E3,28/02/2026,12:30,Swindon,Bristol Rvs,1,1,D,0,1,A,R Ricardo,16,10,6,3,13,1,1,4,0,0,E3,2526
-E3,28/02/2026,15:00,Barnet,Chesterfield,1,0,H,0,0,D,W Davis,10,13,1,2,4,4,0,0,0,0,E3,2526
-E3,28/02/2026,15:00,Barrow,Gillingham,0,1,A,0,0,D,R Joyce,5,14,0,3,3,8,0,0,0,0,E3,2526
-E3,28/02/2026,15:00,Bromley,Accrington,2,1,H,1,1,D,A Humphries,17,12,7,4,5,5,1,1,0,1,E3,2526
-E3,28/02/2026,15:00,Colchester,Salford,0,1,A,0,0,D,R Martin,8,15,2,4,4,5,3,2,0,0,E3,2526
-E3,28/02/2026,15:00,Crewe,Tranmere,2,1,H,0,1,A,H Blair,17,6,5,2,5,1,1,3,0,0,E3,2526
-E3,28/02/2026,15:00,Fleetwood Town,Newport County,0,0,D,0,0,D,S Jackson,25,5,7,0,8,2,1,1,0,0,E3,2526
-E3,28/02/2026,15:00,Notts County,Grimsby,0,1,A,0,0,D,D Brown,14,12,5,4,7,6,3,3,1,0,E3,2526
-E3,28/02/2026,15:00,Oldham,Crawley Town,2,0,H,1,0,H,D Baines,18,8,11,2,8,3,4,1,0,0,E3,2526
-E3,03/03/2026,19:45,Bromley,Oldham,0,0,D,0,0,D,R Martin,14,9,3,3,3,7,3,1,0,0,E3,2526
-E3,03/03/2026,19:45,Chesterfield,Colchester,3,0,H,2,0,H,S Mather,13,4,6,2,4,4,2,5,0,0,E3,2526
-E3,03/03/2026,19:45,Grimsby,Salford,3,1,H,3,0,H,R Joyce,8,13,6,2,4,4,2,4,0,0,E3,2526
-E3,03/03/2026,19:45,Newport County,Tranmere,3,1,H,1,1,D,I Searle,18,7,6,3,7,5,2,2,0,1,E3,2526
-E3,03/03/2026,19:45,Walsall,Fleetwood Town,0,1,A,0,1,A,S Copeland,18,6,4,1,5,5,0,2,0,0,E3,2526
-E3,06/03/2026,19:45,Cheltenham,Barrow,2,2,D,1,1,D,K Dowle,16,11,5,8,1,3,1,2,0,0,E3,2526
-E3,07/03/2026,12:30,Grimsby,Bromley,1,1,D,1,1,D,S Stockbridge,15,7,8,5,6,5,0,2,0,0,E3,2526
-E3,07/03/2026,12:30,Salford,Barnet,2,0,H,2,0,H,R Madley,11,8,6,1,4,8,2,0,0,0,E3,2526
-E3,07/03/2026,15:00,Accrington,Cambridge,1,1,D,1,0,H,J O'Connor,5,14,1,3,0,12,2,0,0,0,E3,2526
-E3,07/03/2026,15:00,Bristol Rvs,Crewe,2,1,H,0,1,A,E Duckworth,14,14,2,3,7,7,3,4,0,0,E3,2526
-E3,07/03/2026,15:00,Chesterfield,Shrewsbury,2,3,A,1,1,D,A Dale,23,14,8,6,8,1,1,2,0,0,E3,2526
-E3,07/03/2026,15:00,Crawley Town,Swindon,2,2,D,0,0,D,S Mather,18,8,8,6,10,4,1,1,0,0,E3,2526
-E3,07/03/2026,15:00,Gillingham,Fleetwood Town,1,1,D,0,0,D,L Sandoe,6,14,3,5,1,3,2,1,0,0,E3,2526
-E3,07/03/2026,15:00,Milton Keynes Dons,Harrogate,4,1,H,2,1,H,A Chilowicz,16,15,9,4,7,2,1,0,0,0,E3,2526
-E3,07/03/2026,15:00,Newport County,Colchester,1,2,A,0,0,D,S Copeland,12,16,3,7,8,2,0,0,0,0,E3,2526
-E3,07/03/2026,15:00,Tranmere,Oldham,1,3,A,0,2,A,S Mulhall,13,9,1,5,2,3,2,1,0,0,E3,2526
-E3,07/03/2026,15:00,Walsall,Notts County,1,2,A,1,0,H,S Jackson,12,12,1,7,5,2,3,4,0,0,E3,2526
-E3,10/03/2026,19:45,Barrow,Bristol Rvs,0,2,A,0,1,A,T Reeves,9,9,3,5,2,6,1,0,0,0,E3,2526
-E3,10/03/2026,19:45,Fleetwood Town,Cheltenham,2,2,D,2,0,H,D Rock,14,8,3,4,8,2,2,3,0,0,E3,2526
-E3,10/03/2026,19:45,Gillingham,Milton Keynes Dons,1,5,A,0,3,A,H Wager,13,12,5,7,3,5,3,1,0,0,E3,2526
-E3,10/03/2026,19:45,Salford,Walsall,1,0,H,0,0,D,M Woods,5,7,2,1,11,2,1,1,0,0,E3,2526
-E3,13/03/2026,19:45,Colchester,Crawley Town,0,0,D,0,0,D,W Finnie,13,10,3,2,6,6,0,6,0,0,E3,2526
-E3,14/03/2026,12:30,Harrogate,Salford,0,1,A,0,0,D,J Linington,9,15,1,6,7,4,0,2,0,0,E3,2526
-E3,14/03/2026,12:30,Notts County,Chesterfield,2,3,A,2,2,D,M Corlett,5,20,3,5,2,5,3,4,1,0,E3,2526
-E3,14/03/2026,15:00,Barnet,Newport County,1,2,A,1,0,H,O Mackey,12,10,4,4,5,6,1,2,0,0,E3,2526
-E3,14/03/2026,15:00,Barrow,Accrington,0,0,D,0,0,D,M Coy,12,9,2,1,7,5,2,3,0,0,E3,2526
-E3,14/03/2026,15:00,Bromley,Bristol Rvs,1,0,H,1,0,H,E Bell,12,12,3,3,9,1,1,0,0,1,E3,2526
-E3,14/03/2026,15:00,Cambridge,Gillingham,5,0,H,2,0,H,M Barlow,18,6,6,0,8,1,0,3,0,0,E3,2526
-E3,14/03/2026,15:00,Crewe,Walsall,0,3,A,0,1,A,S Parkinson,8,15,2,8,4,1,2,3,0,0,E3,2526
-E3,14/03/2026,15:00,Fleetwood Town,Tranmere,0,0,D,0,0,D,E Heaslip,18,3,2,2,9,3,0,3,0,0,E3,2526
-E3,14/03/2026,15:00,Oldham,Grimsby,1,0,H,0,0,D,E Swallow,8,7,1,1,3,4,2,2,0,0,E3,2526
-E3,14/03/2026,15:00,Shrewsbury,Cheltenham,0,2,A,0,0,D,L Sandoe,8,8,2,3,1,2,2,3,0,0,E3,2526
-E3,14/03/2026,15:00,Swindon,Milton Keynes Dons,1,2,A,0,1,A,J O'Connor,12,11,5,3,5,6,2,2,0,0,E3,2526
-E3,17/03/2026,19:30,Newport County,Bromley,0,1,A,0,0,D,P Howard,18,8,5,3,9,4,1,3,0,0,E3,2526
-E3,17/03/2026,19:45,Accrington,Notts County,0,4,A,0,2,A,O Yates,10,19,3,9,3,12,1,1,0,0,E3,2526
-E3,17/03/2026,19:45,Bristol Rvs,Shrewsbury,1,0,H,0,0,D,D Rock,8,5,2,1,3,0,1,1,0,0,E3,2526
-E3,17/03/2026,19:45,Cheltenham,Crewe,1,1,D,0,0,D,S Copeland,16,15,4,3,4,3,3,1,0,0,E3,2526
-E3,17/03/2026,19:45,Chesterfield,Oldham,0,3,A,0,2,A,R Joyce,11,14,1,6,13,5,1,1,0,0,E3,2526
-E3,17/03/2026,19:45,Crawley Town,Barnet,1,1,D,0,0,D,H Wager,14,10,4,3,5,10,2,6,0,0,E3,2526
-E3,17/03/2026,19:45,Gillingham,Swindon,0,2,A,0,0,D,E Heaslip,20,6,3,2,9,2,1,3,0,0,E3,2526
-E3,17/03/2026,19:45,Grimsby,Fleetwood Town,1,0,H,0,0,D,W Cartmel,19,5,5,1,10,1,1,5,0,0,E3,2526
-E3,17/03/2026,19:45,Salford,Barrow,3,1,H,1,0,H,I Searle,12,12,6,4,2,5,1,1,0,0,E3,2526
-E3,17/03/2026,19:45,Tranmere,Harrogate,0,3,A,0,3,A,K Dowle,9,10,2,6,5,5,3,1,0,0,E3,2526
-E3,17/03/2026,19:45,Walsall,Cambridge,0,0,D,0,0,D,S Mather,10,7,1,0,6,4,0,2,0,0,E3,2526
-E3,18/03/2026,20:00,Milton Keynes Dons,Colchester,1,0,H,1,0,H,S Mulhall,17,8,3,0,3,4,2,4,0,0,E3,2526
-E3,21/03/2026,12:30,Cambridge,Salford,1,0,H,0,0,D,A Dale,12,9,7,3,5,3,2,4,0,0,E3,2526
-E3,21/03/2026,12:30,Milton Keynes Dons,Barnet,1,3,A,1,1,D,D Baines,11,10,5,6,4,6,1,2,0,0,E3,2526
-E3,21/03/2026,15:00,Accrington,Chesterfield,0,1,A,0,0,D,H Wager,14,13,6,3,4,7,2,1,0,0,E3,2526
-E3,21/03/2026,15:00,Bromley,Colchester,1,0,H,0,0,D,O Yates,19,18,6,5,5,7,2,3,0,0,E3,2526
-E3,21/03/2026,15:00,Fleetwood Town,Crawley Town,1,0,H,0,0,D,M Woods,11,10,5,3,4,10,2,0,0,0,E3,2526
-E3,21/03/2026,15:00,Gillingham,Bristol Rvs,1,2,A,1,0,H,C Breakspear,9,18,3,8,4,5,2,3,1,0,E3,2526
-E3,21/03/2026,15:00,Grimsby,Barrow,5,0,H,2,0,H,B Speedie,15,10,7,4,4,6,0,0,0,0,E3,2526
-E3,21/03/2026,15:00,Notts County,Cheltenham,5,2,H,2,2,D,E Bell,17,7,7,3,7,3,2,3,0,1,E3,2526
-E3,21/03/2026,15:00,Oldham,Harrogate,1,0,H,0,0,D,S Stockbridge,12,13,4,4,3,6,2,2,0,0,E3,2526
-E3,21/03/2026,15:00,Shrewsbury,Crewe,0,4,A,0,2,A,J O'Connor,13,16,2,9,5,6,0,3,0,0,E3,2526
-E3,21/03/2026,15:00,Tranmere,Swindon,0,1,A,0,0,D,T Parsons,12,13,7,6,5,9,1,0,0,0,E3,2526
-E3,21/03/2026,15:00,Walsall,Newport County,2,1,H,0,1,A,R Joyce,18,10,3,3,7,5,4,3,0,0,E3,2526
-E3,24/03/2026,19:45,Oldham,Notts County,3,0,H,1,0,H,A Humphries,12,4,7,2,7,1,0,2,0,1,E3,2526
-E3,28/03/2026,12:30,Harrogate,Notts County,0,2,A,0,1,A,W Finnie,8,15,2,6,3,7,1,0,0,0,E3,2526
-E3,28/03/2026,15:00,Barnet,Cambridge,1,0,H,0,0,D,M Woods,7,8,1,1,6,4,0,0,0,0,E3,2526
-E3,28/03/2026,15:00,Barrow,Bromley,2,1,H,0,1,A,R Madley,15,8,4,3,6,4,3,3,0,0,E3,2526
-E3,28/03/2026,15:00,Bristol Rvs,Accrington,2,0,H,1,0,H,B Speedie,11,9,3,2,5,7,2,3,0,0,E3,2526
-E3,28/03/2026,15:00,Colchester,Walsall,1,1,D,0,0,D,C Brook,16,13,5,7,9,8,2,0,0,0,E3,2526
-E3,28/03/2026,15:00,Crawley Town,Gillingham,2,0,H,0,0,D,E Duckworth,8,10,5,2,2,7,1,3,0,0,E3,2526
-E3,28/03/2026,15:00,Crewe,Oldham,2,1,H,1,1,D,S Mather,18,23,7,4,6,5,4,0,0,0,E3,2526
-E3,28/03/2026,15:00,Newport County,Shrewsbury,1,0,H,0,0,D,E Bell,7,3,2,1,6,4,2,3,0,0,E3,2526
-E3,28/03/2026,15:00,Salford,Milton Keynes Dons,1,0,H,0,0,D,T Parsons,12,11,4,3,5,3,1,2,0,1,E3,2526
-E3,28/03/2026,15:00,Swindon,Fleetwood Town,1,1,D,1,0,H,M Barlow,9,15,3,4,6,9,3,4,0,0,E3,2526
-E3,02/04/2026,20:00,Cambridge,Swindon,1,1,D,1,0,H,M Corlett,20,4,6,1,11,5,0,2,0,0,E3,2526
-E3,03/04/2026,15:00,Accrington,Crewe,2,0,H,0,0,D,O Mackey,14,4,3,1,4,7,3,1,0,0,E3,2526
-E3,03/04/2026,15:00,Barnet,Bromley,2,2,D,1,1,D,D Rock,17,16,6,7,6,3,1,4,1,0,E3,2526
-E3,03/04/2026,15:00,Bristol Rvs,Fleetwood Town,1,0,H,0,0,D,D Drysdale,11,14,2,2,5,4,4,4,0,0,E3,2526
-E3,03/04/2026,15:00,Chesterfield,Cheltenham,1,0,H,1,0,H,J Durkin,13,6,3,1,6,1,1,1,0,0,E3,2526
-E3,03/04/2026,15:00,Colchester,Oldham,1,3,A,0,1,A,S Jackson,15,9,3,4,7,2,1,2,0,0,E3,2526
-E3,03/04/2026,15:00,Grimsby,Harrogate,1,3,A,1,2,A,A Humphries,19,6,6,3,8,2,1,3,0,0,E3,2526
-E3,03/04/2026,15:00,Milton Keynes Dons,Barrow,0,0,D,0,0,D,M Woods,16,5,5,0,6,1,2,3,0,0,E3,2526
-E3,03/04/2026,15:00,Newport County,Crawley Town,0,2,A,0,0,D,L Smith,10,13,2,5,7,2,3,3,0,0,E3,2526
-E3,03/04/2026,15:00,Salford,Notts County,2,1,H,0,0,D,S Stockbridge,17,12,7,1,7,1,1,1,0,0,E3,2526
-E3,03/04/2026,15:00,Shrewsbury,Tranmere,1,0,H,0,0,D,O Yates,20,6,5,1,5,5,0,1,0,0,E3,2526
-E3,03/04/2026,15:00,Walsall,Gillingham,2,2,D,1,0,H,W Davis,11,12,5,4,5,3,0,2,0,0,E3,2526
-E3,06/04/2026,15:00,Barrow,Chesterfield,0,1,A,0,0,D,D Drysdale,7,13,1,3,1,12,2,2,0,0,E3,2526
-E3,06/04/2026,15:00,Cheltenham,Cambridge,1,1,D,0,1,A,J Oldham,3,11,0,4,3,6,0,1,0,0,E3,2526
-E3,06/04/2026,15:00,Crawley Town,Grimsby,0,2,A,0,2,A,R Madley,7,16,0,5,3,9,1,1,1,0,E3,2526
-E3,06/04/2026,15:00,Crewe,Salford,1,0,H,1,0,H,P Howard,19,15,4,2,4,3,1,1,0,0,E3,2526
-E3,06/04/2026,15:00,Fleetwood Town,Barnet,2,5,A,0,1,A,D Bourne,13,16,5,9,9,6,2,3,1,0,E3,2526
-E3,06/04/2026,15:00,Gillingham,Accrington,2,0,H,1,0,H,G Laflin,11,8,5,0,6,2,3,4,0,2,E3,2526
-E3,06/04/2026,15:00,Harrogate,Bristol Rvs,2,3,A,1,0,H,S Parkinson,17,15,2,6,5,4,1,0,0,0,E3,2526
-E3,06/04/2026,15:00,Notts County,Newport County,3,1,H,2,0,H,E Duckworth,15,4,8,2,8,4,2,3,0,0,E3,2526
-E3,06/04/2026,15:00,Oldham,Milton Keynes Dons,1,1,D,0,1,A,S Copeland,13,12,4,2,8,2,0,2,0,0,E3,2526
-E3,06/04/2026,15:00,Swindon,Walsall,2,1,H,0,0,D,E Swallow,7,11,2,2,4,8,1,1,0,0,E3,2526
-E3,06/04/2026,15:00,Tranmere,Colchester,0,1,A,0,0,D,S Oldham,17,16,6,5,5,8,1,1,0,0,E3,2526
-E3,07/04/2026,20:00,Bromley,Shrewsbury,2,1,H,1,1,D,A Byrne,11,7,4,3,6,1,0,3,0,0,E3,2526
-E3,10/04/2026,19:45,Colchester,Swindon,3,0,H,0,0,D,P Howard,25,4,10,1,10,1,1,0,0,1,E3,2526
-E3,11/04/2026,12:30,Bristol Rvs,Crawley Town,3,1,H,2,0,H,S Oldham,11,23,3,4,4,2,2,1,1,0,E3,2526
-E3,11/04/2026,12:30,Milton Keynes Dons,Bromley,2,1,H,2,0,H,W Finnie,10,19,4,7,2,9,1,3,1,0,E3,2526
-E3,11/04/2026,15:00,Accrington,Fleetwood Town,1,2,A,0,1,A,R Watkins,11,13,2,6,4,8,2,2,0,0,E3,2526
-E3,11/04/2026,15:00,Barnet,Barrow,3,2,H,1,1,D,S Mather,23,5,5,2,8,0,1,1,0,0,E3,2526
-E3,11/04/2026,15:00,Cambridge,Notts County,4,0,H,3,0,H,B Speedie,13,8,6,0,4,4,0,2,1,0,E3,2526
-E3,11/04/2026,15:00,Chesterfield,Tranmere,1,1,D,1,0,H,S Stockbridge,7,13,3,4,6,7,2,4,0,0,E3,2526
-E3,11/04/2026,15:00,Grimsby,Crewe,3,2,H,1,0,H,D Rock,16,8,3,2,2,5,1,0,0,0,E3,2526
-E3,11/04/2026,15:00,Newport County,Harrogate,2,1,H,1,1,D,N Hair,11,10,3,2,8,7,2,1,0,0,E3,2526
-E3,11/04/2026,15:00,Salford,Gillingham,0,0,D,0,0,D,S Parkinson,12,5,3,0,3,5,1,2,0,0,E3,2526
-E3,11/04/2026,15:00,Shrewsbury,Oldham,1,0,H,1,0,H,E Heaslip,8,10,2,2,3,5,2,2,0,0,E3,2526
-E3,11/04/2026,15:00,Walsall,Cheltenham,0,4,A,0,0,D,A Dale,8,15,0,6,0,5,1,1,0,0,E3,2526
-E3,14/04/2026,19:45,Barrow,Oldham,3,2,H,0,0,D,E Duckworth,12,10,4,5,7,4,3,1,0,0,E3,2526
-E3,14/04/2026,19:45,Cheltenham,Gillingham,2,1,H,0,1,A,H Blair,8,13,3,5,8,4,1,0,0,0,E3,2526
-E3,14/04/2026,19:45,Chesterfield,Grimsby,2,1,H,2,1,H,T Reeves,14,8,3,3,8,4,3,3,0,0,E3,2526
-E3,14/04/2026,19:45,Colchester,Accrington,2,1,H,1,1,D,J Miles,17,11,7,3,6,2,4,1,0,0,E3,2526
-E3,16/04/2026,20:00,Bromley,Cambridge,0,0,D,0,0,D,S Mulhall,15,9,1,3,4,6,1,2,0,0,E3,2526
-E3,18/04/2026,12:30,Barrow,Walsall,1,3,A,0,2,A,S Oldham,10,18,2,12,5,3,1,0,0,0,E3,2526
-E3,18/04/2026,12:30,Swindon,Accrington,2,2,D,2,1,H,D Brown,8,11,6,7,5,6,0,1,0,0,E3,2526
-E3,18/04/2026,15:00,Cheltenham,Newport County,1,0,H,0,0,D,S Mather,8,17,4,3,2,8,1,4,0,0,E3,2526
-E3,18/04/2026,15:00,Crawley Town,Shrewsbury,0,0,D,0,0,D,C Hicks,13,7,5,0,7,2,1,1,0,0,E3,2526
-E3,18/04/2026,15:00,Crewe,Milton Keynes Dons,1,3,A,0,2,A,Z Kennard-Kettle,8,17,4,6,3,6,1,1,0,0,E3,2526
-E3,18/04/2026,15:00,Fleetwood Town,Chesterfield,1,1,D,0,0,D,R Martin,22,13,9,2,4,6,0,0,0,1,E3,2526
-E3,18/04/2026,15:00,Gillingham,Grimsby,1,4,A,0,1,A,O Mackey,9,14,3,6,5,3,2,1,0,0,E3,2526
-E3,18/04/2026,15:00,Harrogate,Colchester,1,0,H,0,0,D,M Coy,13,16,5,3,7,5,4,1,0,0,E3,2526
-E3,18/04/2026,15:00,Notts County,Barnet,1,2,A,1,1,D,T Reeves,9,14,4,2,1,7,1,1,0,0,E3,2526
-E3,18/04/2026,15:00,Oldham,Salford,1,2,A,0,2,A,W Finnie,13,14,2,4,7,4,3,2,0,0,E3,2526
-E3,18/04/2026,15:00,Tranmere,Bristol Rvs,1,2,A,0,0,D,C Brook,10,10,3,4,5,2,4,3,0,0,E3,2526
-E3,21/04/2026,19:45,Cambridge,Grimsby,1,2,A,1,1,D,T Parsons,17,10,2,3,6,5,0,2,0,0,E3,2526
-E3,21/04/2026,19:45,Cheltenham,Tranmere,1,3,A,1,0,H,S Parkinson,11,14,1,6,4,5,1,0,0,0,E3,2526
-E3,23/04/2026,20:00,Salford,Bromley,2,0,H,0,0,D,A Humphries,9,12,4,3,6,4,2,1,0,0,E3,2526
-E3,25/04/2026,12:30,Grimsby,Swindon,4,0,H,3,0,H,C Brook,16,11,6,2,9,5,0,2,0,0,E3,2526
-E3,25/04/2026,12:30,Milton Keynes Dons,Tranmere,3,0,H,2,0,H,T Reeves,18,11,7,1,6,2,0,2,0,0,E3,2526
-E3,25/04/2026,15:00,Accrington,Crawley Town,3,3,D,1,1,D,K Dowle,6,14,3,5,4,3,1,1,0,0,E3,2526
-E3,25/04/2026,15:00,Barnet,Gillingham,6,2,H,5,1,H,O Yates,23,4,12,2,9,3,2,2,0,0,E3,2526
-E3,25/04/2026,15:00,Bristol Rvs,Cheltenham,4,0,H,2,0,H,M Barlow,9,10,4,1,1,7,5,1,0,0,E3,2526
-E3,25/04/2026,15:00,Cambridge,Barrow,3,0,H,1,0,H,S Parkinson,15,3,5,0,10,3,0,3,0,0,E3,2526
-E3,25/04/2026,15:00,Chesterfield,Crewe,2,0,H,1,0,H,J Bell,14,6,6,1,0,3,2,1,0,0,E3,2526
-E3,25/04/2026,15:00,Colchester,Notts County,0,1,A,0,0,D,C Breakspear,6,18,0,11,4,5,3,3,0,0,E3,2526
-E3,25/04/2026,15:00,Newport County,Oldham,3,2,H,1,2,A,D Rock,24,12,14,6,6,4,2,2,0,1,E3,2526
-E3,25/04/2026,15:00,Shrewsbury,Fleetwood Town,2,2,D,0,1,A,H Blair,13,5,6,2,5,2,1,2,0,0,E3,2526
-E3,25/04/2026,15:00,Walsall,Harrogate,0,2,A,0,1,A,B Speedie,18,11,3,4,10,3,3,2,0,0,E3,2526
-E3,02/05/2026,15:00,Barrow,Newport County,1,2,A,1,0,H,J Miles,24,16,6,4,6,4,2,1,0,0,E3,2526
-E3,02/05/2026,15:00,Bromley,Walsall,3,1,H,1,0,H,S Jackson,22,13,8,5,11,5,0,4,0,0,E3,2526
-E3,02/05/2026,15:00,Cheltenham,Colchester,1,4,A,0,3,A,T Reeves,15,11,4,7,9,1,1,1,0,0,E3,2526
-E3,02/05/2026,15:00,Crawley Town,Salford,0,0,D,0,0,D,L Swabey,12,17,4,4,3,11,1,0,0,0,E3,2526
-E3,02/05/2026,15:00,Crewe,Cambridge,0,0,D,0,0,D,N Hair,8,10,2,5,8,6,1,3,0,0,E3,2526
-E3,02/05/2026,15:00,Fleetwood Town,Milton Keynes Dons,1,1,D,1,1,D,S Parkinson,9,14,3,4,5,3,0,0,0,0,E3,2526
-E3,02/05/2026,15:00,Gillingham,Shrewsbury,1,0,H,0,0,D,D Rock,6,16,2,5,2,5,1,2,0,0,E3,2526
-E3,02/05/2026,15:00,Harrogate,Barnet,1,2,A,1,1,D,T Parsons,14,12,3,6,4,6,2,2,0,0,E3,2526
-E3,02/05/2026,15:00,Notts County,Bristol Rvs,1,1,D,1,0,H,R Joyce,15,12,6,4,5,3,3,3,0,0,E3,2526
-E3,02/05/2026,15:00,Oldham,Accrington,3,0,H,1,0,H,C Brook,9,7,5,4,5,0,0,1,0,0,E3,2526
-E3,02/05/2026,15:00,Swindon,Chesterfield,1,2,A,1,1,D,S Oldham,13,11,7,3,8,3,3,2,0,0,E3,2526
-E3,02/05/2026,15:00,Tranmere,Grimsby,1,1,D,0,1,A,M Coy,8,13,2,3,4,4,0,1,0,0,E3,2526
-E3,15/08/2026,12:30,Newport County,Rochdale,3,0,H,2,0,H,H Blair,12,5,6,0,9,6,2,4,0,1,E3,2627
-E3,15/08/2026,12:30,Oldham,Port Vale,2,0,H,0,0,D,P Howard,11,13,3,2,1,6,2,4,0,0,E3,2627
-E3,15/08/2026,15:00,Accrington,Colchester,2,2,D,2,1,H,E Swallow,20,7,11,5,9,4,1,0,0,0,E3,2627
-E3,15/08/2026,15:00,Barnet,Salford,3,1,H,2,0,H,R Eley,20,14,7,3,6,5,2,3,0,0,E3,2627
-E3,15/08/2026,15:00,Cheltenham,Rotherham,2,1,H,1,0,H,H Wager,6,19,4,5,5,4,3,1,0,0,E3,2627
-E3,15/08/2026,15:00,Chesterfield,Fleetwood Town,0,1,A,0,1,A,A Dale,15,14,3,7,5,1,1,3,0,0,E3,2627
-E3,15/08/2026,15:00,Crawley Town,Crewe,0,1,A,0,0,D,A Humphries,9,18,3,4,4,11,2,5,2,1,E3,2627
-E3,15/08/2026,15:00,Gillingham,Walsall,0,3,A,0,0,D,E Heaslip,17,17,7,5,6,9,4,2,0,0,E3,2627
-E3,15/08/2026,15:00,Grimsby,Exeter,1,0,H,1,0,H,A Byrne,21,8,4,2,6,3,1,1,0,0,E3,2627
-E3,15/08/2026,15:00,Northampton,Swindon,0,0,D,0,0,D,S Oldham,11,4,3,0,10,1,0,2,0,0,E3,2627
-E3,15/08/2026,15:00,Tranmere,Shrewsbury,2,0,H,1,0,H,J O'Connor,7,15,4,5,3,5,3,2,0,0,E3,2627
-E3,15/08/2026,15:00,York,Bristol Rvs,3,2,H,0,1,A,T Nield,16,13,5,3,7,6,2,0,0,0,E3,2627
-E3,22/08/2026,12:30,Bristol Rvs,Newport County,5,3,H,1,1,D,S Mather,26,8,9,3,11,1,2,1,0,0,E3,2627
-E3,22/08/2026,12:30,Salford,Chesterfield,0,1,A,0,1,A,S Oldham,10,14,3,3,5,1,2,3,0,0,E3,2627
-E3,22/08/2026,12:30,Walsall,Grimsby,0,0,D,0,0,D,M Russell,16,13,2,1,8,7,1,1,0,0,E3,2627
-E3,22/08/2026,15:00,Colchester,Oldham,2,1,H,0,1,A,J Durkin,17,6,5,2,8,2,2,5,0,1,E3,2627
-E3,22/08/2026,15:00,Crewe,Northampton,1,0,H,0,0,D,L Sandoe,6,15,3,6,7,6,1,1,0,0,E3,2627
-E3,22/08/2026,15:00,Exeter,Accrington,2,0,H,2,0,H,S Jackson,19,14,5,2,9,1,3,2,0,0,E3,2627
-E3,22/08/2026,15:00,Fleetwood Town,Gillingham,0,0,D,0,0,D,D Baines,17,9,0,3,10,2,1,2,0,0,E3,2627
-E3,22/08/2026,15:00,Port Vale,Tranmere,1,1,D,1,0,H,D Brown,9,6,4,4,4,3,2,3,0,0,E3,2627
-E3,22/08/2026,15:00,Rochdale,Crawley Town,1,2,A,0,1,A,Z Kennard-Kettle,7,12,3,2,5,3,4,4,0,0,E3,2627
-E3,22/08/2026,15:00,Rotherham,York,1,1,D,1,1,D,D Bourne,10,17,2,5,5,9,2,0,0,0,E3,2627
-E3,22/08/2026,15:00,Shrewsbury,Barnet,1,3,A,1,1,D,W Davis,10,15,1,3,7,9,1,0,0,0,E3,2627
-E3,22/08/2026,15:00,Swindon,Cheltenham,2,1,H,1,0,H,C Hicks,5,14,3,6,2,5,1,1,0,0,E3,2627
+Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HC,AC,HY,AY,HR,AR,HxG,AxG,League,Season
+E3,02/08/2025,15:00,Accrington,Gillingham,1,1,D,0,0,D,O Yates,10,8,3,0,3,3,2,2,0,0,,,E3,2526
+E3,02/08/2025,15:00,Barnet,Fleetwood Town,0,2,A,0,1,A,A Bannister,19,12,6,7,8,2,0,0,0,0,,,E3,2526
+E3,02/08/2025,15:00,Bristol Rvs,Harrogate,0,1,A,0,0,D,C Brook,17,7,2,3,13,4,1,3,0,0,,,E3,2526
+E3,02/08/2025,15:00,Cambridge,Cheltenham,1,0,H,0,0,D,C Hicks,13,7,4,2,4,2,0,2,0,0,,,E3,2526
+E3,02/08/2025,15:00,Chesterfield,Barrow,1,0,H,1,0,H,A Young,7,10,3,1,4,3,1,1,0,0,,,E3,2526
+E3,02/08/2025,15:00,Colchester,Tranmere,1,1,D,0,1,A,D Rock,10,10,2,2,4,5,2,2,0,0,,,E3,2526
+E3,02/08/2025,15:00,Grimsby,Crawley Town,3,0,H,2,0,H,S Jackson,20,5,6,1,10,3,0,2,0,0,,,E3,2526
+E3,02/08/2025,15:00,Milton Keynes Dons,Oldham,0,0,D,0,0,D,M Russell,5,5,0,1,7,3,1,3,0,0,,,E3,2526
+E3,02/08/2025,15:00,Salford,Crewe,1,3,A,1,3,A,N Hair,11,22,5,10,7,10,4,2,0,0,,,E3,2526
+E3,02/08/2025,15:00,Shrewsbury,Bromley,0,0,D,0,0,D,Z Kennard-Kettle,7,17,2,2,4,5,3,1,0,0,,,E3,2526
+E3,02/08/2025,15:00,Walsall,Swindon,2,1,H,1,0,H,O Mackey,5,16,4,5,1,5,2,1,1,0,,,E3,2526
+E3,02/08/2025,16:00,Newport County,Notts County,1,1,D,0,0,D,P Wright,6,13,1,5,2,6,1,1,0,0,,,E3,2526
+E3,09/08/2025,12:30,Notts County,Salford,1,2,A,0,1,A,A Bannister,9,11,3,5,1,7,3,3,0,0,,,E3,2526
+E3,09/08/2025,12:30,Tranmere,Shrewsbury,4,0,H,2,0,H,J O'Connor,10,12,6,3,2,5,1,1,0,1,,,E3,2526
+E3,09/08/2025,15:00,Barrow,Milton Keynes Dons,0,2,A,0,0,D,M Barlow,7,12,0,5,1,5,3,2,0,0,,,E3,2526
+E3,09/08/2025,15:00,Bromley,Barnet,2,0,H,1,0,H,L Swabey,9,10,3,2,6,6,3,1,0,0,,,E3,2526
+E3,09/08/2025,15:00,Cheltenham,Chesterfield,0,2,A,0,0,D,B Speedie,6,16,2,8,2,5,7,1,0,0,,,E3,2526
+E3,09/08/2025,15:00,Crawley Town,Newport County,1,2,A,0,0,D,J Oldham,18,7,6,3,6,3,0,2,0,0,,,E3,2526
+E3,09/08/2025,15:00,Crewe,Accrington,2,0,H,2,0,H,R Eley,15,9,4,3,8,2,1,2,0,0,,,E3,2526
+E3,09/08/2025,15:00,Fleetwood Town,Bristol Rvs,2,1,H,2,0,H,S Stockbridge,7,14,3,2,1,6,1,3,0,0,,,E3,2526
+E3,09/08/2025,15:00,Gillingham,Walsall,1,0,H,0,0,D,R Martin,8,6,2,2,5,2,3,3,0,0,,,E3,2526
+E3,09/08/2025,15:00,Harrogate,Grimsby,3,3,D,0,0,D,W Davis,8,13,3,4,3,4,5,3,0,0,,,E3,2526
+E3,09/08/2025,15:00,Oldham,Colchester,1,1,D,1,1,D,C Hicks,20,8,7,3,8,7,1,1,0,0,,,E3,2526
+E3,09/08/2025,15:00,Swindon,Cambridge,3,2,H,2,1,H,E Duckworth,9,10,5,4,2,7,2,1,0,0,,,E3,2526
+E3,16/08/2025,12:30,Chesterfield,Bristol Rvs,3,1,H,1,0,H,S Mulhall,21,7,10,3,5,4,3,3,0,1,,,E3,2526
+E3,16/08/2025,12:30,Oldham,Swindon,1,2,A,1,2,A,G Rollason,13,13,5,3,4,2,0,3,0,0,,,E3,2526
+E3,16/08/2025,15:00,Barnet,Walsall,1,2,A,1,2,A,A Byrne,10,6,3,2,7,1,2,0,1,0,,,E3,2526
+E3,16/08/2025,15:00,Barrow,Notts County,2,1,H,1,0,H,P Marsden,11,7,5,3,3,3,1,1,0,0,,,E3,2526
+E3,16/08/2025,15:00,Bromley,Fleetwood Town,2,2,D,1,1,D,O Mackey,17,14,5,4,7,2,4,2,0,0,,,E3,2526
+E3,16/08/2025,15:00,Cambridge,Harrogate,1,1,D,1,0,H,K Dowle,16,4,5,1,9,3,1,1,0,0,,,E3,2526
+E3,16/08/2025,15:00,Crewe,Crawley Town,1,0,H,1,0,H,S Stockbridge,13,16,2,4,7,3,4,2,0,0,,,E3,2526
+E3,16/08/2025,15:00,Grimsby,Newport County,2,1,H,1,0,H,Z Kennard-Kettle,22,12,6,3,12,3,2,3,0,0,,,E3,2526
+E3,16/08/2025,15:00,Milton Keynes Dons,Cheltenham,5,0,H,3,0,H,J Miles,16,9,8,2,3,1,1,4,0,0,,,E3,2526
+E3,16/08/2025,15:00,Salford,Accrington,2,1,H,2,0,H,M Corlett,10,12,3,4,5,1,1,1,0,0,,,E3,2526
+E3,16/08/2025,15:00,Shrewsbury,Colchester,0,2,A,0,0,D,M Barlow,8,9,1,4,6,1,2,1,1,0,,,E3,2526
+E3,16/08/2025,15:00,Tranmere,Gillingham,1,1,D,0,0,D,D Bourne,12,6,2,1,3,4,2,2,0,1,,,E3,2526
+E3,19/08/2025,19:30,Newport County,Salford,0,1,A,0,0,D,J Durkin,11,11,2,3,5,3,1,3,0,0,,,E3,2526
+E3,19/08/2025,19:45,Bristol Rvs,Oldham,0,0,D,0,0,D,J Oldham,13,10,4,1,4,1,3,2,0,0,,,E3,2526
+E3,19/08/2025,19:45,Cheltenham,Bromley,1,2,A,0,1,A,R Massey-Ellis,13,18,6,4,12,7,1,3,0,0,,,E3,2526
+E3,19/08/2025,19:45,Colchester,Cambridge,1,2,A,1,2,A,R Eley,9,12,3,4,2,11,2,4,0,0,,,E3,2526
+E3,19/08/2025,19:45,Crawley Town,Milton Keynes Dons,1,1,D,1,0,H,S Parkinson,12,15,6,6,8,11,4,1,0,0,,,E3,2526
+E3,19/08/2025,19:45,Fleetwood Town,Crewe,1,4,A,0,2,A,T Kirk,9,17,3,10,2,3,6,4,0,0,,,E3,2526
+E3,19/08/2025,19:45,Gillingham,Chesterfield,4,1,H,1,0,H,C Hicks,11,7,6,3,0,2,4,1,0,0,,,E3,2526
+E3,19/08/2025,19:45,Harrogate,Barrow,1,0,H,1,0,H,J O'Connor,22,17,5,1,4,6,0,0,0,0,,,E3,2526
+E3,19/08/2025,19:45,Swindon,Barnet,0,2,A,0,0,D,A Humphries,8,11,4,5,6,8,2,3,0,0,,,E3,2526
+E3,19/08/2025,20:00,Walsall,Grimsby,0,1,A,0,0,D,M Corlett,11,15,2,5,4,6,2,2,0,0,,,E3,2526
+E3,20/08/2025,19:45,Notts County,Shrewsbury,4,1,H,2,1,H,D Drysdale,11,7,8,2,4,4,3,3,0,0,,,E3,2526
+E3,23/08/2025,12:30,Newport County,Milton Keynes Dons,1,2,A,1,1,D,S Morland,10,17,3,4,3,7,1,2,0,0,,,E3,2526
+E3,23/08/2025,12:30,Walsall,Salford,1,0,H,1,0,H,J Oldham,18,6,6,3,5,2,2,1,0,0,,,E3,2526
+E3,23/08/2025,15:00,Accrington,Grimsby,1,1,D,0,1,A,R Martin,11,13,3,4,5,0,5,0,0,0,,,E3,2526
+E3,23/08/2025,15:00,Bristol Rvs,Cambridge,1,0,H,1,0,H,P Marsden,9,8,3,0,3,4,2,1,0,1,,,E3,2526
+E3,23/08/2025,15:00,Cheltenham,Barnet,0,1,A,0,0,D,S Jackson,11,15,1,6,1,4,1,1,0,1,,,E3,2526
+E3,23/08/2025,15:00,Colchester,Barrow,0,2,A,0,1,A,A Bannister,24,9,6,4,14,2,2,3,0,0,,,E3,2526
+E3,23/08/2025,15:00,Crawley Town,Tranmere,0,2,A,0,0,D,G Rollason,20,10,3,2,8,9,1,4,0,0,,,E3,2526
+E3,23/08/2025,15:00,Fleetwood Town,Oldham,1,1,D,1,1,D,B Speedie,12,22,4,3,4,8,2,0,0,0,,,E3,2526
+E3,23/08/2025,15:00,Gillingham,Crewe,1,0,H,0,0,D,A Byrne,17,7,5,2,4,3,2,2,0,0,,,E3,2526
+E3,23/08/2025,15:00,Harrogate,Chesterfield,1,2,A,0,1,A,S Copeland,9,13,3,5,6,5,0,1,0,0,,,E3,2526
+E3,23/08/2025,15:00,Notts County,Bromley,2,2,D,2,1,H,T Reeves,8,8,3,2,3,5,1,4,0,0,,,E3,2526
+E3,23/08/2025,15:00,Swindon,Shrewsbury,2,1,H,1,0,H,L Swabey,15,10,7,3,5,2,1,2,0,0,,,E3,2526
+E3,29/08/2025,19:45,Salford,Cheltenham,1,1,D,0,0,D,A Chilowicz,26,5,7,3,14,1,2,1,0,0,,,E3,2526
+E3,30/08/2025,12:30,Barrow,Fleetwood Town,0,1,A,0,1,A,T Reeves,8,19,1,6,4,9,2,3,1,0,,,E3,2526
+E3,30/08/2025,12:30,Crewe,Swindon,0,3,A,0,3,A,M Russell,9,19,3,9,3,4,1,1,0,0,,,E3,2526
+E3,30/08/2025,15:00,Barnet,Colchester,1,1,D,0,1,A,M Woods,15,7,6,2,8,3,2,0,0,0,,,E3,2526
+E3,30/08/2025,15:00,Bromley,Harrogate,2,0,H,0,0,D,A Young,17,7,6,3,3,4,2,2,0,0,,,E3,2526
+E3,30/08/2025,15:00,Cambridge,Newport County,2,0,H,1,0,H,G Rhodes,10,4,3,2,7,4,0,1,0,0,,,E3,2526
+E3,30/08/2025,15:00,Chesterfield,Crawley Town,2,2,D,0,2,A,B Toner,12,3,3,3,8,5,4,5,0,0,,,E3,2526
+E3,30/08/2025,15:00,Grimsby,Bristol Rvs,0,1,A,0,1,A,N Hair,12,7,2,3,9,8,1,3,0,0,,,E3,2526
+E3,30/08/2025,15:00,Milton Keynes Dons,Walsall,0,1,A,0,0,D,S Mulhall,18,6,5,2,5,3,2,1,0,0,,,E3,2526
+E3,30/08/2025,15:00,Oldham,Gillingham,0,1,A,0,0,D,S Jackson,11,8,3,2,7,2,5,3,0,0,,,E3,2526
+E3,30/08/2025,15:00,Shrewsbury,Accrington,0,0,D,0,0,D,O Mackey,17,9,5,4,2,6,3,3,0,0,,,E3,2526
+E3,30/08/2025,15:00,Tranmere,Notts County,1,2,A,1,0,H,Z Kennard-Kettle,15,7,2,4,8,3,5,2,0,0,,,E3,2526
+E3,06/09/2025,12:30,Newport County,Bristol Rvs,2,3,A,0,0,D,B Toner,11,12,5,4,1,3,1,3,0,0,,,E3,2526
+E3,06/09/2025,15:00,Barnet,Shrewsbury,1,3,A,1,3,A,K Dowle,15,11,6,4,6,3,1,5,0,0,,,E3,2526
+E3,06/09/2025,15:00,Barrow,Swindon,1,3,A,0,2,A,S Stockbridge,14,8,2,3,8,2,1,3,0,0,,,E3,2526
+E3,06/09/2025,15:00,Cambridge,Oldham,0,1,A,0,1,A,B Atkinson,14,6,3,4,11,2,3,2,0,0,,,E3,2526
+E3,06/09/2025,15:00,Cheltenham,Accrington,1,0,H,1,0,H,A Byrne,13,8,3,1,5,5,1,3,0,0,,,E3,2526
+E3,06/09/2025,15:00,Colchester,Crewe,1,1,D,0,1,A,G Rollason,14,5,7,1,3,2,2,4,0,0,,,E3,2526
+E3,06/09/2025,15:00,Harrogate,Crawley Town,0,1,A,0,1,A,T Parsons,21,13,6,3,5,7,1,3,0,1,,,E3,2526
+E3,06/09/2025,15:00,Milton Keynes Dons,Grimsby,2,3,A,0,3,A,O Mackey,8,13,2,8,6,5,2,1,1,0,,,E3,2526
+E3,06/09/2025,15:00,Notts County,Fleetwood Town,1,0,H,0,0,D,S Parkinson,13,13,4,6,9,5,3,3,0,0,,,E3,2526
+E3,06/09/2025,15:00,Salford,Tranmere,3,1,H,0,0,D,A Humphries,27,11,8,4,10,2,1,0,0,0,,,E3,2526
+E3,06/09/2025,15:00,Walsall,Chesterfield,1,0,H,1,0,H,Z Kennard-Kettle,7,9,2,0,7,2,2,4,1,0,,,E3,2526
+E3,06/09/2025,17:30,Bromley,Gillingham,2,2,D,2,0,H,J Durkin,16,15,6,5,5,7,2,2,0,0,,,E3,2526
+E3,13/09/2025,12:30,Accrington,Colchester,1,0,H,1,0,H,M Coy,16,5,8,0,5,4,2,3,0,1,,,E3,2526
+E3,13/09/2025,12:30,Crawley Town,Cheltenham,2,0,H,0,0,D,T Reeves,17,11,6,3,7,4,2,1,0,0,,,E3,2526
+E3,13/09/2025,15:00,Bristol Rvs,Barrow,2,1,H,2,0,H,S Allison,12,15,3,2,6,9,2,3,0,0,,,E3,2526
+E3,13/09/2025,15:00,Chesterfield,Milton Keynes Dons,1,1,D,0,1,A,E Duckworth,12,4,4,1,7,4,1,4,0,0,,,E3,2526
+E3,13/09/2025,15:00,Crewe,Barnet,1,2,A,0,0,D,D Bourne,11,12,5,5,5,6,0,4,0,0,,,E3,2526
+E3,13/09/2025,15:00,Fleetwood Town,Walsall,1,1,D,1,1,D,N Hair,9,13,2,2,6,6,1,1,0,0,,,E3,2526
+E3,13/09/2025,15:00,Gillingham,Notts County,1,0,H,0,0,D,S Mulhall,7,8,3,1,2,4,4,1,0,0,,,E3,2526
+E3,13/09/2025,15:00,Grimsby,Cambridge,1,1,D,0,1,A,G Rollason,11,11,5,4,5,5,3,4,0,0,,,E3,2526
+E3,13/09/2025,15:00,Oldham,Bromley,1,0,H,0,0,D,R Eley,16,14,6,3,8,8,2,1,0,0,,,E3,2526
+E3,13/09/2025,15:00,Shrewsbury,Salford,1,3,A,0,1,A,P Wright,17,11,3,3,7,4,1,2,0,0,,,E3,2526
+E3,13/09/2025,15:00,Swindon,Harrogate,3,1,H,1,1,D,S Jackson,22,7,7,4,6,7,2,2,0,0,,,E3,2526
+E3,13/09/2025,15:00,Tranmere,Newport County,1,1,D,1,0,H,A Young,14,11,4,4,3,2,2,3,0,0,,,E3,2526
+E3,20/09/2025,12:30,Cambridge,Fleetwood Town,2,1,H,0,0,D,L Swabey,23,9,5,3,10,1,1,0,0,0,,,E3,2526
+E3,20/09/2025,12:30,Harrogate,Shrewsbury,2,0,H,0,0,D,R Joyce,13,16,9,2,4,5,3,3,0,0,,,E3,2526
+E3,20/09/2025,15:00,Barnet,Grimsby,3,0,H,1,0,H,B Atkinson,19,7,5,1,9,4,2,0,0,0,,,E3,2526
+E3,20/09/2025,15:00,Barrow,Crewe,1,0,H,0,0,D,S Oldham,8,11,3,5,2,8,2,2,0,0,,,E3,2526
+E3,20/09/2025,15:00,Bromley,Chesterfield,2,2,D,1,1,D,C Brook,15,9,6,2,10,4,2,3,0,0,,,E3,2526
+E3,20/09/2025,15:00,Cheltenham,Oldham,0,3,A,0,1,A,P Tierney,9,22,2,9,6,7,3,0,0,0,,,E3,2526
+E3,20/09/2025,15:00,Colchester,Bristol Rvs,1,1,D,0,1,A,A Byrne,10,10,4,1,4,2,2,5,0,0,,,E3,2526
+E3,20/09/2025,15:00,Milton Keynes Dons,Accrington,1,2,A,0,1,A,S Jackson,7,15,3,6,3,5,3,2,1,0,,,E3,2526
+E3,20/09/2025,15:00,Newport County,Gillingham,1,3,A,1,3,A,L Doughty,15,12,7,6,5,5,2,4,0,0,,,E3,2526
+E3,20/09/2025,15:00,Notts County,Crawley Town,4,0,H,1,0,H,J Durkin,12,7,8,2,6,1,0,2,0,0,,,E3,2526
+E3,20/09/2025,15:00,Salford,Swindon,3,2,H,2,0,H,R Martin,11,11,7,6,6,10,1,2,0,0,,,E3,2526
+E3,20/09/2025,15:00,Walsall,Tranmere,4,2,H,2,1,H,E Duckworth,15,17,7,3,8,8,0,1,0,0,,,E3,2526
+E3,27/09/2025,12:30,Crewe,Notts County,2,1,H,1,1,D,P Tierney,9,17,3,6,8,5,3,4,0,0,,,E3,2526
+E3,27/09/2025,12:30,Oldham,Barnet,1,1,D,0,1,A,S Stockbridge,13,13,4,3,4,6,2,3,0,0,,,E3,2526
+E3,27/09/2025,15:00,Accrington,Walsall,1,3,A,0,0,D,R Joyce,19,8,5,5,8,3,0,1,0,0,,,E3,2526
+E3,27/09/2025,15:00,Bristol Rvs,Salford,2,1,H,1,1,D,G Rhodes,7,18,2,6,2,5,1,4,0,1,,,E3,2526
+E3,27/09/2025,15:00,Chesterfield,Newport County,4,1,H,2,0,H,S Parkinson,12,10,4,3,4,3,3,2,0,0,,,E3,2526
+E3,27/09/2025,15:00,Crawley Town,Barrow,1,2,A,0,2,A,M Corlett,20,18,6,8,12,7,3,3,0,0,,,E3,2526
+E3,27/09/2025,15:00,Fleetwood Town,Colchester,4,2,H,1,2,A,E Duckworth,18,12,7,4,4,1,0,0,0,0,,,E3,2526
+E3,27/09/2025,15:00,Gillingham,Harrogate,0,1,A,0,1,A,J Bell,18,7,2,2,12,1,1,1,0,0,,,E3,2526
+E3,27/09/2025,15:00,Grimsby,Cheltenham,7,1,H,2,1,H,C Brook,27,3,13,1,8,1,0,2,0,2,,,E3,2526
+E3,27/09/2025,15:00,Shrewsbury,Milton Keynes Dons,1,2,A,0,2,A,M Coy,11,7,4,4,7,1,2,0,0,0,,,E3,2526
+E3,27/09/2025,15:00,Swindon,Bromley,2,0,H,2,0,H,A Byrne,11,15,6,2,6,4,2,1,0,0,,,E3,2526
+E3,27/09/2025,15:00,Tranmere,Cambridge,0,0,D,0,0,D,A Herczeg,4,12,1,1,1,7,1,2,0,0,,,E3,2526
+E3,04/10/2025,12:30,Milton Keynes Dons,Gillingham,3,2,H,1,0,H,D Drysdale,13,14,4,4,3,4,2,3,0,0,,,E3,2526
+E3,04/10/2025,12:30,Newport County,Swindon,0,1,A,0,1,A,D Bourne,9,11,1,3,5,6,4,5,0,0,,,E3,2526
+E3,04/10/2025,15:00,Barnet,Accrington,2,0,H,1,0,H,N Hair,15,15,5,2,4,4,1,3,0,0,,,E3,2526
+E3,04/10/2025,15:00,Barrow,Shrewsbury,0,0,D,0,0,D,R Martin,7,10,2,1,3,7,2,2,0,0,,,E3,2526
+E3,04/10/2025,15:00,Bromley,Tranmere,3,3,D,2,1,H,J Oldham,17,9,8,4,8,2,2,3,1,0,,,E3,2526
+E3,04/10/2025,15:00,Cambridge,Crawley Town,3,1,H,1,0,H,C Brook,7,14,5,3,2,10,2,5,0,0,,,E3,2526
+E3,04/10/2025,15:00,Cheltenham,Fleetwood Town,2,0,H,0,0,D,S Mulhall,11,18,5,6,0,6,1,4,0,0,,,E3,2526
+E3,04/10/2025,15:00,Colchester,Chesterfield,6,2,H,4,1,H,L Swabey,23,6,13,2,3,3,1,1,0,0,,,E3,2526
+E3,04/10/2025,15:00,Notts County,Oldham,3,1,H,2,0,H,O Mackey,18,10,11,4,2,9,1,1,0,0,,,E3,2526
+E3,04/10/2025,15:00,Salford,Grimsby,0,2,A,0,2,A,S Parkinson,13,13,4,3,4,5,3,3,0,0,,,E3,2526
+E3,04/10/2025,15:00,Walsall,Bristol Rvs,2,1,H,0,1,A,S Martin,6,6,2,3,3,2,3,3,0,0,,,E3,2526
+E3,06/10/2025,20:00,Harrogate,Crewe,1,2,A,1,1,D,S Mather,10,14,1,3,3,6,2,0,0,0,,,E3,2526
+E3,11/10/2025,15:00,Accrington,Newport County,0,1,A,0,1,A,D Rock,12,7,2,2,4,3,1,1,0,0,,,E3,2526
+E3,11/10/2025,15:00,Bristol Rvs,Milton Keynes Dons,0,4,A,0,1,A,S Oldham,6,13,1,7,7,2,2,2,0,0,,,E3,2526
+E3,11/10/2025,15:00,Chesterfield,Salford,2,0,H,0,0,D,O Mackey,10,10,3,1,4,7,3,2,0,0,,,E3,2526
+E3,11/10/2025,15:00,Crawley Town,Walsall,1,1,D,1,0,H,A Young,16,9,8,4,4,7,2,2,0,0,,,E3,2526
+E3,11/10/2025,15:00,Crewe,Bromley,0,1,A,0,0,D,A Bannister,7,12,1,5,5,5,1,2,0,0,,,E3,2526
+E3,11/10/2025,15:00,Fleetwood Town,Harrogate,3,2,H,1,1,D,D Drysdale,16,13,5,5,4,3,0,0,0,0,,,E3,2526
+E3,11/10/2025,15:00,Gillingham,Cheltenham,1,1,D,0,0,D,A Chilowicz,30,11,10,1,11,2,0,2,0,0,,,E3,2526
+E3,11/10/2025,15:00,Grimsby,Colchester,1,2,A,1,1,D,J Bell,6,15,2,6,6,3,3,4,0,0,,,E3,2526
+E3,11/10/2025,15:00,Shrewsbury,Cambridge,2,0,H,2,0,H,M Russell,4,6,2,1,3,3,2,1,0,0,,,E3,2526
+E3,11/10/2025,15:00,Tranmere,Barnet,0,2,A,0,2,A,R Eley,13,14,0,4,2,6,0,4,0,1,,,E3,2526
+E3,11/10/2025,17:30,Oldham,Barrow,0,0,D,0,0,D,R Massey-Ellis,18,6,4,2,7,4,1,1,0,0,,,E3,2526
+E3,18/10/2025,12:30,Cambridge,Bromley,2,1,H,2,0,H,D Bourne,13,11,4,2,3,3,2,1,0,0,,,E3,2526
+E3,18/10/2025,12:30,Salford,Oldham,1,0,H,1,0,H,J Miles,29,15,8,5,7,7,3,2,0,1,,,E3,2526
+E3,18/10/2025,15:00,Accrington,Swindon,4,0,H,1,0,H,A Young,19,8,6,3,3,5,0,3,0,1,,,E3,2526
+E3,18/10/2025,15:00,Barnet,Notts County,0,1,A,0,0,D,M Woods,18,4,5,1,12,2,3,2,0,0,,,E3,2526
+E3,18/10/2025,15:00,Bristol Rvs,Tranmere,1,4,A,0,1,A,T Parsons,12,20,2,9,6,5,2,2,0,0,,,E3,2526
+E3,18/10/2025,15:00,Chesterfield,Fleetwood Town,1,1,D,1,1,D,D Whitestone,14,6,5,2,9,9,1,3,0,0,,,E3,2526
+E3,18/10/2025,15:00,Colchester,Harrogate,3,1,H,3,1,H,S Stockbridge,19,5,8,2,5,4,1,3,0,0,,,E3,2526
+E3,18/10/2025,15:00,Grimsby,Gillingham,1,0,H,0,0,D,Z Kennard-Kettle,24,3,9,2,6,2,3,4,0,2,,,E3,2526
+E3,18/10/2025,15:00,Milton Keynes Dons,Crewe,3,1,H,2,0,H,C Hicks,10,10,7,2,4,7,4,0,0,0,,,E3,2526
+E3,18/10/2025,15:00,Newport County,Cheltenham,0,2,A,0,1,A,P Wright,9,10,3,4,3,3,4,1,0,0,,,E3,2526
+E3,18/10/2025,15:00,Shrewsbury,Crawley Town,1,0,H,0,0,D,B Atkinson,13,15,4,3,6,6,3,3,0,1,,,E3,2526
+E3,18/10/2025,15:00,Walsall,Barrow,1,2,A,0,1,A,B Speedie,24,5,11,2,14,0,1,2,0,1,,,E3,2526
+E3,21/10/2025,19:45,Swindon,Notts County,2,2,D,1,1,D,D Rock,11,8,5,5,6,1,2,4,0,0,,,E3,2526
+E3,25/10/2025,12:30,Cheltenham,Walsall,1,0,H,0,0,D,O Yates,8,14,1,6,1,4,2,1,0,0,,,E3,2526
+E3,25/10/2025,12:30,Fleetwood Town,Accrington,2,1,H,0,1,A,T Reeves,15,13,7,2,7,9,1,3,0,0,,,E3,2526
+E3,25/10/2025,15:00,Barrow,Barnet,2,2,D,1,0,H,D Brown,6,18,3,9,4,7,2,1,1,0,,,E3,2526
+E3,25/10/2025,15:00,Bromley,Milton Keynes Dons,2,1,H,0,1,A,K Dowle,10,7,4,3,7,2,1,0,0,0,,,E3,2526
+E3,25/10/2025,15:00,Crawley Town,Bristol Rvs,4,0,H,1,0,H,R Eley,14,4,6,3,5,3,2,3,0,1,,,E3,2526
+E3,25/10/2025,15:00,Crewe,Grimsby,3,2,H,2,2,D,M Coy,11,12,5,2,3,3,1,1,0,0,,,E3,2526
+E3,25/10/2025,15:00,Gillingham,Salford,1,2,A,1,2,A,D Rock,14,13,7,2,5,5,2,5,0,0,,,E3,2526
+E3,25/10/2025,15:00,Harrogate,Newport County,0,3,A,0,1,A,S Mather,13,16,3,8,4,1,2,0,0,0,,,E3,2526
+E3,25/10/2025,15:00,Notts County,Cambridge,2,0,H,0,0,D,R Joyce,4,5,3,1,0,5,0,4,0,0,,,E3,2526
+E3,25/10/2025,15:00,Oldham,Shrewsbury,2,2,D,0,0,D,A Byrne,12,9,4,3,7,2,1,4,0,0,,,E3,2526
+E3,25/10/2025,15:00,Swindon,Colchester,0,0,D,0,0,D,L Doughty,9,9,1,1,1,5,1,0,0,0,,,E3,2526
+E3,25/10/2025,15:00,Tranmere,Chesterfield,1,1,D,0,1,A,S Oldham,13,9,6,4,4,7,0,2,0,0,,,E3,2526
+E3,28/10/2025,19:45,Accrington,Tranmere,1,1,D,1,0,H,M Woods,15,9,4,3,4,2,1,2,0,0,,,E3,2526
+E3,08/11/2025,12:30,Colchester,Bromley,0,2,A,0,0,D,A Humphries,10,7,2,3,9,2,2,3,0,0,,,E3,2526
+E3,08/11/2025,12:30,Crewe,Shrewsbury,3,1,H,1,1,D,T Reeves,21,16,6,2,7,4,2,4,0,0,,,E3,2526
+E3,08/11/2025,15:00,Barnet,Milton Keynes Dons,2,2,D,2,1,H,J Durkin,12,7,5,4,6,2,1,4,0,0,,,E3,2526
+E3,08/11/2025,15:00,Barrow,Grimsby,2,2,D,1,2,A,R Eley,11,17,4,6,3,2,3,1,0,0,,,E3,2526
+E3,08/11/2025,15:00,Bristol Rvs,Gillingham,0,1,A,0,0,D,A Young,17,7,4,2,12,3,1,4,0,0,,,E3,2526
+E3,08/11/2025,15:00,Chesterfield,Accrington,3,3,D,1,2,A,T Parsons,17,16,5,8,11,3,3,5,0,0,,,E3,2526
+E3,08/11/2025,15:00,Crawley Town,Fleetwood Town,2,1,H,1,0,H,L Swabey,21,7,5,1,11,3,2,2,0,1,,,E3,2526
+E3,08/11/2025,15:00,Harrogate,Oldham,0,1,A,0,1,A,D Rock,9,14,2,1,8,6,2,1,0,1,,,E3,2526
+E3,08/11/2025,15:00,Newport County,Walsall,2,4,A,2,3,A,B Atkinson,12,17,3,10,4,5,4,2,0,0,,,E3,2526
+E3,08/11/2025,15:00,Salford,Cambridge,0,0,D,0,0,D,O Yates,6,9,0,1,4,4,4,2,0,0,,,E3,2526
+E3,08/11/2025,15:00,Swindon,Tranmere,2,1,H,0,0,D,G Ward,18,8,7,2,8,3,3,3,0,0,,,E3,2526
+E3,10/11/2025,20:00,Cheltenham,Notts County,1,2,A,0,2,A,B Speedie,7,18,2,4,5,7,0,3,0,0,,,E3,2526
+E3,15/11/2025,15:00,Accrington,Bristol Rvs,3,1,H,1,0,H,S Stockbridge,9,10,5,2,3,5,3,3,0,0,,,E3,2526
+E3,15/11/2025,15:00,Bromley,Barrow,2,1,H,1,0,H,S Parkinson,15,7,6,2,4,1,1,2,0,0,,,E3,2526
+E3,15/11/2025,15:00,Cambridge,Barnet,0,0,D,0,0,D,S Mather,9,11,1,4,3,7,2,0,0,0,,,E3,2526
+E3,15/11/2025,15:00,Fleetwood Town,Swindon,1,1,D,1,1,D,R Eley,12,15,2,6,9,6,0,3,0,0,,,E3,2526
+E3,15/11/2025,15:00,Grimsby,Chesterfield,0,1,A,0,0,D,M Woods,12,8,4,1,11,5,2,3,0,0,,,E3,2526
+E3,15/11/2025,15:00,Milton Keynes Dons,Salford,2,0,H,1,0,H,R Joyce,6,11,4,4,3,4,2,2,0,0,,,E3,2526
+E3,15/11/2025,15:00,Notts County,Harrogate,1,1,D,0,1,A,S Oldham,15,3,3,1,11,1,0,2,0,0,,,E3,2526
+E3,15/11/2025,15:00,Oldham,Crewe,0,0,D,0,0,D,A Farmer,16,15,2,2,5,6,2,1,0,0,,,E3,2526
+E3,15/11/2025,15:00,Shrewsbury,Newport County,1,0,H,0,0,D,E Swallow,19,10,6,2,8,4,4,2,0,0,,,E3,2526
+E3,15/11/2025,15:00,Tranmere,Cheltenham,3,2,H,2,1,H,O Langford,13,14,4,4,2,7,2,1,0,0,,,E3,2526
+E3,15/11/2025,15:00,Walsall,Colchester,0,2,A,0,2,A,J Durkin,13,3,3,2,5,1,2,4,0,0,,,E3,2526
+E3,15/11/2025,17:30,Gillingham,Crawley Town,2,2,D,1,0,H,P Howard,17,20,9,8,8,7,1,2,0,0,,,E3,2526
+E3,22/11/2025,12:30,Gillingham,Barnet,1,1,D,1,1,D,B Atkinson,11,13,4,4,2,7,4,3,0,0,,,E3,2526
+E3,22/11/2025,12:30,Harrogate,Walsall,0,2,A,0,1,A,A Bannister,7,18,0,6,2,7,1,2,0,0,,,E3,2526
+E3,22/11/2025,15:00,Barrow,Cambridge,0,2,A,0,0,D,S Oldham,9,11,3,7,4,3,1,2,0,0,,,E3,2526
+E3,22/11/2025,15:00,Bromley,Salford,2,0,H,2,0,H,M Russell,10,15,3,5,4,7,0,2,0,0,,,E3,2526
+E3,22/11/2025,15:00,Cheltenham,Bristol Rvs,1,0,H,0,0,D,P Howard,4,17,1,3,6,7,4,1,0,0,,,E3,2526
+E3,22/11/2025,15:00,Crawley Town,Accrington,1,1,D,0,1,A,A Chilowicz,12,8,4,4,7,4,3,2,0,0,,,E3,2526
+E3,22/11/2025,15:00,Crewe,Chesterfield,3,3,D,1,2,A,D Rock,22,12,9,7,5,2,2,1,0,0,,,E3,2526
+E3,22/11/2025,15:00,Fleetwood Town,Shrewsbury,3,1,H,1,0,H,M Coy,13,13,6,3,3,2,0,1,1,0,,,E3,2526
+E3,22/11/2025,15:00,Notts County,Colchester,1,3,A,1,1,D,S Mather,15,8,4,4,4,3,1,3,0,0,,,E3,2526
+E3,22/11/2025,15:00,Oldham,Newport County,3,0,H,0,0,D,A Miller,19,10,7,3,9,6,2,1,0,0,,,E3,2526
+E3,22/11/2025,15:00,Swindon,Grimsby,2,2,D,2,2,D,O Yates,14,15,6,6,6,8,2,2,0,0,,,E3,2526
+E3,22/11/2025,15:00,Tranmere,Milton Keynes Dons,2,2,D,2,0,H,R Watkins,10,15,4,3,1,8,2,1,0,1,,,E3,2526
+E3,27/11/2025,20:00,Grimsby,Tranmere,1,2,A,0,1,A,W Finnie,13,6,6,2,5,1,0,4,0,0,,,E3,2526
+E3,29/11/2025,12:30,Accrington,Oldham,1,0,H,1,0,H,S Mather,7,16,1,5,2,6,4,2,0,0,,,E3,2526
+E3,29/11/2025,12:30,Milton Keynes Dons,Fleetwood Town,2,1,H,1,0,H,A Humphries,19,8,5,4,6,2,2,0,0,0,,,E3,2526
+E3,29/11/2025,15:00,Barnet,Harrogate,1,1,D,1,0,H,A Swallow,18,9,5,2,7,3,0,2,0,0,,,E3,2526
+E3,29/11/2025,15:00,Bristol Rvs,Notts County,0,1,A,0,0,D,E Duckworth,17,5,4,1,9,2,2,5,0,1,,,E3,2526
+E3,29/11/2025,15:00,Cambridge,Crewe,2,1,H,0,0,D,M Woods,16,5,6,4,10,1,1,2,0,0,,,E3,2526
+E3,29/11/2025,15:00,Chesterfield,Swindon,1,2,A,1,1,D,J Miles,13,11,2,5,7,3,1,3,0,1,,,E3,2526
+E3,29/11/2025,15:00,Colchester,Cheltenham,2,0,H,1,0,H,E Bell,9,9,5,2,1,1,1,2,0,0,,,E3,2526
+E3,29/11/2025,15:00,Newport County,Barrow,2,2,D,1,1,D,C Brook,10,13,5,4,2,2,0,1,0,0,,,E3,2526
+E3,29/11/2025,15:00,Salford,Crawley Town,4,3,H,1,1,D,M Coy,17,15,8,5,12,4,1,2,0,0,,,E3,2526
+E3,29/11/2025,15:00,Shrewsbury,Gillingham,3,3,D,3,1,H,A Farmer,17,16,5,3,1,9,2,2,0,0,,,E3,2526
+E3,29/11/2025,15:00,Walsall,Bromley,3,1,H,0,1,A,M Barlow,11,13,6,4,4,9,1,3,0,0,,,E3,2526
+E3,06/12/2025,12:30,Colchester,Gillingham,0,0,D,0,0,D,O Mackey,12,10,2,3,1,6,1,4,0,0,,,E3,2526
+E3,09/12/2025,19:45,Barnet,Bristol Rvs,4,0,H,2,0,H,L Swabey,20,10,9,3,9,5,2,1,0,0,,,E3,2526
+E3,09/12/2025,19:45,Barrow,Tranmere,0,3,A,0,0,D,A Miller,15,11,4,5,5,5,4,1,1,0,,,E3,2526
+E3,09/12/2025,19:45,Bromley,Crawley Town,3,1,H,1,1,D,D Rock,14,7,5,5,8,3,2,2,0,0,,,E3,2526
+E3,09/12/2025,19:45,Cambridge,Chesterfield,1,1,D,1,0,H,E Swallow,13,8,7,4,5,1,0,0,0,0,,,E3,2526
+E3,09/12/2025,19:45,Fleetwood Town,Salford,1,1,D,0,1,A,S Stockbridge,9,16,3,4,2,6,2,1,0,0,,,E3,2526
+E3,09/12/2025,19:45,Harrogate,Accrington,0,2,A,0,1,A,R Eley,5,8,1,4,3,6,2,1,0,0,,,E3,2526
+E3,09/12/2025,19:45,Notts County,Milton Keynes Dons,3,2,H,2,2,D,A Farmer,9,15,7,6,2,1,2,3,0,0,,,E3,2526
+E3,09/12/2025,19:45,Shrewsbury,Grimsby,1,1,D,1,1,D,S Mulhall,8,12,1,4,2,6,2,2,0,0,,,E3,2526
+E3,09/12/2025,19:45,Swindon,Cheltenham,0,1,A,0,0,D,S Mather,9,11,0,4,6,6,2,2,0,0,,,E3,2526
+E3,10/12/2025,19:45,Crewe,Newport County,2,2,D,1,0,H,E Duckworth,18,10,5,3,4,1,1,2,0,1,,,E3,2526
+E3,10/12/2025,19:45,Oldham,Walsall,0,1,A,0,1,A,S Parkinson,11,6,4,1,4,4,3,2,0,0,,,E3,2526
+E3,13/12/2025,12:30,Bristol Rvs,Swindon,0,3,A,0,3,A,A Bannister,11,18,1,6,4,7,1,0,1,1,,,E3,2526
+E3,13/12/2025,12:30,Salford,Colchester,4,3,H,1,1,D,S Oldham,16,14,10,7,5,3,3,0,0,0,,,E3,2526
+E3,13/12/2025,15:00,Accrington,Bromley,0,1,A,0,0,D,S Copeland,15,11,1,5,7,4,1,2,0,0,,,E3,2526
+E3,13/12/2025,15:00,Cheltenham,Harrogate,1,1,D,0,0,D,M Barlow,10,15,2,7,5,5,2,1,0,0,,,E3,2526
+E3,13/12/2025,15:00,Chesterfield,Barnet,3,1,H,2,1,H,P Wright,16,10,6,3,5,13,3,0,0,0,,,E3,2526
+E3,13/12/2025,15:00,Crawley Town,Oldham,2,2,D,1,0,H,C Breakspear,19,19,5,8,4,7,1,3,0,0,,,E3,2526
+E3,13/12/2025,15:00,Gillingham,Barrow,2,2,D,2,0,H,F Hallam,14,10,4,3,4,2,0,1,0,0,,,E3,2526
+E3,13/12/2025,15:00,Grimsby,Notts County,0,2,A,0,0,D,W Cartmel,16,9,4,2,6,3,1,3,0,0,,,E3,2526
+E3,13/12/2025,15:00,Milton Keynes Dons,Cambridge,1,1,D,1,0,H,J Oldham,13,12,4,3,7,4,2,1,0,0,,,E3,2526
+E3,13/12/2025,15:00,Newport County,Fleetwood Town,0,2,A,0,2,A,M Corlett,13,16,2,6,3,4,2,2,1,0,,,E3,2526
+E3,13/12/2025,15:00,Tranmere,Crewe,1,4,A,0,2,A,R Joyce,18,9,5,5,8,2,4,2,0,0,,,E3,2526
+E3,13/12/2025,15:00,Walsall,Shrewsbury,1,1,D,1,0,H,I Searle,12,10,4,4,5,5,1,4,0,0,,,E3,2526
+E3,19/12/2025,19:45,Barrow,Cheltenham,1,2,A,0,1,A,T Parsons,18,16,5,4,11,4,0,0,0,0,,,E3,2526
+E3,19/12/2025,19:45,Cambridge,Accrington,2,0,H,1,0,H,R Watkins,8,8,4,2,7,6,1,0,0,0,,,E3,2526
+E3,19/12/2025,19:45,Crewe,Bristol Rvs,1,1,D,1,1,D,M Barlow,10,15,3,3,3,3,2,3,1,0,,,E3,2526
+E3,20/12/2025,12:30,Bromley,Grimsby,2,0,H,1,0,H,J Durkin,9,9,6,2,2,7,2,3,0,0,,,E3,2526
+E3,20/12/2025,12:30,Notts County,Walsall,0,0,D,0,0,D,S Copeland,14,1,3,1,6,1,1,2,0,0,,,E3,2526
+E3,20/12/2025,15:00,Barnet,Salford,1,3,A,0,2,A,A Farmer,16,9,7,5,3,4,0,2,0,0,,,E3,2526
+E3,20/12/2025,15:00,Colchester,Newport County,4,1,H,2,0,H,H Wager,16,7,7,2,2,2,1,2,0,0,,,E3,2526
+E3,20/12/2025,15:00,Fleetwood Town,Gillingham,2,1,H,0,1,A,S Parkinson,11,10,6,1,10,3,3,2,0,0,,,E3,2526
+E3,20/12/2025,15:00,Harrogate,Milton Keynes Dons,0,4,A,0,3,A,D Bourne,7,20,2,9,2,3,2,0,0,0,,,E3,2526
+E3,20/12/2025,15:00,Oldham,Tranmere,3,1,H,1,1,D,M Coy,16,17,7,5,5,3,3,1,1,0,,,E3,2526
+E3,20/12/2025,15:00,Shrewsbury,Chesterfield,0,1,A,0,0,D,P Howard,16,9,2,3,4,3,0,3,0,0,,,E3,2526
+E3,20/12/2025,15:00,Swindon,Crawley Town,1,0,H,0,0,D,L Doughty,6,17,2,4,1,12,1,3,0,0,,,E3,2526
+E3,26/12/2025,15:00,Accrington,Barrow,2,1,H,1,1,D,E Duckworth,18,16,7,6,4,5,0,2,0,0,,,E3,2526
+E3,26/12/2025,15:00,Bristol Rvs,Bromley,2,3,A,2,0,H,J Miles,9,16,3,6,4,2,2,1,1,0,,,E3,2526
+E3,26/12/2025,15:00,Cheltenham,Shrewsbury,3,1,H,2,0,H,R Eley,16,7,6,3,4,5,2,3,0,0,,,E3,2526
+E3,26/12/2025,15:00,Chesterfield,Notts County,2,0,H,0,0,D,B Speedie,10,6,3,0,3,5,3,3,0,0,,,E3,2526
+E3,26/12/2025,15:00,Crawley Town,Colchester,1,1,D,1,1,D,A Young,7,7,4,3,4,6,2,2,0,0,,,E3,2526
+E3,26/12/2025,15:00,Gillingham,Cambridge,1,1,D,0,1,A,N Hair,17,4,6,1,6,5,1,0,0,0,,,E3,2526
+E3,26/12/2025,15:00,Grimsby,Oldham,0,0,D,0,0,D,R Joyce,8,12,3,7,11,2,1,2,0,0,,,E3,2526
+E3,26/12/2025,15:00,Milton Keynes Dons,Swindon,1,0,H,1,0,H,B Atkinson,15,11,5,3,5,8,1,2,0,0,,,E3,2526
+E3,26/12/2025,15:00,Newport County,Barnet,0,0,D,0,0,D,S Parkinson,9,15,3,2,1,7,1,0,0,0,,,E3,2526
+E3,26/12/2025,15:00,Salford,Harrogate,1,0,H,0,0,D,J O'Connor,24,9,9,2,7,3,1,1,0,0,,,E3,2526
+E3,26/12/2025,15:00,Tranmere,Fleetwood Town,1,0,H,1,0,H,D Baines,15,20,5,6,6,7,5,2,0,0,,,E3,2526
+E3,26/12/2025,15:00,Walsall,Crewe,1,0,H,1,0,H,S Mather,13,6,5,2,2,10,1,2,0,0,,,E3,2526
+E3,29/12/2025,19:30,Newport County,Crewe,2,0,H,1,0,H,A Byrne,19,14,8,3,6,4,1,3,0,0,,,E3,2526
+E3,29/12/2025,19:45,Accrington,Harrogate,1,0,H,1,0,H,D Brown,25,7,8,2,8,3,1,0,0,1,,,E3,2526
+E3,29/12/2025,19:45,Bristol Rvs,Barnet,0,2,A,0,1,A,D Bourne,7,10,3,3,3,5,3,2,0,0,,,E3,2526
+E3,29/12/2025,19:45,Cheltenham,Swindon,0,2,A,0,0,D,I Searle,8,12,0,8,7,4,0,2,0,0,,,E3,2526
+E3,29/12/2025,19:45,Chesterfield,Cambridge,0,1,A,0,1,A,S Jackson,14,6,1,1,5,5,1,4,0,0,,,E3,2526
+E3,29/12/2025,19:45,Crawley Town,Bromley,1,3,A,1,1,D,B Toner,11,15,4,5,1,8,1,1,0,0,,,E3,2526
+E3,29/12/2025,19:45,Gillingham,Colchester,1,1,D,0,0,D,M Russell,16,15,4,5,6,5,1,1,0,0,,,E3,2526
+E3,29/12/2025,19:45,Grimsby,Shrewsbury,1,0,H,0,0,D,S Copeland,16,6,5,1,6,2,2,2,0,0,,,E3,2526
+E3,29/12/2025,19:45,Milton Keynes Dons,Notts County,1,1,D,0,1,A,L Swabey,10,13,3,3,1,5,2,3,0,0,,,E3,2526
+E3,29/12/2025,19:45,Salford,Fleetwood Town,0,0,D,0,0,D,M Woods,16,14,3,5,6,4,2,2,0,0,,,E3,2526
+E3,29/12/2025,19:45,Tranmere,Barrow,1,3,A,0,3,A,E Swallow,25,16,8,7,7,3,2,2,0,1,,,E3,2526
+E3,29/12/2025,19:45,Walsall,Oldham,1,2,A,0,1,A,O Mackey,11,18,4,6,4,7,2,2,0,0,,,E3,2526
+E3,01/01/2026,15:00,Barnet,Crawley Town,2,1,H,1,1,D,R Martin,19,19,7,7,13,5,1,2,0,0,,,E3,2526
+E3,01/01/2026,15:00,Barrow,Salford,1,2,A,1,1,D,A Herczeg,9,13,4,5,5,3,2,1,0,0,,,E3,2526
+E3,01/01/2026,15:00,Bromley,Newport County,2,1,H,1,0,H,K Dowle,14,7,6,3,6,3,2,1,0,0,,,E3,2526
+E3,01/01/2026,15:00,Cambridge,Walsall,2,0,H,1,0,H,W Cartmel,8,10,3,3,2,6,0,1,0,0,,,E3,2526
+E3,01/01/2026,15:00,Colchester,Milton Keynes Dons,1,0,H,0,0,D,S Parkinson,10,10,3,4,6,3,1,2,0,0,,,E3,2526
+E3,01/01/2026,15:00,Crewe,Cheltenham,4,1,H,3,1,H,D Baines,15,13,6,3,6,5,0,1,0,0,,,E3,2526
+E3,01/01/2026,15:00,Fleetwood Town,Grimsby,0,1,A,0,0,D,E Bell,4,8,3,2,4,2,3,2,0,0,,,E3,2526
+E3,01/01/2026,15:00,Harrogate,Tranmere,0,2,A,0,0,D,S Stockbridge,17,18,2,7,10,4,2,1,0,0,,,E3,2526
+E3,01/01/2026,15:00,Notts County,Accrington,0,1,A,0,0,D,Z Kennard-Kettle,8,8,4,4,8,5,5,4,0,0,,,E3,2526
+E3,01/01/2026,15:00,Oldham,Chesterfield,1,1,D,0,1,A,S Allison,11,9,3,5,6,4,3,0,0,1,,,E3,2526
+E3,01/01/2026,15:00,Shrewsbury,Bristol Rvs,0,3,A,0,0,D,R Massey-Ellis,11,10,2,5,8,3,2,1,0,0,,,E3,2526
+E3,01/01/2026,15:00,Swindon,Gillingham,2,0,H,0,0,D,J Durkin,12,16,2,4,8,8,4,3,0,0,,,E3,2526
+E3,04/01/2026,12:00,Cheltenham,Crawley Town,3,0,H,0,0,D,C Hicks,12,9,7,2,8,2,1,2,0,0,,,E3,2526
+E3,04/01/2026,12:00,Milton Keynes Dons,Chesterfield,2,2,D,2,0,H,A Miller,10,10,3,3,4,6,4,2,0,0,,,E3,2526
+E3,10/01/2026,15:00,Crewe,Harrogate,1,1,D,0,0,D,C Breakspear,21,10,4,4,7,3,2,1,0,0,,,E3,2526
+E3,10/01/2026,15:00,Tranmere,Bromley,0,2,A,0,1,A,M Woods,16,7,4,4,4,4,2,3,0,0,,,E3,2526
+E3,17/01/2026,12:30,Chesterfield,Bromley,0,0,D,0,0,D,A Chilowicz,9,11,2,5,10,8,2,0,0,0,,,E3,2526
+E3,17/01/2026,12:30,Tranmere,Walsall,1,3,A,0,2,A,D Drysdale,11,8,2,4,3,10,1,2,0,0,,,E3,2526
+E3,17/01/2026,15:00,Accrington,Milton Keynes Dons,0,2,A,0,2,A,R Martin,13,11,4,2,2,3,2,2,0,0,,,E3,2526
+E3,17/01/2026,15:00,Bristol Rvs,Colchester,0,1,A,0,0,D,B Toner,5,10,1,2,4,5,4,2,0,0,,,E3,2526
+E3,17/01/2026,15:00,Crawley Town,Notts County,1,2,A,0,0,D,M Russell,9,12,3,6,5,7,1,2,1,0,,,E3,2526
+E3,17/01/2026,15:00,Crewe,Barrow,3,1,H,3,1,H,S Stockbridge,7,13,3,6,3,8,4,3,0,0,,,E3,2526
+E3,17/01/2026,15:00,Fleetwood Town,Cambridge,1,2,A,0,1,A,C Hicks,9,12,4,5,2,5,3,0,0,0,,,E3,2526
+E3,17/01/2026,15:00,Gillingham,Newport County,3,2,H,1,1,D,C Brook,19,22,6,7,4,5,3,2,0,0,,,E3,2526
+E3,17/01/2026,15:00,Grimsby,Barnet,1,0,H,0,0,D,J O'Connor,14,14,5,3,5,7,1,1,0,1,,,E3,2526
+E3,17/01/2026,15:00,Oldham,Cheltenham,2,1,H,1,1,D,N Hair,12,10,4,7,5,6,4,1,0,0,,,E3,2526
+E3,17/01/2026,15:00,Shrewsbury,Harrogate,1,0,H,0,0,D,P Wright,22,11,8,1,8,4,3,5,0,1,,,E3,2526
+E3,17/01/2026,15:00,Swindon,Salford,2,3,A,1,2,A,C Breakspear,14,9,6,4,6,4,2,4,0,0,,,E3,2526
+E3,24/01/2026,12:30,Barnet,Oldham,3,2,H,2,1,H,D Drysdale,5,9,4,5,1,6,3,1,1,0,,,E3,2526
+E3,24/01/2026,12:30,Notts County,Crewe,1,0,H,1,0,H,I Searle,16,9,4,0,7,5,2,2,0,0,,,E3,2526
+E3,24/01/2026,15:00,Barrow,Crawley Town,0,1,A,0,0,D,D Webb,11,9,2,3,11,1,2,0,0,0,,,E3,2526
+E3,24/01/2026,15:00,Bromley,Swindon,2,1,H,0,1,A,J Oldham,20,12,7,5,8,4,2,0,0,0,,,E3,2526
+E3,24/01/2026,15:00,Cambridge,Tranmere,4,2,H,0,1,A,R Martin,15,9,6,5,7,1,2,3,0,0,,,E3,2526
+E3,24/01/2026,15:00,Cheltenham,Grimsby,0,2,A,0,1,A,H Wager,11,9,2,5,7,2,2,3,0,0,,,E3,2526
+E3,24/01/2026,15:00,Colchester,Fleetwood Town,2,1,H,2,0,H,C Breakspear,9,11,3,2,4,5,3,2,0,0,,,E3,2526
+E3,24/01/2026,15:00,Harrogate,Gillingham,0,3,A,0,0,D,Z Kennard-Kettle,13,17,4,9,3,3,1,1,0,0,,,E3,2526
+E3,24/01/2026,15:00,Milton Keynes Dons,Shrewsbury,5,1,H,3,0,H,A Dale,13,11,8,3,1,1,1,4,0,0,,,E3,2526
+E3,24/01/2026,15:00,Newport County,Chesterfield,2,1,H,0,0,D,D Brown,8,6,4,3,2,8,3,0,0,0,,,E3,2526
+E3,24/01/2026,15:00,Salford,Bristol Rvs,1,0,H,1,0,H,S Mather,12,6,5,2,9,4,2,0,0,0,,,E3,2526
+E3,24/01/2026,15:00,Walsall,Accrington,0,0,D,0,0,D,E Swallow,9,11,2,3,5,5,5,3,0,0,,,E3,2526
+E3,27/01/2026,19:30,Newport County,Accrington,1,4,A,1,1,D,J Durkin,11,13,5,6,3,2,2,5,1,0,,,E3,2526
+E3,27/01/2026,19:45,Barnet,Tranmere,1,0,H,0,0,D,C Brook,21,5,6,2,10,2,2,3,0,0,,,E3,2526
+E3,27/01/2026,19:45,Bromley,Crewe,2,2,D,1,0,H,A Farmer,10,16,5,4,4,3,2,3,0,0,,,E3,2526
+E3,27/01/2026,19:45,Cambridge,Shrewsbury,1,0,H,0,0,D,A Byrne,10,2,7,0,2,3,1,1,0,0,,,E3,2526
+E3,27/01/2026,19:45,Colchester,Grimsby,0,1,A,0,1,A,B Atkinson,25,13,4,3,8,5,3,1,0,1,,,E3,2526
+E3,27/01/2026,19:45,Harrogate,Fleetwood Town,1,2,A,0,1,A,O Mackey,18,15,4,5,6,5,2,3,0,0,,,E3,2526
+E3,27/01/2026,19:45,Milton Keynes Dons,Bristol Rvs,1,0,H,1,0,H,C Hicks,12,14,3,3,4,3,3,3,0,0,,,E3,2526
+E3,27/01/2026,19:45,Notts County,Swindon,2,1,H,1,1,D,D Webb,15,9,4,4,7,3,0,0,0,0,,,E3,2526
+E3,27/01/2026,19:45,Salford,Chesterfield,0,1,A,0,0,D,O Yates,17,7,2,1,8,2,2,1,0,0,,,E3,2526
+E3,27/01/2026,19:45,Walsall,Crawley Town,0,0,D,0,0,D,S Oldham,8,22,1,5,1,12,3,5,0,0,,,E3,2526
+E3,31/01/2026,12:30,Bristol Rvs,Newport County,3,0,H,2,0,H,W Finnie,18,5,7,0,7,3,1,2,0,0,,,E3,2526
+E3,31/01/2026,12:30,Grimsby,Milton Keynes Dons,2,2,D,0,2,A,K Dowle,12,8,3,2,9,6,1,2,0,0,,,E3,2526
+E3,31/01/2026,15:00,Accrington,Cheltenham,3,1,H,2,0,H,S Parkinson,16,13,8,4,10,8,1,2,0,0,,,E3,2526
+E3,31/01/2026,15:00,Chesterfield,Walsall,2,2,D,2,1,H,C Breakspear,14,12,8,2,7,3,0,0,0,0,,,E3,2526
+E3,31/01/2026,15:00,Crawley Town,Harrogate,2,0,H,1,0,H,T Reeves,13,13,5,4,8,5,2,0,0,0,,,E3,2526
+E3,31/01/2026,15:00,Crewe,Colchester,1,0,H,0,0,D,E Bell,3,18,2,3,2,7,0,3,0,0,,,E3,2526
+E3,31/01/2026,15:00,Fleetwood Town,Notts County,1,2,A,0,1,A,R Joyce,10,8,2,3,2,8,2,4,0,0,,,E3,2526
+E3,31/01/2026,15:00,Gillingham,Bromley,1,4,A,1,3,A,A Young,20,13,11,6,8,0,1,3,0,0,,,E3,2526
+E3,31/01/2026,15:00,Oldham,Cambridge,0,3,A,0,0,D,R Ricardo,5,8,1,6,1,0,2,2,0,0,,,E3,2526
+E3,31/01/2026,15:00,Shrewsbury,Barnet,0,0,D,0,0,D,N Hair,9,18,1,7,3,6,3,1,0,0,,,E3,2526
+E3,31/01/2026,15:00,Swindon,Barrow,3,1,H,1,1,D,O Yates,14,15,7,4,8,9,1,1,0,0,,,E3,2526
+E3,31/01/2026,15:00,Tranmere,Salford,0,2,A,0,0,D,R Eley,17,12,7,4,9,4,2,0,0,0,,,E3,2526
+E3,03/02/2026,19:45,Barnet,Crewe,1,1,D,1,1,D,P Wright,15,8,3,4,8,2,0,3,0,0,,,E3,2526
+E3,03/02/2026,19:45,Bristol Rvs,Walsall,2,0,H,0,0,D,A Chilowicz,10,14,6,3,5,5,1,1,0,0,,,E3,2526
+E3,03/02/2026,19:45,Harrogate,Swindon,0,1,A,0,0,D,R Martin,21,18,4,8,7,9,1,1,0,0,,,E3,2526
+E3,03/02/2026,19:45,Notts County,Gillingham,1,0,H,1,0,H,A Byrne,14,12,4,4,4,3,1,3,0,0,,,E3,2526
+E3,05/02/2026,20:01,Accrington,Salford,1,0,H,1,0,H,D Drysdale,13,15,5,6,2,5,1,1,0,0,,,E3,2526
+E3,07/02/2026,12:31,Crawley Town,Crewe,0,1,A,0,0,D,B Speedie,9,17,3,6,3,7,2,0,0,0,,,E3,2526
+E3,07/02/2026,12:31,Swindon,Oldham,3,0,H,1,0,H,D Rock,10,13,6,5,4,3,3,2,0,0,,,E3,2526
+E3,07/02/2026,15:01,Bristol Rvs,Chesterfield,2,3,A,1,1,D,M Russell,13,15,2,8,6,6,3,2,0,0,,,E3,2526
+E3,07/02/2026,15:01,Cheltenham,Milton Keynes Dons,2,3,A,1,2,A,C Brook,14,19,2,9,7,8,1,4,0,0,,,E3,2526
+E3,07/02/2026,15:01,Colchester,Shrewsbury,2,0,H,2,0,H,J Oldham,6,15,4,4,0,2,4,2,0,0,,,E3,2526
+E3,07/02/2026,15:01,Fleetwood Town,Bromley,1,2,A,0,0,D,N Hair,11,11,4,4,2,2,2,2,0,0,,,E3,2526
+E3,07/02/2026,15:01,Gillingham,Tranmere,2,1,H,1,0,H,C Hicks,15,18,5,6,8,8,0,0,0,0,,,E3,2526
+E3,07/02/2026,15:01,Harrogate,Cambridge,2,1,H,2,1,H,E Duckworth,10,14,6,1,1,4,4,0,0,0,,,E3,2526
+E3,07/02/2026,15:01,Newport County,Grimsby,0,0,D,0,0,D,D Bourne,10,13,5,2,8,12,1,2,0,0,,,E3,2526
+E3,07/02/2026,15:01,Notts County,Barrow,2,1,H,1,1,D,M Barlow,13,7,5,4,7,4,1,3,0,0,,,E3,2526
+E3,07/02/2026,15:01,Walsall,Barnet,1,3,A,0,1,A,P Marsden,8,15,3,9,1,9,5,1,0,0,,,E3,2526
+E3,10/02/2026,19:45,Crawley Town,Cambridge,0,3,A,0,1,A,A Chilowicz,7,15,1,5,2,9,3,0,0,0,,,E3,2526
+E3,10/02/2026,19:45,Shrewsbury,Barrow,2,1,H,0,0,D,M Corlett,13,11,5,2,5,4,2,1,0,0,,,E3,2526
+E3,11/02/2026,19:45,Grimsby,Accrington,1,0,H,0,0,D,A Byrne,29,10,8,4,8,4,1,2,0,1,,,E3,2526
+E3,11/02/2026,20:00,Swindon,Newport County,2,0,H,0,0,D,D Drysdale,7,8,2,2,9,0,0,0,0,0,,,E3,2526
+E3,14/02/2026,12:30,Barnet,Cheltenham,0,0,D,0,0,D,S Mulhall,13,5,2,1,9,0,4,1,0,1,,,E3,2526
+E3,14/02/2026,15:00,Barrow,Colchester,1,0,H,0,0,D,P Wright,5,9,2,2,2,10,2,3,0,0,,,E3,2526
+E3,14/02/2026,15:00,Bromley,Notts County,1,1,D,1,0,H,D Drysdale,11,8,1,2,3,7,0,1,0,1,,,E3,2526
+E3,14/02/2026,15:00,Cambridge,Bristol Rvs,3,1,H,1,1,D,T Parsons,10,9,5,5,6,2,1,4,0,0,,,E3,2526
+E3,14/02/2026,15:00,Chesterfield,Harrogate,1,1,D,1,0,H,A Farmer,15,11,4,4,3,6,1,2,1,0,,,E3,2526
+E3,14/02/2026,15:00,Crewe,Gillingham,1,0,H,0,0,D,M Coy,7,20,2,5,2,8,0,1,0,0,,,E3,2526
+E3,14/02/2026,15:00,Milton Keynes Dons,Newport County,1,0,H,1,0,H,H Blair,20,3,9,0,6,2,1,2,0,0,,,E3,2526
+E3,14/02/2026,15:00,Oldham,Fleetwood Town,1,1,D,0,1,A,A Dale,12,14,3,3,7,7,0,2,0,0,,,E3,2526
+E3,14/02/2026,15:00,Shrewsbury,Swindon,3,1,H,1,1,D,H Wager,19,10,4,5,5,4,3,3,0,0,,,E3,2526
+E3,14/02/2026,15:00,Tranmere,Crawley Town,2,0,H,2,0,H,A Humphries,9,16,3,4,5,15,4,1,0,0,,,E3,2526
+E3,17/02/2026,19:45,Barnet,Swindon,1,2,A,1,0,H,C Hicks,8,8,2,4,3,1,1,1,0,0,,,E3,2526
+E3,17/02/2026,19:45,Barrow,Harrogate,0,1,A,0,1,A,S Copeland,14,7,2,2,1,6,1,2,0,0,,,E3,2526
+E3,17/02/2026,19:45,Bromley,Cheltenham,1,1,D,1,1,D,E Swallow,17,16,5,6,7,3,3,2,0,0,,,E3,2526
+E3,17/02/2026,19:45,Cambridge,Colchester,1,1,D,1,1,D,D Brown,14,9,2,3,5,3,2,2,0,0,,,E3,2526
+E3,17/02/2026,19:45,Chesterfield,Gillingham,1,0,H,1,0,H,W Finnie,19,14,5,2,8,7,0,3,0,0,,,E3,2526
+E3,17/02/2026,19:45,Crewe,Fleetwood Town,0,1,A,0,1,A,R Martin,7,17,0,5,3,5,0,3,0,0,,,E3,2526
+E3,17/02/2026,19:45,Milton Keynes Dons,Crawley Town,0,0,D,0,0,D,I Searle,13,11,4,4,9,2,1,3,0,0,,,E3,2526
+E3,17/02/2026,19:45,Oldham,Bristol Rvs,2,0,H,1,0,H,S Oldham,7,18,6,4,2,6,3,4,0,0,,,E3,2526
+E3,17/02/2026,19:45,Salford,Newport County,1,3,A,0,1,A,D Rock,19,6,2,3,9,1,4,5,0,0,,,E3,2526
+E3,17/02/2026,19:45,Shrewsbury,Notts County,1,0,H,0,0,D,W Davis,10,13,5,6,6,7,0,4,0,0,,,E3,2526
+E3,17/02/2026,19:45,Tranmere,Accrington,0,1,A,0,0,D,E Duckworth,18,13,2,6,7,1,1,3,0,2,,,E3,2526
+E3,18/02/2026,19:45,Grimsby,Walsall,2,2,D,0,1,A,T Parsons,17,7,8,4,10,6,1,2,0,1,,,E3,2526
+E3,21/02/2026,12:30,Fleetwood Town,Barrow,3,2,H,0,2,A,E Bell,11,5,6,3,4,3,2,3,0,0,,,E3,2526
+E3,21/02/2026,12:30,Swindon,Crewe,1,2,A,0,1,A,K Dowle,21,7,3,2,7,6,1,1,0,0,,,E3,2526
+E3,21/02/2026,15:00,Accrington,Shrewsbury,0,2,A,0,1,A,R Joyce,12,10,5,3,6,3,3,0,0,0,,,E3,2526
+E3,21/02/2026,15:00,Bristol Rvs,Grimsby,3,1,H,2,1,H,O Yates,18,9,3,6,5,4,3,0,0,0,,,E3,2526
+E3,21/02/2026,15:00,Cheltenham,Salford,3,2,H,0,1,A,A Byrne,13,6,5,4,7,3,1,5,0,1,,,E3,2526
+E3,21/02/2026,15:00,Colchester,Barnet,4,1,H,1,1,D,A Chilowicz,14,12,8,3,2,5,2,3,0,0,,,E3,2526
+E3,21/02/2026,15:00,Crawley Town,Chesterfield,1,1,D,0,1,A,P Howard,18,15,4,6,4,4,4,2,0,0,,,E3,2526
+E3,21/02/2026,15:00,Gillingham,Oldham,0,3,A,0,2,A,J Oldham,15,11,6,8,10,2,2,2,0,0,,,E3,2526
+E3,21/02/2026,15:00,Harrogate,Bromley,0,0,D,0,0,D,S Oldham,25,6,7,0,6,4,1,2,0,0,,,E3,2526
+E3,21/02/2026,15:00,Newport County,Cambridge,0,2,A,0,0,D,L Sandoe,6,14,1,4,2,9,2,2,0,0,,,E3,2526
+E3,21/02/2026,15:00,Notts County,Tranmere,5,0,H,1,0,H,H Wager,17,5,8,1,5,2,1,2,0,0,,,E3,2526
+E3,23/02/2026,20:00,Walsall,Milton Keynes Dons,0,2,A,0,1,A,P Wright,7,7,3,3,2,8,2,3,0,0,,,E3,2526
+E3,24/02/2026,19:45,Accrington,Barnet,0,1,A,0,0,D,M Barlow,3,21,1,4,2,3,1,0,0,0,,,E3,2526
+E3,24/02/2026,19:45,Salford,Shrewsbury,1,2,A,1,0,H,A Humphries,13,12,4,6,2,2,1,1,0,0,,,E3,2526
+E3,27/02/2026,19:45,Harrogate,Cheltenham,1,1,D,0,0,D,O Yates,21,11,5,1,9,5,0,2,0,0,,,E3,2526
+E3,28/02/2026,12:30,Cambridge,Milton Keynes Dons,1,1,D,0,0,D,D Bourne,7,9,3,4,3,2,1,2,0,0,,,E3,2526
+E3,28/02/2026,12:30,Shrewsbury,Walsall,1,2,A,1,1,D,R Eley,13,11,4,4,8,2,1,1,1,0,,,E3,2526
+E3,28/02/2026,12:30,Swindon,Bristol Rvs,1,1,D,0,1,A,R Ricardo,16,10,6,3,13,1,1,4,0,0,,,E3,2526
+E3,28/02/2026,15:00,Barnet,Chesterfield,1,0,H,0,0,D,W Davis,10,13,1,2,4,4,0,0,0,0,,,E3,2526
+E3,28/02/2026,15:00,Barrow,Gillingham,0,1,A,0,0,D,R Joyce,5,14,0,3,3,8,0,0,0,0,,,E3,2526
+E3,28/02/2026,15:00,Bromley,Accrington,2,1,H,1,1,D,A Humphries,17,12,7,4,5,5,1,1,0,1,,,E3,2526
+E3,28/02/2026,15:00,Colchester,Salford,0,1,A,0,0,D,R Martin,8,15,2,4,4,5,3,2,0,0,,,E3,2526
+E3,28/02/2026,15:00,Crewe,Tranmere,2,1,H,0,1,A,H Blair,17,6,5,2,5,1,1,3,0,0,,,E3,2526
+E3,28/02/2026,15:00,Fleetwood Town,Newport County,0,0,D,0,0,D,S Jackson,25,5,7,0,8,2,1,1,0,0,,,E3,2526
+E3,28/02/2026,15:00,Notts County,Grimsby,0,1,A,0,0,D,D Brown,14,12,5,4,7,6,3,3,1,0,,,E3,2526
+E3,28/02/2026,15:00,Oldham,Crawley Town,2,0,H,1,0,H,D Baines,18,8,11,2,8,3,4,1,0,0,,,E3,2526
+E3,03/03/2026,19:45,Bromley,Oldham,0,0,D,0,0,D,R Martin,14,9,3,3,3,7,3,1,0,0,,,E3,2526
+E3,03/03/2026,19:45,Chesterfield,Colchester,3,0,H,2,0,H,S Mather,13,4,6,2,4,4,2,5,0,0,,,E3,2526
+E3,03/03/2026,19:45,Grimsby,Salford,3,1,H,3,0,H,R Joyce,8,13,6,2,4,4,2,4,0,0,,,E3,2526
+E3,03/03/2026,19:45,Newport County,Tranmere,3,1,H,1,1,D,I Searle,18,7,6,3,7,5,2,2,0,1,,,E3,2526
+E3,03/03/2026,19:45,Walsall,Fleetwood Town,0,1,A,0,1,A,S Copeland,18,6,4,1,5,5,0,2,0,0,,,E3,2526
+E3,06/03/2026,19:45,Cheltenham,Barrow,2,2,D,1,1,D,K Dowle,16,11,5,8,1,3,1,2,0,0,,,E3,2526
+E3,07/03/2026,12:30,Grimsby,Bromley,1,1,D,1,1,D,S Stockbridge,15,7,8,5,6,5,0,2,0,0,,,E3,2526
+E3,07/03/2026,12:30,Salford,Barnet,2,0,H,2,0,H,R Madley,11,8,6,1,4,8,2,0,0,0,,,E3,2526
+E3,07/03/2026,15:00,Accrington,Cambridge,1,1,D,1,0,H,J O'Connor,5,14,1,3,0,12,2,0,0,0,,,E3,2526
+E3,07/03/2026,15:00,Bristol Rvs,Crewe,2,1,H,0,1,A,E Duckworth,14,14,2,3,7,7,3,4,0,0,,,E3,2526
+E3,07/03/2026,15:00,Chesterfield,Shrewsbury,2,3,A,1,1,D,A Dale,23,14,8,6,8,1,1,2,0,0,,,E3,2526
+E3,07/03/2026,15:00,Crawley Town,Swindon,2,2,D,0,0,D,S Mather,18,8,8,6,10,4,1,1,0,0,,,E3,2526
+E3,07/03/2026,15:00,Gillingham,Fleetwood Town,1,1,D,0,0,D,L Sandoe,6,14,3,5,1,3,2,1,0,0,,,E3,2526
+E3,07/03/2026,15:00,Milton Keynes Dons,Harrogate,4,1,H,2,1,H,A Chilowicz,16,15,9,4,7,2,1,0,0,0,,,E3,2526
+E3,07/03/2026,15:00,Newport County,Colchester,1,2,A,0,0,D,S Copeland,12,16,3,7,8,2,0,0,0,0,,,E3,2526
+E3,07/03/2026,15:00,Tranmere,Oldham,1,3,A,0,2,A,S Mulhall,13,9,1,5,2,3,2,1,0,0,,,E3,2526
+E3,07/03/2026,15:00,Walsall,Notts County,1,2,A,1,0,H,S Jackson,12,12,1,7,5,2,3,4,0,0,,,E3,2526
+E3,10/03/2026,19:45,Barrow,Bristol Rvs,0,2,A,0,1,A,T Reeves,9,9,3,5,2,6,1,0,0,0,,,E3,2526
+E3,10/03/2026,19:45,Fleetwood Town,Cheltenham,2,2,D,2,0,H,D Rock,14,8,3,4,8,2,2,3,0,0,,,E3,2526
+E3,10/03/2026,19:45,Gillingham,Milton Keynes Dons,1,5,A,0,3,A,H Wager,13,12,5,7,3,5,3,1,0,0,,,E3,2526
+E3,10/03/2026,19:45,Salford,Walsall,1,0,H,0,0,D,M Woods,5,7,2,1,11,2,1,1,0,0,,,E3,2526
+E3,13/03/2026,19:45,Colchester,Crawley Town,0,0,D,0,0,D,W Finnie,13,10,3,2,6,6,0,6,0,0,,,E3,2526
+E3,14/03/2026,12:30,Harrogate,Salford,0,1,A,0,0,D,J Linington,9,15,1,6,7,4,0,2,0,0,,,E3,2526
+E3,14/03/2026,12:30,Notts County,Chesterfield,2,3,A,2,2,D,M Corlett,5,20,3,5,2,5,3,4,1,0,,,E3,2526
+E3,14/03/2026,15:00,Barnet,Newport County,1,2,A,1,0,H,O Mackey,12,10,4,4,5,6,1,2,0,0,,,E3,2526
+E3,14/03/2026,15:00,Barrow,Accrington,0,0,D,0,0,D,M Coy,12,9,2,1,7,5,2,3,0,0,,,E3,2526
+E3,14/03/2026,15:00,Bromley,Bristol Rvs,1,0,H,1,0,H,E Bell,12,12,3,3,9,1,1,0,0,1,,,E3,2526
+E3,14/03/2026,15:00,Cambridge,Gillingham,5,0,H,2,0,H,M Barlow,18,6,6,0,8,1,0,3,0,0,,,E3,2526
+E3,14/03/2026,15:00,Crewe,Walsall,0,3,A,0,1,A,S Parkinson,8,15,2,8,4,1,2,3,0,0,,,E3,2526
+E3,14/03/2026,15:00,Fleetwood Town,Tranmere,0,0,D,0,0,D,E Heaslip,18,3,2,2,9,3,0,3,0,0,,,E3,2526
+E3,14/03/2026,15:00,Oldham,Grimsby,1,0,H,0,0,D,E Swallow,8,7,1,1,3,4,2,2,0,0,,,E3,2526
+E3,14/03/2026,15:00,Shrewsbury,Cheltenham,0,2,A,0,0,D,L Sandoe,8,8,2,3,1,2,2,3,0,0,,,E3,2526
+E3,14/03/2026,15:00,Swindon,Milton Keynes Dons,1,2,A,0,1,A,J O'Connor,12,11,5,3,5,6,2,2,0,0,,,E3,2526
+E3,17/03/2026,19:30,Newport County,Bromley,0,1,A,0,0,D,P Howard,18,8,5,3,9,4,1,3,0,0,,,E3,2526
+E3,17/03/2026,19:45,Accrington,Notts County,0,4,A,0,2,A,O Yates,10,19,3,9,3,12,1,1,0,0,,,E3,2526
+E3,17/03/2026,19:45,Bristol Rvs,Shrewsbury,1,0,H,0,0,D,D Rock,8,5,2,1,3,0,1,1,0,0,,,E3,2526
+E3,17/03/2026,19:45,Cheltenham,Crewe,1,1,D,0,0,D,S Copeland,16,15,4,3,4,3,3,1,0,0,,,E3,2526
+E3,17/03/2026,19:45,Chesterfield,Oldham,0,3,A,0,2,A,R Joyce,11,14,1,6,13,5,1,1,0,0,,,E3,2526
+E3,17/03/2026,19:45,Crawley Town,Barnet,1,1,D,0,0,D,H Wager,14,10,4,3,5,10,2,6,0,0,,,E3,2526
+E3,17/03/2026,19:45,Gillingham,Swindon,0,2,A,0,0,D,E Heaslip,20,6,3,2,9,2,1,3,0,0,,,E3,2526
+E3,17/03/2026,19:45,Grimsby,Fleetwood Town,1,0,H,0,0,D,W Cartmel,19,5,5,1,10,1,1,5,0,0,,,E3,2526
+E3,17/03/2026,19:45,Salford,Barrow,3,1,H,1,0,H,I Searle,12,12,6,4,2,5,1,1,0,0,,,E3,2526
+E3,17/03/2026,19:45,Tranmere,Harrogate,0,3,A,0,3,A,K Dowle,9,10,2,6,5,5,3,1,0,0,,,E3,2526
+E3,17/03/2026,19:45,Walsall,Cambridge,0,0,D,0,0,D,S Mather,10,7,1,0,6,4,0,2,0,0,,,E3,2526
+E3,18/03/2026,20:00,Milton Keynes Dons,Colchester,1,0,H,1,0,H,S Mulhall,17,8,3,0,3,4,2,4,0,0,,,E3,2526
+E3,21/03/2026,12:30,Cambridge,Salford,1,0,H,0,0,D,A Dale,12,9,7,3,5,3,2,4,0,0,,,E3,2526
+E3,21/03/2026,12:30,Milton Keynes Dons,Barnet,1,3,A,1,1,D,D Baines,11,10,5,6,4,6,1,2,0,0,,,E3,2526
+E3,21/03/2026,15:00,Accrington,Chesterfield,0,1,A,0,0,D,H Wager,14,13,6,3,4,7,2,1,0,0,,,E3,2526
+E3,21/03/2026,15:00,Bromley,Colchester,1,0,H,0,0,D,O Yates,19,18,6,5,5,7,2,3,0,0,,,E3,2526
+E3,21/03/2026,15:00,Fleetwood Town,Crawley Town,1,0,H,0,0,D,M Woods,11,10,5,3,4,10,2,0,0,0,,,E3,2526
+E3,21/03/2026,15:00,Gillingham,Bristol Rvs,1,2,A,1,0,H,C Breakspear,9,18,3,8,4,5,2,3,1,0,,,E3,2526
+E3,21/03/2026,15:00,Grimsby,Barrow,5,0,H,2,0,H,B Speedie,15,10,7,4,4,6,0,0,0,0,,,E3,2526
+E3,21/03/2026,15:00,Notts County,Cheltenham,5,2,H,2,2,D,E Bell,17,7,7,3,7,3,2,3,0,1,,,E3,2526
+E3,21/03/2026,15:00,Oldham,Harrogate,1,0,H,0,0,D,S Stockbridge,12,13,4,4,3,6,2,2,0,0,,,E3,2526
+E3,21/03/2026,15:00,Shrewsbury,Crewe,0,4,A,0,2,A,J O'Connor,13,16,2,9,5,6,0,3,0,0,,,E3,2526
+E3,21/03/2026,15:00,Tranmere,Swindon,0,1,A,0,0,D,T Parsons,12,13,7,6,5,9,1,0,0,0,,,E3,2526
+E3,21/03/2026,15:00,Walsall,Newport County,2,1,H,0,1,A,R Joyce,18,10,3,3,7,5,4,3,0,0,,,E3,2526
+E3,24/03/2026,19:45,Oldham,Notts County,3,0,H,1,0,H,A Humphries,12,4,7,2,7,1,0,2,0,1,,,E3,2526
+E3,28/03/2026,12:30,Harrogate,Notts County,0,2,A,0,1,A,W Finnie,8,15,2,6,3,7,1,0,0,0,,,E3,2526
+E3,28/03/2026,15:00,Barnet,Cambridge,1,0,H,0,0,D,M Woods,7,8,1,1,6,4,0,0,0,0,,,E3,2526
+E3,28/03/2026,15:00,Barrow,Bromley,2,1,H,0,1,A,R Madley,15,8,4,3,6,4,3,3,0,0,,,E3,2526
+E3,28/03/2026,15:00,Bristol Rvs,Accrington,2,0,H,1,0,H,B Speedie,11,9,3,2,5,7,2,3,0,0,,,E3,2526
+E3,28/03/2026,15:00,Colchester,Walsall,1,1,D,0,0,D,C Brook,16,13,5,7,9,8,2,0,0,0,,,E3,2526
+E3,28/03/2026,15:00,Crawley Town,Gillingham,2,0,H,0,0,D,E Duckworth,8,10,5,2,2,7,1,3,0,0,,,E3,2526
+E3,28/03/2026,15:00,Crewe,Oldham,2,1,H,1,1,D,S Mather,18,23,7,4,6,5,4,0,0,0,,,E3,2526
+E3,28/03/2026,15:00,Newport County,Shrewsbury,1,0,H,0,0,D,E Bell,7,3,2,1,6,4,2,3,0,0,,,E3,2526
+E3,28/03/2026,15:00,Salford,Milton Keynes Dons,1,0,H,0,0,D,T Parsons,12,11,4,3,5,3,1,2,0,1,,,E3,2526
+E3,28/03/2026,15:00,Swindon,Fleetwood Town,1,1,D,1,0,H,M Barlow,9,15,3,4,6,9,3,4,0,0,,,E3,2526
+E3,02/04/2026,20:00,Cambridge,Swindon,1,1,D,1,0,H,M Corlett,20,4,6,1,11,5,0,2,0,0,,,E3,2526
+E3,03/04/2026,15:00,Accrington,Crewe,2,0,H,0,0,D,O Mackey,14,4,3,1,4,7,3,1,0,0,,,E3,2526
+E3,03/04/2026,15:00,Barnet,Bromley,2,2,D,1,1,D,D Rock,17,16,6,7,6,3,1,4,1,0,,,E3,2526
+E3,03/04/2026,15:00,Bristol Rvs,Fleetwood Town,1,0,H,0,0,D,D Drysdale,11,14,2,2,5,4,4,4,0,0,,,E3,2526
+E3,03/04/2026,15:00,Chesterfield,Cheltenham,1,0,H,1,0,H,J Durkin,13,6,3,1,6,1,1,1,0,0,,,E3,2526
+E3,03/04/2026,15:00,Colchester,Oldham,1,3,A,0,1,A,S Jackson,15,9,3,4,7,2,1,2,0,0,,,E3,2526
+E3,03/04/2026,15:00,Grimsby,Harrogate,1,3,A,1,2,A,A Humphries,19,6,6,3,8,2,1,3,0,0,,,E3,2526
+E3,03/04/2026,15:00,Milton Keynes Dons,Barrow,0,0,D,0,0,D,M Woods,16,5,5,0,6,1,2,3,0,0,,,E3,2526
+E3,03/04/2026,15:00,Newport County,Crawley Town,0,2,A,0,0,D,L Smith,10,13,2,5,7,2,3,3,0,0,,,E3,2526
+E3,03/04/2026,15:00,Salford,Notts County,2,1,H,0,0,D,S Stockbridge,17,12,7,1,7,1,1,1,0,0,,,E3,2526
+E3,03/04/2026,15:00,Shrewsbury,Tranmere,1,0,H,0,0,D,O Yates,20,6,5,1,5,5,0,1,0,0,,,E3,2526
+E3,03/04/2026,15:00,Walsall,Gillingham,2,2,D,1,0,H,W Davis,11,12,5,4,5,3,0,2,0,0,,,E3,2526
+E3,06/04/2026,15:00,Barrow,Chesterfield,0,1,A,0,0,D,D Drysdale,7,13,1,3,1,12,2,2,0,0,,,E3,2526
+E3,06/04/2026,15:00,Cheltenham,Cambridge,1,1,D,0,1,A,J Oldham,3,11,0,4,3,6,0,1,0,0,,,E3,2526
+E3,06/04/2026,15:00,Crawley Town,Grimsby,0,2,A,0,2,A,R Madley,7,16,0,5,3,9,1,1,1,0,,,E3,2526
+E3,06/04/2026,15:00,Crewe,Salford,1,0,H,1,0,H,P Howard,19,15,4,2,4,3,1,1,0,0,,,E3,2526
+E3,06/04/2026,15:00,Fleetwood Town,Barnet,2,5,A,0,1,A,D Bourne,13,16,5,9,9,6,2,3,1,0,,,E3,2526
+E3,06/04/2026,15:00,Gillingham,Accrington,2,0,H,1,0,H,G Laflin,11,8,5,0,6,2,3,4,0,2,,,E3,2526
+E3,06/04/2026,15:00,Harrogate,Bristol Rvs,2,3,A,1,0,H,S Parkinson,17,15,2,6,5,4,1,0,0,0,,,E3,2526
+E3,06/04/2026,15:00,Notts County,Newport County,3,1,H,2,0,H,E Duckworth,15,4,8,2,8,4,2,3,0,0,,,E3,2526
+E3,06/04/2026,15:00,Oldham,Milton Keynes Dons,1,1,D,0,1,A,S Copeland,13,12,4,2,8,2,0,2,0,0,,,E3,2526
+E3,06/04/2026,15:00,Swindon,Walsall,2,1,H,0,0,D,E Swallow,7,11,2,2,4,8,1,1,0,0,,,E3,2526
+E3,06/04/2026,15:00,Tranmere,Colchester,0,1,A,0,0,D,S Oldham,17,16,6,5,5,8,1,1,0,0,,,E3,2526
+E3,07/04/2026,20:00,Bromley,Shrewsbury,2,1,H,1,1,D,A Byrne,11,7,4,3,6,1,0,3,0,0,,,E3,2526
+E3,10/04/2026,19:45,Colchester,Swindon,3,0,H,0,0,D,P Howard,25,4,10,1,10,1,1,0,0,1,,,E3,2526
+E3,11/04/2026,12:30,Bristol Rvs,Crawley Town,3,1,H,2,0,H,S Oldham,11,23,3,4,4,2,2,1,1,0,,,E3,2526
+E3,11/04/2026,12:30,Milton Keynes Dons,Bromley,2,1,H,2,0,H,W Finnie,10,19,4,7,2,9,1,3,1,0,,,E3,2526
+E3,11/04/2026,15:00,Accrington,Fleetwood Town,1,2,A,0,1,A,R Watkins,11,13,2,6,4,8,2,2,0,0,,,E3,2526
+E3,11/04/2026,15:00,Barnet,Barrow,3,2,H,1,1,D,S Mather,23,5,5,2,8,0,1,1,0,0,,,E3,2526
+E3,11/04/2026,15:00,Cambridge,Notts County,4,0,H,3,0,H,B Speedie,13,8,6,0,4,4,0,2,1,0,,,E3,2526
+E3,11/04/2026,15:00,Chesterfield,Tranmere,1,1,D,1,0,H,S Stockbridge,7,13,3,4,6,7,2,4,0,0,,,E3,2526
+E3,11/04/2026,15:00,Grimsby,Crewe,3,2,H,1,0,H,D Rock,16,8,3,2,2,5,1,0,0,0,,,E3,2526
+E3,11/04/2026,15:00,Newport County,Harrogate,2,1,H,1,1,D,N Hair,11,10,3,2,8,7,2,1,0,0,,,E3,2526
+E3,11/04/2026,15:00,Salford,Gillingham,0,0,D,0,0,D,S Parkinson,12,5,3,0,3,5,1,2,0,0,,,E3,2526
+E3,11/04/2026,15:00,Shrewsbury,Oldham,1,0,H,1,0,H,E Heaslip,8,10,2,2,3,5,2,2,0,0,,,E3,2526
+E3,11/04/2026,15:00,Walsall,Cheltenham,0,4,A,0,0,D,A Dale,8,15,0,6,0,5,1,1,0,0,,,E3,2526
+E3,14/04/2026,19:45,Barrow,Oldham,3,2,H,0,0,D,E Duckworth,12,10,4,5,7,4,3,1,0,0,,,E3,2526
+E3,14/04/2026,19:45,Cheltenham,Gillingham,2,1,H,0,1,A,H Blair,8,13,3,5,8,4,1,0,0,0,,,E3,2526
+E3,14/04/2026,19:45,Chesterfield,Grimsby,2,1,H,2,1,H,T Reeves,14,8,3,3,8,4,3,3,0,0,,,E3,2526
+E3,14/04/2026,19:45,Colchester,Accrington,2,1,H,1,1,D,J Miles,17,11,7,3,6,2,4,1,0,0,,,E3,2526
+E3,16/04/2026,20:00,Bromley,Cambridge,0,0,D,0,0,D,S Mulhall,15,9,1,3,4,6,1,2,0,0,,,E3,2526
+E3,18/04/2026,12:30,Barrow,Walsall,1,3,A,0,2,A,S Oldham,10,18,2,12,5,3,1,0,0,0,,,E3,2526
+E3,18/04/2026,12:30,Swindon,Accrington,2,2,D,2,1,H,D Brown,8,11,6,7,5,6,0,1,0,0,,,E3,2526
+E3,18/04/2026,15:00,Cheltenham,Newport County,1,0,H,0,0,D,S Mather,8,17,4,3,2,8,1,4,0,0,,,E3,2526
+E3,18/04/2026,15:00,Crawley Town,Shrewsbury,0,0,D,0,0,D,C Hicks,13,7,5,0,7,2,1,1,0,0,,,E3,2526
+E3,18/04/2026,15:00,Crewe,Milton Keynes Dons,1,3,A,0,2,A,Z Kennard-Kettle,8,17,4,6,3,6,1,1,0,0,,,E3,2526
+E3,18/04/2026,15:00,Fleetwood Town,Chesterfield,1,1,D,0,0,D,R Martin,22,13,9,2,4,6,0,0,0,1,,,E3,2526
+E3,18/04/2026,15:00,Gillingham,Grimsby,1,4,A,0,1,A,O Mackey,9,14,3,6,5,3,2,1,0,0,,,E3,2526
+E3,18/04/2026,15:00,Harrogate,Colchester,1,0,H,0,0,D,M Coy,13,16,5,3,7,5,4,1,0,0,,,E3,2526
+E3,18/04/2026,15:00,Notts County,Barnet,1,2,A,1,1,D,T Reeves,9,14,4,2,1,7,1,1,0,0,,,E3,2526
+E3,18/04/2026,15:00,Oldham,Salford,1,2,A,0,2,A,W Finnie,13,14,2,4,7,4,3,2,0,0,,,E3,2526
+E3,18/04/2026,15:00,Tranmere,Bristol Rvs,1,2,A,0,0,D,C Brook,10,10,3,4,5,2,4,3,0,0,,,E3,2526
+E3,21/04/2026,19:45,Cambridge,Grimsby,1,2,A,1,1,D,T Parsons,17,10,2,3,6,5,0,2,0,0,,,E3,2526
+E3,21/04/2026,19:45,Cheltenham,Tranmere,1,3,A,1,0,H,S Parkinson,11,14,1,6,4,5,1,0,0,0,,,E3,2526
+E3,23/04/2026,20:00,Salford,Bromley,2,0,H,0,0,D,A Humphries,9,12,4,3,6,4,2,1,0,0,,,E3,2526
+E3,25/04/2026,12:30,Grimsby,Swindon,4,0,H,3,0,H,C Brook,16,11,6,2,9,5,0,2,0,0,,,E3,2526
+E3,25/04/2026,12:30,Milton Keynes Dons,Tranmere,3,0,H,2,0,H,T Reeves,18,11,7,1,6,2,0,2,0,0,,,E3,2526
+E3,25/04/2026,15:00,Accrington,Crawley Town,3,3,D,1,1,D,K Dowle,6,14,3,5,4,3,1,1,0,0,,,E3,2526
+E3,25/04/2026,15:00,Barnet,Gillingham,6,2,H,5,1,H,O Yates,23,4,12,2,9,3,2,2,0,0,,,E3,2526
+E3,25/04/2026,15:00,Bristol Rvs,Cheltenham,4,0,H,2,0,H,M Barlow,9,10,4,1,1,7,5,1,0,0,,,E3,2526
+E3,25/04/2026,15:00,Cambridge,Barrow,3,0,H,1,0,H,S Parkinson,15,3,5,0,10,3,0,3,0,0,,,E3,2526
+E3,25/04/2026,15:00,Chesterfield,Crewe,2,0,H,1,0,H,J Bell,14,6,6,1,0,3,2,1,0,0,,,E3,2526
+E3,25/04/2026,15:00,Colchester,Notts County,0,1,A,0,0,D,C Breakspear,6,18,0,11,4,5,3,3,0,0,,,E3,2526
+E3,25/04/2026,15:00,Newport County,Oldham,3,2,H,1,2,A,D Rock,24,12,14,6,6,4,2,2,0,1,,,E3,2526
+E3,25/04/2026,15:00,Shrewsbury,Fleetwood Town,2,2,D,0,1,A,H Blair,13,5,6,2,5,2,1,2,0,0,,,E3,2526
+E3,25/04/2026,15:00,Walsall,Harrogate,0,2,A,0,1,A,B Speedie,18,11,3,4,10,3,3,2,0,0,,,E3,2526
+E3,02/05/2026,15:00,Barrow,Newport County,1,2,A,1,0,H,J Miles,24,16,6,4,6,4,2,1,0,0,,,E3,2526
+E3,02/05/2026,15:00,Bromley,Walsall,3,1,H,1,0,H,S Jackson,22,13,8,5,11,5,0,4,0,0,,,E3,2526
+E3,02/05/2026,15:00,Cheltenham,Colchester,1,4,A,0,3,A,T Reeves,15,11,4,7,9,1,1,1,0,0,,,E3,2526
+E3,02/05/2026,15:00,Crawley Town,Salford,0,0,D,0,0,D,L Swabey,12,17,4,4,3,11,1,0,0,0,,,E3,2526
+E3,02/05/2026,15:00,Crewe,Cambridge,0,0,D,0,0,D,N Hair,8,10,2,5,8,6,1,3,0,0,,,E3,2526
+E3,02/05/2026,15:00,Fleetwood Town,Milton Keynes Dons,1,1,D,1,1,D,S Parkinson,9,14,3,4,5,3,0,0,0,0,,,E3,2526
+E3,02/05/2026,15:00,Gillingham,Shrewsbury,1,0,H,0,0,D,D Rock,6,16,2,5,2,5,1,2,0,0,,,E3,2526
+E3,02/05/2026,15:00,Harrogate,Barnet,1,2,A,1,1,D,T Parsons,14,12,3,6,4,6,2,2,0,0,,,E3,2526
+E3,02/05/2026,15:00,Notts County,Bristol Rvs,1,1,D,1,0,H,R Joyce,15,12,6,4,5,3,3,3,0,0,,,E3,2526
+E3,02/05/2026,15:00,Oldham,Accrington,3,0,H,1,0,H,C Brook,9,7,5,4,5,0,0,1,0,0,,,E3,2526
+E3,02/05/2026,15:00,Swindon,Chesterfield,1,2,A,1,1,D,S Oldham,13,11,7,3,8,3,3,2,0,0,,,E3,2526
+E3,02/05/2026,15:00,Tranmere,Grimsby,1,1,D,0,1,A,M Coy,8,13,2,3,4,4,0,1,0,0,,,E3,2526
+E3,15/08/2026,12:30,Newport County,Rochdale,3,0,H,2,0,H,H Blair,12,5,6,0,9,6,2,4,0,1,1.47,0.13,E3,2627
+E3,15/08/2026,12:30,Oldham,Port Vale,2,0,H,0,0,D,P Howard,11,13,3,2,1,6,2,4,0,0,1.68,0.62,E3,2627
+E3,15/08/2026,15:00,Accrington,Colchester,2,2,D,2,1,H,E Swallow,20,7,11,5,9,4,1,0,0,0,2.13,0.72,E3,2627
+E3,15/08/2026,15:00,Barnet,Salford,3,1,H,2,0,H,R Eley,20,14,7,3,6,5,2,3,0,0,1.6,0.81,E3,2627
+E3,15/08/2026,15:00,Cheltenham,Rotherham,2,1,H,1,0,H,H Wager,6,19,4,5,5,4,3,1,0,0,0.64,1.74,E3,2627
+E3,15/08/2026,15:00,Chesterfield,Fleetwood Town,0,1,A,0,1,A,A Dale,15,14,3,7,5,1,1,3,0,0,1.71,0.77,E3,2627
+E3,15/08/2026,15:00,Crawley Town,Crewe,0,1,A,0,0,D,A Humphries,9,18,3,4,4,11,2,5,2,1,0.82,2.3,E3,2627
+E3,15/08/2026,15:00,Gillingham,Walsall,0,3,A,0,0,D,E Heaslip,17,17,7,5,6,9,4,2,0,0,1.61,2.73,E3,2627
+E3,15/08/2026,15:00,Grimsby,Exeter,1,0,H,1,0,H,A Byrne,21,8,4,2,6,3,1,1,0,0,1.83,0.72,E3,2627
+E3,15/08/2026,15:00,Northampton,Swindon,0,0,D,0,0,D,S Oldham,11,4,3,0,10,1,0,2,0,0,0.89,0.21,E3,2627
+E3,15/08/2026,15:00,Tranmere,Shrewsbury,2,0,H,1,0,H,J O'Connor,7,15,4,5,3,5,3,2,0,0,1,1.78,E3,2627
+E3,15/08/2026,15:00,York,Bristol Rvs,3,2,H,0,1,A,T Nield,16,13,5,3,7,6,2,0,0,0,1.83,1.89,E3,2627
+E3,22/08/2026,12:30,Bristol Rvs,Newport County,5,3,H,1,1,D,S Mather,26,8,9,3,11,1,2,1,0,0,4.28,0.47,E3,2627
+E3,22/08/2026,12:30,Salford,Chesterfield,0,1,A,0,1,A,S Oldham,10,14,3,3,5,1,2,3,0,0,0.53,1.89,E3,2627
+E3,22/08/2026,12:30,Walsall,Grimsby,0,0,D,0,0,D,M Russell,16,13,2,1,8,7,1,1,0,0,1.33,0.85,E3,2627
+E3,22/08/2026,15:00,Colchester,Oldham,2,1,H,0,1,A,J Durkin,17,6,5,2,8,2,2,5,0,1,2.19,0.19,E3,2627
+E3,22/08/2026,15:00,Crewe,Northampton,1,0,H,0,0,D,L Sandoe,6,15,3,6,7,6,1,1,0,0,0.5,0.68,E3,2627
+E3,22/08/2026,15:00,Exeter,Accrington,2,0,H,2,0,H,S Jackson,19,14,5,2,9,1,3,2,0,0,2.09,0.93,E3,2627
+E3,22/08/2026,15:00,Fleetwood Town,Gillingham,0,0,D,0,0,D,D Baines,17,9,0,3,10,2,1,2,0,0,0.8,1.07,E3,2627
+E3,22/08/2026,15:00,Port Vale,Tranmere,1,1,D,1,0,H,D Brown,9,6,4,4,4,3,2,3,0,0,1.64,0.73,E3,2627
+E3,22/08/2026,15:00,Rochdale,Crawley Town,1,2,A,0,1,A,Z Kennard-Kettle,7,12,3,2,5,3,4,4,0,0,0.79,2.01,E3,2627
+E3,22/08/2026,15:00,Rotherham,York,1,1,D,1,1,D,D Bourne,10,17,2,5,5,9,2,0,0,0,0.82,2.58,E3,2627
+E3,22/08/2026,15:00,Shrewsbury,Barnet,1,3,A,1,1,D,W Davis,10,15,1,3,7,9,1,0,0,0,1.31,0.97,E3,2627
+E3,22/08/2026,15:00,Swindon,Cheltenham,2,1,H,1,0,H,C Hicks,5,14,3,6,2,5,1,1,0,0,1.01,1.02,E3,2627
