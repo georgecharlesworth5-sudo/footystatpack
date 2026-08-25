@@ -20,11 +20,34 @@ game state and referee - Referee is captured as a separate diagnostic
 field, not yet folded into the lambda itself). Treat the corners/cards
 outputs as a solid baseline signal, not a finished edge - see NOTES in
 build_statpack.py for suggested refinements.
+
+## xG blending (goals only)
+
+Actual goals scored/conceded over a rolling window are noisier than
+they need to be - a team can meaningfully over- or under-perform the
+quality of chances they actually created, purely down to finishing
+variance. Where football-data.co.uk provides xG (HxG/AxG - not
+available for every league/season, see fetch_data.py), the "goals"
+metric blends actual goals with xG rather than using actual goals
+alone, giving a steadier read on a team's true underlying level.
+Corners/cards/half-splits are untouched - we have no xG equivalent
+for those.
 """
 
 import math
 
 from stats_engine import METRICS
+
+XG_BLEND_WEIGHT = 0.4  # how much weight xG gets vs actual goals, when both are available
+MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - use actual goals alone
+
+
+def _blended_goal_value(actual: float, xg: float | None, xg_matches: int) -> float:
+    """actual goals, blended toward xG when we have enough xG data to
+    trust it; otherwise just the actual figure, unchanged."""
+    if xg is None or xg_matches < MIN_XG_SAMPLE:
+        return actual
+    return round((1 - XG_BLEND_WEIGHT) * actual + XG_BLEND_WEIGHT * xg, 3)
 
 
 def poisson_pmf(k: int, lam: float) -> float:
@@ -66,7 +89,9 @@ def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: 
     """
     Compute (lambda_home, lambda_away) for one metric ("goals", "corners",
     or "cards") given home team's home-form, away team's away-form, and
-    league averages.
+    league averages. For "goals" specifically, both the team-form figures
+    and the league baseline are blended with xG where available (see
+    XG_BLEND_WEIGHT above) - everything else is untouched.
     """
     for_key = f"{metric}_for"
     against_key = f"{metric}_against"
@@ -74,12 +99,31 @@ def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: 
     league_home_avg = league_avg.get(f"home_{metric}", 0) or 1.0
     league_away_avg = league_avg.get(f"away_{metric}", 0) or 1.0
 
-    home_attack = (home_form.get(for_key, league_home_avg)) / league_home_avg
-    away_defense = (away_form.get(against_key, league_home_avg)) / league_home_avg
+    home_form_for = home_form.get(for_key, league_home_avg)
+    away_form_against = away_form.get(against_key, league_home_avg)
+    away_form_for = away_form.get(for_key, league_away_avg)
+    home_form_against = home_form.get(against_key, league_away_avg)
+
+    if metric == "goals":
+        league_home_avg = _blended_goal_value(
+            league_home_avg, league_avg.get("home_xg"), league_avg.get("xg_matches", 0))
+        league_away_avg = _blended_goal_value(
+            league_away_avg, league_avg.get("away_xg"), league_avg.get("xg_matches", 0))
+        home_form_for = _blended_goal_value(
+            home_form_for, home_form.get("xg_for"), home_form.get("xg_matches", 0))
+        away_form_against = _blended_goal_value(
+            away_form_against, away_form.get("xg_against"), away_form.get("xg_matches", 0))
+        away_form_for = _blended_goal_value(
+            away_form_for, away_form.get("xg_for"), away_form.get("xg_matches", 0))
+        home_form_against = _blended_goal_value(
+            home_form_against, home_form.get("xg_against"), home_form.get("xg_matches", 0))
+
+    home_attack = home_form_for / league_home_avg
+    away_defense = away_form_against / league_home_avg
     lam_home = league_home_avg * home_attack * away_defense
 
-    away_attack = (away_form.get(for_key, league_away_avg)) / league_away_avg
-    home_defense = (home_form.get(against_key, league_away_avg)) / league_away_avg
+    away_attack = away_form_for / league_away_avg
+    home_defense = home_form_against / league_away_avg
     lam_away = league_away_avg * away_attack * home_defense
 
     return round(lam_home, 3), round(lam_away, 3)
