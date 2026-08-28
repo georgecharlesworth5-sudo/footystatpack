@@ -614,13 +614,14 @@
     bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; render(); });
     tabsEl.appendChild(bbBtn);
 
-    const trBtn = document.createElement("button");
-    trBtn.className = "tab tab-bestbets" + (activeLeague === TRACK_RECORD ? " active" : "");
-    const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
-      ? ` ${BETS_LOG.summary.overall.pct}%` : "";
-    trBtn.innerHTML = "Track Record" + trPct;
-    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; render(); });
-    tabsEl.appendChild(trBtn);
+    availableLeagues.forEach(code => {
+      const league = data[code];
+      const btn = document.createElement("button");
+      btn.className = "tab" + (code === activeLeague ? " active" : "");
+      btn.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
+      btn.addEventListener("click", () => { activeLeague = code; render(); });
+      tabsEl.appendChild(btn);
+    });
 
     const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
       ? STATPACK_DATA.efl_cup.fixtures : [];
@@ -632,14 +633,13 @@
       tabsEl.appendChild(cupBtn);
     }
 
-    availableLeagues.forEach(code => {
-      const league = data[code];
-      const btn = document.createElement("button");
-      btn.className = "tab" + (code === activeLeague ? " active" : "");
-      btn.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
-      btn.addEventListener("click", () => { activeLeague = code; render(); });
-      tabsEl.appendChild(btn);
-    });
+    const trBtn = document.createElement("button");
+    trBtn.className = "tab tab-bestbets" + (activeLeague === TRACK_RECORD ? " active" : "");
+    const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
+      ? ` ${BETS_LOG.summary.overall.pct}%` : "";
+    trBtn.innerHTML = "Track Record" + trPct;
+    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; render(); });
+    tabsEl.appendChild(trBtn);
   }
 
   function metricBlock(title, m, homeTeam, awayTeam) {
