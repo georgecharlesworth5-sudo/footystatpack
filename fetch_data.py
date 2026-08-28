@@ -48,6 +48,7 @@ LEAGUES = {
     "E2": "League One",
     "E3": "League Two",
     "SC0": "Scottish Premiership",
+    "I1": "Serie A",
 }
 
 BASE_URL = "https://www.football-data.co.uk/mmz4281/{season}/{code}.csv"
