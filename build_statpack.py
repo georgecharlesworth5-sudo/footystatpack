@@ -69,6 +69,7 @@ LEAGUE_NAMES = {
     "E2": "League One",
     "E3": "League Two",
     "SC0": "Scottish Premiership",
+    "I1": "Serie A",
 }
 
 
