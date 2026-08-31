@@ -123,95 +123,95 @@ Brighton|Aston Villa|23/08/2026|btts|No,2026-08-23,23/08/2026,E0,Premier League,
 West Brom|Burnley|23/08/2026|btts|No,2026-08-23,23/08/2026,E1,Championship,West Brom,Burnley,btts,No,,0.591,settled,1,miss,2026-08-25
 Fulham|Chelsea|24/08/2026|btts|No,2026-08-23,24/08/2026,E0,Premier League,Fulham,Chelsea,btts,No,,0.427,settled,1,miss,2026-08-25
 Newcastle|Liverpool|23/08/2026|btts|No,2026-08-23,23/08/2026,E0,Premier League,Newcastle,Liverpool,btts,No,,0.222,settled,1,miss,2026-08-25
-Wrexham|Birmingham|28/08/2026|goals|Over,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,goals,Over,1.5,0.723,pending,,,
-Crystal Palace|Man City|28/08/2026|goals|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,goals,Over,1.5,0.602,pending,,,
-Crystal Palace|Man City|28/08/2026|goals|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,goals,Under,3.5,0.852,pending,,,
-Wrexham|Birmingham|28/08/2026|goals|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,goals,Under,3.5,0.746,pending,,,
-Crystal Palace|Man City|28/08/2026|corners|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,corners,Over,8.5,0.746,pending,,,
-Wrexham|Birmingham|28/08/2026|corners|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,corners,Under,11.5,0.802,pending,,,
-Crystal Palace|Man City|28/08/2026|corners|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,corners,Under,11.5,0.608,pending,,,
-Crystal Palace|Man City|28/08/2026|cards|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,cards,Over,2.5,0.781,pending,,,
-Wrexham|Birmingham|28/08/2026|cards|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,cards,Under,4.5,0.872,pending,,,
-Crystal Palace|Man City|28/08/2026|cards|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,cards,Under,4.5,0.603,pending,,,
-Wrexham|Birmingham|28/08/2026|first_half_goals|Over,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,first_half_goals,Over,0.5,0.848,pending,,,
-Crystal Palace|Man City|28/08/2026|first_half_goals|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,first_half_goals,Over,0.5,0.617,pending,,,
-Crystal Palace|Man City|28/08/2026|first_half_goals|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,first_half_goals,Under,1.5,0.75,pending,,,
-Crystal Palace|Man City|28/08/2026|second_half_goals|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,second_half_goals,Over,0.5,0.676,pending,,,
-Wrexham|Birmingham|28/08/2026|second_half_goals|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,second_half_goals,Under,2.5,0.946,pending,,,
-Crystal Palace|Man City|28/08/2026|second_half_goals|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,second_half_goals,Under,2.5,0.895,pending,,,
-Crystal Palace|Man City|28/08/2026|btts|No,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,btts,No,,0.641,pending,,,
-Kilmarnock|Dundee United|29/08/2026|goals|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,goals,Over,1.5,0.965,pending,,,
-Bolton|Lincoln|29/08/2026|goals|Over,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,goals,Over,1.5,0.92,pending,,,
-Bristol City|Portsmouth|29/08/2026|goals|Over,2026-08-25,29/08/2026,E1,Championship,Bristol City,Portsmouth,goals,Over,1.5,0.91,pending,,,
-Stockport|Wycombe|29/08/2026|goals|Over,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,goals,Over,1.5,0.899,pending,,,
-Liverpool|Nott'm Forest|29/08/2026|goals|Over,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,goals,Over,1.5,0.88,pending,,,
-Port Vale|Crewe|29/08/2026|goals|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,goals,Under,3.5,0.966,pending,,,
-Blackburn|QPR|29/08/2026|goals|Under,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,goals,Under,3.5,0.954,pending,,,
-Milton Keynes Dons|Leicester|29/08/2026|goals|Under,2026-08-25,29/08/2026,E2,League One,Milton Keynes Dons,Leicester,goals,Under,3.5,0.944,pending,,,
-Middlesbrough|West Brom|29/08/2026|goals|Under,2026-08-25,29/08/2026,E1,Championship,Middlesbrough,West Brom,goals,Under,3.5,0.941,pending,,,
-Cardiff|Sheffield United|29/08/2026|goals|Under,2026-08-25,29/08/2026,E1,Championship,Cardiff,Sheffield United,goals,Under,3.5,0.913,pending,,,
-Liverpool|Nott'm Forest|29/08/2026|corners|Over,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,corners,Over,8.5,0.917,pending,,,
-Stockport|Wycombe|29/08/2026|corners|Over,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,corners,Over,8.5,0.909,pending,,,
-Celtic|Falkirk|29/08/2026|corners|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Celtic,Falkirk,corners,Over,8.5,0.891,pending,,,
-Newport County|Tranmere|29/08/2026|corners|Over,2026-08-25,29/08/2026,E3,League Two,Newport County,Tranmere,corners,Over,8.5,0.884,pending,,,
-Southampton|Millwall|29/08/2026|corners|Over,2026-08-25,29/08/2026,E1,Championship,Southampton,Millwall,corners,Over,8.5,0.872,pending,,,
-Derby|Swansea|29/08/2026|corners|Under,2026-08-25,29/08/2026,E1,Championship,Derby,Swansea,corners,Under,11.5,0.932,pending,,,
-Barnet|Cheltenham|29/08/2026|corners|Under,2026-08-25,29/08/2026,E3,League Two,Barnet,Cheltenham,corners,Under,11.5,0.89,pending,,,
-Cambridge|Huddersfield|29/08/2026|corners|Under,2026-08-25,29/08/2026,E2,League One,Cambridge,Huddersfield,corners,Under,11.5,0.883,pending,,,
-Stevenage|Doncaster|29/08/2026|corners|Under,2026-08-25,29/08/2026,E2,League One,Stevenage,Doncaster,corners,Under,11.5,0.883,pending,,,
-Norwich|Burnley|29/08/2026|corners|Under,2026-08-25,29/08/2026,E1,Championship,Norwich,Burnley,corners,Under,11.5,0.861,pending,,,
-Notts County|Burton|29/08/2026|cards|Over,2026-08-25,29/08/2026,E2,League One,Notts County,Burton,cards,Over,2.5,0.938,pending,,,
-Bolton|Lincoln|29/08/2026|cards|Over,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,cards,Over,2.5,0.919,pending,,,
-Watford|West Ham|29/08/2026|cards|Over,2026-08-25,29/08/2026,E1,Championship,Watford,West Ham,cards,Over,2.5,0.911,pending,,,
-Rotherham|Chesterfield|29/08/2026|cards|Over,2026-08-25,29/08/2026,E3,League Two,Rotherham,Chesterfield,cards,Over,2.5,0.911,pending,,,
-Tottenham|Newcastle|29/08/2026|cards|Over,2026-08-25,29/08/2026,E0,Premier League,Tottenham,Newcastle,cards,Over,2.5,0.904,pending,,,
-Leyton Orient|Barnsley|29/08/2026|cards|Under,2026-08-25,29/08/2026,E2,League One,Leyton Orient,Barnsley,cards,Under,4.5,0.874,pending,,,
-Oldham|Swindon|29/08/2026|cards|Under,2026-08-25,29/08/2026,E3,League Two,Oldham,Swindon,cards,Under,4.5,0.867,pending,,,
-Middlesbrough|West Brom|29/08/2026|cards|Under,2026-08-25,29/08/2026,E1,Championship,Middlesbrough,West Brom,cards,Under,4.5,0.84,pending,,,
-Port Vale|Crewe|29/08/2026|cards|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,cards,Under,4.5,0.812,pending,,,
-Kilmarnock|Dundee United|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,first_half_goals,Over,0.5,0.875,pending,,,
-Barnet|Cheltenham|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,E3,League Two,Barnet,Cheltenham,first_half_goals,Over,0.5,0.867,pending,,,
-Tottenham|Newcastle|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,E0,Premier League,Tottenham,Newcastle,first_half_goals,Over,0.5,0.851,pending,,,
-Stockport|Wycombe|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,first_half_goals,Over,0.5,0.829,pending,,,
-Crawley Town|Bristol Rvs|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Crawley Town,Bristol Rvs,first_half_goals,Under,1.5,0.963,pending,,,
-Oldham|Swindon|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Oldham,Swindon,first_half_goals,Under,1.5,0.918,pending,,,
-Blackburn|QPR|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,first_half_goals,Under,1.5,0.887,pending,,,
-Port Vale|Crewe|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,first_half_goals,Under,1.5,0.886,pending,,,
-Southampton|Millwall|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Southampton,Millwall,first_half_goals,Under,1.5,0.871,pending,,,
-Kilmarnock|Dundee United|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,second_half_goals,Over,0.5,0.958,pending,,,
-Bolton|Lincoln|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,second_half_goals,Over,0.5,0.932,pending,,,
-Bristol City|Portsmouth|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E1,Championship,Bristol City,Portsmouth,second_half_goals,Over,0.5,0.92,pending,,,
-Bournemouth|Everton|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E0,Premier League,Bournemouth,Everton,second_half_goals,Over,0.5,0.876,pending,,,
-Liverpool|Nott'm Forest|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,second_half_goals,Over,0.5,0.869,pending,,,
-Port Vale|Crewe|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,second_half_goals,Under,2.5,0.987,pending,,,
-Milton Keynes Dons|Leicester|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E2,League One,Milton Keynes Dons,Leicester,second_half_goals,Under,2.5,0.98,pending,,,
-Blackburn|QPR|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,second_half_goals,Under,2.5,0.973,pending,,,
-Cardiff|Sheffield United|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Cardiff,Sheffield United,second_half_goals,Under,2.5,0.969,pending,,,
-Kilmarnock|Dundee United|29/08/2026|btts|Yes,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,btts,Yes,,0.739,pending,,,
-Liverpool|Nott'm Forest|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,btts,Yes,,0.705,pending,,,
-Bolton|Lincoln|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,btts,Yes,,0.7,pending,,,
-Bristol City|Portsmouth|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E1,Championship,Bristol City,Portsmouth,btts,Yes,,0.69,pending,,,
-Stockport|Wycombe|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,btts,Yes,,0.671,pending,,,
-Port Vale|Crewe|29/08/2026|btts|No,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,btts,No,,0.812,pending,,,
-Milton Keynes Dons|Leicester|29/08/2026|btts|No,2026-08-25,29/08/2026,E2,League One,Milton Keynes Dons,Leicester,btts,No,,0.772,pending,,,
-Blackburn|QPR|29/08/2026|btts|No,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,btts,No,,0.769,pending,,,
-Oldham|Swindon|29/08/2026|btts|No,2026-08-25,29/08/2026,E3,League Two,Oldham,Swindon,btts,No,,0.766,pending,,,
-Middlesbrough|West Brom|29/08/2026|btts|No,2026-08-25,29/08/2026,E1,Championship,Middlesbrough,West Brom,btts,No,,0.743,pending,,,
-Plymouth|Bradford|29/08/2026|goals|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,goals,Over,1.5,0.893,pending,,,
-Plymouth|Bradford|29/08/2026|cards|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,cards,Over,2.5,0.929,pending,,,
-Plymouth|Bradford|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,second_half_goals,Over,0.5,0.929,pending,,,
-Plymouth|Bradford|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,btts,Yes,,0.723,pending,,,
-Mansfield|Luton|30/08/2026|goals|Over,2026-08-26,30/08/2026,E2,League One,Mansfield,Luton,goals,Over,1.5,0.932,pending,,,
-Sunderland|Fulham|30/08/2026|goals|Under,2026-08-26,30/08/2026,E0,Premier League,Sunderland,Fulham,goals,Under,3.5,0.934,pending,,,
-Leeds|Brentford|30/08/2026|corners|Over,2026-08-26,30/08/2026,E0,Premier League,Leeds,Brentford,corners,Over,8.5,0.887,pending,,,
-Aberdeen|Rangers|30/08/2026|cards|Over,2026-08-26,30/08/2026,SC0,Scottish Premiership,Aberdeen,Rangers,cards,Over,2.5,0.951,pending,,,
-Man United|Ipswich|30/08/2026|cards|Over,2026-08-26,30/08/2026,E0,Premier League,Man United,Ipswich,cards,Over,2.5,0.95,pending,,,
-AFC Wimbledon|Wigan|30/08/2026|cards|Under,2026-08-26,30/08/2026,E2,League One,AFC Wimbledon,Wigan,cards,Under,4.5,0.955,pending,,,
-Mansfield|Luton|30/08/2026|first_half_goals|Over,2026-08-26,30/08/2026,E2,League One,Mansfield,Luton,first_half_goals,Over,0.5,0.91,pending,,,
-Aberdeen|Rangers|30/08/2026|first_half_goals|Over,2026-08-26,30/08/2026,SC0,Scottish Premiership,Aberdeen,Rangers,first_half_goals,Over,0.5,0.879,pending,,,
-Man United|Ipswich|30/08/2026|second_half_goals|Over,2026-08-26,30/08/2026,E0,Premier League,Man United,Ipswich,second_half_goals,Over,0.5,0.909,pending,,,
-Mansfield|Luton|30/08/2026|btts|Yes,2026-08-26,30/08/2026,E2,League One,Mansfield,Luton,btts,Yes,,0.773,pending,,,
-Man United|Ipswich|30/08/2026|btts|Yes,2026-08-26,30/08/2026,E0,Premier League,Man United,Ipswich,btts,Yes,,0.702,pending,,,
+Wrexham|Birmingham|28/08/2026|goals|Over,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,goals,Over,1.5,0.723,settled,3,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|goals|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,goals,Over,1.5,0.602,settled,5,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|goals|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,goals,Under,3.5,0.852,settled,5,miss,2026-08-31
+Wrexham|Birmingham|28/08/2026|goals|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,goals,Under,3.5,0.746,settled,3,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|corners|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,corners,Over,8.5,0.746,settled,8,miss,2026-08-31
+Wrexham|Birmingham|28/08/2026|corners|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,corners,Under,11.5,0.802,settled,9,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|corners|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,corners,Under,11.5,0.608,settled,8,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|cards|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,cards,Over,2.5,0.781,settled,3,hit,2026-08-31
+Wrexham|Birmingham|28/08/2026|cards|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,cards,Under,4.5,0.872,settled,3,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|cards|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,cards,Under,4.5,0.603,settled,3,hit,2026-08-31
+Wrexham|Birmingham|28/08/2026|first_half_goals|Over,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,first_half_goals,Over,0.5,0.848,settled,1,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|first_half_goals|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,first_half_goals,Over,0.5,0.617,settled,1,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|first_half_goals|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,first_half_goals,Under,1.5,0.75,settled,1,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|second_half_goals|Over,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,second_half_goals,Over,0.5,0.676,settled,4,hit,2026-08-31
+Wrexham|Birmingham|28/08/2026|second_half_goals|Under,2026-08-24,28/08/2026,E1,Championship,Wrexham,Birmingham,second_half_goals,Under,2.5,0.946,settled,2,hit,2026-08-31
+Crystal Palace|Man City|28/08/2026|second_half_goals|Under,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,second_half_goals,Under,2.5,0.895,settled,4,miss,2026-08-31
+Crystal Palace|Man City|28/08/2026|btts|No,2026-08-24,28/08/2026,E0,Premier League,Crystal Palace,Man City,btts,No,,0.641,settled,1,miss,2026-08-31
+Kilmarnock|Dundee United|29/08/2026|goals|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,goals,Over,1.5,0.965,settled,4,hit,2026-08-31
+Bolton|Lincoln|29/08/2026|goals|Over,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,goals,Over,1.5,0.92,settled,1,miss,2026-08-31
+Bristol City|Portsmouth|29/08/2026|goals|Over,2026-08-25,29/08/2026,E1,Championship,Bristol City,Portsmouth,goals,Over,1.5,0.91,settled,3,hit,2026-08-31
+Stockport|Wycombe|29/08/2026|goals|Over,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,goals,Over,1.5,0.899,settled,6,hit,2026-08-31
+Liverpool|Nott'm Forest|29/08/2026|goals|Over,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,goals,Over,1.5,0.88,settled,4,hit,2026-08-31
+Port Vale|Crewe|29/08/2026|goals|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,goals,Under,3.5,0.966,settled,0,hit,2026-08-31
+Blackburn|QPR|29/08/2026|goals|Under,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,goals,Under,3.5,0.954,settled,3,hit,2026-08-31
+Milton Keynes Dons|Leicester|29/08/2026|goals|Under,2026-08-25,29/08/2026,E2,League One,Milton Keynes Dons,Leicester,goals,Under,3.5,0.944,settled,0,hit,2026-08-31
+Middlesbrough|West Brom|29/08/2026|goals|Under,2026-08-25,29/08/2026,E1,Championship,Middlesbrough,West Brom,goals,Under,3.5,0.941,settled,4,miss,2026-08-31
+Cardiff|Sheffield United|29/08/2026|goals|Under,2026-08-25,29/08/2026,E1,Championship,Cardiff,Sheffield United,goals,Under,3.5,0.913,settled,4,miss,2026-08-31
+Liverpool|Nott'm Forest|29/08/2026|corners|Over,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,corners,Over,8.5,0.917,settled,8,miss,2026-08-31
+Stockport|Wycombe|29/08/2026|corners|Over,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,corners,Over,8.5,0.909,settled,11,hit,2026-08-31
+Celtic|Falkirk|29/08/2026|corners|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Celtic,Falkirk,corners,Over,8.5,0.891,settled,9,hit,2026-08-31
+Newport County|Tranmere|29/08/2026|corners|Over,2026-08-25,29/08/2026,E3,League Two,Newport County,Tranmere,corners,Over,8.5,0.884,settled,10,hit,2026-08-31
+Southampton|Millwall|29/08/2026|corners|Over,2026-08-25,29/08/2026,E1,Championship,Southampton,Millwall,corners,Over,8.5,0.872,settled,19,hit,2026-08-31
+Derby|Swansea|29/08/2026|corners|Under,2026-08-25,29/08/2026,E1,Championship,Derby,Swansea,corners,Under,11.5,0.932,settled,11,hit,2026-08-31
+Barnet|Cheltenham|29/08/2026|corners|Under,2026-08-25,29/08/2026,E3,League Two,Barnet,Cheltenham,corners,Under,11.5,0.89,settled,15,miss,2026-08-31
+Cambridge|Huddersfield|29/08/2026|corners|Under,2026-08-25,29/08/2026,E2,League One,Cambridge,Huddersfield,corners,Under,11.5,0.883,settled,7,hit,2026-08-31
+Stevenage|Doncaster|29/08/2026|corners|Under,2026-08-25,29/08/2026,E2,League One,Stevenage,Doncaster,corners,Under,11.5,0.883,settled,18,miss,2026-08-31
+Norwich|Burnley|29/08/2026|corners|Under,2026-08-25,29/08/2026,E1,Championship,Norwich,Burnley,corners,Under,11.5,0.861,settled,8,hit,2026-08-31
+Notts County|Burton|29/08/2026|cards|Over,2026-08-25,29/08/2026,E2,League One,Notts County,Burton,cards,Over,2.5,0.938,settled,7,hit,2026-08-31
+Bolton|Lincoln|29/08/2026|cards|Over,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,cards,Over,2.5,0.919,settled,3,hit,2026-08-31
+Watford|West Ham|29/08/2026|cards|Over,2026-08-25,29/08/2026,E1,Championship,Watford,West Ham,cards,Over,2.5,0.911,settled,4,hit,2026-08-31
+Rotherham|Chesterfield|29/08/2026|cards|Over,2026-08-25,29/08/2026,E3,League Two,Rotherham,Chesterfield,cards,Over,2.5,0.911,settled,3,hit,2026-08-31
+Tottenham|Newcastle|29/08/2026|cards|Over,2026-08-25,29/08/2026,E0,Premier League,Tottenham,Newcastle,cards,Over,2.5,0.904,settled,3,hit,2026-08-31
+Leyton Orient|Barnsley|29/08/2026|cards|Under,2026-08-25,29/08/2026,E2,League One,Leyton Orient,Barnsley,cards,Under,4.5,0.874,settled,8,miss,2026-08-31
+Oldham|Swindon|29/08/2026|cards|Under,2026-08-25,29/08/2026,E3,League Two,Oldham,Swindon,cards,Under,4.5,0.867,settled,3,hit,2026-08-31
+Middlesbrough|West Brom|29/08/2026|cards|Under,2026-08-25,29/08/2026,E1,Championship,Middlesbrough,West Brom,cards,Under,4.5,0.84,settled,1,hit,2026-08-31
+Port Vale|Crewe|29/08/2026|cards|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,cards,Under,4.5,0.812,settled,1,hit,2026-08-31
+Kilmarnock|Dundee United|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,first_half_goals,Over,0.5,0.875,settled,3,hit,2026-08-31
+Barnet|Cheltenham|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,E3,League Two,Barnet,Cheltenham,first_half_goals,Over,0.5,0.867,settled,1,hit,2026-08-31
+Tottenham|Newcastle|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,E0,Premier League,Tottenham,Newcastle,first_half_goals,Over,0.5,0.851,settled,0,miss,2026-08-31
+Stockport|Wycombe|29/08/2026|first_half_goals|Over,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,first_half_goals,Over,0.5,0.829,settled,3,hit,2026-08-31
+Crawley Town|Bristol Rvs|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Crawley Town,Bristol Rvs,first_half_goals,Under,1.5,0.963,settled,2,miss,2026-08-31
+Oldham|Swindon|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Oldham,Swindon,first_half_goals,Under,1.5,0.918,settled,1,hit,2026-08-31
+Blackburn|QPR|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,first_half_goals,Under,1.5,0.887,settled,0,hit,2026-08-31
+Port Vale|Crewe|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,first_half_goals,Under,1.5,0.886,settled,0,hit,2026-08-31
+Southampton|Millwall|29/08/2026|first_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Southampton,Millwall,first_half_goals,Under,1.5,0.871,settled,3,miss,2026-08-31
+Kilmarnock|Dundee United|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,second_half_goals,Over,0.5,0.958,settled,1,hit,2026-08-31
+Bolton|Lincoln|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,second_half_goals,Over,0.5,0.932,settled,1,hit,2026-08-31
+Bristol City|Portsmouth|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E1,Championship,Bristol City,Portsmouth,second_half_goals,Over,0.5,0.92,settled,2,hit,2026-08-31
+Bournemouth|Everton|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E0,Premier League,Bournemouth,Everton,second_half_goals,Over,0.5,0.876,settled,1,hit,2026-08-31
+Liverpool|Nott'm Forest|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,second_half_goals,Over,0.5,0.869,settled,3,hit,2026-08-31
+Port Vale|Crewe|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,second_half_goals,Under,2.5,0.987,settled,0,hit,2026-08-31
+Milton Keynes Dons|Leicester|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E2,League One,Milton Keynes Dons,Leicester,second_half_goals,Under,2.5,0.98,settled,0,hit,2026-08-31
+Blackburn|QPR|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,second_half_goals,Under,2.5,0.973,settled,3,miss,2026-08-31
+Cardiff|Sheffield United|29/08/2026|second_half_goals|Under,2026-08-25,29/08/2026,E1,Championship,Cardiff,Sheffield United,second_half_goals,Under,2.5,0.969,settled,0,hit,2026-08-31
+Kilmarnock|Dundee United|29/08/2026|btts|Yes,2026-08-25,29/08/2026,SC0,Scottish Premiership,Kilmarnock,Dundee United,btts,Yes,,0.739,settled,0,miss,2026-08-31
+Liverpool|Nott'm Forest|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E0,Premier League,Liverpool,Nott'm Forest,btts,Yes,,0.705,settled,1,hit,2026-08-31
+Bolton|Lincoln|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E1,Championship,Bolton,Lincoln,btts,Yes,,0.7,settled,0,miss,2026-08-31
+Bristol City|Portsmouth|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E1,Championship,Bristol City,Portsmouth,btts,Yes,,0.69,settled,1,hit,2026-08-31
+Stockport|Wycombe|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E2,League One,Stockport,Wycombe,btts,Yes,,0.671,settled,1,hit,2026-08-31
+Port Vale|Crewe|29/08/2026|btts|No,2026-08-25,29/08/2026,E3,League Two,Port Vale,Crewe,btts,No,,0.812,settled,0,hit,2026-08-31
+Milton Keynes Dons|Leicester|29/08/2026|btts|No,2026-08-25,29/08/2026,E2,League One,Milton Keynes Dons,Leicester,btts,No,,0.772,settled,0,hit,2026-08-31
+Blackburn|QPR|29/08/2026|btts|No,2026-08-25,29/08/2026,E1,Championship,Blackburn,QPR,btts,No,,0.769,settled,1,miss,2026-08-31
+Oldham|Swindon|29/08/2026|btts|No,2026-08-25,29/08/2026,E3,League Two,Oldham,Swindon,btts,No,,0.766,settled,0,hit,2026-08-31
+Middlesbrough|West Brom|29/08/2026|btts|No,2026-08-25,29/08/2026,E1,Championship,Middlesbrough,West Brom,btts,No,,0.743,settled,1,miss,2026-08-31
+Plymouth|Bradford|29/08/2026|goals|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,goals,Over,1.5,0.893,settled,2,hit,2026-08-31
+Plymouth|Bradford|29/08/2026|cards|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,cards,Over,2.5,0.929,settled,3,hit,2026-08-31
+Plymouth|Bradford|29/08/2026|second_half_goals|Over,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,second_half_goals,Over,0.5,0.929,settled,1,hit,2026-08-31
+Plymouth|Bradford|29/08/2026|btts|Yes,2026-08-25,29/08/2026,E2,League One,Plymouth,Bradford,btts,Yes,,0.723,settled,0,miss,2026-08-31
+Mansfield|Luton|30/08/2026|goals|Over,2026-08-26,30/08/2026,E2,League One,Mansfield,Luton,goals,Over,1.5,0.932,settled,7,hit,2026-08-31
+Sunderland|Fulham|30/08/2026|goals|Under,2026-08-26,30/08/2026,E0,Premier League,Sunderland,Fulham,goals,Under,3.5,0.934,settled,1,hit,2026-08-31
+Leeds|Brentford|30/08/2026|corners|Over,2026-08-26,30/08/2026,E0,Premier League,Leeds,Brentford,corners,Over,8.5,0.887,settled,11,hit,2026-08-31
+Aberdeen|Rangers|30/08/2026|cards|Over,2026-08-26,30/08/2026,SC0,Scottish Premiership,Aberdeen,Rangers,cards,Over,2.5,0.951,settled,9,hit,2026-08-31
+Man United|Ipswich|30/08/2026|cards|Over,2026-08-26,30/08/2026,E0,Premier League,Man United,Ipswich,cards,Over,2.5,0.95,settled,4,hit,2026-08-31
+AFC Wimbledon|Wigan|30/08/2026|cards|Under,2026-08-26,30/08/2026,E2,League One,AFC Wimbledon,Wigan,cards,Under,4.5,0.955,settled,8,miss,2026-08-31
+Mansfield|Luton|30/08/2026|first_half_goals|Over,2026-08-26,30/08/2026,E2,League One,Mansfield,Luton,first_half_goals,Over,0.5,0.91,settled,3,hit,2026-08-31
+Aberdeen|Rangers|30/08/2026|first_half_goals|Over,2026-08-26,30/08/2026,SC0,Scottish Premiership,Aberdeen,Rangers,first_half_goals,Over,0.5,0.879,settled,0,miss,2026-08-31
+Man United|Ipswich|30/08/2026|second_half_goals|Over,2026-08-26,30/08/2026,E0,Premier League,Man United,Ipswich,second_half_goals,Over,0.5,0.909,settled,5,hit,2026-08-31
+Mansfield|Luton|30/08/2026|btts|Yes,2026-08-26,30/08/2026,E2,League One,Mansfield,Luton,btts,Yes,,0.773,settled,1,hit,2026-08-31
+Man United|Ipswich|30/08/2026|btts|Yes,2026-08-26,30/08/2026,E0,Premier League,Man United,Ipswich,btts,Yes,,0.702,settled,1,hit,2026-08-31
 Leicester|Plymouth|01/09/2026|goals|Over,2026-08-28,01/09/2026,E2,League One,Leicester,Plymouth,goals,Over,1.5,0.933,pending,,,
 Exeter|Barnet|01/09/2026|goals|Over,2026-08-28,01/09/2026,E3,League Two,Exeter,Barnet,goals,Over,1.5,0.923,pending,,,
 Bradford|Cambridge|01/09/2026|goals|Under,2026-08-28,01/09/2026,E2,League One,Bradford,Cambridge,goals,Under,3.5,0.988,pending,,,
@@ -231,10 +231,10 @@ Bradford|Cambridge|01/09/2026|second_half_goals|Under,2026-08-28,01/09/2026,E2,L
 Bromley|Leyton Orient|01/09/2026|second_half_goals|Under,2026-08-28,01/09/2026,E2,League One,Bromley,Leyton Orient,second_half_goals,Under,2.5,0.988,pending,,,
 Bradford|Cambridge|01/09/2026|btts|No,2026-08-28,01/09/2026,E2,League One,Bradford,Cambridge,btts,No,,0.878,pending,,,
 Lecce|Roma|31/08/2026|corners|Under,2026-08-28,31/08/2026,I1,Serie A,Lecce,Roma,corners,Under,11.5,0.95,pending,,,
-Sassuolo|Torino|29/08/2026|corners|Under,2026-08-28,29/08/2026,I1,Serie A,Sassuolo,Torino,corners,Under,11.5,0.912,pending,,,
-Juventus|Parma|29/08/2026|cards|Under,2026-08-28,29/08/2026,I1,Serie A,Juventus,Parma,cards,Under,4.5,0.924,pending,,,
+Sassuolo|Torino|29/08/2026|corners|Under,2026-08-28,29/08/2026,I1,Serie A,Sassuolo,Torino,corners,Under,11.5,0.912,settled,7,hit,2026-08-31
+Juventus|Parma|29/08/2026|cards|Under,2026-08-28,29/08/2026,I1,Serie A,Juventus,Parma,cards,Under,4.5,0.924,settled,5,miss,2026-08-31
 Atalanta|Bologna|31/08/2026|cards|Under,2026-08-28,31/08/2026,I1,Serie A,Atalanta,Bologna,cards,Under,4.5,0.883,pending,,,
-Juventus|Parma|29/08/2026|btts|No,2026-08-28,29/08/2026,I1,Serie A,Juventus,Parma,btts,No,,0.777,pending,,,
+Juventus|Parma|29/08/2026|btts|No,2026-08-28,29/08/2026,I1,Serie A,Juventus,Parma,btts,No,,0.777,settled,0,hit,2026-08-31
 Falkirk|Rangers|02/09/2026|goals|Over,2026-08-29,02/09/2026,SC0,Scottish Premiership,Falkirk,Rangers,goals,Over,1.5,0.965,pending,,,
 QPR|Cardiff|02/09/2026|goals|Over,2026-08-29,02/09/2026,E1,Championship,QPR,Cardiff,goals,Over,1.5,0.958,pending,,,
 Barnsley|Blackpool|02/09/2026|corners|Over,2026-08-29,02/09/2026,E2,League One,Barnsley,Blackpool,corners,Over,8.5,0.963,pending,,,
@@ -254,17 +254,17 @@ Celtic|Aberdeen|02/09/2026|btts|No,2026-08-29,02/09/2026,SC0,Scottish Premiershi
 Tranmere|Rotherham|01/09/2026|goals|Under,2026-08-30,01/09/2026,E3,League Two,Tranmere,Rotherham,goals,Under,3.5,0.922,pending,,,
 West Brom|Charlton|02/09/2026|goals|Under,2026-08-30,02/09/2026,E1,Championship,West Brom,Charlton,goals,Under,3.5,0.897,pending,,,
 Leicester|Plymouth|01/09/2026|corners|Over,2026-08-30,01/09/2026,E2,League One,Leicester,Plymouth,corners,Over,8.5,0.887,pending,,,
-Napoli|Como|30/08/2026|corners|Under,2026-08-30,30/08/2026,I1,Serie A,Napoli,Como,corners,Under,11.5,0.859,pending,,,
-Lazio|Genoa|30/08/2026|corners|Under,2026-08-30,30/08/2026,I1,Serie A,Lazio,Genoa,corners,Under,11.5,0.848,pending,,,
+Napoli|Como|30/08/2026|corners|Under,2026-08-30,30/08/2026,I1,Serie A,Napoli,Como,corners,Under,11.5,0.859,settled,9,hit,2026-08-31
+Lazio|Genoa|30/08/2026|corners|Under,2026-08-30,30/08/2026,I1,Serie A,Lazio,Genoa,corners,Under,11.5,0.848,settled,6,hit,2026-08-31
 Swansea|Watford|01/09/2026|cards|Over,2026-08-30,01/09/2026,E1,Championship,Swansea,Watford,cards,Over,2.5,0.912,pending,,,
-Chelsea|Brighton|30/08/2026|cards|Over,2026-08-30,30/08/2026,E0,Premier League,Chelsea,Brighton,cards,Over,2.5,0.904,pending,,,
+Chelsea|Brighton|30/08/2026|cards|Over,2026-08-30,30/08/2026,E0,Premier League,Chelsea,Brighton,cards,Over,2.5,0.904,settled,4,hit,2026-08-31
 Leicester|Plymouth|01/09/2026|cards|Over,2026-08-30,01/09/2026,E2,League One,Leicester,Plymouth,cards,Over,2.5,0.904,pending,,,
-Lazio|Genoa|30/08/2026|first_half_goals|Under,2026-08-30,30/08/2026,I1,Serie A,Lazio,Genoa,first_half_goals,Under,1.5,0.893,pending,,,
+Lazio|Genoa|30/08/2026|first_half_goals|Under,2026-08-30,30/08/2026,I1,Serie A,Lazio,Genoa,first_half_goals,Under,1.5,0.893,settled,1,hit,2026-08-31
 Tranmere|Rotherham|01/09/2026|second_half_goals|Under,2026-08-30,01/09/2026,E3,League Two,Tranmere,Rotherham,second_half_goals,Under,2.5,0.971,pending,,,
 Chesterfield|Gillingham|01/09/2026|second_half_goals|Under,2026-08-30,01/09/2026,E3,League Two,Chesterfield,Gillingham,second_half_goals,Under,2.5,0.967,pending,,,
-Sunderland|Fulham|30/08/2026|second_half_goals|Under,2026-08-30,30/08/2026,E0,Premier League,Sunderland,Fulham,second_half_goals,Under,2.5,0.949,pending,,,
+Sunderland|Fulham|30/08/2026|second_half_goals|Under,2026-08-30,30/08/2026,E0,Premier League,Sunderland,Fulham,second_half_goals,Under,2.5,0.949,settled,1,hit,2026-08-31
 Bromley|Leyton Orient|01/09/2026|btts|No,2026-08-30,01/09/2026,E2,League One,Bromley,Leyton Orient,btts,No,,0.763,pending,,,
-Sunderland|Fulham|30/08/2026|btts|No,2026-08-30,30/08/2026,E0,Premier League,Sunderland,Fulham,btts,No,,0.721,pending,,,
+Sunderland|Fulham|30/08/2026|btts|No,2026-08-30,30/08/2026,E0,Premier League,Sunderland,Fulham,btts,No,,0.721,settled,0,hit,2026-08-31
 Tranmere|Rotherham|01/09/2026|btts|No,2026-08-30,01/09/2026,E3,League Two,Tranmere,Rotherham,btts,No,,0.717,pending,,,
 Burnley|Middlesbrough|02/09/2026|goals|Over,2026-08-31,02/09/2026,E1,Championship,Burnley,Middlesbrough,goals,Over,1.5,0.901,pending,,,
 Doncaster|Notts County|01/09/2026|goals|Under,2026-08-31,01/09/2026,E2,League One,Doncaster,Notts County,goals,Under,3.5,0.88,pending,,,
@@ -282,3 +282,4 @@ Portsmouth|Derby|01/09/2026|second_half_goals|Under,2026-08-31,01/09/2026,E1,Cha
 Exeter|Barnet|01/09/2026|btts|Yes,2026-08-31,01/09/2026,E3,League Two,Exeter,Barnet,btts,Yes,,0.665,pending,,,
 Burnley|Middlesbrough|02/09/2026|btts|Yes,2026-08-31,02/09/2026,E1,Championship,Burnley,Middlesbrough,btts,Yes,,0.636,pending,,,
 West Brom|Charlton|02/09/2026|btts|No,2026-08-31,02/09/2026,E1,Championship,West Brom,Charlton,btts,No,,0.684,pending,,,
+Atalanta|Bologna|31/08/2026|corners|Under,2026-08-31,31/08/2026,I1,Serie A,Atalanta,Bologna,corners,Under,11.5,0.85,pending,,,
