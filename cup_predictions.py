@@ -167,11 +167,14 @@ def build_cup_predictions(
             "away_form_sample": team_forms[away]["away"].get("matches", 0),
             "predictions": predictions,
         }
+        # Position is shown regardless of same-league/cross-division - each
+        # team's position always comes from their OWN league's table.
+        home_pos_entry = team_position(get_table(home_league), home)
+        away_pos_entry = team_position(get_table(away_league), away)
+        card["home_position"] = home_pos_entry["position"] if home_pos_entry else None
+        card["away_position"] = away_pos_entry["position"] if away_pos_entry else None
+        card["league_team_count"] = len(get_table(home_league)) if same_league else None
         if not same_league:
-            home_pos_entry = team_position(get_table(home_league), home)
-            away_pos_entry = team_position(get_table(away_league), away)
-            card["home_position"] = home_pos_entry["position"] if home_pos_entry else None
-            card["away_position"] = away_pos_entry["position"] if away_pos_entry else None
             card["note"] = (
                 f"Cross-division fixture ({card['home_league']} v {card['away_league']}) - "
                 f"predictions use each team's own league form with a rough cross-league adjustment. "
