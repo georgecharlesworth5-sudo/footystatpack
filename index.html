@@ -604,10 +604,9 @@
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
 
-  function posBadge(position, totalTeams) {
+  function posBadge(position) {
     if (!position) return "";
-    const suffix = totalTeams ? `/${totalTeams}` : "";
-    return `<span class="pos-badge">${ordinal(position)}${suffix}</span>`;
+    return `<span class="pos-badge">${ordinal(position)}</span>`;
   }
 
   function parseFixtureDate(d) {
@@ -746,9 +745,9 @@
     if (!mr) return "";
 
     const options = [
-      { label: fixture.home_team, key: "home_win", pct: mr.home_win },
-      { label: "Draw", key: "draw", pct: mr.draw },
-      { label: fixture.away_team, key: "away_win", pct: mr.away_win },
+      { label: fixture.home_team, position: fixture.home_position, key: "home_win", pct: mr.home_win },
+      { label: "Draw", position: null, key: "draw", pct: mr.draw },
+      { label: fixture.away_team, position: fixture.away_position, key: "away_win", pct: mr.away_win },
     ];
     const highest = Math.max(mr.home_win, mr.draw, mr.away_win);
 
@@ -757,7 +756,7 @@
       <div class="mr-row">
         ${options.map(o => `
           <div class="mr-option ${o.pct === highest ? 'mr-favourite' : ''}">
-            <div class="mr-label">${o.label}</div>
+            <div class="mr-label">${o.label}${posBadge(o.position)}</div>
             <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pct(o.pct)}</div>
           </div>
         `).join("")}
@@ -773,7 +772,7 @@
     return `<details class="fixture">
       <summary>
         <span class="kickoff">${fixture.time || "--:--"}</span>
-        <span class="teams">${fixture.home_team}${posBadge(fixture.home_position, fixture.league_team_count)}<span class="v">v</span>${fixture.away_team}${posBadge(fixture.away_position, fixture.league_team_count)}</span>
+        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
         ${flag}
         ${quickStat(fixture)}
         <span class="chev">▸</span>
@@ -910,7 +909,7 @@
     return `<details class="fixture">
       <summary>
         <span class="kickoff">${fixture.time || "--:--"}</span>
-        <span class="teams">${fixture.home_team}${posBadge(fixture.home_position, fixture.league_team_count)}<span class="v">v</span>${fixture.away_team}${posBadge(fixture.away_position, fixture.league_team_count)}</span>
+        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
         ${flag}
         ${quickStat(fixture)}
         <span class="chev">▸</span>
