@@ -334,6 +334,14 @@
     min-width: 180px;
   }
   .teams .v { color: var(--meta); font-weight: 400; margin: 0 6px; }
+  .pos-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--meta);
+    margin-left: 4px;
+    white-space: nowrap;
+  }
   .quick-stats {
     display: flex;
     gap: 16px;
@@ -567,6 +575,7 @@
   const BEST_BETS = "__BEST_BETS__";
   const TRACK_RECORD = "__TRACK_RECORD__";
   const EFL_CUP = "__EFL_CUP__";
+  const CASH_BUILDER = "__CASH_BUILDER__";
   const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
   let showFullSeason = false; // toggled by the "Show full season" link in league views
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
@@ -588,6 +597,18 @@
   activeLeague = availableLeagues[0];
 
   function pct(n) { return Math.round(n * 100) + "%"; }
+
+  function ordinal(n) {
+    if (!n) return "";
+    const s = ["th", "st", "nd", "rd"], v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
+
+  function posBadge(position, totalTeams) {
+    if (!position) return "";
+    const suffix = totalTeams ? `/${totalTeams}` : "";
+    return `<span class="pos-badge">${ordinal(position)}${suffix}</span>`;
+  }
 
   function parseFixtureDate(d) {
     const parts = (d || "").split("/");
@@ -640,6 +661,14 @@
     trBtn.innerHTML = "Track Record" + trPct;
     trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; render(); });
     tabsEl.appendChild(trBtn);
+
+    if (typeof CASH_BUILDER_DATA !== "undefined" && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0) {
+      const cbBtn = document.createElement("button");
+      cbBtn.className = "tab tab-bestbets" + (activeLeague === CASH_BUILDER ? " active" : "");
+      cbBtn.innerHTML = "Cash Builder";
+      cbBtn.addEventListener("click", () => { activeLeague = CASH_BUILDER; render(); });
+      tabsEl.appendChild(cbBtn);
+    }
   }
 
   function metricBlock(title, m, homeTeam, awayTeam) {
@@ -744,7 +773,7 @@
     return `<details class="fixture">
       <summary>
         <span class="kickoff">${fixture.time || "--:--"}</span>
-        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
+        <span class="teams">${fixture.home_team}${posBadge(fixture.home_position, fixture.league_team_count)}<span class="v">v</span>${fixture.away_team}${posBadge(fixture.away_position, fixture.league_team_count)}</span>
         ${flag}
         ${quickStat(fixture)}
         <span class="chev">▸</span>
@@ -881,7 +910,7 @@
     return `<details class="fixture">
       <summary>
         <span class="kickoff">${fixture.time || "--:--"}</span>
-        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
+        <span class="teams">${fixture.home_team}${posBadge(fixture.home_position, fixture.league_team_count)}<span class="v">v</span>${fixture.away_team}${posBadge(fixture.away_position, fixture.league_team_count)}</span>
         ${flag}
         ${quickStat(fixture)}
         <span class="chev">▸</span>
@@ -948,6 +977,10 @@
     }
     if (activeLeague === EFL_CUP) {
       renderEflCup();
+      return;
+    }
+    if (activeLeague === CASH_BUILDER) {
+      renderCashBuilder();
       return;
     }
 
