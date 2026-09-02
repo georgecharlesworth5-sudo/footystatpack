@@ -44,6 +44,7 @@ from stats_engine import build_team_match_log, team_form_summary, league_average
 from poisson_model import predict_fixture
 from best_bets import compute_best_bets
 from cup_predictions import build_cup_predictions
+from league_table import compute_league_table, team_position
 
 
 def _parse_fixture_date(d: str) -> date | None:
@@ -283,6 +284,13 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
         # relevant to.
         team_forms = {team: team_form_summary(log) for team, log in combined_team_logs.items()}
 
+        # This league's own current-season table, for showing each team's
+        # position alongside their fixture (same league_table.py already
+        # used for the EFL Cup's cross-division adjustment - just applied
+        # here to every regular in-league fixture too).
+        league_table = compute_league_table(rows)
+        league_team_count = len(league_table)
+
         league_fixtures = [f for f in fixtures if f.get("Div") == code]
 
         # Drop fixtures whose date has already passed. football-data.co.uk's
@@ -334,6 +342,13 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
                                        league_avg, cross_league=cross_league, name_matches=name_matches)
             card["date"] = fx.get("Date", "")
             card["time"] = fx.get("Time", "")
+
+            home_pos = team_position(league_table, home)
+            away_pos = team_position(league_table, away)
+            card["home_position"] = home_pos["position"] if home_pos else None
+            card["away_position"] = away_pos["position"] if away_pos else None
+            card["league_team_count"] = league_team_count
+
             fixture_cards.append(card)
 
         # Only surface team_form entries relevant to this league's own
