@@ -97,14 +97,31 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
     return log
 
 
+# How much each match's weight decays per position back from the most
+# recent one in the window - e.g. with WEIGHT_DECAY=0.85, the most recent
+# match counts 1.0, the one before it 0.85, the one before that 0.7225,
+# and so on. This is decay by RECENCY RANK (how many games back), not by
+# calendar date - deliberately, since a team's rolling window blends in
+# last season's matches early in a new campaign (see build_team_match_log
+# notes), and pure calendar-day decay would treat "10 months ago, last
+# game of last season" the same as "10 months ago mid-season", which
+# isn't the distinction that actually matters. Rank-based decay means
+# this season's matches - being the most recent by definition - dominate
+# the average as soon as there are any, without needing to explicitly
+# know or check which season a match came from.
+WEIGHT_DECAY = 0.85
+
+
 def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 10) -> dict:
     """
-    Average the last `window` matches for a team (optionally filtered to
-    venue='H' or 'A' only). Returns per-90 averages for goals/corners/cards,
-    both for and against.
+    Recency-weighted average of the last `window` matches for a team
+    (optionally filtered to venue='H' or 'A' only) - the most recent
+    match counts most, decaying by WEIGHT_DECAY per position further
+    back. Returns per-90 weighted averages for goals/corners/cards, both
+    for and against.
 
-    If venue is set, we look back further in the full log to find `window`
-    matches at that venue (not just the last N overall).
+    If venue is set, we look back further in the full log to find
+    `window` matches at that venue (not just the last N overall).
     """
     if venue:
         matches = [m for m in team_log if m["venue"] == venue][-window:]
@@ -115,24 +132,32 @@ def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 1
     if n == 0:
         return {"matches": 0}
 
-    def avg(key):
-        return round(sum(m[key] for m in matches) / n, 2)
+    # matches is oldest-to-newest; weight the LAST (most recent) one
+    # highest. Reversed so weights[0] pairs with the most recent match.
+    weights = [WEIGHT_DECAY ** i for i in range(n)]
+    weights.reverse()
+    total_weight = sum(weights)
+
+    def weighted_avg(key):
+        return round(sum(m[key] * w for m, w in zip(matches, weights)) / total_weight, 2)
 
     result = {"matches": n}
     for metric in METRICS:
-        result[f"{metric}_for"] = avg(f"{metric}_for")
-        result[f"{metric}_against"] = avg(f"{metric}_against")
+        result[f"{metric}_for"] = weighted_avg(f"{metric}_for")
+        result[f"{metric}_against"] = weighted_avg(f"{metric}_against")
 
     # xG: only average over matches that actually HAD an xG value - not
     # every league/season has it, so mixing in absent values would
-    # silently corrupt the average. xg_matches tells the caller how much
-    # to trust the figure (e.g. 2 games' worth of xG isn't a lot to
-    # blend on).
-    xg_matches = [m for m in matches if m["xg_for"] is not None and m["xg_against"] is not None]
-    if xg_matches:
-        result["xg_for"] = round(sum(m["xg_for"] for m in xg_matches) / len(xg_matches), 2)
-        result["xg_against"] = round(sum(m["xg_against"] for m in xg_matches) / len(xg_matches), 2)
-        result["xg_matches"] = len(xg_matches)
+    # silently corrupt the average. Same recency weighting applied, using
+    # only the xG-having matches' own weights. xg_matches tells the
+    # caller how much to trust the figure (e.g. 2 games' worth of xG
+    # isn't a lot to blend on).
+    xg_pairs = [(m, w) for m, w in zip(matches, weights) if m["xg_for"] is not None and m["xg_against"] is not None]
+    if xg_pairs:
+        xg_weight_total = sum(w for _, w in xg_pairs)
+        result["xg_for"] = round(sum(m["xg_for"] * w for m, w in xg_pairs) / xg_weight_total, 2)
+        result["xg_against"] = round(sum(m["xg_against"] * w for m, w in xg_pairs) / xg_weight_total, 2)
+        result["xg_matches"] = len(xg_pairs)
     else:
         result["xg_for"] = result["xg_against"] = None
         result["xg_matches"] = 0
