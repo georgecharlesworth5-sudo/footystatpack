@@ -157,6 +157,8 @@ KNOWN_ALIASES = {
     "Queens Park Rangers": "QPR",
     "MK Dons": "Milton Keynes Dons",
     "Bristol Rovers": "Bristol Rvs",
+    "Heart of Midlothian": "Hearts",
+    "Inter Milan": "Internazionale",
 }
 
 
