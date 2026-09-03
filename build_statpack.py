@@ -158,7 +158,8 @@ KNOWN_ALIASES = {
     "MK Dons": "Milton Keynes Dons",
     "Bristol Rovers": "Bristol Rvs",
     "Heart of Midlothian": "Hearts",
-    "Inter Milan": "Internazionale",
+    "Inter Milan": "Inter",
+    "Internazionale": "Inter",
 }
 
 
