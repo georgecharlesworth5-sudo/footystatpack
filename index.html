@@ -815,9 +815,23 @@
     </div>`;
   }
 
+  // team_win is a different shape to every other category (a flat list,
+  // not {over, under}) since it isn't an over/under market - each entry
+  // is just "this team, at this confidence", so it gets its own row
+  // renderer and its own (non-split) section in renderBestBets below.
+  function teamWinRow(entry, rank) {
+    return `<div class="bb-row">
+      <span class="bb-rank">${rank}</span>
+      <span class="bb-teams">${entry.home_team}<span class="v">v</span>${entry.away_team}</span>
+      <span class="bb-league">${entry.league_name}</span>
+      <span class="bb-label">${entry.team} to win</span>
+      <span class="bb-pct ${entry.confidence >= 0.55 ? 'pct-hi' : entry.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(entry.confidence)}</span>
+    </div>`;
+  }
+
   function renderBestBets() {
     const categories = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.best_bets) || {};
-    const hasAny = Object.values(categories).some(c => c.over?.length > 0 || c.under?.length > 0);
+    const hasAny = Object.values(categories).some(c => Array.isArray(c) ? c.length > 0 : (c.over?.length > 0 || c.under?.length > 0));
 
     if (!hasAny) {
       mainEl.innerHTML = `<div class="empty">No eligible fixtures in the near-term window yet.<br>
@@ -825,8 +839,16 @@
       return;
     }
 
+    const teamWinSection = (categories.team_win && categories.team_win.length > 0)
+      ? `<div class="bb-category">
+          <div class="bb-category-title">Team Win</div>
+          ${categories.team_win.map((e, i) => teamWinRow(e, i + 1)).join("")}
+        </div>`
+      : "";
+
     const order = ["goals", "btts", "corners", "cards", "first_half_goals", "second_half_goals"];
     mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues. Thin-sample and cross-league fixtures are excluded.</div>` +
+      teamWinSection +
       order.map(key => {
         const c = categories[key];
         if (!c || (c.over.length === 0 && c.under.length === 0)) return "";
