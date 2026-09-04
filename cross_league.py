@@ -29,15 +29,18 @@ empirically. This uses three things instead:
      additional signal - a team's whole-season standing captures
      something a 10-game rolling form window doesn't always fully
      reflect.
-  3. TIER_STRENGTH below - a deliberately hand-set, NOT data-derived
-     estimate of the general quality gap between English divisions.
-     Without it, two "exactly average for their own league" teams from
-     different divisions come out as a dead-even coin flip, which is
-     wrong - a Premier League team carries a real edge over a League
-     One team independent of either team's specific current form, and
-     the model had no way to express that until this was added. These
-     numbers are a reasonable estimate, not a measured one - adjust
-     them if they feel off in practice.
+  3. TIER_STRENGTH (now defined in stats_engine.py, imported below,
+     since it's also used there to discount a team's own historical
+     matches from a different division - see stats_engine.py's notes)
+     - a deliberately hand-set, NOT data-derived estimate of the
+     general quality gap between English divisions. Without it, two
+     "exactly average for their own league" teams from different
+     divisions come out as a dead-even coin flip, which is wrong - a
+     Premier League team carries a real edge over a League One team
+     independent of either team's specific current form, and the model
+     had no way to express that until this was added. These numbers
+     are a reasonable estimate, not a measured one - adjust them in
+     stats_engine.py if they feel off in practice.
 
 Cup predictions built on this should still be treated with real
 caution, which is why they're visibly flagged as cross-division in the
@@ -45,38 +48,7 @@ output.
 """
 
 from poisson_model import poisson_pmf, over_under, PER_SIDE_LINES
-
-# Rough, hand-set relative quality between English divisions - see
-# "TIER_STRENGTH" note above. Premier League = 1.0 baseline; each tier
-# down reflects a genuine but not enormous quality gap (many
-# Championship sides aren't far off Premier League standard, especially
-# recently relegated ones; the gap widens further down). Scottish
-# Premiership is placed roughly alongside the Championship/League One
-# range - genuinely uncertain, adjust if it feels wrong.
-#
-# Widened from an earlier, too-timid version after real testing showed
-# it wasn't enough: Tottenham (home, Premier League) came out only 23%
-# to beat Charlton (Championship) - far too low for what should be a
-# fairly strong home-tie favourite in reality. Two things were fixed:
-# the gaps below are now bigger, and (see FORM_CLAMP further down) the
-# tier adjustment no longer shares a clamp with the form-noise
-# protection - the two were fighting each other, since the same limit
-# meant to stop noisy form data compounding was also swallowing this
-# deliberate, always-present signal.
-TIER_STRENGTH = {
-    "E0": 1.00,   # Premier League
-    "E1": 0.70,   # Championship
-    "E2": 0.55,   # League One
-    "E3": 0.45,   # League Two
-    "SC0": 0.63,  # Scottish Premiership - not specified directly; kept at the
-                  # same relative position between E1/E2 as before (proportional
-                  # interpolation, not independently reasoned about - revisit if
-                  # a Scottish cross-division fixture ever looks off)
-}
-
-
-def tier_strength(league_code: str) -> float:
-    return TIER_STRENGTH.get(league_code, 1.0)  # unknown league: neutral, no adjustment
+from stats_engine import tier_strength
 
 # How much table position can swing a team's effective strength, as a
 # multiplier: 1st place gets POSITION_SWING above 1.0, last place gets
@@ -140,9 +112,17 @@ def cross_league_expected_values(
     reference point, each side gets nudged by their league-position
     multiplier, and by their division's relative TIER_STRENGTH. The
     combined attack*defense product for each side is clamped (see
-    COMBINED_CLAMP) to prevent two individually-reasonable ratios
+    FORM_CLAMP) to prevent two individually-reasonable ratios
     compounding into an implausible result - see the comment above
-    COMBINED_CLAMP for a real example this was built to catch.
+    FORM_CLAMP for a real example this was built to catch.
+
+    Note: home_form/away_form passed in here should already have been
+    computed with each team's OWN current division (via
+    stats_engine.team_form_summary's current_division param), so
+    matches from a THIRD division sitting further back in either team's
+    own history are already discounted before this function ever sees
+    them. What this function additionally handles is the gap BETWEEN
+    the two teams' current divisions, which is a different problem.
     """
     for_key, against_key = f"{metric}_for", f"{metric}_against"
 
