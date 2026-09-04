@@ -82,40 +82,37 @@ def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
     categories = {}
 
     for metric_key in METRIC_LABELS:
-        best_over, best_under = [], []
+        # Under markets deliberately not computed - not used, and no
+        # point doing the work just to throw it away. "under" stays in
+        # the output shape as an empty list so anything downstream that
+        # expects the key to exist (e.g. dashboard code iterating over
+        # it) doesn't break, it just always finds nothing there.
+        best_over = []
         for fx in pool:
             m = fx.get("predictions", {}).get(metric_key)
             if not m or not m.get("over_under"):
                 continue
-            top_over, top_under = None, None
+            top_over = None
             for ou in m["over_under"]:
                 if top_over is None or ou["over"] > top_over["confidence"]:
                     top_over = {"line": ou["line"], "direction": "Over", "confidence": ou["over"]}
-                under_conf = 1 - ou["over"]
-                if top_under is None or under_conf > top_under["confidence"]:
-                    top_under = {"line": ou["line"], "direction": "Under", "confidence": under_conf}
             if top_over:
                 best_over.append(_entry(fx, top_over))
-            if top_under:
-                best_under.append(_entry(fx, top_under))
         best_over.sort(key=lambda e: e["confidence"], reverse=True)
-        best_under.sort(key=lambda e: e["confidence"], reverse=True)
         best_over = [e for e in best_over if e["confidence"] >= MIN_CONFIDENCE]
-        best_under = [e for e in best_under if e["confidence"] >= MIN_CONFIDENCE]
-        categories[metric_key] = {"over": best_over, "under": best_under}
+        categories[metric_key] = {"over": best_over, "under": []}
 
-    btts_yes, btts_no = [], []
+    # BTTS "No" is the structural equivalent of an under market here -
+    # same reasoning as above, not computed, kept as an empty list.
+    btts_yes = []
     for fx in pool:
         g = fx.get("predictions", {}).get("goals")
         if not g or "btts_yes" not in g:
             continue
         btts_yes.append(_entry(fx, {"line": None, "direction": "Yes", "confidence": g["btts_yes"]}))
-        btts_no.append(_entry(fx, {"line": None, "direction": "No", "confidence": g["btts_no"]}))
     btts_yes.sort(key=lambda e: e["confidence"], reverse=True)
-    btts_no.sort(key=lambda e: e["confidence"], reverse=True)
     btts_yes = [e for e in btts_yes if e["confidence"] >= MIN_CONFIDENCE]
-    btts_no = [e for e in btts_no if e["confidence"] >= MIN_CONFIDENCE]
-    categories["btts"] = {"over": btts_yes, "under": btts_no}
+    categories["btts"] = {"over": btts_yes, "under": []}
 
     return categories
 
