@@ -1,8 +1,10 @@
 """
 best_bets.py
 
-Computes the "Best Bets" list - the highest-confidence Over and Under
-(and BTTS Yes/No) picks across all leagues, within a near-term window.
+Computes the "Best Bets" list - every Over/Under (and BTTS Yes/No) pick
+across all leagues, within a near-term window, that clears a high
+confidence bar. Unlike a "top N" ranking, the list here can be any
+length - some gameweeks might have none, others several.
 
 This used to live only in the dashboard's JavaScript, recalculated fresh
 every time the page loaded. It's been ported here so there's ONE
@@ -18,13 +20,12 @@ from datetime import date, timedelta
 
 NEAR_TERM_WINDOW_DAYS = 4  # one weekend round (Fri-Mon) - matches the dashboard's league-view default
 
-# A pick needs to clear this bar to count as a "best bet" at all. Without
-# this, when the eligible pool shrinks late in a gameweek (most fixtures
-# already played), whatever's left gets forced into the top-5 regardless
-# of how weak the signal actually is - e.g. a near-50/50 BTTS call
-# showing up as the "best" pick on BOTH the Yes and No side of the same
-# match, just because nothing better was left to compare it against.
-MIN_CONFIDENCE = 0.6
+# A pick needs to clear this bar to count as a "best bet" at all. Raised
+# from an earlier 0.6 to 0.9 - the list is no longer a "top 5" ranking,
+# it's every pick that clears the bar, so the bar itself needs to be
+# high enough that everything shown is genuinely a strong signal, not
+# just "the best of a mediocre bunch" the way a top-5 cap could tolerate.
+MIN_CONFIDENCE = 0.9
 
 METRIC_LABELS = {
     "goals": "Full-Time Goals",
@@ -66,9 +67,13 @@ def _eligible_pool(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, tod
 
 def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> dict:
     """
-    Returns {metric_key: {"over": [...top 5...], "under": [...top 5...]}}
-    for every metric in METRIC_LABELS, plus "btts": {"over": [...yes...], "under": [...no...]}
+    Returns {metric_key: {"over": [...], "under": [...]}} for every metric
+    in METRIC_LABELS, plus "btts": {"over": [...yes...], "under": [...no...]}
     (named over/under for a consistent shape - "over" = Yes, "under" = No).
+
+    Every entry shown clears MIN_CONFIDENCE - there's no fixed count, the
+    list is as long (or short, or empty) as the genuinely strong picks
+    for that gameweek happen to be. Sorted highest-confidence first.
 
     Each entry: {home_team, away_team, league_name, league_code, date, time,
                  direction, line (None for BTTS), confidence}
@@ -97,7 +102,7 @@ def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
         best_under.sort(key=lambda e: e["confidence"], reverse=True)
         best_over = [e for e in best_over if e["confidence"] >= MIN_CONFIDENCE]
         best_under = [e for e in best_under if e["confidence"] >= MIN_CONFIDENCE]
-        categories[metric_key] = {"over": best_over[:5], "under": best_under[:5]}
+        categories[metric_key] = {"over": best_over, "under": best_under}
 
     btts_yes, btts_no = [], []
     for fx in pool:
@@ -110,7 +115,7 @@ def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
     btts_no.sort(key=lambda e: e["confidence"], reverse=True)
     btts_yes = [e for e in btts_yes if e["confidence"] >= MIN_CONFIDENCE]
     btts_no = [e for e in btts_no if e["confidence"] >= MIN_CONFIDENCE]
-    categories["btts"] = {"over": btts_yes[:5], "under": btts_no[:5]}
+    categories["btts"] = {"over": btts_yes, "under": btts_no}
 
     return categories
 
