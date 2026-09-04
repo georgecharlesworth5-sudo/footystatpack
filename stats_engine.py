@@ -177,6 +177,17 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
 # know or check which season a match came from.
 WEIGHT_DECAY = 0.85
 
+# On top of the value rescaling above, a cross-division match's WEIGHT in
+# the average is ALSO reduced by this factor (only for TIER_ADJUSTED_METRICS
+# - corners/cards keep their normal recency weight). Added after a real
+# case exposed the gap: value-only rescaling wasn't enough when a team
+# has very few current-division matches so far - a relegated team who
+# started brilliantly in their new (weaker) division still had their
+# excellent recent form diluted by several rescaled-but-still-numerous
+# old-division matches carrying full weight. Cross-division matches
+# should count for less, not just be worth less.
+CROSS_DIVISION_WEIGHT_PENALTY = 0.4
+
 
 def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 10,
                   current_division: str | None = None) -> dict:
@@ -189,10 +200,13 @@ def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 1
 
     current_division: if given, any match in the window played in a
     DIFFERENT division gets its goals-related values tier-adjusted (see
-    TIER_STRENGTH/_tier_adjusted_value above) before being folded into
-    the average - this is what stops a promoted team's old-division form
-    counting at full strength. Corners/cards are never adjusted this way.
-    Pass None to skip this entirely (raw values used as-is).
+    TIER_STRENGTH/_tier_adjusted_value above) AND its weight further
+    reduced (see CROSS_DIVISION_WEIGHT_PENALTY above) before being
+    folded into the average - this is what stops a promoted/relegated
+    team's old-division form counting at anywhere near full strength.
+    Corners/cards are never adjusted this way (neither value nor
+    weight). Pass None to skip this entirely (raw values, plain
+    recency weights, used as-is).
 
     If venue is set, we look back further in the full log to find
     `window` matches at that venue (not just the last N overall).
@@ -207,18 +221,26 @@ def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 1
         return {"matches": 0}
 
     # matches is oldest-to-newest; weight the LAST (most recent) one
-    # highest. Reversed so weights[0] pairs with the most recent match.
-    weights = [WEIGHT_DECAY ** i for i in range(n)]
-    weights.reverse()
-    total_weight = sum(weights)
+    # highest. Reversed so base_weights[0] pairs with the most recent
+    # match. This is the PLAIN recency weight, used as-is for
+    # corners/cards and for goals when a match is in the current
+    # division; goals-adjacent metrics additionally penalise
+    # cross-division matches on top of this (see weighted_avg below).
+    base_weights = [WEIGHT_DECAY ** i for i in range(n)]
+    base_weights.reverse()
 
     def weighted_avg(key, metric):
         if metric in TIER_ADJUSTED_METRICS and current_division:
             is_for = key.endswith("_for")
-            values = [_tier_adjusted_value(m[key], is_for, m.get("div", ""), current_division) for m in matches]
+            values, weights = [], []
+            for m, w in zip(matches, base_weights):
+                match_div = m.get("div", "")
+                values.append(_tier_adjusted_value(m[key], is_for, match_div, current_division))
+                weights.append(w * CROSS_DIVISION_WEIGHT_PENALTY if match_div != current_division else w)
         else:
-            values = [m[key] for m in matches]
-        return round(sum(v * w for v, w in zip(values, weights)) / total_weight, 2)
+            values, weights = [m[key] for m in matches], base_weights
+        total_w = sum(weights)
+        return round(sum(v * w for v, w in zip(values, weights)) / total_w, 2)
 
     result = {"matches": n}
     for metric in METRICS:
@@ -227,22 +249,30 @@ def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 1
 
     # xG: only average over matches that actually HAD an xG value - not
     # every league/season has it, so mixing in absent values would
-    # silently corrupt the average. Same recency weighting applied, using
-    # only the xG-having matches' own weights. Tier-adjusted the same way
-    # as goals, since xG is itself a goals-adjacent quality measure.
-    # xg_matches tells the caller how much to trust the figure (e.g. 2
-    # games' worth of xG isn't a lot to blend on).
-    xg_pairs = [(m, w) for m, w in zip(matches, weights) if m["xg_for"] is not None and m["xg_against"] is not None]
+    # silently corrupt the average. Same recency weighting (and, when
+    # applicable, cross-division weight penalty) applied, using only the
+    # xG-having matches. Tier-adjusted the same way as goals, since xG is
+    # itself a goals-adjacent quality measure. xg_matches tells the
+    # caller how much to trust the figure (e.g. 2 games' worth of xG
+    # isn't a lot to blend on).
+    xg_pairs = [(m, w) for m, w in zip(matches, base_weights) if m["xg_for"] is not None and m["xg_against"] is not None]
     if xg_pairs:
-        xg_weight_total = sum(w for _, w in xg_pairs)
         if current_division:
-            xg_for_vals = [_tier_adjusted_value(m["xg_for"], True, m.get("div", ""), current_division) for m, _ in xg_pairs]
-            xg_against_vals = [_tier_adjusted_value(m["xg_against"], False, m.get("div", ""), current_division) for m, _ in xg_pairs]
+            xg_for_vals, xg_for_weights = [], []
+            xg_against_vals, xg_against_weights = [], []
+            for m, w in xg_pairs:
+                match_div = m.get("div", "")
+                penalty = CROSS_DIVISION_WEIGHT_PENALTY if match_div != current_division else 1.0
+                xg_for_vals.append(_tier_adjusted_value(m["xg_for"], True, match_div, current_division))
+                xg_for_weights.append(w * penalty)
+                xg_against_vals.append(_tier_adjusted_value(m["xg_against"], False, match_div, current_division))
+                xg_against_weights.append(w * penalty)
+            result["xg_for"] = round(sum(v * w for v, w in zip(xg_for_vals, xg_for_weights)) / sum(xg_for_weights), 2)
+            result["xg_against"] = round(sum(v * w for v, w in zip(xg_against_vals, xg_against_weights)) / sum(xg_against_weights), 2)
         else:
-            xg_for_vals = [m["xg_for"] for m, _ in xg_pairs]
-            xg_against_vals = [m["xg_against"] for m, _ in xg_pairs]
-        result["xg_for"] = round(sum(v * w for v, (_, w) in zip(xg_for_vals, xg_pairs)) / xg_weight_total, 2)
-        result["xg_against"] = round(sum(v * w for v, (_, w) in zip(xg_against_vals, xg_pairs)) / xg_weight_total, 2)
+            xg_weight_total = sum(w for _, w in xg_pairs)
+            result["xg_for"] = round(sum(m["xg_for"] * w for m, w in xg_pairs) / xg_weight_total, 2)
+            result["xg_against"] = round(sum(m["xg_against"] * w for m, w in xg_pairs) / xg_weight_total, 2)
         result["xg_matches"] = len(xg_pairs)
     else:
         result["xg_for"] = result["xg_against"] = None
