@@ -17,6 +17,66 @@ from datetime import datetime
 # hardcoding metric names.
 METRICS = ["goals", "corners", "cards", "first_half_goals", "second_half_goals"]
 
+# Metrics where cross-division quality actually matters enough to adjust
+# for (see TIER_STRENGTH below) - corners/cards aren't primarily a
+# quality signal the way goalscoring is, so they're left unscaled even
+# when a match came from a different division.
+TIER_ADJUSTED_METRICS = {"goals", "first_half_goals", "second_half_goals"}
+
+# Rough, hand-set relative quality between English divisions (plus Serie
+# A, neutral since it doesn't currently interact with English tiers).
+# Originally built for the EFL Cup's cross-division predictions
+# (cross_league.py imports this from here) - now also used to correct a
+# related but different problem: a newly promoted/relegated team's
+# rolling form window blends in matches from their OLD division, and
+# without this, those matches count at full face value even though
+# they're not the same standard of opposition. E.g. a newly-promoted
+# team's Championship-winning form doesn't automatically translate to
+# Premier League form - this discounts it appropriately. See
+# _tier_adjusted_value below for how it's actually applied.
+#
+# These numbers are a reasonable estimate, not a measured one - adjust
+# them if they feel off in practice (same guidance as when they were
+# first added for the cup predictions).
+TIER_STRENGTH = {
+    "E0": 1.00,   # Premier League
+    "E1": 0.70,   # Championship
+    "E2": 0.55,   # League One
+    "E3": 0.45,   # League Two
+    "SC0": 0.63,  # Scottish Premiership
+}
+
+
+def tier_strength(league_code: str) -> float:
+    return TIER_STRENGTH.get(league_code, 1.0)  # unknown league: neutral, no adjustment
+
+
+def _tier_adjusted_value(value: float, is_for: bool, match_division: str, current_division: str | None) -> float:
+    """
+    Scales a single match's stat value to translate it into "as if played
+    in current_division" terms, when the match was actually played in a
+    different division. Left unchanged if we don't know the current
+    division, or the match was already in that division.
+
+    For "for" stats (e.g. goals scored): a team's scoring rate against a
+    WEAKER division should be discounted when judging them against a
+    STRONGER one (they won't score as freely against tougher defenses) -
+    scale by strength(match_division) / strength(current_division).
+
+    For "against" stats (e.g. goals conceded): the opposite - conceding
+    few goals against a weaker division's attacks doesn't mean they'll
+    concede as few against a stronger one - scale by
+    strength(current_division) / strength(match_division).
+    """
+    if not current_division or match_division == current_division:
+        return value
+    match_strength = tier_strength(match_division)
+    current_strength = tier_strength(current_division)
+    if match_strength <= 0 or current_strength <= 0:
+        return value
+    ratio = (match_strength / current_strength) if is_for else (current_strength / match_strength)
+    return value * ratio
+
 
 def _parse_date(d: str) -> datetime:
     # football-data.co.uk uses dd/mm/yy or dd/mm/yyyy depending on era
@@ -34,11 +94,16 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
     tagged with venue and the metrics relevant to that team. Sorted oldest
     to newest per team.
 
-    Each entry: {date, venue, opponent, goals_for, goals_against,
+    Each entry: {date, venue, opponent, div, goals_for, goals_against,
                  corners_for, corners_against, cards_for, cards_against,
                  first_half_goals_for, first_half_goals_against,
                  second_half_goals_for, second_half_goals_against,
                  xg_for, xg_against}
+
+    "div" is which division this specific match was played in (e.g.
+    "E1") - needed so rolling_form can tell when a match in a team's
+    window came from a different division than the one we're currently
+    judging their form against (see TIER_STRENGTH above).
 
     xg_for/xg_against are None when the source row had no HxG/AxG value
     (not every league/season has it) - downstream code must handle that,
@@ -50,6 +115,7 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
         try:
             dt = _parse_date(row["Date"])
             home, away = row["HomeTeam"], row["AwayTeam"]
+            div = row.get("Div", "")
 
             hg, ag = int(row["FTHG"]), int(row["FTAG"])
             hc, ac = int(row.get("HC") or 0), int(row.get("AC") or 0)
@@ -71,7 +137,7 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
             h_xg = a_xg = None  # not every match has xG - leave as None, not 0
 
         log[home].append({
-            "date": dt, "venue": "H", "opponent": away,
+            "date": dt, "venue": "H", "opponent": away, "div": div,
             "goals_for": hg, "goals_against": ag,
             "corners_for": hc, "corners_against": ac,
             "cards_for": h_cards, "cards_against": a_cards,
@@ -81,7 +147,7 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
             "referee": row.get("Referee", ""),
         })
         log[away].append({
-            "date": dt, "venue": "A", "opponent": home,
+            "date": dt, "venue": "A", "opponent": home, "div": div,
             "goals_for": ag, "goals_against": hg,
             "corners_for": ac, "corners_against": hc,
             "cards_for": a_cards, "cards_against": h_cards,
@@ -112,13 +178,21 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
 WEIGHT_DECAY = 0.85
 
 
-def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 10) -> dict:
+def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 10,
+                  current_division: str | None = None) -> dict:
     """
     Recency-weighted average of the last `window` matches for a team
     (optionally filtered to venue='H' or 'A' only) - the most recent
     match counts most, decaying by WEIGHT_DECAY per position further
     back. Returns per-90 weighted averages for goals/corners/cards, both
     for and against.
+
+    current_division: if given, any match in the window played in a
+    DIFFERENT division gets its goals-related values tier-adjusted (see
+    TIER_STRENGTH/_tier_adjusted_value above) before being folded into
+    the average - this is what stops a promoted team's old-division form
+    counting at full strength. Corners/cards are never adjusted this way.
+    Pass None to skip this entirely (raw values used as-is).
 
     If venue is set, we look back further in the full log to find
     `window` matches at that venue (not just the last N overall).
@@ -138,25 +212,37 @@ def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 1
     weights.reverse()
     total_weight = sum(weights)
 
-    def weighted_avg(key):
-        return round(sum(m[key] * w for m, w in zip(matches, weights)) / total_weight, 2)
+    def weighted_avg(key, metric):
+        if metric in TIER_ADJUSTED_METRICS and current_division:
+            is_for = key.endswith("_for")
+            values = [_tier_adjusted_value(m[key], is_for, m.get("div", ""), current_division) for m in matches]
+        else:
+            values = [m[key] for m in matches]
+        return round(sum(v * w for v, w in zip(values, weights)) / total_weight, 2)
 
     result = {"matches": n}
     for metric in METRICS:
-        result[f"{metric}_for"] = weighted_avg(f"{metric}_for")
-        result[f"{metric}_against"] = weighted_avg(f"{metric}_against")
+        result[f"{metric}_for"] = weighted_avg(f"{metric}_for", metric)
+        result[f"{metric}_against"] = weighted_avg(f"{metric}_against", metric)
 
     # xG: only average over matches that actually HAD an xG value - not
     # every league/season has it, so mixing in absent values would
     # silently corrupt the average. Same recency weighting applied, using
-    # only the xG-having matches' own weights. xg_matches tells the
-    # caller how much to trust the figure (e.g. 2 games' worth of xG
-    # isn't a lot to blend on).
+    # only the xG-having matches' own weights. Tier-adjusted the same way
+    # as goals, since xG is itself a goals-adjacent quality measure.
+    # xg_matches tells the caller how much to trust the figure (e.g. 2
+    # games' worth of xG isn't a lot to blend on).
     xg_pairs = [(m, w) for m, w in zip(matches, weights) if m["xg_for"] is not None and m["xg_against"] is not None]
     if xg_pairs:
         xg_weight_total = sum(w for _, w in xg_pairs)
-        result["xg_for"] = round(sum(m["xg_for"] * w for m, w in xg_pairs) / xg_weight_total, 2)
-        result["xg_against"] = round(sum(m["xg_against"] * w for m, w in xg_pairs) / xg_weight_total, 2)
+        if current_division:
+            xg_for_vals = [_tier_adjusted_value(m["xg_for"], True, m.get("div", ""), current_division) for m, _ in xg_pairs]
+            xg_against_vals = [_tier_adjusted_value(m["xg_against"], False, m.get("div", ""), current_division) for m, _ in xg_pairs]
+        else:
+            xg_for_vals = [m["xg_for"] for m, _ in xg_pairs]
+            xg_against_vals = [m["xg_against"] for m, _ in xg_pairs]
+        result["xg_for"] = round(sum(v * w for v, (_, w) in zip(xg_for_vals, xg_pairs)) / xg_weight_total, 2)
+        result["xg_against"] = round(sum(v * w for v, (_, w) in zip(xg_against_vals, xg_pairs)) / xg_weight_total, 2)
         result["xg_matches"] = len(xg_pairs)
     else:
         result["xg_for"] = result["xg_against"] = None
@@ -213,10 +299,12 @@ def league_averages(rows: list[dict]) -> dict:
     return result
 
 
-def team_form_summary(team_log: list[dict], window: int = 10) -> dict:
-    """Convenience wrapper: overall / home / away rolling form for one team."""
+def team_form_summary(team_log: list[dict], window: int = 10, current_division: str | None = None) -> dict:
+    """Convenience wrapper: overall / home / away rolling form for one
+    team. current_division is passed through to rolling_form - see its
+    docstring for what it does."""
     return {
-        "overall": rolling_form(team_log, None, window),
-        "home": rolling_form(team_log, "H", window),
-        "away": rolling_form(team_log, "A", window),
+        "overall": rolling_form(team_log, None, window, current_division),
+        "home": rolling_form(team_log, "H", window, current_division),
+        "away": rolling_form(team_log, "A", window, current_division),
     }
