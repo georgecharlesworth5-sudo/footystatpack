@@ -24,6 +24,20 @@ How a pick's lifecycle works:
 Run this after build_statpack.py, since it reads statpack.json's
 "best_bets" section (see best_bets.py) as its source of new picks.
 
+## team_win picks
+
+Every other category in best_bets.py has the same {"over": [...],
+"under": [...]} shape. "team_win" doesn't - it's a flat list of straight
+team-to-win picks, since it isn't an over/under market at all. Handled
+as its own case throughout this file:
+  - logged with metric="team_win" and direction=<the picked team's name>
+    (not "Over"/"Under"/etc) - this still fits the existing
+    (home, away, match_date, metric, direction) pick_id scheme cleanly,
+    since a team name is just as valid a "direction" value for
+    disambiguating picks.
+  - settled by comparing the picked team's name against whichever team
+    (if either) actually won - see _actual_metric_value and _check_hit.
+
 Output: bets_log.csv (the durable log, committed to the repo) and
 bets_log.js (a summary + recent entries, in the same embeddable-script
 pattern as statpack_data.js, for the dashboard's Track Record tab).
@@ -71,39 +85,55 @@ def save_log(path: Path, log: dict[str, dict]) -> None:
             writer.writerow({col: row.get(col, "") for col in LOG_COLUMNS})
 
 
+def _make_pick_row(entry: dict, today: date, metric: str, direction: str, line) -> dict:
+    return {
+        "pick_id": make_pick_id(entry["home_team"], entry["away_team"], entry["date"], metric, direction),
+        "logged_date": today.isoformat(),
+        "match_date": entry["date"],
+        "league_code": entry["league_code"],
+        "league_name": entry["league_name"],
+        "home_team": entry["home_team"],
+        "away_team": entry["away_team"],
+        "metric": metric,
+        "direction": direction,
+        "line": line if line is not None else "",
+        "confidence": entry["confidence"],
+        "status": "pending",
+        "actual_value": "",
+        "result": "",
+        "settled_date": "",
+    }
+
+
 def log_new_picks(log: dict[str, dict], best_bets: dict, today: date) -> int:
     """Add any not-yet-seen (fixture, metric, direction) picks. Returns
     how many new rows were added."""
     added = 0
     for metric, sides in best_bets.items():
+        if metric == "team_win":
+            # Flat list, not {"over": [...], "under": [...]} like every
+            # other category - each entry is a straight team-to-win pick,
+            # so "direction" here is the picked team's name rather than
+            # Over/Under/Yes/No.
+            for entry in sides:
+                row = _make_pick_row(entry, today, metric, entry["team"], None)
+                if row["pick_id"] in log:
+                    continue
+                log[row["pick_id"]] = row
+                added += 1
+            continue
+
         for direction_list in (sides.get("over", []), sides.get("under", [])):
             for entry in direction_list:
-                pick_id = make_pick_id(entry["home_team"], entry["away_team"],
-                                        entry["date"], metric, entry["direction"])
-                if pick_id in log:
+                row = _make_pick_row(entry, today, metric, entry["direction"], entry["line"])
+                if row["pick_id"] in log:
                     continue  # already logged - frozen, don't touch it again
-                log[pick_id] = {
-                    "pick_id": pick_id,
-                    "logged_date": today.isoformat(),
-                    "match_date": entry["date"],
-                    "league_code": entry["league_code"],
-                    "league_name": entry["league_name"],
-                    "home_team": entry["home_team"],
-                    "away_team": entry["away_team"],
-                    "metric": metric,
-                    "direction": entry["direction"],
-                    "line": entry["line"] if entry["line"] is not None else "",
-                    "confidence": entry["confidence"],
-                    "status": "pending",
-                    "actual_value": "",
-                    "result": "",
-                    "settled_date": "",
-                }
+                log[row["pick_id"]] = row
                 added += 1
     return added
 
 
-def _actual_metric_value(row: dict, metric: str) -> float | None:
+def _actual_metric_value(row: dict, metric: str):
     try:
         fthg, ftag = int(row["FTHG"]), int(row["FTAG"])
         hthg, athg = int(row.get("HTHG") or 0), int(row.get("HTAG") or 0)
@@ -125,10 +155,19 @@ def _actual_metric_value(row: dict, metric: str) -> float | None:
         return (fthg - hthg) + (ftag - athg)
     if metric == "btts":
         return 1 if (fthg > 0 and ftag > 0) else 0
+    if metric == "team_win":
+        # Returns the actual WINNING team's name (a string, not a
+        # number) - or None for a draw, which can never match a picked
+        # team's name so it correctly falls out as a miss below.
+        if fthg > ftag:
+            return row.get("HomeTeam")
+        if ftag > fthg:
+            return row.get("AwayTeam")
+        return None
     return None
 
 
-def _check_hit(actual: float, direction: str, line) -> bool:
+def _check_hit(actual, direction: str, line) -> bool:
     if direction == "Over":
         return actual > line
     if direction == "Under":
@@ -137,7 +176,10 @@ def _check_hit(actual: float, direction: str, line) -> bool:
         return actual == 1
     if direction == "No":
         return actual == 0
-    return False
+    # Anything else falling through here is a team_win pick - "direction"
+    # holds the picked team's name, "actual" holds the actual winning
+    # team's name (or None for a draw). Hit only if they match exactly.
+    return actual is not None and actual == direction
 
 
 def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tuple[int, int]:
@@ -187,15 +229,19 @@ def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tupl
             continue
 
         actual = _actual_metric_value(row, pick["metric"])
-        if actual is None:
+        if actual is None and pick["metric"] != "team_win":
             still_waiting += 1
             continue
+        # For team_win, actual=None legitimately means "it was a draw" -
+        # a real, settleable outcome (the pick just misses) - so it does
+        # NOT fall into the "still waiting" bucket the way a missing/
+        # malformed row does for every other metric.
 
         line = float(pick["line"]) if pick["line"] not in ("", None) else None
         hit = _check_hit(actual, pick["direction"], line)
 
         pick["status"] = "settled"
-        pick["actual_value"] = actual
+        pick["actual_value"] = actual if actual is not None else "Draw"
         pick["result"] = "hit" if hit else "miss"
         pick["settled_date"] = today.isoformat()
         settled += 1
@@ -284,28 +330,35 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
             continue
 
         actual = _actual_metric_value(row, pick["metric"])
-        if actual is None:
+        if actual is None and pick["metric"] != "team_win":
             continue
+        display_actual = actual if actual is not None else "Draw"
 
         line = float(pick["line"]) if pick["line"] not in ("", None) else None
         correct_result = "hit" if _check_hit(actual, pick["direction"], line) else "miss"
 
         old_actual, old_result = pick["actual_value"], pick["result"]
-        if str(old_actual) != str(actual) or old_result != correct_result:
+        if str(old_actual) != str(display_actual) or old_result != correct_result:
             corrections.append({
                 "pick_id": pick["pick_id"], "home_team": pick["home_team"], "away_team": pick["away_team"],
                 "metric": pick["metric"], "direction": pick["direction"], "line": pick["line"],
-                "old_actual": old_actual, "new_actual": actual,
+                "old_actual": old_actual, "new_actual": display_actual,
                 "old_result": old_result, "new_result": correct_result,
             })
-            pick["actual_value"] = actual
+            pick["actual_value"] = display_actual
             pick["result"] = correct_result
 
     return corrections, reverted
 
 
 def compute_summary(log: dict[str, dict]) -> dict:
-    """Overall and per-(metric, direction) hit rates, from settled picks only."""
+    """Overall and per-(metric, direction) hit rates, from settled picks only.
+
+    Note: for team_win picks, "direction" is a team name, so each
+    distinct team ever picked gets its own by_category row (e.g.
+    "team_win_Arsenal") rather than one aggregated "team_win" row - a
+    minor cosmetic quirk, not a bug, since the overall hit-rate figure
+    still correctly includes every settled team_win pick regardless."""
     settled = [p for p in log.values() if p["status"] == "settled"]
     overall_hits = sum(1 for p in settled if p["result"] == "hit")
 
@@ -352,11 +405,6 @@ if __name__ == "__main__":
     settled, still_waiting = reconcile_pending(log, data_dir, today)
     print(f"Settled {settled} pick(s) this run; {still_waiting} past-due pick(s) still waiting on results.")
 
-    # Cheap safety net: re-check every already-settled pick against the
-    # current matching logic too, in case any of them were reconciled
-    # incorrectly (this is what catches the season-collision class of
-    # bug even for picks that already settled before the fix). A no-op
-    # for anything that was already correct.
     corrections, reverted = reaudit_settled(log, data_dir)
     if corrections:
         print(f"Corrected {len(corrections)} previously-settled pick(s):")
@@ -377,8 +425,6 @@ if __name__ == "__main__":
     print(f"Overall: {summary['overall']['hits']}/{summary['overall']['total']} "
           f"({summary['overall']['pct']}%) settled, {summary['pending_count']} pending.")
 
-    # Recent settled + all pending, for the dashboard - not the full log
-    # (which only grows), to keep the embedded JS file small.
     recent = sorted(log.values(), key=lambda p: p.get("match_date", ""), reverse=True)[:100]
 
     out = {"summary": summary, "recent": recent}
