@@ -18,7 +18,8 @@ dashboard.html's JS best-bets code has been removed.
 
 from datetime import date, timedelta
 
-NEAR_TERM_WINDOW_DAYS = 4  # one weekend round (Fri-Mon) - matches the dashboard's league-view default
+NEAR_TERM_WINDOW_DAYS = 2  # only fixtures in the next 2 days - narrowed from an earlier
+                           # 4-day (full weekend round) window on request
 
 # A pick needs to clear this bar to count as a "best bet" at all. Raised
 # from an earlier 0.6 to 0.9 - the list is no longer a "top 5" ranking,
