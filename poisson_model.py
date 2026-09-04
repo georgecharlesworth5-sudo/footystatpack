@@ -46,6 +46,7 @@ MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - 
 # team's corners typically run a bit lower than the full-match total.
 PER_SIDE_LINES = {
     "corners": [2.5, 3.5, 4.5, 5.5, 6.5],
+    "goals": [0.5, 1.5],
 }
 
 
