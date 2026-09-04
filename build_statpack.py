@@ -15,12 +15,6 @@ NOTES / suggested refinements once v1 is working:
     average layered on top of team form (some refs card far more than
     others) - Referee is already captured per match in stats_engine, just
     not used in the lambda yet.
-  - Consider decaying older matches (weight recent form more) rather than
-    a flat rolling window.
-  - Home/away split sample sizes get thin for teams early in a season -
-    the model currently blends in the prior season automatically via
-    fetch_data's multi-season pull, but a explicit shrinkage-to-league-
-    average would be more robust than a hard rolling window.
   - Promoted/relegated teams: their most recent matches may be in a
     *different* division's CSV to the one they're now playing in (e.g.
     a team promoted from League Two into League One has no League One
@@ -28,10 +22,16 @@ NOTES / suggested refinements once v1 is working:
     leagues so their actual recent form still gets used - but the O/U
     lines are still normalised against the league they're playing in
     NOW, which is the right target but means a team's cross-league form
-    is an approximation, not a perfect like-for-like read. Fixtures
-    using cross-league form are flagged with "cross_league_data": true
-    so it's visible in the output which predictions to treat with more
-    caution.
+    is an approximation. Fixtures using cross-league form are flagged
+    with "cross_league_data": true. On top of that, team_form_summary is
+    now called with current_division=<whichever league we're building
+    predictions for>, which tier-adjusts (see stats_engine.py) any match
+    in a team's rolling window that came from a DIFFERENT division - so
+    a newly-promoted team's old-division form doesn't count at full
+    face value. This was added after a real case: Ipswich (freshly
+    promoted, one Premier League win and one heavy loss so far) showed
+    as 67% favourites at home to Liverpool, driven by their still-mostly-
+    Championship rolling window being trusted at full strength.
 """
 
 import csv
@@ -252,11 +252,9 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
 
     # Track, per team, which league their TRUE most recent match was in
     # (by actual date, not by which league's CSV happened to be processed
-    # last) - used to flag cross-league fixtures. Getting this wrong in
-    # one direction matters a lot: a promoted team's old, lower-division
-    # form would otherwise look "current" indefinitely, since their new
-    # league's rows and old league's rows don't arrive in date order just
-    # from concatenating each league's file.
+    # last) - used to flag cross-league fixtures, AND to tell
+    # team_form_summary which division to tier-adjust each team's OWN
+    # form against (see stats_engine.py).
     most_recent_league: dict[str, str] = {}
     most_recent_date: dict[str, date] = {}
     for row in combined_rows:
@@ -280,12 +278,18 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
 
         league_avg = league_averages(rows)
         league_averages_by_code[code] = league_avg
-        # Only compute form summaries for teams that appear somewhere in
-        # the combined log AND have played in (or been promoted/relegated
-        # into) this league - i.e. every team, using their full combined
-        # history for form, but keyed under whichever leagues they're
-        # relevant to.
-        team_forms = {team: team_form_summary(log) for team, log in combined_team_logs.items()}
+        # Form summaries computed fresh for EVERY league we build
+        # predictions for, with current_division=code - this is what
+        # lets team_form_summary tier-adjust any match in a team's
+        # window that came from a different division than the one we're
+        # currently judging them against (see stats_engine.py notes).
+        # Recomputing this per league is deliberate now, not just
+        # incidental: a team's form should look different depending on
+        # which division's predictions we're building it for, even
+        # though that's rare in practice (most teams only belong to one
+        # league at a time).
+        team_forms = {team: team_form_summary(log, current_division=code)
+                      for team, log in combined_team_logs.items()}
 
         # This league's own current-season table, for showing each team's
         # position alongside their fixture (same league_table.py already
@@ -374,8 +378,15 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
     statpack["data_freshness"] = compute_data_freshness(all_rows_by_league)
 
     if cup_fixtures_path is not None:
+        # combined_team_logs (not a pre-baked team_forms dict) is passed
+        # here now, since cup_predictions.py needs to compute each team's
+        # form against THEIR OWN current division specifically - the
+        # main loop above computes team_forms fresh per league, so by
+        # the time we get here it only reflects whichever league was
+        # processed last, which is wrong for most teams in a cross-cup
+        # tie.
         cup_cards = build_cup_predictions(
-            cup_fixtures_path, all_rows_by_league, team_forms, most_recent_league,
+            cup_fixtures_path, all_rows_by_league, combined_team_logs, most_recent_league,
             league_averages_by_code, LEAGUE_NAMES, resolve_team_name,
         )
         statpack["efl_cup"] = {"fixtures": cup_cards}
@@ -402,12 +413,6 @@ if __name__ == "__main__":
     with open(out_path, "w") as f:
         json.dump(pack, f, indent=2, default=str)
 
-    # Also write a JS version (a plain global variable assignment) so the
-    # dashboard can load it via a <script src="..."> tag. This means the
-    # dashboard works by just double-clicking dashboard.html - no local
-    # server needed - since browsers block fetch() of local JSON files
-    # opened directly from disk (file:// CORS restrictions), but a
-    # <script> tag has no such restriction.
     js_path = Path(__file__).parent / "statpack_data.js"
     with open(js_path, "w") as f:
         f.write("const STATPACK_DATA = ")
