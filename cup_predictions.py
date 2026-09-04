@@ -32,7 +32,7 @@ here, so close variants usually still resolve correctly.
 
 from pathlib import Path
 
-from stats_engine import METRICS
+from stats_engine import METRICS, team_form_summary
 from league_table import compute_league_table, team_position
 from cross_league import predict_cross_league_fixture, position_multiplier
 from poisson_model import predict_fixture
@@ -78,7 +78,7 @@ def parse_cup_fixtures(path: Path) -> list[dict]:
 def build_cup_predictions(
     cup_fixtures_path: Path,
     all_rows_by_league: dict[str, list[dict]],
-    team_forms: dict[str, dict],
+    combined_team_logs: dict[str, list[dict]],
     most_recent_league: dict[str, str],
     league_averages_by_code: dict[str, dict],
     league_names: dict[str, str],
@@ -86,15 +86,21 @@ def build_cup_predictions(
 ) -> list[dict]:
     """
     Builds a prediction card for each manually-entered cup fixture.
-    Reuses everything build_statpack.py already computed for the
-    league predictions (team forms, most-recent-league lookup, league
-    averages) rather than recalculating any of it.
+
+    Takes combined_team_logs (raw per-team match history, not a
+    pre-computed team_forms dict) so each team's rolling form can be
+    computed here using THEIR OWN current division as the
+    current_division for tier-adjustment (see stats_engine.py) - this
+    matters specifically for cup ties, where the two teams almost always
+    have DIFFERENT current divisions, so a single shared team_forms
+    dict (computed against one division) would be wrong for whichever
+    team isn't in that division.
     """
     raw_fixtures = parse_cup_fixtures(cup_fixtures_path)
     if not raw_fixtures:
         return []
 
-    known_names = list(team_forms.keys())
+    known_names = list(combined_team_logs.keys())
 
     # Cache league tables per league code - only compute each once even
     # if many fixtures reference the same league.
@@ -104,6 +110,17 @@ def build_cup_predictions(
         if league_code not in tables_cache:
             tables_cache[league_code] = compute_league_table(all_rows_by_league.get(league_code, []))
         return tables_cache[league_code]
+
+    # Form cache keyed by (team, current_division) - a team could
+    # legitimately need form computed against two different divisions
+    # across different fixtures (rare, but cheap to support correctly).
+    form_cache: dict[tuple[str, str], dict] = {}
+
+    def get_form(team: str, current_division: str) -> dict:
+        key = (team, current_division)
+        if key not in form_cache:
+            form_cache[key] = team_form_summary(combined_team_logs[team], current_division=current_division)
+        return form_cache[key]
 
     cards = []
     for fx in raw_fixtures:
@@ -123,6 +140,14 @@ def build_cup_predictions(
                   f"couldn't determine current league for {'home' if home_league is None else 'away'} team")
             continue
 
+        # Each team's form computed against THEIR OWN current division -
+        # this is what tier-adjusts any match in their window that came
+        # from a different division (e.g. a promoted team's old
+        # Championship form gets discounted when judged as League One
+        # form, same fix as the main league predictions).
+        home_form = get_form(home, home_league)
+        away_form = get_form(away, away_league)
+
         name_matches = {}
         if home_tier == "fuzzy":
             name_matches[home_raw] = home
@@ -137,7 +162,7 @@ def build_cup_predictions(
             # needed. Reuse the regular model directly.
             league_avg = league_averages_by_code[home_league]
             predictions = predict_fixture(
-                team_forms[home]["home"], team_forms[away]["away"], league_avg, DEFAULT_LINES
+                home_form["home"], away_form["away"], league_avg, DEFAULT_LINES
             )
         else:
             home_table = get_table(home_league)
@@ -151,7 +176,7 @@ def build_cup_predictions(
                 away_pos_entry["position"] if away_pos_entry else None, len(away_table)
             )
             predictions = predict_cross_league_fixture(
-                team_forms[home]["home"], team_forms[away]["away"],
+                home_form["home"], away_form["away"],
                 league_averages_by_code[home_league], league_averages_by_code[away_league],
                 home_league, away_league,
                 home_mult, away_mult, DEFAULT_LINES,
@@ -163,8 +188,8 @@ def build_cup_predictions(
             "away_league": league_names.get(away_league, away_league),
             "cross_division": not same_league,
             "date": fx["date"] or "", "time": "",
-            "home_form_sample": team_forms[home]["home"].get("matches", 0),
-            "away_form_sample": team_forms[away]["away"].get("matches", 0),
+            "home_form_sample": home_form["home"].get("matches", 0),
+            "away_form_sample": away_form["away"].get("matches", 0),
             "predictions": predictions,
         }
         # Position is shown regardless of same-league/cross-division - each
