@@ -616,6 +616,26 @@
     return isNaN(dt) ? null : dt;
   }
 
+  // Sortable timestamp combining date + kickoff time - used to put
+  // fixtures back into chronological order before grouping/display,
+  // rather than trusting the source file's row order. Confirmed this
+  // matters in practice: a rearranged fixture (e.g. moved to a later
+  // date for European-fixture reasons) can sit earlier in the source
+  // CSV than fixtures that kept their original, earlier date, which
+  // otherwise showed matches out of date order on the page. Undated
+  // fixtures sort last (Infinity) rather than disappearing or
+  // clumping at the start.
+  function fixtureTimestamp(fx) {
+    const d = parseFixtureDate(fx.date);
+    if (!d) return Infinity;
+    const [hh, mm] = (fx.time || "00:00").split(":").map(Number);
+    return d.getTime() + ((isNaN(hh) ? 0 : hh) * 60 + (isNaN(mm) ? 0 : mm)) * 60000;
+  }
+
+  function sortByKickoff(fixtures) {
+    return [...fixtures].sort((a, b) => fixtureTimestamp(a) - fixtureTimestamp(b));
+  }
+
   function fmtDate(d) {
     // d like "22/08/2026" -> "FRI 22 AUG"
     const parts = (d || "").split("/");
@@ -965,10 +985,12 @@
       league form with a rough cross-league adjustment (see cross_league.py) - treat these with more caution
       than same-league predictions.</div>`;
 
-    // group by date, same pattern as league fixture lists
+    // Sort into chronological order before grouping - the source data
+    // isn't guaranteed to already be in date order (see fixtureTimestamp
+    // above).
     const groups = [];
     let currentDate = null, currentGroup = null;
-    cupFixtures.forEach(fx => {
+    sortByKickoff(cupFixtures).forEach(fx => {
       if (fx.date !== currentDate) {
         currentDate = fx.date;
         currentGroup = { date: fx.date, items: [] };
@@ -1036,10 +1058,13 @@
       return;
     }
 
-    // group by date, preserving original order (already chronological from source)
+    // Sort into chronological order before grouping - the source data
+    // isn't guaranteed to already be in date order (see fixtureTimestamp
+    // above) - confirmed in practice with rearranged Scottish
+    // Premiership fixtures showing out of order.
     const groups = [];
     let currentDate = null, currentGroup = null;
-    fixtures.forEach(fx => {
+    sortByKickoff(fixtures).forEach(fx => {
       if (fx.date !== currentDate) {
         currentDate = fx.date;
         currentGroup = { date: fx.date, items: [] };
