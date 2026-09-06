@@ -142,7 +142,14 @@ def fetch_league_season(league_code: str, season_code: str) -> list[dict]:
 def fetch_all(season_codes: list[str], out_dir: Path) -> dict[str, list[dict]]:
     """Fetch every league for every given season code. Returns a dict keyed
     by league_code -> list of match rows (across all requested seasons),
-    and writes a combined CSV per league to out_dir for caching/inspection."""
+    and writes a combined CSV per league to out_dir for caching/inspection.
+
+    If a league's fetch fails entirely for every requested season (e.g. a
+    site-wide outage), all_data[code] stays empty and the write block
+    below is skipped - meaning whatever CSV is already cached on disk
+    from a previous successful run is left untouched rather than wiped
+    with an empty file. A temporary outage degrades gracefully to
+    "today's run didn't refresh this league", not "we lost the data"."""
     out_dir.mkdir(parents=True, exist_ok=True)
     all_data: dict[str, list[dict]] = {code: [] for code in LEAGUES}
 
@@ -161,14 +168,34 @@ def fetch_all(season_codes: list[str], out_dir: Path) -> dict[str, list[dict]]:
                 writer.writeheader()
                 writer.writerows(all_data[code])
             print(f"  -> {len(all_data[code])} matches cached to {out_path}")
+        else:
+            print(f"  [skip] {code}: no data fetched for any season this run - "
+                  f"leaving previously cached {out_path.name} (if any) untouched.")
 
     return all_data
 
 
 def fetch_fixtures() -> list[dict]:
     """Download the combined upcoming-fixtures file and filter to our
-    5 target leagues."""
-    text = _fetch_url(FIXTURES_URL)
+    5 target leagues.
+
+    NOT currently used by anything downstream (build_statpack.py gets its
+    actual fixture list from the separately-maintained fixtures_manual/
+    CSVs) - this exists as a standalone diagnostic/count check when
+    running fetch_data.py directly. Fails gracefully (returns an empty
+    list) rather than raising, on the same reasoning as
+    fetch_league_season above: a transient outage on football-data.co.uk
+    (e.g. a 503) shouldn't crash the whole script and block every
+    downstream step (build_statpack.py, track_bets.py) from running at
+    all for the day - confirmed as a real incident, not a hypothetical:
+    an uncaught RuntimeError here took down an entire day's pipeline run
+    even though every league's own fetch had already failed gracefully
+    and this function's result isn't even used for anything."""
+    try:
+        text = _fetch_url(FIXTURES_URL)
+    except RuntimeError as e:
+        print(f"  [skip] fixtures.csv: {e}")
+        return []
 
     if len(text) < 2000:
         # A real fixtures.csv is normally tens of thousands of characters
