@@ -43,6 +43,7 @@ from pathlib import Path
 from stats_engine import build_team_match_log, team_form_summary, league_averages
 from poisson_model import predict_fixture
 from best_bets import compute_best_bets
+from market_odds import load_fixture_odds, find_odds_for_fixture, blend_match_result, blend_over_under_25
 from cup_predictions import build_cup_predictions
 from league_table import compute_league_table, team_position
 
@@ -164,10 +165,28 @@ KNOWN_ALIASES = {
 
 
 def build_fixture_card(home_team: str, away_team: str, home_form: dict, away_form: dict,
-                        league_avg: dict, cross_league: bool = False, name_matches: dict | None = None) -> dict:
+                        league_avg: dict, cross_league: bool = False, name_matches: dict | None = None,
+                        market_probs: dict | None = None) -> dict:
     predictions = predict_fixture(
         home_form["home"], away_form["away"], league_avg, DEFAULT_LINES
     )
+
+    # Blend in real bookmaker market odds where we have them - only
+    # affects match result and the 2.5 goals line specifically, since
+    # that's all football-data.co.uk's fixtures.csv actually carries
+    # odds for (see market_odds.py). Every other market (corners,
+    # cards, other goals lines) stays pure-model, unchanged.
+    if market_probs:
+        mr = predictions["goals"].get("match_result")
+        if mr:
+            predictions["goals"]["match_result"] = blend_match_result(mr, market_probs)
+        for ou in predictions["goals"]["over_under"]:
+            if ou["line"] == 2.5:
+                blended_over = blend_over_under_25(ou["over"], market_probs)
+                if blended_over is not None:
+                    ou["over"] = blended_over
+                    ou["under"] = round(1 - blended_over, 3)
+
     card = {
         "home_team": home_team,
         "away_team": away_team,
@@ -175,6 +194,8 @@ def build_fixture_card(home_team: str, away_team: str, home_form: dict, away_for
         "away_form_sample": away_form["away"].get("matches", 0),
         "predictions": predictions,
     }
+    if market_probs:
+        card["market_blended"] = True
     if cross_league:
         card["cross_league_data"] = True
         card["note"] = ("One or both teams' recent form comes from a different division "
@@ -243,6 +264,12 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
     all_rows_by_league = {code: load_cached_league(data_dir, code) for code in LEAGUE_NAMES}
     combined_rows = [row for rows in all_rows_by_league.values() for row in rows]
     combined_team_logs = build_team_match_log(combined_rows)
+
+    # Real bookmaker market odds, where fetch_data.py's cache has them -
+    # coverage is partial (see market_odds.py), matched to each fixture
+    # by resolved team names + date further down.
+    fixture_odds_rows = load_fixture_odds(data_dir / "fixture_odds.csv")
+    print(f"[debug] {len(fixture_odds_rows)} fixture(s) with cached market odds available")
 
     print("[debug] rows loaded per league:")
     for code, rows in all_rows_by_league.items():
@@ -345,8 +372,17 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
                       f"{ {k: v for k, v in [(home_raw, home), (away_raw, away)] if k != v} }")
 
             cross_league = most_recent_league.get(home) != code or most_recent_league.get(away) != code
+
+            # Look up real market odds for this exact fixture, if the
+            # cache has them - matched on the RESOLVED team names (not
+            # the raw fixturedownload.com spelling) and date, since
+            # that's what fixture_odds.csv's own HomeTeam/AwayTeam
+            # values get resolved against too when cached.
+            market_probs = find_odds_for_fixture(fixture_odds_rows, home, away, fx.get("Date", ""))
+
             card = build_fixture_card(home, away, team_forms[home], team_forms[away],
-                                       league_avg, cross_league=cross_league, name_matches=name_matches)
+                                       league_avg, cross_league=cross_league, name_matches=name_matches,
+                                       market_probs=market_probs)
             card["date"] = fx.get("Date", "")
             card["time"] = fx.get("Time", "")
 
