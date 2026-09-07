@@ -176,21 +176,31 @@ def fetch_all(season_codes: list[str], out_dir: Path) -> dict[str, list[dict]]:
 
 
 def fetch_fixtures() -> list[dict]:
-    """Download the combined upcoming-fixtures file and filter to our
-    5 target leagues.
+    """
+    Download the combined upcoming-fixtures file, filter to our 5
+    target leagues, and keep each fixture's market odds alongside the
+    basic details - real bookmaker odds for match result (1X2) and
+    over/under 2.5 goals ARE present in this file for upcoming
+    fixtures (confirmed directly against a live fetch), not just
+    settled results. This is what lets build_statpack.py blend real
+    market probabilities into our own model's predictions (see
+    market_odds.py) rather than relying purely on our own rolling form.
 
-    NOT currently used by anything downstream (build_statpack.py gets its
-    actual fixture list from the separately-maintained fixtures_manual/
-    CSVs) - this exists as a standalone diagnostic/count check when
-    running fetch_data.py directly. Fails gracefully (returns an empty
-    list) rather than raising, on the same reasoning as
-    fetch_league_season above: a transient outage on football-data.co.uk
-    (e.g. a 503) shouldn't crash the whole script and block every
-    downstream step (build_statpack.py, track_bets.py) from running at
-    all for the day - confirmed as a real incident, not a hypothetical:
-    an uncaught RuntimeError here took down an entire day's pipeline run
-    even though every league's own fetch had already failed gracefully
-    and this function's result isn't even used for anything."""
+    Coverage here is genuinely partial - fixturedownload.com (used for
+    the primary fixtures_manual/ lists) covers our leagues far more
+    completely than this file does, which is why this stays a
+    SECONDARY source specifically for odds, matched against the
+    primary fixture list by team names + date, rather than replacing
+    it. A fixture with no odds row here just gets no market blend,
+    falling back to pure-model predictions as before.
+
+    Fails gracefully (returns an empty list) rather than raising, on
+    the same reasoning as fetch_league_season above: a transient
+    outage on football-data.co.uk (e.g. a 503) shouldn't crash the
+    whole script and block every downstream step (build_statpack.py,
+    track_bets.py) from running at all for the day - confirmed as a
+    real incident, not a hypothetical.
+    """
     try:
         text = _fetch_url(FIXTURES_URL)
     except RuntimeError as e:
@@ -226,8 +236,40 @@ def fetch_fixtures() -> list[dict]:
                 "Time": row.get("Time", ""),
                 "HomeTeam": row.get("HomeTeam", ""),
                 "AwayTeam": row.get("AwayTeam", ""),
+                # Market average odds across many bookmakers - a single
+                # bookmaker's own odds (e.g. B365H) would work too, but
+                # the average is a steadier "consensus" read, same
+                # reasoning as why we use football-data.co.uk's own
+                # multi-bookmaker average elsewhere rather than picking
+                # one. Blank string (not missing key) if this fixture
+                # has no odds populated yet.
+                "AvgH": row.get("AvgH", ""),
+                "AvgD": row.get("AvgD", ""),
+                "AvgA": row.get("AvgA", ""),
+                "AvgOver25": row.get("Avg>2.5", ""),
+                "AvgUnder25": row.get("Avg<2.5", ""),
             })
+
+    odds_found = sum(1 for f in fixtures if f["AvgH"])
+    print(f"  [debug] {odds_found}/{len(fixtures)} target-league fixtures have market odds available")
+
     return fixtures
+
+
+def cache_fixture_odds(fixtures: list[dict], out_path: Path) -> None:
+    """Write the odds-bearing subset of fetch_fixtures()'s output to
+    disk, so build_statpack.py can read it without needing its own live
+    fetch. Only fixtures that actually HAVE odds are worth keeping -
+    everything else provides no blending value and would just bloat
+    the cache."""
+    with_odds = [f for f in fixtures if f.get("AvgH")]
+    fieldnames = ["Div", "League", "Date", "Time", "HomeTeam", "AwayTeam",
+                  "AvgH", "AvgD", "AvgA", "AvgOver25", "AvgUnder25"]
+    with open(out_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(with_odds)
+    print(f"  -> {len(with_odds)} fixtures with market odds cached to {out_path}")
 
 
 if __name__ == "__main__":
@@ -239,3 +281,4 @@ if __name__ == "__main__":
 
     fixtures = fetch_fixtures()
     print(f"\n{len(fixtures)} upcoming fixtures found across target leagues.")
+    cache_fixture_odds(fixtures, data_dir / "fixture_odds.csv")
