@@ -20,7 +20,7 @@ on:
     # resourced API. Adjust the cron below if you want a different
     # interval - each field is minute hour day-of-month month
     # day-of-week, all in UTC.
-    - cron: '0 */4 * * *'
+    - cron: '0 */12 * * *'
   workflow_dispatch:
     # Lets you trigger a run manually from the Actions tab (or GitHub
     # Mobile: repo -> Actions -> Update Stat Pack -> Run workflow) any
