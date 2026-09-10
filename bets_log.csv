@@ -269,9 +269,9 @@ Tranmere|Rotherham|01/09/2026|btts|No,2026-08-30,01/09/2026,E3,League Two,Tranme
 Burnley|Middlesbrough|02/09/2026|goals|Over,2026-08-31,02/09/2026,E1,Championship,Burnley,Middlesbrough,goals,Over,1.5,0.901,settled,2,hit,2026-09-03
 Doncaster|Notts County|01/09/2026|goals|Under,2026-08-31,01/09/2026,E2,League One,Doncaster,Notts County,goals,Under,3.5,0.88,settled,2,hit,2026-09-03
 Preston|Bristol City|01/09/2026|corners|Over,2026-08-31,01/09/2026,E1,Championship,Preston,Bristol City,corners,Over,8.5,0.877,settled,7,miss,2026-09-03
-Genoa|Como|04/09/2026|corners|Under,2026-08-31,04/09/2026,I1,Serie A,Genoa,Como,corners,Under,11.5,0.954,pending,,,
+Genoa|Como|04/09/2026|corners|Under,2026-08-31,04/09/2026,I1,Serie A,Genoa,Como,corners,Under,11.5,0.954,settled,9,hit,2026-09-10
 Ipswich|Liverpool|04/09/2026|corners|Under,2026-08-31,04/09/2026,E0,Premier League,Ipswich,Liverpool,corners,Under,11.5,0.832,settled,7,hit,2026-09-09
-Genoa|Como|04/09/2026|cards|Over,2026-08-31,04/09/2026,I1,Serie A,Genoa,Como,cards,Over,2.5,0.94,pending,,,
+Genoa|Como|04/09/2026|cards|Over,2026-08-31,04/09/2026,I1,Serie A,Genoa,Como,cards,Over,2.5,0.94,settled,3,hit,2026-09-10
 Falkirk|Rangers|02/09/2026|cards|Over,2026-08-31,02/09/2026,SC0,Scottish Premiership,Falkirk,Rangers,cards,Over,2.5,0.899,settled,3,hit,2026-09-03
 West Ham|Wolves|01/09/2026|cards|Over,2026-08-31,01/09/2026,E1,Championship,West Ham,Wolves,cards,Over,2.5,0.888,settled,3,hit,2026-09-03
 Burton|AFC Wimbledon|02/09/2026|cards|Under,2026-08-31,02/09/2026,E2,League One,Burton,AFC Wimbledon,cards,Under,4.5,0.877,settled,2,hit,2026-09-03
@@ -283,92 +283,92 @@ Exeter|Barnet|01/09/2026|btts|Yes,2026-08-31,01/09/2026,E3,League Two,Exeter,Bar
 Burnley|Middlesbrough|02/09/2026|btts|Yes,2026-08-31,02/09/2026,E1,Championship,Burnley,Middlesbrough,btts,Yes,,0.636,settled,1,hit,2026-09-03
 West Brom|Charlton|02/09/2026|btts|No,2026-08-31,02/09/2026,E1,Championship,West Brom,Charlton,btts,No,,0.684,settled,1,miss,2026-09-03
 Atalanta|Bologna|31/08/2026|corners|Under,2026-08-31,31/08/2026,I1,Serie A,Atalanta,Bologna,corners,Under,11.5,0.85,settled,3,hit,2026-09-01
-Rangers|Motherwell|05/09/2026|goals|Over,2026-09-01,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,goals,Over,1.5,0.947,pending,,,
-Bradford|Mansfield|05/09/2026|goals|Under,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,goals,Under,3.5,0.982,pending,,,
-Burton|Cambridge|05/09/2026|goals|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,goals,Under,3.5,0.97,pending,,,
+Rangers|Motherwell|05/09/2026|goals|Over,2026-09-01,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,goals,Over,1.5,0.947,settled,1,miss,2026-09-10
+Bradford|Mansfield|05/09/2026|goals|Under,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,goals,Under,3.5,0.982,settled,1,hit,2026-09-10
+Burton|Cambridge|05/09/2026|goals|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,goals,Under,3.5,0.97,settled,4,miss,2026-09-10
 Nott'm Forest|Tottenham|05/09/2026|goals|Under,2026-09-01,05/09/2026,E0,Premier League,Nott'm Forest,Tottenham,goals,Under,3.5,0.95,settled,0,hit,2026-09-09
-Leicester|Oxford|05/09/2026|corners|Over,2026-09-01,05/09/2026,E2,League One,Leicester,Oxford,corners,Over,8.5,0.936,pending,,,
-Exeter|Walsall|05/09/2026|corners|Over,2026-09-01,05/09/2026,E3,League Two,Exeter,Walsall,corners,Over,8.5,0.928,pending,,,
-Portsmouth|Cardiff|05/09/2026|corners|Over,2026-09-01,05/09/2026,E1,Championship,Portsmouth,Cardiff,corners,Over,8.5,0.926,pending,,,
-Fleetwood Town|Shrewsbury|05/09/2026|corners|Under,2026-09-01,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,corners,Under,11.5,0.938,pending,,,
+Leicester|Oxford|05/09/2026|corners|Over,2026-09-01,05/09/2026,E2,League One,Leicester,Oxford,corners,Over,8.5,0.936,settled,15,hit,2026-09-10
+Exeter|Walsall|05/09/2026|corners|Over,2026-09-01,05/09/2026,E3,League Two,Exeter,Walsall,corners,Over,8.5,0.928,settled,12,hit,2026-09-10
+Portsmouth|Cardiff|05/09/2026|corners|Over,2026-09-01,05/09/2026,E1,Championship,Portsmouth,Cardiff,corners,Over,8.5,0.926,settled,12,hit,2026-09-10
+Fleetwood Town|Shrewsbury|05/09/2026|corners|Under,2026-09-01,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,corners,Under,11.5,0.938,settled,7,hit,2026-09-10
 Nott'm Forest|Tottenham|05/09/2026|corners|Under,2026-09-01,05/09/2026,E0,Premier League,Nott'm Forest,Tottenham,corners,Under,11.5,0.919,settled,12,miss,2026-09-09
 Newcastle|Bournemouth|05/09/2026|cards|Over,2026-09-01,05/09/2026,E0,Premier League,Newcastle,Bournemouth,cards,Over,2.5,0.949,settled,5,hit,2026-09-09
-Luton|Leyton Orient|05/09/2026|cards|Over,2026-09-01,05/09/2026,E2,League One,Luton,Leyton Orient,cards,Over,2.5,0.929,pending,,,
+Luton|Leyton Orient|05/09/2026|cards|Over,2026-09-01,05/09/2026,E2,League One,Luton,Leyton Orient,cards,Over,2.5,0.929,settled,6,hit,2026-09-10
 Fulham|Crystal Palace|05/09/2026|cards|Over,2026-09-01,05/09/2026,E0,Premier League,Fulham,Crystal Palace,cards,Over,2.5,0.915,settled,0,miss,2026-09-09
-Bradford|Mansfield|05/09/2026|cards|Over,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,cards,Over,2.5,0.915,pending,,,
-Burton|Cambridge|05/09/2026|cards|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,cards,Under,4.5,0.957,pending,,,
-Exeter|Walsall|05/09/2026|cards|Under,2026-09-01,05/09/2026,E3,League Two,Exeter,Walsall,cards,Under,4.5,0.895,pending,,,
-Portsmouth|Cardiff|05/09/2026|first_half_goals|Over,2026-09-01,05/09/2026,E1,Championship,Portsmouth,Cardiff,first_half_goals,Over,0.5,0.889,pending,,,
-Bradford|Mansfield|05/09/2026|first_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,first_half_goals,Under,1.5,0.948,pending,,,
-Burton|Cambridge|05/09/2026|first_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,first_half_goals,Under,1.5,0.927,pending,,,
-Rangers|Motherwell|05/09/2026|second_half_goals|Over,2026-09-01,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,second_half_goals,Over,0.5,0.947,pending,,,
-Stoke|Charlton|05/09/2026|second_half_goals|Over,2026-09-01,05/09/2026,E1,Championship,Stoke,Charlton,second_half_goals,Over,0.5,0.938,pending,,,
-Bradford|Mansfield|05/09/2026|second_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,second_half_goals,Under,2.5,0.971,pending,,,
-Burton|Cambridge|05/09/2026|second_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,second_half_goals,Under,2.5,0.968,pending,,,
-Rangers|Motherwell|05/09/2026|btts|Yes,2026-09-01,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,btts,Yes,,0.807,pending,,,
-Lincoln|Southampton|05/09/2026|btts|Yes,2026-09-01,05/09/2026,E1,Championship,Lincoln,Southampton,btts,Yes,,0.722,pending,,,
-Bradford|Mansfield|05/09/2026|btts|No,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,btts,No,,0.853,pending,,,
-Burton|Cambridge|05/09/2026|btts|No,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,btts,No,,0.812,pending,,,
-QPR|Middlesbrough|05/09/2026|goals|Over,2026-09-02,05/09/2026,E1,Championship,QPR,Middlesbrough,goals,Over,1.5,0.901,pending,,,
-Bristol Rvs|Rotherham|05/09/2026|goals|Over,2026-09-02,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,goals,Over,1.5,0.9,pending,,,
-Fiorentina|Torino|05/09/2026|goals|Under,2026-09-02,05/09/2026,I1,Serie A,Fiorentina,Torino,goals,Under,3.5,0.901,pending,,,
-Juventus|Milan|06/09/2026|corners|Under,2026-09-02,06/09/2026,I1,Serie A,Juventus,Milan,corners,Under,11.5,0.911,pending,,,
-Millwall|Bolton|05/09/2026|cards|Under,2026-09-02,05/09/2026,E1,Championship,Millwall,Bolton,cards,Under,4.5,0.854,pending,,,
-Rangers|Motherwell|05/09/2026|first_half_goals|Over,2026-09-02,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,first_half_goals,Over,0.5,0.883,pending,,,
-Juventus|Milan|06/09/2026|first_half_goals|Under,2026-09-02,06/09/2026,I1,Serie A,Juventus,Milan,first_half_goals,Under,1.5,0.909,pending,,,
-Fleetwood Town|Shrewsbury|05/09/2026|first_half_goals|Under,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,first_half_goals,Under,1.5,0.902,pending,,,
-Exeter|Walsall|05/09/2026|second_half_goals|Over,2026-09-02,05/09/2026,E3,League Two,Exeter,Walsall,second_half_goals,Over,0.5,0.928,pending,,,
+Bradford|Mansfield|05/09/2026|cards|Over,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,cards,Over,2.5,0.915,settled,4,hit,2026-09-10
+Burton|Cambridge|05/09/2026|cards|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,cards,Under,4.5,0.957,settled,3,hit,2026-09-10
+Exeter|Walsall|05/09/2026|cards|Under,2026-09-01,05/09/2026,E3,League Two,Exeter,Walsall,cards,Under,4.5,0.895,settled,1,hit,2026-09-10
+Portsmouth|Cardiff|05/09/2026|first_half_goals|Over,2026-09-01,05/09/2026,E1,Championship,Portsmouth,Cardiff,first_half_goals,Over,0.5,0.889,settled,1,hit,2026-09-10
+Bradford|Mansfield|05/09/2026|first_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,first_half_goals,Under,1.5,0.948,settled,1,hit,2026-09-10
+Burton|Cambridge|05/09/2026|first_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,first_half_goals,Under,1.5,0.927,settled,2,miss,2026-09-10
+Rangers|Motherwell|05/09/2026|second_half_goals|Over,2026-09-01,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,second_half_goals,Over,0.5,0.947,settled,0,miss,2026-09-10
+Stoke|Charlton|05/09/2026|second_half_goals|Over,2026-09-01,05/09/2026,E1,Championship,Stoke,Charlton,second_half_goals,Over,0.5,0.938,settled,0,miss,2026-09-10
+Bradford|Mansfield|05/09/2026|second_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,second_half_goals,Under,2.5,0.971,settled,0,hit,2026-09-10
+Burton|Cambridge|05/09/2026|second_half_goals|Under,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,second_half_goals,Under,2.5,0.968,settled,2,hit,2026-09-10
+Rangers|Motherwell|05/09/2026|btts|Yes,2026-09-01,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,btts,Yes,,0.807,settled,0,miss,2026-09-10
+Lincoln|Southampton|05/09/2026|btts|Yes,2026-09-01,05/09/2026,E1,Championship,Lincoln,Southampton,btts,Yes,,0.722,settled,1,hit,2026-09-10
+Bradford|Mansfield|05/09/2026|btts|No,2026-09-01,05/09/2026,E2,League One,Bradford,Mansfield,btts,No,,0.853,settled,0,hit,2026-09-10
+Burton|Cambridge|05/09/2026|btts|No,2026-09-01,05/09/2026,E2,League One,Burton,Cambridge,btts,No,,0.812,settled,1,miss,2026-09-10
+QPR|Middlesbrough|05/09/2026|goals|Over,2026-09-02,05/09/2026,E1,Championship,QPR,Middlesbrough,goals,Over,1.5,0.901,settled,1,miss,2026-09-10
+Bristol Rvs|Rotherham|05/09/2026|goals|Over,2026-09-02,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,goals,Over,1.5,0.9,settled,1,miss,2026-09-10
+Fiorentina|Torino|05/09/2026|goals|Under,2026-09-02,05/09/2026,I1,Serie A,Fiorentina,Torino,goals,Under,3.5,0.901,settled,3,hit,2026-09-10
+Juventus|Milan|06/09/2026|corners|Under,2026-09-02,06/09/2026,I1,Serie A,Juventus,Milan,corners,Under,11.5,0.911,settled,8,hit,2026-09-10
+Millwall|Bolton|05/09/2026|cards|Under,2026-09-02,05/09/2026,E1,Championship,Millwall,Bolton,cards,Under,4.5,0.854,settled,5,miss,2026-09-10
+Rangers|Motherwell|05/09/2026|first_half_goals|Over,2026-09-02,05/09/2026,SC0,Scottish Premiership,Rangers,Motherwell,first_half_goals,Over,0.5,0.883,settled,1,hit,2026-09-10
+Juventus|Milan|06/09/2026|first_half_goals|Under,2026-09-02,06/09/2026,I1,Serie A,Juventus,Milan,first_half_goals,Under,1.5,0.909,settled,0,hit,2026-09-10
+Fleetwood Town|Shrewsbury|05/09/2026|first_half_goals|Under,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,first_half_goals,Under,1.5,0.902,settled,1,hit,2026-09-10
+Exeter|Walsall|05/09/2026|second_half_goals|Over,2026-09-02,05/09/2026,E3,League Two,Exeter,Walsall,second_half_goals,Over,0.5,0.928,settled,0,miss,2026-09-10
 Nott'm Forest|Tottenham|05/09/2026|second_half_goals|Under,2026-09-02,05/09/2026,E0,Premier League,Nott'm Forest,Tottenham,second_half_goals,Under,2.5,0.96,settled,0,hit,2026-09-09
-Birmingham|Wolves|06/09/2026|second_half_goals|Under,2026-09-02,06/09/2026,E1,Championship,Birmingham,Wolves,second_half_goals,Under,2.5,0.955,pending,,,
+Birmingham|Wolves|06/09/2026|second_half_goals|Under,2026-09-02,06/09/2026,E1,Championship,Birmingham,Wolves,second_half_goals,Under,2.5,0.955,settled,0,hit,2026-09-10
 Hull|Aston Villa|05/09/2026|second_half_goals|Under,2026-09-02,05/09/2026,E0,Premier League,Hull,Aston Villa,second_half_goals,Under,2.5,0.948,settled,0,hit,2026-09-09
 Nott'm Forest|Tottenham|05/09/2026|btts|No,2026-09-02,05/09/2026,E0,Premier League,Nott'm Forest,Tottenham,btts,No,,0.763,settled,0,hit,2026-09-09
-Fiorentina|Torino|05/09/2026|btts|No,2026-09-02,05/09/2026,I1,Serie A,Fiorentina,Torino,btts,No,,0.703,pending,,,
-Lincoln|Southampton|05/09/2026|goals|Over,2026-09-02,05/09/2026,E1,Championship,Lincoln,Southampton,goals,Over,1.5,0.942,pending,,,
-Fleetwood Town|Shrewsbury|05/09/2026|goals|Under,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,goals,Under,3.5,0.948,pending,,,
+Fiorentina|Torino|05/09/2026|btts|No,2026-09-02,05/09/2026,I1,Serie A,Fiorentina,Torino,btts,No,,0.703,settled,1,miss,2026-09-10
+Lincoln|Southampton|05/09/2026|goals|Over,2026-09-02,05/09/2026,E1,Championship,Lincoln,Southampton,goals,Over,1.5,0.942,settled,2,hit,2026-09-10
+Fleetwood Town|Shrewsbury|05/09/2026|goals|Under,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,goals,Under,3.5,0.948,settled,2,hit,2026-09-10
 Everton|Man United|06/09/2026|corners|Under,2026-09-02,06/09/2026,E0,Premier League,Everton,Man United,corners,Under,11.5,0.932,settled,7,hit,2026-09-09
-Burton|Cambridge|05/09/2026|corners|Under,2026-09-02,05/09/2026,E2,League One,Burton,Cambridge,corners,Under,11.5,0.93,pending,,,
-Roma|Atalanta|05/09/2026|corners|Under,2026-09-02,05/09/2026,I1,Serie A,Roma,Atalanta,corners,Under,11.5,0.919,pending,,,
-Aberdeen|Kilmarnock|05/09/2026|cards|Over,2026-09-02,05/09/2026,SC0,Scottish Premiership,Aberdeen,Kilmarnock,cards,Over,2.5,0.918,pending,,,
-Cheltenham|Grimsby|05/09/2026|cards|Under,2026-09-02,05/09/2026,E3,League Two,Cheltenham,Grimsby,cards,Under,4.5,0.909,pending,,,
-Fleetwood Town|Shrewsbury|05/09/2026|cards|Under,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,cards,Under,4.5,0.886,pending,,,
+Burton|Cambridge|05/09/2026|corners|Under,2026-09-02,05/09/2026,E2,League One,Burton,Cambridge,corners,Under,11.5,0.93,settled,9,hit,2026-09-10
+Roma|Atalanta|05/09/2026|corners|Under,2026-09-02,05/09/2026,I1,Serie A,Roma,Atalanta,corners,Under,11.5,0.919,settled,15,miss,2026-09-10
+Aberdeen|Kilmarnock|05/09/2026|cards|Over,2026-09-02,05/09/2026,SC0,Scottish Premiership,Aberdeen,Kilmarnock,cards,Over,2.5,0.918,settled,10,hit,2026-09-10
+Cheltenham|Grimsby|05/09/2026|cards|Under,2026-09-02,05/09/2026,E3,League Two,Cheltenham,Grimsby,cards,Under,4.5,0.909,settled,2,hit,2026-09-10
+Fleetwood Town|Shrewsbury|05/09/2026|cards|Under,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,cards,Under,4.5,0.886,settled,8,miss,2026-09-10
 Everton|Man United|06/09/2026|cards|Under,2026-09-02,06/09/2026,E0,Premier League,Everton,Man United,cards,Under,4.5,0.88,settled,6,miss,2026-09-09
 Hull|Aston Villa|05/09/2026|first_half_goals|Over,2026-09-02,05/09/2026,E0,Premier League,Hull,Aston Villa,first_half_goals,Over,0.5,0.923,settled,0,miss,2026-09-09
-Lincoln|Southampton|05/09/2026|second_half_goals|Over,2026-09-02,05/09/2026,E1,Championship,Lincoln,Southampton,second_half_goals,Over,0.5,0.952,pending,,,
-West Ham|Derby|05/09/2026|second_half_goals|Over,2026-09-02,05/09/2026,E1,Championship,West Ham,Derby,second_half_goals,Over,0.5,0.934,pending,,,
-Fiorentina|Torino|05/09/2026|second_half_goals|Under,2026-09-02,05/09/2026,I1,Serie A,Fiorentina,Torino,second_half_goals,Under,2.5,0.987,pending,,,
-Luton|Leyton Orient|05/09/2026|second_half_goals|Under,2026-09-02,05/09/2026,E2,League One,Luton,Leyton Orient,second_half_goals,Under,2.5,0.945,pending,,,
-Fleetwood Town|Shrewsbury|05/09/2026|btts|No,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,btts,No,,0.758,pending,,,
+Lincoln|Southampton|05/09/2026|second_half_goals|Over,2026-09-02,05/09/2026,E1,Championship,Lincoln,Southampton,second_half_goals,Over,0.5,0.952,settled,1,hit,2026-09-10
+West Ham|Derby|05/09/2026|second_half_goals|Over,2026-09-02,05/09/2026,E1,Championship,West Ham,Derby,second_half_goals,Over,0.5,0.934,settled,2,hit,2026-09-10
+Fiorentina|Torino|05/09/2026|second_half_goals|Under,2026-09-02,05/09/2026,I1,Serie A,Fiorentina,Torino,second_half_goals,Under,2.5,0.987,settled,3,miss,2026-09-10
+Luton|Leyton Orient|05/09/2026|second_half_goals|Under,2026-09-02,05/09/2026,E2,League One,Luton,Leyton Orient,second_half_goals,Under,2.5,0.945,settled,0,hit,2026-09-10
+Fleetwood Town|Shrewsbury|05/09/2026|btts|No,2026-09-02,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,btts,No,,0.758,settled,0,hit,2026-09-10
 Burton|AFC Wimbledon|02/09/2026|btts|No,2026-09-02,02/09/2026,E2,League One,Burton,AFC Wimbledon,btts,No,,0.753,settled,1,miss,2026-09-03
-Portsmouth|Cardiff|05/09/2026|goals|Over,2026-09-03,05/09/2026,E1,Championship,Portsmouth,Cardiff,goals,Over,1.5,0.899,pending,,,
-Exeter|Walsall|05/09/2026|goals|Over,2026-09-03,05/09/2026,E3,League Two,Exeter,Walsall,goals,Over,1.5,0.869,pending,,,
-Udinese|Lazio|07/09/2026|goals|Under,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,goals,Under,3.5,0.981,pending,,,
-Swansea|Wrexham|05/09/2026|corners|Over,2026-09-03,05/09/2026,E1,Championship,Swansea,Wrexham,corners,Over,8.5,0.911,pending,,,
-Stoke|Charlton|05/09/2026|corners|Over,2026-09-03,05/09/2026,E1,Championship,Stoke,Charlton,corners,Over,8.5,0.86,pending,,,
-Fiorentina|Torino|05/09/2026|corners|Under,2026-09-03,05/09/2026,I1,Serie A,Fiorentina,Torino,corners,Under,11.5,0.908,pending,,,
-Udinese|Lazio|07/09/2026|cards|Over,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,cards,Over,2.5,0.881,pending,,,
-Cagliari|Lecce|07/09/2026|cards|Under,2026-09-03,07/09/2026,I1,Serie A,Cagliari,Lecce,cards,Under,4.5,0.903,pending,,,
-Bristol Rvs|Rotherham|05/09/2026|first_half_goals|Over,2026-09-03,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,first_half_goals,Over,0.5,0.907,pending,,,
-Wycombe|Milton Keynes Dons|05/09/2026|first_half_goals|Over,2026-09-03,05/09/2026,E2,League One,Wycombe,Milton Keynes Dons,first_half_goals,Over,0.5,0.897,pending,,,
-Stoke|Charlton|05/09/2026|first_half_goals|Under,2026-09-03,05/09/2026,E1,Championship,Stoke,Charlton,first_half_goals,Under,1.5,0.919,pending,,,
-Udinese|Lazio|07/09/2026|second_half_goals|Under,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,second_half_goals,Under,2.5,0.971,pending,,,
-Portsmouth|Cardiff|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E1,Championship,Portsmouth,Cardiff,btts,Yes,,0.685,pending,,,
-Huddersfield|Notts County|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E2,League One,Huddersfield,Notts County,btts,Yes,,0.684,pending,,,
-QPR|Middlesbrough|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E1,Championship,QPR,Middlesbrough,btts,Yes,,0.648,pending,,,
-Udinese|Lazio|07/09/2026|btts|No,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,btts,No,,0.847,pending,,,
-Bromley|AFC Wimbledon|07/09/2026|btts|No,2026-09-03,07/09/2026,E2,League One,Bromley,AFC Wimbledon,btts,No,,0.809,pending,,,
+Portsmouth|Cardiff|05/09/2026|goals|Over,2026-09-03,05/09/2026,E1,Championship,Portsmouth,Cardiff,goals,Over,1.5,0.899,settled,2,hit,2026-09-10
+Exeter|Walsall|05/09/2026|goals|Over,2026-09-03,05/09/2026,E3,League Two,Exeter,Walsall,goals,Over,1.5,0.869,settled,0,miss,2026-09-10
+Udinese|Lazio|07/09/2026|goals|Under,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,goals,Under,3.5,0.981,settled,3,hit,2026-09-10
+Swansea|Wrexham|05/09/2026|corners|Over,2026-09-03,05/09/2026,E1,Championship,Swansea,Wrexham,corners,Over,8.5,0.911,settled,7,miss,2026-09-10
+Stoke|Charlton|05/09/2026|corners|Over,2026-09-03,05/09/2026,E1,Championship,Stoke,Charlton,corners,Over,8.5,0.86,settled,8,miss,2026-09-10
+Fiorentina|Torino|05/09/2026|corners|Under,2026-09-03,05/09/2026,I1,Serie A,Fiorentina,Torino,corners,Under,11.5,0.908,settled,8,hit,2026-09-10
+Udinese|Lazio|07/09/2026|cards|Over,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,cards,Over,2.5,0.881,settled,6,hit,2026-09-10
+Cagliari|Lecce|07/09/2026|cards|Under,2026-09-03,07/09/2026,I1,Serie A,Cagliari,Lecce,cards,Under,4.5,0.903,settled,4,hit,2026-09-10
+Bristol Rvs|Rotherham|05/09/2026|first_half_goals|Over,2026-09-03,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,first_half_goals,Over,0.5,0.907,settled,1,hit,2026-09-10
+Wycombe|Milton Keynes Dons|05/09/2026|first_half_goals|Over,2026-09-03,05/09/2026,E2,League One,Wycombe,Milton Keynes Dons,first_half_goals,Over,0.5,0.897,settled,2,hit,2026-09-10
+Stoke|Charlton|05/09/2026|first_half_goals|Under,2026-09-03,05/09/2026,E1,Championship,Stoke,Charlton,first_half_goals,Under,1.5,0.919,settled,4,miss,2026-09-10
+Udinese|Lazio|07/09/2026|second_half_goals|Under,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,second_half_goals,Under,2.5,0.971,settled,3,miss,2026-09-10
+Portsmouth|Cardiff|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E1,Championship,Portsmouth,Cardiff,btts,Yes,,0.685,settled,0,miss,2026-09-10
+Huddersfield|Notts County|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E2,League One,Huddersfield,Notts County,btts,Yes,,0.684,settled,1,hit,2026-09-10
+QPR|Middlesbrough|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E1,Championship,QPR,Middlesbrough,btts,Yes,,0.648,settled,0,miss,2026-09-10
+Udinese|Lazio|07/09/2026|btts|No,2026-09-03,07/09/2026,I1,Serie A,Udinese,Lazio,btts,No,,0.847,settled,1,miss,2026-09-10
+Bromley|AFC Wimbledon|07/09/2026|btts|No,2026-09-03,07/09/2026,E2,League One,Bromley,AFC Wimbledon,btts,No,,0.809,settled,0,hit,2026-09-10
 Hibernian|Hearts|03/09/2026|corners|Over,2026-09-03,03/09/2026,SC0,Scottish Premiership,Hibernian,Hearts,corners,Over,8.5,0.89,settled,15,hit,2026-09-04
 Hibernian|Hearts|03/09/2026|cards|Over,2026-09-03,03/09/2026,SC0,Scottish Premiership,Hibernian,Hearts,cards,Over,2.5,0.996,settled,5,hit,2026-09-04
-Inter|Napoli|05/09/2026|cards|Under,2026-09-03,05/09/2026,I1,Serie A,Inter,Napoli,cards,Under,4.5,0.898,pending,,,
-West Ham|Derby|05/09/2026|goals|Over,2026-09-03,05/09/2026,E1,Championship,West Ham,Derby,goals,Over,1.5,0.874,pending,,,
-Lincoln|Southampton|05/09/2026|corners|Over,2026-09-03,05/09/2026,E1,Championship,Lincoln,Southampton,corners,Over,8.5,0.861,pending,,,
-Lincoln|Southampton|05/09/2026|cards|Over,2026-09-03,05/09/2026,E1,Championship,Lincoln,Southampton,cards,Over,2.5,0.915,pending,,,
-Swindon|Colchester|05/09/2026|cards|Under,2026-09-03,05/09/2026,E3,League Two,Swindon,Colchester,cards,Under,4.5,0.899,pending,,,
-Barnsley|Stevenage|05/09/2026|first_half_goals|Under,2026-09-03,05/09/2026,E2,League One,Barnsley,Stevenage,first_half_goals,Under,1.5,0.97,pending,,,
-Bristol Rvs|Rotherham|05/09/2026|second_half_goals|Over,2026-09-03,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,second_half_goals,Over,0.5,0.914,pending,,,
-Doncaster|Plymouth|05/09/2026|second_half_goals|Under,2026-09-03,05/09/2026,E2,League One,Doncaster,Plymouth,second_half_goals,Under,2.5,0.945,pending,,,
-Wycombe|Milton Keynes Dons|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E2,League One,Wycombe,Milton Keynes Dons,btts,Yes,,0.682,pending,,,
-West Ham|Derby|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E1,Championship,West Ham,Derby,btts,Yes,,0.656,pending,,,
-Hearts|Dundee|06/09/2026|btts|No,2026-09-03,06/09/2026,SC0,Scottish Premiership,Hearts,Dundee,btts,No,,0.746,pending,,,
+Inter|Napoli|05/09/2026|cards|Under,2026-09-03,05/09/2026,I1,Serie A,Inter,Napoli,cards,Under,4.5,0.898,settled,3,hit,2026-09-10
+West Ham|Derby|05/09/2026|goals|Over,2026-09-03,05/09/2026,E1,Championship,West Ham,Derby,goals,Over,1.5,0.874,settled,3,hit,2026-09-10
+Lincoln|Southampton|05/09/2026|corners|Over,2026-09-03,05/09/2026,E1,Championship,Lincoln,Southampton,corners,Over,8.5,0.861,settled,10,hit,2026-09-10
+Lincoln|Southampton|05/09/2026|cards|Over,2026-09-03,05/09/2026,E1,Championship,Lincoln,Southampton,cards,Over,2.5,0.915,settled,3,hit,2026-09-10
+Swindon|Colchester|05/09/2026|cards|Under,2026-09-03,05/09/2026,E3,League Two,Swindon,Colchester,cards,Under,4.5,0.899,settled,2,hit,2026-09-10
+Barnsley|Stevenage|05/09/2026|first_half_goals|Under,2026-09-03,05/09/2026,E2,League One,Barnsley,Stevenage,first_half_goals,Under,1.5,0.97,settled,2,miss,2026-09-10
+Bristol Rvs|Rotherham|05/09/2026|second_half_goals|Over,2026-09-03,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,second_half_goals,Over,0.5,0.914,settled,0,miss,2026-09-10
+Doncaster|Plymouth|05/09/2026|second_half_goals|Under,2026-09-03,05/09/2026,E2,League One,Doncaster,Plymouth,second_half_goals,Under,2.5,0.945,settled,4,miss,2026-09-10
+Wycombe|Milton Keynes Dons|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E2,League One,Wycombe,Milton Keynes Dons,btts,Yes,,0.682,settled,1,hit,2026-09-10
+West Ham|Derby|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E1,Championship,West Ham,Derby,btts,Yes,,0.656,settled,0,miss,2026-09-10
+Hearts|Dundee|06/09/2026|btts|No,2026-09-03,06/09/2026,SC0,Scottish Premiership,Hearts,Dundee,btts,No,,0.746,settled,1,miss,2026-09-10
 Wrexham|Burnley|08/09/2026|goals|Over,2026-09-04,08/09/2026,E1,Championship,Wrexham,Burnley,goals,Over,1.5,0.917,pending,,,
 Bolton|West Ham|08/09/2026|goals|Over,2026-09-04,08/09/2026,E1,Championship,Bolton,West Ham,goals,Over,1.5,0.902,pending,,,
 Middlesbrough|Millwall|08/09/2026|corners|Over,2026-09-04,08/09/2026,E1,Championship,Middlesbrough,Millwall,corners,Over,8.5,0.989,pending,,,
@@ -380,26 +380,26 @@ Blackburn|Sheffield United|08/09/2026|second_half_goals|Under,2026-09-04,08/09/2
 Bolton|West Ham|08/09/2026|btts|Yes,2026-09-04,08/09/2026,E1,Championship,Bolton,West Ham,btts,Yes,,0.692,pending,,,
 Blackburn|Sheffield United|08/09/2026|btts|No,2026-09-04,08/09/2026,E1,Championship,Blackburn,Sheffield United,btts,No,,0.754,pending,,,
 Wrexham|Burnley|08/09/2026|btts|Yes,2026-09-04,08/09/2026,E1,Championship,Wrexham,Burnley,btts,Yes,,0.713,pending,,,
-Wycombe|Milton Keynes Dons|05/09/2026|goals|Over,2026-09-04,05/09/2026,E2,League One,Wycombe,Milton Keynes Dons,goals,Over,1.5,0.892,pending,,,
+Wycombe|Milton Keynes Dons|05/09/2026|goals|Over,2026-09-04,05/09/2026,E2,League One,Wycombe,Milton Keynes Dons,goals,Over,1.5,0.892,settled,6,hit,2026-09-10
 Blackburn|Sheffield United|08/09/2026|goals|Under,2026-09-04,08/09/2026,E1,Championship,Blackburn,Sheffield United,goals,Under,3.5,0.936,pending,,,
-Barnsley|Stevenage|05/09/2026|goals|Under,2026-09-04,05/09/2026,E2,League One,Barnsley,Stevenage,goals,Under,3.5,0.916,pending,,,
-Bologna|Sassuolo|06/09/2026|goals|Under,2026-09-04,06/09/2026,I1,Serie A,Bologna,Sassuolo,goals,Under,3.5,0.901,pending,,,
+Barnsley|Stevenage|05/09/2026|goals|Under,2026-09-04,05/09/2026,E2,League One,Barnsley,Stevenage,goals,Under,3.5,0.916,settled,6,miss,2026-09-10
+Bologna|Sassuolo|06/09/2026|goals|Under,2026-09-04,06/09/2026,I1,Serie A,Bologna,Sassuolo,goals,Under,3.5,0.901,settled,4,miss,2026-09-10
 Hull|Aston Villa|05/09/2026|corners|Under,2026-09-04,05/09/2026,E0,Premier League,Hull,Aston Villa,corners,Under,11.5,0.905,settled,7,hit,2026-09-09
 Wrexham|Burnley|08/09/2026|corners|Under,2026-09-04,08/09/2026,E1,Championship,Wrexham,Burnley,corners,Under,11.5,0.9,pending,,,
-Salford|Port Vale|05/09/2026|first_half_goals|Under,2026-09-04,05/09/2026,E3,League Two,Salford,Port Vale,first_half_goals,Under,1.5,0.932,pending,,,
+Salford|Port Vale|05/09/2026|first_half_goals|Under,2026-09-04,05/09/2026,E3,League Two,Salford,Port Vale,first_half_goals,Under,1.5,0.932,settled,0,hit,2026-09-10
 Blackburn|Sheffield United|08/09/2026|first_half_goals|Under,2026-09-04,08/09/2026,E1,Championship,Blackburn,Sheffield United,first_half_goals,Under,1.5,0.923,pending,,,
-Udinese|Lazio|07/09/2026|first_half_goals|Under,2026-09-04,07/09/2026,I1,Serie A,Udinese,Lazio,first_half_goals,Under,1.5,0.917,pending,,,
+Udinese|Lazio|07/09/2026|first_half_goals|Under,2026-09-04,07/09/2026,I1,Serie A,Udinese,Lazio,first_half_goals,Under,1.5,0.917,settled,0,hit,2026-09-10
 Watford|Preston|08/09/2026|second_half_goals|Under,2026-09-04,08/09/2026,E1,Championship,Watford,Preston,second_half_goals,Under,2.5,0.956,pending,,,
 Arsenal|Chelsea|06/09/2026|second_half_goals|Under,2026-09-04,06/09/2026,E0,Premier League,Arsenal,Chelsea,second_half_goals,Under,2.5,0.935,settled,1,hit,2026-09-09
-Cagliari|Lecce|07/09/2026|second_half_goals|Under,2026-09-04,07/09/2026,I1,Serie A,Cagliari,Lecce,second_half_goals,Under,2.5,0.934,pending,,,
-Fleetwood Town|Shrewsbury|05/09/2026|second_half_goals|Under,2026-09-04,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,second_half_goals,Under,2.5,0.927,pending,,,
-Portsmouth|Cardiff|05/09/2026|second_half_goals|Under,2026-09-04,05/09/2026,E1,Championship,Portsmouth,Cardiff,second_half_goals,Under,2.5,0.919,pending,,,
-Dundee United|Falkirk|05/09/2026|second_half_goals|Under,2026-09-04,05/09/2026,SC0,Scottish Premiership,Dundee United,Falkirk,second_half_goals,Under,2.5,0.908,pending,,,
+Cagliari|Lecce|07/09/2026|second_half_goals|Under,2026-09-04,07/09/2026,I1,Serie A,Cagliari,Lecce,second_half_goals,Under,2.5,0.934,settled,0,hit,2026-09-10
+Fleetwood Town|Shrewsbury|05/09/2026|second_half_goals|Under,2026-09-04,05/09/2026,E3,League Two,Fleetwood Town,Shrewsbury,second_half_goals,Under,2.5,0.927,settled,1,hit,2026-09-10
+Portsmouth|Cardiff|05/09/2026|second_half_goals|Under,2026-09-04,05/09/2026,E1,Championship,Portsmouth,Cardiff,second_half_goals,Under,2.5,0.919,settled,1,hit,2026-09-10
+Dundee United|Falkirk|05/09/2026|second_half_goals|Under,2026-09-04,05/09/2026,SC0,Scottish Premiership,Dundee United,Falkirk,second_half_goals,Under,2.5,0.908,settled,1,hit,2026-09-10
 Brighton|Leeds|05/09/2026|second_half_goals|Under,2026-09-04,05/09/2026,E0,Premier League,Brighton,Leeds,second_half_goals,Under,2.5,0.901,settled,1,hit,2026-09-09
-Bristol Rvs|Rotherham|05/09/2026|team_win|Bristol Rvs,2026-09-05,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,team_win,Bristol Rvs,,0.858,pending,,,
-Roma|Atalanta|05/09/2026|team_win|Roma,2026-09-05,05/09/2026,I1,Serie A,Roma,Atalanta,team_win,Roma,,0.827,pending,,,
-West Brom|Watford|05/09/2026|team_win|West Brom,2026-09-05,05/09/2026,E1,Championship,West Brom,Watford,team_win,West Brom,,0.81,pending,,,
-Hearts|Dundee|06/09/2026|team_win|Hearts,2026-09-06,06/09/2026,SC0,Scottish Premiership,Hearts,Dundee,team_win,Hearts,,0.804,pending,,,
+Bristol Rvs|Rotherham|05/09/2026|team_win|Bristol Rvs,2026-09-05,05/09/2026,E3,League Two,Bristol Rvs,Rotherham,team_win,Bristol Rvs,,0.858,settled,Bristol Rvs,hit,2026-09-10
+Roma|Atalanta|05/09/2026|team_win|Roma,2026-09-05,05/09/2026,I1,Serie A,Roma,Atalanta,team_win,Roma,,0.827,settled,Roma,hit,2026-09-10
+West Brom|Watford|05/09/2026|team_win|West Brom,2026-09-05,05/09/2026,E1,Championship,West Brom,Watford,team_win,West Brom,,0.81,settled,West Brom,hit,2026-09-10
+Hearts|Dundee|06/09/2026|team_win|Hearts,2026-09-06,06/09/2026,SC0,Scottish Premiership,Hearts,Dundee,team_win,Hearts,,0.804,settled,Hearts,hit,2026-09-10
 Cardiff|Stoke|08/09/2026|team_win|Cardiff,2026-09-08,08/09/2026,E1,Championship,Cardiff,Stoke,team_win,Cardiff,,0.823,pending,,,
 Wolves|Portsmouth|09/09/2026|goals|Over,2026-09-09,09/09/2026,E1,Championship,Wolves,Portsmouth,goals,Over,1.5,0.955,pending,,,
 Wolves|Portsmouth|09/09/2026|second_half_goals|Over,2026-09-09,09/09/2026,E1,Championship,Wolves,Portsmouth,second_half_goals,Over,0.5,0.938,pending,,,
