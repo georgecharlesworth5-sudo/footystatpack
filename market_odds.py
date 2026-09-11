@@ -92,16 +92,81 @@ def load_fixture_odds(path) -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def resolve_odds_rows(odds_rows: list[dict], known_names: list[str], resolve_team_name) -> list[dict]:
+    """
+    Resolves each odds row's HomeTeam/AwayTeam through the SAME name-
+    resolution used for the main fixture list (build_statpack.py's
+    resolve_team_name, passed in here rather than imported, to avoid a
+    circular import between the two modules).
+
+    This has to run before find_odds_for_fixture's exact-match lookup
+    ever has a chance of working - fixture_odds.csv comes from
+    football-data.co.uk's own fixtures.csv, a genuinely different
+    source to fixturedownload.com (used for the main fixtures_manual/
+    lists), and the two don't always spell team names the same way.
+    Confirmed as a real issue, not a hypothetical: without this step,
+    cached odds existed for every fixture in one real case, yet zero
+    fixtures ever showed as market-blended, because the exact string
+    match silently failed on every single one.
+
+    Rows where either team can't be resolved at all are dropped - an
+    unmatchable row has no use here regardless of what odds it carries.
+    """
+    resolved = []
+    for row in odds_rows:
+        home, _ = resolve_team_name(row.get("HomeTeam", ""), known_names)
+        away, _ = resolve_team_name(row.get("AwayTeam", ""), known_names)
+        if home is None or away is None:
+            continue
+        new_row = dict(row)
+        new_row["HomeTeam"] = home
+        new_row["AwayTeam"] = away
+        resolved.append(new_row)
+    return resolved
+
+
+# Same reasoning as track_bets.py's MAX_DATE_DRIFT_DAYS: the fixture list
+# and the odds cache are two independently-fetched snapshots of
+# football-data.co.uk, so a fixture that's been postponed/rescheduled
+# between the two fetches could show a slightly different date in each -
+# an exact date match would silently drop that fixture's odds entirely.
+MAX_DATE_DRIFT_DAYS = 3
+
+
 def find_odds_for_fixture(odds_rows: list[dict], home_team: str, away_team: str, date: str) -> dict | None:
     """
-    Matches one fixture (by resolved home/away team name and date) against
-    the cached odds rows. Exact team-name match only - odds_rows should
-    already have been resolved through the same name-resolution used for
-    the main fixture list before calling this, so team names line up.
+    Matches one fixture (by resolved home/away team name, and date within
+    MAX_DATE_DRIFT_DAYS) against the cached odds rows. Team-name matching
+    is exact, but odds_rows must already have been resolved through the
+    same name-resolution used for the main fixture list before calling
+    this (see resolve_odds_rows below) - without that step, this
+    silently matches nothing whenever football-data.co.uk's own naming
+    differs from fixturedownload.com's, which happens often enough to be
+    a real, confirmed issue.
     """
+    from datetime import datetime
+
+    def _parse(d):
+        try:
+            return datetime.strptime(d, "%d/%m/%Y")
+        except (ValueError, TypeError):
+            return None
+
+    target_date = _parse(date)
+    best_row, best_drift = None, None
     for row in odds_rows:
-        if row.get("HomeTeam") == home_team and row.get("AwayTeam") == away_team and row.get("Date") == date:
-            return parse_fixture_odds_row(row)
+        if row.get("HomeTeam") != home_team or row.get("AwayTeam") != away_team:
+            continue
+        row_date = _parse(row.get("Date", ""))
+        if target_date is None or row_date is None:
+            if row.get("Date") == date:  # fall back to exact string match if either date is unparseable
+                return parse_fixture_odds_row(row)
+            continue
+        drift = abs((row_date - target_date).days)
+        if drift <= MAX_DATE_DRIFT_DAYS and (best_drift is None or drift < best_drift):
+            best_row, best_drift = row, drift
+    if best_row is not None:
+        return parse_fixture_odds_row(best_row)
     return None
 
 
