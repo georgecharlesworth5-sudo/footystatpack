@@ -47,6 +47,7 @@ MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - 
 PER_SIDE_LINES = {
     "corners": [2.5, 3.5, 4.5, 5.5, 6.5],
     "goals": [0.5, 1.5],
+    "cards": [0.5, 1.5],
 }
 
 
@@ -159,9 +160,6 @@ def match_result(lam_home: float, lam_away: float, max_goals: int = 10) -> dict:
             else:
                 away_win += p
 
-    # The three buckets won't sum to exactly 1.0 (scorelines above
-    # max_goals each are vanishingly unlikely but not zero) - rescale so
-    # they read as clean percentages that actually add up.
     total = home_win + draw + away_win
     if total > 0:
         home_win, draw, away_win = home_win / total, draw / total, away_win / total
@@ -201,21 +199,15 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
         }
 
         if metric in PER_SIDE_LINES:
-            # Home/away split: each side's OWN expected value, treated as
-            # its own Poisson distribution - same over_under() function,
-            # just applied to lam_home/lam_away individually instead of
-            # the combined total.
             market["home_over_under"] = [over_under(lam_home, line) for line in PER_SIDE_LINES[metric]]
             market["away_over_under"] = [over_under(lam_away, line) for line in PER_SIDE_LINES[metric]]
 
         if metric == "goals":
-            # BTTS: both teams score >= 1
             p_home_scores = 1 - poisson_pmf(0, lam_home)
             p_away_scores = 1 - poisson_pmf(0, lam_away)
             market["btts_yes"] = round(p_home_scores * p_away_scores, 3)
             market["btts_no"] = round(1 - p_home_scores * p_away_scores, 3)
 
-            # Match result (1X2), from the same lam_home/lam_away
             market["match_result"] = match_result(lam_home, lam_away)
 
         result[metric] = market
