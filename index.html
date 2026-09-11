@@ -362,6 +362,16 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
+  .flag-market {
+    font-size: 10px;
+    font-family: var(--mono);
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 2px;
+    padding: 2px 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
   .chev {
     color: var(--meta);
     font-family: var(--mono);
@@ -752,12 +762,20 @@
   }
 
   function flagBadges(fixture) {
+    // market_blended is a different kind of signal to everything else
+    // here - the others are all CAUTIONS (treat this prediction with
+    // more care), styled amber accordingly. Market blending means the
+    // opposite - real bookmaker odds are backing this prediction, not
+    // undermining it - so it gets its own green styling and comes
+    // first, rather than being lumped in with the warning flags.
+    const marketBadge = fixture.market_blended ? `<span class="flag-market">market</span>` : "";
+
     const flags = [];
     if (fixture.cross_league_data) flags.push('cross-league');
     if (fixture.cross_division) flags.push('cross-division');
     if (fixture.fuzzy_name_match) flags.push('name check');
     if (fixture.low_sample) flags.push('thin sample');
-    return flags.map(f => `<span class="flag">${f}</span>`).join("");
+    return marketBadge + flags.map(f => `<span class="flag">${f}</span>`).join("");
   }
 
   function matchResultBlock(fixture) {
