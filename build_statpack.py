@@ -43,7 +43,7 @@ from pathlib import Path
 from stats_engine import build_team_match_log, team_form_summary, league_averages
 from poisson_model import predict_fixture
 from best_bets import compute_best_bets
-from market_odds import load_fixture_odds, find_odds_for_fixture, blend_match_result, blend_over_under_25
+from market_odds import load_fixture_odds, resolve_odds_rows, find_odds_for_fixture, blend_match_result, blend_over_under_25
 from cup_predictions import build_cup_predictions
 from league_table import compute_league_table, team_position
 
@@ -267,9 +267,15 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
 
     # Real bookmaker market odds, where fetch_data.py's cache has them -
     # coverage is partial (see market_odds.py), matched to each fixture
-    # by resolved team names + date further down.
+    # by resolved team names + date further down. The odds rows' own
+    # team names get resolved through the SAME name-resolution used for
+    # the main fixture list here too - this is what actually lets the
+    # later exact-match lookup succeed, since football-data.co.uk's
+    # fixtures.csv (the odds source) and fixturedownload.com (the main
+    # fixture source) don't always spell team names identically.
     fixture_odds_rows = load_fixture_odds(data_dir / "fixture_odds.csv")
-    print(f"[debug] {len(fixture_odds_rows)} fixture(s) with cached market odds available")
+    fixture_odds_rows = resolve_odds_rows(fixture_odds_rows, list(combined_team_logs.keys()), resolve_team_name)
+    print(f"[debug] {len(fixture_odds_rows)} fixture(s) with cached market odds available (after name resolution)")
 
     print("[debug] rows loaded per league:")
     for code, rows in all_rows_by_league.items():
