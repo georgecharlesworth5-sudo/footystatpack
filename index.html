@@ -848,6 +848,7 @@
     const label = isBtts ? entry.direction : `${entry.direction} ${entry.line}`;
     return `<div class="bb-row">
       <span class="bb-rank">${rank}</span>
+      <span class="kickoff">${entry.time || "--:--"}</span>
       <span class="bb-teams">${entry.home_team}<span class="v">v</span>${entry.away_team}</span>
       <span class="bb-league">${entry.league_name}</span>
       <span class="bb-label">${label}</span>
@@ -862,6 +863,7 @@
   function teamWinRow(entry, rank) {
     return `<div class="bb-row">
       <span class="bb-rank">${rank}</span>
+      <span class="kickoff">${entry.time || "--:--"}</span>
       <span class="bb-teams">${entry.home_team}<span class="v">v</span>${entry.away_team}</span>
       <span class="bb-league">${entry.league_name}</span>
       <span class="bb-label">${entry.team} to win</span>
