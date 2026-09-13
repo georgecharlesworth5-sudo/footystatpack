@@ -96,7 +96,6 @@
     max-width: 920px;
     margin: 0 auto;
     padding: 0 20px;
-    overflow-x: auto;
     border-bottom: 1px solid var(--rule);
   }
   .tab {
@@ -130,6 +129,59 @@
   .tab-bestbets {
     color: var(--amber);
     font-weight: 600;
+  }
+  .tab-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .chev-dd {
+    font-size: 9px;
+    margin-left: 2px;
+    display: inline-block;
+  }
+  .football-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 6px;
+    margin-top: 4px;
+    min-width: 220px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .dropdown-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-dim);
+    background: none;
+    border: none;
+    padding: 9px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .dropdown-item:hover {
+    background: var(--surface-hover);
+    color: var(--ink);
+  }
+  .dropdown-item.active {
+    color: var(--amber);
+  }
+  .dropdown-item .count {
+    color: var(--meta);
+    font-size: 10px;
+    margin-left: 4px;
+  }
+  .dropdown-divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 4px 2px;
   }
 
   /* ---------- Best Bets ---------- */
@@ -592,6 +644,7 @@
   const NFL = "__NFL__";
   const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
   let showFullSeason = false; // toggled by the "Show full season" link in league views
+  let footballMenuOpen = false; // toggled by clicking the "Football" tab
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
   let activeLeague = null;
 
@@ -659,32 +712,96 @@
     return dt.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }).toUpperCase();
   }
 
+  function isFootballView(league) {
+    return availableLeagues.includes(league) || league === EFL_CUP || league === CASH_BUILDER;
+  }
+
   function buildTabs() {
     tabsEl.innerHTML = "";
 
     const bbBtn = document.createElement("button");
     bbBtn.className = "tab tab-bestbets" + (activeLeague === BEST_BETS ? " active" : "");
     bbBtn.innerHTML = "★ Best Bets";
-    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; render(); });
+    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; render(); });
     tabsEl.appendChild(bbBtn);
 
-    availableLeagues.forEach(code => {
-      const league = data[code];
-      const btn = document.createElement("button");
-      btn.className = "tab" + (code === activeLeague ? " active" : "");
-      btn.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
-      btn.addEventListener("click", () => { activeLeague = code; render(); });
-      tabsEl.appendChild(btn);
-    });
+    // Football is a single top-level tab with a dropdown underneath it -
+    // every league, EFL Cup, and Cash Builder used to each get their own
+    // top-level slot, which stopped being manageable once NFL joined
+    // them as a genuinely different sport needing its own space.
+    const footballWrap = document.createElement("div");
+    footballWrap.className = "tab-wrap";
 
-    const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
-      ? STATPACK_DATA.efl_cup.fixtures : [];
-    if (cupFixtures.length > 0) {
-      const cupBtn = document.createElement("button");
-      cupBtn.className = "tab tab-bestbets" + (activeLeague === EFL_CUP ? " active" : "");
-      cupBtn.innerHTML = "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`;
-      cupBtn.addEventListener("click", () => { activeLeague = EFL_CUP; render(); });
-      tabsEl.appendChild(cupBtn);
+    const footballBtn = document.createElement("button");
+    footballBtn.className = "tab" + (isFootballView(activeLeague) ? " active" : "");
+    footballBtn.innerHTML = `Football <span class="chev-dd">${footballMenuOpen ? "▴" : "▾"}</span>`;
+    footballBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      footballMenuOpen = !footballMenuOpen;
+      buildTabs();
+    });
+    footballWrap.appendChild(footballBtn);
+
+    if (footballMenuOpen) {
+      const menu = document.createElement("div");
+      menu.className = "football-dropdown";
+
+      availableLeagues.forEach(code => {
+        const league = data[code];
+        const item = document.createElement("button");
+        item.className = "dropdown-item" + (code === activeLeague ? " active" : "");
+        item.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          activeLeague = code; footballMenuOpen = false; render();
+        });
+        menu.appendChild(item);
+      });
+
+      const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
+        ? STATPACK_DATA.efl_cup.fixtures : [];
+      const cashBuilderAvailable = typeof CASH_BUILDER_DATA !== "undefined"
+        && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0;
+
+      if (cupFixtures.length > 0 || cashBuilderAvailable) {
+        const divider = document.createElement("div");
+        divider.className = "dropdown-divider";
+        menu.appendChild(divider);
+      }
+
+      if (cupFixtures.length > 0) {
+        const item = document.createElement("button");
+        item.className = "dropdown-item" + (activeLeague === EFL_CUP ? " active" : "");
+        item.innerHTML = "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`;
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          activeLeague = EFL_CUP; footballMenuOpen = false; render();
+        });
+        menu.appendChild(item);
+      }
+
+      if (cashBuilderAvailable) {
+        const item = document.createElement("button");
+        item.className = "dropdown-item" + (activeLeague === CASH_BUILDER ? " active" : "");
+        item.innerHTML = "Cash Builder";
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          activeLeague = CASH_BUILDER; footballMenuOpen = false; render();
+        });
+        menu.appendChild(item);
+      }
+
+      footballWrap.appendChild(menu);
+    }
+
+    tabsEl.appendChild(footballWrap);
+
+    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
+      const nflBtn = document.createElement("button");
+      nflBtn.className = "tab" + (activeLeague === NFL ? " active" : "");
+      nflBtn.innerHTML = "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`;
+      nflBtn.addEventListener("click", () => { activeLeague = NFL; footballMenuOpen = false; render(); });
+      tabsEl.appendChild(nflBtn);
     }
 
     const trBtn = document.createElement("button");
@@ -692,24 +809,8 @@
     const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
       ? ` ${BETS_LOG.summary.overall.pct}%` : "";
     trBtn.innerHTML = "Track Record" + trPct;
-    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; render(); });
+    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; footballMenuOpen = false; render(); });
     tabsEl.appendChild(trBtn);
-
-    if (typeof CASH_BUILDER_DATA !== "undefined" && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0) {
-      const cbBtn = document.createElement("button");
-      cbBtn.className = "tab tab-bestbets" + (activeLeague === CASH_BUILDER ? " active" : "");
-      cbBtn.innerHTML = "Cash Builder";
-      cbBtn.addEventListener("click", () => { activeLeague = CASH_BUILDER; render(); });
-      tabsEl.appendChild(cbBtn);
-    }
-
-    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
-      const nflBtn = document.createElement("button");
-      nflBtn.className = "tab" + (activeLeague === NFL ? " active" : "");
-      nflBtn.innerHTML = "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`;
-      nflBtn.addEventListener("click", () => { activeLeague = NFL; render(); });
-      tabsEl.appendChild(nflBtn);
-    }
   }
 
   function metricBlock(title, m, homeTeam, awayTeam) {
@@ -1277,6 +1378,13 @@
       return `<span class="freshness-chip freshness-${status}"><span class="dot-status"></span>${f.league_name}: ${label}</span>`;
     }).join("");
   }
+
+  document.addEventListener("click", () => {
+    if (footballMenuOpen) {
+      footballMenuOpen = false;
+      buildTabs();
+    }
+  });
 
   renderFreshnessStrip();
   render();
