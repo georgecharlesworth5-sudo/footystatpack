@@ -581,6 +581,7 @@
 
 <script src="statpack_data.js"></script>
 <script src="bets_log.js"></script>
+<script src="nfl_statpack_data.js"></script>
 <script>
 (function () {
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0", "I1"];
@@ -588,6 +589,7 @@
   const TRACK_RECORD = "__TRACK_RECORD__";
   const EFL_CUP = "__EFL_CUP__";
   const CASH_BUILDER = "__CASH_BUILDER__";
+  const NFL = "__NFL__";
   const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
   let showFullSeason = false; // toggled by the "Show full season" link in league views
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
@@ -699,6 +701,14 @@
       cbBtn.innerHTML = "Cash Builder";
       cbBtn.addEventListener("click", () => { activeLeague = CASH_BUILDER; render(); });
       tabsEl.appendChild(cbBtn);
+    }
+
+    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
+      const nflBtn = document.createElement("button");
+      nflBtn.className = "tab" + (activeLeague === NFL ? " active" : "");
+      nflBtn.innerHTML = "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`;
+      nflBtn.addEventListener("click", () => { activeLeague = NFL; render(); });
+      tabsEl.appendChild(nflBtn);
     }
   }
 
@@ -994,6 +1004,139 @@
     </details>`;
   }
 
+  // ---------- NFL ----------
+  // Different market shape to football throughout - Moneyline is 2-way
+  // (no draw, NFL ties are ~0.1% of games), and passing/rushing TDs
+  // only have a home/away split with no combined "total" market, unlike
+  // football metrics which always have both. Kept as its own set of
+  // render functions rather than force-fitting football's metricBlock,
+  // since the two data shapes only look similar at a glance.
+
+  function nflMoneylineBlock(fixture) {
+    const ml = fixture.predictions?.points?.moneyline;
+    if (!ml) return "";
+    const highest = Math.max(ml.home_win, ml.away_win);
+    const options = [
+      { label: fixture.home_team, pct: ml.home_win },
+      { label: fixture.away_team, pct: ml.away_win },
+    ];
+    return `<div class="mr-block">
+      <div class="metric-title">Moneyline</div>
+      <div class="mr-row">
+        ${options.map(o => `
+          <div class="mr-option ${o.pct === highest ? 'mr-favourite' : ''}">
+            <div class="mr-label">${o.label}</div>
+            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pct(o.pct)}</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>`;
+  }
+
+  function nflOuRows(entries) {
+    return (entries || []).map(ou => {
+      const overPct = ou.over;
+      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--amber)";
+      return `<div class="ou-row">
+        <span class="ou-line">O/U ${ou.line}</span>
+        <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
+        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pct(overPct)}</span>
+      </div>`;
+    }).join("");
+  }
+
+  function nflTotalPointsCard(fixture) {
+    const p = fixture.predictions?.points;
+    if (!p) return "";
+    return `<div class="metric-card">
+      <div class="metric-title">Total Points <span style="opacity:0.6">· over %</span></div>
+      <div class="metric-expected">${p.expected_total}<span class="label">expected</span></div>
+      ${nflOuRows(p.total_over_under)}
+    </div>`;
+  }
+
+  function nflSplitRows(entries) {
+    return (entries || []).map(ou => `<div class="split-ou-row">
+      <span class="split-ou-line">${ou.line}</span>
+      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pct(ou.over)}</span>
+    </div>`).join("");
+  }
+
+  function nflSplitCard(title, m, homeTeam, awayTeam) {
+    if (!m) return "";
+    return `<div class="metric-card">
+      <div class="metric-title">${title} <span style="opacity:0.6">· over %</span></div>
+      <div class="metric-split" style="border-top:none;padding-top:0;margin-top:0">
+        <div class="metric-split-col">
+          <div class="metric-split-title">${homeTeam}</div>
+          <div class="metric-split-expected">${m.expected_home}</div>
+          ${nflSplitRows(m.home_over_under)}
+        </div>
+        <div class="metric-split-col">
+          <div class="metric-split-title">${awayTeam}</div>
+          <div class="metric-split-expected">${m.expected_away}</div>
+          ${nflSplitRows(m.away_over_under)}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function nflFixtureCard(fixture) {
+    const p = fixture.predictions;
+    const marketBadge = fixture.market_blended ? `<span class="flag-market">M</span>` : "";
+    const flag = fixture.low_sample ? `<span class="flag">thin sample</span>` : "";
+    const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
+
+    return `<details class="fixture">
+      <summary>
+        <span class="kickoff">${fixture.time || "--:--"}</span>
+        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
+        ${marketBadge}${flag}
+        <span class="chev">▸</span>
+      </summary>
+      <div class="detail">
+        ${note}
+        ${nflMoneylineBlock(fixture)}
+        <div class="metric-grid">
+          ${nflTotalPointsCard(fixture)}
+          ${nflSplitCard("Team Points", p.points, fixture.home_team, fixture.away_team)}
+          ${nflSplitCard("Passing TDs", p.passing_tds, fixture.home_team, fixture.away_team)}
+          ${nflSplitCard("Rushing TDs", p.rushing_tds, fixture.home_team, fixture.away_team)}
+        </div>
+        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
+      </div>
+    </details>`;
+  }
+
+  function renderNfl() {
+    const fixtures = (typeof NFL_STATPACK_DATA !== "undefined") ? NFL_STATPACK_DATA.upcoming_fixtures : [];
+    if (!fixtures || fixtures.length === 0) {
+      mainEl.innerHTML = `<div class="empty">No NFL fixtures loaded yet.</div>`;
+      return;
+    }
+
+    const sorted = [...fixtures].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const groups = [];
+    let currentDate = null, currentGroup = null;
+    sorted.forEach(fx => {
+      if (fx.date !== currentDate) {
+        currentDate = fx.date;
+        currentGroup = { date: fx.date, items: [] };
+        groups.push(currentGroup);
+      }
+      currentGroup.items.push(fx);
+    });
+
+    const intro = `<div class="bb-intro">Points modelled as Normal-distributed (standard NFL power-rating approach); passing/rushing TDs modelled as Poisson (low, discrete counts, closer to football goals). Green "M" badge = real market odds blended in where available.</div>`;
+
+    mainEl.innerHTML = intro + groups.map(g => `
+      <div class="date-group">
+        <div class="date-label">${g.date}</div>
+        ${g.items.map(nflFixtureCard).join("")}
+      </div>
+    `).join("");
+  }
+
   function renderEflCup() {
     const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
       ? STATPACK_DATA.efl_cup.fixtures : [];
@@ -1046,6 +1189,10 @@
     }
     if (activeLeague === CASH_BUILDER) {
       renderCashBuilder();
+      return;
+    }
+    if (activeLeague === NFL) {
+      renderNfl();
       return;
     }
 
