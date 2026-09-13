@@ -1,0 +1,73 @@
+name: Update NFL Stat Pack
+
+# Runs the NFL half of the pipeline automatically:
+#   fetch_nfl.py         - pulls team-game stats + schedule from nflverse
+#   nfl_build_statpack.py - recalculates form + predictions, writes
+#                            nfl_statpack.json and nfl_statpack_data.js
+#                            (which the dashboard's NFL tab reads)
+#
+# Separate workflow from the football side (update-statpack.yml)
+# deliberately - different data source, different scripts, no shared
+# state, and NFL games update on a much slower cadence (once a week
+# per team) than football's near-continuous schedule, so there's no
+# need to share a run frequency with it.
+
+on:
+  schedule:
+    # Once a day. NFL team-game stats only change when games are
+    # actually played (at most a handful of days per week), and the
+    # schedule/odds data doesn't need finer granularity than this -
+    # adjust the cron below if that turns out to feel too infrequent
+    # once this has been live for a while. Each field is minute hour
+    # day-of-month month day-of-week, all in UTC.
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    # Lets you trigger a run manually from the Actions tab (or GitHub
+    # Mobile: repo -> Actions -> Update NFL Stat Pack -> Run workflow)
+    # any time you don't want to wait for the schedule - this is how
+    # you'd get today's fixture actually showing up right now, rather
+    # than waiting for tomorrow's scheduled run.
+
+permissions:
+  contents: write   # needed to commit the refreshed data back to the repo
+
+# Same reasoning as the football workflow: queue rather than race if a
+# manual run overlaps with the schedule, so two runs never push commits
+# into each other's narrow window.
+concurrency:
+  group: update-nfl-statpack
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch latest NFL data
+        run: python fetch_nfl.py
+
+      - name: Build NFL stat pack
+        run: python nfl_build_statpack.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/nfl_team_games.csv data/nfl_upcoming.csv nfl_statpack.json nfl_statpack_data.js
+          git diff --staged --quiet || git commit -m "Auto-update NFL stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
+
+          # Same belt-and-braces retry as the football workflow - a
+          # manual edit landing mid-run shouldn't fail the whole thing
+          # on the first collision.
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && break
+            echo "Push attempt $attempt failed - retrying..."
+            sleep $((attempt * 5))
+          done
