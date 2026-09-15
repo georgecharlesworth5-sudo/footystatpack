@@ -26,7 +26,7 @@ NEAR_TERM_WINDOW_DAYS = 0  # only fixtures happening TODAY - narrowed from an ea
 # it's every pick that clears the bar, so the bar itself needs to be
 # high enough that everything shown is genuinely a strong signal, not
 # just "the best of a mediocre bunch" the way a top-5 cap could tolerate.
-MIN_CONFIDENCE = 0.9
+MIN_CONFIDENCE = 0.85
 
 # Separate, lower bar specifically for straight team-win picks (below) -
 # a lower threshold than MIN_CONFIDENCE is still a meaningful edge for a
