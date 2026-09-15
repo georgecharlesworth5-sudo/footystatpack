@@ -26,9 +26,12 @@ filenames:
     League One               https://fixturedownload.com/results/efl-league-one-2026       E2.csv
     League Two               https://fixturedownload.com/results/efl-league-two-2026       E3.csv
     Scottish Premiership     https://fixturedownload.com/results/scottish-premiership-2026  SC0.csv
+    La Liga                  https://fixturedownload.com/results/la-liga-2026              SP1.csv
 
 (Season slugs will roll over to e.g. "epl-2027" next season - check
-fixturedownload.com/index if a URL above 404s.)
+fixturedownload.com/index if a URL above 404s. The La Liga slug above
+is a best guess following the same pattern as the others - check
+fixturedownload.com/index directly if it 404s, same as any league.)
 
 fixturedownload.com's CSV columns are: Round Number, Date, Location,
 Home Team, Away Team, Result. "Date" combines date+time
@@ -57,17 +60,17 @@ guess further, LEAGUE_TIME_ADJUSTMENT below is a per-league setting
 you can adjust based on what you actually observe. If a league's
 times ever look off, that's the fix: adjust its entry here.
 
-For a foreign league (Serie A being the first), the correction ISN'T
-the same shape as the BST one above: Italy is a CONSTANT 1 hour ahead
-of the UK year-round (both countries shift their clocks on the same
-EU-wide dates, so the gap between them never changes) - it's not a
-seasonal correction, it's a flat offset. Whether one's needed at all
-depends on whether fixturedownload.com's Serie A page shows Italian
-local time (needs -1hr to get UK time) or already-correct UK time
-(needs nothing) - genuinely unknown until checked against a real
-fixture, same as we had to do for each English league. Defaulting to
-"no adjustment" until proven otherwise, same starting point used for
-the Premier League before it was verified.
+For a foreign league (Serie A being the first, La Liga the second),
+the correction ISN'T the same shape as the BST one above: both Italy
+and Spain are a CONSTANT 1 hour ahead of the UK year-round (all three
+countries shift their clocks on the same EU-wide dates, so the gap
+never changes) - it's not a seasonal correction, it's a flat offset.
+Whether one's needed at all depends on whether fixturedownload.com's
+page shows local time (needs -1hr to get UK time) or already-correct
+UK time (needs nothing) - genuinely unknown until checked against a
+real fixture, same as every other league before it. Defaulting to "no
+adjustment" until proven otherwise, same starting point used for the
+Premier League and Serie A before they were verified.
 """
 
 import csv
@@ -81,15 +84,16 @@ LEAGUE_FILES = {
     "E3": "E3.csv",
     "SC0": "SC0.csv",
     "I1": "I1.csv",
+    "SP1": "SP1.csv",
 }
 
 # Each entry is one of:
 #   "bst"      - apply the seasonal UK BST correction (see _to_uk_local)
 #   <int>      - apply a FLAT hour offset year-round (for foreign
 #                leagues where the gap to UK time never changes,
-#                e.g. Italy is always +1hr vs the UK) - a positive
-#                number means fixturedownload.com's raw time needs
-#                that many hours SUBTRACTED to reach UK time
+#                e.g. Italy/Spain are always +1hr vs the UK) - a
+#                positive number means fixturedownload.com's raw time
+#                needs that many hours SUBTRACTED to reach UK time
 #   None / 0   - no adjustment, use the raw time as-is
 LEAGUE_TIME_ADJUSTMENT = {
     "E0": None,   # Premier League - confirmed correct as-is (Arsenal v Coventry check)
@@ -103,6 +107,9 @@ LEAGUE_TIME_ADJUSTMENT = {
                   # English leagues were verified. If it's off by an hour,
                   # change this to 1 (Italy is always UK+1, so subtracting
                   # 1 hour would convert their local time to UK time).
+    "SP1": None,  # La Liga - NOT YET VERIFIED, same reasoning as Serie A above.
+                  # Spain is also always UK+1, so if times look an hour out
+                  # once real fixtures are loaded, change this to 1.
 }
 
 
@@ -138,8 +145,8 @@ def _to_uk_local(date_str: str, time_str: str) -> tuple[str, str]:
 
 
 def _apply_flat_offset(date_str: str, time_str: str, hours: float) -> tuple[str, str]:
-    """Subtract a constant number of hours (e.g. Italy is always UK+1,
-    so hours=1 converts Italian local time to UK time) - no seasonal
+    """Subtract a constant number of hours (e.g. Italy/Spain are always
+    UK+1, so hours=1 converts local time to UK time) - no seasonal
     logic, just a fixed shift."""
     try:
         dt = datetime.strptime(f"{date_str} {time_str}", "%d/%m/%Y %H:%M")
