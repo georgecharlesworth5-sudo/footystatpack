@@ -162,6 +162,32 @@ KNOWN_ALIASES = {
     "Heart of Midlothian": "Hearts",
     "Inter Milan": "Inter",
     "Internazionale": "Inter",
+    # La Liga: football-data.co.uk uses notably terser names for Spanish
+    # clubs than fixturedownload.com does, across the board - "RCD
+    # Espanyol de Barcelona" is CONFIRMED needing an alias (real
+    # [debug] skip message), the rest below are reasonable estimates
+    # following football-data.co.uk's well-known Spanish-league naming
+    # conventions, not yet individually confirmed against real data.
+    # Any that turn out wrong will surface the same way this one did -
+    # a [debug] skip message naming exactly which raw name failed - and
+    # can be corrected the same way.
+    "RCD Espanyol de Barcelona": "Espanol",  # CONFIRMED via real skip message
+    "Atlético de Madrid": "Ath Madrid",
+    "Athletic Club": "Ath Bilbao",
+    "FC Barcelona": "Barcelona",
+    "Real Sociedad": "Sociedad",
+    "Real Betis": "Betis",
+    "Sevilla FC": "Sevilla",
+    "Valencia CF": "Valencia",
+    "Villarreal CF": "Villarreal",
+    "Rayo Vallecano": "Vallecano",
+    "CA Osasuna": "Osasuna",
+    "RC Deportivo": "La Coruna",
+    "R. Racing Club": "Santander",
+    "Elche CF": "Elche",
+    "Getafe CF": "Getafe",
+    "Levante UD": "Levante",
+    "Málaga CF": "Malaga",
 }
 
 
