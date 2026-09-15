@@ -124,4 +124,8 @@ def blend_total_points(model_over_under: list[dict], market_probs: dict, weight:
             "under": round(market_probs["total_under"], 3),
             "expected": model_over_under[0]["expected"] if model_over_under else None,
         })
+    # The market's own line (if it didn't match one of ours) got
+    # appended at the end regardless of its numeric value - re-sort so
+    # a line like 43.5 doesn't show up out of order after 44.5/48.5.
+    result.sort(key=lambda e: e["line"])
     return result
