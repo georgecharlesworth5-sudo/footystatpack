@@ -184,6 +184,15 @@
     margin: 4px 2px;
   }
 
+  .fixture-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--meta);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
   /* ---------- Best Bets ---------- */
   .bb-intro {
     font-size: 12px;
@@ -638,6 +647,7 @@
 (function () {
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0", "I1", "SP1"];
   const BEST_BETS = "__BEST_BETS__";
+  const TODAY = "__TODAY__";
   const TRACK_RECORD = "__TRACK_RECORD__";
   const EFL_CUP = "__EFL_CUP__";
   const CASH_BUILDER = "__CASH_BUILDER__";
@@ -724,6 +734,12 @@
     bbBtn.innerHTML = "★ Best Bets";
     bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; render(); });
     tabsEl.appendChild(bbBtn);
+
+    const todayBtn = document.createElement("button");
+    todayBtn.className = "tab" + (activeLeague === TODAY ? " active" : "");
+    todayBtn.innerHTML = "Today";
+    todayBtn.addEventListener("click", () => { activeLeague = TODAY; footballMenuOpen = false; render(); });
+    tabsEl.appendChild(todayBtn);
 
     // Football is a single top-level tab with a dropdown underneath it -
     // every league, EFL Cup, and Cash Builder used to each get their own
@@ -915,15 +931,17 @@
     </div>`;
   }
 
-  function fixtureCard(fixture) {
+  function fixtureCard(fixture, badge) {
     const p = fixture.predictions;
     const flag = flagBadges(fixture);
     const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
+    const badgeHtml = badge ? `<span class="fixture-badge">${badge}</span>` : "";
 
     return `<details class="fixture">
       <summary>
         <span class="kickoff">${fixture.time || "--:--"}</span>
         <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
+        ${badgeHtml}
         ${flag}
         ${quickStat(fixture)}
         <span class="chev">▸</span>
@@ -1184,16 +1202,18 @@
     </div>`;
   }
 
-  function nflFixtureCard(fixture) {
+  function nflFixtureCard(fixture, badge) {
     const p = fixture.predictions;
     const marketBadge = fixture.market_blended ? `<span class="flag-market">M</span>` : "";
     const flag = fixture.low_sample ? `<span class="flag">thin sample</span>` : "";
     const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
+    const badgeHtml = badge ? `<span class="fixture-badge">${badge}</span>` : "";
 
     return `<details class="fixture">
       <summary>
         <span class="kickoff">${fixture.time || "--:--"}</span>
         <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
+        ${badgeHtml}
         ${marketBadge}${flag}
         <span class="chev">▸</span>
       </summary>
@@ -1238,6 +1258,63 @@
         ${g.items.map(nflFixtureCard).join("")}
       </div>
     `).join("");
+  }
+
+  // ---------- Today ----------
+  // Every game today, across every league AND sport, sorted purely by
+  // kickoff time - deliberately ignoring the football/NFL and
+  // league/cup groupings everywhere else on the dashboard, since the
+  // whole point here is one flat, time-ordered view. Reuses the exact
+  // same card renderers as everywhere else (fixtureCard, nflFixtureCard)
+  // rather than duplicating their markup - only new logic here is
+  // gathering today's fixtures from every source and normalising NFL's
+  // ISO dates to dd/mm/yyyy so the existing sortByKickoff/
+  // parseFixtureDate helpers (built for football's date format only)
+  // work unchanged across the merged list.
+  function isoToUkDate(iso) {
+    const parts = (iso || "").split("-");
+    if (parts.length !== 3) return iso || "";
+    const [y, m, d] = parts;
+    return `${d}/${m}/${y}`;
+  }
+
+  function renderToday() {
+    const now = new Date();
+    const todayUk = `${String(now.getDate()).padStart(2, "0")}/${String(now.getMonth() + 1).padStart(2, "0")}/${now.getFullYear()}`;
+
+    const items = [];
+
+    if (data) {
+      Object.entries(data).forEach(([code, league]) => {
+        (league.upcoming_fixtures || []).forEach(fx => {
+          if (fx.date === todayUk) items.push({ ...fx, _badge: league.league_name, _kind: "football" });
+        });
+      });
+    }
+
+    const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
+      ? STATPACK_DATA.efl_cup.fixtures : [];
+    cupFixtures.forEach(fx => {
+      if (fx.date === todayUk) items.push({ ...fx, _badge: "EFL Cup", _kind: "football" });
+    });
+
+    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
+      NFL_STATPACK_DATA.upcoming_fixtures.forEach(fx => {
+        const ukDate = isoToUkDate(fx.date);
+        if (ukDate === todayUk) items.push({ ...fx, date: ukDate, _badge: "NFL", _kind: "nfl" });
+      });
+    }
+
+    if (items.length === 0) {
+      mainEl.innerHTML = `<div class="empty">No games today across any league or sport.</div>`;
+      return;
+    }
+
+    const sorted = sortByKickoff(items);
+    const intro = `<div class="bb-intro">Every game today, across every league and sport - ${sorted.length} fixture${sorted.length === 1 ? "" : "s"}, in kickoff order.</div>`;
+    mainEl.innerHTML = intro + sorted.map(fx =>
+      fx._kind === "nfl" ? nflFixtureCard(fx, fx._badge) : fixtureCard(fx, fx._badge)
+    ).join("");
   }
 
   function renderEflCup() {
@@ -1296,6 +1373,10 @@
     }
     if (activeLeague === NFL) {
       renderNfl();
+      return;
+    }
+    if (activeLeague === TODAY) {
+      renderToday();
       return;
     }
 
