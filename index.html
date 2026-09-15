@@ -1270,16 +1270,34 @@
   // converted to UK time and dd/mm/yyyy format at build time (see
   // nfl_build_statpack.py's convert_et_to_uk) - same format as football
   // throughout, so no per-source date handling is needed here.
+  // A late-night kickoff (post-midnight UK) technically falls on the
+  // NEXT calendar date once converted from a foreign timezone - e.g. a
+  // Thursday Night Football game at 8:15pm ET becomes 01:15 UK Friday.
+  // An exact date-string match would hide that game from Thursday
+  // evening's Today page even though it's still "tonight" from the
+  // viewer's perspective - checking a timestamp WINDOW instead (today
+  // 00:00 through tomorrow at this cutoff hour) catches it correctly.
+  // Chosen high enough to cover the latest realistic NFL window (West
+  // Coast Sunday/Monday night games can run past 1am UK) without
+  // reaching into genuinely-next-day evening fixtures.
+  const LATE_NIGHT_CUTOFF_HOUR = 6;
+
   function renderToday() {
     const now = new Date();
-    const todayUk = `${String(now.getDate()).padStart(2, "0")}/${String(now.getMonth() + 1).padStart(2, "0")}/${now.getFullYear()}`;
+    const windowStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const windowEnd = windowStart + (24 + LATE_NIGHT_CUTOFF_HOUR) * 3600000;
+
+    const inWindow = fx => {
+      const ts = fixtureTimestamp(fx);
+      return ts >= windowStart && ts < windowEnd;
+    };
 
     const items = [];
 
     if (data) {
       Object.entries(data).forEach(([code, league]) => {
         (league.upcoming_fixtures || []).forEach(fx => {
-          if (fx.date === todayUk) items.push({ ...fx, _badge: league.league_name, _kind: "football" });
+          if (inWindow(fx)) items.push({ ...fx, _badge: league.league_name, _kind: "football" });
         });
       });
     }
@@ -1287,12 +1305,12 @@
     const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
       ? STATPACK_DATA.efl_cup.fixtures : [];
     cupFixtures.forEach(fx => {
-      if (fx.date === todayUk) items.push({ ...fx, _badge: "EFL Cup", _kind: "football" });
+      if (inWindow(fx)) items.push({ ...fx, _badge: "EFL Cup", _kind: "football" });
     });
 
     if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
       NFL_STATPACK_DATA.upcoming_fixtures.forEach(fx => {
-        if (fx.date === todayUk) items.push({ ...fx, _badge: "NFL", _kind: "nfl" });
+        if (inWindow(fx)) items.push({ ...fx, _badge: "NFL", _kind: "nfl" });
       });
     }
 
@@ -1302,7 +1320,7 @@
     }
 
     const sorted = sortByKickoff(items);
-    const intro = `<div class="bb-intro">Every game today, across every league and sport - ${sorted.length} fixture${sorted.length === 1 ? "" : "s"}, in kickoff order.</div>`;
+    const intro = `<div class="bb-intro">Every game today, across every league and sport - ${sorted.length} fixture${sorted.length === 1 ? "" : "s"}, in kickoff order. Late kickoffs after midnight are included as "tonight".</div>`;
     mainEl.innerHTML = intro + sorted.map(fx =>
       fx._kind === "nfl" ? nflFixtureCard(fx, fx._badge) : fixtureCard(fx, fx._badge)
     ).join("");
