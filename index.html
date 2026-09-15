@@ -1056,7 +1056,9 @@
       </div>
       <div class="tr-category-grid">
         ${summary.by_category.map(c => {
-          const label = c.metric === "btts" ? `BTTS ${c.direction}` : `${METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
+          const label = c.metric === "btts" ? `BTTS ${c.direction}`
+            : c.metric === "team_win" ? "Team Win"
+            : `${METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
           return `<div class="tr-category-chip">
             <span>${label}</span>
             <span class="${c.pct >= 55 ? 'pct-hi' : c.pct <= 40 ? 'pct-lo' : ''}">${c.pct}% <span class="tr-chip-n">(${c.hits}/${c.total})</span></span>
