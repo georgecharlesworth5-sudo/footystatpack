@@ -352,20 +352,32 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
 
 
 def compute_summary(log: dict[str, dict]) -> dict:
-    """Overall and per-(metric, direction) hit rates, from settled picks only.
+    """Overall and per-(metric, direction) hit rates, from settled picks
+    only - EXCLUDING "Under"/"No" picks entirely (both from the overall
+    hit rate and the by_category breakdown). best_bets.py stopped
+    generating these a while back, but older logged rows still carry
+    them - rather than let stale, no-longer-produced picks dilute what
+    the track record shows, this is scoped to reflect only what Best
+    Bets actually produces now: over-only, BTTS-yes-only, team_win.
+    The underlying log rows aren't touched or deleted here, only
+    excluded from this summary view.
 
-    Note: for team_win picks, "direction" is a team name, so each
-    distinct team ever picked gets its own by_category row (e.g.
-    "team_win_Arsenal") rather than one aggregated "team_win" row - a
-    minor cosmetic quirk, not a bug, since the overall hit-rate figure
-    still correctly includes every settled team_win pick regardless."""
-    settled = [p for p in log.values() if p["status"] == "settled"]
+    team_win picks all collapse into a single "team_win" category
+    regardless of which specific team was picked - direction there is a
+    team name, not Over/Under, so grouping by (metric, direction) the
+    way every other category does would give a separate one-pick
+    category per team ever picked, which isn't a meaningful breakdown."""
+    settled = [p for p in log.values() if p["status"] == "settled" and p["direction"] not in ("Under", "No")]
     overall_hits = sum(1 for p in settled if p["result"] == "hit")
 
     by_category: dict[str, dict] = {}
     for p in settled:
-        key = f"{p['metric']}_{p['direction']}"
-        by_category.setdefault(key, {"metric": p["metric"], "direction": p["direction"], "hits": 0, "total": 0})
+        key = "team_win" if p["metric"] == "team_win" else f"{p['metric']}_{p['direction']}"
+        by_category.setdefault(key, {
+            "metric": p["metric"],
+            "direction": "" if p["metric"] == "team_win" else p["direction"],
+            "hits": 0, "total": 0,
+        })
         by_category[key]["total"] += 1
         if p["result"] == "hit":
             by_category[key]["hits"] += 1
