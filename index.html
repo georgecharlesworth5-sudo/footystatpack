@@ -1238,7 +1238,7 @@
       return;
     }
 
-    const sorted = [...fixtures].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const sorted = sortByKickoff(fixtures);
     const groups = [];
     let currentDate = null, currentGroup = null;
     sorted.forEach(fx => {
@@ -1254,7 +1254,7 @@
 
     mainEl.innerHTML = intro + groups.map(g => `
       <div class="date-group">
-        <div class="date-label">${g.date}</div>
+        <div class="date-label">${fmtDate(g.date)}</div>
         ${g.items.map(nflFixtureCard).join("")}
       </div>
     `).join("");
@@ -1266,18 +1266,10 @@
   // league/cup groupings everywhere else on the dashboard, since the
   // whole point here is one flat, time-ordered view. Reuses the exact
   // same card renderers as everywhere else (fixtureCard, nflFixtureCard)
-  // rather than duplicating their markup - only new logic here is
-  // gathering today's fixtures from every source and normalising NFL's
-  // ISO dates to dd/mm/yyyy so the existing sortByKickoff/
-  // parseFixtureDate helpers (built for football's date format only)
-  // work unchanged across the merged list.
-  function isoToUkDate(iso) {
-    const parts = (iso || "").split("-");
-    if (parts.length !== 3) return iso || "";
-    const [y, m, d] = parts;
-    return `${d}/${m}/${y}`;
-  }
-
+  // rather than duplicating their markup. NFL fixture dates are already
+  // converted to UK time and dd/mm/yyyy format at build time (see
+  // nfl_build_statpack.py's convert_et_to_uk) - same format as football
+  // throughout, so no per-source date handling is needed here.
   function renderToday() {
     const now = new Date();
     const todayUk = `${String(now.getDate()).padStart(2, "0")}/${String(now.getMonth() + 1).padStart(2, "0")}/${now.getFullYear()}`;
@@ -1300,8 +1292,7 @@
 
     if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
       NFL_STATPACK_DATA.upcoming_fixtures.forEach(fx => {
-        const ukDate = isoToUkDate(fx.date);
-        if (ukDate === todayUk) items.push({ ...fx, date: ukDate, _badge: "NFL", _kind: "nfl" });
+        if (fx.date === todayUk) items.push({ ...fx, _badge: "NFL", _kind: "nfl" });
       });
     }
 
