@@ -15,6 +15,8 @@ Run this after fetch_nfl.py, same relationship as the football side.
 import csv
 import json
 from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from nfl_stats import build_team_game_log, team_form_summary, league_averages
 from nfl_model import predict_game
@@ -36,6 +38,7 @@ TEAM_NAMES = {
 }
 
 DEFAULT_TOTAL_LINES = [40.5, 44.5, 48.5]
+
 DEFAULT_TEAM_LINES = [20.5, 24.5]
 DEFAULT_TD_LINES = [0.5, 1.5, 2.5]
 
@@ -55,6 +58,33 @@ def load_upcoming(path: Path) -> list[dict]:
         return []
     with open(path, newline="") as f:
         return list(csv.DictReader(f))
+
+
+def convert_et_to_uk(gameday: str, gametime: str) -> tuple[str, str]:
+    """
+    nflverse's gametime is US Eastern (confirmed directly: the 2025
+    season opener, DAL@PHI, shows 20:20 - the real, well-known 8:20pm ET
+    kickoff for that game). Converts to UK date/time using proper
+    IANA timezone data rather than a flat offset - the NFL season spans
+    September to February, crossing both the US and UK's DST transition
+    dates, and those dates don't align (UK's BST ends the last Sunday
+    of October, US's EDT ends the first Sunday of November) - there's a
+    ~1 week window each year where the gap between them is 4 hours
+    instead of the usual 5. zoneinfo handles this correctly by
+    construction; a hand-rolled offset would need to reimplement both
+    countries' DST rules to get that week right.
+
+    Returns (date, time) in our usual dd/mm/yyyy, HH:MM format. Falls
+    back to the raw values unchanged if either input is missing/
+    malformed, rather than crashing the whole build over one fixture.
+    """
+    try:
+        dt_et = datetime.strptime(f"{gameday} {gametime}", "%Y-%m-%d %H:%M")
+    except (ValueError, TypeError):
+        return gameday, gametime
+    dt_et = dt_et.replace(tzinfo=ZoneInfo("America/New_York"))
+    dt_uk = dt_et.astimezone(ZoneInfo("Europe/London"))
+    return dt_uk.strftime("%d/%m/%Y"), dt_uk.strftime("%H:%M")
 
 
 def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_form: dict,
@@ -125,8 +155,7 @@ def build_nfl_statpack(data_dir: Path) -> dict:
         market_row = market_by_matchup.get((away_code, home_code))
         card = build_fixture_card(home_code, away_code, team_forms[home_code], team_forms[away_code],
                                    league_avg, market_row=market_row)
-        card["date"] = fx.get("gameday", "")
-        card["time"] = fx.get("gametime", "")
+        card["date"], card["time"] = convert_et_to_uk(fx.get("gameday", ""), fx.get("gametime", ""))
         card["week"] = fx.get("week", "")
         if card.get("market_blended"):
             market_blended_count += 1
