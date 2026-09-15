@@ -188,7 +188,7 @@ KNOWN_ALIASES = {
     "Getafe CF": "Getafe",
     "Levante UD": "Levante",
     "Málaga CF": "Malaga",
-    "Aláves": "Alaves",
+    "Alavès": "Alaves",
 }
 
 
