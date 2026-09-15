@@ -175,7 +175,17 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
 # this season's matches - being the most recent by definition - dominate
 # the average as soon as there are any, without needing to explicitly
 # know or check which season a match came from.
-WEIGHT_DECAY = 0.85
+#
+# Raised from an earlier 0.85 once the season reached ~5-6 games in - at
+# 0.85, the most recent 5 games only carried ~69% of total weight in a
+# 10-game window (the next 5 carrying ~31%), not "heavily weight the
+# last 5, with the 5 before that still mattering but a lot less". 0.70
+# gives roughly an 86/14 split between the most recent 5 and the 5
+# before that - a clear tilt toward "heavy", while 14% keeps the older
+# stretch (now mostly last season's tail) as a real, non-zero
+# contribution rather than discarding it outright. Adjustable if this
+# still doesn't feel aggressive enough watched against real results.
+WEIGHT_DECAY = 0.70
 
 # On top of the value rescaling above, a cross-division match's WEIGHT in
 # the average is ALSO reduced by this factor (only for TIER_ADJUSTED_METRICS
