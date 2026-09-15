@@ -101,15 +101,10 @@ LEAGUE_TIME_ADJUSTMENT = {
     "E2": "bst",  # League One
     "E3": "bst",  # League Two
     "SC0": "bst", # Scottish Premiership
-    "I1": None,   # Serie A - NOT YET VERIFIED. Check a real fixture's displayed
-                  # time against its actual known UK-time kickoff (e.g. via a
-                  # UK sports site) once fixtures are loaded, same way the
-                  # English leagues were verified. If it's off by an hour,
-                  # change this to 1 (Italy is always UK+1, so subtracting
-                  # 1 hour would convert their local time to UK time).
-    "SP1": None,  # La Liga - NOT YET VERIFIED, same reasoning as Serie A above.
-                  # Spain is also always UK+1, so if times look an hour out
-                  # once real fixtures are loaded, change this to 1.
+    "I1": 1,      # Serie A - CONFIRMED needing correction (reported showing local
+                  # Italian time, not UK time). Italy is always UK+1 year-round.
+    "SP1": 1,     # La Liga - CONFIRMED needing correction, same reasoning as Serie A.
+                  # Spain is also always UK+1 year-round.
 }
 
 
