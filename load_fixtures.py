@@ -103,8 +103,11 @@ LEAGUE_TIME_ADJUSTMENT = {
     "SC0": "bst", # Scottish Premiership
     "I1": 1,      # Serie A - CONFIRMED needing correction (reported showing local
                   # Italian time, not UK time). Italy is always UK+1 year-round.
-    "SP1": 1,     # La Liga - CONFIRMED needing correction, same reasoning as Serie A.
-                  # Spain is also always UK+1 year-round.
+    "SP1": -1,    # La Liga - CONFIRMED needing +1hr (not the -1hr originally assumed
+                  # by the "always UK+1" reasoning below) - real-world check showed the
+                  # -1hr version was 2 hours out, meaning the true correction runs the
+                  # opposite direction to Serie A's. fixturedownload.com's raw La Liga
+                  # time evidently isn't genuine Spanish local time the way assumed.
 }
 
 
