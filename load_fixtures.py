@@ -101,7 +101,7 @@ LEAGUE_TIME_ADJUSTMENT = {
     "E2": "bst",  # League One
     "E3": "bst",  # League Two
     "SC0": "bst", # Scottish Premiership
-    "I1": 1,      # Serie A - CONFIRMED needing correction (reported showing local
+    "I1": -1,      # Serie A - CONFIRMED needing correction (reported showing local
                   # Italian time, not UK time). Italy is always UK+1 year-round.
     "SP1": -1,    # La Liga - CONFIRMED needing +1hr (not the -1hr originally assumed
                   # by the "always UK+1" reasoning below) - real-world check showed the
