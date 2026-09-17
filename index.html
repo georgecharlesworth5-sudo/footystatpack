@@ -103,7 +103,7 @@
     font-size: 12px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--meta);
+    color: var(--amber);
     background: none;
     border: none;
     padding: 12px 14px;
@@ -114,7 +114,6 @@
   }
   .tab:hover { color: var(--ink-dim); }
   .tab.active {
-    color: var(--amber);
     border-bottom-color: var(--amber);
   }
   .tab:focus-visible, .fixture summary:focus-visible, button:focus-visible {
@@ -125,10 +124,6 @@
     color: var(--meta);
     font-size: 10px;
     margin-left: 4px;
-  }
-  .tab-bestbets {
-    color: var(--amber);
-    font-weight: 600;
   }
   .tab-wrap {
     position: relative;
@@ -729,12 +724,6 @@
   function buildTabs() {
     tabsEl.innerHTML = "";
 
-    const bbBtn = document.createElement("button");
-    bbBtn.className = "tab tab-bestbets" + (activeLeague === BEST_BETS ? " active" : "");
-    bbBtn.innerHTML = "★ Best Bets";
-    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; render(); });
-    tabsEl.appendChild(bbBtn);
-
     const todayBtn = document.createElement("button");
     todayBtn.className = "tab" + (activeLeague === TODAY ? " active" : "");
     todayBtn.innerHTML = "Today";
@@ -820,8 +809,14 @@
       tabsEl.appendChild(nflBtn);
     }
 
+    const bbBtn = document.createElement("button");
+    bbBtn.className = "tab" + (activeLeague === BEST_BETS ? " active" : "");
+    bbBtn.innerHTML = "★ Best Bets";
+    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; render(); });
+    tabsEl.appendChild(bbBtn);
+
     const trBtn = document.createElement("button");
-    trBtn.className = "tab tab-bestbets" + (activeLeague === TRACK_RECORD ? " active" : "");
+    trBtn.className = "tab" + (activeLeague === TRACK_RECORD ? " active" : "");
     const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
       ? ` ${BETS_LOG.summary.overall.pct}%` : "";
     trBtn.innerHTML = "Track Record" + trPct;
@@ -969,77 +964,37 @@
     second_half_goals: "2nd-Half Goals",
   };
 
-  // Best Bets is now computed in Python (best_bets.py) at build time, not
-  // recalculated here - this is so track_bets.py can log exactly what the
-  // dashboard shows, with one shared source of truth. This function just
-  // renders whatever STATPACK_DATA.best_bets already contains.
-  function bestBetRow(entry, rank, isBtts) {
-    const label = isBtts ? entry.direction : `${entry.direction} ${entry.line}`;
+  // Best Bets is now a single FLAT list (see best_bets.py / nfl_best_bets.py) -
+  // every qualifying pick across every league AND sport, sorted by
+  // confidence, no category grouping. Each pick already carries a
+  // ready-to-display "label" computed in Python, so rendering here is
+  // just laying out common fields (time, league/sport badge, label,
+  // confidence) rather than reconstructing pick-type-specific text.
+  function flatBestBetRow(pick, rank) {
     return `<div class="bb-row">
       <span class="bb-rank">${rank}</span>
-      <span class="kickoff">${entry.time || "--:--"}</span>
-      <span class="bb-teams">${entry.home_team}<span class="v">v</span>${entry.away_team}</span>
-      <span class="bb-league">${entry.league_name}</span>
-      <span class="bb-label">${label}</span>
-      <span class="bb-pct ${entry.confidence >= 0.55 ? 'pct-hi' : entry.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(entry.confidence)}</span>
-    </div>`;
-  }
-
-  // team_win is a different shape to every other category (a flat list,
-  // not {over, under}) since it isn't an over/under market - each entry
-  // is just "this team, at this confidence", so it gets its own row
-  // renderer and its own (non-split) section in renderBestBets below.
-  function teamWinRow(entry, rank) {
-    return `<div class="bb-row">
-      <span class="bb-rank">${rank}</span>
-      <span class="kickoff">${entry.time || "--:--"}</span>
-      <span class="bb-teams">${entry.home_team}<span class="v">v</span>${entry.away_team}</span>
-      <span class="bb-league">${entry.league_name}</span>
-      <span class="bb-label">${entry.team} to win</span>
-      <span class="bb-pct ${entry.confidence >= 0.55 ? 'pct-hi' : entry.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(entry.confidence)}</span>
+      <span class="kickoff">${pick.time || "--:--"}</span>
+      <span class="bb-teams" style="flex:2">${pick.label}</span>
+      <span class="bb-league">${pick.league_name}</span>
+      <span class="bb-pct ${pick.confidence >= 0.55 ? 'pct-hi' : pick.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(pick.confidence)}</span>
     </div>`;
   }
 
   function renderBestBets() {
-    const categories = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.best_bets) || {};
-    const hasAny = Object.values(categories).some(c => Array.isArray(c) ? c.length > 0 : (c.over?.length > 0 || c.under?.length > 0));
+    const footballPicks = (typeof STATPACK_DATA !== "undefined" && Array.isArray(STATPACK_DATA.best_bets))
+      ? STATPACK_DATA.best_bets : [];
+    const nflPicks = (typeof NFL_STATPACK_DATA !== "undefined" && Array.isArray(NFL_STATPACK_DATA.best_bets))
+      ? NFL_STATPACK_DATA.best_bets : [];
+    const allPicks = [...footballPicks, ...nflPicks].sort((a, b) => b.confidence - a.confidence);
 
-    if (!hasAny) {
-      mainEl.innerHTML = `<div class="empty">No eligible fixtures in the near-term window yet.<br>
+    if (allPicks.length === 0) {
+      mainEl.innerHTML = `<div class="empty">No eligible picks today across any league or sport.<br>
         (Fixtures with a thin sample, cross-league, or name-match flag are excluded from Best Bets - check the league tabs for those.)</div>`;
       return;
     }
 
-    const teamWinSection = (categories.team_win && categories.team_win.length > 0)
-      ? `<div class="bb-category">
-          <div class="bb-category-title">Team Win</div>
-          ${categories.team_win.map((e, i) => teamWinRow(e, i + 1)).join("")}
-        </div>`
-      : "";
-
-    const order = ["goals", "btts", "corners", "cards", "first_half_goals", "second_half_goals"];
-    mainEl.innerHTML = `<div class="bb-intro">Highest-confidence picks across all leagues. Thin-sample and cross-league fixtures are excluded.</div>` +
-      teamWinSection +
-      order.map(key => {
-        const c = categories[key];
-        if (!c || (c.over.length === 0 && c.under.length === 0)) return "";
-        const title = key === "btts" ? "Both Teams To Score" : METRIC_LABELS[key];
-        const overLabel = key === "btts" ? "Yes" : "Over";
-        const underLabel = key === "btts" ? "No" : "Under";
-        return `<div class="bb-category">
-          <div class="bb-category-title">${title}</div>
-          <div class="bb-split">
-            <div class="bb-column">
-              <div class="bb-column-title">${overLabel}</div>
-              ${c.over.map((e, i) => bestBetRow(e, i + 1, key === "btts")).join("") || '<div class="bb-empty">No eligible fixtures</div>'}
-            </div>
-            <div class="bb-column">
-              <div class="bb-column-title">${underLabel}</div>
-              ${c.under.map((e, i) => bestBetRow(e, i + 1, key === "btts")).join("") || '<div class="bb-empty">No eligible fixtures</div>'}
-            </div>
-          </div>
-        </div>`;
-      }).join("");
+    mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar - sorted highest first. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.</div>` +
+      allPicks.map((p, i) => flatBestBetRow(p, i + 1)).join("");
   }
 
   function renderTrackRecord() {
@@ -1059,7 +1014,7 @@
       <div class="tr-category-grid">
         ${summary.by_category.map(c => {
           const label = c.metric === "btts" ? `BTTS ${c.direction}`
-            : c.metric === "team_win" ? "Team Win"
+            : (c.metric === "team_win" || c.metric === "moneyline") ? "Team Win"
             : `${METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
           return `<div class="tr-category-chip">
             <span>${label}</span>
@@ -1069,7 +1024,7 @@
       </div>
     </div>`;
 
-    mainEl.innerHTML = `<div class="bb-intro">Tracking every Best Bets pick since logging started - settled automatically once each match is played.</div>` +
+    mainEl.innerHTML = `<div class="bb-intro">Tracking every Best Bets pick since logging started - settled automatically once each match is played. NFL picks currently log as pending but aren't reconciled against results yet.</div>` +
       summaryHtml;
   }
 
@@ -1106,13 +1061,6 @@
   }
 
   // ---------- NFL ----------
-  // Different market shape to football throughout - Moneyline is 2-way
-  // (no draw, NFL ties are ~0.1% of games), and passing/rushing TDs
-  // only have a home/away split with no combined "total" market, unlike
-  // football metrics which always have both. Kept as its own set of
-  // render functions rather than force-fitting football's metricBlock,
-  // since the two data shapes only look similar at a glance.
-
   function nflMoneylineBlock(fixture) {
     const ml = fixture.predictions?.points?.moneyline;
     if (!ml) return "";
@@ -1241,25 +1189,6 @@
   }
 
   // ---------- Today ----------
-  // Every game today, across every league AND sport, sorted purely by
-  // kickoff time - deliberately ignoring the football/NFL and
-  // league/cup groupings everywhere else on the dashboard, since the
-  // whole point here is one flat, time-ordered view. Reuses the exact
-  // same card renderers as everywhere else (fixtureCard, nflFixtureCard)
-  // rather than duplicating their markup. NFL fixture dates are already
-  // converted to UK time and dd/mm/yyyy format at build time (see
-  // nfl_build_statpack.py's convert_et_to_uk) - same format as football
-  // throughout, so no per-source date handling is needed here.
-  // A late-night kickoff (post-midnight UK) technically falls on the
-  // NEXT calendar date once converted from a foreign timezone - e.g. a
-  // Thursday Night Football game at 8:15pm ET becomes 01:15 UK Friday.
-  // An exact date-string match would hide that game from Thursday
-  // evening's Today page even though it's still "tonight" from the
-  // viewer's perspective - checking a timestamp WINDOW instead (today
-  // 00:00 through tomorrow at this cutoff hour) catches it correctly.
-  // Chosen high enough to cover the latest realistic NFL window (West
-  // Coast Sunday/Monday night games can run past 1am UK) without
-  // reaching into genuinely-next-day evening fixtures.
   const LATE_NIGHT_CUTOFF_HOUR = 6;
 
   function renderToday() {
@@ -1319,9 +1248,6 @@
       league form with a rough cross-league adjustment (see cross_league.py) - treat these with more caution
       than same-league predictions.</div>`;
 
-    // Sort into chronological order before grouping - the source data
-    // isn't guaranteed to already be in date order (see fixtureTimestamp
-    // above).
     const groups = [];
     let currentDate = null, currentGroup = null;
     sortByKickoff(cupFixtures).forEach(fx => {
@@ -1383,7 +1309,7 @@
 
     const nearTerm = allFixtures.filter(fx => {
       const d = parseFixtureDate(fx.date);
-      return !d || d <= windowEnd; // undated fixtures stay visible rather than vanishing
+      return !d || d <= windowEnd;
     });
     const fixtures = showFullSeason ? allFixtures : nearTerm;
     const hiddenCount = allFixtures.length - nearTerm.length;
@@ -1400,10 +1326,6 @@
       return;
     }
 
-    // Sort into chronological order before grouping - the source data
-    // isn't guaranteed to already be in date order (see fixtureTimestamp
-    // above) - confirmed in practice with rearranged Scottish
-    // Premiership fixtures showing out of order.
     const groups = [];
     let currentDate = null, currentGroup = null;
     sortByKickoff(fixtures).forEach(fx => {
