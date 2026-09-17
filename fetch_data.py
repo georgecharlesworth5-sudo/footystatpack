@@ -49,6 +49,7 @@ LEAGUES = {
     "E3": "League Two",
     "SC0": "Scottish Premiership",
     "I1": "Serie A",
+    "D1": "Bundesliga",
     "SP1": "La Liga",
 }
 
