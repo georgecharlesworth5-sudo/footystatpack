@@ -1,10 +1,20 @@
 """
 best_bets.py
 
-Computes the "Best Bets" list - every Over/Under (and BTTS Yes/No) pick
-across all leagues, within a near-term window, that clears a high
-confidence bar. Unlike a "top N" ranking, the list here can be any
-length - some gameweeks might have none, others several.
+Computes the "Best Bets" list - every pick, across every league AND
+sport, within a near-term window, that clears a high confidence bar.
+A single FLAT list, not grouped by market/category - deliberately
+restructured away from an earlier {"goals": {...}, "corners": {...},
+...} shape, since the point of this list is "everything that qualifies
+today", not "here's how goals picks are doing vs corners picks".
+Covers match-level markets (e.g. "Over 2.5 Goals") AND team-level
+splits (e.g. "Arsenal Over 4.5 Corners"), and both straight team-win
+and BTTS as their own pick types within the same flat list.
+
+Each pick is a dict with a uniform shape - see _make_pick() below -
+regardless of which market or scope it came from, so nothing
+downstream needs to special-case (match vs team-level, over vs
+team-win, etc.) beyond reading a few common fields.
 
 This used to live only in the dashboard's JavaScript, recalculated fresh
 every time the page loaded. It's been ported here so there's ONE
@@ -12,31 +22,26 @@ authoritative version: the pipeline can now log exactly what was picked
 (track_bets.py) and reconcile it against real results later, and the
 dashboard just displays whatever Python computed rather than
 recalculating it itself. If you change the ranking logic (window size,
-exclusion rules, category list), this is the only place to change it -
+exclusion rules, thresholds), this is the only place to change it -
 dashboard.html's JS best-bets code has been removed.
 """
 
 from datetime import date, timedelta
 
-NEAR_TERM_WINDOW_DAYS = 0  # only fixtures happening TODAY - narrowed from an earlier
-                           # 2-day window on request
+NEAR_TERM_WINDOW_DAYS = 0  # only fixtures happening TODAY
 
-# A pick needs to clear this bar to count as a "best bet" at all. Raised
-# from an earlier 0.6 to 0.9 - the list is no longer a "top 5" ranking,
-# it's every pick that clears the bar, so the bar itself needs to be
-# high enough that everything shown is genuinely a strong signal, not
-# just "the best of a mediocre bunch" the way a top-5 cap could tolerate.
-MIN_CONFIDENCE = 0.85
+# A pick needs to clear this bar to count as a "best bet" at all.
+MIN_CONFIDENCE = 0.9
 
-# Separate, lower bar specifically for straight team-win picks (below) -
-# a lower threshold than MIN_CONFIDENCE is still a meaningful edge for a
+# Separate, lower bar specifically for straight team-win picks - a
+# lower threshold than MIN_CONFIDENCE is still a meaningful edge for a
 # match-result bet, which is inherently a 3-way market (home/draw/away)
 # rather than a coin-flip over/under line, so 75% here is comparably
 # strong to 90% on a two-way market.
 TEAM_WIN_MIN_CONFIDENCE = 0.75
 
 METRIC_LABELS = {
-    "goals": "Full-Time Goals",
+    "goals": "Goals",
     "corners": "Corners",
     "cards": "Cards",
     "first_half_goals": "1st-Half Goals",
@@ -73,103 +78,99 @@ def _eligible_pool(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, tod
     return pool
 
 
-def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> dict:
+def _make_pick(fx: dict, metric: str, scope: str, team: str | None,
+               direction: str, line, confidence: float, label: str) -> dict:
+    """Uniform shape for every pick, regardless of sport/market/scope.
+
+    sport: "football" (this module) or "nfl" (see nfl_best_bets.py) -
+       lets the dashboard merge both lists and reconcile picks against
+       the right results source later.
+    scope: "match" (the combined/total market) or "home"/"away" (a
+       team-level split, e.g. one side's own corner count).
+    team: the specific team this pick concerns, for scope="home"/"away"
+       or a team_win pick - None for a match-level pick.
+    direction: "Over"/"Yes" for O/U-style picks, or the picked team's
+       name for team_win (matches track_bets.py's existing pick_id
+       scheme, where "direction" already doubles as a team name there).
+    label: a ready-to-display string, computed once here rather than
+       reconstructed differently in every place that shows a pick.
     """
-    Returns {metric_key: {"over": [...], "under": [...]}} for every metric
-    in METRIC_LABELS, plus "btts": {"over": [...yes...], "under": [...no...]}
-    (named over/under for a consistent shape - "over" = Yes, "under" = No),
-    plus "team_win": [...] - a flat list (not over/under shaped) of
-    straight team-win picks clearing TEAM_WIN_MIN_CONFIDENCE.
+    return {
+        "sport": "football",
+        "home_team": fx["home_team"],
+        "away_team": fx["away_team"],
+        "league_name": fx["league_name"],
+        "league_code": fx["league_code"],
+        "date": fx.get("date", ""),
+        "time": fx.get("time", ""),
+        "metric": metric,
+        "scope": scope,
+        "team": team,
+        "direction": direction,
+        "line": line,
+        "confidence": round(confidence, 3),
+        "label": label,
+    }
 
-    Every entry shown clears MIN_CONFIDENCE (or TEAM_WIN_MIN_CONFIDENCE
-    for team_win) - there's no fixed count, the list is as long (or
-    short, or empty) as the genuinely strong picks for that gameweek
-    happen to be. Sorted highest-confidence first.
 
-    Each over/under entry: {home_team, away_team, league_name, league_code,
-                 date, time, direction, line (None for BTTS), confidence}
-    Each team_win entry: {home_team, away_team, team, league_name,
-                 league_code, date, time, confidence}
+def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> list[dict]:
+    """
+    Returns a single flat list of every football pick clearing its
+    threshold today - match-level over markets, team-level over splits
+    (corners/goals/cards, wherever the model computes a home/away
+    split), BTTS Yes, and straight team-win. Sorted highest-confidence
+    first. No fixed length - as long (or short, or empty) as the
+    genuinely strong picks for today happen to be.
     """
     pool = _eligible_pool(statpack, window_days, today)
-    categories = {}
+    picks = []
 
-    for metric_key in METRIC_LABELS:
-        # Under markets deliberately not computed - not used, and no
-        # point doing the work just to throw it away. "under" stays in
-        # the output shape as an empty list so anything downstream that
-        # expects the key to exist (e.g. dashboard code iterating over
-        # it) doesn't break, it just always finds nothing there.
-        best_over = []
-        for fx in pool:
-            m = fx.get("predictions", {}).get(metric_key)
-            if not m or not m.get("over_under"):
+    for fx in pool:
+        preds = fx.get("predictions", {})
+
+        for metric_key, metric_label in METRIC_LABELS.items():
+            m = preds.get(metric_key)
+            if not m:
                 continue
-            top_over = None
-            for ou in m["over_under"]:
-                if top_over is None or ou["over"] > top_over["confidence"]:
-                    top_over = {"line": ou["line"], "direction": "Over", "confidence": ou["over"]}
-            if top_over:
-                best_over.append(_entry(fx, top_over))
-        best_over.sort(key=lambda e: e["confidence"], reverse=True)
-        best_over = [e for e in best_over if e["confidence"] >= MIN_CONFIDENCE]
-        categories[metric_key] = {"over": best_over, "under": []}
 
-    # BTTS "No" is the structural equivalent of an under market here -
-    # same reasoning as above, not computed, kept as an empty list.
-    btts_yes = []
-    for fx in pool:
-        g = fx.get("predictions", {}).get("goals")
-        if not g or "btts_yes" not in g:
-            continue
-        btts_yes.append(_entry(fx, {"line": None, "direction": "Yes", "confidence": g["btts_yes"]}))
-    btts_yes.sort(key=lambda e: e["confidence"], reverse=True)
-    btts_yes = [e for e in btts_yes if e["confidence"] >= MIN_CONFIDENCE]
-    categories["btts"] = {"over": btts_yes, "under": []}
+            if m.get("over_under"):
+                top_over = max(m["over_under"], key=lambda ou: ou["over"])
+                if top_over["over"] >= MIN_CONFIDENCE:
+                    label = f"{fx['home_team']} v {fx['away_team']} - Over {top_over['line']} {metric_label}"
+                    picks.append(_make_pick(fx, metric_key, "match", None, "Over",
+                                             top_over["line"], top_over["over"], label))
 
-    # Straight team-win picks - a different shape to everything else
-    # above (a flat list, not {"over":[...], "under":[...]}), since this
-    # isn't an over/under market at all - each entry says WHICH team
-    # (home or away) is favoured, at what confidence. No opposite-
-    # direction equivalent is computed (same reasoning as the removed
-    # under markets - draws/the other team winning aren't wanted here).
-    team_win_picks = []
-    for fx in pool:
-        mr = fx.get("predictions", {}).get("goals", {}).get("match_result")
-        if not mr:
-            continue
-        if mr.get("home_win", 0) >= TEAM_WIN_MIN_CONFIDENCE:
-            team_win_picks.append(_team_win_entry(fx, fx["home_team"], mr["home_win"]))
-        if mr.get("away_win", 0) >= TEAM_WIN_MIN_CONFIDENCE:
-            team_win_picks.append(_team_win_entry(fx, fx["away_team"], mr["away_win"]))
-    team_win_picks.sort(key=lambda e: e["confidence"], reverse=True)
-    categories["team_win"] = team_win_picks
+            # Team-level splits - only present for metrics the model
+            # actually computes a home/away split for (currently
+            # corners/goals/cards - see poisson_model.PER_SIDE_LINES).
+            # Missing entirely for first_half_goals/second_half_goals,
+            # which .get() below handles by simply finding nothing.
+            for scope, side_key, team in (("home", "home_over_under", fx["home_team"]),
+                                           ("away", "away_over_under", fx["away_team"])):
+                side_ou = m.get(side_key)
+                if not side_ou:
+                    continue
+                top_side = max(side_ou, key=lambda ou: ou["over"])
+                if top_side["over"] >= MIN_CONFIDENCE:
+                    label = f"{team} - Over {top_side['line']} {metric_label}"
+                    picks.append(_make_pick(fx, metric_key, scope, team, "Over",
+                                             top_side["line"], top_side["over"], label))
 
-    return categories
+        g = preds.get("goals")
+        if g and "btts_yes" in g and g["btts_yes"] >= MIN_CONFIDENCE:
+            label = f"{fx['home_team']} v {fx['away_team']} - BTTS Yes"
+            picks.append(_make_pick(fx, "btts", "match", None, "Yes", None, g["btts_yes"], label))
 
+        mr = preds.get("goals", {}).get("match_result")
+        if mr:
+            if mr.get("home_win", 0) >= TEAM_WIN_MIN_CONFIDENCE:
+                label = f"{fx['home_team']} to win"
+                picks.append(_make_pick(fx, "team_win", "home", fx["home_team"],
+                                         fx["home_team"], None, mr["home_win"], label))
+            if mr.get("away_win", 0) >= TEAM_WIN_MIN_CONFIDENCE:
+                label = f"{fx['away_team']} to win"
+                picks.append(_make_pick(fx, "team_win", "away", fx["away_team"],
+                                         fx["away_team"], None, mr["away_win"], label))
 
-def _entry(fx: dict, pick: dict) -> dict:
-    return {
-        "home_team": fx["home_team"],
-        "away_team": fx["away_team"],
-        "league_name": fx["league_name"],
-        "league_code": fx["league_code"],
-        "date": fx.get("date", ""),
-        "time": fx.get("time", ""),
-        "direction": pick["direction"],
-        "line": pick["line"],
-        "confidence": round(pick["confidence"], 3),
-    }
-
-
-def _team_win_entry(fx: dict, team: str, confidence: float) -> dict:
-    return {
-        "home_team": fx["home_team"],
-        "away_team": fx["away_team"],
-        "team": team,
-        "league_name": fx["league_name"],
-        "league_code": fx["league_code"],
-        "date": fx.get("date", ""),
-        "time": fx.get("time", ""),
-        "confidence": round(confidence, 3),
-    }
+    picks.sort(key=lambda p: p["confidence"], reverse=True)
+    return picks
