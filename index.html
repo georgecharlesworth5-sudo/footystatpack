@@ -622,7 +622,6 @@
   <header>
     <h1>Footy Stat Pack<span class="dot">.</span></h1>
     <div class="subhead" id="generated-note">Goals, corners, cards &amp; half splits — Poisson model, 5 leagues.</div>
-    <div class="freshness-strip" id="freshness-strip"></div>
   </header>
 
   <nav class="tabs" id="tabs"></nav>
@@ -666,7 +665,7 @@
     mainEl.innerHTML = '<div class="empty">No league data found. Run fetch_data.py and build_statpack.py first.</div>';
     return;
   }
-  activeLeague = availableLeagues[0];
+  activeLeague = TODAY;
 
   function pct(n) { return Math.round(n * 100) + "%"; }
 
@@ -1297,9 +1296,10 @@
 
     const league = data[activeLeague];
     const allFixtures = league.upcoming_fixtures;
+    const freshnessChip = leagueFreshnessChip(activeLeague);
 
     if (allFixtures.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No upcoming fixtures loaded for ${league.league_name}.<br>Check fixtures_manual/ has the right CSV for this league.</div>`;
+      mainEl.innerHTML = freshnessChip + `<div class="empty">No upcoming fixtures loaded for ${league.league_name}.<br>Check fixtures_manual/ has the right CSV for this league.</div>`;
       return;
     }
 
@@ -1321,7 +1321,7 @@
       : "";
 
     if (fixtures.length === 0) {
-      mainEl.innerHTML = toggle + `<div class="empty">No fixtures in the next ${NEAR_TERM_WINDOW_DAYS} days for ${league.league_name}.<br>Try "Show full season" above.</div>`;
+      mainEl.innerHTML = freshnessChip + toggle + `<div class="empty">No fixtures in the next ${NEAR_TERM_WINDOW_DAYS} days for ${league.league_name}.<br>Try "Show full season" above.</div>`;
       attachToggleHandler();
       return;
     }
@@ -1337,7 +1337,7 @@
       currentGroup.items.push(fx);
     });
 
-    mainEl.innerHTML = toggle + groups.map(g => `
+    mainEl.innerHTML = freshnessChip + toggle + groups.map(g => `
       <div class="date-group">
         <div class="date-label">${fmtDate(g.date)}</div>
         ${g.items.map(fixtureCard).join("")}
@@ -1357,20 +1357,21 @@
     }
   }
 
-  function renderFreshnessStrip() {
-    const strip = document.getElementById("freshness-strip");
+  // Was a single strip across every league in the header - moved to
+  // per-league instead (shown inline on that league's own view) since
+  // showing every league's freshness at once regardless of which one
+  // you're actually looking at was taking up a lot of header space for
+  // information only relevant one league at a time.
+  function leagueFreshnessChip(code) {
     const freshness = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.data_freshness : null;
-    if (!freshness) { strip.innerHTML = ""; return; }
-
-    strip.innerHTML = LEAGUE_ORDER.filter(code => freshness[code]).map(code => {
-      const f = freshness[code];
-      if (f.days_old === null) {
-        return `<span class="freshness-chip freshness-stale"><span class="dot-status"></span>${f.league_name}: no current-season data yet</span>`;
-      }
-      const status = f.days_old <= 3 ? "fresh" : f.days_old <= 7 ? "lagging" : "stale";
-      const label = f.days_old === 0 ? "today" : f.days_old === 1 ? "1 day ago" : `${f.days_old} days ago`;
-      return `<span class="freshness-chip freshness-${status}"><span class="dot-status"></span>${f.league_name}: ${label}</span>`;
-    }).join("");
+    const f = freshness && freshness[code];
+    if (!f) return "";
+    if (f.days_old === null) {
+      return `<div class="freshness-strip"><span class="freshness-chip freshness-stale"><span class="dot-status"></span>${f.league_name}: no current-season data yet</span></div>`;
+    }
+    const status = f.days_old <= 3 ? "fresh" : f.days_old <= 7 ? "lagging" : "stale";
+    const label = f.days_old === 0 ? "today" : f.days_old === 1 ? "1 day ago" : `${f.days_old} days ago`;
+    return `<div class="freshness-strip"><span class="freshness-chip freshness-${status}"><span class="dot-status"></span>${f.league_name}: ${label}</span></div>`;
   }
 
   document.addEventListener("click", () => {
@@ -1380,7 +1381,6 @@
     }
   });
 
-  renderFreshnessStrip();
   render();
 })();
 </script>
