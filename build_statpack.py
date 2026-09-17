@@ -72,6 +72,7 @@ LEAGUE_NAMES = {
     "E3": "League Two",
     "SC0": "Scottish Premiership",
     "I1": "Serie A",
+    "D1": "Bundesliga",
     "SP1": "La Liga",
 }
 
@@ -172,6 +173,8 @@ KNOWN_ALIASES = {
     # a [debug] skip message naming exactly which raw name failed - and
     # can be corrected the same way.
     "RCD Espanyol de Barcelona": "Espanol",  # CONFIRMED via real skip message
+    "Alavés": "Alaves",  # CONFIRMED via real skip message
+    "Deportivo Alavés": "Alaves",  # CONFIRMED via real skip message
     "Atlético de Madrid": "Ath Madrid",
     "Athletic Club": "Ath Bilbao",
     "FC Barcelona": "Barcelona",
@@ -188,8 +191,6 @@ KNOWN_ALIASES = {
     "Getafe CF": "Getafe",
     "Levante UD": "Levante",
     "Málaga CF": "Malaga",
-    "Alavés": "Alaves",
-    "Deportivo Alavés": "Alaves",
 }
 
 
