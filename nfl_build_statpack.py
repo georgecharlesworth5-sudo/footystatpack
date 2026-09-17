@@ -21,6 +21,7 @@ from zoneinfo import ZoneInfo
 from nfl_stats import build_team_game_log, team_form_summary, league_averages
 from nfl_model import predict_game
 from nfl_market_odds import parse_market_row, blend_moneyline, blend_total_points
+from nfl_best_bets import compute_nfl_best_bets
 
 # Full names for display - nflverse uses 2-3 letter codes throughout.
 TEAM_NAMES = {
@@ -163,11 +164,14 @@ def build_nfl_statpack(data_dir: Path) -> dict:
 
     print(f"[debug] {market_blended_count}/{len(fixture_cards)} fixtures have market odds blended in")
 
-    return {
+    pack = {
         "league_averages": league_avg,
         "team_form": team_forms,
         "upcoming_fixtures": fixture_cards,
     }
+    pack["best_bets"] = compute_nfl_best_bets(pack)
+    print(f"[debug] {len(pack['best_bets'])} NFL best bet(s) qualified today")
+    return pack
 
 
 if __name__ == "__main__":
