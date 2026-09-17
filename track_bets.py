@@ -5,42 +5,46 @@ Keeps a running log of Best Bets picks and checks them against real
 results once the matches have been played, so you can see an actual
 hit rate rather than just trusting the model.
 
-How a pick's lifecycle works:
-  1. The first time a (fixture, metric, direction) combination appears
-     in Best Bets, it's logged as "pending" with whatever line/
-     confidence was showing that day. This is a FREEZE, not a moving
-     target - if the same combination is still in Best Bets days later
-     with a slightly different number (form can shift a little before
-     kickoff), we don't touch the logged row again. The log reflects
-     what was actually shown at the time, not a constantly-updated
-     target.
+## Flat pick shape (updated)
+
+best_bets.py was restructured to return a single flat list of picks
+(covering match-level AND team-level markets, across football only for
+now) rather than a shape grouped by market category. This file was
+updated to match: log_new_picks() now iterates that flat list directly
+rather than the old {"goals": {"over":[...],...}, "team_win":[...]}
+nesting.
+
+Each pick's scope ("match", "home", or "away") is now part of both its
+pick_id and how its actual result gets computed - a team-level pick
+(e.g. "Arsenal Over 4.5 Corners") settles against ARSENAL's own corner
+count, not the match total, whereas the exact same metric/direction at
+scope="match" settles against the combined total. See
+_actual_metric_value below.
+
+## NFL picks - logged, but NOT YET reconciled
+
+nfl_best_bets.py produces picks in the same flat shape, tagged
+"sport": "nfl". This file logs them fine (they show up as "pending"),
+but reconcile_pending() deliberately skips settling them for now -
+this reads football's data/<LEAGUE>.csv results files, which have
+nothing to do with NFL's own results data (different source, different
+column names entirely). Wiring up NFL settlement is a real follow-up,
+not done here - explicitly scoped out for now rather than half-built,
+per the same reasoning that motivated this restructure in the first
+place (get Best Bets right first, Track Record can catch up after).
+
+## Pick lifecycle (unchanged)
+  1. The first time a pick's exact (sport, home, away, date, metric,
+     scope, direction) combination appears in Best Bets, it's logged as
+     "pending" with whatever line/confidence was showing that day - a
+     FREEZE, not a moving target.
   2. Once the fixture's date has passed, each run tries to reconcile
-     it: look up the actual match result in the results CSVs
-     (data/<LEAGUE>.csv) and check whether the frozen pick's line/
-     direction actually hit. If the result isn't in the data yet
-     (football-data.co.uk hasn't published it), it stays pending and
-     gets checked again on the next run.
+     it against the real result. If the result isn't published yet,
+     it stays pending and gets checked again next run.
 
-Run this after build_statpack.py, since it reads statpack.json's
-"best_bets" section (see best_bets.py) as its source of new picks.
-
-## team_win picks
-
-Every other category in best_bets.py has the same {"over": [...],
-"under": [...]} shape. "team_win" doesn't - it's a flat list of straight
-team-to-win picks, since it isn't an over/under market at all. Handled
-as its own case throughout this file:
-  - logged with metric="team_win" and direction=<the picked team's name>
-    (not "Over"/"Under"/etc) - this still fits the existing
-    (home, away, match_date, metric, direction) pick_id scheme cleanly,
-    since a team name is just as valid a "direction" value for
-    disambiguating picks.
-  - settled by comparing the picked team's name against whichever team
-    (if either) actually won - see _actual_metric_value and _check_hit.
-
-Output: bets_log.csv (the durable log, committed to the repo) and
-bets_log.js (a summary + recent entries, in the same embeddable-script
-pattern as statpack_data.js, for the dashboard's Track Record tab).
+Run this after build_statpack.py (and, once NFL settlement exists,
+after nfl_build_statpack.py too), since it reads statpack.json's
+"best_bets" list as its source of new football picks.
 """
 
 import csv
@@ -48,11 +52,10 @@ import json
 from datetime import date, datetime
 from pathlib import Path
 
-from best_bets import METRIC_LABELS
-
 LOG_COLUMNS = [
     "pick_id", "logged_date", "match_date", "league_code", "league_name",
-    "home_team", "away_team", "metric", "direction", "line", "confidence",
+    "home_team", "away_team", "sport", "metric", "scope", "team",
+    "direction", "line", "confidence", "label",
     "status", "actual_value", "result", "settled_date",
 ]
 
@@ -66,8 +69,8 @@ def _parse_date(d: str):
     return None
 
 
-def make_pick_id(home: str, away: str, match_date: str, metric: str, direction: str) -> str:
-    return f"{home}|{away}|{match_date}|{metric}|{direction}"
+def make_pick_id(sport: str, home: str, away: str, match_date: str, metric: str, scope: str, direction: str) -> str:
+    return f"{sport}|{home}|{away}|{match_date}|{metric}|{scope}|{direction}"
 
 
 def load_log(path: Path) -> dict[str, dict]:
@@ -85,55 +88,59 @@ def save_log(path: Path, log: dict[str, dict]) -> None:
             writer.writerow({col: row.get(col, "") for col in LOG_COLUMNS})
 
 
-def _make_pick_row(entry: dict, today: date, metric: str, direction: str, line) -> dict:
-    return {
-        "pick_id": make_pick_id(entry["home_team"], entry["away_team"], entry["date"], metric, direction),
-        "logged_date": today.isoformat(),
-        "match_date": entry["date"],
-        "league_code": entry["league_code"],
-        "league_name": entry["league_name"],
-        "home_team": entry["home_team"],
-        "away_team": entry["away_team"],
-        "metric": metric,
-        "direction": direction,
-        "line": line if line is not None else "",
-        "confidence": entry["confidence"],
-        "status": "pending",
-        "actual_value": "",
-        "result": "",
-        "settled_date": "",
-    }
-
-
-def log_new_picks(log: dict[str, dict], best_bets: dict, today: date) -> int:
-    """Add any not-yet-seen (fixture, metric, direction) picks. Returns
-    how many new rows were added."""
+def log_new_picks(log: dict[str, dict], all_picks: list[dict], today: date) -> int:
+    """Add any not-yet-seen pick from the flat picks list (the output of
+    best_bets.compute_best_bets() and/or nfl_best_bets.compute_nfl_best_bets() -
+    concatenate both before calling this if tracking more than one
+    sport). Returns how many new rows were added."""
     added = 0
-    for metric, sides in best_bets.items():
-        if metric == "team_win":
-            # Flat list, not {"over": [...], "under": [...]} like every
-            # other category - each entry is a straight team-to-win pick,
-            # so "direction" here is the picked team's name rather than
-            # Over/Under/Yes/No.
-            for entry in sides:
-                row = _make_pick_row(entry, today, metric, entry["team"], None)
-                if row["pick_id"] in log:
-                    continue
-                log[row["pick_id"]] = row
-                added += 1
-            continue
+    for pick in all_picks:
+        sport = pick.get("sport", "football")
+        pick_id = make_pick_id(sport, pick["home_team"], pick["away_team"],
+                                pick["date"], pick["metric"], pick["scope"], pick["direction"])
+        if pick_id in log:
+            continue  # already logged - frozen, don't touch it again
 
-        for direction_list in (sides.get("over", []), sides.get("under", [])):
-            for entry in direction_list:
-                row = _make_pick_row(entry, today, metric, entry["direction"], entry["line"])
-                if row["pick_id"] in log:
-                    continue  # already logged - frozen, don't touch it again
-                log[row["pick_id"]] = row
-                added += 1
+        log[pick_id] = {
+            "pick_id": pick_id,
+            "logged_date": today.isoformat(),
+            "match_date": pick["date"],
+            "league_code": pick["league_code"],
+            "league_name": pick["league_name"],
+            "home_team": pick["home_team"],
+            "away_team": pick["away_team"],
+            "sport": sport,
+            "metric": pick["metric"],
+            "scope": pick["scope"],
+            "team": pick.get("team") or "",
+            "direction": pick["direction"],
+            "line": pick["line"] if pick["line"] is not None else "",
+            "confidence": pick["confidence"],
+            "label": pick.get("label", ""),
+            "status": "pending",
+            "actual_value": "",
+            "result": "",
+            "settled_date": "",
+        }
+        added += 1
     return added
 
 
-def _actual_metric_value(row: dict, metric: str):
+def _actual_metric_value(row: dict, metric: str, scope: str = "match"):
+    """Returns the actual value for one metric, at the given scope.
+
+    scope="match": the combined/total value (unchanged behaviour from
+    before this file supported team-level picks at all).
+    scope="home"/"away": that ONE side's own value only - e.g. a pick
+    on "Arsenal Over 4.5 Corners" settles against Arsenal's own corner
+    count, not the match total, even though the metric ("corners") and
+    direction ("Over") are identical to a match-level pick.
+
+    team_win ignores scope entirely (it's already team-specific by
+    construction) - returns the actual winning team's name, or None
+    for a draw, which correctly falls out as a miss against any picked
+    team's name.
+    """
     try:
         fthg, ftag = int(row["FTHG"]), int(row["FTAG"])
         hthg, athg = int(row.get("HTHG") or 0), int(row.get("HTAG") or 0)
@@ -143,28 +150,25 @@ def _actual_metric_value(row: dict, metric: str):
     except (ValueError, KeyError, TypeError):
         return None
 
-    if metric == "goals":
-        return fthg + ftag
-    if metric == "corners":
-        return hc + ac
-    if metric == "cards":
-        return (hy + 2 * hr) + (ay + 2 * ar)
-    if metric == "first_half_goals":
-        return hthg + athg
-    if metric == "second_half_goals":
-        return (fthg - hthg) + (ftag - athg)
-    if metric == "btts":
-        return 1 if (fthg > 0 and ftag > 0) else 0
     if metric == "team_win":
-        # Returns the actual WINNING team's name (a string, not a
-        # number) - or None for a draw, which can never match a picked
-        # team's name so it correctly falls out as a miss below.
         if fthg > ftag:
             return row.get("HomeTeam")
         if ftag > fthg:
             return row.get("AwayTeam")
         return None
-    return None
+
+    home_cards, away_cards = hy + 2 * hr, ay + 2 * ar
+    home_2h, away_2h = fthg - hthg, ftag - athg
+
+    if scope == "home":
+        return {"goals": fthg, "corners": hc, "cards": home_cards,
+                "first_half_goals": hthg, "second_half_goals": home_2h}.get(metric)
+    if scope == "away":
+        return {"goals": ftag, "corners": ac, "cards": away_cards,
+                "first_half_goals": athg, "second_half_goals": away_2h}.get(metric)
+    return {"goals": fthg + ftag, "corners": hc + ac, "cards": home_cards + away_cards,
+            "first_half_goals": hthg + athg, "second_half_goals": home_2h + away_2h,
+            "btts": 1 if (fthg > 0 and ftag > 0) else 0}.get(metric)
 
 
 def _check_hit(actual, direction: str, line) -> bool:
@@ -183,59 +187,44 @@ def _check_hit(actual, direction: str, line) -> bool:
 
 
 def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tuple[int, int]:
-    """Try to settle any pending picks whose match date has passed.
-    Returns (settled_count, still_pending_past_date_count)."""
-    # Load every league's results, keyed by (home, away) -> LIST of rows.
-    # Team names in the log are already the canonical resolved names
-    # (same ones used in data/<LEAGUE>.csv), so exact match is enough -
-    # no fuzzy resolution needed at this stage.
-    #
-    # A plain dict overwrite here was the bug behind a real reported
-    # issue: fetch_data.py pulls TWO seasons of history, and a fixture
-    # pairing (e.g. Man City v Bournemouth) recurs every season, so
-    # there can genuinely be two rows with the same (home, away) key -
-    # last season's meeting and this season's. Overwriting silently
-    # picked whichever happened to be read last, which could reconcile
-    # a pick against the wrong season's score entirely. Keeping every
-    # row and selecting the one closest to the pick's own match_date
-    # fixes that.
+    """Try to settle any pending FOOTBALL picks whose match date has
+    passed. NFL picks are deliberately skipped here - see this file's
+    module docstring - and stay pending indefinitely until that's
+    built. Returns (settled_count, still_pending_past_date_count)."""
     results_by_pair: dict[tuple[str, str], list[dict]] = {}
     for csv_path in data_dir.glob("*.csv"):
         with open(csv_path, newline="") as f:
             for row in csv.DictReader(f):
                 if not row.get("FTHG") or not row.get("HomeTeam"):
-                    continue  # not yet played, or malformed row
+                    continue
                 key = (row["HomeTeam"], row["AwayTeam"])
                 results_by_pair.setdefault(key, []).append(row)
 
-    # Only accept a match within this many days of the pick's logged
-    # match_date - close enough to absorb a postponed/rearranged fixture,
-    # far enough to never accidentally grab a different season's meeting.
     MAX_DATE_DRIFT_DAYS = 14
 
     settled, still_waiting = 0, 0
     for pick in log.values():
         if pick["status"] != "pending":
             continue
+        if pick.get("sport", "football") != "football":
+            continue  # NFL settlement not built yet - stays pending, not an error
+
         match_date = _parse_date(pick["match_date"])
         if match_date is None or match_date >= today:
-            continue  # not due yet
+            continue
 
         candidates = results_by_pair.get((pick["home_team"], pick["away_team"]), [])
         row = _find_result_row(candidates, match_date, MAX_DATE_DRIFT_DAYS)
 
         if row is None:
-            still_waiting += 1  # result not published yet - retry next run
+            still_waiting += 1
             continue
 
-        actual = _actual_metric_value(row, pick["metric"])
+        scope = pick.get("scope", "match")
+        actual = _actual_metric_value(row, pick["metric"], scope)
         if actual is None and pick["metric"] != "team_win":
             still_waiting += 1
             continue
-        # For team_win, actual=None legitimately means "it was a draw" -
-        # a real, settleable outcome (the pick just misses) - so it does
-        # NOT fall into the "still waiting" bucket the way a missing/
-        # malformed row does for every other metric.
 
         line = float(pick["line"]) if pick["line"] not in ("", None) else None
         hit = _check_hit(actual, pick["direction"], line)
@@ -250,9 +239,6 @@ def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tupl
 
 
 def _find_result_row(candidates: list[dict], match_date: date, max_drift_days: int = 14) -> dict | None:
-    """Pick the candidate row whose date is closest to match_date, within
-    max_drift_days. Shared by reconcile_pending and reaudit_settled so
-    both use identical matching logic."""
     row, best_drift = None, None
     for candidate in candidates:
         candidate_date = _parse_date(candidate.get("Date", ""))
@@ -266,34 +252,10 @@ def _find_result_row(candidates: list[dict], match_date: date, max_drift_days: i
 
 
 def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], list[dict]]:
-    """
-    Re-check every ALREADY-SETTLED pick against the current matching
-    logic and data, and correct any that were reconciled incorrectly.
-
-    This exists because a real bug was found and fixed here: results
-    were looked up by (home, away) team names alone, with no season/date
-    awareness. Since a fixture pairing recurs every season, that could
-    silently match a pick against the WRONG season's score. Settled
-    picks are never touched by the normal pending->settled flow, so
-    fixing the matching logic alone doesn't correct rows that already
-    settled incorrectly under the old logic - this does that, once, and
-    is safe to leave running on every future run too: it's a no-op for
-    anything that was already reconciled correctly.
-
-    A second, related problem this also handles: if NO candidate exists
-    within tolerance for a settled pick, that pick's original settlement
-    can no longer be verified against current data - meaning it was very
-    likely one of the picks wrongly settled by the old buggy logic
-    against a different season's meeting (exactly the Man City v
-    Bournemouth and Doncaster v Barnsley cases this was built to catch).
-    Rather than silently leaving a value we can no longer verify sitting
-    there looking like ground truth, those picks are REVERTED to
-    "pending" - they'll get properly re-settled once the real match
-    result is published and a genuine within-tolerance candidate exists.
-
-    Returns (corrections, reverted) - two lists of records for
-    reporting. Doesn't save anything itself.
-    """
+    """Re-check every already-settled FOOTBALL pick against the current
+    matching logic and data (see this function's original docstring
+    reasoning - unchanged). NFL picks are never settled yet, so there's
+    nothing here for them to re-audit."""
     results_by_pair: dict[tuple[str, str], list[dict]] = {}
     for csv_path in data_dir.glob("*.csv"):
         with open(csv_path, newline="") as f:
@@ -305,7 +267,7 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
 
     corrections, reverted = [], []
     for pick in log.values():
-        if pick["status"] != "settled":
+        if pick["status"] != "settled" or pick.get("sport", "football") != "football":
             continue
         match_date = _parse_date(pick["match_date"])
         if match_date is None:
@@ -314,10 +276,6 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
         candidates = results_by_pair.get((pick["home_team"], pick["away_team"]), [])
         row = _find_result_row(candidates, match_date)
         if row is None:
-            # No verifiable candidate exists right now - can't confirm
-            # this settlement is correct, so don't let it keep counting
-            # toward the hit rate. Revert to pending; it'll be properly
-            # re-settled once the real result is published.
             reverted.append({
                 "pick_id": pick["pick_id"], "home_team": pick["home_team"], "away_team": pick["away_team"],
                 "metric": pick["metric"], "direction": pick["direction"], "line": pick["line"],
@@ -329,7 +287,8 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
             pick["settled_date"] = ""
             continue
 
-        actual = _actual_metric_value(row, pick["metric"])
+        scope = pick.get("scope", "match")
+        actual = _actual_metric_value(row, pick["metric"], scope)
         if actual is None and pick["metric"] != "team_win":
             continue
         display_actual = actual if actual is not None else "Draw"
@@ -353,29 +312,31 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
 
 def compute_summary(log: dict[str, dict]) -> dict:
     """Overall and per-(metric, direction) hit rates, from settled picks
-    only - EXCLUDING "Under"/"No" picks entirely (both from the overall
-    hit rate and the by_category breakdown). best_bets.py stopped
-    generating these a while back, but older logged rows still carry
-    them - rather than let stale, no-longer-produced picks dilute what
-    the track record shows, this is scoped to reflect only what Best
-    Bets actually produces now: over-only, BTTS-yes-only, team_win.
-    The underlying log rows aren't touched or deleted here, only
-    excluded from this summary view.
+    only - EXCLUDING "Under"/"No" (best_bets.py doesn't generate these
+    any more, but older logged rows may still carry them).
 
-    team_win picks all collapse into a single "team_win" category
-    regardless of which specific team was picked - direction there is a
-    team name, not Over/Under, so grouping by (metric, direction) the
-    way every other category does would give a separate one-pick
-    category per team ever picked, which isn't a meaningful breakdown."""
+    team_win/moneyline picks all collapse into a single category each
+    regardless of which specific team was picked - direction there is
+    a team name, not Over/Under.
+
+    Team-level picks (scope="home"/"away") are grouped together with
+    their match-level counterpart under the same metric+direction
+    category for now (e.g. "Arsenal Over 4.5 Corners" counts alongside
+    "Over 9.5 Corners" under "Corners Over") - a coarser breakdown than
+    might eventually be wanted, but a reasonable starting point rather
+    than over-building this before it's clear it's needed."""
     settled = [p for p in log.values() if p["status"] == "settled" and p["direction"] not in ("Under", "No")]
     overall_hits = sum(1 for p in settled if p["result"] == "hit")
 
     by_category: dict[str, dict] = {}
     for p in settled:
-        key = "team_win" if p["metric"] == "team_win" else f"{p['metric']}_{p['direction']}"
+        if p["metric"] in ("team_win", "moneyline"):
+            key = p["metric"]
+        else:
+            key = f"{p['metric']}_{p['direction']}"
         by_category.setdefault(key, {
             "metric": p["metric"],
-            "direction": "" if p["metric"] == "team_win" else p["direction"],
+            "direction": "" if p["metric"] in ("team_win", "moneyline") else p["direction"],
             "hits": 0, "total": 0,
         })
         by_category[key]["total"] += 1
@@ -411,7 +372,8 @@ if __name__ == "__main__":
     today = date.today()
     log = load_log(log_path)
 
-    added = log_new_picks(log, statpack.get("best_bets", {}), today)
+    picks = statpack.get("best_bets", [])
+    added = log_new_picks(log, picks, today)
     print(f"Logged {added} new pick(s).")
 
     settled, still_waiting = reconcile_pending(log, data_dir, today)
@@ -424,8 +386,7 @@ if __name__ == "__main__":
             print(f"  {c['home_team']} v {c['away_team']} - {c['direction']} {c['line']} {c['metric']}: "
                   f"actual {c['old_actual']} -> {c['new_actual']}, result {c['old_result']} -> {c['new_result']}")
     if reverted:
-        print(f"Reverted {len(reverted)} unverifiable settled pick(s) back to pending "
-              f"(no current-season result available yet to confirm them):")
+        print(f"Reverted {len(reverted)} unverifiable settled pick(s) back to pending:")
         for r in reverted:
             print(f"  {r['home_team']} v {r['away_team']} - {r['direction']} {r['line']} {r['metric']} "
                   f"(was: actual {r['old_actual']}, result {r['old_result']})")
@@ -437,9 +398,7 @@ if __name__ == "__main__":
     print(f"Overall: {summary['overall']['hits']}/{summary['overall']['total']} "
           f"({summary['overall']['pct']}%) settled, {summary['pending_count']} pending.")
 
-    recent = sorted(log.values(), key=lambda p: p.get("match_date", ""), reverse=True)[:100]
-
-    out = {"summary": summary, "recent": recent}
+    out = {"summary": summary}
     js_path = base / "bets_log.js"
     with open(js_path, "w") as f:
         f.write("const BETS_LOG = ")
