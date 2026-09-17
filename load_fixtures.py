@@ -27,6 +27,7 @@ filenames:
     League Two               https://fixturedownload.com/results/efl-league-two-2026       E3.csv
     Scottish Premiership     https://fixturedownload.com/results/scottish-premiership-2026  SC0.csv
     La Liga                  https://fixturedownload.com/results/la-liga-2026              SP1.csv
+    Bundesliga                https://fixturedownload.com/results/bundesliga-2026           D1.csv
 
 (Season slugs will roll over to e.g. "epl-2027" next season - check
 fixturedownload.com/index if a URL above 404s. The La Liga slug above
@@ -85,6 +86,7 @@ LEAGUE_FILES = {
     "SC0": "SC0.csv",
     "I1": "I1.csv",
     "SP1": "SP1.csv",
+    "D1": "D1.csv",
 }
 
 # Each entry is one of:
@@ -101,13 +103,25 @@ LEAGUE_TIME_ADJUSTMENT = {
     "E2": "bst",  # League One
     "E3": "bst",  # League Two
     "SC0": "bst", # Scottish Premiership
-    "I1": -1,      # Serie A - CONFIRMED needing correction (reported showing local
-                  # Italian time, not UK time). Italy is always UK+1 year-round.
+    "I1": -1,     # Serie A - CONFIRMED needing +1hr, same reversed-sign finding as
+                  # La Liga below (5:45 shown, needed 7:45, with the old hours=1
+                  # code) - fixturedownload.com's raw Serie A time isn't genuine
+                  # Italian local time either, same as La Liga.
     "SP1": -1,    # La Liga - CONFIRMED needing +1hr (not the -1hr originally assumed
-                  # by the "always UK+1" reasoning below) - real-world check showed the
+                  # by the "always UK+1" reasoning) - real-world check showed the
                   # -1hr version was 2 hours out, meaning the true correction runs the
-                  # opposite direction to Serie A's. fixturedownload.com's raw La Liga
-                  # time evidently isn't genuine Spanish local time the way assumed.
+                  # opposite direction to what a flat "always UK+1" rule would suggest.
+                  # fixturedownload.com's raw La Liga time evidently isn't genuine
+                  # Spanish local time the way assumed.
+    "D1": -1,     # Bundesliga - NOT YET independently confirmed, but set to -1 rather
+                  # than the untested None default used for previous new leagues -
+                  # Italy AND Spain have both now confirmed needing this same reversed
+                  # correction, which is a real pattern worth acting on rather than
+                  # repeating the same wrong-sign guess a third time. Still worth
+                  # checking a real fixture once loaded, same as always - this could
+                  # be a fixturedownload.com quirk specific to how European (non-UK)
+                  # competition pages are built generally, but that's an inference
+                  # from two data points, not a confirmed rule.
 }
 
 
