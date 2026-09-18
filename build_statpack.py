@@ -74,6 +74,7 @@ LEAGUE_NAMES = {
     "I1": "Serie A",
     "D1": "Bundesliga",
     "SP1": "La Liga",
+    "F1": "Ligue 1",
 }
 
 
