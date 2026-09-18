@@ -28,6 +28,7 @@ filenames:
     Scottish Premiership     https://fixturedownload.com/results/scottish-premiership-2026  SC0.csv
     La Liga                  https://fixturedownload.com/results/la-liga-2026              SP1.csv
     Bundesliga                https://fixturedownload.com/results/bundesliga-2026           D1.csv
+    Ligue 1                   https://fixturedownload.com/results/ligue-1-2026              F1.csv
 
 (Season slugs will roll over to e.g. "epl-2027" next season - check
 fixturedownload.com/index if a URL above 404s. The La Liga/Bundesliga
@@ -102,6 +103,7 @@ LEAGUE_FILES = {
     "I1": "I1.csv",
     "SP1": "SP1.csv",
     "D1": "D1.csv",
+    "F1": "F1.csv",
 }
 
 # Each entry is one of:
@@ -132,6 +134,11 @@ LEAGUE_TIME_ADJUSTMENT = {
                   # than an untested None default - Italy AND Spain have both now
                   # confirmed needing this same reversed correction, a real pattern
                   # worth acting on. Still worth checking a real fixture once loaded.
+    "F1": -1,     # Ligue 1 - NOT YET independently confirmed, same reasoning as
+                  # Bundesliga above - now three leagues in a row (Italy, Spain,
+                  # and Bundesliga's default) point the same direction, so this
+                  # follows the pattern rather than starting from an untested
+                  # None. Still worth checking a real fixture once loaded.
 }
 
 
