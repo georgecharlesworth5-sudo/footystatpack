@@ -19,11 +19,13 @@ passing TD etc." from the original ask, NFL side).
 from datetime import date, timedelta
 
 NEAR_TERM_WINDOW_DAYS = 0
-MIN_CONFIDENCE = 0.9
+MIN_CONFIDENCE = 0.87  # lowered from an earlier 0.9, kept in sync with best_bets.py's
+                        # same change - the two lists get merged together on the dashboard,
+                        # so this threshold should stay consistent across both sports.
 MONEYLINE_MIN_CONFIDENCE = 0.75  # same reasoning as football's TEAM_WIN_MIN_CONFIDENCE -
                                   # moneyline is a 2-way market here (NFL ties are ~0.1%
-                                  # of games), so 75% is a comparably strong edge to 90%
-                                  # on a true coin-flip O/U line.
+                                  # of games), so 75% is a comparably strong edge to a
+                                  # coin-flip O/U line - unaffected by this change.
 
 METRIC_LABELS = {
     "points": "Points",
