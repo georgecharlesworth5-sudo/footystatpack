@@ -191,6 +191,15 @@ KNOWN_ALIASES = {
     "Getafe CF": "Getafe",
     "Levante UD": "Levante",
     "Málaga CF": "Malaga",
+    # Bundesliga: same pattern as La Liga - football-data.co.uk uses
+    # terser names than fixturedownload.com's official club names.
+    # Best-reasoned guesses following football-data.co.uk's well-known
+    # Bundesliga conventions, not yet individually confirmed via a real
+    # skip message the way Espanyol/Alaves were - check the [debug]
+    # skip log after the next run and correct any that come back wrong.
+    "Borussia Mönchengladbach": "M'gladbach",
+    "1. FSV Mainz 05": "Mainz",
+    "Sport-Club Freiburg": "Freiburg",
 }
 
 
