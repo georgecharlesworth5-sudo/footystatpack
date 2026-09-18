@@ -31,7 +31,8 @@ from datetime import date, timedelta
 NEAR_TERM_WINDOW_DAYS = 0  # only fixtures happening TODAY
 
 # A pick needs to clear this bar to count as a "best bet" at all.
-MIN_CONFIDENCE = 0.9
+# Lowered from an earlier 0.9 by request.
+MIN_CONFIDENCE = 0.87
 
 # Separate, lower bar specifically for straight team-win picks - a
 # lower threshold than MIN_CONFIDENCE is still a meaningful edge for a
