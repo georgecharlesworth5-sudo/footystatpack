@@ -1190,6 +1190,14 @@
   // ---------- Today ----------
   const LATE_NIGHT_CUTOFF_HOUR = 6;
 
+  // A fixture doesn't vanish the instant kickoff passes - a 3pm kickoff
+  // is still very much "on" at 3:01pm, and most matches (football,
+  // NFL) run 2-3.5 hours including stoppage/overtime. 4 hours gives a
+  // comfortable margin past even a long game before it drops off,
+  // while still being nowhere near long enough to let a game that
+  // kicked off yesterday linger into today's list.
+  const POST_KICKOFF_GRACE_HOURS = 4;
+
   function renderToday() {
     const now = new Date();
     const windowStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
@@ -1208,7 +1216,7 @@
     // off and finished by the time someone actually loads this page.
     const inWindow = fx => {
       const ts = fixtureTimestamp(fx);
-      return ts >= windowStart && ts < windowEnd && ts >= now.getTime();
+      return ts >= windowStart && ts < windowEnd && ts >= now.getTime() - POST_KICKOFF_GRACE_HOURS * 3600000;
     };
 
     const items = [];
