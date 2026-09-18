@@ -575,3 +575,5 @@ season,week,game_id,team,opponent,venue,points_for,points_against,passing_tds_fo
 2026,1,2026_01_NYJ_TEN,TEN,NYJ,H,10.0,23.0,1,0,0,2
 2026,1,2026_01_WAS_PHI,PHI,WAS,H,24.0,22.0,3,2,0,1
 2026,1,2026_01_WAS_PHI,WAS,PHI,A,22.0,24.0,2,3,1,0
+2026,2,2026_02_DET_BUF,BUF,DET,H,41.0,31.0,3,4,3,0
+2026,2,2026_02_DET_BUF,DET,BUF,A,31.0,41.0,4,3,0,3
