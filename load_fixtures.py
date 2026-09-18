@@ -30,15 +30,29 @@ filenames:
     Bundesliga                https://fixturedownload.com/results/bundesliga-2026           D1.csv
 
 (Season slugs will roll over to e.g. "epl-2027" next season - check
-fixturedownload.com/index if a URL above 404s. The La Liga slug above
-is a best guess following the same pattern as the others - check
-fixturedownload.com/index directly if it 404s, same as any league.)
+fixturedownload.com/index if a URL above 404s. The La Liga/Bundesliga
+slugs above are best guesses following the same pattern as the others -
+check fixturedownload.com/index directly if either 404s.)
 
 fixturedownload.com's CSV columns are: Round Number, Date, Location,
 Home Team, Away Team, Result. "Date" combines date+time
 (dd/mm/yyyy HH:MM) and "Result" is blank ("-") for matches not yet
 played - this module splits Date into our Date/Time fields and treats
 any row with no result as an upcoming fixture.
+
+## Delimiter - confirmed inconsistent, so this is auto-detected
+
+fixturedownload.com's own "Download as CSV" button doesn't reliably
+produce a comma-separated file despite the name and extension - the
+Bundesliga download came through genuinely TAB-separated, which a
+plain comma-delimited csv.DictReader can't parse at all (it reads the
+whole header as one giant column name, and every field then comes back
+empty - confirmed directly: that's exactly what a real "no history
+found for ['', '']" skip message turned out to be, not a team-name
+mismatch the way Serie A/La Liga's issues were). Rather than assume
+one delimiter and require every future download to happen to match it,
+each file's actual delimiter is sniffed from its own header line
+before parsing - see _detect_delimiter below.
 
 ## Timezone note
 
@@ -61,17 +75,18 @@ guess further, LEAGUE_TIME_ADJUSTMENT below is a per-league setting
 you can adjust based on what you actually observe. If a league's
 times ever look off, that's the fix: adjust its entry here.
 
-For a foreign league (Serie A being the first, La Liga the second),
-the correction ISN'T the same shape as the BST one above: both Italy
-and Spain are a CONSTANT 1 hour ahead of the UK year-round (all three
-countries shift their clocks on the same EU-wide dates, so the gap
-never changes) - it's not a seasonal correction, it's a flat offset.
-Whether one's needed at all depends on whether fixturedownload.com's
-page shows local time (needs -1hr to get UK time) or already-correct
-UK time (needs nothing) - genuinely unknown until checked against a
-real fixture, same as every other league before it. Defaulting to "no
-adjustment" until proven otherwise, same starting point used for the
-Premier League and Serie A before they were verified.
+For a foreign league, the correction ISN'T the same shape as the BST
+one above: European countries covered so far are a CONSTANT 1 hour
+ahead of the UK year-round (all shift clocks on the same EU-wide
+dates, so the gap never changes) - it's not a seasonal correction,
+it's a flat offset. Confirmed directly for Serie A and La Liga that
+the correction actually needed is +1hr (i.e. -1 passed to
+_apply_flat_offset, which subtracts), NOT the -1hr a naive "always
+UK+1" assumption would suggest - fixturedownload.com's raw time for
+both of those turned out not to be genuine local time in the way
+first assumed. Bundesliga defaults to the same -1 given that pattern
+now holding for two leagues in a row, but - same as always - check a
+real fixture once loaded rather than trusting the assumption blind.
 """
 
 import csv
@@ -92,10 +107,10 @@ LEAGUE_FILES = {
 # Each entry is one of:
 #   "bst"      - apply the seasonal UK BST correction (see _to_uk_local)
 #   <int>      - apply a FLAT hour offset year-round (for foreign
-#                leagues where the gap to UK time never changes,
-#                e.g. Italy/Spain are always +1hr vs the UK) - a
+#                leagues where the gap to UK time never changes) - a
 #                positive number means fixturedownload.com's raw time
-#                needs that many hours SUBTRACTED to reach UK time
+#                needs that many hours SUBTRACTED to reach UK time,
+#                negative means ADDED
 #   None / 0   - no adjustment, use the raw time as-is
 LEAGUE_TIME_ADJUSTMENT = {
     "E0": None,   # Premier League - confirmed correct as-is (Arsenal v Coventry check)
@@ -114,14 +129,9 @@ LEAGUE_TIME_ADJUSTMENT = {
                   # fixturedownload.com's raw La Liga time evidently isn't genuine
                   # Spanish local time the way assumed.
     "D1": -1,     # Bundesliga - NOT YET independently confirmed, but set to -1 rather
-                  # than the untested None default used for previous new leagues -
-                  # Italy AND Spain have both now confirmed needing this same reversed
-                  # correction, which is a real pattern worth acting on rather than
-                  # repeating the same wrong-sign guess a third time. Still worth
-                  # checking a real fixture once loaded, same as always - this could
-                  # be a fixturedownload.com quirk specific to how European (non-UK)
-                  # competition pages are built generally, but that's an inference
-                  # from two data points, not a confirmed rule.
+                  # than an untested None default - Italy AND Spain have both now
+                  # confirmed needing this same reversed correction, a real pattern
+                  # worth acting on. Still worth checking a real fixture once loaded.
 }
 
 
@@ -157,15 +167,28 @@ def _to_uk_local(date_str: str, time_str: str) -> tuple[str, str]:
 
 
 def _apply_flat_offset(date_str: str, time_str: str, hours: float) -> tuple[str, str]:
-    """Subtract a constant number of hours (e.g. Italy/Spain are always
-    UK+1, so hours=1 converts local time to UK time) - no seasonal
-    logic, just a fixed shift."""
+    """Subtract a constant number of hours (positive = subtract,
+    negative = add) - no seasonal logic, just a fixed shift."""
     try:
         dt = datetime.strptime(f"{date_str} {time_str}", "%d/%m/%Y %H:%M")
     except ValueError:
         return date_str, time_str
     dt -= timedelta(hours=hours)
     return dt.strftime("%d/%m/%Y"), dt.strftime("%H:%M")
+
+
+def _detect_delimiter(header_line: str) -> str:
+    """fixturedownload.com's own CSV export has been observed to come
+    through as either genuinely comma-separated OR genuinely
+    tab-separated, inconsistently between leagues/downloads, despite
+    always being named/labelled as a CSV. A plain csv.DictReader
+    assuming comma silently mis-parses a tab-separated file entirely -
+    every field comes back empty rather than raising an error, which
+    is exactly what happened with a real Bundesliga upload. Picking
+    the delimiter that actually appears in the header line, per file,
+    avoids depending on which format happens to come out of any given
+    download."""
+    return "\t" if header_line.count("\t") > header_line.count(",") else ","
 
 
 def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
@@ -178,9 +201,13 @@ def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
 
     adjustment = LEAGUE_TIME_ADJUSTMENT.get(div_code)
 
+    with open(path, encoding="utf-8-sig") as f:
+        first_line = f.readline()
+    delimiter = _detect_delimiter(first_line)
+
     fixtures = []
     with open(path, newline="", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
+        reader = csv.DictReader(f, delimiter=delimiter)
         for row in reader:
             result = (row.get("Result") or "").strip()
             if result and result != "-":
