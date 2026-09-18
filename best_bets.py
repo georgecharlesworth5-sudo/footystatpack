@@ -61,7 +61,16 @@ def _parse_date(d: str):
 
 def _eligible_pool(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> list[dict]:
     """Every fixture, across all leagues, within the near-term window and
-    NOT carrying a caution flag (thin-sample/cross-league/fuzzy-matched).
+    NOT carrying a caution flag - cross-league or thin-sample fixtures
+    are still excluded (those reflect genuine uncertainty in the
+    prediction itself), but a fuzzy name match ("Name Check") is a
+    DIFFERENT kind of flag - it's uncertain about which raw fixture
+    name maps to which known team, not about the prediction's own
+    reliability once that mapping is made. Deliberately included here
+    since a correct name match still produces a perfectly good pick;
+    the flag stays visible on the fixture card itself so it's still
+    something worth a quick human glance before relying on it, just
+    not a reason to hide it from Best Bets outright.
     Each entry is tagged with its league code/name."""
     today = today or date.today()
     window_end = today + timedelta(days=window_days)
@@ -72,7 +81,7 @@ def _eligible_pool(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, tod
             fx_date = _parse_date(fx.get("date", ""))
             if fx_date and fx_date > window_end:
                 continue
-            if fx.get("cross_league_data") or fx.get("fuzzy_name_match") or fx.get("low_sample"):
+            if fx.get("cross_league_data") or fx.get("low_sample"):
                 continue
             pool.append({**fx, "league_code": code, "league_name": league.get("league_name", code)})
     return pool
