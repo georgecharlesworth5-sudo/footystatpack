@@ -1441,8 +1441,8 @@
           "expected_away": 27.678,
           "expected_total": 61.6,
           "moneyline": {
-            "home_win": 0.621,
-            "away_win": 0.379
+            "home_win": 0.615,
+            "away_win": 0.385
           },
           "total_over_under": [
             {
@@ -2773,8 +2773,8 @@
             },
             {
               "line": 50.5,
-              "over": 0.496,
-              "under": 0.504,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 53.2
             }
           ],
