@@ -201,6 +201,20 @@ KNOWN_ALIASES = {
     "Borussia Mönchengladbach": "M'gladbach",
     "1. FSV Mainz 05": "Mainz",
     "Sport-Club Freiburg": "Freiburg",
+    # Ligue 1: same pattern again - football-data.co.uk uses terser
+    # names than fixturedownload.com's official club names. All six of
+    # these are CONFIRMED via real skip messages (unlike some earlier
+    # batches, the raw names below are exactly what failed) - the
+    # target names are still football-data.co.uk's well-known Ligue 1
+    # conventions rather than independently re-verified against the
+    # actual current data file, so still worth a glance at the next
+    # [debug] skip log in case any target itself needs correcting.
+    "Olympique de Marseille": "Marseille",
+    "Paris Saint-Germain": "Paris SG",
+    "Olympique Lyonnais": "Lyon",
+    "Havre Athletic Club": "Le Havre",
+    "Stade Brestois 29": "Brest",
+    "Stade Rennais FC": "Rennes",
 }
 
 
