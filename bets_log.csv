@@ -464,9 +464,19 @@ Levante|Ath Bilbao|16/09/2026|second_half_goals|Over,2026-09-16,16/09/2026,SP1,L
 AFC Wimbledon|Milton Keynes Dons|17/09/2026|corners|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,,corners,,,Over,8.5,0.892,,pending,,,
 Betis|Getafe|17/09/2026|cards|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,,cards,,,Over,2.5,0.997,,pending,,,
 AFC Wimbledon|Milton Keynes Dons|17/09/2026|second_half_goals|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,,second_half_goals,,,Over,0.5,0.874,,pending,,,
-football|Betis|Getafe|17/09/2026|cards|match|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,match,,Over,2.5,0.997,Betis v Getafe - Over 2.5 Cards,pending,,,
-football|Betis|Getafe|17/09/2026|cards|away|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,away,Getafe,Over,0.5,0.997,Getafe - Over 0.5 Cards,pending,,,
-football|Betis|Getafe|17/09/2026|cards|home|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,home,Betis,Over,0.5,0.984,Betis - Over 0.5 Cards,pending,,,
-football|AFC Wimbledon|Milton Keynes Dons|17/09/2026|corners|away|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,football,corners,away,Milton Keynes Dons,Over,2.5,0.97,Milton Keynes Dons - Over 2.5 Corners,pending,,,
-football|AFC Wimbledon|Milton Keynes Dons|17/09/2026|cards|away|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,football,cards,away,Milton Keynes Dons,Over,0.5,0.958,Milton Keynes Dons - Over 0.5 Cards,pending,,,
-football|AFC Wimbledon|Milton Keynes Dons|17/09/2026|corners|home|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,football,corners,home,AFC Wimbledon,Over,2.5,0.93,AFC Wimbledon - Over 2.5 Corners,pending,,,
+football|Betis|Getafe|17/09/2026|cards|match|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,match,,Over,2.5,0.997,Betis v Getafe - Over 2.5 Cards,settled,0,miss,2026-09-18
+football|Betis|Getafe|17/09/2026|cards|away|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,away,Getafe,Over,0.5,0.997,Getafe - Over 0.5 Cards,settled,0,miss,2026-09-18
+football|Betis|Getafe|17/09/2026|cards|home|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,home,Betis,Over,0.5,0.984,Betis - Over 0.5 Cards,settled,0,miss,2026-09-18
+football|AFC Wimbledon|Milton Keynes Dons|17/09/2026|corners|away|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,football,corners,away,Milton Keynes Dons,Over,2.5,0.97,Milton Keynes Dons - Over 2.5 Corners,settled,6,hit,2026-09-18
+football|AFC Wimbledon|Milton Keynes Dons|17/09/2026|cards|away|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,football,cards,away,Milton Keynes Dons,Over,0.5,0.958,Milton Keynes Dons - Over 0.5 Cards,settled,0,miss,2026-09-18
+football|AFC Wimbledon|Milton Keynes Dons|17/09/2026|corners|home|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,football,corners,home,AFC Wimbledon,Over,2.5,0.93,AFC Wimbledon - Over 2.5 Corners,settled,5,hit,2026-09-18
+football|Bristol City|Watford|18/09/2026|cards|home|Over,2026-09-18,18/09/2026,E1,Championship,Bristol City,Watford,football,cards,home,Bristol City,Over,0.5,0.969,Bristol City - Over 0.5 Cards,pending,,,
+football|Bristol City|Watford|18/09/2026|cards|match|Over,2026-09-18,18/09/2026,E1,Championship,Bristol City,Watford,football,cards,match,,Over,2.5,0.963,Bristol City v Watford - Over 2.5 Cards,pending,,,
+football|Bristol City|Watford|18/09/2026|corners|home|Over,2026-09-18,18/09/2026,E1,Championship,Bristol City,Watford,football,corners,home,Bristol City,Over,2.5,0.962,Bristol City - Over 2.5 Corners,pending,,,
+football|Bristol City|Watford|18/09/2026|cards|away|Over,2026-09-18,18/09/2026,E1,Championship,Bristol City,Watford,football,cards,away,Watford,Over,0.5,0.961,Watford - Over 0.5 Cards,pending,,,
+football|Espanol|Elche|18/09/2026|cards|home|Over,2026-09-18,18/09/2026,SP1,La Liga,Espanol,Elche,football,cards,home,Espanol,Over,0.5,0.947,Espanol - Over 0.5 Cards,pending,,,
+football|Brentford|Chelsea|18/09/2026|cards|away|Over,2026-09-18,18/09/2026,E0,Premier League,Brentford,Chelsea,football,cards,away,Chelsea,Over,0.5,0.937,Chelsea - Over 0.5 Cards,pending,,,
+football|Espanol|Elche|18/09/2026|cards|away|Over,2026-09-18,18/09/2026,SP1,La Liga,Espanol,Elche,football,cards,away,Elche,Over,0.5,0.926,Elche - Over 0.5 Cards,pending,,,
+football|Espanol|Elche|18/09/2026|cards|match|Over,2026-09-18,18/09/2026,SP1,La Liga,Espanol,Elche,football,cards,match,,Over,2.5,0.914,Espanol v Elche - Over 2.5 Cards,pending,,,
+football|Bristol City|Watford|18/09/2026|corners|away|Over,2026-09-18,18/09/2026,E1,Championship,Bristol City,Watford,football,corners,away,Watford,Over,2.5,0.913,Watford - Over 2.5 Corners,pending,,,
+football|Brentford|Chelsea|18/09/2026|corners|home|Over,2026-09-18,18/09/2026,E0,Premier League,Brentford,Chelsea,football,corners,home,Brentford,Over,2.5,0.91,Brentford - Over 2.5 Corners,pending,,,
