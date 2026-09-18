@@ -649,6 +649,7 @@
   const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
   let showFullSeason = false; // toggled by the "Show full season" link in league views
   let footballMenuOpen = false; // toggled by clicking the "Football" tab
+  let bestBetsSortMode = "confidence"; // toggled by the sort-order links on the Best Bets tab
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
   let activeLeague = null;
 
@@ -979,12 +980,41 @@
     </div>`;
   }
 
+  // Groups picks by their underlying fixture (same sport/teams/date/
+  // time), orders the GROUPS by kickoff time, and within each group
+  // orders picks by confidence - so multiple picks on the same game
+  // (e.g. a match-level Over plus a team-level corners pick) end up
+  // sitting next to each other rather than scattered wherever their
+  // individual confidence happens to place them.
+  function groupPicksByGame(picks) {
+    const groups = new Map();
+    picks.forEach(p => {
+      const key = `${p.sport}|${p.home_team}|${p.away_team}|${p.date}|${p.time}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(p);
+    });
+    const groupList = Array.from(groups.values());
+    groupList.forEach(g => g.sort((a, b) => b.confidence - a.confidence));
+    groupList.sort((a, b) => fixtureTimestamp(a[0]) - fixtureTimestamp(b[0]));
+    return groupList.flat();
+  }
+
+  function bestBetsSortToggle() {
+    const opt = (mode, label) => mode === bestBetsSortMode
+      ? `<b>${label}</b>`
+      : `<a href="#" data-sort="${mode}">${label}</a>`;
+    return `<div class="window-toggle">Sort: ${opt("confidence", "% Confidence")} · ${opt("game", "By Game")}</div>`;
+  }
+
   function renderBestBets() {
     const footballPicks = (typeof STATPACK_DATA !== "undefined" && Array.isArray(STATPACK_DATA.best_bets))
       ? STATPACK_DATA.best_bets : [];
     const nflPicks = (typeof NFL_STATPACK_DATA !== "undefined" && Array.isArray(NFL_STATPACK_DATA.best_bets))
       ? NFL_STATPACK_DATA.best_bets : [];
-    const allPicks = [...footballPicks, ...nflPicks].sort((a, b) => b.confidence - a.confidence);
+    const combined = [...footballPicks, ...nflPicks];
+    const allPicks = bestBetsSortMode === "game"
+      ? groupPicksByGame(combined)
+      : [...combined].sort((a, b) => b.confidence - a.confidence);
 
     if (allPicks.length === 0) {
       mainEl.innerHTML = `<div class="empty">No eligible picks today across any league or sport.<br>
@@ -992,8 +1022,20 @@
       return;
     }
 
-    mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar - sorted highest first. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.</div>` +
+    mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.</div>` +
+      bestBetsSortToggle() +
       allPicks.map((p, i) => flatBestBetRow(p, i + 1)).join("");
+
+    const toggle = mainEl.querySelector(".window-toggle");
+    if (toggle) {
+      toggle.querySelectorAll("a[data-sort]").forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          bestBetsSortMode = link.dataset.sort;
+          render();
+        });
+      });
+    }
   }
 
   function renderTrackRecord() {
