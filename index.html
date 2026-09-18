@@ -1195,9 +1195,20 @@
     const windowStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
     const windowEnd = windowStart + (24 + LATE_NIGHT_CUTOFF_HOUR) * 3600000;
 
+    // A fixture whose kickoff has already passed shouldn't show here
+    // regardless of which day's window it falls in - a game that
+    // kicked off Thursday evening US time (early Friday UK) is
+    // correctly included on Thursday's page ahead of kickoff, but
+    // once it's actually been played there's no reason for it to
+    // linger into Friday's page too just because its own date field
+    // says Friday. Checking against the CURRENT moment (not just the
+    // date window) catches this - and also covers a backend-staleness
+    // case: NFL's own data only refreshes once a day, so a game that
+    // was still upcoming at that last refresh could have since kicked
+    // off and finished by the time someone actually loads this page.
     const inWindow = fx => {
       const ts = fixtureTimestamp(fx);
-      return ts >= windowStart && ts < windowEnd;
+      return ts >= windowStart && ts < windowEnd && ts >= now.getTime();
     };
 
     const items = [];
