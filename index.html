@@ -218,6 +218,28 @@
   }
   .sort-toggle-link:hover { color: var(--ink-dim); }
   .window-toggle a:hover { opacity: 0.8; }
+  .bb-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    padding: 10px 4px 4px;
+    border-top: 1px solid var(--rule);
+    margin-top: 8px;
+  }
+  .bb-filter-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .bb-filter-item input[type="checkbox"] {
+    accent-color: var(--amber);
+    cursor: pointer;
+  }
   .bb-category {
     margin: 18px 0 8px;
   }
@@ -662,6 +684,7 @@
   let showFullSeason = false; // toggled by the "Show full season" link in league views
   let footballMenuOpen = false; // toggled by clicking the "Football" tab
   let bestBetsSortMode = "confidence"; // toggled by the sort-order links on the Best Bets tab
+  let bestBetsHiddenMetrics = new Set(); // metrics unchecked by the filter row - empty means "show everything"
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
   let activeLeague = null;
 
@@ -1011,6 +1034,39 @@
     return groupList.flat();
   }
 
+  const ALL_METRIC_LABELS = {
+    goals: "Goals",
+    corners: "Corners",
+    cards: "Cards",
+    first_half_goals: "1st-Half Goals",
+    second_half_goals: "2nd-Half Goals",
+    btts: "BTTS",
+    team_win: "Team Win",
+    moneyline: "Moneyline",
+    points: "Points",
+    passing_tds: "Passing TDs",
+    rushing_tds: "Rushing TDs",
+  };
+
+  // Checkbox filter row - built dynamically from whichever metrics
+  // actually appear in TODAY's pool (not a fixed list), so a day with
+  // no NFL picks simply doesn't show NFL-only checkboxes, and a new
+  // metric added later needs no changes here to show up. Unchecking a
+  // box hides that metric; everything defaults to checked (shown).
+  function bestBetsFilterRow(picks) {
+    const metricsPresent = [...new Set(picks.map(p => p.metric))];
+    if (metricsPresent.length <= 1) return ""; // nothing meaningful to filter
+    metricsPresent.sort();
+    return `<div class="bb-filter-row">
+      ${metricsPresent.map(m => `
+        <label class="bb-filter-item">
+          <input type="checkbox" data-metric="${m}" ${bestBetsHiddenMetrics.has(m) ? "" : "checked"}>
+          ${ALL_METRIC_LABELS[m] || m}
+        </label>
+      `).join("")}
+    </div>`;
+  }
+
   function bestBetsSortToggle() {
     const opt = (mode, label) => mode === bestBetsSortMode
       ? `<span class="sort-toggle-active">${label}</span>`
@@ -1024,19 +1080,36 @@
     const nflPicks = (typeof NFL_STATPACK_DATA !== "undefined" && Array.isArray(NFL_STATPACK_DATA.best_bets))
       ? NFL_STATPACK_DATA.best_bets : [];
     const combined = [...footballPicks, ...nflPicks];
-    const allPicks = bestBetsSortMode === "game"
-      ? groupPicksByGame(combined)
-      : [...combined].sort((a, b) => b.confidence - a.confidence);
 
-    if (allPicks.length === 0) {
+    if (combined.length === 0) {
       mainEl.innerHTML = `<div class="empty">No eligible picks today across any league or sport.<br>
         (Fixtures with a thin sample, cross-league, or name-match flag are excluded from Best Bets - check the league tabs for those.)</div>`;
       return;
     }
 
+    const filterRow = bestBetsFilterRow(combined);
+    const visible = combined.filter(p => !bestBetsHiddenMetrics.has(p.metric));
+    const allPicks = bestBetsSortMode === "game"
+      ? groupPicksByGame(visible)
+      : [...visible].sort((a, b) => b.confidence - a.confidence);
+
+    const listHtml = allPicks.length > 0
+      ? allPicks.map((p, i) => flatBestBetRow(p, i + 1)).join("")
+      : `<div class="bb-empty">No picks match the current filter</div>`;
+
     mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.</div>` +
+      filterRow +
       bestBetsSortToggle() +
-      allPicks.map((p, i) => flatBestBetRow(p, i + 1)).join("");
+      listHtml;
+
+    mainEl.querySelectorAll(".bb-filter-item input[data-metric]").forEach(box => {
+      box.addEventListener("change", () => {
+        const metric = box.dataset.metric;
+        if (box.checked) bestBetsHiddenMetrics.delete(metric);
+        else bestBetsHiddenMetrics.add(metric);
+        render();
+      });
+    });
 
     const toggle = mainEl.querySelector(".window-toggle");
     if (toggle) {
@@ -1047,6 +1120,7 @@
           render();
         });
       });
+
     }
   }
 
