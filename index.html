@@ -206,6 +206,17 @@
     text-decoration: none;
     border-bottom: 1px dotted var(--amber);
   }
+  .sort-toggle-active {
+    color: var(--amber);
+    font-weight: 600;
+  }
+  .sort-toggle-link {
+    color: var(--meta);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--meta);
+    cursor: pointer;
+  }
+  .sort-toggle-link:hover { color: var(--ink-dim); }
   .window-toggle a:hover { opacity: 0.8; }
   .bb-category {
     margin: 18px 0 8px;
@@ -1002,8 +1013,8 @@
 
   function bestBetsSortToggle() {
     const opt = (mode, label) => mode === bestBetsSortMode
-      ? `<b>${label}</b>`
-      : `<a href="#" data-sort="${mode}">${label}</a>`;
+      ? `<span class="sort-toggle-active">${label}</span>`
+      : `<a href="#" class="sort-toggle-link" data-sort="${mode}">${label}</a>`;
     return `<div class="window-toggle">Sort: ${opt("confidence", "% Confidence")} · ${opt("game", "By Game")}</div>`;
   }
 
