@@ -362,6 +362,7 @@ if __name__ == "__main__":
     data_dir = base / "data"
     log_path = base / "bets_log.csv"
     statpack_path = base / "statpack.json"
+    nfl_statpack_path = base / "nfl_statpack.json"
 
     if not statpack_path.exists():
         raise SystemExit("statpack.json not found - run build_statpack.py first.")
@@ -372,7 +373,26 @@ if __name__ == "__main__":
     today = date.today()
     log = load_log(log_path)
 
-    picks = statpack.get("best_bets", [])
+    # Both sports' best_bets lists are the SAME flat pick shape (see
+    # best_bets.py / nfl_best_bets.py), tagged "sport" precisely so they
+    # can be logged together here - this was the whole point of that
+    # shape, but the actual merge was missing: this only ever read
+    # statpack.json, so NFL picks were never logged at all (not stuck
+    # pending - simply never entered into bets_log.csv in the first
+    # place). nfl_statpack.json is written by the separate NFL workflow
+    # to the same repo, so it's read here if present; its absence isn't
+    # an error (e.g. the NFL workflow hasn't run yet on a fresh repo) -
+    # football logging still proceeds either way.
+    picks = list(statpack.get("best_bets", []))
+    if nfl_statpack_path.exists():
+        with open(nfl_statpack_path) as f:
+            nfl_statpack = json.load(f)
+        nfl_picks = nfl_statpack.get("best_bets", [])
+        picks.extend(nfl_picks)
+        print(f"Including {len(nfl_picks)} NFL pick(s) alongside {len(statpack.get('best_bets', []))} football pick(s).")
+    else:
+        print("No nfl_statpack.json found - logging football picks only.")
+
     added = log_new_picks(log, picks, today)
     print(f"Logged {added} new pick(s).")
 
