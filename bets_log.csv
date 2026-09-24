@@ -371,10 +371,10 @@ West Ham|Derby|05/09/2026|btts|Yes,2026-09-03,05/09/2026,E1,Championship,West Ha
 Hearts|Dundee|06/09/2026|btts|No,2026-09-03,06/09/2026,SC0,Scottish Premiership,Hearts,Dundee,,btts,,,No,,0.746,,settled,1,miss,2026-09-10
 Wrexham|Burnley|08/09/2026|goals|Over,2026-09-04,08/09/2026,E1,Championship,Wrexham,Burnley,,goals,,,Over,1.5,0.917,,settled,2,hit,2026-09-11
 Bolton|West Ham|08/09/2026|goals|Over,2026-09-04,08/09/2026,E1,Championship,Bolton,West Ham,,goals,,,Over,1.5,0.902,,settled,5,hit,2026-09-11
-Middlesbrough|Millwall|08/09/2026|corners|Over,2026-09-04,08/09/2026,E1,Championship,Middlesbrough,Millwall,,corners,,,Over,8.5,0.989,,pending,,,
+Middlesbrough|Millwall|08/09/2026|corners|Over,2026-09-04,08/09/2026,E1,Championship,Middlesbrough,Millwall,,corners,,,Over,8.5,0.989,,settled,15,hit,2026-09-24
 Bolton|West Ham|08/09/2026|cards|Over,2026-09-04,08/09/2026,E1,Championship,Bolton,West Ham,,cards,,,Over,2.5,0.921,,settled,3,hit,2026-09-11
 Wrexham|Burnley|08/09/2026|first_half_goals|Over,2026-09-04,08/09/2026,E1,Championship,Wrexham,Burnley,,first_half_goals,,,Over,0.5,0.955,,settled,1,hit,2026-09-11
-Middlesbrough|Millwall|08/09/2026|second_half_goals|Over,2026-09-04,08/09/2026,E1,Championship,Middlesbrough,Millwall,,second_half_goals,,,Over,0.5,0.93,,pending,,,
+Middlesbrough|Millwall|08/09/2026|second_half_goals|Over,2026-09-04,08/09/2026,E1,Championship,Middlesbrough,Millwall,,second_half_goals,,,Over,0.5,0.93,,settled,2,hit,2026-09-24
 Oxford|Reading|08/09/2026|second_half_goals|Under,2026-09-04,08/09/2026,E2,League One,Oxford,Reading,,second_half_goals,,,Under,2.5,0.966,,pending,,,
 Blackburn|Sheffield United|08/09/2026|second_half_goals|Under,2026-09-04,08/09/2026,E1,Championship,Blackburn,Sheffield United,,second_half_goals,,,Under,2.5,0.965,,settled,0,hit,2026-09-11
 Bolton|West Ham|08/09/2026|btts|Yes,2026-09-04,08/09/2026,E1,Championship,Bolton,West Ham,,btts,,,Yes,,0.692,,settled,1,hit,2026-09-11
@@ -438,32 +438,32 @@ Torino|Roma|13/09/2026|second_half_goals|Over,2026-09-13,13/09/2026,I1,Serie A,T
 Como|Parma|13/09/2026|team_win|Como,2026-09-13,13/09/2026,I1,Serie A,Como,Parma,,team_win,,,Como,,0.78,,settled,Como,hit,2026-09-15
 Inter|Udinese|14/09/2026|goals|Over,2026-09-14,14/09/2026,I1,Serie A,Inter,Udinese,,goals,,,Over,1.5,0.924,,settled,8,hit,2026-09-15
 Inter|Udinese|14/09/2026|second_half_goals|Over,2026-09-14,14/09/2026,I1,Serie A,Inter,Udinese,,second_half_goals,,,Over,0.5,0.96,,settled,4,hit,2026-09-15
-Falkirk|Hearts|15/09/2026|goals|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,goals,,,Over,1.5,0.942,,pending,,,
-Hibernian|Kilmarnock|15/09/2026|cards|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Hibernian,Kilmarnock,,cards,,,Over,2.5,0.969,,pending,,,
-Falkirk|Hearts|15/09/2026|cards|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,cards,,,Over,2.5,0.945,,pending,,,
-Falkirk|Hearts|15/09/2026|first_half_goals|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,first_half_goals,,,Over,0.5,0.967,,pending,,,
-Motherwell|Aberdeen|15/09/2026|team_win|Motherwell,2026-09-15,15/09/2026,SC0,Scottish Premiership,Motherwell,Aberdeen,,team_win,,,Motherwell,,0.816,,pending,,,
-Elche|Real Madrid|15/09/2026|cards|Over,2026-09-15,15/09/2026,SP1,La Liga,Elche,Real Madrid,,cards,,,Over,2.5,0.959,,pending,,,
-Vallecano|Espanol|15/09/2026|cards|Over,2026-09-15,15/09/2026,SP1,La Liga,Vallecano,Espanol,,cards,,,Over,2.5,0.957,,pending,,,
-Alaves|Valencia|15/09/2026|second_half_goals|Over,2026-09-15,15/09/2026,SP1,La Liga,Alaves,Valencia,,second_half_goals,,,Over,0.5,0.916,,pending,,,
-Middlesbrough|Millwall|15/09/2026|goals|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,goals,,,Over,1.5,0.972,,pending,,,
-Bristol City|Lincoln|15/09/2026|corners|Over,2026-09-15,15/09/2026,E1,Championship,Bristol City,Lincoln,,corners,,,Over,8.5,0.925,,pending,,,
-Middlesbrough|Millwall|15/09/2026|corners|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,corners,,,Over,8.5,0.919,,pending,,,
-Middlesbrough|Millwall|15/09/2026|second_half_goals|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,second_half_goals,,,Over,0.5,0.99,,pending,,,
-Falkirk|Hearts|15/09/2026|corners|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,corners,,,Over,8.5,0.896,,pending,,,
-Vallecano|Espanol|15/09/2026|corners|Over,2026-09-15,15/09/2026,SP1,La Liga,Vallecano,Espanol,,corners,,,Over,8.5,0.889,,pending,,,
-Vallecano|Espanol|15/09/2026|first_half_goals|Over,2026-09-15,15/09/2026,SP1,La Liga,Vallecano,Espanol,,first_half_goals,,,Over,0.5,0.859,,pending,,,
-Middlesbrough|Millwall|15/09/2026|first_half_goals|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,first_half_goals,,,Over,0.5,0.851,,pending,,,
-Hibernian|Kilmarnock|15/09/2026|second_half_goals|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Hibernian,Kilmarnock,,second_half_goals,,,Over,0.5,0.852,,pending,,,
+Falkirk|Hearts|15/09/2026|goals|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,goals,,,Over,1.5,0.942,,settled,3,hit,2026-09-24
+Hibernian|Kilmarnock|15/09/2026|cards|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Hibernian,Kilmarnock,,cards,,,Over,2.5,0.969,,settled,5,hit,2026-09-24
+Falkirk|Hearts|15/09/2026|cards|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,cards,,,Over,2.5,0.945,,settled,7,hit,2026-09-24
+Falkirk|Hearts|15/09/2026|first_half_goals|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,first_half_goals,,,Over,0.5,0.967,,settled,2,hit,2026-09-24
+Motherwell|Aberdeen|15/09/2026|team_win|Motherwell,2026-09-15,15/09/2026,SC0,Scottish Premiership,Motherwell,Aberdeen,,team_win,,,Motherwell,,0.816,,settled,Aberdeen,miss,2026-09-24
+Elche|Real Madrid|15/09/2026|cards|Over,2026-09-15,15/09/2026,SP1,La Liga,Elche,Real Madrid,,cards,,,Over,2.5,0.959,,settled,6,hit,2026-09-24
+Vallecano|Espanol|15/09/2026|cards|Over,2026-09-15,15/09/2026,SP1,La Liga,Vallecano,Espanol,,cards,,,Over,2.5,0.957,,settled,8,hit,2026-09-24
+Alaves|Valencia|15/09/2026|second_half_goals|Over,2026-09-15,15/09/2026,SP1,La Liga,Alaves,Valencia,,second_half_goals,,,Over,0.5,0.916,,settled,1,hit,2026-09-24
+Middlesbrough|Millwall|15/09/2026|goals|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,goals,,,Over,1.5,0.972,,settled,4,hit,2026-09-24
+Bristol City|Lincoln|15/09/2026|corners|Over,2026-09-15,15/09/2026,E1,Championship,Bristol City,Lincoln,,corners,,,Over,8.5,0.925,,settled,17,hit,2026-09-24
+Middlesbrough|Millwall|15/09/2026|corners|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,corners,,,Over,8.5,0.919,,settled,15,hit,2026-09-24
+Middlesbrough|Millwall|15/09/2026|second_half_goals|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,second_half_goals,,,Over,0.5,0.99,,settled,2,hit,2026-09-24
+Falkirk|Hearts|15/09/2026|corners|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Falkirk,Hearts,,corners,,,Over,8.5,0.896,,settled,7,miss,2026-09-24
+Vallecano|Espanol|15/09/2026|corners|Over,2026-09-15,15/09/2026,SP1,La Liga,Vallecano,Espanol,,corners,,,Over,8.5,0.889,,settled,8,miss,2026-09-24
+Vallecano|Espanol|15/09/2026|first_half_goals|Over,2026-09-15,15/09/2026,SP1,La Liga,Vallecano,Espanol,,first_half_goals,,,Over,0.5,0.859,,settled,2,hit,2026-09-24
+Middlesbrough|Millwall|15/09/2026|first_half_goals|Over,2026-09-15,15/09/2026,E1,Championship,Middlesbrough,Millwall,,first_half_goals,,,Over,0.5,0.851,,settled,2,hit,2026-09-24
+Hibernian|Kilmarnock|15/09/2026|second_half_goals|Over,2026-09-15,15/09/2026,SC0,Scottish Premiership,Hibernian,Kilmarnock,,second_half_goals,,,Over,0.5,0.852,,settled,0,miss,2026-09-24
 Levante|Ath Bilbao|16/09/2026|goals|Over,2026-09-16,16/09/2026,SP1,La Liga,Levante,Ath Bilbao,,goals,,,Over,1.5,0.968,,pending,,,
-Ath Madrid|Osasuna|16/09/2026|goals|Over,2026-09-16,16/09/2026,SP1,La Liga,Ath Madrid,Osasuna,,goals,,,Over,1.5,0.909,,pending,,,
+Ath Madrid|Osasuna|16/09/2026|goals|Over,2026-09-16,16/09/2026,SP1,La Liga,Ath Madrid,Osasuna,,goals,,,Over,1.5,0.909,,settled,4,hit,2026-09-24
 Levante|Ath Bilbao|16/09/2026|corners|Over,2026-09-16,16/09/2026,SP1,La Liga,Levante,Ath Bilbao,,corners,,,Over,8.5,0.85,,pending,,,
 Levante|Ath Bilbao|16/09/2026|first_half_goals|Over,2026-09-16,16/09/2026,SP1,La Liga,Levante,Ath Bilbao,,first_half_goals,,,Over,0.5,0.957,,pending,,,
-Ath Madrid|Osasuna|16/09/2026|second_half_goals|Over,2026-09-16,16/09/2026,SP1,La Liga,Ath Madrid,Osasuna,,second_half_goals,,,Over,0.5,0.972,,pending,,,
+Ath Madrid|Osasuna|16/09/2026|second_half_goals|Over,2026-09-16,16/09/2026,SP1,La Liga,Ath Madrid,Osasuna,,second_half_goals,,,Over,0.5,0.972,,settled,3,hit,2026-09-24
 Levante|Ath Bilbao|16/09/2026|second_half_goals|Over,2026-09-16,16/09/2026,SP1,La Liga,Levante,Ath Bilbao,,second_half_goals,,,Over,0.5,0.927,,pending,,,
-AFC Wimbledon|Milton Keynes Dons|17/09/2026|corners|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,,corners,,,Over,8.5,0.892,,pending,,,
-Betis|Getafe|17/09/2026|cards|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,,cards,,,Over,2.5,0.997,,pending,,,
-AFC Wimbledon|Milton Keynes Dons|17/09/2026|second_half_goals|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,,second_half_goals,,,Over,0.5,0.874,,pending,,,
+AFC Wimbledon|Milton Keynes Dons|17/09/2026|corners|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,,corners,,,Over,8.5,0.892,,settled,11,hit,2026-09-24
+Betis|Getafe|17/09/2026|cards|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,,cards,,,Over,2.5,0.997,,settled,0,miss,2026-09-24
+AFC Wimbledon|Milton Keynes Dons|17/09/2026|second_half_goals|Over,2026-09-17,17/09/2026,E2,League One,AFC Wimbledon,Milton Keynes Dons,,second_half_goals,,,Over,0.5,0.874,,settled,0,miss,2026-09-24
 football|Betis|Getafe|17/09/2026|cards|match|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,match,,Over,2.5,0.997,Betis v Getafe - Over 2.5 Cards,settled,0,miss,2026-09-18
 football|Betis|Getafe|17/09/2026|cards|away|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,away,Getafe,Over,0.5,0.997,Getafe - Over 0.5 Cards,settled,0,miss,2026-09-18
 football|Betis|Getafe|17/09/2026|cards|home|Over,2026-09-17,17/09/2026,SP1,La Liga,Betis,Getafe,football,cards,home,Betis,Over,0.5,0.984,Betis - Over 0.5 Cards,settled,0,miss,2026-09-18
