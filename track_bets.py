@@ -95,7 +95,7 @@ def log_new_picks(log: dict[str, dict], all_picks: list[dict], today: date) -> i
     sport). Returns how many new rows were added."""
     added = 0
     for pick in all_picks:
-        sport = pick.get("sport", "football")
+        sport = pick.get("sport") or "football"
         pick_id = make_pick_id(sport, pick["home_team"], pick["away_team"],
                                 pick["date"], pick["metric"], pick["scope"], pick["direction"])
         if pick_id in log:
@@ -206,7 +206,7 @@ def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tupl
     for pick in log.values():
         if pick["status"] != "pending":
             continue
-        if pick.get("sport", "football") != "football":
+        if (pick.get("sport") or "football") != "football":
             continue  # NFL settlement not built yet - stays pending, not an error
 
         match_date = _parse_date(pick["match_date"])
@@ -267,7 +267,7 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
 
     corrections, reverted = [], []
     for pick in log.values():
-        if pick["status"] != "settled" or pick.get("sport", "football") != "football":
+        if pick["status"] != "settled" or (pick.get("sport") or "football") != "football":
             continue
         match_date = _parse_date(pick["match_date"])
         if match_date is None:
