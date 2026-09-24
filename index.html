@@ -1,1534 +1,454 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Footy Stat Pack</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Match Day Terminal — Stat Pack</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
   :root {
-    --bg: #0C0D0A;
-    --surface: #171813;
-    --surface-hover: #1D1F18;
-    --ink: #EDE8D8;
-    --ink-dim: #B8B3A0;
-    --amber: #E8A33D;
-    --green: #6B9B6E;
-    --red: #B5533E;
-    --meta: #6E6A5C;
-    --rule: #2A2C22;
-    --mono: 'JetBrains Mono', ui-monospace, monospace;
-    --sans: 'Inter', system-ui, sans-serif;
+    --bg: #0B0F14;
+    --panel: #12181F;
+    --panel-alt: #0E1319;
+    --border: #232B33;
+    --border-soft: #1C232B;
+    --amber: #F2A93B;
+    --amber-dim: #C9862A;
+    --green: #4CAF7D;
+    --red: #E5484D;
+    --text: #F5F7FA;
+    --muted: #8A96A3;
+    --muted-dim: #6E7A87;
+    --faint: #4A5561;
   }
-
   * { box-sizing: border-box; }
-
   body {
     margin: 0;
     background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
   }
+  .disp { font-family: 'Oswald', 'Arial Narrow', sans-serif; }
+  a { color: var(--amber); text-decoration: none; }
+  a:hover { color: #FFC469; }
+  ::selection { background: var(--amber); color: var(--bg); }
 
-  /* ---------- Ticker ---------- */
-  /* ---------- Header ---------- */
+  /* Header */
   header {
-    padding: 28px 20px 16px;
-    max-width: 920px;
-    margin: 0 auto;
-  }
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--meta);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  h1 {
-    font-family: var(--mono);
-    font-weight: 700;
-    font-size: clamp(28px, 5vw, 40px);
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-  h1 .dot { color: var(--amber); }
-  .subhead {
-    color: var(--ink-dim);
-    font-size: 14px;
-    margin-top: 8px;
-  }
-  .freshness-strip {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px 20px 32px;
+    border-bottom: 1px solid var(--border);
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
+    gap: 12px;
   }
-  .freshness-chip {
-    font-family: var(--mono);
-    font-size: 11px;
-    border-radius: 3px;
-    padding: 5px 9px;
-    border: 1px solid var(--rule);
-    color: var(--ink-dim);
-    white-space: nowrap;
+  .wordmark { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .wordmark h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text);
   }
-  .freshness-chip .dot-status {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin-right: 6px;
+  .wordmark .sub { font-size: 12px; color: var(--muted-dim); letter-spacing: 1px; }
+  .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .clock { font-size: 12px; color: var(--muted); }
+  .freshness {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 3px; font-size: 11px; letter-spacing: 0.5px;
   }
-  .freshness-fresh .dot-status { background: var(--green); }
-  .freshness-lagging .dot-status { background: var(--amber); }
-  .freshness-stale .dot-status { background: var(--red); }
-  .freshness-fresh { border-color: rgba(107,155,110,0.4); }
-  .freshness-lagging { border-color: rgba(232,163,61,0.4); }
-  .freshness-stale { border-color: rgba(181,83,62,0.4); }
+  .freshness.ok { border: 1px solid #2E6B4A; background: #10201A; color: #7FCBA0; }
+  .freshness.stale { border: 1px solid #7A4A1E; background: #241708; color: var(--amber); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.ok { background: var(--green); }
+  .dot.stale { background: var(--amber); }
 
-  /* ---------- League tabs ---------- */
+  /* League tabs */
   .tabs {
-    display: flex;
-    gap: 2px;
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 0 20px;
-    border-bottom: 1px solid var(--rule);
+    display: flex; gap: 2px; padding: 16px 32px 0 32px; flex-wrap: wrap;
   }
   .tab {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--meta);
-    background: none;
-    border: none;
-    padding: 12px 14px;
-    cursor: pointer;
-    white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s;
-  }
-  .tab:hover { color: var(--ink-dim); }
-  .tab.active {
-    color: var(--amber);
-    border-bottom-color: var(--amber);
-  }
-  .tab:focus-visible, .fixture summary:focus-visible, button:focus-visible {
-    outline: 2px solid var(--amber);
-    outline-offset: 2px;
-  }
-  .tab .count {
-    color: var(--meta);
-    font-size: 10px;
-    margin-left: 4px;
-  }
-  .tab-wrap {
-    position: relative;
-    display: inline-block;
-  }
-  .chev-dd {
-    font-size: 9px;
-    margin-left: 2px;
-    display: inline-block;
-  }
-  .football-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 20;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 6px;
-    margin-top: 4px;
-    min-width: 220px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-  }
-  .dropdown-item {
-    display: block;
-    width: 100%;
-    text-align: left;
-    font-family: var(--mono);
+    padding: 10px 18px;
+    font-family: 'Oswald', sans-serif;
     font-size: 13px;
-    color: var(--ink-dim);
-    background: none;
-    border: none;
-    padding: 9px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-    white-space: nowrap;
-  }
-  .dropdown-item:hover {
-    background: var(--surface-hover);
-    color: var(--ink);
-  }
-  .dropdown-item.active {
-    color: var(--amber);
-  }
-  .dropdown-item .count {
-    color: var(--meta);
-    font-size: 10px;
-    margin-left: 4px;
-  }
-  .dropdown-divider {
-    height: 1px;
-    background: var(--rule);
-    margin: 4px 2px;
-  }
-
-  .fixture-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--meta);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-  }
-
-  /* ---------- Best Bets ---------- */
-  .bb-intro {
-    font-size: 12px;
-    color: var(--meta);
-    padding: 14px 4px 4px;
-  }
-  .window-toggle {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--meta);
-    padding: 14px 4px 8px;
-  }
-  .window-toggle a {
-    color: var(--amber);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--amber);
-  }
-  .sort-toggle-active {
-    color: var(--amber);
     font-weight: 600;
-  }
-  .window-toggle a.sort-toggle-link {
-    color: var(--meta);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--meta);
+    letter-spacing: 0.5px;
+    background: #151B22;
+    color: var(--muted);
     cursor: pointer;
+    border: none;
   }
-  .sort-toggle-link:hover { color: var(--ink-dim); }
-  .window-toggle a:hover { opacity: 0.8; }
-  .bb-filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 14px;
-    padding: 10px 4px 4px;
-    border-top: 1px solid var(--rule);
-    margin-top: 8px;
+  .tab.active { background: var(--amber); color: var(--bg); }
+
+  /* Fixture filter row */
+  .toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px 0 32px; gap: 12px; flex-wrap: wrap;
   }
-  .bb-filter-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-dim);
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .bb-filter-item input[type="checkbox"] {
-    accent-color: var(--amber);
-    cursor: pointer;
-  }
-  .bb-category {
-    margin: 18px 0 8px;
-  }
-  .bb-category-title {
-    font-family: var(--mono);
+  .toolbar .count { font-size: 12px; color: var(--muted-dim); }
+  select, input[type="text"] {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--amber);
-    padding: 8px 4px;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 6px;
+    padding: 7px 10px;
   }
-  .bb-split {
+
+  /* Grid */
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
+    padding: 20px 32px 8px 32px;
   }
-  .bb-column-title {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-    padding: 2px 4px 6px;
-  }
-  .bb-empty {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--meta);
-    padding: 8px 4px;
-  }
-  .bb-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 10px 14px;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-  }
-  .bb-rank {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--meta);
-    width: 16px;
-  }
-  .bb-teams {
-    font-family: var(--mono);
-    font-weight: 600;
-    font-size: 13px;
-    flex: 1;
-    min-width: 160px;
-  }
-  .bb-teams .v { color: var(--meta); font-weight: 400; margin: 0 5px; }
-  .bb-league {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--meta);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .bb-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-dim);
-    min-width: 90px;
-  }
-  .bb-pct {
-    font-family: var(--mono);
-    font-weight: 700;
-    font-size: 14px;
-    min-width: 44px;
-    text-align: right;
-  }
+  @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
 
-  /* ---------- Track Record ---------- */
-  .tr-summary {
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 18px;
-    margin: 14px 0 20px;
-  }
-  .tr-summary-main {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .tr-summary-pct {
-    font-family: var(--mono);
-    font-weight: 700;
-    font-size: 32px;
-  }
-  .tr-summary-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-dim);
-  }
-  .tr-category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  .tile { background: var(--panel); border: 1px solid var(--border); }
+  .tile-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 14px; border-bottom: 1px solid var(--border);
     gap: 8px;
   }
-  .tr-category-chip {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 8px 10px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-dim);
+  .tile-head .matchup {
+    font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 700; color: var(--text);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
-  .tr-chip-n { color: var(--meta); font-size: 10px; }
-  .tr-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    padding: 3px 8px;
-    white-space: nowrap;
-  }
-  .tr-hit { color: var(--green); border: 1px solid var(--green); }
-  .tr-miss { color: var(--red); border: 1px solid var(--red); }
-  .tr-pending { color: var(--meta); border: 1px solid var(--meta); }
+  .tile-head .kickoff { font-size: 10px; color: var(--muted-dim); text-align: right; white-space: nowrap; }
+  .tile-head .positions { font-size: 10px; color: var(--faint); margin-top: 2px; }
+  .tile-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .metric-label { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--muted); margin-bottom: 4px; letter-spacing: 0.3px; }
+  .metric-label span.pct { font-weight: 600; }
+  .bar { display: flex; height: 7px; width: 100%; background: var(--border-soft); }
+  .bar .fill { height: 7px; }
+  .fill.goals { background: var(--green); }
+  .fill.corners { background: var(--amber); }
+  .fill.cards { background: var(--red); }
+  .fill.rest { background: var(--border); }
 
-  /* ---------- Fixture list ---------- */
-  main {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .date-group {
-    margin-bottom: 6px;
-  }
-  .date-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--meta);
-    padding: 18px 4px 8px;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 8px;
-  }
-  .fixture {
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    margin-bottom: 8px;
-    transition: background 0.15s;
-  }
-  .fixture:hover { background: var(--surface-hover); }
-  .fixture summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .fixture summary::-webkit-details-marker { display: none; }
-  .kickoff {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--meta);
-    min-width: 44px;
-  }
-  .teams {
-    font-family: var(--mono);
-    font-size: 14px;
-    font-weight: 600;
-    flex: 1;
-    min-width: 180px;
-  }
-  .teams .v { color: var(--meta); font-weight: 400; margin: 0 6px; }
-  .pos-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--meta);
-    margin-left: 4px;
-    white-space: nowrap;
-  }
-  .quick-stats {
-    display: flex;
-    gap: 16px;
-    font-family: var(--mono);
-    font-size: 11px;
-  }
-  .quick-stat { color: var(--ink-dim); white-space: nowrap; }
-  .quick-stat b { color: var(--ink); }
-  .pct-hi { color: var(--green); }
-  .pct-lo { color: var(--red); }
-  .flag {
-    font-size: 10px;
-    font-family: var(--mono);
-    color: var(--amber);
-    border: 1px solid var(--amber);
-    border-radius: 2px;
-    padding: 2px 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .flag-market {
-    font-size: 10px;
-    font-weight: 700;
-    font-family: var(--mono);
-    color: var(--green);
-    border: 1px solid var(--green);
-    border-radius: 2px;
-    padding: 2px 5px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .chev {
-    color: var(--meta);
-    font-family: var(--mono);
-    transition: transform 0.15s;
-  }
-  .fixture[open] .chev { transform: rotate(90deg); }
-
-  /* ---------- Expanded detail ---------- */
-  .detail {
-    padding: 4px 16px 18px;
-    border-top: 1px solid var(--rule);
-  }
-  .note {
-    font-size: 12px;
-    color: var(--amber);
-    background: rgba(232,163,61,0.08);
-    border: 1px solid rgba(232,163,61,0.25);
-    border-radius: 3px;
-    padding: 8px 10px;
-    margin: 12px 0;
-    line-height: 1.5;
-  }
-  .cup-leagues {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--meta);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-top: 4px;
-  }
-  .metric-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-    margin-top: 14px;
-  }
-  .mr-block {
-    margin-top: 14px;
-  }
-  .mr-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 8px;
-  }
-  .mr-option {
-    flex: 1;
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 12px 10px;
-    text-align: center;
-  }
-  .mr-option.mr-favourite {
-    border-color: var(--green);
-  }
-  .mr-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-dim);
-    margin-bottom: 6px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .mr-pct {
-    font-family: var(--mono);
-    font-weight: 700;
-    font-size: 18px;
-  }
-  .metric-card {
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 12px 14px;
-  }
-  .metric-title {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--meta);
-    margin-bottom: 8px;
-  }
-  .metric-expected {
-    font-family: var(--mono);
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .metric-expected .label { font-size: 10px; color: var(--meta); font-weight: 400; margin-left: 4px; }
-  .ou-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--mono);
-    font-size: 12px;
-    padding: 4px 0;
-    border-top: 1px solid var(--rule);
-  }
-  .ou-row:first-of-type { border-top: none; }
-  .ou-line { color: var(--ink-dim); }
-  .ou-bar-wrap {
-    flex: 1;
-    height: 6px;
-    background: var(--rule);
-    border-radius: 3px;
-    margin: 0 10px;
-    overflow: hidden;
-  }
-  .ou-bar {
-    height: 100%;
-    background: var(--amber);
-  }
-  .ou-pct { min-width: 38px; text-align: right; }
-  .btts-row {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-dim);
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--rule);
-  }
-  .metric-split {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--rule);
-  }
-  .metric-split-col {
-    flex: 1;
-    min-width: 0;
-  }
-  .metric-split-title {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--meta);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .metric-split-expected {
-    font-family: var(--mono);
-    font-weight: 700;
-    font-size: 15px;
-    margin: 2px 0 4px;
-  }
-  .split-ou-row {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--mono);
-    font-size: 10px;
-    padding: 2px 0;
-    color: var(--ink-dim);
-  }
-  .split-ou-line { color: var(--meta); }
-  .sample-note {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--meta);
-    margin-top: 12px;
-  }
+  .legend { display: flex; gap: 22px; padding: 6px 32px 18px 32px; flex-wrap: wrap; }
+  .legend .item { display: flex; align-items: center; gap: 7px; font-size: 10.5px; color: var(--muted); }
+  .legend .swatch { width: 9px; height: 9px; }
 
   .empty {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--meta);
-    font-family: var(--mono);
-    font-size: 13px;
-    line-height: 1.8;
+    padding: 60px 32px; text-align: center; color: var(--muted-dim); font-size: 13px;
   }
 
   footer {
-    max-width: 920px;
-    margin: 20px auto 40px;
-    padding: 0 20px;
-    color: var(--meta);
-    font-family: var(--mono);
-    font-size: 11px;
+    margin-top: 24px;
+    border-top: 1px solid var(--border);
+    background: var(--panel-alt);
+    padding: 12px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; color: var(--muted-dim);
+    flex-wrap: wrap; gap: 8px;
   }
-
-  @media (max-width: 560px) {
-    .quick-stats { display: none; }
-    .teams { font-size: 13px; }
-  }
+  footer .v { color: var(--faint); }
 </style>
 </head>
 <body>
 
-  <header>
-    <h1>Footy Stat Pack<span class="dot">.</span></h1>
-    <div class="subhead" id="generated-note">Goals, corners, cards &amp; half splits — Poisson model, 5 leagues.</div>
-  </header>
+<header>
+  <div class="wordmark">
+    <h1>MATCH DAY TERMINAL</h1>
+    <div class="sub">GOALS / CORNERS / CARDS</div>
+  </div>
+  <div class="header-right">
+    <div class="clock" id="clock"></div>
+    <div class="freshness" id="freshness"></div>
+  </div>
+</header>
 
-  <nav class="tabs" id="tabs"></nav>
+<div class="tabs" id="tabs"></div>
 
-  <main id="main">
-    <div class="empty">Loading…</div>
-  </main>
+<div class="toolbar">
+  <div class="count" id="fixtureCount"></div>
+  <select id="sortSelect">
+    <option value="date">SORT: KICKOFF DATE</option>
+    <option value="goals">SORT: GOALS O/U %</option>
+    <option value="corners">SORT: CORNERS O/U %</option>
+    <option value="cards">SORT: CARDS O/U %</option>
+  </select>
+</div>
 
-  <footer>
-    Data: football-data.co.uk (results) + fixturedownload.com (fixtures). Poisson model — treat as a signal, not a certainty.
-  </footer>
+<div class="legend">
+  <div class="item"><div class="swatch" style="background:#4CAF7D;"></div>GOALS MARKET</div>
+  <div class="item"><div class="swatch" style="background:#F2A93B;"></div>CORNERS MARKET</div>
+  <div class="item"><div class="swatch" style="background:#E5484D;"></div>CARDS MARKET</div>
+  <div class="item"><div class="swatch" style="background:#232B33;"></div>UNDER / REMAINDER</div>
+</div>
 
-<script src="statpack_data.js"></script>
-<script src="bets_log.js"></script>
-<script src="nfl_statpack_data.js"></script>
+<div class="grid" id="grid"></div>
+<div class="empty" id="emptyMsg" style="display:none;">NO FIXTURES LOADED FOR THIS LEAGUE</div>
+
+<footer>
+  <div id="footerNote">FIXTURES LOADED MANUALLY · RESULTS + PREDICTIONS AUTO-UPDATED VIA GITHUB ACTIONS</div>
+  <div class="v">MATCH DAY TERMINAL · v3</div>
+</footer>
+
+<!-- Your existing data pipeline output. Must define a global object, referenced below as `statpackData`. -->
+<script src="./statpack_data.js"></script>
 <script>
 (function () {
-  const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0", "I1", "SP1", "D1", "F1"];
-  const BEST_BETS = "__BEST_BETS__";
-  const TODAY = "__TODAY__";
-  const TRACK_RECORD = "__TRACK_RECORD__";
-  const EFL_CUP = "__EFL_CUP__";
-  const CASH_BUILDER = "__CASH_BUILDER__";
-  const NFL = "__NFL__";
-  const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
-  let showFullSeason = false; // toggled by the "Show full season" link in league views
-  let footballMenuOpen = false; // toggled by clicking the "Football" tab
-  let bestBetsSortMode = "confidence"; // toggled by the sort-order links on the Best Bets tab
-  let bestBetsHiddenMetrics = new Set(); // metrics unchecked by the filter row - empty means "show everything"
-  let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
-  let activeLeague = null;
+  // ---- CONFIG ---------------------------------------------------------
+  // If your statpack_data.js exposes the data under a different global
+  // name, change this one line only.
+  var DATA = (typeof statpackData !== 'undefined') ? statpackData : (window.statpackData || null);
 
-  const tabsEl = document.getElementById("tabs");
-  const mainEl = document.getElementById("main");
+  var TARGET_LINES = { goals: 2.5, corners: 9.5, cards: 4.5 };
 
-  if (!data) {
-    mainEl.innerHTML = '<div class="empty">No statpack_data.js found next to this file.<br>Run build_statpack.py, then open this page from the same folder.</div>';
-    return;
-  }
+  var els = {
+    tabs: document.getElementById('tabs'),
+    grid: document.getElementById('grid'),
+    empty: document.getElementById('emptyMsg'),
+    freshness: document.getElementById('freshness'),
+    clock: document.getElementById('clock'),
+    fixtureCount: document.getElementById('fixtureCount'),
+    sortSelect: document.getElementById('sortSelect'),
+    footerNote: document.getElementById('footerNote')
+  };
 
-  const availableLeagues = LEAGUE_ORDER.filter(code => data[code]);
-  if (availableLeagues.length === 0) {
-    mainEl.innerHTML = '<div class="empty">No league data found. Run fetch_data.py and build_statpack.py first.</div>';
-    return;
-  }
-  activeLeague = TODAY;
+  var state = { league: null, sort: 'date' };
 
-  function pct(n) { return Math.round(n * 100) + "%"; }
+  // ---- Helpers ----------------------------------------------------------
 
-  function ordinal(n) {
-    if (!n) return "";
-    const s = ["th", "st", "nd", "rd"], v = n % 100;
-    return n + (s[(v - 20) % 10] || s[v] || s[0]);
-  }
-
-  function posBadge(position) {
-    if (!position) return "";
-    return `<span class="pos-badge">${ordinal(position)}</span>`;
-  }
-
-  function parseFixtureDate(d) {
-    const parts = (d || "").split("/");
+  // Fixture dates are "DD/MM/YYYY"; kickoff times are "HH:MM"
+  function parseFixtureDate(dateStr, timeStr) {
+    if (!dateStr) return null;
+    var parts = dateStr.split('/');
     if (parts.length !== 3) return null;
-    const dt = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
-    return isNaN(dt) ? null : dt;
-  }
-
-  // Sortable timestamp combining date + kickoff time - used to put
-  // fixtures back into chronological order before grouping/display,
-  // rather than trusting the source file's row order. Confirmed this
-  // matters in practice: a rearranged fixture (e.g. moved to a later
-  // date for European-fixture reasons) can sit earlier in the source
-  // CSV than fixtures that kept their original, earlier date, which
-  // otherwise showed matches out of date order on the page. Undated
-  // fixtures sort last (Infinity) rather than disappearing or
-  // clumping at the start.
-  function fixtureTimestamp(fx) {
-    const d = parseFixtureDate(fx.date);
-    if (!d) return Infinity;
-    const [hh, mm] = (fx.time || "00:00").split(":").map(Number);
-    return d.getTime() + ((isNaN(hh) ? 0 : hh) * 60 + (isNaN(mm) ? 0 : mm)) * 60000;
-  }
-
-  function sortByKickoff(fixtures) {
-    return [...fixtures].sort((a, b) => fixtureTimestamp(a) - fixtureTimestamp(b));
-  }
-
-  function fmtDate(d) {
-    // d like "22/08/2026" -> "FRI 22 AUG"
-    const parts = (d || "").split("/");
-    if (parts.length !== 3) return d || "TBC";
-    const dt = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
-    if (isNaN(dt)) return d;
-    return dt.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }).toUpperCase();
-  }
-
-  function isFootballView(league) {
-    return availableLeagues.includes(league) || league === EFL_CUP || league === CASH_BUILDER;
-  }
-
-  function buildTabs() {
-    tabsEl.innerHTML = "";
-
-    const todayBtn = document.createElement("button");
-    todayBtn.className = "tab" + (activeLeague === TODAY ? " active" : "");
-    todayBtn.innerHTML = "Today";
-    todayBtn.addEventListener("click", () => { activeLeague = TODAY; footballMenuOpen = false; render(); });
-    tabsEl.appendChild(todayBtn);
-
-    // Football is a single top-level tab with a dropdown underneath it -
-    // every league, EFL Cup, and Cash Builder used to each get their own
-    // top-level slot, which stopped being manageable once NFL joined
-    // them as a genuinely different sport needing its own space.
-    const footballWrap = document.createElement("div");
-    footballWrap.className = "tab-wrap";
-
-    const footballBtn = document.createElement("button");
-    footballBtn.className = "tab" + (isFootballView(activeLeague) ? " active" : "");
-    footballBtn.innerHTML = `Football <span class="chev-dd">${footballMenuOpen ? "▴" : "▾"}</span>`;
-    footballBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      footballMenuOpen = !footballMenuOpen;
-      buildTabs();
-    });
-    footballWrap.appendChild(footballBtn);
-
-    if (footballMenuOpen) {
-      const menu = document.createElement("div");
-      menu.className = "football-dropdown";
-
-      availableLeagues.forEach(code => {
-        const league = data[code];
-        const item = document.createElement("button");
-        item.className = "dropdown-item" + (code === activeLeague ? " active" : "");
-        item.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
-        item.addEventListener("click", (e) => {
-          e.stopPropagation();
-          activeLeague = code; footballMenuOpen = false; render();
-        });
-        menu.appendChild(item);
-      });
-
-      const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
-        ? STATPACK_DATA.efl_cup.fixtures : [];
-      const cashBuilderAvailable = typeof CASH_BUILDER_DATA !== "undefined"
-        && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0;
-
-      if (cupFixtures.length > 0 || cashBuilderAvailable) {
-        const divider = document.createElement("div");
-        divider.className = "dropdown-divider";
-        menu.appendChild(divider);
-      }
-
-      if (cupFixtures.length > 0) {
-        const item = document.createElement("button");
-        item.className = "dropdown-item" + (activeLeague === EFL_CUP ? " active" : "");
-        item.innerHTML = "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`;
-        item.addEventListener("click", (e) => {
-          e.stopPropagation();
-          activeLeague = EFL_CUP; footballMenuOpen = false; render();
-        });
-        menu.appendChild(item);
-      }
-
-      if (cashBuilderAvailable) {
-        const item = document.createElement("button");
-        item.className = "dropdown-item" + (activeLeague === CASH_BUILDER ? " active" : "");
-        item.innerHTML = "Cash Builder";
-        item.addEventListener("click", (e) => {
-          e.stopPropagation();
-          activeLeague = CASH_BUILDER; footballMenuOpen = false; render();
-        });
-        menu.appendChild(item);
-      }
-
-      footballWrap.appendChild(menu);
+    var d = parseInt(parts[0], 10), m = parseInt(parts[1], 10) - 1, y = parseInt(parts[2], 10);
+    var hh = 0, mm = 0;
+    if (timeStr) {
+      var tparts = timeStr.split(':');
+      hh = parseInt(tparts[0], 10) || 0;
+      mm = parseInt(tparts[1], 10) || 0;
     }
+    return new Date(y, m, d, hh, mm);
+  }
 
-    tabsEl.appendChild(footballWrap);
+  function formatKickoff(dateStr, timeStr) {
+    var d = parseFixtureDate(dateStr, timeStr);
+    if (!d) return dateStr || '';
+    var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    return d.getDate() + ' ' + months[d.getMonth()] + ' \u2014 ' + (timeStr || '');
+  }
 
-    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
-      const nflBtn = document.createElement("button");
-      nflBtn.className = "tab" + (activeLeague === NFL ? " active" : "");
-      nflBtn.innerHTML = "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`;
-      nflBtn.addEventListener("click", () => { activeLeague = NFL; footballMenuOpen = false; render(); });
-      tabsEl.appendChild(nflBtn);
+  // Pick the over_under entry whose line is closest to target
+  function pickLine(entries, target) {
+    if (!entries || !entries.length) return null;
+    var best = entries[0], bestDiff = Math.abs(entries[0].line - target);
+    for (var i = 1; i < entries.length; i++) {
+      var diff = Math.abs(entries[i].line - target);
+      if (diff < bestDiff) { best = entries[i]; bestDiff = diff; }
     }
-
-    const bbBtn = document.createElement("button");
-    bbBtn.className = "tab" + (activeLeague === BEST_BETS ? " active" : "");
-    bbBtn.innerHTML = "★ Best Bets";
-    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; render(); });
-    tabsEl.appendChild(bbBtn);
-
-    const trBtn = document.createElement("button");
-    trBtn.className = "tab" + (activeLeague === TRACK_RECORD ? " active" : "");
-    const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
-      ? ` ${BETS_LOG.summary.overall.pct}%` : "";
-    trBtn.innerHTML = "Track Record" + trPct;
-    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; footballMenuOpen = false; render(); });
-    tabsEl.appendChild(trBtn);
+    return best;
   }
 
-  function metricBlock(title, m, homeTeam, awayTeam) {
-    if (!m) return "";
-    const ouRows = (m.over_under || []).map(ou => {
-      const overPct = ou.over;
-      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--amber)";
-      return `<div class="ou-row">
-        <span class="ou-line">O/U ${ou.line}</span>
-        <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
-        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pct(overPct)}</span>
-      </div>`;
-    }).join("");
+  function pct(n) { return Math.round(n * 100); }
 
-    const btts = (m.btts_yes !== undefined)
-      ? `<div class="btts-row">BTTS: <b>${pct(m.btts_yes)}</b> yes / ${pct(m.btts_no)} no</div>`
-      : "";
-
-    const split = m.home_over_under ? splitBlock(m, homeTeam, awayTeam) : "";
-
-    return `<div class="metric-card">
-      <div class="metric-title">${title} <span style="opacity:0.6">· over %</span></div>
-      <div class="metric-expected">${m.expected_total}<span class="label">expected</span></div>
-      ${ouRows}
-      ${btts}
-      ${split}
-    </div>`;
-  }
-
-  function splitSideRows(entries) {
-    return entries.map(ou => `<div class="split-ou-row">
-      <span class="split-ou-line">${ou.line}</span>
-      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pct(ou.over)}</span>
-    </div>`).join("");
-  }
-
-  function splitBlock(m, homeTeam, awayTeam) {
-    return `<div class="metric-split">
-      <div class="metric-split-col">
-        <div class="metric-split-title">${homeTeam || 'Home'}</div>
-        <div class="metric-split-expected">${m.expected_home}</div>
-        ${splitSideRows(m.home_over_under)}
-      </div>
-      <div class="metric-split-col">
-        <div class="metric-split-title">${awayTeam || 'Away'}</div>
-        <div class="metric-split-expected">${m.expected_away}</div>
-        ${splitSideRows(m.away_over_under)}
-      </div>
-    </div>`;
-  }
-
-  function quickStat(fixture) {
-    const g = fixture.predictions.goals;
-    const c = fixture.predictions.corners;
-    if (!g || !c) return "";
-    const goalsLine = g.over_under.find(o => o.line === 2.5) || g.over_under[0];
-    const cornersLine = c.over_under.find(o => o.line === 9.5) || c.over_under[0];
-    return `<div class="quick-stats">
-      <span class="quick-stat">O${goalsLine.line} GLS <b class="${goalsLine.over >= 0.55 ? 'pct-hi' : ''}">${pct(goalsLine.over)}</b></span>
-      <span class="quick-stat">O${cornersLine.line} CRN <b class="${cornersLine.over >= 0.55 ? 'pct-hi' : ''}">${pct(cornersLine.over)}</b></span>
-    </div>`;
-  }
-
-  function flagBadges(fixture) {
-    // market_blended is a different kind of signal to everything else
-    // here - the others are all CAUTIONS (treat this prediction with
-    // more care), styled amber accordingly. Market blending means the
-    // opposite - real bookmaker odds are backing this prediction, not
-    // undermining it - so it gets its own green styling and comes
-    // first, rather than being lumped in with the warning flags.
-    const marketBadge = fixture.market_blended ? `<span class="flag-market">M</span>` : "";
-
-    const flags = [];
-    if (fixture.cross_league_data) flags.push('cross-league');
-    if (fixture.cross_division) flags.push('cross-division');
-    if (fixture.fuzzy_name_match) flags.push('name check');
-    if (fixture.low_sample) flags.push('thin sample');
-    return marketBadge + flags.map(f => `<span class="flag">${f}</span>`).join("");
-  }
-
-  function matchResultBlock(fixture) {
-    const mr = fixture.predictions.goals?.match_result;
-    if (!mr) return "";
-
-    const options = [
-      { label: fixture.home_team, position: fixture.home_position, key: "home_win", pct: mr.home_win },
-      { label: "Draw", position: null, key: "draw", pct: mr.draw },
-      { label: fixture.away_team, position: fixture.away_position, key: "away_win", pct: mr.away_win },
-    ];
-    const highest = Math.max(mr.home_win, mr.draw, mr.away_win);
-
-    return `<div class="mr-block">
-      <div class="metric-title">Match Result</div>
-      <div class="mr-row">
-        ${options.map(o => `
-          <div class="mr-option ${o.pct === highest ? 'mr-favourite' : ''}">
-            <div class="mr-label">${o.label}${posBadge(o.position)}</div>
-            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pct(o.pct)}</div>
-          </div>
-        `).join("")}
-      </div>
-    </div>`;
-  }
-
-  function fixtureCard(fixture, badge) {
-    const p = fixture.predictions;
-    const flag = flagBadges(fixture);
-    const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
-    const badgeHtml = badge ? `<span class="fixture-badge">${badge}</span>` : "";
-
-    return `<details class="fixture">
-      <summary>
-        <span class="kickoff">${fixture.time || "--:--"}</span>
-        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
-        ${badgeHtml}
-        ${flag}
-        ${quickStat(fixture)}
-        <span class="chev">▸</span>
-      </summary>
-      <div class="detail">
-        ${note}
-        ${matchResultBlock(fixture)}
-        <div class="metric-grid">
-          ${metricBlock("Full-Time Goals", p.goals, fixture.home_team, fixture.away_team)}
-          ${metricBlock("Corners", p.corners, fixture.home_team, fixture.away_team)}
-          ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team)}
-          ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team)}
-          ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team)}
-        </div>
-        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
-      </div>
-    </details>`;
-  }
-
-  const METRIC_LABELS = {
-    goals: "Full-Time Goals",
-    corners: "Corners",
-    cards: "Cards",
-    first_half_goals: "1st-Half Goals",
-    second_half_goals: "2nd-Half Goals",
-  };
-
-  // Best Bets is now a single FLAT list (see best_bets.py / nfl_best_bets.py) -
-  // every qualifying pick across every league AND sport, sorted by
-  // confidence, no category grouping. Each pick already carries a
-  // ready-to-display "label" computed in Python, so rendering here is
-  // just laying out common fields (time, league/sport badge, label,
-  // confidence) rather than reconstructing pick-type-specific text.
-  function flatBestBetRow(pick, rank) {
-    return `<div class="bb-row">
-      <span class="bb-rank">${rank}</span>
-      <span class="kickoff">${pick.time || "--:--"}</span>
-      <span class="bb-teams" style="flex:2">${pick.label}</span>
-      <span class="bb-league">${pick.league_name}</span>
-      <span class="bb-pct ${pick.confidence >= 0.55 ? 'pct-hi' : pick.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(pick.confidence)}</span>
-    </div>`;
-  }
-
-  // Groups picks by their underlying fixture (same sport/teams/date/
-  // time), orders the GROUPS by kickoff time, and within each group
-  // orders picks by confidence - so multiple picks on the same game
-  // (e.g. a match-level Over plus a team-level corners pick) end up
-  // sitting next to each other rather than scattered wherever their
-  // individual confidence happens to place them.
-  function groupPicksByGame(picks) {
-    const groups = new Map();
-    picks.forEach(p => {
-      const key = `${p.sport}|${p.home_team}|${p.away_team}|${p.date}|${p.time}`;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(p);
-    });
-    const groupList = Array.from(groups.values());
-    groupList.forEach(g => g.sort((a, b) => b.confidence - a.confidence));
-    groupList.sort((a, b) => fixtureTimestamp(a[0]) - fixtureTimestamp(b[0]));
-    return groupList.flat();
-  }
-
-  const ALL_METRIC_LABELS = {
-    goals: "Goals",
-    corners: "Corners",
-    cards: "Cards",
-    first_half_goals: "1st-Half Goals",
-    second_half_goals: "2nd-Half Goals",
-    btts: "BTTS",
-    team_win: "Team Win",
-    moneyline: "Moneyline",
-    points: "Points",
-    passing_tds: "Passing TDs",
-    rushing_tds: "Rushing TDs",
-  };
-
-  // Checkbox filter row - built dynamically from whichever metrics
-  // actually appear in TODAY's pool (not a fixed list), so a day with
-  // no NFL picks simply doesn't show NFL-only checkboxes, and a new
-  // metric added later needs no changes here to show up. Unchecking a
-  // box hides that metric; everything defaults to checked (shown).
-  function bestBetsFilterRow(picks) {
-    const metricsPresent = [...new Set(picks.map(p => p.metric))];
-    if (metricsPresent.length <= 1) return ""; // nothing meaningful to filter
-    metricsPresent.sort();
-    return `<div class="bb-filter-row">
-      ${metricsPresent.map(m => `
-        <label class="bb-filter-item">
-          <input type="checkbox" data-metric="${m}" ${bestBetsHiddenMetrics.has(m) ? "" : "checked"}>
-          ${ALL_METRIC_LABELS[m] || m}
-        </label>
-      `).join("")}
-    </div>`;
-  }
-
-  function bestBetsSortToggle() {
-    const opt = (mode, label) => mode === bestBetsSortMode
-      ? `<span class="sort-toggle-active">${label}</span>`
-      : `<a href="#" class="sort-toggle-link" data-sort="${mode}">${label}</a>`;
-    return `<div class="window-toggle">Sort: ${opt("confidence", "% Confidence")} · ${opt("game", "By Game")}</div>`;
-  }
-
-  function renderBestBets() {
-    const footballPicks = (typeof STATPACK_DATA !== "undefined" && Array.isArray(STATPACK_DATA.best_bets))
-      ? STATPACK_DATA.best_bets : [];
-    const nflPicks = (typeof NFL_STATPACK_DATA !== "undefined" && Array.isArray(NFL_STATPACK_DATA.best_bets))
-      ? NFL_STATPACK_DATA.best_bets : [];
-    const combined = [...footballPicks, ...nflPicks];
-
-    if (combined.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No eligible picks today across any league or sport.<br>
-        (Fixtures with a thin sample, cross-league, or name-match flag are excluded from Best Bets - check the league tabs for those.)</div>`;
-      return;
-    }
-
-    const filterRow = bestBetsFilterRow(combined);
-    const visible = combined.filter(p => !bestBetsHiddenMetrics.has(p.metric));
-    const allPicks = bestBetsSortMode === "game"
-      ? groupPicksByGame(visible)
-      : [...visible].sort((a, b) => b.confidence - a.confidence);
-
-    const listHtml = allPicks.length > 0
-      ? allPicks.map((p, i) => flatBestBetRow(p, i + 1)).join("")
-      : `<div class="bb-empty">No picks match the current filter</div>`;
-
-    mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.</div>` +
-      filterRow +
-      bestBetsSortToggle() +
-      listHtml;
-
-    mainEl.querySelectorAll(".bb-filter-item input[data-metric]").forEach(box => {
-      box.addEventListener("change", () => {
-        const metric = box.dataset.metric;
-        if (box.checked) bestBetsHiddenMetrics.delete(metric);
-        else bestBetsHiddenMetrics.add(metric);
-        render();
+  // ---- Freshness: compare earliest upcoming fixture to "now" -----------
+  function computeFreshness(allLeaguesData) {
+    var now = new Date();
+    var earliest = null;
+    Object.keys(allLeaguesData).forEach(function (code) {
+      var fixtures = (allLeaguesData[code].upcoming_fixtures || []);
+      fixtures.forEach(function (f) {
+        var d = parseFixtureDate(f.date, f.time);
+        if (d && (!earliest || d < earliest)) earliest = d;
       });
     });
+    if (!earliest) return { ok: true, label: 'NO FIXTURES FOUND' };
+    if (earliest < now) {
+      return { ok: false, label: 'FIXTURES MAY BE OUT OF DATE' };
+    }
+    return { ok: true, label: 'DATA CURRENT' };
+  }
 
-    const toggle = mainEl.querySelector(".window-toggle");
-    if (toggle) {
-      toggle.querySelectorAll("a[data-sort]").forEach(link => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          bestBetsSortMode = link.dataset.sort;
-          render();
-        });
+  function renderFreshness() {
+    if (!DATA) {
+      els.freshness.className = 'freshness stale';
+      els.freshness.innerHTML = '<div class="dot stale"></div><div>NO DATA LOADED</div>';
+      return;
+    }
+    var fresh = computeFreshness(DATA);
+    els.freshness.className = 'freshness ' + (fresh.ok ? 'ok' : 'stale');
+    els.freshness.innerHTML = '<div class="dot ' + (fresh.ok ? 'ok' : 'stale') + '"></div><div>' + fresh.label + '</div>';
+  }
+
+  function renderClock() {
+    var now = new Date();
+    var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+    var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    var hh = ('0' + now.getHours()).slice(-2);
+    var mm = ('0' + now.getMinutes()).slice(-2);
+    els.clock.textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' \u2014 ' + hh + ':' + mm;
+  }
+
+  // ---- Tabs --------------------------------------------------------------
+  function renderTabs() {
+    els.tabs.innerHTML = '';
+    if (!DATA) return;
+    var codes = Object.keys(DATA);
+    if (!state.league || codes.indexOf(state.league) === -1) state.league = codes[0];
+    codes.forEach(function (code) {
+      var btn = document.createElement('button');
+      btn.className = 'tab disp' + (code === state.league ? ' active' : '');
+      btn.textContent = (DATA[code].league_name || code).toUpperCase();
+      btn.addEventListener('click', function () {
+        state.league = code;
+        renderTabs();
+        renderGrid();
       });
-
-    }
-  }
-
-  function renderTrackRecord() {
-    if (typeof BETS_LOG === "undefined") {
-      mainEl.innerHTML = `<div class="empty">No bets_log.js found yet.<br>This is generated by track_bets.py, which runs automatically as part of the daily Action - check back after the next run.</div>`;
-      return;
-    }
-
-    const { summary } = BETS_LOG;
-    const overall = summary.overall;
-
-    const summaryHtml = `<div class="tr-summary">
-      <div class="tr-summary-main">
-        <span class="tr-summary-pct ${overall.pct >= 55 ? 'pct-hi' : overall.pct <= 40 ? 'pct-lo' : ''}">${overall.total > 0 ? overall.pct + '%' : '—'}</span>
-        <span class="tr-summary-label">${overall.hits}/${overall.total} settled picks hit${summary.pending_count ? ` · ${summary.pending_count} pending` : ''}</span>
-      </div>
-      <div class="tr-category-grid">
-        ${summary.by_category.map(c => {
-          const label = c.metric === "btts" ? `BTTS ${c.direction}`
-            : (c.metric === "team_win" || c.metric === "moneyline") ? "Team Win"
-            : `${METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
-          return `<div class="tr-category-chip">
-            <span>${label}</span>
-            <span class="${c.pct >= 55 ? 'pct-hi' : c.pct <= 40 ? 'pct-lo' : ''}">${c.pct}% <span class="tr-chip-n">(${c.hits}/${c.total})</span></span>
-          </div>`;
-        }).join("") || '<div class="bb-empty">No settled picks yet</div>'}
-      </div>
-    </div>`;
-
-    mainEl.innerHTML = `<div class="bb-intro">Tracking every Best Bets pick since logging started - settled automatically once each match is played. NFL picks currently log as pending but aren't reconciled against results yet.</div>` +
-      summaryHtml;
-  }
-
-  function cupFixtureCard(fixture) {
-    const p = fixture.predictions;
-    const flag = flagBadges(fixture);
-    const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
-    const leagueLine = fixture.cross_division
-      ? `<div class="cup-leagues">${fixture.home_league} v ${fixture.away_league}</div>`
-      : "";
-
-    return `<details class="fixture">
-      <summary>
-        <span class="kickoff">${fixture.time || "--:--"}</span>
-        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
-        ${flag}
-        ${quickStat(fixture)}
-        <span class="chev">▸</span>
-      </summary>
-      <div class="detail">
-        ${leagueLine}
-        ${note}
-        ${matchResultBlock(fixture)}
-        <div class="metric-grid">
-          ${metricBlock("Full-Time Goals", p.goals, fixture.home_team, fixture.away_team)}
-          ${metricBlock("Corners", p.corners, fixture.home_team, fixture.away_team)}
-          ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team)}
-          ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team)}
-          ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team)}
-        </div>
-        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
-      </div>
-    </details>`;
-  }
-
-  // ---------- NFL ----------
-  function nflMoneylineBlock(fixture) {
-    const ml = fixture.predictions?.points?.moneyline;
-    if (!ml) return "";
-    const highest = Math.max(ml.home_win, ml.away_win);
-    const options = [
-      { label: fixture.home_team, pct: ml.home_win },
-      { label: fixture.away_team, pct: ml.away_win },
-    ];
-    return `<div class="mr-block">
-      <div class="metric-title">Moneyline</div>
-      <div class="mr-row">
-        ${options.map(o => `
-          <div class="mr-option ${o.pct === highest ? 'mr-favourite' : ''}">
-            <div class="mr-label">${o.label}</div>
-            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pct(o.pct)}</div>
-          </div>
-        `).join("")}
-      </div>
-    </div>`;
-  }
-
-  function nflOuRows(entries) {
-    return (entries || []).map(ou => {
-      const overPct = ou.over;
-      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--amber)";
-      return `<div class="ou-row">
-        <span class="ou-line">O/U ${ou.line}</span>
-        <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
-        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pct(overPct)}</span>
-      </div>`;
-    }).join("");
-  }
-
-  function nflTotalPointsCard(fixture) {
-    const p = fixture.predictions?.points;
-    if (!p) return "";
-    return `<div class="metric-card">
-      <div class="metric-title">Total Points <span style="opacity:0.6">· over %</span></div>
-      <div class="metric-expected">${p.expected_total}<span class="label">expected</span></div>
-      ${nflOuRows(p.total_over_under)}
-    </div>`;
-  }
-
-  function nflSplitRows(entries) {
-    return (entries || []).map(ou => `<div class="split-ou-row">
-      <span class="split-ou-line">${ou.line}</span>
-      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pct(ou.over)}</span>
-    </div>`).join("");
-  }
-
-  function nflSplitCard(title, m, homeTeam, awayTeam) {
-    if (!m) return "";
-    return `<div class="metric-card">
-      <div class="metric-title">${title} <span style="opacity:0.6">· over %</span></div>
-      <div class="metric-split" style="border-top:none;padding-top:0;margin-top:0">
-        <div class="metric-split-col">
-          <div class="metric-split-title">${homeTeam}</div>
-          <div class="metric-split-expected">${m.expected_home}</div>
-          ${nflSplitRows(m.home_over_under)}
-        </div>
-        <div class="metric-split-col">
-          <div class="metric-split-title">${awayTeam}</div>
-          <div class="metric-split-expected">${m.expected_away}</div>
-          ${nflSplitRows(m.away_over_under)}
-        </div>
-      </div>
-    </div>`;
-  }
-
-  function nflFixtureCard(fixture, badge) {
-    const p = fixture.predictions;
-    const marketBadge = fixture.market_blended ? `<span class="flag-market">M</span>` : "";
-    const flag = fixture.low_sample ? `<span class="flag">thin sample</span>` : "";
-    const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
-    const badgeHtml = badge ? `<span class="fixture-badge">${badge}</span>` : "";
-
-    return `<details class="fixture">
-      <summary>
-        <span class="kickoff">${fixture.time || "--:--"}</span>
-        <span class="teams">${fixture.home_team}<span class="v">v</span>${fixture.away_team}</span>
-        ${badgeHtml}
-        ${marketBadge}${flag}
-        <span class="chev">▸</span>
-      </summary>
-      <div class="detail">
-        ${note}
-        ${nflMoneylineBlock(fixture)}
-        <div class="metric-grid">
-          ${nflTotalPointsCard(fixture)}
-          ${nflSplitCard("Team Points", p.points, fixture.home_team, fixture.away_team)}
-          ${nflSplitCard("Passing TDs", p.passing_tds, fixture.home_team, fixture.away_team)}
-          ${nflSplitCard("Rushing TDs", p.rushing_tds, fixture.home_team, fixture.away_team)}
-        </div>
-        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
-      </div>
-    </details>`;
-  }
-
-  function renderNfl() {
-    const fixtures = (typeof NFL_STATPACK_DATA !== "undefined") ? NFL_STATPACK_DATA.upcoming_fixtures : [];
-    if (!fixtures || fixtures.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No NFL fixtures loaded yet.</div>`;
-      return;
-    }
-
-    const sorted = sortByKickoff(fixtures);
-    const groups = [];
-    let currentDate = null, currentGroup = null;
-    sorted.forEach(fx => {
-      if (fx.date !== currentDate) {
-        currentDate = fx.date;
-        currentGroup = { date: fx.date, items: [] };
-        groups.push(currentGroup);
-      }
-      currentGroup.items.push(fx);
+      els.tabs.appendChild(btn);
     });
-
-    const intro = `<div class="bb-intro">Points modelled as Normal-distributed (standard NFL power-rating approach); passing/rushing TDs modelled as Poisson (low, discrete counts, closer to football goals). Green "M" badge = real market odds blended in where available.</div>`;
-
-    mainEl.innerHTML = intro + groups.map(g => `
-      <div class="date-group">
-        <div class="date-label">${fmtDate(g.date)}</div>
-        ${g.items.map(nflFixtureCard).join("")}
-      </div>
-    `).join("");
   }
 
-  // ---------- Today ----------
-  const LATE_NIGHT_CUTOFF_HOUR = 6;
+  // ---- Fixture tile --------------------------------------------------------
+  function buildTile(fixture) {
+    var preds = fixture.predictions || {};
+    var goalsLine = pickLine((preds.goals || {}).over_under, TARGET_LINES.goals);
+    var cornersLine = pickLine((preds.corners || {}).over_under, TARGET_LINES.corners);
+    var cardsLine = pickLine((preds.cards || {}).over_under, TARGET_LINES.cards);
 
-  // A fixture doesn't vanish the instant kickoff passes - a 3pm kickoff
-  // is still very much "on" at 3:01pm, and most matches (football,
-  // NFL) run 2-3.5 hours including stoppage/overtime. 4 hours gives a
-  // comfortable margin past even a long game before it drops off,
-  // while still being nowhere near long enough to let a game that
-  // kicked off yesterday linger into today's list.
-  const POST_KICKOFF_GRACE_HOURS = 4;
+    var tile = document.createElement('div');
+    tile.className = 'tile';
 
-  function renderToday() {
-    const now = new Date();
-    const windowStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-    const windowEnd = windowStart + (24 + LATE_NIGHT_CUTOFF_HOUR) * 3600000;
+    var head = document.createElement('div');
+    head.className = 'tile-head';
+    var matchupWrap = document.createElement('div');
+    var matchup = document.createElement('div');
+    matchup.className = 'matchup disp';
+    matchup.textContent = fixture.home_team + ' v ' + fixture.away_team;
+    var positions = document.createElement('div');
+    positions.className = 'positions';
+    if (fixture.home_position && fixture.away_position) {
+      positions.textContent = (fixture.home_position) + (ordinalSuffix(fixture.home_position)) + ' v ' + (fixture.away_position) + ordinalSuffix(fixture.away_position);
+    }
+    matchupWrap.appendChild(matchup);
+    matchupWrap.appendChild(positions);
 
-    // A fixture whose kickoff has already passed shouldn't show here
-    // regardless of which day's window it falls in - a game that
-    // kicked off Thursday evening US time (early Friday UK) is
-    // correctly included on Thursday's page ahead of kickoff, but
-    // once it's actually been played there's no reason for it to
-    // linger into Friday's page too just because its own date field
-    // says Friday. Checking against the CURRENT moment (not just the
-    // date window) catches this - and also covers a backend-staleness
-    // case: NFL's own data only refreshes once a day, so a game that
-    // was still upcoming at that last refresh could have since kicked
-    // off and finished by the time someone actually loads this page.
-    const inWindow = fx => {
-      const ts = fixtureTimestamp(fx);
-      return ts >= windowStart && ts < windowEnd && ts >= now.getTime() - POST_KICKOFF_GRACE_HOURS * 3600000;
-    };
+    var kickoff = document.createElement('div');
+    kickoff.className = 'kickoff';
+    kickoff.textContent = formatKickoff(fixture.date, fixture.time);
 
-    const items = [];
+    head.appendChild(matchupWrap);
+    head.appendChild(kickoff);
+    tile.appendChild(head);
 
-    if (data) {
-      Object.entries(data).forEach(([code, league]) => {
-        (league.upcoming_fixtures || []).forEach(fx => {
-          if (inWindow(fx)) items.push({ ...fx, _badge: league.league_name, _kind: "football" });
-        });
+    var body = document.createElement('div');
+    body.className = 'tile-body';
+    body.appendChild(buildMetricRow('GOALS', goalsLine, 'goals'));
+    body.appendChild(buildMetricRow('CORNERS', cornersLine, 'corners'));
+    body.appendChild(buildMetricRow('CARDS', cardsLine, 'cards'));
+    tile.appendChild(body);
+
+    return tile;
+  }
+
+  function ordinalSuffix(n) {
+    var s = ['TH','ST','ND','RD'], v = n % 100;
+    return s[(v - 20) % 10] || s[v] || s[0];
+  }
+
+  function buildMetricRow(label, lineEntry, cls) {
+    var wrap = document.createElement('div');
+    if (!lineEntry) {
+      var lbl = document.createElement('div');
+      lbl.className = 'metric-label';
+      lbl.innerHTML = '<span>' + label + '</span><span class="pct">\u2014</span>';
+      wrap.appendChild(lbl);
+      var bar = document.createElement('div');
+      bar.className = 'bar';
+      wrap.appendChild(bar);
+      return wrap;
+    }
+    var overPct = pct(lineEntry.over);
+    var underPct = 100 - overPct;
+    var lbl = document.createElement('div');
+    lbl.className = 'metric-label';
+    lbl.innerHTML = '<span>OVER ' + lineEntry.line + ' ' + label + '</span><span class="pct">' + overPct + '%</span>';
+    wrap.appendChild(lbl);
+    var bar = document.createElement('div');
+    bar.className = 'bar';
+    var fill = document.createElement('div');
+    fill.className = 'fill ' + cls;
+    fill.style.width = overPct + '%';
+    var rest = document.createElement('div');
+    rest.className = 'fill rest';
+    rest.style.width = underPct + '%';
+    bar.appendChild(fill);
+    bar.appendChild(rest);
+    wrap.appendChild(bar);
+    return wrap;
+  }
+
+  // ---- Sorting -------------------------------------------------------------
+  function sortFixtures(fixtures) {
+    var copy = fixtures.slice();
+    if (state.sort === 'date') {
+      copy.sort(function (a, b) {
+        var da = parseFixtureDate(a.date, a.time), db = parseFixtureDate(b.date, b.time);
+        if (!da || !db) return 0;
+        return da - db;
+      });
+    } else {
+      var target = TARGET_LINES[state.sort];
+      copy.sort(function (a, b) {
+        var la = pickLine(((a.predictions || {})[state.sort] || {}).over_under, target);
+        var lb = pickLine(((b.predictions || {})[state.sort] || {}).over_under, target);
+        var oa = la ? la.over : -1, ob = lb ? lb.over : -1;
+        return ob - oa;
       });
     }
+    return copy;
+  }
 
-    const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
-      ? STATPACK_DATA.efl_cup.fixtures : [];
-    cupFixtures.forEach(fx => {
-      if (inWindow(fx)) items.push({ ...fx, _badge: "EFL Cup", _kind: "football" });
+  // ---- Main grid render ----------------------------------------------------
+  function renderGrid() {
+    els.grid.innerHTML = '';
+    if (!DATA || !state.league) {
+      els.empty.style.display = 'block';
+      els.fixtureCount.textContent = '';
+      return;
+    }
+    var leagueData = DATA[state.league] || {};
+    var fixtures = leagueData.upcoming_fixtures || [];
+    els.fixtureCount.textContent = fixtures.length + ' FIXTURE' + (fixtures.length === 1 ? '' : 'S') + ' LOADED';
+
+    if (!fixtures.length) {
+      els.empty.style.display = 'block';
+      return;
+    }
+    els.empty.style.display = 'none';
+
+    var sorted = sortFixtures(fixtures);
+    sorted.forEach(function (fixture) {
+      els.grid.appendChild(buildTile(fixture));
+    });
+  }
+
+  // ---- Init -----------------------------------------------------------------
+  function init() {
+    renderClock();
+    setInterval(renderClock, 30000);
+    renderFreshness();
+    renderTabs();
+    renderGrid();
+
+    els.sortSelect.addEventListener('change', function (e) {
+      state.sort = e.target.value;
+      renderGrid();
     });
 
-    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
-      NFL_STATPACK_DATA.upcoming_fixtures.forEach(fx => {
-        if (inWindow(fx)) items.push({ ...fx, _badge: "NFL", _kind: "nfl" });
-      });
-    }
-
-    if (items.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No games today across any league or sport.</div>`;
-      return;
-    }
-
-    const sorted = sortByKickoff(items);
-    const intro = `<div class="bb-intro">Every game today, across every league and sport - ${sorted.length} fixture${sorted.length === 1 ? "" : "s"}, in kickoff order. Late kickoffs after midnight are included as "tonight".</div>`;
-    mainEl.innerHTML = intro + sorted.map(fx =>
-      fx._kind === "nfl" ? nflFixtureCard(fx, fx._badge) : fixtureCard(fx, fx._badge)
-    ).join("");
-  }
-
-  function renderEflCup() {
-    const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
-      ? STATPACK_DATA.efl_cup.fixtures : [];
-
-    if (cupFixtures.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No EFL Cup fixtures loaded.<br>Add them to cup_fixtures_manual/efl_cup.txt.</div>`;
-      return;
-    }
-
-    const intro = `<div class="bb-intro">Fixtures crossing divisions ("cross-division") use each team's own
-      league form with a rough cross-league adjustment (see cross_league.py) - treat these with more caution
-      than same-league predictions.</div>`;
-
-    const groups = [];
-    let currentDate = null, currentGroup = null;
-    sortByKickoff(cupFixtures).forEach(fx => {
-      if (fx.date !== currentDate) {
-        currentDate = fx.date;
-        currentGroup = { date: fx.date, items: [] };
-        groups.push(currentGroup);
-      }
-      currentGroup.items.push(fx);
-    });
-
-    mainEl.innerHTML = intro + groups.map(g => `
-      <div class="date-group">
-        <div class="date-label">${fmtDate(g.date)}</div>
-        ${g.items.map(cupFixtureCard).join("")}
-      </div>
-    `).join("");
-  }
-
-  function render() {
-    buildTabs();
-
-    if (activeLeague === BEST_BETS) {
-      renderBestBets();
-      return;
-    }
-    if (activeLeague === TRACK_RECORD) {
-      renderTrackRecord();
-      return;
-    }
-    if (activeLeague === EFL_CUP) {
-      renderEflCup();
-      return;
-    }
-    if (activeLeague === CASH_BUILDER) {
-      renderCashBuilder();
-      return;
-    }
-    if (activeLeague === NFL) {
-      renderNfl();
-      return;
-    }
-    if (activeLeague === TODAY) {
-      renderToday();
-      return;
-    }
-
-    const league = data[activeLeague];
-    const allFixtures = league.upcoming_fixtures;
-    const freshnessChip = leagueFreshnessChip(activeLeague);
-
-    if (allFixtures.length === 0) {
-      mainEl.innerHTML = freshnessChip + `<div class="empty">No upcoming fixtures loaded for ${league.league_name}.<br>Check fixtures_manual/ has the right CSV for this league.</div>`;
-      return;
-    }
-
-    const now = new Date();
-    const windowEnd = new Date(now);
-    windowEnd.setDate(now.getDate() + NEAR_TERM_WINDOW_DAYS);
-
-    const nearTerm = allFixtures.filter(fx => {
-      const d = parseFixtureDate(fx.date);
-      return !d || d <= windowEnd;
-    });
-    const fixtures = showFullSeason ? allFixtures : nearTerm;
-    const hiddenCount = allFixtures.length - nearTerm.length;
-
-    const toggle = hiddenCount > 0
-      ? (showFullSeason
-          ? `<div class="window-toggle">Showing full season (${allFixtures.length} fixtures) · <a href="#" id="toggle-window">Show next ${NEAR_TERM_WINDOW_DAYS} days only</a></div>`
-          : `<div class="window-toggle">Showing next ${NEAR_TERM_WINDOW_DAYS} days · <a href="#" id="toggle-window">Show full season (${hiddenCount} more)</a></div>`)
-      : "";
-
-    if (fixtures.length === 0) {
-      mainEl.innerHTML = freshnessChip + toggle + `<div class="empty">No fixtures in the next ${NEAR_TERM_WINDOW_DAYS} days for ${league.league_name}.<br>Try "Show full season" above.</div>`;
-      attachToggleHandler();
-      return;
-    }
-
-    const groups = [];
-    let currentDate = null, currentGroup = null;
-    sortByKickoff(fixtures).forEach(fx => {
-      if (fx.date !== currentDate) {
-        currentDate = fx.date;
-        currentGroup = { date: fx.date, items: [] };
-        groups.push(currentGroup);
-      }
-      currentGroup.items.push(fx);
-    });
-
-    mainEl.innerHTML = freshnessChip + toggle + groups.map(g => `
-      <div class="date-group">
-        <div class="date-label">${fmtDate(g.date)}</div>
-        ${g.items.map(fixtureCard).join("")}
-      </div>
-    `).join("");
-    attachToggleHandler();
-  }
-
-  function attachToggleHandler() {
-    const link = document.getElementById("toggle-window");
-    if (link) {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        showFullSeason = !showFullSeason;
-        render();
-      });
+    if (!DATA) {
+      els.footerNote.textContent = 'STATPACK_DATA.JS NOT FOUND OR DID NOT EXPOSE "statpackData" \u2014 CHECK THE SCRIPT TAG AND VARIABLE NAME';
     }
   }
 
-  // Was a single strip across every league in the header - moved to
-  // per-league instead (shown inline on that league's own view) since
-  // showing every league's freshness at once regardless of which one
-  // you're actually looking at was taking up a lot of header space for
-  // information only relevant one league at a time.
-  function leagueFreshnessChip(code) {
-    const freshness = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.data_freshness : null;
-    const f = freshness && freshness[code];
-    if (!f) return "";
-    if (f.days_old === null) {
-      return `<div class="freshness-strip"><span class="freshness-chip freshness-stale"><span class="dot-status"></span>${f.league_name}: no current-season data yet</span></div>`;
-    }
-    const status = f.days_old <= 3 ? "fresh" : f.days_old <= 7 ? "lagging" : "stale";
-    const label = f.days_old === 0 ? "today" : f.days_old === 1 ? "1 day ago" : `${f.days_old} days ago`;
-    return `<div class="freshness-strip"><span class="freshness-chip freshness-${status}"><span class="dot-status"></span>${f.league_name}: ${label}</span></div>`;
-  }
-
-  document.addEventListener("click", () => {
-    if (footballMenuOpen) {
-      footballMenuOpen = false;
-      buildTabs();
-    }
-  });
-
-  render();
+  init();
 })();
 </script>
 </body>
