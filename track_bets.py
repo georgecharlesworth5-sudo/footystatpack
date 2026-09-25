@@ -310,6 +310,63 @@ def reaudit_settled(log: dict[str, dict], data_dir: Path) -> tuple[list[dict], l
     return corrections, reverted
 
 
+def void_postponed_picks(log: dict[str, dict], statpack: dict) -> list[dict]:
+    """
+    A pick's match_date is frozen at the moment it's first logged (see
+    this file's module docstring). If the fixture is later postponed,
+    that frozen date becomes permanently wrong - reconcile_pending will
+    never find a result for it (the real game hasn't happened on that
+    date), and once the rescheduled fixture becomes eligible for Best
+    Bets again, log_new_picks logs it as a brand new pick under the new
+    date (match_date is part of the pick_id, so it's a different id).
+    Left alone, the ORIGINAL entry sits pending forever - a real
+    postponement (Wolves v Portsmouth, 09/09 -> 04/11) confirmed this
+    directly: the gap is far too large for the 14-day reconciliation
+    window to ever bridge.
+
+    Detects this by checking every pending FOOTBALL pick's (home, away)
+    against the CURRENT football fixture list: if that pairing still
+    has an upcoming fixture but at a DIFFERENT date than what's frozen
+    on the pick, the original has been superseded - void it (mark
+    status="void", not pending, not deleted) rather than let it sit as
+    a phantom pending row forever. A fresh pick will log normally under
+    the new date once it's eligible again; voiding the stale original
+    is what stops that from reading as a confusing duplicate.
+
+    "void" is deliberately a different status to "settled"/"pending" -
+    compute_summary excludes it from both the pending count and the
+    hit-rate stats, same reasoning as keeping settled history around:
+    the row stays as a record of what happened, it just never counted
+    as a real outcome.
+
+    NFL picks are skipped, matching every other football-only function
+    in this file - NFL doesn't have an equivalent fixture-list source
+    wired in here yet.
+
+    Returns the list of voided picks, for reporting. Doesn't save
+    anything itself.
+    """
+    current_dates: dict[tuple[str, str], str] = {}
+    for league in statpack.get("generated_leagues", {}).values():
+        for fx in league.get("upcoming_fixtures", []):
+            current_dates[(fx["home_team"], fx["away_team"])] = fx.get("date", "")
+
+    voided = []
+    for pick in log.values():
+        if pick["status"] != "pending" or pick.get("sport", "football") != "football":
+            continue
+        current_date = current_dates.get((pick["home_team"], pick["away_team"]))
+        if current_date and current_date != pick["match_date"]:
+            voided.append({
+                "pick_id": pick["pick_id"], "home_team": pick["home_team"], "away_team": pick["away_team"],
+                "metric": pick["metric"], "direction": pick["direction"], "line": pick["line"],
+                "old_match_date": pick["match_date"], "new_match_date": current_date,
+            })
+            pick["status"] = "void"
+
+    return voided
+
+
 def compute_summary(log: dict[str, dict]) -> dict:
     """Overall and per-(metric, direction) hit rates, from settled picks
     only - EXCLUDING "Under"/"No" (best_bets.py doesn't generate these
@@ -410,6 +467,13 @@ if __name__ == "__main__":
         for r in reverted:
             print(f"  {r['home_team']} v {r['away_team']} - {r['direction']} {r['line']} {r['metric']} "
                   f"(was: actual {r['old_actual']}, result {r['old_result']})")
+
+    voided = void_postponed_picks(log, statpack)
+    if voided:
+        print(f"Voided {len(voided)} pick(s) whose fixture was postponed/rescheduled:")
+        for v in voided:
+            print(f"  {v['home_team']} v {v['away_team']} - {v['direction']} {v['line']} {v['metric']} "
+                  f"(was frozen at {v['old_match_date']}, now scheduled {v['new_match_date']})")
 
     save_log(log_path, log)
     print(f"Log saved to {log_path} ({len(log)} total picks).")
