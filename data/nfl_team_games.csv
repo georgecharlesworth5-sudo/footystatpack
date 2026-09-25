@@ -607,3 +607,5 @@ season,week,game_id,team,opponent,venue,points_for,points_against,passing_tds_fo
 2026,2,2026_02_PIT_NE,PIT,NE,A,3.0,20.0,0,0,0,1
 2026,2,2026_02_PHI_TEN,PHI,TEN,A,24.0,20.0,2,0,1,2
 2026,2,2026_02_PHI_TEN,TEN,PHI,H,20.0,24.0,0,2,2,1
+2026,3,2026_03_ATL_GB,ATL,GB,A,35.0,14.0,1,2,3,0
+2026,3,2026_03_ATL_GB,GB,ATL,H,14.0,35.0,2,1,0,3
