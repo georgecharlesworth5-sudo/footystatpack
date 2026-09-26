@@ -1059,8 +1059,37 @@
   // it - most useful exactly on days like an international break, where
   // most fixtures are postponed and the handful still on are worth judging
   // by whether they're backed by real bookmaker odds rather than model-only.
-  function bestBetsMarketToggle(picks) {
-    const marketCount = picks.filter(p => p.market_blended).length;
+  // Best Bets picks don't necessarily carry market_blended themselves -
+  // they're generated from the fixtures that do, but the flattening in
+  // best_bets.py / nfl_best_bets.py doesn't always carry every fixture-level
+  // field along with it. This builds a lookup from the fixture data
+  // (same team/date/time key used elsewhere to match a pick back to its
+  // game) so the filter works whether or not the pick object itself has
+  // the flag.
+  function buildFixtureMarketMap() {
+    const map = new Map();
+    const addFx = fx => {
+      map.set(`${fx.home_team}|${fx.away_team}|${fx.date}|${fx.time}`, !!fx.market_blended);
+    };
+    if (data) {
+      Object.values(data).forEach(league => (league.upcoming_fixtures || []).forEach(addFx));
+    }
+    const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
+      ? STATPACK_DATA.efl_cup.fixtures : [];
+    cupFixtures.forEach(addFx);
+    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
+      NFL_STATPACK_DATA.upcoming_fixtures.forEach(addFx);
+    }
+    return map;
+  }
+
+  function isMarketMatched(pick, fixtureMarketMap) {
+    if (pick.market_blended !== undefined) return !!pick.market_blended;
+    return !!fixtureMarketMap.get(`${pick.home_team}|${pick.away_team}|${pick.date}|${pick.time}`);
+  }
+
+  function bestBetsMarketToggle(picks, fixtureMarketMap) {
+    const marketCount = picks.filter(p => isMarketMatched(p, fixtureMarketMap)).length;
     if (marketCount === 0) return "";
     return `<div class="bb-filter-row">
       <label class="bb-filter-item">
@@ -1090,10 +1119,11 @@
       return;
     }
 
+    const fixtureMarketMap = buildFixtureMarketMap();
     const filterRow = bestBetsFilterRow(combined);
-    const marketToggleRow = bestBetsMarketToggle(combined);
+    const marketToggleRow = bestBetsMarketToggle(combined, fixtureMarketMap);
     let visible = combined.filter(p => !bestBetsHiddenMetrics.has(p.metric));
-    if (bestBetsMarketOnly) visible = visible.filter(p => p.market_blended);
+    if (bestBetsMarketOnly) visible = visible.filter(p => isMarketMatched(p, fixtureMarketMap));
     const allPicks = bestBetsSortMode === "game"
       ? groupPicksByGame(visible)
       : [...visible].sort((a, b) => b.confidence - a.confidence);
