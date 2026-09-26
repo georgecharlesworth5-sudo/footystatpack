@@ -31,6 +31,7 @@
     color: var(--ink);
     font-family: var(--data);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   /* ---------- Ticker ---------- */
@@ -92,6 +93,13 @@
     margin: 0 auto;
     padding: 0 20px;
     border-bottom: 1px solid var(--rule);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab, .tab-wrap {
+    flex-shrink: 0;
   }
   .tab {
     font-family: var(--data);
