@@ -138,15 +138,17 @@
     display: inline-block;
   }
   .football-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    /* position is set inline (fixed, with computed top/left) rather than
+       here - see buildTabs(). It used to be position:absolute inside
+       .tab-wrap, but .tabs now scrolls horizontally (overflow-x:auto),
+       which per spec makes the browser clip vertical overflow too,
+       cutting the dropdown off. Fixed positioning off the button's own
+       on-screen rect sidesteps that clipping entirely. */
     z-index: 20;
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 0;
     padding: 6px;
-    margin-top: 4px;
     min-width: 220px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   }
@@ -751,6 +753,10 @@
 
   function buildTabs() {
     tabsEl.innerHTML = "";
+    // The football dropdown lives on <body>, not inside tabsEl (see below),
+    // so clearing tabsEl doesn't remove a stale copy - do that here.
+    const staleMenu = document.getElementById("football-dropdown-menu");
+    if (staleMenu) staleMenu.remove();
 
     const todayBtn = document.createElement("button");
     todayBtn.className = "tab" + (activeLeague === TODAY ? " active" : "");
@@ -774,9 +780,11 @@
       buildTabs();
     });
     footballWrap.appendChild(footballBtn);
+    tabsEl.appendChild(footballWrap);
 
     if (footballMenuOpen) {
       const menu = document.createElement("div");
+      menu.id = "football-dropdown-menu";
       menu.className = "football-dropdown";
 
       availableLeagues.forEach(code => {
@@ -824,10 +832,15 @@
         menu.appendChild(item);
       }
 
-      footballWrap.appendChild(menu);
+      // Appended to <body> with a computed fixed position, rather than
+      // inside footballWrap, so it isn't clipped by .tabs' own horizontal
+      // scroll container (see the .football-dropdown CSS comment).
+      const btnRect = footballBtn.getBoundingClientRect();
+      menu.style.position = "fixed";
+      menu.style.top = `${btnRect.bottom + 4}px`;
+      menu.style.left = `${btnRect.left}px`;
+      document.body.appendChild(menu);
     }
-
-    tabsEl.appendChild(footballWrap);
 
     if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
       const nflBtn = document.createElement("button");
