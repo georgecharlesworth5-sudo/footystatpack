@@ -4,23 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Footy Stat Pack</title>
-<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAF7F0;
-    --surface: #FDFBF5;
-    --surface-hover: #F3EDDC;
-    --ink: #1A1A1A;
-    --ink-dim: #4A4536;
-    --accent: #8B1E1E;
-    --green: #2F5233;
-    --red: #8B1E1E;
-    --meta: #8A8574;
-    --rule: #DCD5C2;
-    --data: 'Source Serif 4', Georgia, serif;
-    --display: 'Playfair Display', Georgia, serif;
+    --bg: #0C0D0A;
+    --surface: #171813;
+    --surface-hover: #1D1F18;
+    --ink: #EDE8D8;
+    --ink-dim: #B8B3A0;
+    --amber: #E8A33D;
+    --green: #6B9B6E;
+    --red: #B5533E;
+    --meta: #6E6A5C;
+    --rule: #2A2C22;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Inter', system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; }
@@ -29,7 +28,7 @@
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font-family: var(--data);
+    font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -41,19 +40,25 @@
     margin: 0 auto;
   }
   .eyebrow {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.14em;
     color: var(--meta);
+    text-transform: uppercase;
     margin-bottom: 6px;
   }
   h1 {
-    font-family: var(--display);
-    font-weight: 900;
-    font-size: clamp(36px, 7vw, 56px);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 40px);
     margin: 0;
     letter-spacing: -0.01em;
-    text-align: center;
+  }
+  h1 .dot { color: var(--amber); }
+  .subhead {
+    color: var(--ink-dim);
+    font-size: 14px;
+    margin-top: 8px;
   }
   .freshness-strip {
     display: flex;
@@ -62,9 +67,9 @@
     margin-top: 14px;
   }
   .freshness-chip {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
-    border-radius: 0;
+    border-radius: 3px;
     padding: 5px 9px;
     border: 1px solid var(--rule);
     color: var(--ink-dim);
@@ -78,7 +83,7 @@
     margin-right: 6px;
   }
   .freshness-fresh .dot-status { background: var(--green); }
-  .freshness-lagging .dot-status { background: var(--accent); }
+  .freshness-lagging .dot-status { background: var(--amber); }
   .freshness-stale .dot-status { background: var(--red); }
   .freshness-fresh { border-color: rgba(107,155,110,0.4); }
   .freshness-lagging { border-color: rgba(232,163,61,0.4); }
@@ -94,9 +99,10 @@
     border-bottom: 1px solid var(--rule);
   }
   .tab {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--meta);
     background: none;
     border: none;
@@ -108,11 +114,11 @@
   }
   .tab:hover { color: var(--ink-dim); }
   .tab.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
+    color: var(--amber);
+    border-bottom-color: var(--amber);
   }
   .tab:focus-visible, .fixture summary:focus-visible, button:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--amber);
     outline-offset: 2px;
   }
   .tab .count {
@@ -136,7 +142,7 @@
     z-index: 20;
     background: var(--surface);
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 4px;
     padding: 6px;
     margin-top: 4px;
     min-width: 220px;
@@ -146,14 +152,14 @@
     display: block;
     width: 100%;
     text-align: left;
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 13px;
     color: var(--ink-dim);
     background: none;
     border: none;
     padding: 9px 10px;
     cursor: pointer;
-    border-radius: 0;
+    border-radius: 3px;
     white-space: nowrap;
   }
   .dropdown-item:hover {
@@ -161,7 +167,7 @@
     color: var(--ink);
   }
   .dropdown-item.active {
-    color: var(--accent);
+    color: var(--amber);
   }
   .dropdown-item .count {
     color: var(--meta);
@@ -175,9 +181,10 @@
   }
 
   .fixture-badge {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     color: var(--meta);
+    text-transform: uppercase;
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
@@ -189,18 +196,18 @@
     padding: 14px 4px 4px;
   }
   .window-toggle {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     color: var(--meta);
     padding: 14px 4px 8px;
   }
   .window-toggle a {
-    color: var(--accent);
+    color: var(--amber);
     text-decoration: none;
-    border-bottom: 1px dotted var(--accent);
+    border-bottom: 1px dotted var(--amber);
   }
   .sort-toggle-active {
-    color: var(--accent);
+    color: var(--amber);
     font-weight: 600;
   }
   .window-toggle a.sort-toggle-link {
@@ -223,24 +230,25 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
     color: var(--ink-dim);
     cursor: pointer;
     white-space: nowrap;
   }
   .bb-filter-item input[type="checkbox"] {
-    accent-color: var(--accent);
+    accent-color: var(--amber);
     cursor: pointer;
   }
   .bb-category {
     margin: 18px 0 8px;
   }
   .bb-category-title {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     letter-spacing: 0.08em;
-    color: var(--accent);
+    text-transform: uppercase;
+    color: var(--amber);
     padding: 8px 4px;
     border-bottom: 1px solid var(--rule);
     margin-bottom: 6px;
@@ -251,14 +259,15 @@
     gap: 16px;
   }
   .bb-column-title {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--ink-dim);
     padding: 2px 4px 6px;
   }
   .bb-empty {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
     color: var(--meta);
     padding: 8px 4px;
@@ -269,19 +278,19 @@
     gap: 10px;
     background: var(--surface);
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 3px;
     padding: 10px 14px;
     margin-bottom: 6px;
     flex-wrap: wrap;
   }
   .bb-rank {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     color: var(--meta);
     width: 16px;
   }
   .bb-teams {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-weight: 600;
     font-size: 13px;
     flex: 1;
@@ -289,19 +298,20 @@
   }
   .bb-teams .v { color: var(--meta); font-weight: 400; margin: 0 5px; }
   .bb-league {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     color: var(--meta);
+    text-transform: uppercase;
     letter-spacing: 0.04em;
   }
   .bb-label {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-dim);
     min-width: 90px;
   }
   .bb-pct {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-weight: 700;
     font-size: 14px;
     min-width: 44px;
@@ -312,7 +322,7 @@
   .tr-summary {
     background: var(--surface);
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 3px;
     padding: 18px;
     margin: 14px 0 20px;
   }
@@ -323,12 +333,12 @@
     margin-bottom: 16px;
   }
   .tr-summary-pct {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-weight: 700;
     font-size: 32px;
   }
   .tr-summary-label {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-dim);
   }
@@ -343,18 +353,19 @@
     align-items: center;
     background: var(--bg);
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 3px;
     padding: 8px 10px;
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
     color: var(--ink-dim);
   }
   .tr-chip-n { color: var(--meta); font-size: 10px; }
   .tr-badge {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.05em;
-    border-radius: 0;
+    text-transform: uppercase;
+    border-radius: 2px;
     padding: 3px 8px;
     white-space: nowrap;
   }
@@ -372,9 +383,10 @@
     margin-bottom: 6px;
   }
   .date-label {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--meta);
     padding: 18px 4px 8px;
     border-bottom: 1px solid var(--rule);
@@ -383,7 +395,7 @@
   .fixture {
     background: var(--surface);
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 3px;
     margin-bottom: 8px;
     transition: background 0.15s;
   }
@@ -399,13 +411,13 @@
   }
   .fixture summary::-webkit-details-marker { display: none; }
   .kickoff {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     color: var(--meta);
     min-width: 44px;
   }
   .teams {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 14px;
     font-weight: 600;
     flex: 1;
@@ -413,7 +425,7 @@
   }
   .teams .v { color: var(--meta); font-weight: 400; margin: 0 6px; }
   .pos-badge {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     font-weight: 400;
     color: var(--meta);
@@ -423,7 +435,7 @@
   .quick-stats {
     display: flex;
     gap: 16px;
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
   }
   .quick-stat { color: var(--ink-dim); white-space: nowrap; }
@@ -432,20 +444,21 @@
   .pct-lo { color: var(--red); }
   .flag {
     font-size: 10px;
-    font-family: var(--data);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 0;
+    font-family: var(--mono);
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 2px;
     padding: 2px 6px;
+    text-transform: uppercase;
     letter-spacing: 0.05em;
   }
   .flag-market {
     font-size: 10px;
     font-weight: 700;
-    font-family: var(--data);
+    font-family: var(--mono);
     color: var(--green);
     border: 1px solid var(--green);
-    border-radius: 0;
+    border-radius: 2px;
     padding: 2px 5px;
     display: inline-flex;
     align-items: center;
@@ -453,7 +466,7 @@
   }
   .chev {
     color: var(--meta);
-    font-family: var(--data);
+    font-family: var(--mono);
     transition: transform 0.15s;
   }
   .fixture[open] .chev { transform: rotate(90deg); }
@@ -465,18 +478,19 @@
   }
   .note {
     font-size: 12px;
-    color: var(--accent);
+    color: var(--amber);
     background: rgba(232,163,61,0.08);
     border: 1px solid rgba(232,163,61,0.25);
-    border-radius: 0;
+    border-radius: 3px;
     padding: 8px 10px;
     margin: 12px 0;
     line-height: 1.5;
   }
   .cup-leagues {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
     color: var(--meta);
+    text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-top: 4px;
   }
@@ -498,7 +512,7 @@
     flex: 1;
     background: var(--bg);
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 3px;
     padding: 12px 10px;
     text-align: center;
   }
@@ -506,7 +520,7 @@
     border-color: var(--green);
   }
   .mr-label {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
     color: var(--ink-dim);
     margin-bottom: 6px;
@@ -515,25 +529,26 @@
     text-overflow: ellipsis;
   }
   .mr-pct {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-weight: 700;
     font-size: 18px;
   }
   .metric-card {
     background: var(--bg);
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 3px;
     padding: 12px 14px;
   }
   .metric-title {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--meta);
     margin-bottom: 8px;
   }
   .metric-expected {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -543,7 +558,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     padding: 4px 0;
     border-top: 1px solid var(--rule);
@@ -554,17 +569,17 @@
     flex: 1;
     height: 6px;
     background: var(--rule);
-    border-radius: 0;
+    border-radius: 3px;
     margin: 0 10px;
     overflow: hidden;
   }
   .ou-bar {
     height: 100%;
-    background: var(--accent);
+    background: var(--amber);
   }
   .ou-pct { min-width: 38px; text-align: right; }
   .btts-row {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-dim);
     margin-top: 10px;
@@ -583,7 +598,7 @@
     min-width: 0;
   }
   .metric-split-title {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     color: var(--meta);
     white-space: nowrap;
@@ -591,7 +606,7 @@
     text-overflow: ellipsis;
   }
   .metric-split-expected {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-weight: 700;
     font-size: 15px;
     margin: 2px 0 4px;
@@ -599,14 +614,14 @@
   .split-ou-row {
     display: flex;
     justify-content: space-between;
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     padding: 2px 0;
     color: var(--ink-dim);
   }
   .split-ou-line { color: var(--meta); }
   .sample-note {
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 10px;
     color: var(--meta);
     margin-top: 12px;
@@ -616,7 +631,7 @@
     text-align: center;
     padding: 60px 20px;
     color: var(--meta);
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 13px;
     line-height: 1.8;
   }
@@ -626,7 +641,7 @@
     margin: 20px auto 40px;
     padding: 0 20px;
     color: var(--meta);
-    font-family: var(--data);
+    font-family: var(--mono);
     font-size: 11px;
   }
 
@@ -639,7 +654,8 @@
 <body>
 
   <header>
-    <h1>Footy Stat Pack</h1>
+    <h1>Footy Stat Pack<span class="dot">.</span></h1>
+    <div class="subhead" id="generated-note">Goals, corners, cards &amp; half splits — Poisson model, 5 leagues.</div>
   </header>
 
   <nav class="tabs" id="tabs"></nav>
@@ -669,6 +685,7 @@
   let footballMenuOpen = false; // toggled by clicking the "Football" tab
   let bestBetsSortMode = "confidence"; // toggled by the sort-order links on the Best Bets tab
   let bestBetsHiddenMetrics = new Set(); // metrics unchecked by the filter row - empty means "show everything"
+  let bestBetsMarketOnly = false; // toggled by the "Market-matched only" checkbox
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
   let activeLeague = null;
 
@@ -847,7 +864,7 @@
     if (!m) return "";
     const ouRows = (m.over_under || []).map(ou => {
       const overPct = ou.over;
-      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--accent)";
+      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--amber)";
       return `<div class="ou-row">
         <span class="ou-line">O/U ${ou.line}</span>
         <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
@@ -1051,6 +1068,24 @@
     </div>`;
   }
 
+  // Market-matched filter - kept separate from the metric checkboxes above
+  // because it isn't itself a metric, it's a data-quality signal (same
+  // market_blended flag behind the green "M" badge on fixture cards, see
+  // flagBadges). Only shown when at least one of today's picks actually has
+  // it - most useful exactly on days like an international break, where
+  // most fixtures are postponed and the handful still on are worth judging
+  // by whether they're backed by real bookmaker odds rather than model-only.
+  function bestBetsMarketToggle(picks) {
+    const marketCount = picks.filter(p => p.market_blended).length;
+    if (marketCount === 0) return "";
+    return `<div class="bb-filter-row">
+      <label class="bb-filter-item">
+        <input type="checkbox" id="bb-market-only" ${bestBetsMarketOnly ? "checked" : ""}>
+        Market-matched only <span style="color:var(--green)">(${marketCount})</span>
+      </label>
+    </div>`;
+  }
+
   function bestBetsSortToggle() {
     const opt = (mode, label) => mode === bestBetsSortMode
       ? `<span class="sort-toggle-active">${label}</span>`
@@ -1072,7 +1107,9 @@
     }
 
     const filterRow = bestBetsFilterRow(combined);
-    const visible = combined.filter(p => !bestBetsHiddenMetrics.has(p.metric));
+    const marketToggleRow = bestBetsMarketToggle(combined);
+    let visible = combined.filter(p => !bestBetsHiddenMetrics.has(p.metric));
+    if (bestBetsMarketOnly) visible = visible.filter(p => p.market_blended);
     const allPicks = bestBetsSortMode === "game"
       ? groupPicksByGame(visible)
       : [...visible].sort((a, b) => b.confidence - a.confidence);
@@ -1083,6 +1120,7 @@
 
     mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.</div>` +
       filterRow +
+      marketToggleRow +
       bestBetsSortToggle() +
       listHtml;
 
@@ -1094,6 +1132,14 @@
         render();
       });
     });
+
+    const marketBox = mainEl.querySelector("#bb-market-only");
+    if (marketBox) {
+      marketBox.addEventListener("change", () => {
+        bestBetsMarketOnly = marketBox.checked;
+        render();
+      });
+    }
 
     const toggle = mainEl.querySelector(".window-toggle");
     if (toggle) {
@@ -1196,7 +1242,7 @@
   function nflOuRows(entries) {
     return (entries || []).map(ou => {
       const overPct = ou.over;
-      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--accent)";
+      const barColor = overPct >= 0.5 ? "var(--green)" : "var(--amber)";
       return `<div class="ou-row">
         <span class="ou-line">O/U ${ou.line}</span>
         <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
