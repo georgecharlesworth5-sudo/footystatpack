@@ -90,8 +90,20 @@ def convert_et_to_uk(gameday: str, gametime: str) -> tuple[str, str]:
 
 def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_form: dict,
                         league_avg: dict, market_row: dict | None = None) -> dict:
+    # Uses each team's OVERALL rolling form (home + away games pooled),
+    # not the home-only/away-only split the football side uses. Unlike
+    # football, splitting by venue this early in a 17-game NFL season
+    # means a team with e.g. 2 home games and 0 away games so far would
+    # get an "away form" that's 100% last season's games - discarding
+    # all of this season's data - to make up a venue-specific sample.
+    # NFL home-field advantage is also real but comparatively small, so
+    # that trade (lose same-season signal to preserve a venue split) is
+    # a bad one here. League-wide home/away scoring averages (league_avg,
+    # passed through unchanged) still give the model a home-field
+    # baseline - it's just no longer conditioned on each TEAM's own
+    # venue-split history on top of that.
     predictions = predict_game(
-        home_form["home"], away_form["away"], league_avg,
+        home_form["overall"], away_form["overall"], league_avg,
         DEFAULT_TOTAL_LINES, DEFAULT_TEAM_LINES, DEFAULT_TD_LINES,
     )
 
@@ -112,19 +124,19 @@ def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_for
         "home_team": TEAM_NAMES.get(home_code, home_code),
         "away_team": TEAM_NAMES.get(away_code, away_code),
         "home_code": home_code, "away_code": away_code,
-        "home_form_sample": home_form["home"].get("matches", 0),
-        "away_form_sample": away_form["away"].get("matches", 0),
+        "home_form_sample": home_form["overall"].get("matches", 0),
+        "away_form_sample": away_form["overall"].get("matches", 0),
         "predictions": predictions,
     }
     if market_blended:
         card["market_blended"] = True
 
-    home_n = home_form["home"].get("matches", 0)
-    away_n = away_form["away"].get("matches", 0)
+    home_n = home_form["overall"].get("matches", 0)
+    away_n = away_form["overall"].get("matches", 0)
     if home_n < LOW_SAMPLE_THRESHOLD or away_n < LOW_SAMPLE_THRESHOLD:
         card["low_sample"] = True
         card["note"] = (
-            f"Thin form sample ({home_n} home / {away_n} away games) - probabilities here "
+            f"Thin form sample ({home_n} home team / {away_n} away team games) - probabilities here "
             f"can swing hard on a single result. Treat as a rough signal, not a settled read."
         )
     return card
