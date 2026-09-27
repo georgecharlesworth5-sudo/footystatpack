@@ -952,8 +952,8 @@
           "expected_away": 16.293,
           "expected_total": 53.2,
           "moneyline": {
-            "home_win": 0.838,
-            "away_win": 0.162
+            "home_win": 0.835,
+            "away_win": 0.165
           },
           "total_over_under": [
             {
@@ -1128,9 +1128,9 @@
               "expected": 46.5
             },
             {
-              "line": 42.5,
-              "over": 0.5,
-              "under": 0.5,
+              "line": 41.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 46.5
             },
             {
@@ -1300,8 +1300,8 @@
             },
             {
               "line": 48.5,
-              "over": 0.527,
-              "under": 0.473,
+              "over": 0.532,
+              "under": 0.468,
               "expected": 50.6
             }
           ],
@@ -1441,8 +1441,8 @@
           "expected_away": 29.353,
           "expected_total": 57.5,
           "moneyline": {
-            "home_win": 0.466,
-            "away_win": 0.534
+            "home_win": 0.469,
+            "away_win": 0.531
           },
           "total_over_under": [
             {
@@ -1771,8 +1771,8 @@
           "expected_away": 35.299,
           "expected_total": 49.6,
           "moneyline": {
-            "home_win": 0.121,
-            "away_win": 0.879
+            "home_win": 0.126,
+            "away_win": 0.874
           },
           "total_over_under": [
             {
@@ -2101,8 +2101,8 @@
           "expected_away": 20.599,
           "expected_total": 34.9,
           "moneyline": {
-            "home_win": 0.349,
-            "away_win": 0.651
+            "home_win": 0.345,
+            "away_win": 0.655
           },
           "total_over_under": [
             {
@@ -2266,14 +2266,14 @@
           "expected_away": 32.868,
           "expected_total": 47.2,
           "moneyline": {
-            "home_win": 0.16,
-            "away_win": 0.84
+            "home_win": 0.157,
+            "away_win": 0.843
           },
           "total_over_under": [
             {
               "line": 40.5,
-              "over": 0.582,
-              "under": 0.418,
+              "over": 0.589,
+              "under": 0.411,
               "expected": 47.2
             },
             {
@@ -2425,8 +2425,8 @@
           "expected_away": 13.237,
           "expected_total": 48.1,
           "moneyline": {
-            "home_win": 0.858,
-            "away_win": 0.142
+            "home_win": 0.855,
+            "away_win": 0.145
           },
           "total_over_under": [
             {
@@ -2596,8 +2596,8 @@
             },
             {
               "line": 42.5,
-              "over": 0.5,
-              "under": 0.5,
+              "over": 0.489,
+              "under": 0.511,
               "expected": 35.3
             },
             {
@@ -2749,8 +2749,8 @@
           "expected_away": 28.971,
           "expected_total": 57.8,
           "moneyline": {
-            "home_win": 0.446,
-            "away_win": 0.554
+            "home_win": 0.451,
+            "away_win": 0.549
           },
           "total_over_under": [
             {
@@ -39101,7 +39101,7 @@
       "team": "Kansas City Chiefs",
       "direction": "Kansas City Chiefs",
       "line": null,
-      "confidence": 0.879,
+      "confidence": 0.874,
       "label": "Kansas City Chiefs to win"
     },
     {
@@ -39133,7 +39133,7 @@
       "team": "San Francisco 49ers",
       "direction": "San Francisco 49ers",
       "line": null,
-      "confidence": 0.858,
+      "confidence": 0.855,
       "label": "San Francisco 49ers to win"
     },
     {
@@ -39149,7 +39149,7 @@
       "team": "Seattle Seahawks",
       "direction": "Seattle Seahawks",
       "line": null,
-      "confidence": 0.84,
+      "confidence": 0.843,
       "label": "Seattle Seahawks to win"
     },
     {
@@ -39165,7 +39165,7 @@
       "team": "Buffalo Bills",
       "direction": "Buffalo Bills",
       "line": null,
-      "confidence": 0.838,
+      "confidence": 0.835,
       "label": "Buffalo Bills to win"
     }
   ]
