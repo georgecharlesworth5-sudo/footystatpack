@@ -16,7 +16,15 @@ from collections import defaultdict
 # early-season predictions lean on real current-season games as soon as
 # there are any, rather than treating a 10-months-ago game the same as
 # last week's.
-WEIGHT_DECAY = 0.85
+#
+# Lowered from an earlier 0.85 to make that lean much stronger - at 0.85,
+# the most recent 2 games only carried ~28% of total weight in a 10-game
+# window, nowhere near enough to reflect "this season's form" once a team
+# has only played 1-2 games so far this year. At 0.50, the most recent 2
+# games carry ~75% of the total weight, with the remaining (mostly
+# last-season-tail, early in a new campaign) games still contributing a
+# real but clearly secondary ~25%.
+WEIGHT_DECAY = 0.50
 
 STAT_KEYS = ["points", "passing_tds", "rushing_tds"]
 
