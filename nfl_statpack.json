@@ -1117,8 +1117,8 @@
           "expected_away": 31.88,
           "expected_total": 61.4,
           "moneyline": {
-            "home_win": 0.407,
-            "away_win": 0.593
+            "home_win": 0.404,
+            "away_win": 0.596
           },
           "total_over_under": [
             {
@@ -1135,8 +1135,8 @@
             },
             {
               "line": 47.5,
-              "over": 0.483,
-              "under": 0.517,
+              "over": 0.496,
+              "under": 0.504,
               "expected": 61.4
             },
             {
@@ -1447,8 +1447,8 @@
           "expected_away": 13.355,
           "expected_total": 40.6,
           "moneyline": {
-            "home_win": 0.783,
-            "away_win": 0.217
+            "home_win": 0.781,
+            "away_win": 0.219
           },
           "total_over_under": [
             {
@@ -1606,8 +1606,8 @@
           "expected_away": 13.226,
           "expected_total": 40.2,
           "moneyline": {
-            "home_win": 0.725,
-            "away_win": 0.275
+            "home_win": 0.728,
+            "away_win": 0.272
           },
           "total_over_under": [
             {
@@ -1618,8 +1618,8 @@
             },
             {
               "line": 42.5,
-              "over": 0.511,
-              "under": 0.489,
+              "over": 0.517,
+              "under": 0.483,
               "expected": 40.2
             },
             {
@@ -1771,8 +1771,8 @@
           "expected_away": 29.78,
           "expected_total": 44.1,
           "moneyline": {
-            "home_win": 0.345,
-            "away_win": 0.655
+            "home_win": 0.35,
+            "away_win": 0.65
           },
           "total_over_under": [
             {
@@ -1953,15 +1953,9 @@
               "expected": 51.6
             },
             {
-              "line": 47.5,
-              "over": 0.511,
-              "under": 0.489,
-              "expected": 51.6
-            },
-            {
               "line": 48.5,
-              "over": 0.587,
-              "under": 0.413,
+              "over": 0.538,
+              "under": 0.462,
               "expected": 51.6
             }
           ],
@@ -2101,8 +2095,8 @@
           "expected_away": 15.253,
           "expected_total": 34.9,
           "moneyline": {
-            "home_win": 0.558,
-            "away_win": 0.442
+            "home_win": 0.538,
+            "away_win": 0.462
           },
           "total_over_under": [
             {
@@ -2271,9 +2265,15 @@
               "expected": 41.2
             },
             {
+              "line": 43.5,
+              "over": 0.478,
+              "under": 0.522,
+              "expected": 41.2
+            },
+            {
               "line": 44.5,
-              "over": 0.46,
-              "under": 0.54,
+              "over": 0.409,
+              "under": 0.591,
               "expected": 41.2
             },
             {
@@ -2419,8 +2419,8 @@
           "expected_away": 17.536,
           "expected_total": 40.3,
           "moneyline": {
-            "home_win": 0.51,
-            "away_win": 0.49
+            "home_win": 0.514,
+            "away_win": 0.486
           },
           "total_over_under": [
             {
@@ -2584,8 +2584,8 @@
           "expected_away": 13.226,
           "expected_total": 37.9,
           "moneyline": {
-            "home_win": 0.824,
-            "away_win": 0.176
+            "home_win": 0.814,
+            "away_win": 0.186
           },
           "total_over_under": [
             {
@@ -2914,8 +2914,8 @@
           "expected_away": 13.916,
           "expected_total": 41.6,
           "moneyline": {
-            "home_win": 0.797,
-            "away_win": 0.203
+            "home_win": 0.803,
+            "away_win": 0.197
           },
           "total_over_under": [
             {
@@ -3079,8 +3079,8 @@
           "expected_away": 23.596,
           "expected_total": 53.3,
           "moneyline": {
-            "home_win": 0.628,
-            "away_win": 0.372
+            "home_win": 0.623,
+            "away_win": 0.377
           },
           "total_over_under": [
             {
@@ -3096,9 +3096,9 @@
               "expected": 53.3
             },
             {
-              "line": 46.5,
-              "over": 0.504,
-              "under": 0.496,
+              "line": 47.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 53.3
             },
             {
@@ -3267,9 +3267,9 @@
               "expected": 57.1
             },
             {
-              "line": 50.5,
-              "over": 0.504,
-              "under": 0.496,
+              "line": 51.5,
+              "over": 0.483,
+              "under": 0.517,
               "expected": 57.1
             }
           ],
@@ -3427,8 +3427,8 @@
             },
             {
               "line": 48.5,
-              "over": 0.541,
-              "under": 0.459,
+              "over": 0.537,
+              "under": 0.463,
               "expected": 51.3
             }
           ],
@@ -3568,8 +3568,8 @@
           "expected_away": 24.459,
           "expected_total": 54.0,
           "moneyline": {
-            "home_win": 0.648,
-            "away_win": 0.352
+            "home_win": 0.728,
+            "away_win": 0.272
           },
           "total_over_under": [
             {
@@ -3582,6 +3582,12 @@
               "line": 44.5,
               "over": 0.75,
               "under": 0.25,
+              "expected": 54.0
+            },
+            {
+              "line": 47.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 54.0
             },
             {
@@ -3709,6 +3715,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "09/10/2026",
       "time": "01:15",
       "week": "5"
@@ -3726,8 +3733,8 @@
           "expected_away": 13.226,
           "expected_total": 42.2,
           "moneyline": {
-            "home_win": 0.879,
-            "away_win": 0.121
+            "home_win": 0.721,
+            "away_win": 0.279
           },
           "total_over_under": [
             {
@@ -3738,8 +3745,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.436,
-              "under": 0.564,
+              "over": 0.468,
+              "under": 0.532,
               "expected": 42.2
             },
             {
@@ -3867,8 +3874,174 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "14:30",
+      "week": "5"
+    },
+    {
+      "home_team": "Green Bay Packers",
+      "away_team": "Chicago Bears",
+      "home_code": "GB",
+      "away_code": "CHI",
+      "home_form_sample": 10,
+      "away_form_sample": 10,
+      "predictions": {
+        "points": {
+          "expected_home": 14.36,
+          "expected_away": 33.096,
+          "expected_total": 47.5,
+          "moneyline": {
+            "home_win": 0.317,
+            "away_win": 0.683
+          },
+          "total_over_under": [
+            {
+              "line": 40.5,
+              "over": 0.689,
+              "under": 0.311,
+              "expected": 47.5
+            },
+            {
+              "line": 44.5,
+              "over": 0.583,
+              "under": 0.417,
+              "expected": 47.5
+            },
+            {
+              "line": 45.5,
+              "over": 0.5,
+              "under": 0.5,
+              "expected": 47.5
+            },
+            {
+              "line": 48.5,
+              "over": 0.471,
+              "under": 0.529,
+              "expected": 47.5
+            }
+          ],
+          "home_over_under": [
+            {
+              "line": 20.5,
+              "over": 0.27,
+              "under": 0.73,
+              "expected": 14.4
+            },
+            {
+              "line": 24.5,
+              "over": 0.155,
+              "under": 0.845,
+              "expected": 14.4
+            }
+          ],
+          "away_over_under": [
+            {
+              "line": 20.5,
+              "over": 0.896,
+              "under": 0.104,
+              "expected": 33.1
+            },
+            {
+              "line": 24.5,
+              "over": 0.805,
+              "under": 0.195,
+              "expected": 33.1
+            }
+          ]
+        },
+        "passing_tds": {
+          "expected_home": 0.905,
+          "expected_away": 1.216,
+          "home_over_under": [
+            {
+              "line": 0.5,
+              "over": 0.595,
+              "under": 0.405,
+              "expected": 0.91
+            },
+            {
+              "line": 1.5,
+              "over": 0.229,
+              "under": 0.771,
+              "expected": 0.91
+            },
+            {
+              "line": 2.5,
+              "over": 0.064,
+              "under": 0.936,
+              "expected": 0.91
+            }
+          ],
+          "away_over_under": [
+            {
+              "line": 0.5,
+              "over": 0.704,
+              "under": 0.296,
+              "expected": 1.22
+            },
+            {
+              "line": 1.5,
+              "over": 0.343,
+              "under": 0.657,
+              "expected": 1.22
+            },
+            {
+              "line": 2.5,
+              "over": 0.124,
+              "under": 0.876,
+              "expected": 1.22
+            }
+          ]
+        },
+        "rushing_tds": {
+          "expected_home": 0.605,
+          "expected_away": 1.33,
+          "home_over_under": [
+            {
+              "line": 0.5,
+              "over": 0.454,
+              "under": 0.546,
+              "expected": 0.6
+            },
+            {
+              "line": 1.5,
+              "over": 0.124,
+              "under": 0.876,
+              "expected": 0.6
+            },
+            {
+              "line": 2.5,
+              "over": 0.024,
+              "under": 0.976,
+              "expected": 0.6
+            }
+          ],
+          "away_over_under": [
+            {
+              "line": 0.5,
+              "over": 0.736,
+              "under": 0.264,
+              "expected": 1.33
+            },
+            {
+              "line": 1.5,
+              "over": 0.384,
+              "under": 0.616,
+              "expected": 1.33
+            },
+            {
+              "line": 2.5,
+              "over": 0.15,
+              "under": 0.85,
+              "expected": 1.33
+            }
+          ]
+        }
+      },
+      "market_blended": true,
+      "date": "11/10/2026",
+      "time": "18:00",
       "week": "5"
     },
     {
@@ -3884,8 +4057,8 @@
           "expected_away": 32.909,
           "expected_total": 47.3,
           "moneyline": {
-            "home_win": 0.085,
-            "away_win": 0.915
+            "home_win": 0.145,
+            "away_win": 0.855
           },
           "total_over_under": [
             {
@@ -3898,6 +4071,12 @@
               "line": 44.5,
               "over": 0.578,
               "under": 0.422,
+              "expected": 47.3
+            },
+            {
+              "line": 46.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 47.3
             },
             {
@@ -4025,6 +4204,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "18:00",
       "week": "5"
@@ -4042,8 +4222,8 @@
           "expected_away": 28.428,
           "expected_total": 42.8,
           "moneyline": {
-            "home_win": 0.149,
-            "away_win": 0.851
+            "home_win": 0.383,
+            "away_win": 0.617
           },
           "total_over_under": [
             {
@@ -4054,8 +4234,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.452,
-              "under": 0.548,
+              "over": 0.471,
+              "under": 0.529,
               "expected": 42.8
             },
             {
@@ -4183,6 +4363,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "18:00",
       "week": "5"
@@ -4200,8 +4381,8 @@
           "expected_away": 26.704,
           "expected_total": 41.1,
           "moneyline": {
-            "home_win": 0.18,
-            "away_win": 0.82
+            "home_win": 0.308,
+            "away_win": 0.692
           },
           "total_over_under": [
             {
@@ -4212,8 +4393,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.404,
-              "under": 0.596,
+              "over": 0.457,
+              "under": 0.543,
               "expected": 41.1
             },
             {
@@ -4341,6 +4522,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "18:00",
       "week": "5"
@@ -4358,10 +4540,16 @@
           "expected_away": 23.466,
           "expected_total": 40.5,
           "moneyline": {
-            "home_win": 0.318,
-            "away_win": 0.682
+            "home_win": 0.441,
+            "away_win": 0.559
           },
           "total_over_under": [
+            {
+              "line": 39.5,
+              "over": 0.5,
+              "under": 0.5,
+              "expected": 40.5
+            },
             {
               "line": 40.5,
               "over": 0.501,
@@ -4499,6 +4687,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "18:00",
       "week": "5"
@@ -4516,8 +4705,8 @@
           "expected_away": 23.673,
           "expected_total": 46.5,
           "moneyline": {
-            "home_win": 0.474,
-            "away_win": 0.526
+            "home_win": 0.519,
+            "away_win": 0.481
           },
           "total_over_under": [
             {
@@ -4528,8 +4717,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.555,
-              "under": 0.445,
+              "over": 0.528,
+              "under": 0.472,
               "expected": 46.5
             },
             {
@@ -4657,6 +4846,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "18:00",
       "week": "5"
@@ -4674,10 +4864,16 @@
           "expected_away": 15.372,
           "expected_total": 29.7,
           "moneyline": {
-            "home_win": 0.47,
-            "away_win": 0.53
+            "home_win": 0.376,
+            "away_win": 0.624
           },
           "total_over_under": [
+            {
+              "line": 39.5,
+              "over": 0.5,
+              "under": 0.5,
+              "expected": 29.7
+            },
             {
               "line": 40.5,
               "over": 0.223,
@@ -4815,6 +5011,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "18:00",
       "week": "5"
@@ -4832,14 +5029,20 @@
           "expected_away": 20.397,
           "expected_total": 37.5,
           "moneyline": {
-            "home_win": 0.402,
-            "away_win": 0.598
+            "home_win": 0.483,
+            "away_win": 0.517
           },
           "total_over_under": [
             {
               "line": 40.5,
               "over": 0.415,
               "under": 0.585,
+              "expected": 37.5
+            },
+            {
+              "line": 42.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 37.5
             },
             {
@@ -4973,6 +5176,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "18:00",
       "week": "5"
@@ -4990,14 +5194,20 @@
           "expected_away": 26.043,
           "expected_total": 40.4,
           "moneyline": {
-            "home_win": 0.193,
-            "away_win": 0.807
+            "home_win": 0.321,
+            "away_win": 0.679
           },
           "total_over_under": [
             {
               "line": 40.5,
               "over": 0.497,
               "under": 0.503,
+              "expected": 40.4
+            },
+            {
+              "line": 43.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 40.4
             },
             {
@@ -5131,6 +5341,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "21:05",
       "week": "5"
@@ -5148,8 +5359,8 @@
           "expected_away": 35.27,
           "expected_total": 62.0,
           "moneyline": {
-            "home_win": 0.264,
-            "away_win": 0.736
+            "home_win": 0.292,
+            "away_win": 0.708
           },
           "total_over_under": [
             {
@@ -5168,6 +5379,12 @@
               "line": 48.5,
               "over": 0.83,
               "under": 0.17,
+              "expected": 62.0
+            },
+            {
+              "line": 52.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 62.0
             }
           ],
@@ -5289,164 +5506,7 @@
           ]
         }
       },
-      "date": "11/10/2026",
-      "time": "21:25",
-      "week": "5"
-    },
-    {
-      "home_team": "Green Bay Packers",
-      "away_team": "Chicago Bears",
-      "home_code": "GB",
-      "away_code": "CHI",
-      "home_form_sample": 10,
-      "away_form_sample": 10,
-      "predictions": {
-        "points": {
-          "expected_home": 14.36,
-          "expected_away": 33.096,
-          "expected_total": 47.5,
-          "moneyline": {
-            "home_win": 0.083,
-            "away_win": 0.917
-          },
-          "total_over_under": [
-            {
-              "line": 40.5,
-              "over": 0.689,
-              "under": 0.311,
-              "expected": 47.5
-            },
-            {
-              "line": 44.5,
-              "over": 0.583,
-              "under": 0.417,
-              "expected": 47.5
-            },
-            {
-              "line": 48.5,
-              "over": 0.471,
-              "under": 0.529,
-              "expected": 47.5
-            }
-          ],
-          "home_over_under": [
-            {
-              "line": 20.5,
-              "over": 0.27,
-              "under": 0.73,
-              "expected": 14.4
-            },
-            {
-              "line": 24.5,
-              "over": 0.155,
-              "under": 0.845,
-              "expected": 14.4
-            }
-          ],
-          "away_over_under": [
-            {
-              "line": 20.5,
-              "over": 0.896,
-              "under": 0.104,
-              "expected": 33.1
-            },
-            {
-              "line": 24.5,
-              "over": 0.805,
-              "under": 0.195,
-              "expected": 33.1
-            }
-          ]
-        },
-        "passing_tds": {
-          "expected_home": 0.905,
-          "expected_away": 1.216,
-          "home_over_under": [
-            {
-              "line": 0.5,
-              "over": 0.595,
-              "under": 0.405,
-              "expected": 0.91
-            },
-            {
-              "line": 1.5,
-              "over": 0.229,
-              "under": 0.771,
-              "expected": 0.91
-            },
-            {
-              "line": 2.5,
-              "over": 0.064,
-              "under": 0.936,
-              "expected": 0.91
-            }
-          ],
-          "away_over_under": [
-            {
-              "line": 0.5,
-              "over": 0.704,
-              "under": 0.296,
-              "expected": 1.22
-            },
-            {
-              "line": 1.5,
-              "over": 0.343,
-              "under": 0.657,
-              "expected": 1.22
-            },
-            {
-              "line": 2.5,
-              "over": 0.124,
-              "under": 0.876,
-              "expected": 1.22
-            }
-          ]
-        },
-        "rushing_tds": {
-          "expected_home": 0.605,
-          "expected_away": 1.33,
-          "home_over_under": [
-            {
-              "line": 0.5,
-              "over": 0.454,
-              "under": 0.546,
-              "expected": 0.6
-            },
-            {
-              "line": 1.5,
-              "over": 0.124,
-              "under": 0.876,
-              "expected": 0.6
-            },
-            {
-              "line": 2.5,
-              "over": 0.024,
-              "under": 0.976,
-              "expected": 0.6
-            }
-          ],
-          "away_over_under": [
-            {
-              "line": 0.5,
-              "over": 0.736,
-              "under": 0.264,
-              "expected": 1.33
-            },
-            {
-              "line": 1.5,
-              "over": 0.384,
-              "under": 0.616,
-              "expected": 1.33
-            },
-            {
-              "line": 2.5,
-              "over": 0.15,
-              "under": 0.85,
-              "expected": 1.33
-            }
-          ]
-        }
-      },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "21:25",
       "week": "5"
@@ -5464,8 +5524,8 @@
           "expected_away": 30.995,
           "expected_total": 56.1,
           "moneyline": {
-            "home_win": 0.331,
-            "away_win": 0.669
+            "home_win": 0.467,
+            "away_win": 0.533
           },
           "total_over_under": [
             {
@@ -5478,6 +5538,12 @@
               "line": 44.5,
               "over": 0.794,
               "under": 0.206,
+              "expected": 56.1
+            },
+            {
+              "line": 47.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 56.1
             },
             {
@@ -5605,6 +5671,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "11/10/2026",
       "time": "21:25",
       "week": "5"
@@ -5622,8 +5689,8 @@
           "expected_away": 27.865,
           "expected_total": 53.8,
           "moneyline": {
-            "home_win": 0.443,
-            "away_win": 0.557
+            "home_win": 0.369,
+            "away_win": 0.631
           },
           "total_over_under": [
             {
@@ -5642,6 +5709,12 @@
               "line": 48.5,
               "over": 0.646,
               "under": 0.354,
+              "expected": 53.8
+            },
+            {
+              "line": 49.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 53.8
             }
           ],
@@ -5763,6 +5836,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "12/10/2026",
       "time": "01:20",
       "week": "5"
@@ -5780,8 +5854,8 @@
           "expected_away": 31.484,
           "expected_total": 53.8,
           "moneyline": {
-            "home_win": 0.249,
-            "away_win": 0.751
+            "home_win": 0.396,
+            "away_win": 0.604
           },
           "total_over_under": [
             {
@@ -5800,6 +5874,12 @@
               "line": 48.5,
               "over": 0.647,
               "under": 0.353,
+              "expected": 53.8
+            },
+            {
+              "line": 52.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 53.8
             }
           ],
@@ -5921,6 +6001,7 @@
           ]
         }
       },
+      "market_blended": true,
       "date": "13/10/2026",
       "time": "01:15",
       "week": "5"
