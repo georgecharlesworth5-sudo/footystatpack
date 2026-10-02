@@ -7,7 +7,7 @@ kind of use - same spirit as football-data.co.uk for the football side
 of this project, verified as a genuine, legitimate open-data source
 before building against it.
 
-Two source files, joined together:
+Three source files, joined together:
 
   1. stats_team_week_<season>.csv - team-game-level offensive/defensive
      stats (passing_tds, rushing_tds, etc.), one row per team per game
@@ -19,6 +19,18 @@ Two source files, joined together:
      blank for games not yet played) - this is what supplies points, and
      also the list of upcoming fixtures to predict.
        https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv
+
+  3. stats_player_week_<season>.csv - one row per PLAYER per game
+     they've played, with passing/rushing/receiving yards (and a lot
+     more besides - only the columns this project actually uses are
+     kept). Same release family as stats_team above (stats_team's own
+     predecessor, player_stats, is deprecated in favour of this one and
+     stats_player). Confirmed directly by fetching a real file - header
+     row includes player_display_name, team, game_id, passing_yards,
+     rushing_yards, receiving_yards exactly as expected:
+       https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_<season>.csv
+     Used for per-game stat leaders (top passer/rusher/receiver per
+     team) on completed games - see nfl_build_statpack.build_recent_results.
 
 Home/away for each stats_team_week row is derived from its own game_id
 (format: <season>_<week>_<away_team>_<home_team>) rather than needing a
@@ -42,6 +54,7 @@ USER_AGENT = "Mozilla/5.0 (compatible; StatPackBot/1.0; personal use)"
 
 STATS_TEAM_URL = "https://github.com/nflverse/nflverse-data/releases/download/stats_team/stats_team_week_{season}.csv"
 GAMES_URL = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
+STATS_PLAYER_URL = "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{season}.csv"
 
 
 def _fetch_url(url: str, retries: int = 3, backoff: float = 2.0) -> str:
@@ -108,6 +121,49 @@ def fetch_team_stats(season: int) -> list[dict]:
     return rows
 
 
+def fetch_player_stats(season: int) -> list[dict]:
+    """Fetches one season's player-game stats, trimmed to just the
+    columns this project uses (the real file has 100+ columns covering
+    kicking/defense/special teams too - see the docstring's confirmed
+    header row). Returns [] gracefully on failure, same reasoning as
+    fetch_team_stats above."""
+    url = STATS_PLAYER_URL.format(season=season)
+    text = _fetch_url(url)
+    if text is None:
+        return []
+    reader = csv.DictReader(io.StringIO(text))
+    rows = []
+    for row in reader:
+        if row.get("season_type") != "REG":
+            continue  # regular season only, same as team stats
+        name = (row.get("player_display_name") or "").strip()
+        if not name:
+            continue
+        try:
+            passing_yards = float(row.get("passing_yards") or 0)
+            rushing_yards = float(row.get("rushing_yards") or 0)
+            receiving_yards = float(row.get("receiving_yards") or 0)
+        except ValueError:
+            continue
+        rows.append({
+            "season": row.get("season"), "week": row.get("week"), "game_id": row.get("game_id"),
+            "team": row.get("team"), "player": name,
+            "passing_yards": passing_yards, "rushing_yards": rushing_yards,
+            "receiving_yards": receiving_yards,
+        })
+    return rows
+
+
+def cache_player_stats(rows: list[dict], out_path: Path) -> None:
+    fieldnames = ["season", "week", "game_id", "team", "player",
+                  "passing_yards", "rushing_yards", "receiving_yards"]
+    with open(out_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"  -> {len(rows)} player-game rows cached to {out_path}")
+
+
 def fetch_games() -> list[dict]:
     """Fetches the full schedule (all seasons, past results AND future
     fixtures with blank scores in the same file)."""
@@ -161,6 +217,12 @@ def build_team_game_rows(team_stats_rows: list[dict], games_rows: list[dict]) ->
             combined.append({
                 "season": row["season"], "week": row["week"], "game_id": game_id,
                 "team": team, "opponent": opponent, "venue": row["venue"],
+                # Carried through from games.csv purely so a completed game
+                # can be shown with a real kickoff date/time (recent
+                # results + stat leaders) without a second lookup - games.csv
+                # was already being read for home_score/away_score above,
+                # this just keeps two more fields from the same row.
+                "gameday": game.get("gameday", ""), "gametime": game.get("gametime", ""),
                 "points_for": points_for, "points_against": points_against,
                 "passing_tds_for": row["passing_tds"], "passing_tds_against": opponent_row["passing_tds"],
                 "rushing_tds_for": row["rushing_tds"], "rushing_tds_against": opponent_row["rushing_tds"],
@@ -183,6 +245,7 @@ def fetch_upcoming_fixtures(games_rows: list[dict]) -> list[dict]:
 
 def cache_team_game_data(rows: list[dict], out_path: Path) -> None:
     fieldnames = ["season", "week", "game_id", "team", "opponent", "venue",
+                  "gameday", "gametime",
                   "points_for", "points_against",
                   "passing_tds_for", "passing_tds_against",
                   "rushing_tds_for", "rushing_tds_against"]
@@ -236,6 +299,15 @@ if __name__ == "__main__":
 
     combined = build_team_game_rows(all_team_stats, games)
     cache_team_game_data(combined, data_dir / "nfl_team_games.csv")
+
+    print("Fetching player-game stats...")
+    all_player_stats = []
+    for season in seasons:
+        print(f"  Season {season}...")
+        rows = fetch_player_stats(season)
+        print(f"    {len(rows)} player-game rows")
+        all_player_stats.extend(rows)
+    cache_player_stats(all_player_stats, data_dir / "nfl_player_stats.csv")
 
     upcoming = fetch_upcoming_fixtures([g for g in games if g.get("season") in (str(s) for s in seasons)])
     cache_upcoming_fixtures(upcoming, data_dir / "nfl_upcoming.csv")
