@@ -21,6 +21,17 @@ arbitrarily:
     continuous point totals above. Same over/under approach as the
     football model's goals market.
 
+  - PASSING/RUSHING YARDS (team-level): treated as Normal, same
+    reasoning as points - these are high-count, roughly continuous
+    totals (a team typically throws for 150-300+ yards a game), not a
+    low discrete count like TDs. Same attack/defense-vs-league-average
+    structure feeds the expected value; only the over/under shape
+    differs (Normal CDF instead of Poisson CDF). STD_PASSING_YARDS /
+    STD_RUSHING_YARDS below are reasonable starting estimates (actual
+    per-team-game yardage spreads reported across real NFL seasons),
+    not fitted against this project's own data - revisit once there's
+    enough real-result history here to check calibration.
+
 Both share the same lesson learned building the football model: the
 combined attack*defense factor gets clamped before use, since two
 individually-plausible ratios can compound into an implausible result
@@ -34,8 +45,13 @@ STD_MARGIN = 13.5        # stdev of (home_score - away_score) around its predict
 STD_TEAM_POINTS = 10.0   # stdev of one team's own score around its predicted mean
 STD_TOTAL = math.sqrt(2) * STD_TEAM_POINTS
 
+STD_PASSING_YARDS = 70.0   # stdev of one team's own passing yards around its predicted mean
+STD_RUSHING_YARDS = 45.0   # stdev of one team's own rushing yards around its predicted mean
+
 FALLBACK_LEAGUE_POINTS = 22.0
 FALLBACK_LEAGUE_TDS = 1.2  # a fallback for passing/rushing TDs specifically if league_avg is ever empty
+FALLBACK_LEAGUE_PASSING_YARDS = 220.0
+FALLBACK_LEAGUE_RUSHING_YARDS = 115.0
 
 # The combined attack*defense product for one side gets clamped to this
 # range - confirmed necessary by testing: a thin-sample case (1-3 games)
@@ -44,6 +60,9 @@ FALLBACK_LEAGUE_TDS = 1.2  # a fallback for passing/rushing TDs specifically if 
 # separate tuning done for TDs specifically yet, revisit if real
 # results suggest they need their own range.
 FORM_CLAMP = (0.6, 1.6)
+
+DEFAULT_PASSING_YARDS_LINES = [199.5, 224.5, 249.5]
+DEFAULT_RUSHING_YARDS_LINES = [99.5, 124.5, 149.5]
 
 
 def _clamp(value: float, bounds: tuple[float, float]) -> float:
@@ -111,6 +130,15 @@ def expected_tds(home_form: dict, away_form: dict, league_avg: dict, td_type: st
                            f"{td_type}_for", f"{td_type}_against")
 
 
+def expected_yards(home_form: dict, away_form: dict, league_avg: dict, yard_type: str) -> tuple[float, float]:
+    """yard_type: 'passing_yards' or 'rushing_yards'."""
+    fallback = FALLBACK_LEAGUE_PASSING_YARDS if yard_type == "passing_yards" else FALLBACK_LEAGUE_RUSHING_YARDS
+    league_home_avg = league_avg.get(f"home_{yard_type}") or fallback
+    league_away_avg = league_avg.get(f"away_{yard_type}") or fallback
+    return _expected_stat(home_form, away_form, league_home_avg, league_away_avg,
+                           f"{yard_type}_for", f"{yard_type}_against")
+
+
 def moneyline(exp_home: float, exp_away: float) -> dict:
     """No explicit draw probability - NFL ties are genuinely rare
     (~0.1% of games, only possible after a full overtime period)."""
@@ -132,18 +160,34 @@ def team_points_over_under(expected: float, lines: list[float]) -> list[dict]:
             for line in lines]
 
 
+def yards_over_under(expected: float, lines: list[float], std: float) -> list[dict]:
+    return [{"line": line, "over": round(1 - _normal_cdf(line, expected, std), 3),
+             "under": round(_normal_cdf(line, expected, std), 3), "expected": round(expected, 1)}
+            for line in lines]
+
+
 def predict_game(home_form: dict, away_form: dict, league_avg: dict,
                   total_lines: list[float], team_lines: list[float],
-                  td_lines: list[float]) -> dict:
+                  td_lines: list[float], passing_yards_lines: list[float] | None = None,
+                  rushing_yards_lines: list[float] | None = None) -> dict:
     """
     home_form / away_form: output of nfl_stats.rolling_form() for the
     HOME venue slice (home team) and AWAY venue slice (away team).
     td_lines: O/U lines applied to BOTH passing and rushing TDs (e.g.
     [0.5, 1.5, 2.5]) - team-level TD counts, not player props.
+    passing_yards_lines / rushing_yards_lines: O/U lines applied to each
+    team's own total yards in that category (team-level, not player
+    props) - default to DEFAULT_PASSING_YARDS_LINES / DEFAULT_RUSHING_
+    YARDS_LINES below if not given.
     """
+    passing_yards_lines = passing_yards_lines or DEFAULT_PASSING_YARDS_LINES
+    rushing_yards_lines = rushing_yards_lines or DEFAULT_RUSHING_YARDS_LINES
+
     exp_home_pts, exp_away_pts = expected_points(home_form, away_form, league_avg)
     exp_home_pass_td, exp_away_pass_td = expected_tds(home_form, away_form, league_avg, "passing_tds")
     exp_home_rush_td, exp_away_rush_td = expected_tds(home_form, away_form, league_avg, "rushing_tds")
+    exp_home_pass_yd, exp_away_pass_yd = expected_yards(home_form, away_form, league_avg, "passing_yards")
+    exp_home_rush_yd, exp_away_rush_yd = expected_yards(home_form, away_form, league_avg, "rushing_yards")
 
     return {
         "points": {
@@ -163,5 +207,15 @@ def predict_game(home_form: dict, away_form: dict, league_avg: dict,
             "expected_home": exp_home_rush_td, "expected_away": exp_away_rush_td,
             "home_over_under": [over_under_poisson(exp_home_rush_td, line) for line in td_lines],
             "away_over_under": [over_under_poisson(exp_away_rush_td, line) for line in td_lines],
+        },
+        "passing_yards": {
+            "expected_home": exp_home_pass_yd, "expected_away": exp_away_pass_yd,
+            "home_over_under": yards_over_under(exp_home_pass_yd, passing_yards_lines, STD_PASSING_YARDS),
+            "away_over_under": yards_over_under(exp_away_pass_yd, passing_yards_lines, STD_PASSING_YARDS),
+        },
+        "rushing_yards": {
+            "expected_home": exp_home_rush_yd, "expected_away": exp_away_rush_yd,
+            "home_over_under": yards_over_under(exp_home_rush_yd, rushing_yards_lines, STD_RUSHING_YARDS),
+            "away_over_under": yards_over_under(exp_away_rush_yd, rushing_yards_lines, STD_RUSHING_YARDS),
         },
     }
