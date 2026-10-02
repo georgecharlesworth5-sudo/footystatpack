@@ -61,6 +61,116 @@ def load_upcoming(path: Path) -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def load_player_stats(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    with open(path, newline="") as f:
+        return list(csv.DictReader(f))
+
+
+STAT_LEADER_CATEGORIES = [
+    ("passing", "passing_yards"),
+    ("rushing", "rushing_yards"),
+    ("receiving", "receiving_yards"),
+]
+
+
+def stat_leaders_for_team(players: list[dict]) -> dict:
+    """Top player by yards in each category, for one team in one game.
+    A category is left out entirely (not shown as "0 yds") if nobody on
+    the team recorded any - e.g. a team with no completed passes still
+    technically has a "leading passer" at 0 yards, which isn't a
+    meaningful stat to surface."""
+    leaders = {}
+    for category, field in STAT_LEADER_CATEGORIES:
+        best = None
+        for p in players:
+            try:
+                yards = float(p.get(field) or 0)
+            except ValueError:
+                continue
+            if yards <= 0:
+                continue
+            if best is None or yards > best["yards"]:
+                best = {"player": p.get("player", ""), "yards": yards}
+        if best:
+            best["yards"] = int(best["yards"]) if best["yards"] == int(best["yards"]) else best["yards"]
+            leaders[category] = best
+    return leaders
+
+
+def build_recent_results(team_games_rows: list[dict], player_stats_rows: list[dict]) -> list[dict]:
+    """
+    Completed games from the single most recent (season, week) found in
+    team_games_rows, each with the final score and each team's stat
+    leaders (top passer/rusher/receiver by yards, from stats_player_week -
+    see fetch_nfl.py). Deliberately just the latest week rather than
+    every game ever played - this is "what just happened", the
+    completed-game equivalent of upcoming_fixtures, not a full season
+    archive (nflverse's own files remain the source of truth for
+    historical lookups beyond that).
+
+    team_games_rows has two rows per game (one per team, see
+    fetch_nfl.build_team_game_rows) - paired back into one record per
+    game here using each row's own "venue" (H/A) field.
+    """
+    if not team_games_rows:
+        return []
+
+    def season_week_key(row):
+        try:
+            return (int(row["season"]), int(row["week"]))
+        except (ValueError, KeyError, TypeError):
+            return (0, 0)
+
+    latest = max(season_week_key(r) for r in team_games_rows)
+    latest_rows = [r for r in team_games_rows if season_week_key(r) == latest]
+
+    games_by_id: dict[str, dict] = {}
+    for row in latest_rows:
+        game = games_by_id.setdefault(row["game_id"], {})
+        game[row["venue"]] = row
+
+    # Index player stats by (game_id, team) once, rather than scanning
+    # the full player-stats file per game - that file covers every game
+    # all season, this is a handful of games.
+    players_by_game_team: dict[tuple[str, str], list[dict]] = {}
+    for p in player_stats_rows:
+        if p.get("game_id") not in games_by_id:
+            continue  # cheap pre-filter - only bother indexing this week's games
+        players_by_game_team.setdefault((p["game_id"], p.get("team")), []).append(p)
+
+    results = []
+    for game_id, sides in games_by_id.items():
+        home_row, away_row = sides.get("H"), sides.get("A")
+        if home_row is None or away_row is None:
+            continue  # shouldn't happen - a game_id with only one side's row is incomplete data
+
+        home_code, away_code = home_row["team"], away_row["team"]
+        date, time = convert_et_to_uk(home_row.get("gameday", ""), home_row.get("gametime", ""))
+
+        try:
+            home_score = int(float(home_row["points_for"]))
+            away_score = int(float(away_row["points_for"]))
+        except (ValueError, KeyError):
+            continue  # malformed score - skip rather than show a broken result
+
+        results.append({
+            "game_id": game_id,
+            "home_team": TEAM_NAMES.get(home_code, home_code),
+            "away_team": TEAM_NAMES.get(away_code, away_code),
+            "home_code": home_code, "away_code": away_code,
+            "home_score": home_score, "away_score": away_score,
+            "date": date, "time": time,
+            "week": home_row.get("week", ""),
+            "stat_leaders": {
+                "home": stat_leaders_for_team(players_by_game_team.get((game_id, home_code), [])),
+                "away": stat_leaders_for_team(players_by_game_team.get((game_id, away_code), [])),
+            },
+        })
+    return results
+
+
 def convert_et_to_uk(gameday: str, gametime: str) -> tuple[str, str]:
     """
     nflverse's gametime is US Eastern (confirmed directly: the 2025
@@ -145,9 +255,11 @@ def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_for
 def build_nfl_statpack(data_dir: Path) -> dict:
     team_games = load_team_games(data_dir / "nfl_team_games.csv")
     upcoming = load_upcoming(data_dir / "nfl_upcoming.csv")
+    player_stats = load_player_stats(data_dir / "nfl_player_stats.csv")
 
     print(f"[debug] {len(team_games)} team-game rows loaded")
     print(f"[debug] {len(upcoming)} upcoming fixture(s) loaded")
+    print(f"[debug] {len(player_stats)} player-game rows loaded")
 
     team_logs = build_team_game_log(team_games)
     league_avg = league_averages(team_games)
@@ -176,10 +288,14 @@ def build_nfl_statpack(data_dir: Path) -> dict:
 
     print(f"[debug] {market_blended_count}/{len(fixture_cards)} fixtures have market odds blended in")
 
+    recent_results = build_recent_results(team_games, player_stats)
+    print(f"[debug] {len(recent_results)} completed game(s) in the most recent week, with stat leaders")
+
     pack = {
         "league_averages": league_avg,
         "team_form": team_forms,
         "upcoming_fixtures": fixture_cards,
+        "recent_results": recent_results,
     }
     pack["best_bets"] = compute_nfl_best_bets(pack)
     print(f"[debug] {len(pack['best_bets'])} NFL best bet(s) qualified today")
