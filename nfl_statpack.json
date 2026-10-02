@@ -2344,9 +2344,9 @@
               "expected": 40.2
             },
             {
-              "line": 43.5,
-              "over": 0.483,
-              "under": 0.517,
+              "line": 42.5,
+              "over": 0.522,
+              "under": 0.478,
               "expected": 40.2
             },
             {
@@ -7340,8 +7340,8 @@
           "expected_away": 32.9,
           "expected_total": 47.3,
           "moneyline": {
-            "home_win": 0.147,
-            "away_win": 0.853
+            "home_win": 0.149,
+            "away_win": 0.851
           },
           "total_over_under": [
             {
