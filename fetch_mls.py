@@ -66,6 +66,7 @@ import os
 import sys
 import urllib.request
 import urllib.error
+import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -109,7 +110,11 @@ def _api_get(path: str, params: dict) -> dict:
               "see the setup notes at the top of this file.")
         sys.exit(1)
 
-    query = "&".join(f"{k}={v}" for k, v in params.items())
+    # urlencode percent-escapes each value (spaces, etc.) - needed once a
+    # param can be free text like "Major League Soccer" rather than just
+    # the numeric IDs/years every other call here uses, which never
+    # exposed this because digits need no escaping.
+    query = urllib.parse.urlencode(params)
     url = f"{API_BASE}/{path}?{query}"
     request = urllib.request.Request(url, headers={"x-apisports-key": api_key})
     try:
