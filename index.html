@@ -1322,6 +1322,35 @@
     </div>`;
   }
 
+  function seasonStatLeaderRows(leaders) {
+    if (!leaders || Object.keys(leaders).length === 0) {
+      return `<div class="split-ou-row"><span class="split-ou-line">No stats yet this season</span></div>`;
+    }
+    return Object.entries(STAT_LEADER_LABELS).map(([key, label]) => {
+      const leader = leaders[key];
+      if (!leader) return "";
+      return `<div class="split-ou-row">
+        <span class="split-ou-line">${label} — ${leader.player}</span>
+        <span>${leader.avg_yards} yds/gm</span>
+      </div>`;
+    }).join("");
+  }
+
+  function nflSeasonLeadersBlock(fixture) {
+    const leaders = fixture.season_stat_leaders;
+    if (!leaders) return "";
+    return `<div class="metric-split">
+      <div class="metric-split-col">
+        <div class="metric-split-title">${fixture.home_team} — season leaders</div>
+        ${seasonStatLeaderRows(leaders.home)}
+      </div>
+      <div class="metric-split-col">
+        <div class="metric-split-title">${fixture.away_team} — season leaders</div>
+        ${seasonStatLeaderRows(leaders.away)}
+      </div>
+    </div>`;
+  }
+
   function nflFixtureCard(fixture, badge) {
     const p = fixture.predictions;
     const marketBadge = fixture.market_blended ? `<span class="flag-market">M</span>` : "";
@@ -1346,6 +1375,7 @@
           ${nflSplitCard("Passing TDs", p.passing_tds, fixture.home_team, fixture.away_team)}
           ${nflSplitCard("Rushing TDs", p.rushing_tds, fixture.home_team, fixture.away_team)}
         </div>
+        ${nflSeasonLeadersBlock(fixture)}
         <div class="sample-note">Form sample: ${fixture.home_form_sample} recent games (${fixture.home_team}), ${fixture.away_form_sample} recent games (${fixture.away_team})</div>
       </div>
     </details>`;
