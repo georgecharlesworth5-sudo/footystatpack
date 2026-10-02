@@ -75,14 +75,32 @@ LEAGUE_NAMES = {
     "D1": "Bundesliga",
     "SP1": "La Liga",
     "F1": "Ligue 1",
-    # Sourced from fetch_mls.py (API-Football), not fetch_data.py
-    # (football-data.co.uk) like the other 9 - see that file's
-    # docstring for why. Otherwise treated identically to every other
-    # league here: data/MLS.csv and fixtures_manual/MLS.csv are the
-    # same shape fetch_data.py/fixturedownload.com produce, so none of
-    # the code below needs to know MLS came from somewhere different.
+    # Sourced from fetch_mls.py, which pulls football-data.co.uk's
+    # "extra leagues" combined file (the one place MLS appears on that
+    # site) rather than the per-league files fetch_data.py uses for the
+    # 9 above - see that file's docstring for why. data/MLS.csv still
+    # comes out in the same column shape as every other league, EXCEPT
+    # corners/cards/half-time score are always blank, since that file
+    # doesn't carry them - see GOALS_ONLY_LEAGUES below for how that's
+    # handled. fixtures_manual/MLS.csv is a manual fixturedownload.com
+    # download, same as the other non-Premier-League leagues.
     "MLS": "Major League Soccer",
 }
+
+# Leagues whose data source doesn't include corners/cards (or half-time
+# score, needed for the 1st/2nd-half goals split) - see fetch_mls.py's
+# docstring for why MLS specifically is goals-only. Computing those
+# metrics anyway would not fail loudly: stats_engine.py's
+# `int(row.get("HC") or 0)`-style parsing treats a missing column as a
+# genuine 0, which reads to the Poisson model as perfect certainty
+# ("this league produces exactly 0 corners/cards, every match") rather
+# than "no data" - the worst kind of wrong, a false maximally-confident
+# signal. build_fixture_card() below passes metrics=["goals"] for these
+# leagues instead, so corners/cards/half-goals are left out of the
+# fixture's predictions dict entirely, which best_bets.py's
+# `if not m: continue` already skips cleanly - see poisson_model.py's
+# predict_fixture docstring for the full reasoning.
+GOALS_ONLY_LEAGUES = {"MLS"}
 
 
 def load_cached_league(data_dir: Path, code: str) -> list[dict]:
@@ -227,9 +245,10 @@ KNOWN_ALIASES = {
 
 def build_fixture_card(home_team: str, away_team: str, home_form: dict, away_form: dict,
                         league_avg: dict, cross_league: bool = False, name_matches: dict | None = None,
-                        market_probs: dict | None = None) -> dict:
+                        market_probs: dict | None = None, goals_only: bool = False) -> dict:
     predictions = predict_fixture(
-        home_form["home"], away_form["away"], league_avg, DEFAULT_LINES
+        home_form["home"], away_form["away"], league_avg, DEFAULT_LINES,
+        metrics=["goals"] if goals_only else None,
     )
 
     # Blend in real bookmaker market odds where we have them - only
@@ -257,6 +276,13 @@ def build_fixture_card(home_team: str, away_team: str, home_form: dict, away_for
     }
     if market_probs:
         card["market_blended"] = True
+    if goals_only:
+        card["goals_only"] = True
+        card.setdefault("note", "")
+        card["note"] = (card["note"] + " " if card["note"] else "") + (
+            "This league's data source doesn't include corners/cards, so only "
+            "full-time goals markets are shown."
+        )
     if cross_league:
         card["cross_league_data"] = True
         card["note"] = ("One or both teams' recent form comes from a different division "
@@ -449,7 +475,7 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
 
             card = build_fixture_card(home, away, team_forms[home], team_forms[away],
                                        league_avg, cross_league=cross_league, name_matches=name_matches,
-                                       market_probs=market_probs)
+                                       market_probs=market_probs, goals_only=(code in GOALS_ONLY_LEAGUES))
             card["date"] = fx.get("Date", "")
             card["time"] = fx.get("Time", "")
 
