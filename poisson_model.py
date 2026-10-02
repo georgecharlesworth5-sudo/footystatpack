@@ -171,7 +171,8 @@ def match_result(lam_home: float, lam_away: float, max_goals: int = 10) -> dict:
     }
 
 
-def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: dict) -> dict:
+def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: dict,
+                     metrics: list[str] | None = None) -> dict:
     """
     home_form / away_form: output of stats_engine.rolling_form() for the
     HOME venue slice (home team) and AWAY venue slice (away team)
@@ -182,12 +183,26 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
         Metrics not present in `lines` are still computed (expected value)
         but skip the over/under breakdown.
 
-    Returns predictions for every tracked metric (see stats_engine.METRICS)
-    plus BTTS and match-result (1X2) markets for full-match goals.
+    metrics: which of stats_engine.METRICS to actually compute, defaulting
+        to all of them. Pass a restricted list (e.g. ["goals"]) for a data
+        source that doesn't carry every stat - e.g. MLS's results come from
+        football-data.co.uk's "extra leagues" file, which has goals only,
+        no corners/cards/half-time score. Computing corners/cards from
+        columns that are always blank wouldn't just be "no data" - every
+        row's HC/AC/HY/AY/HR/AR reads as 0 (see stats_engine.py's
+        `int(row.get("HC") or 0)`), so the model would see zero variance
+        and output a false, maximally-confident "under" on every
+        corners/cards line. Leaving the metric out of the result dict
+        entirely is what makes best_bets.py's `preds.get(metric_key)` /
+        `if not m: continue` skip it cleanly, rather than quietly act on
+        fabricated figures.
+
+    Returns predictions for every requested metric plus BTTS and
+    match-result (1X2) markets for full-match goals.
     """
     result = {}
 
-    for metric in METRICS:
+    for metric in (metrics if metrics is not None else METRICS):
         lam_home, lam_away = expected_values(home_form, away_form, league_avg, metric)
         lam_total = lam_home + lam_away
 
