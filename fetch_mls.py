@@ -138,7 +138,13 @@ def find_league_id(cache_path: Path) -> int:
     if cache_path.exists():
         return int(cache_path.read_text().strip())
 
-    payload = _api_get("leagues", {"search": "MLS"})
+    # Search by the full name, not the abbreviation - API-Football's own
+    # league name is the literal string "Major League Soccer", which does
+    # NOT contain "MLS" as a substring, so searching "MLS" only surfaced
+    # leagues that spell that abbreviation out in their own name (e.g.
+    # "MLS All-Star", "MLS Next Pro") and missed the real thing entirely.
+    # Confirmed against a live API response during setup.
+    payload = _api_get("leagues", {"search": "Major League Soccer"})
     candidates = payload.get("response", [])
     for entry in candidates:
         league = entry.get("league", {})
