@@ -667,7 +667,7 @@
 <script src="nfl_statpack_data.js"></script>
 <script>
 (function () {
-  const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0", "I1", "SP1", "D1", "F1", "MLS"];
+  const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0", "I1", "SP1", "D1", "F1"];
   const BEST_BETS = "__BEST_BETS__";
   const TODAY = "__TODAY__";
   const TRACK_RECORD = "__TRACK_RECORD__";
@@ -1351,10 +1351,59 @@
     </details>`;
   }
 
+  const STAT_LEADER_LABELS = { passing: "Passing", rushing: "Rushing", receiving: "Receiving" };
+
+  function statLeaderRows(leaders) {
+    if (!leaders || Object.keys(leaders).length === 0) {
+      return `<div class="split-ou-row"><span class="split-ou-line">No stats available</span></div>`;
+    }
+    return Object.entries(STAT_LEADER_LABELS).map(([key, label]) => {
+      const leader = leaders[key];
+      if (!leader) return "";
+      return `<div class="split-ou-row">
+        <span class="split-ou-line">${label} — ${leader.player}</span>
+        <span>${leader.yards} yds</span>
+      </div>`;
+    }).join("");
+  }
+
+  function nflResultCard(game) {
+    return `<details class="fixture">
+      <summary>
+        <span class="kickoff">${game.time || "--:--"}</span>
+        <span class="teams">${game.home_team} <b>${game.home_score}</b><span class="v">-</span><b>${game.away_score}</b> ${game.away_team}</span>
+        <span class="chev">▸</span>
+      </summary>
+      <div class="detail">
+        <div class="metric-split">
+          <div class="metric-split-col">
+            <div class="metric-split-title">${game.home_team}</div>
+            ${statLeaderRows(game.stat_leaders && game.stat_leaders.home)}
+          </div>
+          <div class="metric-split-col">
+            <div class="metric-split-title">${game.away_team}</div>
+            ${statLeaderRows(game.stat_leaders && game.stat_leaders.away)}
+          </div>
+        </div>
+      </div>
+    </details>`;
+  }
+
+  function renderNflRecentResults() {
+    const results = (typeof NFL_STATPACK_DATA !== "undefined") ? NFL_STATPACK_DATA.recent_results : null;
+    if (!results || results.length === 0) return "";
+    const weekLabel = results[0].week ? `Week ${results[0].week}` : "Most recent week";
+    return `<div class="date-group">
+      <div class="date-label">Recent Results — ${weekLabel}</div>
+      ${results.map(nflResultCard).join("")}
+    </div>`;
+  }
+
   function renderNfl() {
     const fixtures = (typeof NFL_STATPACK_DATA !== "undefined") ? NFL_STATPACK_DATA.upcoming_fixtures : [];
+    const recentResultsHtml = renderNflRecentResults();
     if (!fixtures || fixtures.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No NFL fixtures loaded yet.</div>`;
+      mainEl.innerHTML = recentResultsHtml || `<div class="empty">No NFL fixtures loaded yet.</div>`;
       return;
     }
 
@@ -1372,7 +1421,7 @@
 
     const intro = `<div class="bb-intro">Points modelled as Normal-distributed (standard NFL power-rating approach); passing/rushing TDs modelled as Poisson (low, discrete counts, closer to football goals). Green "M" badge = real market odds blended in where available.</div>`;
 
-    mainEl.innerHTML = intro + groups.map(g => `
+    mainEl.innerHTML = intro + recentResultsHtml + groups.map(g => `
       <div class="date-group">
         <div class="date-label">${fmtDate(g.date)}</div>
         ${g.items.map(nflFixtureCard).join("")}
