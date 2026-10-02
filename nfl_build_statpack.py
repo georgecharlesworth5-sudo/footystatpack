@@ -99,6 +99,64 @@ def stat_leaders_for_team(players: list[dict]) -> dict:
     return leaders
 
 
+def season_stat_leaders_by_team(player_stats_rows: list[dict]) -> dict[str, dict]:
+    """
+    Per-team season-so-far leaders by AVERAGE yards per game (not a
+    single game's total, unlike stat_leaders_for_team above) - for
+    showing on UPCOMING fixtures: "who's been this team's leading
+    passer/rusher/receiver so far this season", not tied to any one
+    completed game.
+
+    "This season" = whichever season value is highest in the data (the
+    current one, mid-way through) - last season's rows (also present in
+    player_stats_rows, since fetch_nfl.py keeps current + previous
+    season for form purposes) are deliberately excluded here, since
+    "so far this season" should reset at kickoff of a new season rather
+    than quietly carrying last year's numbers into it.
+
+    A player who's changed teams mid-season is handled naturally - each
+    row already carries the team they played for THAT game, so their
+    averages for a new team only include games actually played there.
+    """
+    if not player_stats_rows:
+        return {}
+
+    def season_num(row):
+        try:
+            return int(row["season"])
+        except (ValueError, KeyError, TypeError):
+            return -1
+
+    current_season = max(season_num(r) for r in player_stats_rows)
+    this_season_rows = [r for r in player_stats_rows if season_num(r) == current_season]
+
+    by_team_player: dict[tuple[str, str], list[dict]] = {}
+    for row in this_season_rows:
+        key = (row.get("team"), row.get("player"))
+        by_team_player.setdefault(key, []).append(row)
+
+    # One running best-so-far per (team, category) as we scan every
+    # player once, rather than grouping by team first then sorting -
+    # simpler and just as cheap at this data size (a few thousand rows).
+    best_by_team: dict[str, dict] = {}
+    for (team, player), rows in by_team_player.items():
+        games = len(rows)
+        for category, field in STAT_LEADER_CATEGORIES:
+            total = sum(float(r.get(field) or 0) for r in rows)
+            if total <= 0:
+                continue
+            avg = total / games
+            team_leaders = best_by_team.setdefault(team, {})
+            current_best = team_leaders.get(category)
+            if current_best is None or avg > current_best["avg_yards"]:
+                team_leaders[category] = {
+                    "player": player,
+                    "avg_yards": round(avg, 1),
+                    "games": games,
+                }
+    return best_by_team
+
+
 def build_recent_results(team_games_rows: list[dict], player_stats_rows: list[dict]) -> list[dict]:
     """
     Completed games from the single most recent (season, week) found in
@@ -199,7 +257,9 @@ def convert_et_to_uk(gameday: str, gametime: str) -> tuple[str, str]:
 
 
 def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_form: dict,
-                        league_avg: dict, market_row: dict | None = None) -> dict:
+                        league_avg: dict, market_row: dict | None = None,
+                        home_season_leaders: dict | None = None,
+                        away_season_leaders: dict | None = None) -> dict:
     # Uses each team's OVERALL rolling form (home + away games pooled),
     # not the home-only/away-only split the football side uses. Unlike
     # football, splitting by venue this early in a 17-game NFL season
@@ -240,6 +300,11 @@ def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_for
     }
     if market_blended:
         card["market_blended"] = True
+    if home_season_leaders or away_season_leaders:
+        card["season_stat_leaders"] = {
+            "home": home_season_leaders or {},
+            "away": away_season_leaders or {},
+        }
 
     home_n = home_form["overall"].get("matches", 0)
     away_n = away_form["overall"].get("matches", 0)
@@ -269,6 +334,8 @@ def build_nfl_statpack(data_dir: Path) -> dict:
     # games.csv's own game_id already encodes exactly this pairing.
     market_by_matchup = {(row["away_team"], row["home_team"]): row for row in upcoming}
 
+    season_leaders_by_team = season_stat_leaders_by_team(player_stats)
+
     fixture_cards = []
     market_blended_count = 0
     for fx in upcoming:
@@ -279,7 +346,9 @@ def build_nfl_statpack(data_dir: Path) -> dict:
 
         market_row = market_by_matchup.get((away_code, home_code))
         card = build_fixture_card(home_code, away_code, team_forms[home_code], team_forms[away_code],
-                                   league_avg, market_row=market_row)
+                                   league_avg, market_row=market_row,
+                                   home_season_leaders=season_leaders_by_team.get(home_code),
+                                   away_season_leaders=season_leaders_by_team.get(away_code))
         card["date"], card["time"] = convert_et_to_uk(fx.get("gameday", ""), fx.get("gametime", ""))
         card["week"] = fx.get("week", "")
         if card.get("market_blended"):
