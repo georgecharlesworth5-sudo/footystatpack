@@ -26,7 +26,7 @@ from collections import defaultdict
 # real but clearly secondary ~25%.
 WEIGHT_DECAY = 0.50
 
-STAT_KEYS = ["points", "passing_tds", "rushing_tds"]
+STAT_KEYS = ["points", "passing_tds", "rushing_tds", "passing_yards", "rushing_yards"]
 
 
 def build_team_game_log(rows: list[dict]) -> dict[str, list[dict]]:
@@ -43,6 +43,8 @@ def build_team_game_log(rows: list[dict]) -> dict[str, list[dict]]:
                 "points_for": float(row["points_for"]), "points_against": float(row["points_against"]),
                 "passing_tds_for": int(row["passing_tds_for"]), "passing_tds_against": int(row["passing_tds_against"]),
                 "rushing_tds_for": int(row["rushing_tds_for"]), "rushing_tds_against": int(row["rushing_tds_against"]),
+                "passing_yards_for": float(row["passing_yards_for"]), "passing_yards_against": float(row["passing_yards_against"]),
+                "rushing_yards_for": float(row["rushing_yards_for"]), "rushing_yards_against": float(row["rushing_yards_against"]),
             }
         except (ValueError, KeyError, TypeError):
             continue
@@ -105,12 +107,16 @@ def league_averages(rows: list[dict]) -> dict:
             points = float(row["points_for"])
             passing_tds = int(row["passing_tds_for"])
             rushing_tds = int(row["rushing_tds_for"])
+            passing_yards = float(row["passing_yards_for"])
+            rushing_yards = float(row["rushing_yards_for"])
         except (ValueError, KeyError, TypeError):
             continue
         side = "home" if venue == "H" else "away"
         totals[f"{side}_points"] += points
         totals[f"{side}_passing_tds"] += passing_tds
         totals[f"{side}_rushing_tds"] += rushing_tds
+        totals[f"{side}_passing_yards"] += passing_yards
+        totals[f"{side}_rushing_yards"] += rushing_yards
         totals[f"{side}_matches"] += 1
         n += 1
 
@@ -125,5 +131,7 @@ def league_averages(rows: list[dict]) -> dict:
         result[f"{side}_points"] = round(totals[f"{side}_points"] / matches, 3)
         result[f"{side}_passing_tds"] = round(totals[f"{side}_passing_tds"] / matches, 3)
         result[f"{side}_rushing_tds"] = round(totals[f"{side}_rushing_tds"] / matches, 3)
+        result[f"{side}_passing_yards"] = round(totals[f"{side}_passing_yards"] / matches, 3)
+        result[f"{side}_rushing_yards"] = round(totals[f"{side}_rushing_yards"] / matches, 3)
     result["matches"] = n
     return result
