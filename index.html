@@ -1351,6 +1351,39 @@
     </div>`;
   }
 
+  function standingsRows(s) {
+    if (!s || !s.record) {
+      return `<div class="split-ou-row"><span class="split-ou-line">No standings available</span></div>`;
+    }
+    const divLabel = s.division_rank ? `${ordinal(s.division_rank)} in ${s.division || "division"}` : (s.division || "");
+    const rows = [
+      ["Record", `${s.record}${divLabel ? ` (${divLabel})` : ""}`],
+      ["Pass Off", `${s.passing_offense.ypg} ypg (${ordinal(s.passing_offense.rank)})`],
+      ["Rush Off", `${s.rushing_offense.ypg} ypg (${ordinal(s.rushing_offense.rank)})`],
+      ["Pass Def", `${s.passing_defense.ypg} ypg (${ordinal(s.passing_defense.rank)})`],
+      ["Rush Def", `${s.rushing_defense.ypg} ypg (${ordinal(s.rushing_defense.rank)})`],
+    ];
+    return rows.map(([label, value]) => `<div class="split-ou-row">
+      <span class="split-ou-line">${label}</span>
+      <span>${value}</span>
+    </div>`).join("");
+  }
+
+  function nflStandingsBlock(obj) {
+    const standings = obj.standings;
+    if (!standings) return "";
+    return `<div class="metric-split">
+      <div class="metric-split-col">
+        <div class="metric-split-title">${obj.home_team} — standings</div>
+        ${standingsRows(standings.home)}
+      </div>
+      <div class="metric-split-col">
+        <div class="metric-split-title">${obj.away_team} — standings</div>
+        ${standingsRows(standings.away)}
+      </div>
+    </div>`;
+  }
+
   function nflFixtureCard(fixture, badge) {
     const p = fixture.predictions;
     const marketBadge = fixture.market_blended ? `<span class="flag-market">M</span>` : "";
@@ -1376,6 +1409,7 @@
           ${nflSplitCard("Rushing TDs", p.rushing_tds, fixture.home_team, fixture.away_team)}
         </div>
         ${nflSeasonLeadersBlock(fixture)}
+        ${nflStandingsBlock(fixture)}
         <div class="sample-note">Form sample: ${fixture.home_form_sample} recent games (${fixture.home_team}), ${fixture.away_form_sample} recent games (${fixture.away_team})</div>
       </div>
     </details>`;
@@ -1415,6 +1449,7 @@
             ${statLeaderRows(game.stat_leaders && game.stat_leaders.away)}
           </div>
         </div>
+        ${nflStandingsBlock(game)}
       </div>
     </details>`;
   }
