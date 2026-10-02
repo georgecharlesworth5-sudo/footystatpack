@@ -18,13 +18,10 @@ leagues" CSV - at a different URL, in a different column layout:
 goals, half-time score and match odds only, NO corners or cards.
 
 That ruled out treating MLS as just another entry in fetch_data.py's
-own LEAGUES dict (different URL shape, different columns entirely),
-and after actually trying the obvious paid alternative (API-Football)
-it turned out not to be a free option either - its free tier is
-capped to 2022-2024 seasons only, no access to the current season at
-all. A proper corners/cards source for MLS would mean paying for an
-API; this project runs on football-data.co.uk's free data elsewhere,
-so MLS instead gets one real trade-off: goals markets only, same as
+own LEAGUES dict (different URL shape, different columns entirely).
+A genuine corners/cards source for MLS would mean paying for an API;
+this project runs on football-data.co.uk's free data elsewhere, so
+MLS instead gets one real trade-off: goals markets only, same as
 every other league, but no corners/cards predictions for this one
 competition. See build_statpack.GOALS_ONLY_LEAGUES for how the rest
 of the pipeline is told to leave those markets out for MLS rather
@@ -48,10 +45,9 @@ load_fixtures.LEAGUE_FILES alongside the others.
 
 ## No API key, no setup
 
-Unlike the API-Football version of this script that came before it,
-there's nothing to configure here - this reads the same free, public,
-no-login football-data.co.uk site the rest of the project already
-relies on for the other leagues.
+Nothing to configure here - this reads the same free, public, no-login
+football-data.co.uk site the rest of the project already relies on
+for the other leagues.
 """
 
 import csv
