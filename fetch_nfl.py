@@ -10,8 +10,13 @@ before building against it.
 Three source files, joined together:
 
   1. stats_team_week_<season>.csv - team-game-level offensive/defensive
-     stats (passing_tds, rushing_tds, etc.), one row per team per game
-     they've PLAYED. Does not include points/final score at all.
+     stats (passing_tds, rushing_tds, passing_yards, rushing_yards, etc.),
+     one row per team per game they've PLAYED. Does not include
+     points/final score at all. The yards columns are what power
+     nfl_build_statpack.compute_standings' offense/defense rankings -
+     each team's own row gives its OFFENSE numbers, and its opponent's
+     row for the same game_id (joined below) gives what it conceded,
+     i.e. its DEFENSE numbers.
      URL pattern confirmed by direct testing:
        https://github.com/nflverse/nflverse-data/releases/download/stats_team/stats_team_week_<season>.csv
 
@@ -111,12 +116,15 @@ def fetch_team_stats(season: int) -> list[dict]:
         try:
             passing_tds = int(row.get("passing_tds") or 0)
             rushing_tds = int(row.get("rushing_tds") or 0)
+            passing_yards = float(row.get("passing_yards") or 0)
+            rushing_yards = float(row.get("rushing_yards") or 0)
         except ValueError:
             continue
         rows.append({
             "season": row.get("season"), "week": row.get("week"), "game_id": row.get("game_id"),
             "team": row.get("team"), "opponent_team": row.get("opponent_team"), "venue": venue,
             "passing_tds": passing_tds, "rushing_tds": rushing_tds,
+            "passing_yards": passing_yards, "rushing_yards": rushing_yards,
         })
     return rows
 
@@ -226,6 +234,8 @@ def build_team_game_rows(team_stats_rows: list[dict], games_rows: list[dict]) ->
                 "points_for": points_for, "points_against": points_against,
                 "passing_tds_for": row["passing_tds"], "passing_tds_against": opponent_row["passing_tds"],
                 "rushing_tds_for": row["rushing_tds"], "rushing_tds_against": opponent_row["rushing_tds"],
+                "passing_yards_for": row["passing_yards"], "passing_yards_against": opponent_row["passing_yards"],
+                "rushing_yards_for": row["rushing_yards"], "rushing_yards_against": opponent_row["rushing_yards"],
             })
     return combined
 
@@ -248,7 +258,9 @@ def cache_team_game_data(rows: list[dict], out_path: Path) -> None:
                   "gameday", "gametime",
                   "points_for", "points_against",
                   "passing_tds_for", "passing_tds_against",
-                  "rushing_tds_for", "rushing_tds_against"]
+                  "rushing_tds_for", "rushing_tds_against",
+                  "passing_yards_for", "passing_yards_against",
+                  "rushing_yards_for", "rushing_yards_against"]
     with open(out_path, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
