@@ -1,10 +1,14 @@
 name: Update NFL Stat Pack
 
 # Runs the NFL half of the pipeline automatically:
-#   fetch_nfl.py         - pulls team-game stats + schedule from nflverse
-#   nfl_build_statpack.py - recalculates form + predictions, writes
-#                            nfl_statpack.json and nfl_statpack_data.js
-#                            (which the dashboard's NFL tab reads)
+#   fetch_nfl.py         - pulls team-game stats, schedule, and per-player
+#                           game stats (passing/rushing/receiving yards)
+#                           from nflverse
+#   nfl_build_statpack.py - recalculates form + predictions, computes
+#                            stat leaders for the most recent week's
+#                            completed games, writes nfl_statpack.json
+#                            and nfl_statpack_data.js (which the
+#                            dashboard's NFL tab reads)
 #
 # Separate workflow from the football side (update-statpack.yml)
 # deliberately - different data source, different scripts, no shared
@@ -60,7 +64,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_team_games.csv data/nfl_upcoming.csv nfl_statpack.json nfl_statpack_data.js
+          git add data/nfl_team_games.csv data/nfl_upcoming.csv data/nfl_player_stats.csv nfl_statpack.json nfl_statpack_data.js
           git diff --staged --quiet || git commit -m "Auto-update NFL stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
 
           # Same belt-and-braces retry as the football workflow - a
