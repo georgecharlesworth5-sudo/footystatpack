@@ -38,6 +38,21 @@ TEAM_NAMES = {
     "TEN": "Tennessee Titans", "WAS": "Washington Commanders",
 }
 
+# Static - NFL division alignment doesn't change season to season (the
+# last realignment was 2002). Not sourced from nflverse at all, since
+# neither games.csv nor stats_team_week carries a team's division.
+DIVISIONS = {
+    "AFC East": ["BUF", "MIA", "NE", "NYJ"],
+    "AFC North": ["BAL", "CIN", "CLE", "PIT"],
+    "AFC South": ["HOU", "IND", "JAX", "TEN"],
+    "AFC West": ["DEN", "KC", "LV", "LAC"],
+    "NFC East": ["DAL", "NYG", "PHI", "WAS"],
+    "NFC North": ["CHI", "DET", "GB", "MIN"],
+    "NFC South": ["ATL", "CAR", "NO", "TB"],
+    "NFC West": ["ARI", "LA", "SF", "SEA"],
+}
+TEAM_DIVISION = {team: div for div, teams in DIVISIONS.items() for team in teams}
+
 DEFAULT_TOTAL_LINES = [40.5, 44.5, 48.5]
 
 DEFAULT_TEAM_LINES = [20.5, 24.5]
@@ -66,6 +81,99 @@ def load_player_stats(path: Path) -> list[dict]:
         return []
     with open(path, newline="") as f:
         return list(csv.DictReader(f))
+
+
+def compute_standings(team_games_rows: list[dict]) -> dict[str, dict]:
+    """
+    Per-team: current-season record (division standings) plus league-wide
+    rank (1-32) in passing offense, rushing offense, passing defense and
+    rushing defense, all by yards per game.
+
+    "Current season" = the highest season value present in
+    team_games_rows, same convention as season_stat_leaders_by_team below
+    - a team's record resets at kickoff of a new season rather than
+    carrying last year's standings into it (team_games_rows itself spans
+    current + previous season, kept for the rolling-form model's sake,
+    not for this).
+
+    Division standings here use a SIMPLIFIED tiebreak (wins, then point
+    differential) - not the NFL's real tiebreak procedure (head-to-head,
+    common games, strength of victory, etc., many levels deep). Good
+    enough to show "who's ahead in the division right now" at a glance;
+    not meant to be read as the official seeding in a close race.
+    """
+    if not team_games_rows:
+        return {}
+
+    def season_num(row):
+        try:
+            return int(row["season"])
+        except (ValueError, KeyError, TypeError):
+            return -1
+
+    current_season = max(season_num(r) for r in team_games_rows)
+    season_rows = [r for r in team_games_rows if season_num(r) == current_season]
+
+    totals: dict[str, dict] = {}
+    for r in season_rows:
+        t = totals.setdefault(r["team"], {
+            "games": 0, "wins": 0, "losses": 0, "ties": 0,
+            "points_for": 0.0, "points_against": 0.0,
+            "passing_yards_for": 0.0, "passing_yards_against": 0.0,
+            "rushing_yards_for": 0.0, "rushing_yards_against": 0.0,
+        })
+        t["games"] += 1
+        pf = float(r.get("points_for") or 0)
+        pa = float(r.get("points_against") or 0)
+        t["points_for"] += pf
+        t["points_against"] += pa
+        if pf > pa:
+            t["wins"] += 1
+        elif pa > pf:
+            t["losses"] += 1
+        else:
+            t["ties"] += 1
+        t["passing_yards_for"] += float(r.get("passing_yards_for") or 0)
+        t["passing_yards_against"] += float(r.get("passing_yards_against") or 0)
+        t["rushing_yards_for"] += float(r.get("rushing_yards_for") or 0)
+        t["rushing_yards_against"] += float(r.get("rushing_yards_against") or 0)
+
+    # League-wide ranks - descending (higher=better) for offense,
+    # ascending (fewer allowed=better) for defense.
+    def ranked(key: str, descending: bool) -> dict[str, int]:
+        teams_with_games = [t for t in totals if totals[t]["games"] > 0]
+        ordered = sorted(teams_with_games,
+                          key=lambda t: totals[t][key] / totals[t]["games"],
+                          reverse=descending)
+        return {team: i + 1 for i, team in enumerate(ordered)}
+
+    passing_off_rank = ranked("passing_yards_for", descending=True)
+    rushing_off_rank = ranked("rushing_yards_for", descending=True)
+    passing_def_rank = ranked("passing_yards_against", descending=False)
+    rushing_def_rank = ranked("rushing_yards_against", descending=False)
+
+    standings = {}
+    for team, t in totals.items():
+        games = t["games"]
+        division = TEAM_DIVISION.get(team)
+        division_teams = DIVISIONS.get(division, [team])
+        division_ranked = sorted(
+            division_teams,
+            key=lambda d: (totals.get(d, {}).get("wins", 0),
+                            totals.get(d, {}).get("points_for", 0) - totals.get(d, {}).get("points_against", 0)),
+            reverse=True,
+        )
+        standings[team] = {
+            "record": f"{t['wins']}-{t['losses']}" + (f"-{t['ties']}" if t["ties"] else ""),
+            "division": division,
+            "division_rank": division_ranked.index(team) + 1 if team in division_ranked else None,
+            "division_size": len(division_teams),
+            "passing_offense": {"ypg": round(t["passing_yards_for"] / games, 1), "rank": passing_off_rank.get(team)},
+            "rushing_offense": {"ypg": round(t["rushing_yards_for"] / games, 1), "rank": rushing_off_rank.get(team)},
+            "passing_defense": {"ypg": round(t["passing_yards_against"] / games, 1), "rank": passing_def_rank.get(team)},
+            "rushing_defense": {"ypg": round(t["rushing_yards_against"] / games, 1), "rank": rushing_def_rank.get(team)},
+        }
+    return standings
 
 
 STAT_LEADER_CATEGORIES = [
@@ -157,7 +265,8 @@ def season_stat_leaders_by_team(player_stats_rows: list[dict]) -> dict[str, dict
     return best_by_team
 
 
-def build_recent_results(team_games_rows: list[dict], player_stats_rows: list[dict]) -> list[dict]:
+def build_recent_results(team_games_rows: list[dict], player_stats_rows: list[dict],
+                          standings: dict[str, dict] | None = None) -> list[dict]:
     """
     Completed games from the single most recent (season, week) found in
     team_games_rows, each with the final score and each team's stat
@@ -225,6 +334,10 @@ def build_recent_results(team_games_rows: list[dict], player_stats_rows: list[di
                 "home": stat_leaders_for_team(players_by_game_team.get((game_id, home_code), [])),
                 "away": stat_leaders_for_team(players_by_game_team.get((game_id, away_code), [])),
             },
+            "standings": {
+                "home": (standings or {}).get(home_code, {}),
+                "away": (standings or {}).get(away_code, {}),
+            },
         })
     return results
 
@@ -259,7 +372,9 @@ def convert_et_to_uk(gameday: str, gametime: str) -> tuple[str, str]:
 def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_form: dict,
                         league_avg: dict, market_row: dict | None = None,
                         home_season_leaders: dict | None = None,
-                        away_season_leaders: dict | None = None) -> dict:
+                        away_season_leaders: dict | None = None,
+                        home_standings: dict | None = None,
+                        away_standings: dict | None = None) -> dict:
     # Uses each team's OVERALL rolling form (home + away games pooled),
     # not the home-only/away-only split the football side uses. Unlike
     # football, splitting by venue this early in a 17-game NFL season
@@ -305,6 +420,11 @@ def build_fixture_card(home_code: str, away_code: str, home_form: dict, away_for
             "home": home_season_leaders or {},
             "away": away_season_leaders or {},
         }
+    if home_standings or away_standings:
+        card["standings"] = {
+            "home": home_standings or {},
+            "away": away_standings or {},
+        }
 
     home_n = home_form["overall"].get("matches", 0)
     away_n = away_form["overall"].get("matches", 0)
@@ -335,6 +455,8 @@ def build_nfl_statpack(data_dir: Path) -> dict:
     market_by_matchup = {(row["away_team"], row["home_team"]): row for row in upcoming}
 
     season_leaders_by_team = season_stat_leaders_by_team(player_stats)
+    standings = compute_standings(team_games)
+    print(f"[debug] standings computed for {len(standings)} team(s)")
 
     fixture_cards = []
     market_blended_count = 0
@@ -348,7 +470,9 @@ def build_nfl_statpack(data_dir: Path) -> dict:
         card = build_fixture_card(home_code, away_code, team_forms[home_code], team_forms[away_code],
                                    league_avg, market_row=market_row,
                                    home_season_leaders=season_leaders_by_team.get(home_code),
-                                   away_season_leaders=season_leaders_by_team.get(away_code))
+                                   away_season_leaders=season_leaders_by_team.get(away_code),
+                                   home_standings=standings.get(home_code),
+                                   away_standings=standings.get(away_code))
         card["date"], card["time"] = convert_et_to_uk(fx.get("gameday", ""), fx.get("gametime", ""))
         card["week"] = fx.get("week", "")
         if card.get("market_blended"):
@@ -357,7 +481,7 @@ def build_nfl_statpack(data_dir: Path) -> dict:
 
     print(f"[debug] {market_blended_count}/{len(fixture_cards)} fixtures have market odds blended in")
 
-    recent_results = build_recent_results(team_games, player_stats)
+    recent_results = build_recent_results(team_games, player_stats, standings=standings)
     print(f"[debug] {len(recent_results)} completed game(s) in the most recent week, with stat leaders")
 
     pack = {
@@ -365,6 +489,7 @@ def build_nfl_statpack(data_dir: Path) -> dict:
         "team_form": team_forms,
         "upcoming_fixtures": fixture_cards,
         "recent_results": recent_results,
+        "standings": standings,
     }
     pack["best_bets"] = compute_nfl_best_bets(pack)
     print(f"[debug] {len(pack['best_bets'])} NFL best bet(s) qualified today")
