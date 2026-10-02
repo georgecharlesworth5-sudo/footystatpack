@@ -30,6 +30,11 @@ filenames:
     Bundesliga                https://fixturedownload.com/results/bundesliga-2026           D1.csv
     Ligue 1                   https://fixturedownload.com/results/ligue-1-2026              F1.csv
 
+MLS is NOT on this list - unlike the above, fixtures_manual/MLS.csv is
+written automatically by fetch_mls.py every run (from API-Football,
+which allows programmatic access, unlike fixturedownload.com). Nothing
+to download by hand for that one.
+
 (Season slugs will roll over to e.g. "epl-2027" next season - check
 fixturedownload.com/index if a URL above 404s. The La Liga/Bundesliga
 slugs above are best guesses following the same pattern as the others -
@@ -104,6 +109,7 @@ LEAGUE_FILES = {
     "SP1": "SP1.csv",
     "D1": "D1.csv",
     "F1": "F1.csv",
+    "MLS": "MLS.csv",  # written automatically by fetch_mls.py, not a manual download
 }
 
 # Each entry is one of:
@@ -139,6 +145,11 @@ LEAGUE_TIME_ADJUSTMENT = {
                   # and Bundesliga's default) point the same direction, so this
                   # follows the pattern rather than starting from an untested
                   # None. Still worth checking a real fixture once loaded.
+    "MLS": None,  # fetch_mls.py converts API-Football's own UTC timestamps to UK
+                  # local time directly (via zoneinfo) before ever writing the
+                  # file, unlike fixturedownload.com's raw, ambiguous-timezone
+                  # times the other leagues need guesswork to correct - so no
+                  # further adjustment here, same as Premier League's None.
 }
 
 
