@@ -12,8 +12,9 @@ both lists together for display, each computed independently.
 
 Covers: moneyline (team to win, the NFL equivalent of team_win),
 total points (match-level), and team-level splits for points/passing
-TDs/rushing TDs (home and away separately - "team corners, goals,
-passing TD etc." from the original ask, NFL side).
+TDs/rushing TDs/passing yards/rushing yards (home and away separately -
+"team corners, goals, passing TD etc." from the original ask, NFL
+side).
 """
 
 from datetime import date, timedelta
@@ -31,6 +32,8 @@ METRIC_LABELS = {
     "points": "Points",
     "passing_tds": "Passing TDs",
     "rushing_tds": "Rushing TDs",
+    "passing_yards": "Passing Yards",
+    "rushing_yards": "Rushing Yards",
 }
 
 
