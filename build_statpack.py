@@ -75,6 +75,13 @@ LEAGUE_NAMES = {
     "D1": "Bundesliga",
     "SP1": "La Liga",
     "F1": "Ligue 1",
+    # Sourced from fetch_mls.py (API-Football), not fetch_data.py
+    # (football-data.co.uk) like the other 9 - see that file's
+    # docstring for why. Otherwise treated identically to every other
+    # league here: data/MLS.csv and fixtures_manual/MLS.csv are the
+    # same shape fetch_data.py/fixturedownload.com produce, so none of
+    # the code below needs to know MLS came from somewhere different.
+    "MLS": "Major League Soccer",
 }
 
 
