@@ -29,11 +29,15 @@ filenames:
     La Liga                  https://fixturedownload.com/results/la-liga-2026              SP1.csv
     Bundesliga                https://fixturedownload.com/results/bundesliga-2026           D1.csv
     Ligue 1                   https://fixturedownload.com/results/ligue-1-2026              F1.csv
+    MLS                       https://fixturedownload.com/results/mls-2026                  MLS.csv
 
-MLS is NOT on this list - unlike the above, fixtures_manual/MLS.csv is
-written automatically by fetch_mls.py every run (from API-Football,
-which allows programmatic access, unlike fixturedownload.com). Nothing
-to download by hand for that one.
+MLS's RESULTS (data/MLS.csv) are fetched automatically by fetch_mls.py,
+same as every other league's - but from football-data.co.uk's "extra
+leagues" file rather than its main per-league ones (see that script's
+docstring for why). Its UPCOMING fixtures still need the same manual
+download as everything else here: football-data.co.uk's own
+all-leagues fixtures.csv (what fetch_data.py reads for the other 9)
+doesn't include MLS at all.
 
 (Season slugs will roll over to e.g. "epl-2027" next season - check
 fixturedownload.com/index if a URL above 404s. The La Liga/Bundesliga
@@ -145,11 +149,19 @@ LEAGUE_TIME_ADJUSTMENT = {
                   # and Bundesliga's default) point the same direction, so this
                   # follows the pattern rather than starting from an untested
                   # None. Still worth checking a real fixture once loaded.
-    "MLS": None,  # fetch_mls.py converts API-Football's own UTC timestamps to UK
-                  # local time directly (via zoneinfo) before ever writing the
-                  # file, unlike fixturedownload.com's raw, ambiguous-timezone
-                  # times the other leagues need guesswork to correct - so no
-                  # further adjustment here, same as Premier League's None.
+    "MLS": None,  # UNCONFIRMED, and the shakiest guess of any league here -
+                  # starting from "no adjustment" (same default as Premier
+                  # League) rather than guessing a number, because the flat-
+                  # offset approach above assumes a league plays in ONE time
+                  # zone. MLS teams span 4 US time zones (Eastern to
+                  # Pacific), so even if fixturedownload.com's raw MLS page
+                  # needs a correction, it's very unlikely to be the same
+                  # single number for an LA Galaxy home game and a New
+                  # England Revolution home game - a flat offset here could
+                  # fix one and silently break the other. Check kickoff
+                  # times for teams on both coasts before trusting this is
+                  # right; if it's wrong, this probably needs per-team/per-
+                  # venue handling rather than one more number in this dict.
 }
 
 
