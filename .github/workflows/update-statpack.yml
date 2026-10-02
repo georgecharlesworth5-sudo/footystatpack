@@ -2,12 +2,19 @@ name: Update Stat Pack
 
 # Runs the results/predictions half of the pipeline automatically:
 #   fetch_data.py    - pulls the latest results CSVs from football-data.co.uk
+#   fetch_mls.py     - pulls MLS results + fixtures from API-Football (the
+#                       one league not covered by football-data.co.uk/
+#                       fixturedownload.com in a usable shape - see that
+#                       file's docstring)
 #   build_statpack.py - recalculates form + predictions, writes statpack.json
 #                        and statpack_data.js (which the dashboard reads)
 #
-# Deliberately does NOT touch fixtures_manual/ - that stays a manual weekly
-# download from fixturedownload.com (see load_fixtures.py for why), so this
-# workflow only refreshes results/team-form, not the fixture list itself.
+# Deliberately does NOT touch the other 9 leagues' fixtures_manual/ files -
+# those stay a manual weekly download from fixturedownload.com (see
+# load_fixtures.py for why). MLS is the one exception: fetch_mls.py writes
+# fixtures_manual/MLS.csv itself every run, since that comes from
+# API-Football (which permits programmatic access) rather than
+# fixturedownload.com (which doesn't).
 
 on:
   schedule:
@@ -55,6 +62,11 @@ jobs:
       - name: Fetch latest results
         run: python fetch_data.py
 
+      - name: Fetch latest MLS data
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python fetch_mls.py
+
       - name: Build stat pack
         run: python build_statpack.py
 
@@ -65,7 +77,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ statpack.json statpack_data.js bets_log.csv bets_log.js
+          git add data/ fixtures_manual/MLS.csv statpack.json statpack_data.js bets_log.csv bets_log.js
           git diff --staged --quiet || git commit -m "Auto-update stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
 
           # Belt-and-braces: even with the concurrency guard above, a
