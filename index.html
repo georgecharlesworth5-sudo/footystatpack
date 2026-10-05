@@ -371,6 +371,95 @@
   .tr-hit { color: var(--green); border: 1px solid var(--green); }
   .tr-miss { color: var(--red); border: 1px solid var(--red); }
   .tr-pending { color: var(--meta); border: 1px solid var(--meta); }
+  .tr-overdue { color: var(--accent); border: 1px solid var(--accent); }
+  .tr-sport-toggle {
+    display: flex;
+    gap: 16px;
+    font-family: var(--data);
+    font-size: 12px;
+    padding: 14px 4px 0;
+  }
+  .tr-sport-toggle a {
+    color: var(--meta);
+    border-bottom: 1px dotted var(--meta);
+    cursor: pointer;
+  }
+  .tr-sport-toggle a:hover { color: var(--ink-dim); }
+  .tr-sport-toggle a.tr-sport-active {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    font-weight: 600;
+  }
+  .tr-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: var(--data);
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin: -6px 0 16px;
+  }
+  .tr-section-title {
+    font-family: var(--data);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--meta);
+    padding: 18px 4px 8px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 8px;
+  }
+  .tr-note {
+    font-family: var(--data);
+    font-size: 11px;
+    color: var(--meta);
+    padding: 2px 4px 8px;
+    line-height: 1.5;
+  }
+  .tr-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--data);
+    font-size: 12px;
+    padding: 5px 4px;
+  }
+  .tr-bar-label { width: 130px; flex-shrink: 0; color: var(--ink-dim); }
+  .tr-bar-wrap { flex: 1; height: 6px; background: var(--rule); }
+  .tr-bar { height: 100%; background: var(--green); }
+  .tr-bar.lo { background: var(--red); }
+  .tr-bar-val { min-width: 92px; text-align: right; font-weight: 700; }
+  .tr-bar-note { font-size: 10px; color: var(--meta); min-width: 64px; }
+  .tr-recent-sub {
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--meta);
+    margin-top: 2px;
+  }
+  .tr-pending-box {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    margin: 22px 0 8px;
+  }
+  .tr-pending-box summary {
+    cursor: pointer;
+    padding: 12px 14px;
+    font-family: var(--data);
+    font-size: 12px;
+    color: var(--ink-dim);
+  }
+  .tr-pend-body { padding: 0 14px 10px; }
+  .tr-pend-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--data);
+    font-size: 12px;
+    padding: 7px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .tr-pend-date { width: 48px; flex-shrink: 0; color: var(--meta); }
+  .tr-pend-match { flex: 1; min-width: 0; }
 
   /* ---------- Fixture list ---------- */
   main {
@@ -643,6 +732,9 @@
   @media (max-width: 560px) {
     .quick-stats { display: none; }
     .teams { font-size: 13px; }
+    .tr-bar-label { width: 96px; }
+    .tr-bar-val { min-width: 78px; }
+    .tr-bar-note { display: none; }
   }
 </style>
 </head>
@@ -680,6 +772,8 @@
   let bestBetsSortMode = "confidence"; // toggled by the sort-order links on the Best Bets tab
   let bestBetsHiddenMetrics = new Set(); // metrics unchecked by the filter row - empty means "show everything"
   let bestBetsMarketOnly = false; // toggled by the "Market-matched only" checkbox
+  let trSport = "all"; // Track Record sport toggle: all / football / nfl
+  let trShowAllRecent = false; // Track Record "show all recent picks" toggle
   let data = (typeof STATPACK_DATA !== "undefined") ? STATPACK_DATA.generated_leagues : null;
   let activeLeague = null;
 
@@ -1052,6 +1146,8 @@
     points: "Points",
     passing_tds: "Passing TDs",
     rushing_tds: "Rushing TDs",
+    passing_yards: "Passing Yards",
+    rushing_yards: "Rushing Yards",
   };
 
   // Checkbox filter row - built dynamically from whichever metrics
@@ -1189,35 +1285,153 @@
     }
   }
 
+  // ---------- Track Record ----------
+  // Reads BETS_LOG (written by track_bets.py). Everything is pre-computed
+  // there per sport ("all" / "football" / "nfl"), so switching sport here
+  // is just picking a different block - no maths in the browser.
+  function trFmtDate(iso) {
+    if (!iso) return "";
+    return new Date(iso + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+  }
+
+  function trPctClass(p, total) {
+    return total === 0 ? "" : p >= 55 ? "pct-hi" : p <= 40 ? "pct-lo" : "";
+  }
+
+  function trCategoryLabel(c, showSport) {
+    const isWin = c.metric === "team_win" || c.metric === "moneyline";
+    const base = isWin ? (c.sport === "nfl" ? "Moneyline" : "Team Win")
+      : c.metric === "btts" ? `BTTS ${c.direction}`
+      : `${ALL_METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
+    return showSport && c.sport === "nfl" ? `NFL ${base}` : base;
+  }
+
+  function trBarRow(label, hits, total, pctVal, note) {
+    return `<div class="tr-bar-row">
+      <span class="tr-bar-label">${label}</span>
+      <div class="tr-bar-wrap"><div class="tr-bar ${pctVal <= 40 ? "lo" : ""}" style="width:${pctVal}%"></div></div>
+      <span class="tr-bar-val ${trPctClass(pctVal, total)}">${pctVal}% <span class="tr-chip-n">(${hits}/${total})</span></span>
+      ${note ? `<span class="tr-bar-note">${note}</span>` : ""}
+    </div>`;
+  }
+
+  function trPendingBadge(bucket) {
+    const text = { upcoming: "UPCOMING", awaiting: "AWAITING RESULT", overdue: "OVERDUE" }[bucket];
+    return `<span class="tr-badge ${bucket === "overdue" ? "tr-overdue" : "tr-pending"}">${text}</span>`;
+  }
+
+  function trPendingSection(block, matches) {
+    const p = block.pending;
+    if (!p.total) return "";
+    const parts = [];
+    if (p.awaiting) parts.push(`${p.awaiting} awaiting results`);
+    if (p.overdue) parts.push(`${p.overdue} overdue`);
+    if (p.upcoming) parts.push(`${p.upcoming} upcoming`);
+
+    const rows = matches.map(m => `<div class="tr-pend-row">
+      <span class="tr-pend-date">${trFmtDate(m.date)}</span>
+      <span class="tr-pend-match">${m.match}<span class="tr-chip-n"> · ${m.league} · ${m.picks} pick${m.picks === 1 ? "" : "s"}</span></span>
+      ${trPendingBadge(m.bucket)}
+    </div>`).join("");
+
+    return `<details class="tr-pending-box">
+      <summary>${p.total} pending pick${p.total === 1 ? "" : "s"} across ${matches.length} match${matches.length === 1 ? "" : "es"} <span class="tr-chip-n">(${parts.join(" · ")})</span></summary>
+      <div class="tr-pend-body">
+        <div class="tr-note"><b>Awaiting result</b>: played in the last week but not in the results feed yet - football-data.co.uk often lags (see the freshness strip). <b>Overdue</b>: over a week old and still unsettled, usually feed lag, a postponement or a team-name mismatch - the ones worth a look. Picks on postponed games are voided automatically once the new date is known.</div>
+        ${rows}
+      </div>
+    </details>`;
+  }
+
+  function trRecentSection(recent) {
+    if (!recent.length) return "";
+    const shown = trShowAllRecent ? recent : recent.slice(0, 15);
+    const rows = shown.map(r => {
+      const isWin = r.metric === "team_win" || r.metric === "moneyline";
+      const hit = r.result === "hit";
+      return `<div class="bb-row">
+        <span class="tr-badge ${hit ? "tr-hit" : "tr-miss"}">${hit ? "HIT" : "MISS"}</span>
+        <span class="bb-teams" style="flex:2">${r.label}
+          <div class="tr-recent-sub">${r.match} · ${trFmtDate(r.date)} · ${isWin ? "winner" : "actual"} ${r.actual}</div>
+        </span>
+        <span class="bb-league">${r.league}</span>
+        <span class="bb-pct">${Math.round(r.confidence * 100)}%</span>
+      </div>`;
+    }).join("");
+    const toggle = recent.length > 15
+      ? `<div class="window-toggle"><a class="sort-toggle-link" data-tr-more="1">${trShowAllRecent ? "Show fewer" : `Show all ${recent.length}`}</a></div>`
+      : "";
+    return `<div class="tr-section-title">Recent settled picks</div>${rows}${toggle}`;
+  }
+
   function renderTrackRecord() {
-    if (typeof BETS_LOG === "undefined") {
-      mainEl.innerHTML = `<div class="empty">No bets_log.js found yet.<br>This is generated by track_bets.py, which runs automatically as part of the daily Action - check back after the next run.</div>`;
+    if (typeof BETS_LOG === "undefined" || !BETS_LOG.blocks) {
+      mainEl.innerHTML = `<div class="empty">No track record data yet.<br>This is generated by track_bets.py, which runs automatically as part of the Actions - check back after the next run.</div>`;
       return;
     }
 
-    const { summary } = BETS_LOG;
-    const overall = summary.overall;
+    const block = BETS_LOG.blocks[trSport] || BETS_LOG.blocks.all;
+    const inSport = item => trSport === "all" || item.sport === trSport;
+    const overall = block.overall;
+    const hasNfl = BETS_LOG.blocks.nfl.overall.total > 0 || BETS_LOG.blocks.nfl.pending.total > 0;
+
+    const sportToggle = `<div class="tr-sport-toggle">${[["all", "All"], ["football", "Football"], ["nfl", "NFL"]]
+      .filter(([key]) => key !== "nfl" || hasNfl)
+      .map(([key, name]) => `<a data-tr-sport="${key}" class="${trSport === key ? "tr-sport-active" : ""}">${name}</a>`).join("")}</div>`;
+
+    const since = BETS_LOG.logging_since ? ` since ${trFmtDate(BETS_LOG.logging_since)}` : "";
+    const intro = `<div class="bb-intro">Every Best Bets pick logged${since}, settled automatically once the result is in. Football results come from football-data.co.uk, NFL from nflverse.</div>`;
+
+    const p = block.pending;
+    const pendingBits = [];
+    if (p.awaiting) pendingBits.push(`${p.awaiting} awaiting results`);
+    if (p.overdue) pendingBits.push(`${p.overdue} overdue`);
+    if (p.upcoming) pendingBits.push(`${p.upcoming} upcoming`);
+
+    const formChip = (label, f) => f.total
+      ? `<span>${label} <b class="${trPctClass(f.pct, f.total)}">${f.pct}%</b> <span class="tr-chip-n">(${f.hits}/${f.total})</span></span>` : "";
 
     const summaryHtml = `<div class="tr-summary">
       <div class="tr-summary-main">
-        <span class="tr-summary-pct ${overall.pct >= 55 ? 'pct-hi' : overall.pct <= 40 ? 'pct-lo' : ''}">${overall.total > 0 ? overall.pct + '%' : '—'}</span>
-        <span class="tr-summary-label">${overall.hits}/${overall.total} settled picks hit${summary.pending_count ? ` · ${summary.pending_count} pending` : ''}</span>
+        <span class="tr-summary-pct ${trPctClass(overall.pct, overall.total)}">${overall.total > 0 ? overall.pct + "%" : "—"}</span>
+        <span class="tr-summary-label">${overall.hits}/${overall.total} settled picks hit${p.total ? ` · ${p.total} pending` : ""}</span>
+      </div>
+      <div class="tr-form">
+        ${formChip("Last 7 days", block.form.last_7)}
+        ${formChip("Last 30 days", block.form.last_30)}
+        ${pendingBits.length ? `<span class="tr-chip-n">Pending: ${pendingBits.join(" · ")}</span>` : ""}
       </div>
       <div class="tr-category-grid">
-        ${summary.by_category.map(c => {
-          const label = c.metric === "btts" ? `BTTS ${c.direction}`
-            : (c.metric === "team_win" || c.metric === "moneyline") ? "Team Win"
-            : `${METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
-          return `<div class="tr-category-chip">
-            <span>${label}</span>
-            <span class="${c.pct >= 55 ? 'pct-hi' : c.pct <= 40 ? 'pct-lo' : ''}">${c.pct}% <span class="tr-chip-n">(${c.hits}/${c.total})</span></span>
-          </div>`;
-        }).join("") || '<div class="bb-empty">No settled picks yet</div>'}
+        ${block.by_category.map(c => `<div class="tr-category-chip">
+            <span>${trCategoryLabel(c, trSport === "all")}</span>
+            <span class="${trPctClass(c.pct, c.total)}">${c.pct}% <span class="tr-chip-n">(${c.hits}/${c.total})</span></span>
+          </div>`).join("") || '<div class="bb-empty">No settled picks yet</div>'}
       </div>
     </div>`;
 
-    mainEl.innerHTML = `<div class="bb-intro">Tracking every Best Bets pick since logging started - settled automatically once each match is played. NFL picks currently log as pending but aren't reconciled against results yet.</div>` +
-      summaryHtml;
+    const leaguesHtml = block.leagues.length > 1
+      ? `<div class="tr-section-title">By league</div>` +
+        block.leagues.map(l => trBarRow(l.league, l.hits, l.total, l.pct)).join("")
+      : "";
+
+    const calibrationHtml = block.calibration.length
+      ? `<div class="tr-section-title">Confidence check</div>
+         <div class="tr-note">When the model says it's X% confident, how often does the pick land? Bands where the hit rate sits well below the stated confidence mean the model is overconfident there.</div>` +
+        block.calibration.map(b => trBarRow(`Said ~${b.avg_confidence}%`, b.hits, b.total, b.pct,
+          b.total < 15 ? "small sample" : "")).join("")
+      : "";
+
+    const recent = BETS_LOG.recent.filter(inSport);
+    const pendingMatches = BETS_LOG.pending_matches.filter(inSport);
+
+    mainEl.innerHTML = sportToggle + intro + summaryHtml + leaguesHtml + calibrationHtml +
+      trRecentSection(recent) + trPendingSection(block, pendingMatches);
+
+    mainEl.querySelectorAll("[data-tr-sport]").forEach(link => {
+      link.addEventListener("click", () => { trSport = link.dataset.trSport; renderTrackRecord(); });
+    });
+    const more = mainEl.querySelector("[data-tr-more]");
+    if (more) more.addEventListener("click", () => { trShowAllRecent = !trShowAllRecent; renderTrackRecord(); });
   }
 
   function cupFixtureCard(fixture) {
