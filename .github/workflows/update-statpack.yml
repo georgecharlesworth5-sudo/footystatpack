@@ -44,7 +44,7 @@ permissions:
 # pushes even with the retry logic below. Queuing instead of racing
 # eliminates that at the source.
 concurrency:
-  group: update-statpack
+  group: statpack-pipeline   # shared with update-nfl-statpack.yml - see the note there
   cancel-in-progress: false
 
 jobs:
