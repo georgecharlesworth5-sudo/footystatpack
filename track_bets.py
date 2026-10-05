@@ -48,8 +48,11 @@ scope="match" settles against the combined total.
      If the result isn't published yet, it stays pending and gets
      checked again next run.
   3. "void" = the pick never produced a real outcome (postponed and
-     rescheduled under a new date, or an NFL moneyline tie). Kept in the
-     log as a record, excluded from every count.
+     rescheduled under a new date, an NFL moneyline tie, or no result
+     more than a week after the match date - see void_overdue_picks).
+     Kept in the log as a record, excluded from every count. Overdue
+     voids are still re-checked each run and settle if a result
+     turns up late.
 
 ## What the dashboard gets (bets_log.js)
 
@@ -400,7 +403,10 @@ def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tupl
     waiting = {"football": 0, "nfl": 0}
 
     for pick in log.values():
-        if pick["status"] != "pending":
+        # Picks auto-voided for going overdue (void_overdue_picks) are
+        # still re-checked: if the result feed catches up later, they
+        # settle after all rather than being lost from the record.
+        if pick["status"] != "pending" and not _voided_for_overdue(pick):
             continue
         sport = _sport(pick)
         match_date = _parse_date(pick["match_date"])
@@ -422,7 +428,8 @@ def reconcile_pending(log: dict[str, dict], data_dir: Path, today: date) -> tupl
             continue
 
         if result is None:
-            waiting[sport] += 1
+            if pick["status"] == "pending":
+                waiting[sport] += 1
             continue
 
         pick["status"] = "void" if result == "void" else "settled"
@@ -539,6 +546,38 @@ def void_postponed_picks(log: dict[str, dict], statpack: dict) -> list[dict]:
             })
             pick["status"] = "void"
 
+    return voided
+
+
+OVERDUE_MARK = "overdue"  # stored in actual_value to tell an auto-voided pick apart from other voids
+
+
+def _voided_for_overdue(pick: dict) -> bool:
+    return pick["status"] == "void" and pick.get("actual_value") == OVERDUE_MARK
+
+
+def void_overdue_picks(log: dict[str, dict], today: date) -> list[dict]:
+    """Void every pending pick whose match date is more than
+    AWAITING_RESULT_DAYS old with no result - almost always a
+    postponement (international breaks etc.) that hasn't got a new date
+    yet. Runs AFTER void_postponed_picks, which handles the case where
+    the new date is already known.
+
+    Voided picks leave every count, same as other voids. They're marked
+    with actual_value="overdue", and reconcile_pending keeps re-checking
+    them - so if it turns out the game WAS played and the results feed
+    was just slow, the pick settles normally instead of being lost.
+    Returns the voided picks, for reporting."""
+    voided = []
+    for pick in log.values():
+        if pick["status"] != "pending":
+            continue
+        if _pending_bucket(_parse_date(pick["match_date"]), today) != "overdue":
+            continue
+        pick["status"] = "void"
+        pick["actual_value"] = OVERDUE_MARK
+        pick["settled_date"] = today.isoformat()
+        voided.append(pick)
     return voided
 
 
@@ -787,6 +826,14 @@ if __name__ == "__main__":
         for v in voided:
             print(f"  {v['home_team']} v {v['away_team']} - {v['direction']} {v['line']} {v['metric']} "
                   f"(was frozen at {v['old_match_date']}, now scheduled {v['new_match_date']})")
+
+    overdue_voided = void_overdue_picks(log, today)
+    if overdue_voided:
+        matches = {(p["home_team"], p["away_team"], p["match_date"]) for p in overdue_voided}
+        print(f"Voided {len(overdue_voided)} pick(s) across {len(matches)} match(es) for going overdue "
+              f"(no result {AWAITING_RESULT_DAYS}+ days after the match date - will still settle if a result turns up):")
+        for h, a, d in sorted(matches):
+            print(f"  {h} v {a} ({d})")
 
     save_log(log_path, log)
     print(f"Log saved to {log_path} ({len(log)} total picks).")
