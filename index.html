@@ -1337,7 +1337,7 @@
     return `<details class="tr-pending-box">
       <summary>${p.total} pending pick${p.total === 1 ? "" : "s"} across ${matches.length} match${matches.length === 1 ? "" : "es"} <span class="tr-chip-n">(${parts.join(" · ")})</span></summary>
       <div class="tr-pend-body">
-        <div class="tr-note"><b>Awaiting result</b>: played in the last week but not in the results feed yet - football-data.co.uk often lags (see the freshness strip). <b>Overdue</b>: over a week old and still unsettled - usually a postponement (e.g. international breaks) that has no new date yet, otherwise feed lag or a team-name mismatch. Picks on postponed games are voided automatically once the rearranged date shows up in the fixtures files; if the game has since been played they settle on their own.</div>
+        <div class="tr-note"><b>Awaiting result</b>: played in the last week but not in the results feed yet - football-data.co.uk often lags (see the freshness strip). Picks still without a result more than a week after the match date (usually postponements) are voided automatically and drop out of every count; if a result turns up later they're settled after all. Picks on games rearranged to a known new date are voided as soon as that date is in the fixtures files.</div>
         ${rows}
       </div>
     </details>`;
