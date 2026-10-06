@@ -1,4 +1,4 @@
-"""
+""""
 build_statpack.py
 
 Orchestrates the whole pipeline:
@@ -190,6 +190,25 @@ KNOWN_ALIASES = {
     "Heart of Midlothian": "Hearts",
     "Inter Milan": "Inter",
     "Internazionale": "Inter",
+    # MLS: fixturedownload.com uses full club names, football-data.co.uk's
+    # extra-leagues file uses short ones. "Red Bull New York" is the one
+    # fuzzy matching couldn't resolve (word order differs); the rest are
+    # here so they're trusted matches rather than flagged "name check".
+    "Red Bull New York": "New York Red Bulls",
+    "Atlanta United": "Atlanta Utd",
+    "CF Montréal": "CF Montreal",
+    "Charlotte FC": "Charlotte",
+    "Chicago Fire FC": "Chicago Fire",
+    "D.C. United": "DC United",
+    "Houston Dynamo FC": "Houston Dynamo",
+    "Inter Miami CF": "Inter Miami",
+    "LA Galaxy": "Los Angeles Galaxy",
+    "Los Angeles Football Club": "Los Angeles FC",
+    "Minnesota United FC": "Minnesota United",
+    "New York City Football Club": "New York City",
+    "Seattle Sounders FC": "Seattle Sounders",
+    "St. Louis CITY SC": "St. Louis City",
+    "Vancouver Whitecaps FC": "Vancouver Whitecaps",
     # La Liga: football-data.co.uk uses notably terser names for Spanish
     # clubs than fixturedownload.com does, across the board - "RCD
     # Espanyol de Barcelona" is CONFIRMED needing an alias (real
@@ -558,4 +577,5 @@ if __name__ == "__main__":
         f.write(";\n")
 
     print(f"Stat pack written to {out_path}")
+    print(f"Dashboard data written to {js_path}")
     print(f"Dashboard data written to {js_path}")
