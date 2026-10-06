@@ -41,6 +41,34 @@ from stats_engine import METRICS
 XG_BLEND_WEIGHT = 0.4  # how much weight xG gets vs actual goals, when both are available
 MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - use actual goals alone
 
+# ---------------------------------------------------------------------
+# Model v2 (walk-forward backtest, ~3,100 matches, Nov 2025 onward)
+#
+# v1 trusted each team's recent form at face value and assumed pure Poisson
+# counts. Replayed on past matches it stated ~93% on its 87%+ picks and
+# landed ~83%. Two fixes closed the gap:
+#
+#  1. FORM_SHRINKAGE - each side's expected value is pulled this far toward
+#     the league average (0 = trust form fully, 1 = ignore form). Team form
+#     over 10-20 matches is mostly noise; 0.7 was near the optimum across
+#     every form window tested (0.6-0.9 all scored within noise).
+#  2. NB_ALPHA - negative binomial instead of Poisson: variance =
+#     mu + alpha*mu^2, with alpha fitted per market from the same replay.
+#     Corners and cards are visibly over-dispersed; goals barely are.
+#
+# Form window is also longer (20 matches, gentler decay - see stats_engine).
+# ---------------------------------------------------------------------
+MODEL_VERSION = "v2"
+FORM_SHRINKAGE = 0.7
+
+# (metric, level) -> alpha. level: "total" | "home" | "away".
+NB_ALPHA = {
+    ("goals", "total"): 0.0, ("goals", "home"): 0.0, ("goals", "away"): 0.012,
+    ("corners", "total"): 0.016, ("corners", "home"): 0.095, ("corners", "away"): 0.101,
+    ("cards", "total"): 0.037, ("cards", "home"): 0.029, ("cards", "away"): 0.0,
+    ("first_half_goals", "total"): 0.0, ("second_half_goals", "total"): 0.0,
+}
+
 # Per-side O/U lines (a single team's own corner count, not the combined
 # match total) - roughly half of the usual total-match lines, since one
 # team's corners typically run a bit lower than the full-match total.
@@ -70,14 +98,29 @@ def poisson_cdf(k: int, lam: float) -> float:
     return sum(poisson_pmf(i, lam) for i in range(0, k + 1))
 
 
-def over_under(lam_total: float, line: float) -> dict:
+def nb_cdf(k: int, mu: float, alpha: float) -> float:
+    """P(X <= k) for a negative binomial with mean mu and variance
+    mu + alpha*mu^2. Falls back to Poisson when alpha is ~0."""
+    if mu <= 0:
+        return 1.0
+    if alpha <= 1e-6:
+        return poisson_cdf(k, mu)
+    r = 1.0 / alpha
+    lp, lq = math.log(r / (r + mu)), math.log(mu / (r + mu))
+    total = 0.0
+    for i in range(k + 1):
+        total += math.exp(math.lgamma(i + r) - math.lgamma(r) - math.lgamma(i + 1) + r * lp + i * lq)
+    return min(1.0, total)
+
+
+def over_under(lam_total: float, line: float, alpha: float = 0.0) -> dict:
     """
-    P(over) / P(under) a given line (e.g. 2.5) for a Poisson(lam_total)
-    total. Lines are almost always X.5 in these markets so there's no
-    push case to handle.
+    P(over) / P(under) a given line (e.g. 2.5) for a count with mean
+    lam_total - Poisson when alpha=0, negative binomial otherwise. Lines
+    are almost always X.5 in these markets so there's no push case.
     """
     floor_line = math.floor(line)
-    p_under_or_equal = poisson_cdf(floor_line, lam_total)
+    p_under_or_equal = nb_cdf(floor_line, lam_total, alpha)
     return {
         "line": line,
         "over": round(1 - p_under_or_equal, 3),
@@ -134,6 +177,10 @@ def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: 
     away_attack = away_form_for / league_away_avg
     home_defense = home_form_against / league_away_avg
     lam_away = league_away_avg * away_attack * home_defense
+
+    # Pull toward the league average (see FORM_SHRINKAGE).
+    lam_home = (1 - FORM_SHRINKAGE) * lam_home + FORM_SHRINKAGE * league_home_avg
+    lam_away = (1 - FORM_SHRINKAGE) * lam_away + FORM_SHRINKAGE * league_away_avg
 
     return round(lam_home, 3), round(lam_away, 3)
 
@@ -210,12 +257,15 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
             "expected_home": lam_home,
             "expected_away": lam_away,
             "expected_total": round(lam_total, 2),
-            "over_under": [over_under(lam_total, line) for line in lines.get(metric, [])],
+            "over_under": [over_under(lam_total, line, NB_ALPHA.get((metric, "total"), 0.0))
+                           for line in lines.get(metric, [])],
         }
 
         if metric in PER_SIDE_LINES:
-            market["home_over_under"] = [over_under(lam_home, line) for line in PER_SIDE_LINES[metric]]
-            market["away_over_under"] = [over_under(lam_away, line) for line in PER_SIDE_LINES[metric]]
+            market["home_over_under"] = [over_under(lam_home, line, NB_ALPHA.get((metric, "home"), 0.0))
+                                         for line in PER_SIDE_LINES[metric]]
+            market["away_over_under"] = [over_under(lam_away, line, NB_ALPHA.get((metric, "away"), 0.0))
+                                         for line in PER_SIDE_LINES[metric]]
 
         if metric == "goals":
             p_home_scores = 1 - poisson_pmf(0, lam_home)
