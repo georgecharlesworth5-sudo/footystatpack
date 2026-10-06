@@ -185,7 +185,7 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
 # stretch (now mostly last season's tail) as a real, non-zero
 # contribution rather than discarding it outright. Adjustable if this
 # still doesn't feel aggressive enough watched against real results.
-WEIGHT_DECAY = 0.70
+WEIGHT_DECAY = 0.95  # v2: was 0.70 over a 10-match window; backtest preferred a longer, flatter window
 
 # On top of the value rescaling above, a cross-division match's WEIGHT in
 # the average is ALSO reduced by this factor (only for TIER_ADJUSTED_METRICS
@@ -339,7 +339,7 @@ def league_averages(rows: list[dict]) -> dict:
     return result
 
 
-def team_form_summary(team_log: list[dict], window: int = 10, current_division: str | None = None) -> dict:
+def team_form_summary(team_log: list[dict], window: int = 20, current_division: str | None = None) -> dict:
     """Convenience wrapper: overall / home / away rolling form for one
     team. current_division is passed through to rolling_form - see its
     docstring for what it does."""
