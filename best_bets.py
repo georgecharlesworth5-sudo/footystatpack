@@ -28,6 +28,8 @@ dashboard.html's JS best-bets code has been removed.
 
 from datetime import date, timedelta
 
+from calibration import split_by_calibration
+
 NEAR_TERM_WINDOW_DAYS = 0  # only fixtures happening TODAY
 
 # A pick needs to clear this bar to count as a "best bet" at all.
@@ -123,8 +125,28 @@ def _make_pick(fx: dict, metric: str, scope: str, team: str | None,
     }
 
 
-def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> list[dict]:
+def _bar_for(pick: dict) -> float:
+    return TEAM_WIN_MIN_CONFIDENCE if pick["metric"] == "team_win" else MIN_CONFIDENCE
+
+
+def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None,
+                      calibration: dict | None = None) -> list[dict]:
+    """The picks to SHOW - see compute_best_bets_split for how calibration
+    splits them from the held-back ones. With no calibration this is the
+    plain raw-confidence list, as before."""
+    return compute_best_bets_split(statpack, window_days, today, calibration)[0]
+
+
+def compute_best_bets_split(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None,
+                            calibration: dict | None = None) -> tuple[list[dict], list[dict]]:
     """
+    Returns (shown, held_back). Every pick is first qualified on the
+    model's RAW confidence exactly as before; calibration.py then shifts
+    each pick's confidence by how its market has actually performed
+    (model's raw number kept as "raw_confidence"), and picks that no
+    longer clear their bar are returned as held_back - not shown, but
+    still logged by track_bets.py so those markets keep being measured.
+
     Returns a single flat list of every football pick clearing its
     threshold today - match-level over markets, team-level over splits
     (corners/goals/cards, wherever the model computes a home/away
@@ -182,5 +204,4 @@ def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
                 picks.append(_make_pick(fx, "team_win", "away", fx["away_team"],
                                          fx["away_team"], None, mr["away_win"], label))
 
-    picks.sort(key=lambda p: p["confidence"], reverse=True)
-    return picks
+    return split_by_calibration(picks, calibration, _bar_for)
