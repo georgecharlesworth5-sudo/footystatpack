@@ -42,7 +42,8 @@ from pathlib import Path
 
 from stats_engine import build_team_match_log, team_form_summary, league_averages
 from poisson_model import predict_fixture
-from best_bets import compute_best_bets
+from best_bets import compute_best_bets_split
+from calibration import load_calibration
 from market_odds import load_fixture_odds, resolve_odds_rows, find_odds_for_fixture, blend_match_result, blend_over_under_25
 from cup_predictions import build_cup_predictions
 from league_table import compute_league_table, team_position
@@ -503,7 +504,15 @@ def build_statpack(data_dir: Path, fixtures: list[dict], cup_fixtures_path: Path
     # Computed here (not in the dashboard's JS) so there's one
     # authoritative version of "what the best bets are right now" -
     # track_bets.py logs exactly this, and the dashboard just displays it.
-    statpack["best_bets"] = compute_best_bets(statpack)
+    #
+    # Each pick's confidence is calibrated against how its market has
+    # actually performed in bets_log.csv (see calibration.py); picks that
+    # no longer clear their bar are kept in "shadow_picks" - not shown,
+    # but still logged by track_bets.py so every market keeps being measured.
+    calibration = load_calibration(Path(__file__).parent / "bets_log.csv")
+    statpack["best_bets"], statpack["shadow_picks"] = compute_best_bets_split(statpack, calibration=calibration)
+    print(f"[debug] {len(statpack['best_bets'])} football best bet(s) shown, "
+          f"{len(statpack['shadow_picks'])} held back by calibration")
     statpack["data_freshness"] = compute_data_freshness(all_rows_by_league)
 
     if cup_fixtures_path is not None:
