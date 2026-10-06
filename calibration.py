@@ -28,6 +28,10 @@ market needs roughly 30 settled picks before half the observed gap is
 trusted, and about 100 before most of it is. Markets with no history are
 left alone.
 
+Football calibration only learns from picks logged by the current model
+version (the "model" column in bets_log.csv), so changing the model
+starts a clean calibration history while old picks stay in the record.
+
 ## What this deliberately does NOT do
 
  * It never touches the model. The raw probability stays the thing
@@ -50,6 +54,8 @@ Track Record tab).
 
 import csv
 from pathlib import Path
+
+from poisson_model import MODEL_VERSION
 
 SHRINKAGE_K = 30       # pseudo-count: bigger = slower to trust a market's own gap
 MAX_ADJUSTMENT = 0.25  # never move a probability by more than this, whatever the data says
@@ -90,6 +96,11 @@ def build_calibration(log_path: Path) -> dict[str, dict]:
     with open(log_path, newline="") as f:
         for row in csv.DictReader(f):
             if row.get("status") != "settled" or row.get("direction") in ("Under", "No"):
+                continue
+            # Football picks made by an older model version (blank = v1)
+            # say nothing about how the current model behaves - v2 is much
+            # less overconfident, so v1's gaps would over-correct it.
+            if (row.get("sport") or "football") == "football" and (row.get("model") or "") != MODEL_VERSION:
                 continue
             try:
                 stated = float(row["confidence"])
