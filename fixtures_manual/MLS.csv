@@ -1,511 +1,511 @@
-Round Number,Date,Location,Home Team,Away Team,Result
-2	1	21/02/2026 19:30	Energizer Park	St. Louis CITY SC	Charlotte FC	1 - 1
-1	1	21/02/2026 21:45	TQL Stadium	FC Cincinnati	Atlanta United	2 - 0
-5	1	22/02/2026 00:30	Audi Field	D.C. United	Philadelphia Union	1 - 0
-9	1	22/02/2026 00:30	Inter&Co Stadium	Orlando City	Red Bull New York	1 - 2
-13	1	22/02/2026 00:30	BC Place	Vancouver Whitecaps FC	Real Salt Lake	1 - 0
-3	1	22/02/2026 01:30	Q2 Stadium	Austin FC	Minnesota United FC	2 - 2
-4	1	22/02/2026 01:30	Toyota Stadium	FC Dallas	Toronto FC	3 - 2
-6	1	22/02/2026 01:30	Shell Energy Stadium	Houston Dynamo FC	Chicago Fire FC	2 - 1
-8	1	22/02/2026 01:30	GEODIS Park	Nashville SC	New England Revolution	4 - 1
-7	1	22/02/2026 02:30	Los Angeles Memorial Coliseum	Los Angeles Football Club	Inter Miami CF	3 - 0
-10	1	22/02/2026 03:30	Providence Park	Portland Timbers	Columbus Crew	3 - 2
-11	1	22/02/2026 03:30	Snapdragon Stadium	San Diego FC	CF Montréal	5 - 0
-12	1	22/02/2026 03:30	PayPal Park	San Jose Earthquakes	Sporting Kansas City	3 - 0
-14	1	23/02/2026 00:00	Dignity Health Sports Park	LA Galaxy	New York City Football Club	1 - 1
-15	1	23/02/2026 02:15	Lumen Field	Seattle Sounders FC	Colorado Rapids	2 - 0
-16	2	28/02/2026 19:30	Soldier Field	Chicago Fire FC	CF Montréal	3 - 0
-19	2	28/02/2026 19:30	Sports Illustrated Stadium	Red Bull New York	New England Revolution	1 - 0
-17	2	28/02/2026 21:30	DICK'S Sporting Goods Park	Colorado Rapids	Portland Timbers	2 - 0
-18	2	28/02/2026 21:30	Allianz Field	Minnesota United FC	FC Cincinnati	1 - 0
-25	2	01/03/2026 00:30	America First Field	Real Salt Lake	Seattle Sounders FC	2 - 1
-26	2	01/03/2026 00:30	PayPal Park	San Jose Earthquakes	Atlanta United	2 - 0
-21	2	01/03/2026 01:30	Toyota Stadium	FC Dallas	Nashville SC	0 - 0
-22	2	01/03/2026 01:30	Shell Energy Stadium	Houston Dynamo FC	Los Angeles Football Club	0 - 2
-23	2	01/03/2026 01:30	Sporting Park	Sporting Kansas City	Columbus Crew	2 - 2
-27	2	01/03/2026 02:30	BC Place	Vancouver Whitecaps FC	Toronto FC	3 - 0
-24	2	01/03/2026 03:30	Dignity Health Sports Park	LA Galaxy	Charlotte FC	3 - 0
-20	2	01/03/2026 19:30	Q2 Stadium	Austin FC	D.C. United	1 - 0
-28	2	01/03/2026 21:30	Subaru Park	Philadelphia Union	New York City Football Club	1 - 2
-29	2	02/03/2026 00:00	Inter&Co Stadium	Orlando City	Inter Miami CF	2 - 4
-30	2	02/03/2026 02:15	Snapdragon Stadium	San Diego FC	St. Louis CITY SC	2 - 0
-33	3	07/03/2026 19:30	Yankee Stadium	New York City Football Club	Orlando City	5 - 0
-31	3	07/03/2026 21:30	M&T Bank Stadium	D.C. United	Inter Miami CF	1 - 2
-34	3	08/03/2026 00:30	Mercedes-Benz Stadium	Atlanta United	Real Salt Lake	2 - 3
-35	3	08/03/2026 00:30	Bank of America Stadium	Charlotte FC	Austin FC	3 - 1
-38	3	08/03/2026 00:30	ScottsMiracle-Gro Field	Columbus Crew	Chicago Fire FC	0 - 0
-42	3	08/03/2026 00:30	Subaru Park	Philadelphia Union	San Jose Earthquakes	0 - 1
-39	3	08/03/2026 01:30	Sporting Park	Sporting Kansas City	San Diego FC	0 - 1
-41	3	08/03/2026 01:30	GEODIS Park	Nashville SC	Minnesota United FC	3 - 1
-43	3	08/03/2026 01:30	Energizer Park	St. Louis CITY SC	Seattle Sounders FC	0 - 1
-37	3	08/03/2026 02:30	DICK'S Sporting Goods Park	Colorado Rapids	LA Galaxy	4 - 1
-40	3	08/03/2026 03:30	BMO Stadium	Los Angeles Football Club	FC Dallas	1 - 0
-45	3	08/03/2026 03:30	Providence Park	Portland Timbers	Vancouver Whitecaps FC	1 - 4
-44	3	08/03/2026 20:30	Sports Illustrated Stadium	Red Bull New York	CF Montréal	0 - 3
-36	3	08/03/2026 23:00	TQL Stadium	FC Cincinnati	Toronto FC	0 - 1
-51	4	14/03/2026 17:00	BMO Field	Toronto FC	Red Bull New York	1 - 1
-46	4	14/03/2026 19:15	Mercedes-Benz Stadium	Atlanta United	Philadelphia Union	3 - 1
-48	4	14/03/2026 22:15	ScottsMiracle-Gro Field	Columbus Crew	Nashville SC	0 - 1
-47	4	14/03/2026 23:30	Bank of America Stadium	Charlotte FC	Inter Miami CF	0 - 0
-49	4	14/03/2026 23:30	Yankee Stadium	New York City Football Club	Colorado Rapids	3 - 1
-50	4	14/03/2026 23:30	Inter&Co Stadium	Orlando City	CF Montréal	2 - 1
-52	4	15/03/2026 00:30	Soldier Field	Chicago Fire FC	D.C. United	1 - 2
-53	4	15/03/2026 00:30	Toyota Stadium	FC Dallas	San Diego FC	3 - 3
-54	4	15/03/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Portland Timbers	3 - 2
-55	4	15/03/2026 01:30	Dignity Health Sports Park	LA Galaxy	Sporting Kansas City	1 - 2
-57	4	15/03/2026 01:30	America First Field	Real Salt Lake	Austin FC	2 - 1
-56	4	15/03/2026 02:30	BMO Stadium	Los Angeles Football Club	St. Louis CITY SC	2 - 0
-59	4	15/03/2026 18:30	Gillette Stadium	New England Revolution	FC Cincinnati	6 - 1
-58	4	15/03/2026 20:30	BC Place	Vancouver Whitecaps FC	Minnesota United FC	6 - 0
-60	4	15/03/2026 23:00	PayPal Park	San Jose Earthquakes	Seattle Sounders FC	0 - 1
-65	5	21/03/2026 17:00	BMO Field	Toronto FC	Columbus Crew	2 - 1
-64	5	21/03/2026 20:30	Subaru Park	Philadelphia Union	Chicago Fire FC	1 - 2
-63	5	21/03/2026 22:15	GEODIS Park	Nashville SC	Orlando City	5 - 0
-61	5	21/03/2026 23:30	Mercedes-Benz Stadium	Atlanta United	D.C. United	0 - 0
-62	5	21/03/2026 23:30	Bank of America Stadium	Charlotte FC	Red Bull New York	6 - 1
-68	5	22/03/2026 00:30	Toyota Stadium	FC Dallas	Houston Dynamo FC	4 - 3
-69	5	22/03/2026 00:30	Sporting Park	Sporting Kansas City	Colorado Rapids	1 - 4
-70	5	22/03/2026 00:30	Energizer Park	St. Louis CITY SC	New England Revolution	3 - 1
-66	5	22/03/2026 00:45	Q2 Stadium	Austin FC	Los Angeles Football Club	0 - 0
-71	5	22/03/2026 02:30	BC Place	Vancouver Whitecaps FC	San Jose Earthquakes	0 - 1
-67	5	22/03/2026 17:00	TQL Stadium	FC Cincinnati	CF Montréal	4 - 3
-73	5	22/03/2026 17:00	Yankee Stadium	New York City Football Club	Inter Miami CF	2 - 3
-72	5	22/03/2026 18:30	Allianz Field	Minnesota United FC	Seattle Sounders FC	0 - 0
-74	5	22/03/2026 20:45	Providence Park	Portland Timbers	LA Galaxy	1 - 1
-75	5	22/03/2026 23:00	Snapdragon Stadium	San Diego FC	Real Salt Lake	2 - 2
-84	6	04/04/2026 17:00	BMO Field	Toronto FC	Colorado Rapids	3 - 2
-80	6	04/04/2026 20:30	Gillette Stadium	New England Revolution	CF Montréal	3 - 0
-83	6	04/04/2026 20:30	America First Field	Real Salt Lake	Sporting Kansas City	3 - 1
-76	6	04/04/2026 23:30	Mercedes-Benz Stadium	Atlanta United	Columbus Crew	1 - 3
-77	6	04/04/2026 23:30	Bank of America Stadium	Charlotte FC	Philadelphia Union	2 - 1
-78	6	04/04/2026 23:30	Audi Field	D.C. United	FC Dallas	0 - 4
-79	6	04/04/2026 23:30	Nu Stadium	Inter Miami CF	Austin FC	2 - 2
-81	6	04/04/2026 23:30	Citi Field	New York City Football Club	St. Louis CITY SC	1 - 1
-82	6	04/04/2026 23:30	Sports Illustrated Stadium	Red Bull New York	FC Cincinnati	4 - 2
-85	6	05/04/2026 00:30	Soldier Field	Chicago Fire FC	Nashville SC	1 - 0
-86	6	05/04/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Seattle Sounders FC	0 - 1
-88	6	05/04/2026 01:30	BMO Stadium	Los Angeles Football Club	Orlando City	6 - 0
-87	6	05/04/2026 02:30	Dignity Health Sports Park	LA Galaxy	Minnesota United FC	1 - 2
-89	6	05/04/2026 02:30	PayPal Park	San Jose Earthquakes	San Diego FC	3 - 0
-90	6	05/04/2026 02:30	BC Place	Vancouver Whitecaps FC	Portland Timbers	3 - 2
-97	7	11/04/2026 17:00	BMO Field	Toronto FC	FC Cincinnati	1 - 1
-91	7	11/04/2026 18:30	Q2 Stadium	Austin FC	LA Galaxy	1 - 2
-94	7	11/04/2026 18:30	Stade Saputo	CF Montréal	Philadelphia Union	1 - 2
-96	7	11/04/2026 20:45	Providence Park	Portland Timbers	Los Angeles Football Club	2 - 1
-92	7	11/04/2026 23:30	Bank of America Stadium	Charlotte FC	Nashville SC	1 - 2
-93	7	11/04/2026 23:30	Nu Stadium	Inter Miami CF	Red Bull New York	2 - 2
-95	7	11/04/2026 23:30	Gillette Stadium	New England Revolution	D.C. United	1 - 0
-98	7	11/04/2026 23:30	BC Place	Vancouver Whitecaps FC	New York City Football Club	2 - 0
-99	7	12/04/2026 00:30	Soldier Field	Chicago Fire FC	Atlanta United	1 - 0
-102	7	12/04/2026 00:30	Toyota Stadium	FC Dallas	St. Louis CITY SC	1 - 1
-103	7	12/04/2026 00:30	Sporting Park	Sporting Kansas City	San Jose Earthquakes	1 - 3
-100	7	12/04/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Houston Dynamo FC	6 - 2
-104	7	12/04/2026 02:30	Snapdragon Stadium	San Diego FC	Minnesota United FC	1 - 2
-101	7	12/04/2026 23:00	ScottsMiracle-Gro Field	Columbus Crew	Orlando City	1 - 1
-106	8	18/04/2026 02:30	BC Place	Vancouver Whitecaps FC	Sporting Kansas City	3 - 0
-115	8	18/04/2026 17:00	BMO Field	Toronto FC	Austin FC	3 - 3
-110	8	18/04/2026 18:30	Stade Saputo	CF Montréal	Red Bull New York	4 - 1
-109	8	18/04/2026 20:30	Empower Field at Mile High	Colorado Rapids	Inter Miami CF	2 - 3
-107	8	18/04/2026 23:30	Mercedes-Benz Stadium	Atlanta United	Nashville SC	0 - 2
-108	8	18/04/2026 23:30	TQL Stadium	FC Cincinnati	Chicago Fire FC	3 - 3
-111	8	18/04/2026 23:30	Gillette Stadium	New England Revolution	Columbus Crew	2 - 1
-112	8	18/04/2026 23:30	Citi Field	New York City Football Club	Charlotte FC	1 - 2
-113	8	18/04/2026 23:30	Inter&Co Stadium	Orlando City	Houston Dynamo FC	0 - 1
-114	8	18/04/2026 23:30	Subaru Park	Philadelphia Union	D.C. United	0 - 0
-116	8	19/04/2026 00:30	Toyota Stadium	FC Dallas	LA Galaxy	2 - 2
-117	8	19/04/2026 00:30	Allianz Field	Minnesota United FC	Portland Timbers	2 - 0
-118	8	19/04/2026 01:30	America First Field	Real Salt Lake	San Diego FC	4 - 2
-119	8	19/04/2026 01:30	Lumen Field	Seattle Sounders FC	St. Louis CITY SC	4 - 1
-120	8	19/04/2026 23:00	BMO Stadium	Los Angeles Football Club	San Jose Earthquakes	1 - 4
-122	9	22/04/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	LA Galaxy	2 - 1
-123	9	22/04/2026 23:30	Yankee Stadium	New York City Football Club	FC Cincinnati	4 - 4
-124	9	22/04/2026 23:30	Sports Illustrated Stadium	Red Bull New York	D.C. United	4 - 4
-125	9	22/04/2026 23:30	Inter&Co Stadium	Orlando City	Charlotte FC	4 - 1
-126	9	22/04/2026 23:30	BMO Field	Toronto FC	Philadelphia Union	3 - 3
-121	9	22/04/2026 23:45	Mercedes-Benz Stadium	Atlanta United	New England Revolution	1 - 2
-127	9	23/04/2026 00:30	Toyota Stadium	FC Dallas	Minnesota United FC	0 - 1
-128	9	23/04/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	San Diego FC	1 - 0
-130	9	23/04/2026 01:30	America First Field	Real Salt Lake	Inter Miami CF	0 - 2
-129	9	23/04/2026 02:30	BMO Stadium	Los Angeles Football Club	Colorado Rapids	0 - 0
-131	9	23/04/2026 02:30	PayPal Park	San Jose Earthquakes	Austin FC	5 - 1
-138	10	25/04/2026 17:00	BMO Field	Toronto FC	Atlanta United	1 - 2
-137	10	25/04/2026 18:30	Stade Saputo	CF Montréal	New York City Football Club	1 - 0
-136	10	25/04/2026 20:45	Allianz Field	Minnesota United FC	Los Angeles Football Club	0 - 1
-132	10	25/04/2026 23:30	TQL Stadium	FC Cincinnati	Red Bull New York	2 - 0
-133	10	25/04/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	Philadelphia Union	2 - 0
-134	10	25/04/2026 23:30	Audi Field	D.C. United	Orlando City	3 - 2
-135	10	25/04/2026 23:30	Nu Stadium	Inter Miami CF	New England Revolution	1 - 1
-139	10	26/04/2026 00:30	Q2 Stadium	Austin FC	Houston Dynamo FC	2 - 0
-140	10	26/04/2026 00:30	Soldier Field	Chicago Fire FC	Sporting Kansas City	5 - 0
-141	10	26/04/2026 00:30	GEODIS Park	Nashville SC	Charlotte FC	4 - 2
-144	10	26/04/2026 00:30	Energizer Park	St. Louis CITY SC	San Jose Earthquakes	2 - 3
-142	10	26/04/2026 01:30	Snapdragon Stadium	San Diego FC	Portland Timbers	1 - 2
-143	10	26/04/2026 02:30	Lumen Field	Seattle Sounders FC	FC Dallas	2 - 1
-145	10	26/04/2026 02:30	BC Place	Vancouver Whitecaps FC	Colorado Rapids	3 - 1
-146	10	26/04/2026 23:00	Dignity Health Sports Park	LA Galaxy	Real Salt Lake	2 - 1
-155	11	02/05/2026 17:00	BMO Field	Toronto FC	San Jose Earthquakes	1 - 1
-149	11	02/05/2026 18:30	Sporting Park	Sporting Kansas City	Seattle Sounders FC	1 - 1
-154	11	02/05/2026 20:45	America First Field	Real Salt Lake	Portland Timbers	2 - 0
-150	11	02/05/2026 23:15	Nu Stadium	Inter Miami CF	Orlando City	3 - 4
-147	11	02/05/2026 23:30	Mercedes-Benz Stadium	Atlanta United	CF Montréal	3 - 1
-148	11	02/05/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	Minnesota United FC	2 - 3
-151	11	02/05/2026 23:30	Gillette Stadium	New England Revolution	Charlotte FC	1 - 0
-152	11	02/05/2026 23:30	Sports Illustrated Stadium	Red Bull New York	FC Dallas	0 - 2
-153	11	02/05/2026 23:30	Subaru Park	Philadelphia Union	Nashville SC	0 - 0
-156	11	03/05/2026 00:30	Soldier Field	Chicago Fire FC	FC Cincinnati	2 - 3
-157	11	03/05/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Colorado Rapids	1 - 0
-159	11	03/05/2026 01:30	Snapdragon Stadium	San Diego FC	Los Angeles Football Club	2 - 2
-158	11	03/05/2026 02:30	Dignity Health Sports Park	LA Galaxy	Vancouver Whitecaps FC	1 - 1
-161	11	03/05/2026 19:00	Citi Field	New York City Football Club	D.C. United	0 - 2
-160	11	03/05/2026 21:30	Q2 Stadium	Austin FC	St. Louis CITY SC	2 - 0
-167	12	09/05/2026 17:00	BMO Field	Toronto FC	Inter Miami CF	2 - 4
-164	12	09/05/2026 18:30	Soldier Field	Chicago Fire FC	Red Bull New York	1 - 3
-165	12	09/05/2026 20:30	Stade Saputo	CF Montréal	Orlando City	2 - 0
-162	12	09/05/2026 23:30	Mercedes-Benz Stadium	Atlanta United	LA Galaxy	1 - 2
-163	12	09/05/2026 23:30	Bank of America Stadium	Charlotte FC	FC Cincinnati	2 - 2
-166	12	09/05/2026 23:30	Gillette Stadium	New England Revolution	Philadelphia Union	2 - 1
-169	12	10/05/2026 00:30	Toyota Stadium	FC Dallas	Real Salt Lake	3 - 1
-170	12	10/05/2026 01:15	GEODIS Park	Nashville SC	D.C. United	2 - 2
-168	12	10/05/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	St. Louis CITY SC	0 - 1
-171	12	10/05/2026 02:30	Providence Park	Portland Timbers	Sporting Kansas City	6 - 0
-172	12	10/05/2026 02:30	PayPal Park	San Jose Earthquakes	Vancouver Whitecaps FC	1 - 1
-173	12	10/05/2026 02:30	Lumen Field	Seattle Sounders FC	San Diego FC	1 - 1
-175	12	10/05/2026 20:30	Yankee Stadium	New York City Football Club	Columbus Crew	3 - 0
-174	12	10/05/2026 23:00	Allianz Field	Minnesota United FC	Austin FC	2 - 2
-176	12	11/05/2026 01:00	BMO Stadium	Los Angeles Football Club	Houston Dynamo FC	1 - 4
-177	13	13/05/2026 23:15	Bank of America Stadium	Charlotte FC	New York City Football Club	0 - 1
-178	13	13/05/2026 23:30	TQL Stadium	FC Cincinnati	Inter Miami CF	3 - 5
-179	13	13/05/2026 23:30	Audi Field	D.C. United	Chicago Fire FC	1 - 3
-180	13	13/05/2026 23:30	Stade Saputo	CF Montréal	Portland Timbers	2 - 2
-181	13	13/05/2026 23:30	Gillette Stadium	New England Revolution	Nashville SC	0 - 3
-182	13	13/05/2026 23:30	Sports Illustrated Stadium	Red Bull New York	Columbus Crew	3 - 2
-183	13	13/05/2026 23:30	Inter&Co Stadium	Orlando City	Philadelphia Union	4 - 3
-184	13	14/05/2026 00:30	Toyota Stadium	FC Dallas	Vancouver Whitecaps FC	2 - 3
-185	13	14/05/2026 00:30	Sporting Park	Sporting Kansas City	LA Galaxy	3 - 1
-186	13	14/05/2026 00:30	Allianz Field	Minnesota United FC	Colorado Rapids	0 - 1
-190	13	14/05/2026 00:30	Energizer Park	St. Louis CITY SC	Los Angeles Football Club	2 - 1
-187	13	14/05/2026 01:30	America First Field	Real Salt Lake	Houston Dynamo FC	3 - 0
-188	13	14/05/2026 01:30	Snapdragon Stadium	San Diego FC	Austin FC	5 - 0
-189	13	14/05/2026 01:30	Lumen Field	Seattle Sounders FC	San Jose Earthquakes	3 - 2
-193	14	16/05/2026 20:30	Stade Saputo	CF Montréal	Chicago Fire FC	0 - 2
-191	14	16/05/2026 23:30	Bank of America Stadium	Charlotte FC	Toronto FC	3 - 1
-192	14	16/05/2026 23:30	Audi Field	D.C. United	St. Louis CITY SC	1 - 1
-194	14	16/05/2026 23:30	Gillette Stadium	New England Revolution	Minnesota United FC	2 - 1
-195	14	16/05/2026 23:30	Sports Illustrated Stadium	Red Bull New York	New York City Football Club	1 - 1
-196	14	16/05/2026 23:30	Inter&Co Stadium	Orlando City	Atlanta United	1 - 1
-197	14	16/05/2026 23:30	Subaru Park	Philadelphia Union	Columbus Crew	1 - 1
-198	14	17/05/2026 00:30	Q2 Stadium	Austin FC	Sporting Kansas City	1 - 2
-199	14	17/05/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Vancouver Whitecaps FC	1 - 0
-204	14	17/05/2026 01:15	Lumen Field	Seattle Sounders FC	LA Galaxy	0 - 2
-201	14	17/05/2026 01:30	America First Field	Real Salt Lake	Colorado Rapids	2 - 1
-202	14	17/05/2026 01:30	Snapdragon Stadium	San Diego FC	FC Cincinnati	3 - 3
-203	14	17/05/2026 02:30	PayPal Park	San Jose Earthquakes	FC Dallas	2 - 3
-200	14	17/05/2026 22:00	Nu Stadium	Inter Miami CF	Portland Timbers	2 - 0
-205	14	18/05/2026 00:00	GEODIS Park	Nashville SC	Los Angeles Football Club	3 - 2
-209	15	23/05/2026 18:45	Energizer Park	St. Louis CITY SC	Austin FC	3 - 0
-214	15	23/05/2026 20:30	Allianz Field	Minnesota United FC	Real Salt Lake	1 - 1
-206	15	23/05/2026 23:30	Bank of America Stadium	Charlotte FC	New England Revolution	1 - 0
-207	15	23/05/2026 23:30	TQL Stadium	FC Cincinnati	Orlando City	6 - 2
-208	15	23/05/2026 23:30	Audi Field	D.C. United	CF Montréal	4 - 4
-210	15	24/05/2026 00:30	Soldier Field	Chicago Fire FC	Toronto FC	2 - 1
-212	15	24/05/2026 00:30	Sporting Park	Sporting Kansas City	Red Bull New York	1 - 2
-215	15	24/05/2026 00:30	GEODIS Park	Nashville SC	New York City Football Club	2 - 1
-211	15	24/05/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	FC Dallas	1 - 2
-216	15	24/05/2026 01:30	Providence Park	Portland Timbers	San Jose Earthquakes	1 - 3
-217	15	24/05/2026 01:30	Snapdragon Stadium	San Diego FC	Vancouver Whitecaps FC	2 - 4
-213	15	24/05/2026 02:30	Dignity Health Sports Park	LA Galaxy	Houston Dynamo FC	1 - 1
-218	15	24/05/2026 21:00	ScottsMiracle-Gro Field	Columbus Crew	Atlanta United	2 - 0
-219	15	24/05/2026 23:00	Nu Stadium	Inter Miami CF	Philadelphia Union	6 - 4
-220	15	25/05/2026 01:15	BMO Stadium	Los Angeles Football Club	Seattle Sounders FC	1 - 0
-221	16	16/07/2026 23:30	Stade Saputo	CF Montréal	Toronto FC	0 - 0
-224	16	17/07/2026 00:30	Energizer Park	St. Louis CITY SC	Sporting Kansas City	3 - 2
-223	16	17/07/2026 02:30	Lumen Field	Seattle Sounders FC	Portland Timbers	1 - 5
-226	16	18/07/2026 00:10	GEODIS Park	Nashville SC	Atlanta United	1 - 0
-225	16	18/07/2026 02:25	Dignity Health Sports Park	LA Galaxy	Los Angeles Football Club	0 - 3
-227	17	22/07/2026 23:30	TQL Stadium	FC Cincinnati	Vancouver Whitecaps FC	4 - 3
-228	17	22/07/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	New York City Football Club	1 - 2
-229	17	22/07/2026 23:30	Nu Stadium	Inter Miami CF	Chicago Fire FC	3 - 2
-230	17	22/07/2026 23:30	Gillette Stadium	New England Revolution	Toronto FC	0 - 0
-231	17	22/07/2026 23:30	Subaru Park	Philadelphia Union	Red Bull New York	3 - 1
-233	17	23/07/2026 00:15	Bank of America Stadium	Charlotte FC	Atlanta United	2 - 2
-235	17	23/07/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	D.C. United	1 - 1
-236	17	23/07/2026 00:30	Sporting Park	Sporting Kansas City	Minnesota United FC	2 - 1
-239	17	23/07/2026 00:30	GEODIS Park	Nashville SC	CF Montréal	1 - 0
-232	17	23/07/2026 01:30	Q2 Stadium	Austin FC	Seattle Sounders FC	3 - 1
-234	17	23/07/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	San Diego FC	1 - 0
-237	17	23/07/2026 02:30	Dignity Health Sports Park	LA Galaxy	St. Louis CITY SC	3 - 1
-238	17	23/07/2026 02:30	BMO Stadium	Los Angeles Football Club	Real Salt Lake	1 - 3
-240	17	23/07/2026 02:30	Providence Park	Portland Timbers	FC Dallas	2 - 2
-241	17	23/07/2026 02:30	PayPal Park	San Jose Earthquakes	Orlando City	0 - 4
-247	18	25/07/2026 22:30	Sports Illustrated Stadium	Red Bull New York	Charlotte FC	0 - 2
-242	18	25/07/2026 23:15	ScottsMiracle-Gro Field	Columbus Crew	FC Cincinnati	2 - 1
-243	18	25/07/2026 23:30	Audi Field	D.C. United	Toronto FC	2 - 1
-244	18	25/07/2026 23:30	Stade Saputo	CF Montréal	Inter Miami CF	0 - 1
-245	18	25/07/2026 23:30	Gillette Stadium	New England Revolution	Atlanta United	4 - 1
-246	18	25/07/2026 23:30	Yankee Stadium	New York City Football Club	Chicago Fire FC	3 - 1
-248	18	25/07/2026 23:30	Inter.co Stadium	Orlando City	Nashville SC	1 - 0
-249	18	25/07/2026 23:30	Subaru Park	Philadelphia Union	Seattle Sounders FC	1 - 0
-250	18	26/07/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Austin FC	3 - 0
-252	18	26/07/2026 00:30	Allianz Field	Minnesota United FC	Vancouver Whitecaps FC	0 - 0
-256	18	26/07/2026 00:30	Energizer Park	St. Louis CITY SC	Colorado Rapids	1 - 0
-254	18	26/07/2026 01:30	Snapdragon Stadium	San Diego FC	FC Dallas	1 - 0
-251	18	26/07/2026 02:30	BMO Stadium	Los Angeles Football Club	Sporting Kansas City	4 - 0
-253	18	26/07/2026 02:30	Providence Park	Portland Timbers	Real Salt Lake	2 - 1
-255	18	26/07/2026 02:30	Stanford Stadium	San Jose Earthquakes	LA Galaxy	1 - 1
-257	19	31/07/2026 23:30	Yankee Stadium	New York City Football Club	Toronto FC	1 - 1
-258	19	01/08/2026 23:30	TQL Stadium	FC Cincinnati	San Jose Earthquakes	4 - 2
-259	19	01/08/2026 23:30	Audi Field	D.C. United	Nashville SC	2 - 2
-260	19	01/08/2026 23:30	Nu Stadium	Inter Miami CF	Columbus Crew	2 - 2
-261	19	01/08/2026 23:30	Stade Saputo	CF Montréal	New England Revolution	2 - 2
-262	19	01/08/2026 23:30	Sports Illustrated Stadium	Red Bull New York	Orlando City	3 - 2
-263	19	01/08/2026 23:30	Subaru Park	Philadelphia Union	Atlanta United	3 - 2
-264	19	01/08/2026 23:30	BC Place	Vancouver Whitecaps FC	Los Angeles Football Club	1 - 1
-265	19	02/08/2026 00:30	Soldier Field	Chicago Fire FC	Charlotte FC	2 - 1
-267	19	02/08/2026 00:30	Sporting Park	Sporting Kansas City	Houston Dynamo FC	0 - 2
-269	19	02/08/2026 00:30	Allianz Field	Minnesota United FC	San Diego FC	1 - 1
-271	19	02/08/2026 00:30	Energizer Park	St. Louis CITY SC	Real Salt Lake	1 - 1
-266	19	02/08/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Austin FC	1 - 0
-268	19	02/08/2026 02:30	Dignity Health Sports Park	LA Galaxy	FC Dallas	0 - 0
-270	19	02/08/2026 02:45	Providence Park	Portland Timbers	Seattle Sounders FC	2 - 1
-32	19	08/08/2026 20:30	Gillette Stadium	New England Revolution	Houston Dynamo FC	0 - 2
-272	20	15/08/2026 23:30	Mercedes-Benz Stadium	Atlanta United	Red Bull New York	2 - 1
-273	20	15/08/2026 23:30	Bank of America Stadium	Charlotte FC	Columbus Crew	3 - 1
-274	20	15/08/2026 23:30	Stade Saputo	CF Montréal	D.C. United	1 - 1
-275	20	15/08/2026 23:30	Inter.co Stadium	Orlando City	FC Cincinnati	1 - 1
-276	20	15/08/2026 23:30	BMO Field	Toronto FC	New England Revolution	2 - 1
-279	20	16/08/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	LA Galaxy	1 - 0
-281	20	16/08/2026 00:30	GEODIS Park	Nashville SC	Inter Miami CF	4 - 1
-278	20	16/08/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Sporting Kansas City	2 - 0
-282	20	16/08/2026 01:30	America First Field	Real Salt Lake	Minnesota United FC	1 - 1
-280	20	16/08/2026 02:30	BMO Stadium	Los Angeles Football Club	San Diego FC	0 - 1
-283	20	16/08/2026 02:30	PayPal Park	San Jose Earthquakes	St. Louis CITY SC	1 - 3
-284	20	16/08/2026 22:00	Soldier Field	Chicago Fire FC	Portland Timbers	2 - 1
-285	20	16/08/2026 22:00	Yankee Stadium	New York City Football Club	Philadelphia Union	2 - 3
-277	20	17/08/2026 00:30	Q2 Stadium	Austin FC	FC Dallas	1 - 2
-286	20	17/08/2026 02:30	Lumen Field	Seattle Sounders FC	Vancouver Whitecaps FC	0 - 2
-287	21	19/08/2026 23:30	TQL Stadium	FC Cincinnati	New York City Football Club	2 - 1
-288	21	19/08/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	CF Montréal	1 - 2
-289	21	19/08/2026 23:30	Audi Field	D.C. United	New England Revolution	0 - 3
-290	21	19/08/2026 23:30	Sports Illustrated Stadium	Red Bull New York	Nashville SC	0 - 1
-291	21	19/08/2026 23:30	Inter.co Stadium	Orlando City	Chicago Fire FC	1 - 0
-292	21	19/08/2026 23:30	Subaru Park	Philadelphia Union	Inter Miami CF	2 - 2
-293	21	19/08/2026 23:30	BMO Field	Toronto FC	Charlotte FC	3 - 3
-295	21	20/08/2026 00:00	Sporting Park	Sporting Kansas City	St. Louis CITY SC	1 - 1
-297	21	20/08/2026 00:30	Allianz Field	Minnesota United FC	Atlanta United	1 - 2
-294	21	20/08/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Los Angeles Football Club	1 - 0
-299	21	20/08/2026 01:30	America First Field	Real Salt Lake	FC Dallas	3 - 4
-300	21	20/08/2026 01:30	Lumen Field	Seattle Sounders FC	Austin FC	1 - 2
-296	21	20/08/2026 02:30	Dignity Health Sports Park	LA Galaxy	San Jose Earthquakes	1 - 0
-298	21	20/08/2026 02:30	Providence Park	Portland Timbers	San Diego FC	3 - 1
-301	21	20/08/2026 02:30	BC Place	Vancouver Whitecaps FC	Houston Dynamo FC	0 - 1
-302	22	22/08/2026 23:30	Bank of America Stadium	Charlotte FC	D.C. United	3 - 1
-303	22	22/08/2026 23:30	TQL Stadium	FC Cincinnati	Seattle Sounders FC	1 - 1
-304	22	22/08/2026 23:30	Nu Stadium	Inter Miami CF	Toronto FC	1 - 2
-305	22	22/08/2026 23:30	Stade Saputo	CF Montréal	LA Galaxy	2 - 2
-306	22	22/08/2026 23:30	Sports Illustrated Stadium	Red Bull New York	Chicago Fire FC	1 - 1
-307	22	22/08/2026 23:30	Inter.co Stadium	Orlando City	Real Salt Lake	2 - 1
-310	22	23/08/2026 00:30	GEODIS Park	Nashville SC	Columbus Crew	3 - 2
-313	22	23/08/2026 00:30	Energizer Park	St. Louis CITY SC	Houston Dynamo FC	2 - 1
-308	22	23/08/2026 01:00	Q2 Stadium	Austin FC	Philadelphia Union	1 - 1
-314	22	23/08/2026 01:30	BC Place	Vancouver Whitecaps FC	FC Dallas	5 - 0
-309	22	23/08/2026 02:30	BMO Stadium	Los Angeles Football Club	Portland Timbers	1 - 1
-311	22	23/08/2026 02:30	Snapdragon Stadium	San Diego FC	Colorado Rapids	3 - 0
-312	22	23/08/2026 02:30	PayPal Park	San Jose Earthquakes	Minnesota United FC	1 - 5
-316	22	23/08/2026 20:30	Gillette Stadium	New England Revolution	New York City Football Club	1 - 1
-315	22	23/08/2026 23:00	Mercedes-Benz Stadium	Atlanta United	Sporting Kansas City	2 - 1
-322	23	29/08/2026 20:30	Lumen Field	Seattle Sounders FC	Chicago Fire FC	2 - 2
-317	23	29/08/2026 23:30	Mercedes-Benz Stadium	Atlanta United	Charlotte FC	0 - 2
-319	23	29/08/2026 23:30	Audi Field	D.C. United	Los Angeles Football Club	0 - 0
-320	23	29/08/2026 23:30	Nu Stadium	Inter Miami CF	CF Montréal	7 - 1
-321	23	29/08/2026 23:30	Sports Illustrated Stadium	Red Bull New York	Philadelphia Union	1 - 3
-323	23	29/08/2026 23:30	BMO Field	Toronto FC	New York City Football Club	1 - 1
-325	23	30/08/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	San Jose Earthquakes	0 - 0
-326	23	30/08/2026 00:30	Sporting Park	Sporting Kansas City	Vancouver Whitecaps FC	0 - 3
-327	23	30/08/2026 00:30	Allianz Field	Minnesota United FC	Orlando City	3 - 3
-328	23	30/08/2026 00:30	GEODIS Park	Nashville SC	FC Cincinnati	4 - 0
-324	23	30/08/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Real Salt Lake	1 - 0
-329	23	30/08/2026 02:30	Providence Park	Portland Timbers	Austin FC	1 - 2
-330	23	30/08/2026 02:30	Snapdragon Stadium	San Diego FC	LA Galaxy	3 - 1
-318	23	30/08/2026 20:30	ScottsMiracle-Gro Field	Columbus Crew	New England Revolution	1 - 3
-331	23	30/08/2026 23:00	Energizer Park	St. Louis CITY SC	FC Dallas	3 - 3
-332	24	04/09/2026 23:30	Yankee Stadium	New York City Football Club	Nashville SC	0 - 0
-333	24	05/09/2026 23:30	Bank of America Stadium	Charlotte FC	Houston Dynamo FC	0 - 0
-335	24	05/09/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	Colorado Rapids	3 - 0
-337	24	05/09/2026 23:30	Inter.co Stadium	Orlando City	San Diego FC	1 - 0
-338	24	05/09/2026 23:30	Subaru Park	Philadelphia Union	CF Montréal	2 - 0
-339	24	05/09/2026 23:30	BMO Field	Toronto FC	Chicago Fire FC	4 - 4
-340	24	06/09/2026 00:30	Q2 Stadium	Austin FC	San Jose Earthquakes	1 - 1
-341	24	06/09/2026 00:30	Toyota Stadium	FC Dallas	Sporting Kansas City	4 - 3
-345	24	06/09/2026 00:30	Lumen Field	Seattle Sounders FC	Red Bull New York	0 - 0
-336	24	06/09/2026 01:05	Nu Stadium	Inter Miami CF	Atlanta United	2 - 2
-342	24	06/09/2026 01:30	Dignity Health Sports Park	LA Galaxy	New England Revolution	2 - 1
-344	24	06/09/2026 01:30	America First Field	Real Salt Lake	Los Angeles Football Club	2 - 2
-343	24	06/09/2026 02:30	Providence Park	Portland Timbers	Minnesota United FC	5 - 4
-346	24	06/09/2026 02:30	BC Place	Vancouver Whitecaps FC	St. Louis CITY SC	1 - 3
-347	25	09/09/2026 23:30	Mercedes-Benz Stadium	Atlanta United	Orlando City	2 - 3
-348	25	09/09/2026 23:30	Audi Field	D.C. United	Columbus Crew	2 - 1
-349	25	09/09/2026 23:30	Stade Saputo	CF Montréal	Charlotte FC	1 - 2
-352	25	09/09/2026 23:30	BMO Field	Toronto FC	Nashville SC	2 - 1
-351	25	09/09/2026 23:45	Subaru Park	Philadelphia Union	FC Cincinnati	5 - 0
-350	25	10/09/2026 00:00	Citi Field	New York City Football Club	New England Revolution	1 - 2
-353	25	10/09/2026 00:30	Q2 Stadium	Austin FC	Colorado Rapids	1 - 1
-354	25	10/09/2026 00:30	Soldier Field	Chicago Fire FC	Inter Miami CF	1 - 1
-355	25	10/09/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Real Salt Lake	2 - 1
-357	25	10/09/2026 00:30	Allianz Field	Minnesota United FC	FC Dallas	1 - 2
-356	25	10/09/2026 02:30	BMO Stadium	Los Angeles Football Club	Red Bull New York	2 - 0
-358	25	10/09/2026 02:30	Providence Park	Portland Timbers	St. Louis CITY SC	2 - 2
-359	25	10/09/2026 02:30	Snapdragon Stadium	San Diego FC	San Jose Earthquakes	2 - 3
-361	25	10/09/2026 02:30	BC Place	Vancouver Whitecaps FC	LA Galaxy	3 - 0
-362	26	12/09/2026 23:30	TQL Stadium	FC Cincinnati	Charlotte FC	3 - 3
-363	26	12/09/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	Red Bull New York	0 - 1
-364	26	12/09/2026 23:30	Audi Field	D.C. United	Atlanta United	0 - 0
-365	26	12/09/2026 23:30	Nu Stadium	Inter Miami CF	Nashville SC	2 - 2
-366	26	12/09/2026 23:30	Inter.co Stadium	Orlando City	Toronto FC	3 - 0
-368	26	13/09/2026 00:30	Toyota Stadium	FC Dallas	Portland Timbers	2 - 1
-369	26	13/09/2026 00:30	Sporting Park	Sporting Kansas City	Los Angeles Football Club	3 - 1
-373	26	13/09/2026 00:30	Energizer Park	St. Louis CITY SC	Minnesota United FC	4 - 2
-367	26	13/09/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	CF Montréal	1 - 0
-371	26	13/09/2026 01:30	America First Field	Real Salt Lake	New York City Football Club	0 - 2
-370	26	13/09/2026 02:30	Dignity Health Sports Park	LA Galaxy	Seattle Sounders FC	1 - 1
-372	26	13/09/2026 02:30	PayPal Park	San Jose Earthquakes	Houston Dynamo FC	1 - 0
-374	26	13/09/2026 21:30	Soldier Field	Chicago Fire FC	New England Revolution	1 - 2
-375	26	13/09/2026 22:30	BC Place	Vancouver Whitecaps FC	Austin FC	1 - 2
-376	26	14/09/2026 01:00	Snapdragon Stadium	San Diego FC	Philadelphia Union	0 - 5
-377	27	18/09/2026 23:30	Yankee Stadium	New York City Football Club	Red Bull New York	0 - 1
-378	27	19/09/2026 23:30	Audi Field	D.C. United	Charlotte FC	1 - 2
-379	27	19/09/2026 23:30	Stade Saputo	CF Montréal	Columbus Crew	0 - 2
-380	27	19/09/2026 23:30	Gillette Stadium	New England Revolution	Orlando City	4 - 2
-381	27	19/09/2026 23:30	Levi's Stadium	San Jose Earthquakes	Los Angeles Football Club	2 - 2
-383	27	20/09/2026 00:30	Toyota Stadium	FC Dallas	Austin FC	0 - 0
-384	27	20/09/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	FC Cincinnati	2 - 2
-385	27	20/09/2026 00:30	Sporting Park	Sporting Kansas City	Philadelphia Union	3 - 4
-386	27	20/09/2026 00:30	Allianz Field	Minnesota United FC	LA Galaxy	2 - 3
-390	27	20/09/2026 00:30	Energizer Park	St. Louis CITY SC	Toronto FC	3 - 1
-382	27	20/09/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Seattle Sounders FC	3 - 3
-387	27	20/09/2026 01:30	GEODIS Park	Nashville SC	Chicago Fire FC	3 - 0
-389	27	20/09/2026 01:30	America First Field	Real Salt Lake	Vancouver Whitecaps FC	0 - 3
-388	27	20/09/2026 02:30	Providence Park	Portland Timbers	Atlanta United	0 - 1
-391	27	20/09/2026 23:00	Nu Stadium	Inter Miami CF	San Diego FC	2 - 2
-105	27	24/09/2026 01:30	Lumen Field	Seattle Sounders FC	Real Salt Lake	2 - 0
-392	28	26/09/2026 23:30	Mercedes-Benz Stadium	Atlanta United	New York City Football Club	2 - 2
-393	28	26/09/2026 23:30	Bank of America Stadium	Charlotte FC	Chicago Fire FC	0 - 1
-394	28	26/09/2026 23:30	Stade Saputo	CF Montréal	FC Cincinnati	3 - 1
-396	28	26/09/2026 23:30	Subaru Park	Philadelphia Union	Orlando City	4 - 2
-397	28	27/09/2026 00:30	Q2 Stadium	Austin FC	San Diego FC	3 - 3
-399	28	27/09/2026 00:30	Toyota Stadium	FC Dallas	Los Angeles Football Club	1 - 0
-400	28	27/09/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Sporting Kansas City	0 - 2
-402	28	27/09/2026 00:30	GEODIS Park	Nashville SC	Toronto FC	2 - 0
-405	28	27/09/2026 00:30	Lumen Field	Seattle Sounders FC	Minnesota United FC	3 - 1
-403	28	27/09/2026 01:30	America First Field	Real Salt Lake	New England Revolution	3 - 0
-401	28	27/09/2026 02:30	Dignity Health Sports Park	LA Galaxy	Colorado Rapids	3 - 2
-404	28	27/09/2026 02:30	PayPal Park	San Jose Earthquakes	Portland Timbers	3 - 1
-406	28	27/09/2026 02:30	BC Place	Vancouver Whitecaps FC	D.C. United	3 - 3
-398	28	27/09/2026 23:00	ScottsMiracle-Gro Field	Columbus Crew	Inter Miami CF	2 - 1
-395	28	30/09/2026 23:30	Sports Illustrated Stadium	Red Bull New York	St. Louis CITY SC	0 - 3
-360	28	02/10/2026 01:30	Lumen Field	Seattle Sounders FC	Sporting Kansas City	2 - 1
-222	28	07/10/2026 00:30	Soldier Field	Chicago Fire FC	Vancouver Whitecaps FC	
-415	29	10/10/2026 17:00	BMO Field	Toronto FC	CF Montréal	
-409	29	10/10/2026 18:30	Soldier Field	Chicago Fire FC	New York City Football Club	
-407	29	10/10/2026 23:30	Mercedes-Benz Stadium	Atlanta United	FC Cincinnati	
-408	29	10/10/2026 23:30	Bank of America Stadium	Charlotte FC	FC Dallas	
-410	29	10/10/2026 23:30	Nu Stadium	Inter Miami CF	D.C. United	
-411	29	10/10/2026 23:30	Gillette Stadium	New England Revolution	Seattle Sounders FC	
-412	29	10/10/2026 23:30	Sports Illustrated Stadium	Red Bull New York	San Diego FC	
-413	29	10/10/2026 23:30	Inter.co Stadium	Orlando City	Columbus Crew	
-414	29	10/10/2026 23:30	Subaru Park	Philadelphia Union	Real Salt Lake	
-416	29	11/10/2026 00:30	Q2 Stadium	Austin FC	Nashville SC	
-418	29	11/10/2026 00:30	Sporting Park	Sporting Kansas City	Portland Timbers	
-420	29	11/10/2026 00:30	Allianz Field	Minnesota United FC	Houston Dynamo FC	
-417	29	11/10/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	San Jose Earthquakes	
-419	29	11/10/2026 02:30	BMO Stadium	Los Angeles Football Club	Vancouver Whitecaps FC	
-421	29	11/10/2026 23:00	Energizer Park	St. Louis CITY SC	LA Galaxy	
-422	30	14/10/2026 23:30	TQL Stadium	FC Cincinnati	New England Revolution	
-423	30	14/10/2026 23:30	ScottsMiracle-Gro Field	Columbus Crew	Charlotte FC	
-424	30	14/10/2026 23:30	Audi Field	D.C. United	Red Bull New York	
-425	30	14/10/2026 23:30	Nu Stadium	Inter Miami CF	New York City Football Club	
-426	30	14/10/2026 23:30	Stade Saputo	CF Montréal	Atlanta United	
-427	30	14/10/2026 23:30	BMO Field	Toronto FC	Orlando City	
-428	30	15/10/2026 00:30	Soldier Field	Chicago Fire FC	Philadelphia Union	
-430	30	15/10/2026 00:30	Toyota Stadium	FC Dallas	Seattle Sounders FC	
-433	30	15/10/2026 00:30	GEODIS Park	Nashville SC	Sporting Kansas City	
-436	30	15/10/2026 00:30	Energizer Park	St. Louis CITY SC	Vancouver Whitecaps FC	
-429	30	15/10/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Minnesota United FC	
-434	30	15/10/2026 01:30	America First Field	Real Salt Lake	San Jose Earthquakes	
-431	30	15/10/2026 02:30	Dignity Health Sports Park	LA Galaxy	Portland Timbers	
-432	30	15/10/2026 02:30	BMO Stadium	Los Angeles Football Club	Austin FC	
-435	30	15/10/2026 02:30	Snapdragon Stadium	San Diego FC	Houston Dynamo FC	
-443	31	17/10/2026 18:30	Subaru Park	Philadelphia Union	Charlotte FC	
-438	31	17/10/2026 20:30	Allianz Field	Minnesota United FC	St. Louis CITY SC	
-437	31	17/10/2026 23:30	Mercedes-Benz Stadium	Atlanta United	Inter Miami CF	
-439	31	17/10/2026 23:30	Gillette Stadium	New England Revolution	Chicago Fire FC	
-440	31	17/10/2026 23:30	Citi Field	New York City Football Club	Los Angeles Football Club	
-441	31	17/10/2026 23:30	Sports Illustrated Stadium	Red Bull New York	Toronto FC	
-442	31	17/10/2026 23:30	Inter.co Stadium	Orlando City	D.C. United	
-444	31	18/10/2026 00:30	Q2 Stadium	Austin FC	Vancouver Whitecaps FC	
-445	31	18/10/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	FC Dallas	
-446	31	18/10/2026 00:30	Sporting Park	Sporting Kansas City	Real Salt Lake	
-447	31	18/10/2026 02:30	Dignity Health Sports Park	LA Galaxy	San Diego FC	
-448	31	18/10/2026 02:30	Providence Park	Portland Timbers	Colorado Rapids	
-449	31	18/10/2026 02:30	PayPal Park	San Jose Earthquakes	Nashville SC	
-450	31	18/10/2026 02:30	Lumen Field	Seattle Sounders FC	CF Montréal	
-451	31	18/10/2026 21:00	TQL Stadium	FC Cincinnati	Columbus Crew	
-334	31	21/10/2026 23:00	TQL Stadium	FC Cincinnati	D.C. United	
-455	32	24/10/2026 17:30	Stade Saputo	CF Montréal	Nashville SC	
-453	32	24/10/2026 19:30	ScottsMiracle-Gro Field	Columbus Crew	Toronto FC	
-456	32	24/10/2026 21:30	Sports Illustrated Stadium	Red Bull New York	Inter Miami CF	
-452	32	24/10/2026 23:30	Mercedes-Benz Stadium	Atlanta United	Chicago Fire FC	
-454	32	24/10/2026 23:30	Audi Field	D.C. United	FC Cincinnati	
-457	32	24/10/2026 23:30	Inter.co Stadium	Orlando City	New York City Football Club	
-458	32	24/10/2026 23:30	Subaru Park	Philadelphia Union	New England Revolution	
-460	32	25/10/2026 00:30	Toyota Stadium	FC Dallas	San Jose Earthquakes	
-461	32	25/10/2026 00:30	Shell Energy Stadium	Houston Dynamo FC	Minnesota United FC	
-462	32	25/10/2026 00:30	Sporting Park	Sporting Kansas City	Austin FC	
-459	32	25/10/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Vancouver Whitecaps FC	
-464	32	25/10/2026 01:30	America First Field	Real Salt Lake	St. Louis CITY SC	
-463	32	25/10/2026 02:30	Providence Park	Portland Timbers	Charlotte FC	
-465	32	25/10/2026 02:30	Snapdragon Stadium	San Diego FC	Seattle Sounders FC	
-466	32	26/10/2026 01:00	BMO Stadium	Los Angeles Football Club	LA Galaxy	
-467	33	28/10/2026 23:30	Bank of America Stadium	Charlotte FC	CF Montréal	
-468	33	28/10/2026 23:30	Nu Stadium	Inter Miami CF	FC Cincinnati	
-469	33	28/10/2026 23:30	Gillette Stadium	New England Revolution	Red Bull New York	
-470	33	28/10/2026 23:30	Citi Field	New York City Football Club	Atlanta United	
-471	33	28/10/2026 23:30	BMO Field	Toronto FC	D.C. United	
-472	33	29/10/2026 00:30	Q2 Stadium	Austin FC	Real Salt Lake	
-473	33	29/10/2026 00:30	Soldier Field	Chicago Fire FC	Orlando City	
-474	33	29/10/2026 00:30	Toyota Stadium	FC Dallas	Columbus Crew	
-475	33	29/10/2026 00:30	Allianz Field	Minnesota United FC	Sporting Kansas City	
-476	33	29/10/2026 00:30	GEODIS Park	Nashville SC	Philadelphia Union	
-479	33	29/10/2026 00:30	Energizer Park	St. Louis CITY SC	Portland Timbers	
-477	33	29/10/2026 02:30	PayPal Park	San Jose Earthquakes	Colorado Rapids	
-478	33	29/10/2026 02:30	Lumen Field	Seattle Sounders FC	Houston Dynamo FC	
-480	33	29/10/2026 02:30	BC Place	Vancouver Whitecaps FC	San Diego FC	
-481	34	31/10/2026 17:00	Bank of America Stadium	Charlotte FC	Orlando City	
-482	34	31/10/2026 18:00	TQL Stadium	FC Cincinnati	Philadelphia Union	
-483	34	31/10/2026 18:00	ScottsMiracle-Gro Field	Columbus Crew	D.C. United	
-487	34	31/10/2026 18:00	Citi Field	New York City Football Club	CF Montréal	
-484	34	31/10/2026 19:00	Sporting Park	Sporting Kansas City	FC Dallas	
-490	34	31/10/2026 19:00	Energizer Park	St. Louis CITY SC	San Diego FC	
-485	34	31/10/2026 21:00	Dignity Health Sports Park	LA Galaxy	Austin FC	
-489	34	31/10/2026 21:00	PayPal Park	San Jose Earthquakes	Real Salt Lake	
-488	34	01/11/2026 01:30	DICK'S Sporting Goods Park	Colorado Rapids	Chicago Fire FC	
-486	34	01/11/2026 21:30	GEODIS Park	Nashville SC	Red Bull New York	
-491	34	01/11/2026 21:30	BC Place	Vancouver Whitecaps FC	Seattle Sounders FC	
-492	34	01/11/2026 21:30	Mercedes-Benz Stadium	Atlanta United	Toronto FC	
-494	34	02/11/2026 00:00	Gillette Stadium	New England Revolution	Inter Miami CF	
-493	34	02/11/2026 01:30	BMO Stadium	Los Angeles Football Club	Minnesota United FC	
-495	34	02/11/2026 02:30	Providence Park	Portland Timbers	Houston Dynamo FC	
-496	35	07/11/2026 21:00	SeatGeek Stadium	Chicago Fire FC	Columbus Crew	
-497	35	07/11/2026 21:00	TQL Stadium	FC Cincinnati	Nashville SC	
-498	35	07/11/2026 21:00	Audi Field	D.C. United	New York City Football Club	
-499	35	07/11/2026 21:00	Nu Stadium	Inter Miami CF	Charlotte FC	
-500	35	07/11/2026 21:00	Stade Saputo	CF Montréal	Vancouver Whitecaps FC	
-501	35	07/11/2026 21:00	Sports Illustrated Stadium	Red Bull New York	Atlanta United	
-502	35	07/11/2026 21:00	Inter.co Stadium	Orlando City	New England Revolution	
-503	35	07/11/2026 21:00	Subaru Park	Philadelphia Union	Toronto FC	
-504	35	08/11/2026 00:00	Q2 Stadium	Austin FC	Portland Timbers	
-505	35	08/11/2026 00:00	Toyota Stadium	FC Dallas	Colorado Rapids	
-506	35	08/11/2026 00:00	Shell Energy Stadium	Houston Dynamo FC	St. Louis CITY SC	
-507	35	08/11/2026 00:00	Allianz Field	Minnesota United FC	San Jose Earthquakes	
-508	35	08/11/2026 00:00	America First Field	Real Salt Lake	LA Galaxy	
-509	35	08/11/2026 00:00	Snapdragon Stadium	San Diego FC	Sporting Kansas City	
-510	35	08/11/2026 00:00	Lumen Field	Seattle Sounders FC	Los Angeles Football Club	
+Match Number    Round Number    Date    Location    Home Team    Away Team    Result
+2    1    21/02/2026 19:30    Energizer Park    St. Louis CITY SC    Charlotte FC    1 - 1
+1    1    21/02/2026 21:45    TQL Stadium    FC Cincinnati    Atlanta United    2 - 0
+5    1    22/02/2026 00:30    Audi Field    D.C. United    Philadelphia Union    1 - 0
+9    1    22/02/2026 00:30    Inter&Co Stadium    Orlando City    Red Bull New York    1 - 2
+13    1    22/02/2026 00:30    BC Place    Vancouver Whitecaps FC    Real Salt Lake    1 - 0
+3    1    22/02/2026 01:30    Q2 Stadium    Austin FC    Minnesota United FC    2 - 2
+4    1    22/02/2026 01:30    Toyota Stadium    FC Dallas    Toronto FC    3 - 2
+6    1    22/02/2026 01:30    Shell Energy Stadium    Houston Dynamo FC    Chicago Fire FC    2 - 1
+8    1    22/02/2026 01:30    GEODIS Park    Nashville SC    New England Revolution    4 - 1
+7    1    22/02/2026 02:30    Los Angeles Memorial Coliseum    Los Angeles Football Club    Inter Miami CF    3 - 0
+10    1    22/02/2026 03:30    Providence Park    Portland Timbers    Columbus Crew    3 - 2
+11    1    22/02/2026 03:30    Snapdragon Stadium    San Diego FC    CF Montréal    5 - 0
+12    1    22/02/2026 03:30    PayPal Park    San Jose Earthquakes    Sporting Kansas City    3 - 0
+14    1    23/02/2026 00:00    Dignity Health Sports Park    LA Galaxy    New York City Football Club    1 - 1
+15    1    23/02/2026 02:15    Lumen Field    Seattle Sounders FC    Colorado Rapids    2 - 0
+16    2    28/02/2026 19:30    Soldier Field    Chicago Fire FC    CF Montréal    3 - 0
+19    2    28/02/2026 19:30    Sports Illustrated Stadium    Red Bull New York    New England Revolution    1 - 0
+17    2    28/02/2026 21:30    DICK'S Sporting Goods Park    Colorado Rapids    Portland Timbers    2 - 0
+18    2    28/02/2026 21:30    Allianz Field    Minnesota United FC    FC Cincinnati    1 - 0
+25    2    01/03/2026 00:30    America First Field    Real Salt Lake    Seattle Sounders FC    2 - 1
+26    2    01/03/2026 00:30    PayPal Park    San Jose Earthquakes    Atlanta United    2 - 0
+21    2    01/03/2026 01:30    Toyota Stadium    FC Dallas    Nashville SC    0 - 0
+22    2    01/03/2026 01:30    Shell Energy Stadium    Houston Dynamo FC    Los Angeles Football Club    0 - 2
+23    2    01/03/2026 01:30    Sporting Park    Sporting Kansas City    Columbus Crew    2 - 2
+27    2    01/03/2026 02:30    BC Place    Vancouver Whitecaps FC    Toronto FC    3 - 0
+24    2    01/03/2026 03:30    Dignity Health Sports Park    LA Galaxy    Charlotte FC    3 - 0
+20    2    01/03/2026 19:30    Q2 Stadium    Austin FC    D.C. United    1 - 0
+28    2    01/03/2026 21:30    Subaru Park    Philadelphia Union    New York City Football Club    1 - 2
+29    2    02/03/2026 00:00    Inter&Co Stadium    Orlando City    Inter Miami CF    2 - 4
+30    2    02/03/2026 02:15    Snapdragon Stadium    San Diego FC    St. Louis CITY SC    2 - 0
+33    3    07/03/2026 19:30    Yankee Stadium    New York City Football Club    Orlando City    5 - 0
+31    3    07/03/2026 21:30    M&T Bank Stadium    D.C. United    Inter Miami CF    1 - 2
+34    3    08/03/2026 00:30    Mercedes-Benz Stadium    Atlanta United    Real Salt Lake    2 - 3
+35    3    08/03/2026 00:30    Bank of America Stadium    Charlotte FC    Austin FC    3 - 1
+38    3    08/03/2026 00:30    ScottsMiracle-Gro Field    Columbus Crew    Chicago Fire FC    0 - 0
+42    3    08/03/2026 00:30    Subaru Park    Philadelphia Union    San Jose Earthquakes    0 - 1
+39    3    08/03/2026 01:30    Sporting Park    Sporting Kansas City    San Diego FC    0 - 1
+41    3    08/03/2026 01:30    GEODIS Park    Nashville SC    Minnesota United FC    3 - 1
+43    3    08/03/2026 01:30    Energizer Park    St. Louis CITY SC    Seattle Sounders FC    0 - 1
+37    3    08/03/2026 02:30    DICK'S Sporting Goods Park    Colorado Rapids    LA Galaxy    4 - 1
+40    3    08/03/2026 03:30    BMO Stadium    Los Angeles Football Club    FC Dallas    1 - 0
+45    3    08/03/2026 03:30    Providence Park    Portland Timbers    Vancouver Whitecaps FC    1 - 4
+44    3    08/03/2026 20:30    Sports Illustrated Stadium    Red Bull New York    CF Montréal    0 - 3
+36    3    08/03/2026 23:00    TQL Stadium    FC Cincinnati    Toronto FC    0 - 1
+51    4    14/03/2026 17:00    BMO Field    Toronto FC    Red Bull New York    1 - 1
+46    4    14/03/2026 19:15    Mercedes-Benz Stadium    Atlanta United    Philadelphia Union    3 - 1
+48    4    14/03/2026 22:15    ScottsMiracle-Gro Field    Columbus Crew    Nashville SC    0 - 1
+47    4    14/03/2026 23:30    Bank of America Stadium    Charlotte FC    Inter Miami CF    0 - 0
+49    4    14/03/2026 23:30    Yankee Stadium    New York City Football Club    Colorado Rapids    3 - 1
+50    4    14/03/2026 23:30    Inter&Co Stadium    Orlando City    CF Montréal    2 - 1
+52    4    15/03/2026 00:30    Soldier Field    Chicago Fire FC    D.C. United    1 - 2
+53    4    15/03/2026 00:30    Toyota Stadium    FC Dallas    San Diego FC    3 - 3
+54    4    15/03/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Portland Timbers    3 - 2
+55    4    15/03/2026 01:30    Dignity Health Sports Park    LA Galaxy    Sporting Kansas City    1 - 2
+57    4    15/03/2026 01:30    America First Field    Real Salt Lake    Austin FC    2 - 1
+56    4    15/03/2026 02:30    BMO Stadium    Los Angeles Football Club    St. Louis CITY SC    2 - 0
+59    4    15/03/2026 18:30    Gillette Stadium    New England Revolution    FC Cincinnati    6 - 1
+58    4    15/03/2026 20:30    BC Place    Vancouver Whitecaps FC    Minnesota United FC    6 - 0
+60    4    15/03/2026 23:00    PayPal Park    San Jose Earthquakes    Seattle Sounders FC    0 - 1
+65    5    21/03/2026 17:00    BMO Field    Toronto FC    Columbus Crew    2 - 1
+64    5    21/03/2026 20:30    Subaru Park    Philadelphia Union    Chicago Fire FC    1 - 2
+63    5    21/03/2026 22:15    GEODIS Park    Nashville SC    Orlando City    5 - 0
+61    5    21/03/2026 23:30    Mercedes-Benz Stadium    Atlanta United    D.C. United    0 - 0
+62    5    21/03/2026 23:30    Bank of America Stadium    Charlotte FC    Red Bull New York    6 - 1
+68    5    22/03/2026 00:30    Toyota Stadium    FC Dallas    Houston Dynamo FC    4 - 3
+69    5    22/03/2026 00:30    Sporting Park    Sporting Kansas City    Colorado Rapids    1 - 4
+70    5    22/03/2026 00:30    Energizer Park    St. Louis CITY SC    New England Revolution    3 - 1
+66    5    22/03/2026 00:45    Q2 Stadium    Austin FC    Los Angeles Football Club    0 - 0
+71    5    22/03/2026 02:30    BC Place    Vancouver Whitecaps FC    San Jose Earthquakes    0 - 1
+67    5    22/03/2026 17:00    TQL Stadium    FC Cincinnati    CF Montréal    4 - 3
+73    5    22/03/2026 17:00    Yankee Stadium    New York City Football Club    Inter Miami CF    2 - 3
+72    5    22/03/2026 18:30    Allianz Field    Minnesota United FC    Seattle Sounders FC    0 - 0
+74    5    22/03/2026 20:45    Providence Park    Portland Timbers    LA Galaxy    1 - 1
+75    5    22/03/2026 23:00    Snapdragon Stadium    San Diego FC    Real Salt Lake    2 - 2
+84    6    04/04/2026 17:00    BMO Field    Toronto FC    Colorado Rapids    3 - 2
+80    6    04/04/2026 20:30    Gillette Stadium    New England Revolution    CF Montréal    3 - 0
+83    6    04/04/2026 20:30    America First Field    Real Salt Lake    Sporting Kansas City    3 - 1
+76    6    04/04/2026 23:30    Mercedes-Benz Stadium    Atlanta United    Columbus Crew    1 - 3
+77    6    04/04/2026 23:30    Bank of America Stadium    Charlotte FC    Philadelphia Union    2 - 1
+78    6    04/04/2026 23:30    Audi Field    D.C. United    FC Dallas    0 - 4
+79    6    04/04/2026 23:30    Nu Stadium    Inter Miami CF    Austin FC    2 - 2
+81    6    04/04/2026 23:30    Citi Field    New York City Football Club    St. Louis CITY SC    1 - 1
+82    6    04/04/2026 23:30    Sports Illustrated Stadium    Red Bull New York    FC Cincinnati    4 - 2
+85    6    05/04/2026 00:30    Soldier Field    Chicago Fire FC    Nashville SC    1 - 0
+86    6    05/04/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Seattle Sounders FC    0 - 1
+88    6    05/04/2026 01:30    BMO Stadium    Los Angeles Football Club    Orlando City    6 - 0
+87    6    05/04/2026 02:30    Dignity Health Sports Park    LA Galaxy    Minnesota United FC    1 - 2
+89    6    05/04/2026 02:30    PayPal Park    San Jose Earthquakes    San Diego FC    3 - 0
+90    6    05/04/2026 02:30    BC Place    Vancouver Whitecaps FC    Portland Timbers    3 - 2
+97    7    11/04/2026 17:00    BMO Field    Toronto FC    FC Cincinnati    1 - 1
+91    7    11/04/2026 18:30    Q2 Stadium    Austin FC    LA Galaxy    1 - 2
+94    7    11/04/2026 18:30    Stade Saputo    CF Montréal    Philadelphia Union    1 - 2
+96    7    11/04/2026 20:45    Providence Park    Portland Timbers    Los Angeles Football Club    2 - 1
+92    7    11/04/2026 23:30    Bank of America Stadium    Charlotte FC    Nashville SC    1 - 2
+93    7    11/04/2026 23:30    Nu Stadium    Inter Miami CF    Red Bull New York    2 - 2
+95    7    11/04/2026 23:30    Gillette Stadium    New England Revolution    D.C. United    1 - 0
+98    7    11/04/2026 23:30    BC Place    Vancouver Whitecaps FC    New York City Football Club    2 - 0
+99    7    12/04/2026 00:30    Soldier Field    Chicago Fire FC    Atlanta United    1 - 0
+102    7    12/04/2026 00:30    Toyota Stadium    FC Dallas    St. Louis CITY SC    1 - 1
+103    7    12/04/2026 00:30    Sporting Park    Sporting Kansas City    San Jose Earthquakes    1 - 3
+100    7    12/04/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Houston Dynamo FC    6 - 2
+104    7    12/04/2026 02:30    Snapdragon Stadium    San Diego FC    Minnesota United FC    1 - 2
+101    7    12/04/2026 23:00    ScottsMiracle-Gro Field    Columbus Crew    Orlando City    1 - 1
+106    8    18/04/2026 02:30    BC Place    Vancouver Whitecaps FC    Sporting Kansas City    3 - 0
+115    8    18/04/2026 17:00    BMO Field    Toronto FC    Austin FC    3 - 3
+110    8    18/04/2026 18:30    Stade Saputo    CF Montréal    Red Bull New York    4 - 1
+109    8    18/04/2026 20:30    Empower Field at Mile High    Colorado Rapids    Inter Miami CF    2 - 3
+107    8    18/04/2026 23:30    Mercedes-Benz Stadium    Atlanta United    Nashville SC    0 - 2
+108    8    18/04/2026 23:30    TQL Stadium    FC Cincinnati    Chicago Fire FC    3 - 3
+111    8    18/04/2026 23:30    Gillette Stadium    New England Revolution    Columbus Crew    2 - 1
+112    8    18/04/2026 23:30    Citi Field    New York City Football Club    Charlotte FC    1 - 2
+113    8    18/04/2026 23:30    Inter&Co Stadium    Orlando City    Houston Dynamo FC    0 - 1
+114    8    18/04/2026 23:30    Subaru Park    Philadelphia Union    D.C. United    0 - 0
+116    8    19/04/2026 00:30    Toyota Stadium    FC Dallas    LA Galaxy    2 - 2
+117    8    19/04/2026 00:30    Allianz Field    Minnesota United FC    Portland Timbers    2 - 0
+118    8    19/04/2026 01:30    America First Field    Real Salt Lake    San Diego FC    4 - 2
+119    8    19/04/2026 01:30    Lumen Field    Seattle Sounders FC    St. Louis CITY SC    4 - 1
+120    8    19/04/2026 23:00    BMO Stadium    Los Angeles Football Club    San Jose Earthquakes    1 - 4
+122    9    22/04/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    LA Galaxy    2 - 1
+123    9    22/04/2026 23:30    Yankee Stadium    New York City Football Club    FC Cincinnati    4 - 4
+124    9    22/04/2026 23:30    Sports Illustrated Stadium    Red Bull New York    D.C. United    4 - 4
+125    9    22/04/2026 23:30    Inter&Co Stadium    Orlando City    Charlotte FC    4 - 1
+126    9    22/04/2026 23:30    BMO Field    Toronto FC    Philadelphia Union    3 - 3
+121    9    22/04/2026 23:45    Mercedes-Benz Stadium    Atlanta United    New England Revolution    1 - 2
+127    9    23/04/2026 00:30    Toyota Stadium    FC Dallas    Minnesota United FC    0 - 1
+128    9    23/04/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    San Diego FC    1 - 0
+130    9    23/04/2026 01:30    America First Field    Real Salt Lake    Inter Miami CF    0 - 2
+129    9    23/04/2026 02:30    BMO Stadium    Los Angeles Football Club    Colorado Rapids    0 - 0
+131    9    23/04/2026 02:30    PayPal Park    San Jose Earthquakes    Austin FC    5 - 1
+138    10    25/04/2026 17:00    BMO Field    Toronto FC    Atlanta United    1 - 2
+137    10    25/04/2026 18:30    Stade Saputo    CF Montréal    New York City Football Club    1 - 0
+136    10    25/04/2026 20:45    Allianz Field    Minnesota United FC    Los Angeles Football Club    0 - 1
+132    10    25/04/2026 23:30    TQL Stadium    FC Cincinnati    Red Bull New York    2 - 0
+133    10    25/04/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    Philadelphia Union    2 - 0
+134    10    25/04/2026 23:30    Audi Field    D.C. United    Orlando City    3 - 2
+135    10    25/04/2026 23:30    Nu Stadium    Inter Miami CF    New England Revolution    1 - 1
+139    10    26/04/2026 00:30    Q2 Stadium    Austin FC    Houston Dynamo FC    2 - 0
+140    10    26/04/2026 00:30    Soldier Field    Chicago Fire FC    Sporting Kansas City    5 - 0
+141    10    26/04/2026 00:30    GEODIS Park    Nashville SC    Charlotte FC    4 - 2
+144    10    26/04/2026 00:30    Energizer Park    St. Louis CITY SC    San Jose Earthquakes    2 - 3
+142    10    26/04/2026 01:30    Snapdragon Stadium    San Diego FC    Portland Timbers    1 - 2
+143    10    26/04/2026 02:30    Lumen Field    Seattle Sounders FC    FC Dallas    2 - 1
+145    10    26/04/2026 02:30    BC Place    Vancouver Whitecaps FC    Colorado Rapids    3 - 1
+146    10    26/04/2026 23:00    Dignity Health Sports Park    LA Galaxy    Real Salt Lake    2 - 1
+155    11    02/05/2026 17:00    BMO Field    Toronto FC    San Jose Earthquakes    1 - 1
+149    11    02/05/2026 18:30    Sporting Park    Sporting Kansas City    Seattle Sounders FC    1 - 1
+154    11    02/05/2026 20:45    America First Field    Real Salt Lake    Portland Timbers    2 - 0
+150    11    02/05/2026 23:15    Nu Stadium    Inter Miami CF    Orlando City    3 - 4
+147    11    02/05/2026 23:30    Mercedes-Benz Stadium    Atlanta United    CF Montréal    3 - 1
+148    11    02/05/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    Minnesota United FC    2 - 3
+151    11    02/05/2026 23:30    Gillette Stadium    New England Revolution    Charlotte FC    1 - 0
+152    11    02/05/2026 23:30    Sports Illustrated Stadium    Red Bull New York    FC Dallas    0 - 2
+153    11    02/05/2026 23:30    Subaru Park    Philadelphia Union    Nashville SC    0 - 0
+156    11    03/05/2026 00:30    Soldier Field    Chicago Fire FC    FC Cincinnati    2 - 3
+157    11    03/05/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Colorado Rapids    1 - 0
+159    11    03/05/2026 01:30    Snapdragon Stadium    San Diego FC    Los Angeles Football Club    2 - 2
+158    11    03/05/2026 02:30    Dignity Health Sports Park    LA Galaxy    Vancouver Whitecaps FC    1 - 1
+161    11    03/05/2026 19:00    Citi Field    New York City Football Club    D.C. United    0 - 2
+160    11    03/05/2026 21:30    Q2 Stadium    Austin FC    St. Louis CITY SC    2 - 0
+167    12    09/05/2026 17:00    BMO Field    Toronto FC    Inter Miami CF    2 - 4
+164    12    09/05/2026 18:30    Soldier Field    Chicago Fire FC    Red Bull New York    1 - 3
+165    12    09/05/2026 20:30    Stade Saputo    CF Montréal    Orlando City    2 - 0
+162    12    09/05/2026 23:30    Mercedes-Benz Stadium    Atlanta United    LA Galaxy    1 - 2
+163    12    09/05/2026 23:30    Bank of America Stadium    Charlotte FC    FC Cincinnati    2 - 2
+166    12    09/05/2026 23:30    Gillette Stadium    New England Revolution    Philadelphia Union    2 - 1
+169    12    10/05/2026 00:30    Toyota Stadium    FC Dallas    Real Salt Lake    3 - 1
+170    12    10/05/2026 01:15    GEODIS Park    Nashville SC    D.C. United    2 - 2
+168    12    10/05/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    St. Louis CITY SC    0 - 1
+171    12    10/05/2026 02:30    Providence Park    Portland Timbers    Sporting Kansas City    6 - 0
+172    12    10/05/2026 02:30    PayPal Park    San Jose Earthquakes    Vancouver Whitecaps FC    1 - 1
+173    12    10/05/2026 02:30    Lumen Field    Seattle Sounders FC    San Diego FC    1 - 1
+175    12    10/05/2026 20:30    Yankee Stadium    New York City Football Club    Columbus Crew    3 - 0
+174    12    10/05/2026 23:00    Allianz Field    Minnesota United FC    Austin FC    2 - 2
+176    12    11/05/2026 01:00    BMO Stadium    Los Angeles Football Club    Houston Dynamo FC    1 - 4
+177    13    13/05/2026 23:15    Bank of America Stadium    Charlotte FC    New York City Football Club    0 - 1
+178    13    13/05/2026 23:30    TQL Stadium    FC Cincinnati    Inter Miami CF    3 - 5
+179    13    13/05/2026 23:30    Audi Field    D.C. United    Chicago Fire FC    1 - 3
+180    13    13/05/2026 23:30    Stade Saputo    CF Montréal    Portland Timbers    2 - 2
+181    13    13/05/2026 23:30    Gillette Stadium    New England Revolution    Nashville SC    0 - 3
+182    13    13/05/2026 23:30    Sports Illustrated Stadium    Red Bull New York    Columbus Crew    3 - 2
+183    13    13/05/2026 23:30    Inter&Co Stadium    Orlando City    Philadelphia Union    4 - 3
+184    13    14/05/2026 00:30    Toyota Stadium    FC Dallas    Vancouver Whitecaps FC    2 - 3
+185    13    14/05/2026 00:30    Sporting Park    Sporting Kansas City    LA Galaxy    3 - 1
+186    13    14/05/2026 00:30    Allianz Field    Minnesota United FC    Colorado Rapids    0 - 1
+190    13    14/05/2026 00:30    Energizer Park    St. Louis CITY SC    Los Angeles Football Club    2 - 1
+187    13    14/05/2026 01:30    America First Field    Real Salt Lake    Houston Dynamo FC    3 - 0
+188    13    14/05/2026 01:30    Snapdragon Stadium    San Diego FC    Austin FC    5 - 0
+189    13    14/05/2026 01:30    Lumen Field    Seattle Sounders FC    San Jose Earthquakes    3 - 2
+193    14    16/05/2026 20:30    Stade Saputo    CF Montréal    Chicago Fire FC    0 - 2
+191    14    16/05/2026 23:30    Bank of America Stadium    Charlotte FC    Toronto FC    3 - 1
+192    14    16/05/2026 23:30    Audi Field    D.C. United    St. Louis CITY SC    1 - 1
+194    14    16/05/2026 23:30    Gillette Stadium    New England Revolution    Minnesota United FC    2 - 1
+195    14    16/05/2026 23:30    Sports Illustrated Stadium    Red Bull New York    New York City Football Club    1 - 1
+196    14    16/05/2026 23:30    Inter&Co Stadium    Orlando City    Atlanta United    1 - 1
+197    14    16/05/2026 23:30    Subaru Park    Philadelphia Union    Columbus Crew    1 - 1
+198    14    17/05/2026 00:30    Q2 Stadium    Austin FC    Sporting Kansas City    1 - 2
+199    14    17/05/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Vancouver Whitecaps FC    1 - 0
+204    14    17/05/2026 01:15    Lumen Field    Seattle Sounders FC    LA Galaxy    0 - 2
+201    14    17/05/2026 01:30    America First Field    Real Salt Lake    Colorado Rapids    2 - 1
+202    14    17/05/2026 01:30    Snapdragon Stadium    San Diego FC    FC Cincinnati    3 - 3
+203    14    17/05/2026 02:30    PayPal Park    San Jose Earthquakes    FC Dallas    2 - 3
+200    14    17/05/2026 22:00    Nu Stadium    Inter Miami CF    Portland Timbers    2 - 0
+205    14    18/05/2026 00:00    GEODIS Park    Nashville SC    Los Angeles Football Club    3 - 2
+209    15    23/05/2026 18:45    Energizer Park    St. Louis CITY SC    Austin FC    3 - 0
+214    15    23/05/2026 20:30    Allianz Field    Minnesota United FC    Real Salt Lake    1 - 1
+206    15    23/05/2026 23:30    Bank of America Stadium    Charlotte FC    New England Revolution    1 - 0
+207    15    23/05/2026 23:30    TQL Stadium    FC Cincinnati    Orlando City    6 - 2
+208    15    23/05/2026 23:30    Audi Field    D.C. United    CF Montréal    4 - 4
+210    15    24/05/2026 00:30    Soldier Field    Chicago Fire FC    Toronto FC    2 - 1
+212    15    24/05/2026 00:30    Sporting Park    Sporting Kansas City    Red Bull New York    1 - 2
+215    15    24/05/2026 00:30    GEODIS Park    Nashville SC    New York City Football Club    2 - 1
+211    15    24/05/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    FC Dallas    1 - 2
+216    15    24/05/2026 01:30    Providence Park    Portland Timbers    San Jose Earthquakes    1 - 3
+217    15    24/05/2026 01:30    Snapdragon Stadium    San Diego FC    Vancouver Whitecaps FC    2 - 4
+213    15    24/05/2026 02:30    Dignity Health Sports Park    LA Galaxy    Houston Dynamo FC    1 - 1
+218    15    24/05/2026 21:00    ScottsMiracle-Gro Field    Columbus Crew    Atlanta United    2 - 0
+219    15    24/05/2026 23:00    Nu Stadium    Inter Miami CF    Philadelphia Union    6 - 4
+220    15    25/05/2026 01:15    BMO Stadium    Los Angeles Football Club    Seattle Sounders FC    1 - 0
+221    16    16/07/2026 23:30    Stade Saputo    CF Montréal    Toronto FC    0 - 0
+224    16    17/07/2026 00:30    Energizer Park    St. Louis CITY SC    Sporting Kansas City    3 - 2
+223    16    17/07/2026 02:30    Lumen Field    Seattle Sounders FC    Portland Timbers    1 - 5
+226    16    18/07/2026 00:10    GEODIS Park    Nashville SC    Atlanta United    1 - 0
+225    16    18/07/2026 02:25    Dignity Health Sports Park    LA Galaxy    Los Angeles Football Club    0 - 3
+227    17    22/07/2026 23:30    TQL Stadium    FC Cincinnati    Vancouver Whitecaps FC    4 - 3
+228    17    22/07/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    New York City Football Club    1 - 2
+229    17    22/07/2026 23:30    Nu Stadium    Inter Miami CF    Chicago Fire FC    3 - 2
+230    17    22/07/2026 23:30    Gillette Stadium    New England Revolution    Toronto FC    0 - 0
+231    17    22/07/2026 23:30    Subaru Park    Philadelphia Union    Red Bull New York    3 - 1
+233    17    23/07/2026 00:15    Bank of America Stadium    Charlotte FC    Atlanta United    2 - 2
+235    17    23/07/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    D.C. United    1 - 1
+236    17    23/07/2026 00:30    Sporting Park    Sporting Kansas City    Minnesota United FC    2 - 1
+239    17    23/07/2026 00:30    GEODIS Park    Nashville SC    CF Montréal    1 - 0
+232    17    23/07/2026 01:30    Q2 Stadium    Austin FC    Seattle Sounders FC    3 - 1
+234    17    23/07/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    San Diego FC    1 - 0
+237    17    23/07/2026 02:30    Dignity Health Sports Park    LA Galaxy    St. Louis CITY SC    3 - 1
+238    17    23/07/2026 02:30    BMO Stadium    Los Angeles Football Club    Real Salt Lake    1 - 3
+240    17    23/07/2026 02:30    Providence Park    Portland Timbers    FC Dallas    2 - 2
+241    17    23/07/2026 02:30    PayPal Park    San Jose Earthquakes    Orlando City    0 - 4
+247    18    25/07/2026 22:30    Sports Illustrated Stadium    Red Bull New York    Charlotte FC    0 - 2
+242    18    25/07/2026 23:15    ScottsMiracle-Gro Field    Columbus Crew    FC Cincinnati    2 - 1
+243    18    25/07/2026 23:30    Audi Field    D.C. United    Toronto FC    2 - 1
+244    18    25/07/2026 23:30    Stade Saputo    CF Montréal    Inter Miami CF    0 - 1
+245    18    25/07/2026 23:30    Gillette Stadium    New England Revolution    Atlanta United    4 - 1
+246    18    25/07/2026 23:30    Yankee Stadium    New York City Football Club    Chicago Fire FC    3 - 1
+248    18    25/07/2026 23:30    Inter.co Stadium    Orlando City    Nashville SC    1 - 0
+249    18    25/07/2026 23:30    Subaru Park    Philadelphia Union    Seattle Sounders FC    1 - 0
+250    18    26/07/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Austin FC    3 - 0
+252    18    26/07/2026 00:30    Allianz Field    Minnesota United FC    Vancouver Whitecaps FC    0 - 0
+256    18    26/07/2026 00:30    Energizer Park    St. Louis CITY SC    Colorado Rapids    1 - 0
+254    18    26/07/2026 01:30    Snapdragon Stadium    San Diego FC    FC Dallas    1 - 0
+251    18    26/07/2026 02:30    BMO Stadium    Los Angeles Football Club    Sporting Kansas City    4 - 0
+253    18    26/07/2026 02:30    Providence Park    Portland Timbers    Real Salt Lake    2 - 1
+255    18    26/07/2026 02:30    Stanford Stadium    San Jose Earthquakes    LA Galaxy    1 - 1
+257    19    31/07/2026 23:30    Yankee Stadium    New York City Football Club    Toronto FC    1 - 1
+258    19    01/08/2026 23:30    TQL Stadium    FC Cincinnati    San Jose Earthquakes    4 - 2
+259    19    01/08/2026 23:30    Audi Field    D.C. United    Nashville SC    2 - 2
+260    19    01/08/2026 23:30    Nu Stadium    Inter Miami CF    Columbus Crew    2 - 2
+261    19    01/08/2026 23:30    Stade Saputo    CF Montréal    New England Revolution    2 - 2
+262    19    01/08/2026 23:30    Sports Illustrated Stadium    Red Bull New York    Orlando City    3 - 2
+263    19    01/08/2026 23:30    Subaru Park    Philadelphia Union    Atlanta United    3 - 2
+264    19    01/08/2026 23:30    BC Place    Vancouver Whitecaps FC    Los Angeles Football Club    1 - 1
+265    19    02/08/2026 00:30    Soldier Field    Chicago Fire FC    Charlotte FC    2 - 1
+267    19    02/08/2026 00:30    Sporting Park    Sporting Kansas City    Houston Dynamo FC    0 - 2
+269    19    02/08/2026 00:30    Allianz Field    Minnesota United FC    San Diego FC    1 - 1
+271    19    02/08/2026 00:30    Energizer Park    St. Louis CITY SC    Real Salt Lake    1 - 1
+266    19    02/08/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Austin FC    1 - 0
+268    19    02/08/2026 02:30    Dignity Health Sports Park    LA Galaxy    FC Dallas    0 - 0
+270    19    02/08/2026 02:45    Providence Park    Portland Timbers    Seattle Sounders FC    2 - 1
+32    19    08/08/2026 20:30    Gillette Stadium    New England Revolution    Houston Dynamo FC    0 - 2
+272    20    15/08/2026 23:30    Mercedes-Benz Stadium    Atlanta United    Red Bull New York    2 - 1
+273    20    15/08/2026 23:30    Bank of America Stadium    Charlotte FC    Columbus Crew    3 - 1
+274    20    15/08/2026 23:30    Stade Saputo    CF Montréal    D.C. United    1 - 1
+275    20    15/08/2026 23:30    Inter.co Stadium    Orlando City    FC Cincinnati    1 - 1
+276    20    15/08/2026 23:30    BMO Field    Toronto FC    New England Revolution    2 - 1
+279    20    16/08/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    LA Galaxy    1 - 0
+281    20    16/08/2026 00:30    GEODIS Park    Nashville SC    Inter Miami CF    4 - 1
+278    20    16/08/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Sporting Kansas City    2 - 0
+282    20    16/08/2026 01:30    America First Field    Real Salt Lake    Minnesota United FC    1 - 1
+280    20    16/08/2026 02:30    BMO Stadium    Los Angeles Football Club    San Diego FC    0 - 1
+283    20    16/08/2026 02:30    PayPal Park    San Jose Earthquakes    St. Louis CITY SC    1 - 3
+284    20    16/08/2026 22:00    Soldier Field    Chicago Fire FC    Portland Timbers    2 - 1
+285    20    16/08/2026 22:00    Yankee Stadium    New York City Football Club    Philadelphia Union    2 - 3
+277    20    17/08/2026 00:30    Q2 Stadium    Austin FC    FC Dallas    1 - 2
+286    20    17/08/2026 02:30    Lumen Field    Seattle Sounders FC    Vancouver Whitecaps FC    0 - 2
+287    21    19/08/2026 23:30    TQL Stadium    FC Cincinnati    New York City Football Club    2 - 1
+288    21    19/08/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    CF Montréal    1 - 2
+289    21    19/08/2026 23:30    Audi Field    D.C. United    New England Revolution    0 - 3
+290    21    19/08/2026 23:30    Sports Illustrated Stadium    Red Bull New York    Nashville SC    0 - 1
+291    21    19/08/2026 23:30    Inter.co Stadium    Orlando City    Chicago Fire FC    1 - 0
+292    21    19/08/2026 23:30    Subaru Park    Philadelphia Union    Inter Miami CF    2 - 2
+293    21    19/08/2026 23:30    BMO Field    Toronto FC    Charlotte FC    3 - 3
+295    21    20/08/2026 00:00    Sporting Park    Sporting Kansas City    St. Louis CITY SC    1 - 1
+297    21    20/08/2026 00:30    Allianz Field    Minnesota United FC    Atlanta United    1 - 2
+294    21    20/08/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Los Angeles Football Club    1 - 0
+299    21    20/08/2026 01:30    America First Field    Real Salt Lake    FC Dallas    3 - 4
+300    21    20/08/2026 01:30    Lumen Field    Seattle Sounders FC    Austin FC    1 - 2
+296    21    20/08/2026 02:30    Dignity Health Sports Park    LA Galaxy    San Jose Earthquakes    1 - 0
+298    21    20/08/2026 02:30    Providence Park    Portland Timbers    San Diego FC    3 - 1
+301    21    20/08/2026 02:30    BC Place    Vancouver Whitecaps FC    Houston Dynamo FC    0 - 1
+302    22    22/08/2026 23:30    Bank of America Stadium    Charlotte FC    D.C. United    3 - 1
+303    22    22/08/2026 23:30    TQL Stadium    FC Cincinnati    Seattle Sounders FC    1 - 1
+304    22    22/08/2026 23:30    Nu Stadium    Inter Miami CF    Toronto FC    1 - 2
+305    22    22/08/2026 23:30    Stade Saputo    CF Montréal    LA Galaxy    2 - 2
+306    22    22/08/2026 23:30    Sports Illustrated Stadium    Red Bull New York    Chicago Fire FC    1 - 1
+307    22    22/08/2026 23:30    Inter.co Stadium    Orlando City    Real Salt Lake    2 - 1
+310    22    23/08/2026 00:30    GEODIS Park    Nashville SC    Columbus Crew    3 - 2
+313    22    23/08/2026 00:30    Energizer Park    St. Louis CITY SC    Houston Dynamo FC    2 - 1
+308    22    23/08/2026 01:00    Q2 Stadium    Austin FC    Philadelphia Union    1 - 1
+314    22    23/08/2026 01:30    BC Place    Vancouver Whitecaps FC    FC Dallas    5 - 0
+309    22    23/08/2026 02:30    BMO Stadium    Los Angeles Football Club    Portland Timbers    1 - 1
+311    22    23/08/2026 02:30    Snapdragon Stadium    San Diego FC    Colorado Rapids    3 - 0
+312    22    23/08/2026 02:30    PayPal Park    San Jose Earthquakes    Minnesota United FC    1 - 5
+316    22    23/08/2026 20:30    Gillette Stadium    New England Revolution    New York City Football Club    1 - 1
+315    22    23/08/2026 23:00    Mercedes-Benz Stadium    Atlanta United    Sporting Kansas City    2 - 1
+322    23    29/08/2026 20:30    Lumen Field    Seattle Sounders FC    Chicago Fire FC    2 - 2
+317    23    29/08/2026 23:30    Mercedes-Benz Stadium    Atlanta United    Charlotte FC    0 - 2
+319    23    29/08/2026 23:30    Audi Field    D.C. United    Los Angeles Football Club    0 - 0
+320    23    29/08/2026 23:30    Nu Stadium    Inter Miami CF    CF Montréal    7 - 1
+321    23    29/08/2026 23:30    Sports Illustrated Stadium    Red Bull New York    Philadelphia Union    1 - 3
+323    23    29/08/2026 23:30    BMO Field    Toronto FC    New York City Football Club    1 - 1
+325    23    30/08/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    San Jose Earthquakes    0 - 0
+326    23    30/08/2026 00:30    Sporting Park    Sporting Kansas City    Vancouver Whitecaps FC    0 - 3
+327    23    30/08/2026 00:30    Allianz Field    Minnesota United FC    Orlando City    3 - 3
+328    23    30/08/2026 00:30    GEODIS Park    Nashville SC    FC Cincinnati    4 - 0
+324    23    30/08/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Real Salt Lake    1 - 0
+329    23    30/08/2026 02:30    Providence Park    Portland Timbers    Austin FC    1 - 2
+330    23    30/08/2026 02:30    Snapdragon Stadium    San Diego FC    LA Galaxy    3 - 1
+318    23    30/08/2026 20:30    ScottsMiracle-Gro Field    Columbus Crew    New England Revolution    1 - 3
+331    23    30/08/2026 23:00    Energizer Park    St. Louis CITY SC    FC Dallas    3 - 3
+332    24    04/09/2026 23:30    Yankee Stadium    New York City Football Club    Nashville SC    0 - 0
+333    24    05/09/2026 23:30    Bank of America Stadium    Charlotte FC    Houston Dynamo FC    0 - 0
+335    24    05/09/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    Colorado Rapids    3 - 0
+337    24    05/09/2026 23:30    Inter.co Stadium    Orlando City    San Diego FC    1 - 0
+338    24    05/09/2026 23:30    Subaru Park    Philadelphia Union    CF Montréal    2 - 0
+339    24    05/09/2026 23:30    BMO Field    Toronto FC    Chicago Fire FC    4 - 4
+340    24    06/09/2026 00:30    Q2 Stadium    Austin FC    San Jose Earthquakes    1 - 1
+341    24    06/09/2026 00:30    Toyota Stadium    FC Dallas    Sporting Kansas City    4 - 3
+345    24    06/09/2026 00:30    Lumen Field    Seattle Sounders FC    Red Bull New York    0 - 0
+336    24    06/09/2026 01:05    Nu Stadium    Inter Miami CF    Atlanta United    2 - 2
+342    24    06/09/2026 01:30    Dignity Health Sports Park    LA Galaxy    New England Revolution    2 - 1
+344    24    06/09/2026 01:30    America First Field    Real Salt Lake    Los Angeles Football Club    2 - 2
+343    24    06/09/2026 02:30    Providence Park    Portland Timbers    Minnesota United FC    5 - 4
+346    24    06/09/2026 02:30    BC Place    Vancouver Whitecaps FC    St. Louis CITY SC    1 - 3
+347    25    09/09/2026 23:30    Mercedes-Benz Stadium    Atlanta United    Orlando City    2 - 3
+348    25    09/09/2026 23:30    Audi Field    D.C. United    Columbus Crew    2 - 1
+349    25    09/09/2026 23:30    Stade Saputo    CF Montréal    Charlotte FC    1 - 2
+352    25    09/09/2026 23:30    BMO Field    Toronto FC    Nashville SC    2 - 1
+351    25    09/09/2026 23:45    Subaru Park    Philadelphia Union    FC Cincinnati    5 - 0
+350    25    10/09/2026 00:00    Citi Field    New York City Football Club    New England Revolution    1 - 2
+353    25    10/09/2026 00:30    Q2 Stadium    Austin FC    Colorado Rapids    1 - 1
+354    25    10/09/2026 00:30    Soldier Field    Chicago Fire FC    Inter Miami CF    1 - 1
+355    25    10/09/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Real Salt Lake    2 - 1
+357    25    10/09/2026 00:30    Allianz Field    Minnesota United FC    FC Dallas    1 - 2
+356    25    10/09/2026 02:30    BMO Stadium    Los Angeles Football Club    Red Bull New York    2 - 0
+358    25    10/09/2026 02:30    Providence Park    Portland Timbers    St. Louis CITY SC    2 - 2
+359    25    10/09/2026 02:30    Snapdragon Stadium    San Diego FC    San Jose Earthquakes    2 - 3
+361    25    10/09/2026 02:30    BC Place    Vancouver Whitecaps FC    LA Galaxy    3 - 0
+362    26    12/09/2026 23:30    TQL Stadium    FC Cincinnati    Charlotte FC    3 - 3
+363    26    12/09/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    Red Bull New York    0 - 1
+364    26    12/09/2026 23:30    Audi Field    D.C. United    Atlanta United    0 - 0
+365    26    12/09/2026 23:30    Nu Stadium    Inter Miami CF    Nashville SC    2 - 2
+366    26    12/09/2026 23:30    Inter.co Stadium    Orlando City    Toronto FC    3 - 0
+368    26    13/09/2026 00:30    Toyota Stadium    FC Dallas    Portland Timbers    2 - 1
+369    26    13/09/2026 00:30    Sporting Park    Sporting Kansas City    Los Angeles Football Club    3 - 1
+373    26    13/09/2026 00:30    Energizer Park    St. Louis CITY SC    Minnesota United FC    4 - 2
+367    26    13/09/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    CF Montréal    1 - 0
+371    26    13/09/2026 01:30    America First Field    Real Salt Lake    New York City Football Club    0 - 2
+370    26    13/09/2026 02:30    Dignity Health Sports Park    LA Galaxy    Seattle Sounders FC    1 - 1
+372    26    13/09/2026 02:30    PayPal Park    San Jose Earthquakes    Houston Dynamo FC    1 - 0
+374    26    13/09/2026 21:30    Soldier Field    Chicago Fire FC    New England Revolution    1 - 2
+375    26    13/09/2026 22:30    BC Place    Vancouver Whitecaps FC    Austin FC    1 - 2
+376    26    14/09/2026 01:00    Snapdragon Stadium    San Diego FC    Philadelphia Union    0 - 5
+377    27    18/09/2026 23:30    Yankee Stadium    New York City Football Club    Red Bull New York    0 - 1
+378    27    19/09/2026 23:30    Audi Field    D.C. United    Charlotte FC    1 - 2
+379    27    19/09/2026 23:30    Stade Saputo    CF Montréal    Columbus Crew    0 - 2
+380    27    19/09/2026 23:30    Gillette Stadium    New England Revolution    Orlando City    4 - 2
+381    27    19/09/2026 23:30    Levi's Stadium    San Jose Earthquakes    Los Angeles Football Club    2 - 2
+383    27    20/09/2026 00:30    Toyota Stadium    FC Dallas    Austin FC    0 - 0
+384    27    20/09/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    FC Cincinnati    2 - 2
+385    27    20/09/2026 00:30    Sporting Park    Sporting Kansas City    Philadelphia Union    3 - 4
+386    27    20/09/2026 00:30    Allianz Field    Minnesota United FC    LA Galaxy    2 - 3
+390    27    20/09/2026 00:30    Energizer Park    St. Louis CITY SC    Toronto FC    3 - 1
+382    27    20/09/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Seattle Sounders FC    3 - 3
+387    27    20/09/2026 01:30    GEODIS Park    Nashville SC    Chicago Fire FC    3 - 0
+389    27    20/09/2026 01:30    America First Field    Real Salt Lake    Vancouver Whitecaps FC    0 - 3
+388    27    20/09/2026 02:30    Providence Park    Portland Timbers    Atlanta United    0 - 1
+391    27    20/09/2026 23:00    Nu Stadium    Inter Miami CF    San Diego FC    2 - 2
+105    27    24/09/2026 01:30    Lumen Field    Seattle Sounders FC    Real Salt Lake    2 - 0
+392    28    26/09/2026 23:30    Mercedes-Benz Stadium    Atlanta United    New York City Football Club    2 - 2
+393    28    26/09/2026 23:30    Bank of America Stadium    Charlotte FC    Chicago Fire FC    0 - 1
+394    28    26/09/2026 23:30    Stade Saputo    CF Montréal    FC Cincinnati    3 - 1
+396    28    26/09/2026 23:30    Subaru Park    Philadelphia Union    Orlando City    4 - 2
+397    28    27/09/2026 00:30    Q2 Stadium    Austin FC    San Diego FC    3 - 3
+399    28    27/09/2026 00:30    Toyota Stadium    FC Dallas    Los Angeles Football Club    1 - 0
+400    28    27/09/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Sporting Kansas City    0 - 2
+402    28    27/09/2026 00:30    GEODIS Park    Nashville SC    Toronto FC    2 - 0
+405    28    27/09/2026 00:30    Lumen Field    Seattle Sounders FC    Minnesota United FC    3 - 1
+403    28    27/09/2026 01:30    America First Field    Real Salt Lake    New England Revolution    3 - 0
+401    28    27/09/2026 02:30    Dignity Health Sports Park    LA Galaxy    Colorado Rapids    3 - 2
+404    28    27/09/2026 02:30    PayPal Park    San Jose Earthquakes    Portland Timbers    3 - 1
+406    28    27/09/2026 02:30    BC Place    Vancouver Whitecaps FC    D.C. United    3 - 3
+398    28    27/09/2026 23:00    ScottsMiracle-Gro Field    Columbus Crew    Inter Miami CF    2 - 1
+395    28    30/09/2026 23:30    Sports Illustrated Stadium    Red Bull New York    St. Louis CITY SC    0 - 3
+360    28    02/10/2026 01:30    Lumen Field    Seattle Sounders FC    Sporting Kansas City    2 - 1
+222    28    07/10/2026 00:30    Soldier Field    Chicago Fire FC    Vancouver Whitecaps FC    
+415    29    10/10/2026 17:00    BMO Field    Toronto FC    CF Montréal    
+409    29    10/10/2026 18:30    Soldier Field    Chicago Fire FC    New York City Football Club    
+407    29    10/10/2026 23:30    Mercedes-Benz Stadium    Atlanta United    FC Cincinnati    
+408    29    10/10/2026 23:30    Bank of America Stadium    Charlotte FC    FC Dallas    
+410    29    10/10/2026 23:30    Nu Stadium    Inter Miami CF    D.C. United    
+411    29    10/10/2026 23:30    Gillette Stadium    New England Revolution    Seattle Sounders FC    
+412    29    10/10/2026 23:30    Sports Illustrated Stadium    Red Bull New York    San Diego FC    
+413    29    10/10/2026 23:30    Inter.co Stadium    Orlando City    Columbus Crew    
+414    29    10/10/2026 23:30    Subaru Park    Philadelphia Union    Real Salt Lake    
+416    29    11/10/2026 00:30    Q2 Stadium    Austin FC    Nashville SC    
+418    29    11/10/2026 00:30    Sporting Park    Sporting Kansas City    Portland Timbers    
+420    29    11/10/2026 00:30    Allianz Field    Minnesota United FC    Houston Dynamo FC    
+417    29    11/10/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    San Jose Earthquakes    
+419    29    11/10/2026 02:30    BMO Stadium    Los Angeles Football Club    Vancouver Whitecaps FC    
+421    29    11/10/2026 23:00    Energizer Park    St. Louis CITY SC    LA Galaxy    
+422    30    14/10/2026 23:30    TQL Stadium    FC Cincinnati    New England Revolution    
+423    30    14/10/2026 23:30    ScottsMiracle-Gro Field    Columbus Crew    Charlotte FC    
+424    30    14/10/2026 23:30    Audi Field    D.C. United    Red Bull New York    
+425    30    14/10/2026 23:30    Nu Stadium    Inter Miami CF    New York City Football Club    
+426    30    14/10/2026 23:30    Stade Saputo    CF Montréal    Atlanta United    
+427    30    14/10/2026 23:30    BMO Field    Toronto FC    Orlando City    
+428    30    15/10/2026 00:30    Soldier Field    Chicago Fire FC    Philadelphia Union    
+430    30    15/10/2026 00:30    Toyota Stadium    FC Dallas    Seattle Sounders FC    
+433    30    15/10/2026 00:30    GEODIS Park    Nashville SC    Sporting Kansas City    
+436    30    15/10/2026 00:30    Energizer Park    St. Louis CITY SC    Vancouver Whitecaps FC    
+429    30    15/10/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Minnesota United FC    
+434    30    15/10/2026 01:30    America First Field    Real Salt Lake    San Jose Earthquakes    
+431    30    15/10/2026 02:30    Dignity Health Sports Park    LA Galaxy    Portland Timbers    
+432    30    15/10/2026 02:30    BMO Stadium    Los Angeles Football Club    Austin FC    
+435    30    15/10/2026 02:30    Snapdragon Stadium    San Diego FC    Houston Dynamo FC    
+443    31    17/10/2026 18:30    Subaru Park    Philadelphia Union    Charlotte FC    
+438    31    17/10/2026 20:30    Allianz Field    Minnesota United FC    St. Louis CITY SC    
+437    31    17/10/2026 23:30    Mercedes-Benz Stadium    Atlanta United    Inter Miami CF    
+439    31    17/10/2026 23:30    Gillette Stadium    New England Revolution    Chicago Fire FC    
+440    31    17/10/2026 23:30    Citi Field    New York City Football Club    Los Angeles Football Club    
+441    31    17/10/2026 23:30    Sports Illustrated Stadium    Red Bull New York    Toronto FC    
+442    31    17/10/2026 23:30    Inter.co Stadium    Orlando City    D.C. United    
+444    31    18/10/2026 00:30    Q2 Stadium    Austin FC    Vancouver Whitecaps FC    
+445    31    18/10/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    FC Dallas    
+446    31    18/10/2026 00:30    Sporting Park    Sporting Kansas City    Real Salt Lake    
+447    31    18/10/2026 02:30    Dignity Health Sports Park    LA Galaxy    San Diego FC    
+448    31    18/10/2026 02:30    Providence Park    Portland Timbers    Colorado Rapids    
+449    31    18/10/2026 02:30    PayPal Park    San Jose Earthquakes    Nashville SC    
+450    31    18/10/2026 02:30    Lumen Field    Seattle Sounders FC    CF Montréal    
+451    31    18/10/2026 21:00    TQL Stadium    FC Cincinnati    Columbus Crew    
+334    31    21/10/2026 23:00    TQL Stadium    FC Cincinnati    D.C. United    
+455    32    24/10/2026 17:30    Stade Saputo    CF Montréal    Nashville SC    
+453    32    24/10/2026 19:30    ScottsMiracle-Gro Field    Columbus Crew    Toronto FC    
+456    32    24/10/2026 21:30    Sports Illustrated Stadium    Red Bull New York    Inter Miami CF    
+452    32    24/10/2026 23:30    Mercedes-Benz Stadium    Atlanta United    Chicago Fire FC    
+454    32    24/10/2026 23:30    Audi Field    D.C. United    FC Cincinnati    
+457    32    24/10/2026 23:30    Inter.co Stadium    Orlando City    New York City Football Club    
+458    32    24/10/2026 23:30    Subaru Park    Philadelphia Union    New England Revolution    
+460    32    25/10/2026 00:30    Toyota Stadium    FC Dallas    San Jose Earthquakes    
+461    32    25/10/2026 00:30    Shell Energy Stadium    Houston Dynamo FC    Minnesota United FC    
+462    32    25/10/2026 00:30    Sporting Park    Sporting Kansas City    Austin FC    
+459    32    25/10/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Vancouver Whitecaps FC    
+464    32    25/10/2026 01:30    America First Field    Real Salt Lake    St. Louis CITY SC    
+463    32    25/10/2026 02:30    Providence Park    Portland Timbers    Charlotte FC    
+465    32    25/10/2026 02:30    Snapdragon Stadium    San Diego FC    Seattle Sounders FC    
+466    32    26/10/2026 01:00    BMO Stadium    Los Angeles Football Club    LA Galaxy    
+467    33    28/10/2026 23:30    Bank of America Stadium    Charlotte FC    CF Montréal    
+468    33    28/10/2026 23:30    Nu Stadium    Inter Miami CF    FC Cincinnati    
+469    33    28/10/2026 23:30    Gillette Stadium    New England Revolution    Red Bull New York    
+470    33    28/10/2026 23:30    Citi Field    New York City Football Club    Atlanta United    
+471    33    28/10/2026 23:30    BMO Field    Toronto FC    D.C. United    
+472    33    29/10/2026 00:30    Q2 Stadium    Austin FC    Real Salt Lake    
+473    33    29/10/2026 00:30    Soldier Field    Chicago Fire FC    Orlando City    
+474    33    29/10/2026 00:30    Toyota Stadium    FC Dallas    Columbus Crew    
+475    33    29/10/2026 00:30    Allianz Field    Minnesota United FC    Sporting Kansas City    
+476    33    29/10/2026 00:30    GEODIS Park    Nashville SC    Philadelphia Union    
+479    33    29/10/2026 00:30    Energizer Park    St. Louis CITY SC    Portland Timbers    
+477    33    29/10/2026 02:30    PayPal Park    San Jose Earthquakes    Colorado Rapids    
+478    33    29/10/2026 02:30    Lumen Field    Seattle Sounders FC    Houston Dynamo FC    
+480    33    29/10/2026 02:30    BC Place    Vancouver Whitecaps FC    San Diego FC    
+481    34    31/10/2026 17:00    Bank of America Stadium    Charlotte FC    Orlando City    
+482    34    31/10/2026 18:00    TQL Stadium    FC Cincinnati    Philadelphia Union    
+483    34    31/10/2026 18:00    ScottsMiracle-Gro Field    Columbus Crew    D.C. United    
+487    34    31/10/2026 18:00    Citi Field    New York City Football Club    CF Montréal    
+484    34    31/10/2026 19:00    Sporting Park    Sporting Kansas City    FC Dallas    
+490    34    31/10/2026 19:00    Energizer Park    St. Louis CITY SC    San Diego FC    
+485    34    31/10/2026 21:00    Dignity Health Sports Park    LA Galaxy    Austin FC    
+489    34    31/10/2026 21:00    PayPal Park    San Jose Earthquakes    Real Salt Lake    
+488    34    01/11/2026 01:30    DICK'S Sporting Goods Park    Colorado Rapids    Chicago Fire FC    
+486    34    01/11/2026 21:30    GEODIS Park    Nashville SC    Red Bull New York    
+491    34    01/11/2026 21:30    BC Place    Vancouver Whitecaps FC    Seattle Sounders FC    
+492    34    01/11/2026 21:30    Mercedes-Benz Stadium    Atlanta United    Toronto FC    
+494    34    02/11/2026 00:00    Gillette Stadium    New England Revolution    Inter Miami CF    
+493    34    02/11/2026 01:30    BMO Stadium    Los Angeles Football Club    Minnesota United FC    
+495    34    02/11/2026 02:30    Providence Park    Portland Timbers    Houston Dynamo FC    
+496    35    07/11/2026 21:00    SeatGeek Stadium    Chicago Fire FC    Columbus Crew    
+497    35    07/11/2026 21:00    TQL Stadium    FC Cincinnati    Nashville SC    
+498    35    07/11/2026 21:00    Audi Field    D.C. United    New York City Football Club    
+499    35    07/11/2026 21:00    Nu Stadium    Inter Miami CF    Charlotte FC    
+500    35    07/11/2026 21:00    Stade Saputo    CF Montréal    Vancouver Whitecaps FC    
+501    35    07/11/2026 21:00    Sports Illustrated Stadium    Red Bull New York    Atlanta United    
+502    35    07/11/2026 21:00    Inter.co Stadium    Orlando City    New England Revolution    
+503    35    07/11/2026 21:00    Subaru Park    Philadelphia Union    Toronto FC    
+504    35    08/11/2026 00:00    Q2 Stadium    Austin FC    Portland Timbers    
+505    35    08/11/2026 00:00    Toyota Stadium    FC Dallas    Colorado Rapids    
+506    35    08/11/2026 00:00    Shell Energy Stadium    Houston Dynamo FC    St. Louis CITY SC    
+507    35    08/11/2026 00:00    Allianz Field    Minnesota United FC    San Jose Earthquakes    
+508    35    08/11/2026 00:00    America First Field    Real Salt Lake    LA Galaxy    
+509    35    08/11/2026 00:00    Snapdragon Stadium    San Diego FC    Sporting Kansas City    
+510    35    08/11/2026 00:00    Lumen Field    Seattle Sounders FC    Los Angeles Football Club    
