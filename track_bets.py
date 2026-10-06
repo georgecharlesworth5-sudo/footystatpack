@@ -91,12 +91,14 @@ from nfl_build_statpack import TEAM_NAMES as NFL_TEAM_NAMES
 NFL_CODE_BY_NAME = {name: code for code, name in NFL_TEAM_NAMES.items()}
 NFL_TEAM_METRICS = ("points", "passing_tds", "rushing_tds", "passing_yards", "rushing_yards")
 
+from poisson_model import MODEL_VERSION
+
 LOG_COLUMNS = [
     "pick_id", "logged_date", "match_date", "league_code", "league_name",
     "home_team", "away_team", "sport", "metric", "scope", "team",
     "direction", "line", "confidence", "label",
     "status", "actual_value", "result", "settled_date",
-    "shown",
+    "shown", "model",
 ]
 
 # Football result matching window, in days relative to the pick's frozen
@@ -214,6 +216,9 @@ def log_new_picks(log: dict[str, dict], all_picks: list[dict], today: date, show
             "result": "",
             "settled_date": "",
             "shown": "1" if shown else "0",
+            # Football picks come from the versioned Poisson/NB model; blank
+            # = logged before versioning (v1). NFL has its own model.
+            "model": MODEL_VERSION if sport == "football" else "",
         }
         added += 1
     return added
