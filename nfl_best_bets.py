@@ -19,6 +19,8 @@ side).
 
 from datetime import date, timedelta
 
+from calibration import split_by_calibration
+
 NEAR_TERM_WINDOW_DAYS = 0
 MIN_CONFIDENCE = 0.87  # lowered from an earlier 0.9, kept in sync with best_bets.py's
                         # same change - the two lists get merged together on the dashboard,
@@ -79,7 +81,22 @@ def _make_pick(fx: dict, metric: str, scope: str, team: str | None,
     }
 
 
-def compute_nfl_best_bets(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> list[dict]:
+def _bar_for(pick: dict) -> float:
+    return MONEYLINE_MIN_CONFIDENCE if pick["metric"] == "moneyline" else MIN_CONFIDENCE
+
+
+def compute_nfl_best_bets(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None,
+                          calibration: dict | None = None) -> list[dict]:
+    """The picks to SHOW (see compute_nfl_best_bets_split)."""
+    return compute_nfl_best_bets_split(pack, window_days, today, calibration)[0]
+
+
+def compute_nfl_best_bets_split(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None,
+                                calibration: dict | None = None) -> tuple[list[dict], list[dict]]:
+    """(shown, held_back) - same calibration split as best_bets.py: raw
+    qualification first, then each pick's confidence is shifted by how
+    its market has performed, and picks that no longer clear their bar
+    are held back (still logged and measured, just not shown)."""
     pool = _eligible_pool(pack, window_days, today)
     picks = []
 
@@ -120,5 +137,4 @@ def compute_nfl_best_bets(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
                 picks.append(_make_pick(fx, "points", "match", None, "Over",
                                          top_total["line"], top_total["over"], label))
 
-    picks.sort(key=lambda p: p["confidence"], reverse=True)
-    return picks
+    return split_by_calibration(picks, calibration, _bar_for)
