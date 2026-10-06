@@ -221,6 +221,34 @@ def _detect_delimiter(header_line: str) -> str:
     return "\t" if header_line.count("\t") > header_line.count(",") else ","
 
 
+def _is_space_delimited(header_line: str) -> bool:
+    """A file saved/edited on a phone can come back with every tab turned
+    into a run of spaces, leaving neither tabs nor commas in the header.
+    Fields are then separated by 2+ spaces (single spaces only occur
+    inside a value, e.g. "Home Team", "21/02/2026 19:30")."""
+    return "\t" not in header_line and "," not in header_line and "  " in header_line.strip()
+
+
+def _read_rows(path: Path):
+    """Yield one dict per data row, whichever way the file is delimited."""
+    with open(path, encoding="utf-8-sig") as f:
+        first_line = f.readline()
+    if _is_space_delimited(first_line):
+        import re
+        with open(path, encoding="utf-8-sig") as f:
+            lines = [ln.rstrip("\r\n") for ln in f if ln.strip()]
+        header = re.split(r"\s{2,}", lines[0].strip())
+        for ln in lines[1:]:
+            parts = re.split(r"\s{2,}", ln.strip())
+            if len(parts) == len(header) - 1 and header[-1] == "Result":
+                parts.append("")  # unplayed fixture: the empty Result cell was trimmed away
+            yield dict(zip(header, parts))
+        return
+    delimiter = _detect_delimiter(first_line)
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        yield from csv.DictReader(f, delimiter=delimiter)
+
+
 def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
     """Load one league's manually-downloaded fixturedownload.com CSV,
     returning only matches that haven't been played yet, in our
@@ -231,14 +259,9 @@ def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
 
     adjustment = LEAGUE_TIME_ADJUSTMENT.get(div_code)
 
-    with open(path, encoding="utf-8-sig") as f:
-        first_line = f.readline()
-    delimiter = _detect_delimiter(first_line)
-
     fixtures = []
-    with open(path, newline="", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f, delimiter=delimiter)
-        for row in reader:
+    if True:
+        for row in _read_rows(path):
             result = (row.get("Result") or "").strip()
             if result and result != "-":
                 continue  # already played
