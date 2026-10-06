@@ -21,7 +21,8 @@ from zoneinfo import ZoneInfo
 from nfl_stats import build_team_game_log, team_form_summary, league_averages
 from nfl_model import predict_game
 from nfl_market_odds import parse_market_row, blend_moneyline, blend_total_points
-from nfl_best_bets import compute_nfl_best_bets
+from nfl_best_bets import compute_nfl_best_bets_split
+from calibration import load_calibration
 
 # Full names for display - nflverse uses 2-3 letter codes throughout.
 TEAM_NAMES = {
@@ -491,8 +492,12 @@ def build_nfl_statpack(data_dir: Path) -> dict:
         "recent_results": recent_results,
         "standings": standings,
     }
-    pack["best_bets"] = compute_nfl_best_bets(pack)
-    print(f"[debug] {len(pack['best_bets'])} NFL best bet(s) qualified today")
+    # Calibrated against bets_log.csv - see calibration.py. Held-back
+    # picks are kept in "shadow_picks" so track_bets.py still logs them.
+    calibration = load_calibration(Path(__file__).parent / "bets_log.csv")
+    pack["best_bets"], pack["shadow_picks"] = compute_nfl_best_bets_split(pack, calibration=calibration)
+    print(f"[debug] {len(pack['best_bets'])} NFL best bet(s) shown, "
+          f"{len(pack['shadow_picks'])} held back by calibration")
     return pack
 
 
