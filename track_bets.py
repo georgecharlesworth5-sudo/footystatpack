@@ -67,6 +67,15 @@ bucketed as:
     overdue   - more than a week old and still unsettled: postponed, or
                 a team-name mismatch. These are the ones worth a look.
 
+## Held-back picks (calibration)
+
+calibration.py shifts each pick's confidence by how its market has
+actually performed; picks that no longer clear their bar are "held
+back": logged here with shown="0" and settled like any other, but kept
+out of the headline record, recent list and pending list. Their own hit
+rate is reported as block["held_back"] - the out-of-sample check on the
+filter. Per-market evidence (the break-even table) uses ALL picks.
+
 Run this after build_statpack.py and after nfl_build_statpack.py - it
 reads statpack.json's and nfl_statpack.json's "best_bets" lists as its
 source of new picks. Both workflows run it.
@@ -87,6 +96,7 @@ LOG_COLUMNS = [
     "home_team", "away_team", "sport", "metric", "scope", "team",
     "direction", "line", "confidence", "label",
     "status", "actual_value", "result", "settled_date",
+    "shown",
 ]
 
 # Football result matching window, in days relative to the pick's frozen
@@ -131,6 +141,14 @@ def _sport(pick: dict) -> str:
     return pick.get("sport") or "football"
 
 
+def _shown(pick: dict) -> bool:
+    """False for picks the calibration filter held back (logged and
+    settled so their markets keep being measured, but never shown in
+    Best Bets). Rows from before this column existed have no value -
+    they were all shown."""
+    return pick.get("shown") != "0"
+
+
 def _counts_toward_record(pick: dict) -> bool:
     """best_bets.py doesn't generate "Under"/"No" picks any more, but
     older logged rows may still carry them - they're excluded from every
@@ -157,11 +175,16 @@ def save_log(path: Path, log: dict[str, dict]) -> None:
             writer.writerow({col: row.get(col, "") for col in LOG_COLUMNS})
 
 
-def log_new_picks(log: dict[str, dict], all_picks: list[dict], today: date) -> int:
-    """Add any not-yet-seen pick from the flat picks list (the output of
-    best_bets.compute_best_bets() and/or nfl_best_bets.compute_nfl_best_bets() -
-    concatenate both before calling this if tracking more than one
-    sport). Returns how many new rows were added."""
+def log_new_picks(log: dict[str, dict], all_picks: list[dict], today: date, shown: bool = True) -> int:
+    """Add any not-yet-seen pick from a flat picks list (the output of
+    best_bets / nfl_best_bets - concatenate both sports before calling
+    if tracking more than one). shown=False logs calibration-held-back
+    picks, which are tracked and settled like any other but kept out of
+    the record. The logged "confidence" is always the model's RAW
+    probability (pick["raw_confidence"] when calibration has replaced
+    "confidence" with its adjusted value), so calibration is always
+    measured against the model's own output. Returns how many new rows
+    were added."""
     added = 0
     for pick in all_picks:
         sport = pick.get("sport") or "football"
@@ -184,12 +207,13 @@ def log_new_picks(log: dict[str, dict], all_picks: list[dict], today: date) -> i
             "team": pick.get("team") or "",
             "direction": pick["direction"],
             "line": pick["line"] if pick["line"] is not None else "",
-            "confidence": pick["confidence"],
+            "confidence": pick.get("raw_confidence", pick["confidence"]),
             "label": pick.get("label", ""),
             "status": "pending",
             "actual_value": "",
             "result": "",
             "settled_date": "",
+            "shown": "1" if shown else "0",
         }
         added += 1
     return added
@@ -632,6 +656,64 @@ def _league_breakdown(settled: list[dict]) -> list[dict]:
     return sorted(by_league.values(), key=lambda e: (-e["total"], e["league"]))
 
 
+def _wilson_lower(hits: int, total: int, z: float = 1.96) -> float:
+    """Lower bound of the 95% Wilson interval for a hit rate - the
+    pessimistic read of a small sample ("it's hit 71% so far, but with
+    this few picks the true rate could plausibly be as low as ...")."""
+    if not total:
+        return 0.0
+    p = hits / total
+    denom = 1 + z * z / total
+    centre = p + z * z / (2 * total)
+    margin = z * ((p * (1 - p) / total + z * z / (4 * total * total)) ** 0.5)
+    return (centre - margin) / denom
+
+
+def _market_breakdown(settled: list[dict]) -> list[dict]:
+    """Per-MARKET hit rates with the odds needed to break even.
+
+    A market here is one specific bet type: (sport, metric, match-vs-team,
+    direction, line) - e.g. "Match Goals Over 1.5" or "Team Corners Over
+    2.5" (home and away pooled; they share lines). Moneyline/team_win
+    collapse to "team to win".
+
+    breakeven_odds = 1 / hit rate: the decimal price at which flat
+    staking on this market so far would have broken even. Anything
+    above it would have been profitable, anything below a loss.
+    safe_odds does the same with the pessimistic (Wilson 95% lower)
+    hit rate, so a market with a handful of lucky picks doesn't look
+    cheaper than it really is. Neither knows the actual price - the
+    point is a bar to compare real odds against."""
+    markets: dict[tuple, dict] = {}
+    for p in settled:
+        is_win = p["metric"] in ("team_win", "moneyline")
+        level = "team" if (is_win or p["scope"] in ("home", "away")) else "match"
+        line = "" if is_win else p["line"]
+        direction = "" if is_win else p["direction"]
+        key = (_sport(p), p["metric"], level, direction, line)
+        entry = markets.setdefault(key, {
+            "sport": _sport(p), "metric": p["metric"], "level": level,
+            "direction": direction, "line": line, "hits": 0, "total": 0, "conf_sum": 0.0})
+        entry["total"] += 1
+        entry["conf_sum"] += float(p["confidence"] or 0)
+        if p["result"] == "hit":
+            entry["hits"] += 1
+
+    out = []
+    for m in markets.values():
+        rate = m["hits"] / m["total"]
+        lower = _wilson_lower(m["hits"], m["total"])
+        out.append({
+            "sport": m["sport"], "metric": m["metric"], "level": m["level"],
+            "direction": m["direction"], "line": m["line"],
+            "hits": m["hits"], "total": m["total"], "pct": _pct(m["hits"], m["total"]),
+            "avg_confidence": round(100 * m["conf_sum"] / m["total"]),
+            "breakeven_odds": round(1 / rate, 2) if rate else None,
+            "safe_odds": round(1 / lower, 2) if lower else None,
+        })
+    return sorted(out, key=lambda m: (-m["total"], m["metric"]))
+
+
 def _calibration(settled: list[dict]) -> list[dict]:
     """Does "93% confident" actually win ~93% of the time? For each
     confidence band: how many picks, the model's average stated
@@ -671,9 +753,15 @@ def _form(settled: list[dict], today: date) -> dict:
 
 def _block(picks: list[dict], today: date) -> dict:
     """Everything the dashboard shows for one slice (all / football / nfl)."""
-    counted = [p for p in picks if _counts_toward_record(p)]
+    counted = [p for p in picks if _counts_toward_record(p) and _shown(p)]
     settled = [p for p in counted if p["status"] == "settled"]
     hits = sum(1 for p in settled if p["result"] == "hit")
+
+    # The record above is only picks that were SHOWN. The held-back ones
+    # (calibration filter) are tracked separately - how they do is the
+    # out-of-sample test of whether the filter is removing the right picks.
+    held = [p for p in picks if _counts_toward_record(p) and not _shown(p) and p["status"] == "settled"]
+    held_hits = sum(1 for p in held if p["result"] == "hit")
 
     pending = {"upcoming": 0, "awaiting": 0, "overdue": 0}
     for p in counted:
@@ -684,6 +772,10 @@ def _block(picks: list[dict], today: date) -> dict:
         "overall": {"hits": hits, "total": len(settled), "pct": _pct(hits, len(settled))},
         "form": _form(settled, today),
         "by_category": _category_breakdown(settled),
+        # Markets use every settled pick, shown or held back - this is
+        # evidence about the market itself, not about the filter.
+        "markets": _market_breakdown([p for p in picks if _counts_toward_record(p) and p["status"] == "settled"]),
+        "held_back": {"hits": held_hits, "total": len(held), "pct": _pct(held_hits, len(held))},
         "leagues": _league_breakdown(settled),
         "calibration": _calibration(settled),
         "pending": {**pending, "total": sum(pending.values())},
@@ -698,7 +790,7 @@ def _fallback_label(p: dict) -> str:
 
 def _recent_picks(log: dict[str, dict]) -> list[dict]:
     settled = [p for p in log.values()
-               if p["status"] == "settled" and _counts_toward_record(p) and _parse_date(p["match_date"])]
+               if p["status"] == "settled" and _counts_toward_record(p) and _shown(p) and _parse_date(p["match_date"])]
     settled.sort(key=lambda p: (_parse_date(p["match_date"]), float(p["confidence"] or 0)), reverse=True)
     return [{
         "sport": _sport(p),
@@ -721,7 +813,7 @@ def _pending_matches(log: dict[str, dict], today: date) -> list[dict]:
     first, since those are the ones that need attention."""
     groups: dict[tuple, dict] = {}
     for p in log.values():
-        if p["status"] != "pending" or not _counts_toward_record(p):
+        if p["status"] != "pending" or not _counts_toward_record(p) or not _shown(p):
             continue
         match_date = _parse_date(p["match_date"])
         key = (_sport(p), p["home_team"], p["away_team"], p["match_date"])
@@ -791,18 +883,24 @@ if __name__ == "__main__":
     # separate NFL workflow to the same repo, so it's read here if
     # present; its absence isn't an error (e.g. the NFL workflow hasn't
     # run yet on a fresh repo) - football logging still proceeds.
+    #
+    # "shadow_picks" are picks that cleared the model's raw bar but not
+    # the calibrated one (see calibration.py) - logged as shown="0" so
+    # their markets keep being measured, never shown in Best Bets.
     picks = list(statpack.get("best_bets", []))
+    shadow = list(statpack.get("shadow_picks", []))
     if nfl_statpack_path.exists():
         with open(nfl_statpack_path) as f:
             nfl_statpack = json.load(f)
-        nfl_picks = nfl_statpack.get("best_bets", [])
-        picks.extend(nfl_picks)
-        print(f"Including {len(nfl_picks)} NFL pick(s) alongside {len(statpack.get('best_bets', []))} football pick(s).")
+        picks.extend(nfl_statpack.get("best_bets", []))
+        shadow.extend(nfl_statpack.get("shadow_picks", []))
+        print(f"Including NFL picks: {len(picks)} shown / {len(shadow)} held back in total.")
     else:
         print("No nfl_statpack.json found - logging football picks only.")
 
     added = log_new_picks(log, picks, today)
-    print(f"Logged {added} new pick(s).")
+    added_shadow = log_new_picks(log, shadow, today, shown=False)
+    print(f"Logged {added} new pick(s) + {added_shadow} held-back pick(s).")
 
     settled, waiting = reconcile_pending(log, data_dir, today)
     print(f"Settled {settled['football']} football + {settled['nfl']} NFL pick(s) this run; "
