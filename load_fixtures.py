@@ -124,27 +124,32 @@ LEAGUE_FILES = {
 #                needs that many hours SUBTRACTED to reach UK time,
 #                negative means ADDED
 #   None / 0   - no adjustment, use the raw time as-is
+# NOTE (Oct 2026): the four continental leagues below (I1, SP1, D1, F1) were
+# originally a flat "-1" (+1 hour). That is the same thing as "bst" while UK
+# clocks are on summer time - the raw times on fixturedownload.com are UTC -
+# but a flat +1 would put every kick-off an hour late once the clocks go
+# back (25 Oct 2026). "bst" applies the right shift year-round.
 LEAGUE_TIME_ADJUSTMENT = {
     "E0": None,   # Premier League - confirmed correct as-is (Arsenal v Coventry check)
     "E1": "bst",  # Championship
     "E2": "bst",  # League One
     "E3": "bst",  # League Two
     "SC0": "bst", # Scottish Premiership
-    "I1": -1,     # Serie A - CONFIRMED needing +1hr, same reversed-sign finding as
+    "I1": "bst",     # Serie A - CONFIRMED needing +1hr, same reversed-sign finding as
                   # La Liga below (5:45 shown, needed 7:45, with the old hours=1
                   # code) - fixturedownload.com's raw Serie A time isn't genuine
                   # Italian local time either, same as La Liga.
-    "SP1": -1,    # La Liga - CONFIRMED needing +1hr (not the -1hr originally assumed
+    "SP1": "bst",    # La Liga - CONFIRMED needing +1hr (not the -1hr originally assumed
                   # by the "always UK+1" reasoning) - real-world check showed the
                   # -1hr version was 2 hours out, meaning the true correction runs the
                   # opposite direction to what a flat "always UK+1" rule would suggest.
                   # fixturedownload.com's raw La Liga time evidently isn't genuine
                   # Spanish local time the way assumed.
-    "D1": -1,     # Bundesliga - NOT YET independently confirmed, but set to -1 rather
+    "D1": "bst",     # Bundesliga - NOT YET independently confirmed, but set to -1 rather
                   # than an untested None default - Italy AND Spain have both now
                   # confirmed needing this same reversed correction, a real pattern
                   # worth acting on. Still worth checking a real fixture once loaded.
-    "F1": -1,     # Ligue 1 - NOT YET independently confirmed, same reasoning as
+    "F1": "bst",     # Ligue 1 - NOT YET independently confirmed, same reasoning as
                   # Bundesliga above - now three leagues in a row (Italy, Spain,
                   # and Bundesliga's default) point the same direction, so this
                   # follows the pattern rather than starting from an untested
@@ -268,6 +273,15 @@ def load_league_fixtures(fixtures_dir: Path, div_code: str) -> list[dict]:
 
             date_time = (row.get("Date") or "").strip()
             date_part, _, time_part = date_time.partition(" ")
+            # fixturedownload.com publishes "00:00" (or "0:00") for fixtures
+            # whose kick-off hasn't been scheduled yet (e.g. every Bundesliga
+            # match a few rounds ahead). That's a placeholder, not a real
+            # midnight kick-off - leave the time blank so the dashboard shows
+            # "--:--" instead of a made-up time, and skip the timezone
+            # correction (which would otherwise turn it into 01:00). Real
+            # kick-offs appear automatically once the league confirms them.
+            if time_part.strip() in ("0:00", "00:00", "0:00:00", "00:00:00"):
+                time_part = ""
             if time_part and adjustment == "bst":
                 date_part, time_part = _to_uk_local(date_part, time_part)
             elif time_part and isinstance(adjustment, (int, float)) and adjustment:
