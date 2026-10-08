@@ -844,7 +844,9 @@
   function fixtureTimestamp(fx) {
     const d = parseFixtureDate(fx.date);
     if (!d) return Infinity;
-    const [hh, mm] = (fx.time || "00:00").split(":").map(Number);
+    // No kick-off time yet (TBC): sort after timed games that day and stay
+    // on the Today list until the day ends, rather than looking like 00:00.
+    const [hh, mm] = (fx.time || "23:59").split(":").map(Number);
     return d.getTime() + ((isNaN(hh) ? 0 : hh) * 60 + (isNaN(mm) ? 0 : mm)) * 60000;
   }
 
