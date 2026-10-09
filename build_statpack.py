@@ -60,7 +60,7 @@ def _parse_fixture_date(d: str) -> date | None:
 
 DEFAULT_LINES = {
     "goals": [1.5, 2.5, 3.5],
-    "corners": [8.5, 9.5, 10.5, 11.5],
+    "corners": [7.5, 8.5, 9.5, 10.5, 11.5],
     "cards": [2.5, 3.5, 4.5],
     "first_half_goals": [0.5, 1.5],
     "second_half_goals": [0.5, 1.5, 2.5],
