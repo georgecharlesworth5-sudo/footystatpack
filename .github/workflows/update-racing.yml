@@ -1,0 +1,70 @@
+name: Update Racing Guide
+
+# Builds the UK horse racing revision guide:
+#   racing.py - downloads Betfair's free daily UK win-market price files
+#               (promo.betfair.com/betfairsp/prices), boils each race down
+#               to one row in data/racing_races.csv, and writes
+#               racing_data.js, which the dashboard's Racing tab reads.
+#
+# First run (backfill): Actions -> Update Racing Guide -> Run workflow, and
+# leave "start" as it is. That downloads every day from 1 May 2023 (about
+# 1,250 small files, takes roughly 10-15 minutes) and only has to be done
+# once. After that the daily schedule fetches just the newest day or two.
+#
+# Separate from the football/NFL workflows on purpose: different data
+# source, different files, and nothing here touches bets_log.csv, so it
+# doesn't need to share their concurrency group.
+
+on:
+  schedule:
+    # Once a day at 08:00 UTC. Betfair publishes the file for a day's
+    # racing the following morning, so this picks up yesterday's results.
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      start:
+        description: 'First race date to cover (YYYY-MM-DD). Leave as is for the full backfill.'
+        required: false
+        default: '2023-05-01'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: racing-pipeline
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build racing data
+        env:
+          START: ${{ github.event.inputs.start }}
+        run: |
+          if [ -n "$START" ]; then
+            python racing.py --start "$START"
+          else
+            python racing.py
+          fi
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/racing_races.csv data/racing_files_done.txt racing_data.js
+          git diff --staged --quiet || git commit -m "Auto-update racing guide $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && break
+            echo "Push attempt $attempt failed - retrying..."
+            sleep $((attempt * 5))
+          done
