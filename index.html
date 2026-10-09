@@ -304,6 +304,16 @@
     color: var(--meta);
     letter-spacing: 0.04em;
   }
+  .bb-odds {
+    font-family: var(--data);
+    font-size: 11px;
+    color: var(--ink-dim);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 2px 7px;
+    white-space: nowrap;
+  }
+  .bb-odds:hover { color: var(--ink); border-color: var(--ink-dim); }
   .bb-label {
     font-family: var(--data);
     font-size: 12px;
@@ -1135,12 +1145,46 @@
   // ready-to-display "label" computed in Python, so rendering here is
   // just laying out common fields (time, league/sport badge, label,
   // confidence) rather than reconstructing pick-type-specific text.
+
+  // ---------- Odds-comparison links ----------
+  // Each Best Bets row links to that match on Oddschecker, which lists every
+  // bookmaker's price side by side (Bet365 included). Oddschecker names
+  // teams differently to our data (e.g. "Man United" -> man-utd), so a match
+  // link is only built when BOTH teams are in ODDS_VERIFIED - slugs actually
+  // seen on Oddschecker's own pages. Otherwise the link goes to the league
+  // page, where the match is listed. Leagues without a path (MLS, NFL) get
+  // no link. To extend: add a team to ODDS_SLUG_OVERRIDES if its name differs,
+  // and to ODDS_VERIFIED once its slug has been confirmed on the site.
+  const ODDS_LEAGUE_PATH = {"E0": "english/premier-league", "E1": "english/championship", "E2": "english/league-1", "E3": "english/league-2", "SC0": "scottish/premiership", "I1": "italy/serie-a", "SP1": "spain/la-liga-primera", "D1": "germany/bundesliga", "F1": "france/ligue-1"};
+  const ODDS_SLUG_OVERRIDES = {"Man United": "man-utd", "Nott'm Forest": "nottingham-forest", "Cardiff": "cardiff-city", "Wolves": "wolverhampton", "Bradford": "bradford-city", "Milton Keynes Dons": "mk-dons", "Peterboro": "peterborough-united", "Plymouth": "plymouth-argyle", "Sheffield Weds": "sheffield-wednesday", "Bristol Rvs": "bristol-rovers", "Crawley Town": "crawley", "Fleetwood Town": "fleetwood", "Salford": "salford-city-fc", "York": "york-city", "Dundee United": "dundee-utd", "Inter": "inter-milan", "Milan": "ac-milan", "Ath Bilbao": "athletic-club", "Ath Madrid": "atletico-madrid", "Betis": "real-betis", "Celta": "celta-vigo", "Espanol": "espanyol", "La Coruna": "deportivo-a-coruna", "Santander": "racing-santander", "Sociedad": "real-sociedad", "Vallecano": "rayo-vallecano", "Dortmund": "borussia-dortmund", "Ein Frankfurt": "eintracht-frankfurt", "FC Koln": "cologne", "Freiburg": "sc-freiburg", "Hoffenheim": "tsg-hoffenheim", "Leverkusen": "bayer-leverkusen", "M'gladbach": "borussia-mgladbach", "Schalke 04": "schalke", "Stuttgart": "vfb-stuttgart", "Paris SG": "psg", "Hamburg": "hamburg", "Bayern Munich": "bayern-munich"};
+  const ODDS_VERIFIED = new Set(["aberdeen", "ac-milan", "accrington", "afc-wimbledon", "alaves", "angers", "arsenal", "aston-villa", "atalanta", "athletic-club", "atletico-madrid", "augsburg", "auxerre", "barcelona", "barnet", "barnsley", "bayer-leverkusen", "bayern-munich", "birmingham", "blackburn", "blackpool", "bologna", "bolton", "borussia-dortmund", "borussia-mgladbach", "bournemouth", "bradford-city", "brentford", "brest", "brighton", "bristol-city", "bristol-rovers", "bromley", "burnley", "burton", "cagliari", "cambridge", "cardiff-city", "celta-vigo", "celtic", "charlton", "chelsea", "cheltenham", "chesterfield", "colchester", "cologne", "como", "coventry", "crawley", "crewe", "crystal-palace", "deportivo-a-coruna", "derby", "doncaster", "dundee", "dundee-utd", "eintracht-frankfurt", "elche", "elversberg", "espanyol", "everton", "exeter", "falkirk", "fiorentina", "fleetwood", "frosinone", "fulham", "genoa", "getafe", "gillingham", "grimsby", "hamburg", "hearts", "hibernian", "huddersfield", "hull", "inter-milan", "ipswich", "juventus", "kilmarnock", "lazio", "le-havre", "le-mans", "lecce", "leeds", "leicester", "lens", "levante", "leyton-orient", "lille", "liverpool", "lorient", "luton", "lyon", "mainz", "malaga", "man-city", "man-utd", "mansfield", "marseille", "middlesbrough", "millwall", "mk-dons", "monaco", "monza", "motherwell", "napoli", "newcastle", "newport-county", "nice", "northampton", "norwich", "nottingham-forest", "notts-county", "oldham", "osasuna", "oxford", "paderborn", "paris-fc", "parma", "peterborough-united", "plymouth-argyle", "port-vale", "preston", "psg", "qpr", "racing-santander", "rangers", "rayo-vallecano", "rb-leipzig", "reading", "real-betis", "real-madrid", "real-sociedad", "rennes", "rochdale", "roma", "rotherham", "salford-city-fc", "sassuolo", "sc-freiburg", "schalke", "sevilla", "sheffield-wednesday", "shrewsbury", "st-johnstone", "st-mirren", "stevenage", "stockport", "stoke", "strasbourg", "sunderland", "swansea", "swindon", "torino", "tottenham", "toulouse", "tranmere", "troyes", "tsg-hoffenheim", "udinese", "union-berlin", "valencia", "venezia", "vfb-stuttgart", "villarreal", "walsall", "watford", "werder-bremen", "west-brom", "west-ham", "wigan", "wolverhampton", "wrexham", "wycombe", "york-city"]);
+
+  function oddsSlug(name) {
+    if (ODDS_SLUG_OVERRIDES[name]) return ODDS_SLUG_OVERRIDES[name];
+    return (name || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+      .replace(/[.'’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+
+  function oddsUrl(pick) {
+    const path = ODDS_LEAGUE_PATH[pick.league_code];
+    if (!path || pick.sport === "nfl") return "";
+    const base = "https://www.oddschecker.com/football/" + path;
+    const h = oddsSlug(pick.home_team), a = oddsSlug(pick.away_team);
+    return (ODDS_VERIFIED.has(h) && ODDS_VERIFIED.has(a)) ? `${base}/${h}-v-${a}/winner` : base;
+  }
+
+  function oddsLinkHtml(pick) {
+    const url = oddsUrl(pick);
+    return url ? `<a class="bb-odds" href="${url}" target="_blank" rel="noopener noreferrer">Odds ↗</a>` : "";
+  }
+
   function flatBestBetRow(pick, rank) {
     return `<div class="bb-row">
       <span class="bb-rank">${rank}</span>
       <span class="kickoff">${pick.time || "--:--"}</span>
       <span class="bb-teams" style="flex:2">${pick.label}</span>
       <span class="bb-league">${pick.league_name}</span>
+      ${oddsLinkHtml(pick)}
       <span class="bb-pct ${pick.confidence >= 0.55 ? 'pct-hi' : pick.confidence <= 0.4 ? 'pct-lo' : ''}">${pct(pick.confidence)}</span>
     </div>`;
   }
