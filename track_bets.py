@@ -122,7 +122,10 @@ AWAITING_RESULT_DAYS = 7
 RECENT_PICKS_LIMIT = 60
 
 CONFIDENCE_BANDS = [
-    (0.0, 0.87, "under 87%"),
+    (0.0, 0.75, "under 75%"),
+    (0.75, 0.80, "75-80%"),
+    (0.80, 0.85, "80-85%"),
+    (0.85, 0.87, "85-87%"),
     (0.87, 0.90, "87-90%"),
     (0.90, 0.93, "90-93%"),
     (0.93, 0.96, "93-96%"),
@@ -745,6 +748,35 @@ def _calibration(settled: list[dict]) -> list[dict]:
     return out
 
 
+def _conf_slice(picks: list[dict], low: float, high: float) -> dict:
+    sub = []
+    for p in picks:
+        try:
+            if low <= float(p["confidence"]) < high:
+                sub.append(p)
+        except (ValueError, TypeError):
+            continue
+    hits = sum(1 for p in sub if p["result"] == "hit")
+    confs = [float(p["confidence"]) for p in sub]
+    rate = hits / len(sub) if sub else 0
+    return {
+        "total": len(sub), "hits": hits, "pct": _pct(hits, len(sub)),
+        "avg_confidence": round(100 * sum(confs) / len(confs)) if confs else 0,
+        "breakeven_odds": round(1 / rate, 2) if rate else None,
+        "markets": _market_breakdown(sub),
+    }
+
+
+def _at_80(picks: list[dict]) -> dict:
+    """The 80% check, for judging the 80% bar on its own. "all" is every
+    settled pick rated 80%+; "low" is just the 80-87% slice - the picks
+    that only exist because some markets have a bar below the default
+    87% (it's where an overconfident model would show first). Shown and
+    held-back picks both count. Each carries its break-even odds, and
+    "low" a per-market split."""
+    return {"all": _conf_slice(picks, 0.80, 1.01), "low": _conf_slice(picks, 0.80, 0.87)}
+
+
 def _form(settled: list[dict], today: date) -> dict:
     """Hit rate over the last 7 / 30 days, by match date."""
     out = {}
@@ -783,6 +815,7 @@ def _block(picks: list[dict], today: date) -> dict:
         "held_back": {"hits": held_hits, "total": len(held), "pct": _pct(held_hits, len(held))},
         "leagues": _league_breakdown(settled),
         "calibration": _calibration(settled),
+        "at_80": _at_80([p for p in picks if _counts_toward_record(p) and p["status"] == "settled"]),
         "pending": {**pending, "total": sum(pending.values())},
     }
 
