@@ -43,6 +43,24 @@ MIN_CONFIDENCE = 0.87
 # strong to 90% on a two-way market.
 TEAM_WIN_MIN_CONFIDENCE = 0.75
 
+# Match corners Over 7.5 is a short-priced market (bookmakers typically
+# offer ~1.33-1.5), so a lower confidence bar still leaves a profitable
+# margin: a pick only needs to land ~67-75% to break even at those prices.
+# Under the v2 model's pulled-in-toward-the-league-average expectations,
+# match corners almost never reach 87% (none in a 3,100-match replay), but
+# picks at 78%+ landed ~81% of the time (80%+: 36 of 3,100 matches, also ~81%), with the stated and actual rates
+# agreeing in both halves of the replay. Calibration (calibration.py) then
+# keeps measuring this market and adjusts the bar's effect as results come in.
+CORNERS_OVER_7_5_MIN_CONFIDENCE = 0.80
+
+
+def _over_bar(metric: str, scope: str, line) -> float:
+    """Confidence needed for an Over pick - the standard bar, except for
+    match corners Over 7.5 (see above)."""
+    if metric == "corners" and scope == "match" and line == 7.5:
+        return CORNERS_OVER_7_5_MIN_CONFIDENCE
+    return MIN_CONFIDENCE
+
 METRIC_LABELS = {
     "goals": "Goals",
     "corners": "Corners",
@@ -126,7 +144,11 @@ def _make_pick(fx: dict, metric: str, scope: str, team: str | None,
 
 
 def _bar_for(pick: dict) -> float:
-    return TEAM_WIN_MIN_CONFIDENCE if pick["metric"] == "team_win" else MIN_CONFIDENCE
+    if pick["metric"] == "team_win":
+        return TEAM_WIN_MIN_CONFIDENCE
+    if pick["direction"] == "Over":
+        return _over_bar(pick["metric"], pick["scope"], pick["line"])
+    return MIN_CONFIDENCE
 
 
 def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None,
@@ -167,7 +189,7 @@ def compute_best_bets_split(statpack: dict, window_days: int = NEAR_TERM_WINDOW_
 
             if m.get("over_under"):
                 top_over = max(m["over_under"], key=lambda ou: ou["over"])
-                if top_over["over"] >= MIN_CONFIDENCE:
+                if top_over["over"] >= _over_bar(metric_key, "match", top_over["line"]):
                     label = f"{fx['home_team']} v {fx['away_team']} - Over {top_over['line']} {metric_label}"
                     picks.append(_make_pick(fx, metric_key, "match", None, "Over",
                                              top_over["line"], top_over["over"], label))
