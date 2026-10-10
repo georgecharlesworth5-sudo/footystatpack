@@ -587,6 +587,15 @@
   }
   .quick-stat { color: var(--ink-dim); white-space: nowrap; }
   .quick-stat b { color: var(--ink); }
+  /* Tappable percentages on fixture cards: tap to add that pick to the bet slip. */
+  .pct-add {
+    font: inherit; color: inherit; background: none; border: none; border-radius: 0;
+    padding: 1px 4px; margin: -1px -4px; cursor: pointer;
+    border-bottom: 1px dotted var(--meta);
+  }
+  .pct-add:hover { background: var(--surface); }
+  .pct-add.in-slip { outline: 1px solid var(--green); border-bottom-color: transparent; }
+  .pct-add.in-slip::after { content: " \2713"; font-size: 0.85em; color: var(--green); }
   .pct-hi { color: var(--green); }
   .pct-lo { color: var(--red); }
   .flag {
@@ -866,6 +875,49 @@
   const tabsEl = document.getElementById("tabs");
   const mainEl = document.getElementById("main");
 
+  // ---- Tappable percentages on fixture cards -> bet slip ----
+  // Every percentage on a card is wrapped by pctBtn(), which describes the
+  // pick (in the same shape Best Bets uses, so the same pick added from
+  // either place is recognised as one pick) and registers it. One click
+  // handler on <main> does the adding/removing for all of them.
+  const PICK_REG = new Map();
+  let slipCtx = null;   // the fixture whose card is being built right now
+  const NFL_METRIC_LABELS = { points: "Points", passing_tds: "Passing TDs", rushing_tds: "Rushing TDs",
+    passing_yards: "Passing Yards", rushing_yards: "Rushing Yards" };
+
+  function pctBtn(spec, prob) {
+    if (!slipCtx || prob == null) return pct(prob);
+    const fx = slipCtx.fx;
+    const p = { sport: slipCtx.sport, home_team: fx.home_team, away_team: fx.away_team, league_name: slipCtx.league,
+      date: fx.date || "", time: fx.time || "", team: null, line: null, ...spec,
+      confidence: Math.round(prob * 1000) / 1000 };
+    const key = slipKey(p);
+    PICK_REG.set(key, p);
+    const on = inSlip(p);
+    return `<button type="button" class="pct-add${on ? " in-slip" : ""}" data-slip-key="${escAttr(key)}" title="${on ? "On your bet slip - tap to remove" : "Tap to add to your bet slip"}">${pct(prob)}</button>`;
+  }
+
+  mainEl.addEventListener("click", (e) => {
+    const b = e.target.closest && e.target.closest(".pct-add");
+    if (!b) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const key = b.dataset.slipKey;
+    const idx = slip.items.findIndex(i => i.key === key);
+    if (idx >= 0) {
+      slip.items.splice(idx, 1);
+    } else {
+      const p = PICK_REG.get(key);
+      if (!p) return;
+      slip.items.push({ key, label: p.label, league: p.league_name, date: p.date, time: p.time || "", confidence: p.confidence });
+    }
+    slipJustSaved = false;
+    slipSave(SLIP_STORE, slip);
+    const inNow = slip.items.some(i => i.key === key);
+    mainEl.querySelectorAll(".pct-add").forEach(el => { if (el.dataset.slipKey === key) el.classList.toggle("in-slip", inNow); });
+    buildTabs();
+  });
+
   if (!data) {
     mainEl.innerHTML = '<div class="empty">No statpack_data.js found next to this file.<br>Run build_statpack.py, then open this page from the same folder.</div>';
     return;
@@ -1067,23 +1119,26 @@
     }
   }
 
-  function metricBlock(title, m, homeTeam, awayTeam) {
+  function metricBlock(title, m, homeTeam, awayTeam, metricKey) {
     if (!m) return "";
+    const metricLabel = ALL_METRIC_LABELS[metricKey] || title;
     const ouRows = (m.over_under || []).map(ou => {
       const overPct = ou.over;
       const barColor = overPct >= 0.5 ? "var(--green)" : "var(--accent)";
       return `<div class="ou-row">
         <span class="ou-line">O/U ${ou.line}</span>
         <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
-        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pct(overPct)}</span>
+        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pctBtn({ metric: metricKey, scope: "match", direction: "Over", line: ou.line,
+          label: `${homeTeam} v ${awayTeam} - Over ${ou.line} ${metricLabel}` }, overPct)}</span>
       </div>`;
     }).join("");
 
+    const bttsLabel = `${homeTeam} v ${awayTeam} - BTTS`;
     const btts = (m.btts_yes !== undefined)
-      ? `<div class="btts-row">BTTS: <b>${pct(m.btts_yes)}</b> yes / ${pct(m.btts_no)} no</div>`
+      ? `<div class="btts-row">BTTS: <b>${pctBtn({ metric: "btts", scope: "match", direction: "Yes", label: bttsLabel + " Yes" }, m.btts_yes)}</b> yes / ${pctBtn({ metric: "btts", scope: "match", direction: "No", label: bttsLabel + " No" }, m.btts_no)} no</div>`
       : "";
 
-    const split = m.home_over_under ? splitBlock(m, homeTeam, awayTeam) : "";
+    const split = m.home_over_under ? splitBlock(m, homeTeam, awayTeam, metricKey) : "";
 
     return `<div class="metric-card">
       <div class="metric-title">${title} <span style="opacity:0.6">· over %</span></div>
@@ -1094,24 +1149,25 @@
     </div>`;
   }
 
-  function splitSideRows(entries) {
+  function splitSideRows(entries, team, scope, metricKey) {
     return entries.map(ou => `<div class="split-ou-row">
       <span class="split-ou-line">${ou.line}</span>
-      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pct(ou.over)}</span>
+      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pctBtn({ metric: metricKey, scope, team, direction: "Over", line: ou.line,
+        label: `${team} - Over ${ou.line} ${ALL_METRIC_LABELS[metricKey] || metricKey}` }, ou.over)}</span>
     </div>`).join("");
   }
 
-  function splitBlock(m, homeTeam, awayTeam) {
+  function splitBlock(m, homeTeam, awayTeam, metricKey) {
     return `<div class="metric-split">
       <div class="metric-split-col">
         <div class="metric-split-title">${homeTeam || 'Home'}</div>
         <div class="metric-split-expected">${m.expected_home}</div>
-        ${splitSideRows(m.home_over_under)}
+        ${splitSideRows(m.home_over_under, homeTeam, "home", metricKey)}
       </div>
       <div class="metric-split-col">
         <div class="metric-split-title">${awayTeam || 'Away'}</div>
         <div class="metric-split-expected">${m.expected_away}</div>
-        ${splitSideRows(m.away_over_under)}
+        ${splitSideRows(m.away_over_under, awayTeam, "away", metricKey)}
       </div>
     </div>`;
   }
@@ -1150,9 +1206,12 @@
     if (!mr) return "";
 
     const options = [
-      { label: fixture.home_team, position: fixture.home_position, key: "home_win", pct: mr.home_win },
-      { label: "Draw", position: null, key: "draw", pct: mr.draw },
-      { label: fixture.away_team, position: fixture.away_position, key: "away_win", pct: mr.away_win },
+      { label: fixture.home_team, position: fixture.home_position, key: "home_win", pct: mr.home_win,
+        spec: { metric: "team_win", scope: "home", team: fixture.home_team, direction: fixture.home_team, label: `${fixture.home_team} to win` } },
+      { label: "Draw", position: null, key: "draw", pct: mr.draw,
+        spec: { metric: "draw", scope: "match", direction: "Draw", label: `${fixture.home_team} v ${fixture.away_team} - Draw` } },
+      { label: fixture.away_team, position: fixture.away_position, key: "away_win", pct: mr.away_win,
+        spec: { metric: "team_win", scope: "away", team: fixture.away_team, direction: fixture.away_team, label: `${fixture.away_team} to win` } },
     ];
     const highest = Math.max(mr.home_win, mr.draw, mr.away_win);
 
@@ -1162,14 +1221,21 @@
         ${options.map(o => `
           <div class="mr-option ${o.pct === highest ? 'mr-favourite' : ''}">
             <div class="mr-label">${o.label}${posBadge(o.position)}</div>
-            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pct(o.pct)}</div>
+            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pctBtn(o.spec, o.pct)}</div>
           </div>
         `).join("")}
       </div>
     </div>`;
   }
 
-  function fixtureCard(fixture, badge) {
+  // The card is built with slipCtx set to this fixture, so every
+  // percentage knows which game it belongs to (see pctBtn).
+  function fixtureCard(fixture, badge, leagueName) {
+    slipCtx = { sport: "football", league: leagueName || (typeof badge === "string" ? badge : ""), fx: fixture };
+    try { return fixtureCardHtml(fixture, badge); } finally { slipCtx = null; }
+  }
+
+  function fixtureCardHtml(fixture, badge) {
     const p = fixture.predictions;
     const flag = flagBadges(fixture);
     const note = fixture.note ? `<div class="note">⚠ ${fixture.note.trim()}</div>` : "";
@@ -1188,11 +1254,11 @@
         ${note}
         ${matchResultBlock(fixture)}
         <div class="metric-grid">
-          ${metricBlock("Full-Time Goals", p.goals, fixture.home_team, fixture.away_team)}
-          ${metricBlock("Corners", p.corners, fixture.home_team, fixture.away_team)}
-          ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team)}
-          ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team)}
-          ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team)}
+          ${metricBlock("Full-Time Goals", p.goals, fixture.home_team, fixture.away_team, "goals")}
+          ${metricBlock("Corners", p.corners, fixture.home_team, fixture.away_team, "corners")}
+          ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team, "cards")}
+          ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team, "first_half_goals")}
+          ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team, "second_half_goals")}
         </div>
         <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
       </div>
@@ -1393,7 +1459,7 @@
           const p = pickByKey.get(key);
           if (!p) return;
           slip.items.push({ key, label: p.label, league: p.league_name, date: p.date, time: p.time || "",
-            confidence: p.confidence, odds: "" });
+            confidence: p.confidence });
         }
         slipJustSaved = false;
         slipSave(SLIP_STORE, slip);
@@ -1426,57 +1492,34 @@
   }
 
   // ---------- Bet slip ----------
-  function slipOdds(item) {
-    const v = parseFloat(String(item.odds || "").replace(",", "."));
-    return v > 1 ? v : null;
-  }
-  function slipStats(items, stakeStr) {
-    const probs = items.map(i => i.confidence);
-    const prob = probs.reduce((a, b) => a * b, 1);
-    const allOdds = items.length > 0 && items.every(i => slipOdds(i));
-    const odds = allOdds ? items.reduce((a, i) => a * slipOdds(i), 1) : null;
-    const stake = parseFloat(String(stakeStr || "").replace(",", "."));
+  function slipStats(items) {
+    const prob = items.reduce((a, i) => a * i.confidence, 1);
     const games = new Map();
     items.forEach(i => {
       const g = i.key.split("|").slice(0, 4).join("|");
       games.set(g, (games.get(g) || 0) + 1);
     });
     const sameGame = Array.from(games.values()).some(n => n > 1);
-    return { n: items.length, prob, fair: prob > 0 ? 1 / prob : null, odds, allOdds,
-      stake: stake > 0 ? stake : null, sameGame };
+    return { n: items.length, prob, fair: prob > 0 ? 1 / prob : null, sameGame };
   }
-  const gbp = n => "£" + n.toFixed(2);
 
-  function slipSummaryHtml(items, stakeStr) {
+  function slipSummaryHtml(items) {
     if (!items.length) return "";
-    const st = slipStats(items, stakeStr);
+    const st = slipStats(items);
     const lines = [
       `<div class="slip-line"><span>Selections</span><b>${st.n}</b></div>`,
       `<div class="slip-line"><span>Chance every leg lands (model)</span><b>${(st.prob * 100).toFixed(1)}%</b></div>`,
       `<div class="slip-line"><span>Fair odds (break-even)</span><b>${st.fair ? st.fair.toFixed(2) : "-"}</b></div>`,
     ];
-    if (st.allOdds) {
-      lines.push(`<div class="slip-line"><span>Combined odds</span><b>${st.odds.toFixed(2)}</b></div>`);
-      const edge = st.prob * st.odds - 1;
-      lines.push(`<div class="slip-line"><span>Model edge at these odds</span><b class="${edge > 0 ? "pct-hi" : "pct-lo"}">${edge > 0 ? "+" : ""}${(edge * 100).toFixed(0)}%</b></div>`);
-      if (st.stake) {
-        lines.push(`<div class="slip-line"><span>Return if it lands</span><b>${gbp(st.stake * st.odds)}</b></div>`);
-        lines.push(`<div class="slip-line"><span>Profit if it lands</span><b>${gbp(st.stake * (st.odds - 1))}</b></div>`);
-      }
-    } else {
-      lines.push(`<div class="slip-note">Add the price you're offered for every selection to see combined odds, return and edge.</div>`);
-    }
-    let notes = `<div class="slip-note">Fair odds are 1 divided by the model's chance. A combined price above that is value <i>if the model is right</i>. The model's confidence is a rough guide, not a guarantee.</div>`;
+    let notes = `<div class="slip-note">Fair odds are 1 divided by the model's chance. A bookmaker price for the whole slip above that would be value <i>if the model is right</i>. The model's confidence is a rough guide, not a guarantee.</div>`;
     if (st.sameGame) notes += `<div class="slip-note slip-warn">Some selections are from the same game. They aren't independent (e.g. corners and cards both depend on how the game flows), so the combined % simply multiplies them and is only approximate. Bookmakers often won't accept these in a normal accumulator either.</div>`;
     return `<div class="slip-summary">${lines.join("")}${notes}</div>`;
   }
 
-  function slipText(items, stakeStr, name) {
-    const st = slipStats(items, stakeStr);
-    const rows = items.map(i => `${i.label} (${i.league}, ${i.date}${i.time ? " " + i.time : ""})${slipOdds(i) ? " @ " + slipOdds(i).toFixed(2) : ""}`);
-    let t = (name ? name + "\n" : "") + rows.join("\n");
-    if (st.allOdds) t += `\nCombined odds ${st.odds.toFixed(2)}` + (st.stake ? `, stake ${gbp(st.stake)}, returns ${gbp(st.stake * st.odds)}` : "");
-    return t;
+  function slipText(items, name) {
+    const st = slipStats(items);
+    const rows = items.map(i => `${i.label} (${i.league}, ${i.date}${i.time ? " " + i.time : ""})`);
+    return (name ? name + "\n" : "") + rows.join("\n") + `\nModel chance all ${st.n} land: ${(st.prob * 100).toFixed(1)}% (fair odds ${st.fair ? st.fair.toFixed(2) : "-"})`;
   }
 
   function fmtSavedAt(iso) {
@@ -1489,30 +1532,26 @@
     const items = slip.items;
     const itemsHtml = items.map((it, idx) => `<div class="slip-item">
         <span class="slip-item-main">${it.label}<span class="slip-item-sub">${it.league} · ${it.date}${it.time ? " " + it.time : ""} · model ${pct(it.confidence)}</span></span>
-        <input class="slip-odds" data-slip-odds="${idx}" inputmode="decimal" placeholder="odds" value="${escAttr(it.odds)}" aria-label="Odds for ${escAttr(it.label)}">
         <button class="slip-x" data-slip-remove="${idx}" aria-label="Remove">✕</button>
       </div>`).join("");
 
     const currentHtml = items.length ? `
       ${itemsHtml}
-      <div class="slip-item"><span class="slip-item-main">Stake (£)</span>
-        <input class="slip-stake" id="slip-stake" inputmode="decimal" placeholder="0.00" value="${escAttr(slip.stake)}"></div>
-      <div id="slip-summary">${slipSummaryHtml(items, slip.stake)}</div>
+      <div id="slip-summary">${slipSummaryHtml(items)}</div>
       <input class="slip-name" id="slip-name" maxlength="60" placeholder="Name this slip (optional)">
       <div class="slip-actions">
         <button class="slip-btn primary" id="slip-save">Save slip</button>
         <button class="slip-btn quiet" id="slip-copy">Copy as text</button>
         <button class="slip-btn quiet" id="slip-clear">Clear</button>
       </div>`
-      : `<div class="empty">${slipJustSaved ? "Slip saved below." : "Your slip is empty."}<br>Tap <b>+</b> on any pick in Best Bets to add it here.</div>`;
+      : `<div class="empty">${slipJustSaved ? "Slip saved below." : "Your slip is empty."}<br>Tap a percentage on any fixture card, or the <b>+</b> on a Best Bets pick, to add it here.</div>`;
 
     const savedHtml = savedSlips.length ? `<div class="tr-section-title">Saved slips</div>` + savedSlips.map(sv => {
-      const st = slipStats(sv.items, sv.stake);
-      const lines = sv.items.map(i => `<div class="slip-line"><span>${i.label} <span class="tr-chip-n">${i.date}</span></span><span>${slipOdds(i) ? slipOdds(i).toFixed(2) : ""}</span></div>`).join("");
+      const st = slipStats(sv.items);
+      const lines = sv.items.map(i => `<div class="slip-line"><span>${i.label} <span class="tr-chip-n">${i.date}</span></span><span>${pct(i.confidence)}</span></div>`).join("");
       const meta = [`${sv.items.length} selection${sv.items.length === 1 ? "" : "s"}`,
-        `model ${(st.prob * 100).toFixed(1)}%`,
-        st.allOdds ? `odds ${st.odds.toFixed(2)}` : null,
-        st.allOdds && st.stake ? `stake ${gbp(st.stake)} → ${gbp(st.stake * st.odds)}` : null].filter(Boolean).join(" · ");
+        `model ${(st.prob * 100).toFixed(1)}% all land`,
+        st.fair ? `fair odds ${st.fair.toFixed(2)}` : null].filter(Boolean).join(" · ");
       return `<div class="slip-summary" data-saved="${sv.id}">
         <div class="slip-line"><b>${escAttr(sv.name) || "Slip"}</b><span>${fmtSavedAt(sv.savedAt)}</span></div>
         <div class="slip-note" style="margin:0 0 6px">${meta}</div>
@@ -1525,19 +1564,9 @@
       </div>`;
     }).join("") : "";
 
-    mainEl.innerHTML = `<div class="bb-intro">Build a slip from Best Bets picks. Enter the price you're offered for each selection to see combined odds and return. Slips are kept in this browser only.</div>` + currentHtml + savedHtml;
+    mainEl.innerHTML = `<div class="bb-intro">Build a slip by tapping any percentage on a fixture card, or the + on a Best Bets pick. Slips are kept in this browser only.</div>` + currentHtml + savedHtml;
 
     const persist = () => slipSave(SLIP_STORE, slip);
-    const refreshSummary = () => {
-      const box = mainEl.querySelector("#slip-summary");
-      if (box) box.innerHTML = slipSummaryHtml(slip.items, slip.stake);
-    };
-
-    mainEl.querySelectorAll("[data-slip-odds]").forEach(inp => inp.addEventListener("input", () => {
-      slip.items[+inp.dataset.slipOdds].odds = inp.value; persist(); refreshSummary();
-    }));
-    const stakeEl = mainEl.querySelector("#slip-stake");
-    if (stakeEl) stakeEl.addEventListener("input", () => { slip.stake = stakeEl.value; persist(); refreshSummary(); });
     mainEl.querySelectorAll("[data-slip-remove]").forEach(b => b.addEventListener("click", () => {
       slip.items.splice(+b.dataset.slipRemove, 1); persist(); buildTabs(); renderSlip();
     }));
@@ -1549,14 +1578,14 @@
     const saveBtn = mainEl.querySelector("#slip-save");
     if (saveBtn) saveBtn.addEventListener("click", () => {
       const name = (mainEl.querySelector("#slip-name").value || "").trim();
-      savedSlips.unshift({ id: Date.now(), name, savedAt: new Date().toISOString(), stake: slip.stake,
+      savedSlips.unshift({ id: Date.now(), name, savedAt: new Date().toISOString(),
         items: slip.items.map(i => ({ ...i })) });
       slipSave(SLIP_SAVED_STORE, savedSlips);
       slip = { items: [], stake: "" }; persist(); slipJustSaved = true;
       buildTabs(); renderSlip();
     });
     const copyBtn = mainEl.querySelector("#slip-copy");
-    if (copyBtn) copyBtn.addEventListener("click", () => copyText(slipText(slip.items, slip.stake, (mainEl.querySelector("#slip-name").value || "").trim()), copyBtn));
+    if (copyBtn) copyBtn.addEventListener("click", () => copyText(slipText(slip.items, (mainEl.querySelector("#slip-name").value || "").trim()), copyBtn));
     const clearBtn = mainEl.querySelector("#slip-clear");
     if (clearBtn) clearBtn.addEventListener("click", () => { slip = { items: [], stake: "" }; persist(); slipJustSaved = false; buildTabs(); renderSlip(); });
 
@@ -1566,7 +1595,7 @@
       window.scrollTo(0, 0);
     }));
     mainEl.querySelectorAll("[data-saved-copy]").forEach(b => b.addEventListener("click", () => {
-      const sv = savedSlips.find(x => String(x.id) === b.dataset.savedCopy); if (sv) copyText(slipText(sv.items, sv.stake, sv.name), b);
+      const sv = savedSlips.find(x => String(x.id) === b.dataset.savedCopy); if (sv) copyText(slipText(sv.items, sv.name), b);
     }));
     mainEl.querySelectorAll("[data-saved-del]").forEach(b => b.addEventListener("click", () => {
       const id = Number(b.dataset.savedDel);
@@ -1735,7 +1764,7 @@
 
   function racingRoiClass(roi, n) { return n < 30 ? "" : roi > 0 ? "pct-hi" : roi <= -12 ? "pct-lo" : ""; }
 
-  function racingRows(items, titleName) {
+  function racingRows(items, titleName, winLabel) {
     if (!items || !items.length) return "";
     const rows = items.map(m => `<div class="tr-be-row">
       <span class="tr-be-label">${escAttr(m.name)}${m.n < 30 ? ' <span class="tr-chip-n">small sample</span>' : ""}</span>
@@ -1744,7 +1773,7 @@
       <span class="tr-be-odds tr-be-safe">${m.top3}%</span>
     </div>`).join("");
     return `<div class="tr-section-title">${titleName}</div>
-      <div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">Fav wins</span><span class="tr-be-odds">Fav ROI</span><span class="tr-be-odds tr-be-safe">Top 3</span></div>${rows}`;
+      <div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">${winLabel || "Fav wins"}</span><span class="tr-be-odds">${winLabel ? "ROI" : "Fav ROI"}</span><span class="tr-be-odds tr-be-safe">Top 3</span></div>${rows}`;
   }
 
   // Average / median winning price per group (e.g. per race type).
@@ -1759,6 +1788,40 @@
     return `<div class="tr-section-title">${titleName}</div>
       <div class="tr-note">Betfair Starting Price of the winner. The average is pulled up by the odd big-priced winner, so the median (the typical winner) is shown too.</div>
       <div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">Average</span><span class="tr-be-odds">Median</span><span class="tr-be-odds tr-be-safe">Races</span></div>${rows}`;
+  }
+
+  // Which horse in the betting wins: favourite, 2nd favourite and so on.
+  function racingMarketPosition(items) {
+    if (!items || !items.length) return "";
+    const rows = items.map(m => `<div class="tr-be-row">
+      <span class="tr-be-label">${escAttr(m.name)}</span>
+      <span class="tr-be-hit">${m.share}% <span class="tr-chip-n">(${m.n})</span></span>
+      <span class="tr-be-odds ${m.roi === undefined ? "" : racingRoiClass(m.roi, 100)}"><b>${m.roi === undefined ? "-" : (m.roi > 0 ? "+" : "") + m.roi + "%"}</b></span>
+      <span class="tr-be-odds tr-be-safe">${m.avgp ? m.avgp.toFixed(2) : "-"}</span>
+    </div>`).join("");
+    return `<div class="tr-section-title">Which horse wins: market position</div>
+      <div class="tr-note">Share of races won by the favourite, the 2nd favourite and so on, and what you'd have made backing that position in every race at Betfair Starting Price (after commission). Average price is what that position typically was.</div>
+      <div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">Races won</span><span class="tr-be-odds">ROI</span><span class="tr-be-odds tr-be-safe">Avg price</span></div>${rows}`;
+  }
+
+  // Second favourites in detail (needs sec_bsp in the data).
+  function racingSecond(sec) {
+    if (!sec || !sec.overall || !sec.overall.n) return "";
+    const o = sec.overall;
+    const chip = (label, val, cls) => `<div class="tr-category-chip"><span>${label}</span><span class="${cls || ""}"><b>${val}</b></span></div>`;
+    return `<div class="tr-section-title">Second favourites</div>
+      <div class="tr-summary">
+        <div class="tr-summary-main"><span class="tr-summary-pct">${o.fav}%</span>
+          <span class="tr-summary-label">of 2nd favourites won, from ${o.n.toLocaleString("en-GB")} races</span></div>
+        <div class="tr-category-grid">
+          ${chip("2nd favourite ROI", (o.roi > 0 ? "+" : "") + o.roi + "%", racingRoiClass(o.roi, o.n))}
+          ${chip("Average price", o.favp.toFixed(2))}
+          ${chip("Average price when they win", o.avgw ? o.avgw.toFixed(1) : "-")}
+        </div></div>`
+      + racingRows(sec.by_price, "2nd favourite by price", "Wins")
+      + racingRows(sec.by_type, "2nd favourite by race type", "Wins")
+      + racingRows(sec.by_dist, "2nd favourite by distance", "Wins")
+      + racingRows(sec.by_field, "2nd favourite by field size", "Wins");
   }
 
   function racingHeadline(o) {
@@ -1827,11 +1890,12 @@
       const filterNote = view === win ? "" : `<div class="tr-note">Showing only races where the favourite's Betfair price was <b>${racingFavBand}</b>. The winner-price split and course guide below the tables use all prices.</div>`;
       body = filterNote + racingHeadline(view.overall)
         + (code.label === "Jumps" ? racingRows(view.by_code.map(m => ({ ...m, name: { hurdle: "Hurdles", chase: "Chases", bumper: "Bumpers (NH Flat)" }[m.name] || m.name })), "By type of race: hurdle, chase or bumper") : "")
-        + (view === win ? racingRows(win.by_favprice, "By the favourite's price") : "")
+        + (view === win ? racingRows(win.by_favprice, "By the favourite's price") + racingMarketPosition(win.market_position) : "")
         + racingRows(view.by_type, "By race type")
         + racingPriceRows(view.by_type, "Winning price by race type")
         + racingRows(view.by_dist, "By distance")
         + racingRows(view.by_field, "By field size")
+        + (view === win ? (win.second ? racingSecond(win.second) : `<div class="tr-note">Second-favourite prices aren't in the data yet. Re-run racing.py with --refetch to add them.</div>`) : "")
         + (win.winner_price.length ? `<div class="tr-section-title">Where winners come from</div>
             <div class="tr-note">Share of all races won by a horse at each Betfair price.</div>` + win.winner_price.map(b => trBarRow(escAttr(b.name), b.n, win.overall.n, Math.round(b.share), "")).join("") : "")
         + extremes
@@ -1983,8 +2047,10 @@
     if (!ml) return "";
     const highest = Math.max(ml.home_win, ml.away_win);
     const options = [
-      { label: fixture.home_team, pct: ml.home_win },
-      { label: fixture.away_team, pct: ml.away_win },
+      { label: fixture.home_team, pct: ml.home_win,
+        spec: { metric: "moneyline", scope: "home", team: fixture.home_team, direction: fixture.home_team, label: `${fixture.home_team} to win` } },
+      { label: fixture.away_team, pct: ml.away_win,
+        spec: { metric: "moneyline", scope: "away", team: fixture.away_team, direction: fixture.away_team, label: `${fixture.away_team} to win` } },
     ];
     return `<div class="mr-block">
       <div class="metric-title">Moneyline</div>
@@ -1992,21 +2058,22 @@
         ${options.map(o => `
           <div class="mr-option ${o.pct === highest ? 'mr-favourite' : ''}">
             <div class="mr-label">${o.label}</div>
-            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pct(o.pct)}</div>
+            <div class="mr-pct ${o.pct === highest ? 'pct-hi' : ''}">${pctBtn(o.spec, o.pct)}</div>
           </div>
         `).join("")}
       </div>
     </div>`;
   }
 
-  function nflOuRows(entries) {
+  function nflOuRows(entries, fixture) {
     return (entries || []).map(ou => {
       const overPct = ou.over;
       const barColor = overPct >= 0.5 ? "var(--green)" : "var(--accent)";
       return `<div class="ou-row">
         <span class="ou-line">O/U ${ou.line}</span>
         <div class="ou-bar-wrap"><div class="ou-bar" style="width:${Math.round(overPct*100)}%;background:${barColor}"></div></div>
-        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pct(overPct)}</span>
+        <span class="ou-pct ${overPct >= 0.55 ? 'pct-hi' : overPct <= 0.4 ? 'pct-lo' : ''}">${pctBtn({ metric: "points", scope: "match", direction: "Over", line: ou.line,
+          label: `${fixture.home_team} v ${fixture.away_team} - Over ${ou.line} Total Points` }, overPct)}</span>
       </div>`;
     }).join("");
   }
@@ -2017,18 +2084,19 @@
     return `<div class="metric-card">
       <div class="metric-title">Total Points <span style="opacity:0.6">· over %</span></div>
       <div class="metric-expected">${p.expected_total}<span class="label">expected</span></div>
-      ${nflOuRows(p.total_over_under)}
+      ${nflOuRows(p.total_over_under, fixture)}
     </div>`;
   }
 
-  function nflSplitRows(entries) {
+  function nflSplitRows(entries, team, scope, metricKey) {
     return (entries || []).map(ou => `<div class="split-ou-row">
       <span class="split-ou-line">${ou.line}</span>
-      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pct(ou.over)}</span>
+      <span class="split-ou-pct ${ou.over >= 0.55 ? 'pct-hi' : ou.over <= 0.4 ? 'pct-lo' : ''}">${pctBtn({ metric: metricKey, scope, team, direction: "Over", line: ou.line,
+        label: `${team} - Over ${ou.line} ${NFL_METRIC_LABELS[metricKey] || metricKey}` }, ou.over)}</span>
     </div>`).join("");
   }
 
-  function nflSplitCard(title, m, homeTeam, awayTeam) {
+  function nflSplitCard(title, m, homeTeam, awayTeam, metricKey) {
     if (!m) return "";
     return `<div class="metric-card">
       <div class="metric-title">${title} <span style="opacity:0.6">· over %</span></div>
@@ -2036,12 +2104,12 @@
         <div class="metric-split-col">
           <div class="metric-split-title">${homeTeam}</div>
           <div class="metric-split-expected">${m.expected_home}</div>
-          ${nflSplitRows(m.home_over_under)}
+          ${nflSplitRows(m.home_over_under, homeTeam, "home", metricKey)}
         </div>
         <div class="metric-split-col">
           <div class="metric-split-title">${awayTeam}</div>
           <div class="metric-split-expected">${m.expected_away}</div>
-          ${nflSplitRows(m.away_over_under)}
+          ${nflSplitRows(m.away_over_under, awayTeam, "away", metricKey)}
         </div>
       </div>
     </div>`;
@@ -2110,6 +2178,11 @@
   }
 
   function nflFixtureCard(fixture, badge) {
+    slipCtx = { sport: "nfl", league: "NFL", fx: fixture };
+    try { return nflFixtureCardHtml(fixture, badge); } finally { slipCtx = null; }
+  }
+
+  function nflFixtureCardHtml(fixture, badge) {
     const p = fixture.predictions;
     const marketBadge = fixture.market_blended ? `<span class="flag-market">M</span>` : "";
     const flag = fixture.low_sample ? `<span class="flag">thin sample</span>` : "";
@@ -2129,11 +2202,11 @@
         ${nflMoneylineBlock(fixture)}
         <div class="metric-grid">
           ${nflTotalPointsCard(fixture)}
-          ${nflSplitCard("Team Points", p.points, fixture.home_team, fixture.away_team)}
-          ${nflSplitCard("Passing TDs", p.passing_tds, fixture.home_team, fixture.away_team)}
-          ${nflSplitCard("Rushing TDs", p.rushing_tds, fixture.home_team, fixture.away_team)}
-          ${nflSplitCard("Passing Yards", p.passing_yards, fixture.home_team, fixture.away_team)}
-          ${nflSplitCard("Rushing Yards", p.rushing_yards, fixture.home_team, fixture.away_team)}
+          ${nflSplitCard("Team Points", p.points, fixture.home_team, fixture.away_team, "points")}
+          ${nflSplitCard("Passing TDs", p.passing_tds, fixture.home_team, fixture.away_team, "passing_tds")}
+          ${nflSplitCard("Rushing TDs", p.rushing_tds, fixture.home_team, fixture.away_team, "rushing_tds")}
+          ${nflSplitCard("Passing Yards", p.passing_yards, fixture.home_team, fixture.away_team, "passing_yards")}
+          ${nflSplitCard("Rushing Yards", p.rushing_yards, fixture.home_team, fixture.away_team, "rushing_yards")}
         </div>
         ${nflSeasonLeadersBlock(fixture)}
         ${nflStandingsBlock(fixture)}
@@ -2444,7 +2517,7 @@
     mainEl.innerHTML = freshnessChip + toggle + groups.map(g => `
       <div class="date-group">
         <div class="date-label">${fmtDate(g.date)}</div>
-        ${g.items.map(fixtureCard).join("")}
+        ${g.items.map(fx => fixtureCard(fx, undefined, league.league_name)).join("")}
       </div>
     `).join("");
     attachToggleHandler();
