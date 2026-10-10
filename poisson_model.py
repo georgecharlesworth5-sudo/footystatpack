@@ -61,6 +61,22 @@ MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - 
 MODEL_VERSION = "v2"
 FORM_SHRINKAGE = 0.7
 
+# Match result (home/draw/away) uses its own, lighter shrinkage.
+#
+# Replayed on ~3,200 matches (Nov 2025 onward, nine leagues, form rebuilt
+# from only the games played before each one), 0.7 left the model too
+# cautious on strong favourites: when it said 55-60% the favourite won
+# ~63%, and when it said 60-70% they won ~74%. Match-result log loss is
+# lowest around 0.5, and at 0.5 the favourite buckets line up with what
+# actually happened (stated 57% -> actual 58.5%, 62% -> 61.5%, 67% -> 70%).
+#
+# This applies to the home/draw/away probabilities ONLY (and so to the
+# team-win picks built from them). Goals over/under, BTTS and the team
+# goal lines stay on FORM_SHRINKAGE: the same replay showed those markets
+# score best at 0.7-0.8, and at 0.5 their high-confidence (85%+) picks
+# would state ~88% and land ~82% - the overconfidence v2 was built to fix.
+MATCH_RESULT_SHRINKAGE = 0.5
+
 # (metric, level) -> alpha. level: "total" | "home" | "away".
 NB_ALPHA = {
     ("goals", "total"): 0.0, ("goals", "home"): 0.0, ("goals", "away"): 0.012,
@@ -137,14 +153,20 @@ def strengths(team_for_avg: float, team_against_avg: float, league_for_avg: floa
     return {"attack": round(attack, 3), "defense": round(defense, 3)}
 
 
-def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: str) -> tuple[float, float]:
+def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: str,
+                    shrinkage: float | None = None) -> tuple[float, float]:
     """
     Compute (lambda_home, lambda_away) for one metric ("goals", "corners",
     or "cards") given home team's home-form, away team's away-form, and
     league averages. For "goals" specifically, both the team-form figures
     and the league baseline are blended with xG where available (see
     XG_BLEND_WEIGHT above) - everything else is untouched.
+
+    shrinkage: how far to pull toward the league average. Defaults to
+    FORM_SHRINKAGE; match_result passes MATCH_RESULT_SHRINKAGE.
     """
+    if shrinkage is None:
+        shrinkage = FORM_SHRINKAGE
     for_key = f"{metric}_for"
     against_key = f"{metric}_against"
 
@@ -179,8 +201,8 @@ def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: 
     lam_away = league_away_avg * away_attack * home_defense
 
     # Pull toward the league average (see FORM_SHRINKAGE).
-    lam_home = (1 - FORM_SHRINKAGE) * lam_home + FORM_SHRINKAGE * league_home_avg
-    lam_away = (1 - FORM_SHRINKAGE) * lam_away + FORM_SHRINKAGE * league_away_avg
+    lam_home = (1 - shrinkage) * lam_home + shrinkage * league_home_avg
+    lam_away = (1 - shrinkage) * lam_away + shrinkage * league_away_avg
 
     return round(lam_home, 3), round(lam_away, 3)
 
@@ -273,7 +295,12 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
             market["btts_yes"] = round(p_home_scores * p_away_scores, 3)
             market["btts_no"] = round(1 - p_home_scores * p_away_scores, 3)
 
-            market["match_result"] = match_result(lam_home, lam_away)
+            # Match result uses its own lighter shrinkage (see
+            # MATCH_RESULT_SHRINKAGE) - everything else on this card keeps
+            # lam_home / lam_away from FORM_SHRINKAGE above.
+            res_home, res_away = expected_values(
+                home_form, away_form, league_avg, "goals", MATCH_RESULT_SHRINKAGE)
+            market["match_result"] = match_result(res_home, res_away)
 
         result[metric] = market
 
