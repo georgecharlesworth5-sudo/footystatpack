@@ -36,9 +36,12 @@ from __future__ import annotations
 
 import argparse
 import csv
+import http.cookiejar
 import json
 import re
+import shutil
 import statistics
+import subprocess
 import sys
 import time
 import urllib.error
@@ -115,18 +118,20 @@ def classify_type(rest: str, code: str) -> str:
         return "Handicap"
     if "mdn" in r:
         return "Maiden"
-    if "nov" in r:
-        return "Novice"
+    if "nov" in r or re.search(r"\b(beg|grad|intro)", r):
+        return "Novice"      # novice, beginners', graduation and introductory races
     if "juv" in r:
         return "Juvenile"
     if re.search(r"\b(sell|clm|claim)", r):
         return "Selling/Claiming"
-    if "hunt" in r:
+    if re.search(r"\bh[u]?nt\b", r):
         return "Hunters"
     if code == "bumper":
         return "Bumper"
     if "class" in r or "cond" in r:
         return "Conditions/Class"
+    if re.fullmatch(r"(stks|hrd|chs)", r.strip()):
+        return "Conditions/Class"   # plain stakes / hurdle / chase with no other label
     return "Other"
 
 
@@ -268,21 +273,60 @@ def _note(kind: str, detail: str) -> None:
         print(f"  first '{kind}': {detail}")
 
 
+LISTING_URL = "https://promo.betfair.com/betfairsp/prices"
+BROWSER_UA = ("Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 "
+              "(KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1")
+BROWSER_HEADERS = {
+    "User-Agent": BROWSER_UA,
+    "Accept": "text/html,application/xhtml+xml,text/csv,text/plain,*/*;q=0.8",
+    "Accept-Language": "en-GB,en;q=0.9",
+    "Referer": LISTING_URL,
+}
+_OPENER = None
+
+
+def _opener():
+    """A urllib opener that keeps cookies, after first visiting the page
+    that lists the files (the way a browser would)."""
+    global _OPENER
+    if _OPENER is None:
+        jar = http.cookiejar.CookieJar()
+        _OPENER = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+        try:
+            _OPENER.open(urllib.request.Request(LISTING_URL, headers=BROWSER_HEADERS), timeout=60).read(2000)
+            print(f"  visited listing page, {len(jar)} cookie(s) received")
+        except Exception as e:
+            print(f"  listing page visit failed: {e}")
+    return _OPENER
+
+
+def _curl_get(url: str):
+    """Second attempt using the curl command line tool if it is installed
+    (it makes requests differently to Python). Returns (status, body) or
+    None when curl isn't available."""
+    if not shutil.which("curl"):
+        return None
+    try:
+        r = subprocess.run(
+            ["curl", "-sS", "-L", "--max-time", "60", "-A", BROWSER_UA, "-e", LISTING_URL,
+             "-H", "Accept-Language: en-GB,en;q=0.9", "-w", "\n%{http_code}", url],
+            capture_output=True, text=True, timeout=90)
+    except Exception:
+        return None
+    body, _, code = r.stdout.rpartition("\n")
+    return (int(code) if code.strip().isdigit() else 0), body
+
+
 def download(file_date: date) -> str | None:
     """Returns the file text, "" when Betfair says there is no file for that
     day (404), or None when the download failed or was refused (403, network
     trouble) and should be retried next run."""
     url = BASE_URL.format(d=file_date.strftime("%d%m%Y"))
-    req = urllib.request.Request(url, headers={
-        "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
-        "Accept": "text/csv,text/plain,*/*",
-        "Referer": "https://promo.betfair.com/betfairsp/prices",
-    })
+    req = urllib.request.Request(url, headers=BROWSER_HEADERS)
     err = "unknown"
     for attempt in range(3):
         try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
+            with _opener().open(req, timeout=60) as resp:
                 text = resp.read().decode("utf-8", errors="replace")
                 _note("ok" if text.strip() else "empty file", f"{url} -> HTTP {resp.status}, {len(text)} bytes")
                 return text
@@ -292,12 +336,23 @@ def download(file_date: date) -> str | None:
                 return ""
             err = f"HTTP {e.code}"
             if e.code == 403:
-                _note("403 refused", url)
-                return None
+                break          # retrying the same request won't help
         except Exception as e:  # network blips
             err = str(e)
         time.sleep(2 * (attempt + 1))
-    _note("failed", f"{url} ({err})")
+
+    # Python's request was refused: try curl, which some sites treat differently.
+    got = _curl_get(url)
+    if got is not None:
+        status, body = got
+        if status == 200 and body.strip():
+            _note("ok via curl", f"{url} -> HTTP 200, {len(body)} bytes")
+            return body
+        if status == 404:
+            _note("404 no file", url)
+            return ""
+        err += f"; curl status {status}"
+    _note("403 refused" if "403" in err else "failed", f"{url} ({err})")
     return None
 
 
@@ -406,6 +461,19 @@ def price_band(bsp: float) -> str:
     return "16+"
 
 
+FAV_ORDER = ["Under 2.0", "2.0-3.0", "3.0-5.0", "5.0+"]
+
+
+def fav_band(bsp: float) -> str:
+    if bsp < 2.0:
+        return "Under 2.0"
+    if bsp < 3.0:
+        return "2.0-3.0"
+    if bsp < 5.0:
+        return "3.0-5.0"
+    return "5.0+"
+
+
 DIST_ORDER = {
     "flat": ["Sprint (5-6f)", "7f-1m1f", "1m2f-1m5f", "1m6f+", "Unknown"],
     "jumps": ["Up to 2m1f", "2m2f-2m5f", "2m6f-3m1f", "3m2f+", "Unknown"],
@@ -433,6 +501,7 @@ def stats(races: list[dict]) -> dict:
         "top3": round(100 * top3 / n, 1),
         "favp": round(statistics.mean(float(r["fav_bsp"]) for r in races), 2),
         "medw": round(statistics.median(float(r["win_bsp"]) for r in races), 1),
+        "avgw": round(statistics.mean(float(r["win_bsp"]) for r in races), 1),
     }
 
 
@@ -465,7 +534,21 @@ def window_summary(races: list[dict], group: str, with_courses: bool) -> dict:
         "by_dist": breakdown(races, lambda r: dist_band(r["code"], r["furlongs"]), DIST_ORDER[group]),
         "by_field": breakdown(races, lambda r: field_band(int(r["runners"])), FIELD_ORDER),
         "winner_price": winners_by_price(races),
+        "by_favprice": breakdown(races, lambda r: fav_band(float(r["fav_bsp"])), FAV_ORDER),
     }
+    # The same breakdowns restricted to races where the favourite was
+    # priced in each band, so the dashboard can filter by favourite's price.
+    filtered = {}
+    for band in FAV_ORDER:
+        sub = [r for r in races if fav_band(float(r["fav_bsp"])) == band]
+        filtered[band] = {
+            "overall": stats(sub),
+            "by_code": breakdown(sub, lambda r: r["code"], None),
+            "by_type": breakdown(sub, lambda r: r["rtype"]),
+            "by_dist": breakdown(sub, lambda r: dist_band(r["code"], r["furlongs"]), DIST_ORDER[group]),
+            "by_field": breakdown(sub, lambda r: field_band(int(r["runners"])), FIELD_ORDER),
+        }
+    out["filtered"] = filtered
     by_course: dict[str, list[dict]] = defaultdict(list)
     for r in races:
         by_course[r["course"]].append(r)
@@ -477,6 +560,7 @@ def window_summary(races: list[dict], group: str, with_courses: bool) -> dict:
             entry["by_dist"] = breakdown(rs, lambda r: dist_band(r["code"], r["furlongs"]), DIST_ORDER[group])
             entry["by_field"] = breakdown(rs, lambda r: field_band(int(r["runners"])), FIELD_ORDER)
             entry["by_code"] = breakdown(rs, lambda r: r["code"], None)
+            entry["by_favprice"] = breakdown(rs, lambda r: fav_band(float(r["fav_bsp"])), FAV_ORDER)
         courses[name] = entry
     out["courses"] = courses
     return out
@@ -518,6 +602,22 @@ def write_js(summary: dict) -> None:
     print(f"Wrote {OUT_JS.name} ({OUT_JS.stat().st_size // 1024} KB).")
 
 
+def reclassify(races: dict[str, dict]) -> int:
+    """Re-derives code, race type and season from the stored race name, so
+    improvements to the classifier apply to history without re-downloading.
+    Returns how many rows changed."""
+    changed = 0
+    for r in races.values():
+        _, rest = parse_event_name(r["race_name"])
+        code = classify_code(rest)
+        rtype = classify_type(rest, code)
+        season = season_of(date.fromisoformat(r["date"]), group_of(code))
+        if (r["code"], r["rtype"], r["season"]) != (code, rtype, season):
+            r["code"], r["rtype"], r["season"] = code, rtype, season
+            changed += 1
+    return changed
+
+
 def label_report(races: dict[str, dict]) -> None:
     """Prints how many races landed in 'Other' and the most common labels
     there, so any race description the classifier doesn't know shows up in
@@ -551,6 +651,10 @@ def main() -> int:
     if not races:
         print("No races stored - nothing to summarise. (Check the download log above.)")
         return 1
+    changed = reclassify(races)
+    if changed:
+        print(f"Reclassified {changed} stored race(s) with the latest rules.")
+        save_races(races)
     label_report(races)
     write_js(build_summary(races))
     return 0
