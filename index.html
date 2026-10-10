@@ -1721,6 +1721,7 @@
   let racingWindow = "all";
   let racingCourse = "";
   let racingCourseSort = "races";
+  let racingFavBand = "";
   try {
     const sv = localStorage.getItem("racingCode");
     if (sv === "flat" || sv === "jumps") racingCode = sv;
@@ -1740,6 +1741,20 @@
       <div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">Fav wins</span><span class="tr-be-odds">Fav ROI</span><span class="tr-be-odds tr-be-safe">Top 3</span></div>${rows}`;
   }
 
+  // Average / median winning price per group (e.g. per race type).
+  function racingPriceRows(items, titleName) {
+    if (!items || !items.length) return "";
+    const rows = items.map(m => `<div class="tr-be-row">
+      <span class="tr-be-label">${escAttr(m.name)}${m.n < 30 ? ' <span class="tr-chip-n">small sample</span>' : ""}</span>
+      <span class="tr-be-hit"><b>${m.avgw.toFixed(1)}</b></span>
+      <span class="tr-be-odds">${m.medw.toFixed(1)}</span>
+      <span class="tr-be-odds tr-be-safe">${m.n}</span>
+    </div>`).join("");
+    return `<div class="tr-section-title">${titleName}</div>
+      <div class="tr-note">Betfair Starting Price of the winner. The average is pulled up by the odd big-priced winner, so the median (the typical winner) is shown too.</div>
+      <div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">Average</span><span class="tr-be-odds">Median</span><span class="tr-be-odds tr-be-safe">Races</span></div>${rows}`;
+  }
+
   function racingHeadline(o) {
     if (!o || !o.n) return `<div class="empty">No races in this selection.</div>`;
     const chip = (label, val, cls) => `<div class="tr-category-chip"><span>${label}</span><span class="${cls || ""}"><b>${val}</b></span></div>`;
@@ -1752,6 +1767,7 @@
         ${chip("Favourite ROI", (o.roi > 0 ? "+" : "") + o.roi + "%", racingRoiClass(o.roi, o.n))}
         ${chip("Winner in top 3", o.top3 + "%")}
         ${chip("Avg favourite price", o.favp.toFixed(2))}
+        ${chip("Average winner price", o.avgw.toFixed(1))}
         ${chip("Median winner price", o.medw.toFixed(1))}
       </div></div>`;
   }
@@ -1773,6 +1789,8 @@
     const windows = [["all", `Last ${code.seasons.length} seasons`], ...code.seasons.map(s => [s, seasonLabel(s)])];
     const windowToggle = `<div class="tr-sport-toggle">${windows
       .map(([k, n]) => `<a data-rc-win="${k}" class="${racingWindow === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
+    const favToggle = `<div class="tr-sport-toggle" style="flex-wrap:wrap"><span class="tr-chip-n" style="align-self:center;margin-right:6px">Favourite priced:</span>${[["", "Any"], ...["Under 2.0", "2.0-3.0", "3.0-5.0", "5.0+"].map(b => [b, b])]
+      .map(([k, n]) => `<a data-rc-fb="${k}" class="${racingFavBand === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
     const courseSelect = `<div class="window-toggle"><select id="rcCourse" style="font:inherit;color:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:0;padding:8px;max-width:100%">
       <option value="">All courses</option>
       ${courseNames.map(c => `<option value="${escAttr(c)}"${c === racingCourse ? " selected" : ""}>${escAttr(c)} (${code.windows.all.courses[c].overall.n})</option>`).join("")}
@@ -1799,11 +1817,15 @@
         <span class="tr-be-odds ${racingRoiClass(c.roi, c.n)}"><b>${c.roi > 0 ? "+" : ""}${c.roi}%</b></span>
         <span class="tr-be-odds tr-be-safe">${c.top3}%</span>
       </div>`).join("");
-      body = racingHeadline(win.overall)
-        + (code.label === "Jumps" ? racingRows(win.by_code.map(m => ({ ...m, name: { hurdle: "Hurdles", chase: "Chases", bumper: "Bumpers (NH Flat)" }[m.name] || m.name })), "By type of race: hurdle, chase or bumper") : "")
-        + racingRows(win.by_type, "By race type")
-        + racingRows(win.by_dist, "By distance")
-        + racingRows(win.by_field, "By field size")
+      const view = racingFavBand && win.filtered && win.filtered[racingFavBand] ? win.filtered[racingFavBand] : win;
+      const filterNote = view === win ? "" : `<div class="tr-note">Showing only races where the favourite's Betfair price was <b>${racingFavBand}</b>. The winner-price split and course guide below the tables use all prices.</div>`;
+      body = filterNote + racingHeadline(view.overall)
+        + (code.label === "Jumps" ? racingRows(view.by_code.map(m => ({ ...m, name: { hurdle: "Hurdles", chase: "Chases", bumper: "Bumpers (NH Flat)" }[m.name] || m.name })), "By type of race: hurdle, chase or bumper") : "")
+        + (view === win ? racingRows(win.by_favprice, "By the favourite's price") : "")
+        + racingRows(view.by_type, "By race type")
+        + racingPriceRows(view.by_type, "Winning price by race type")
+        + racingRows(view.by_dist, "By distance")
+        + racingRows(view.by_field, "By field size")
         + (win.winner_price.length ? `<div class="tr-section-title">Where winners come from</div>
             <div class="tr-note">Share of all races won by a horse at each Betfair price.</div>` + win.winner_price.map(b => trBarRow(escAttr(b.name), b.n, win.overall.n, Math.round(b.share), "")).join("") : "")
         + extremes
@@ -1815,20 +1837,23 @@
       const c = win.courses[racingCourse];
       const detail = racingWindow === "all"
         ? (code.label === "Jumps" ? racingRows((c.by_code || []).map(m => ({ ...m, name: { hurdle: "Hurdles", chase: "Chases", bumper: "Bumpers (NH Flat)" }[m.name] || m.name })), "Hurdle, chase or bumper") : "")
-          + racingRows(c.by_type, "By race type") + racingRows(c.by_dist, "By distance") + racingRows(c.by_field, "By field size")
+          + racingRows(c.by_favprice, "By the favourite's price")
+          + racingRows(c.by_type, "By race type") + racingPriceRows(c.by_type, "Winning price by race type")
+          + racingRows(c.by_dist, "By distance") + racingRows(c.by_field, "By field size")
         : `<div class="tr-note">Pick "Last ${code.seasons.length} seasons" for this course's split by race type, distance and field size - single seasons only show the headline, as the samples get thin.</div>`;
       const all = code.windows.all.courses[racingCourse].overall;
       const compare = `<div class="tr-note">Whole ${code.label} average: favourites win <b>${win.overall.fav}%</b> (ROI ${win.overall.roi > 0 ? "+" : ""}${win.overall.roi}%). ${escAttr(racingCourse)}: <b>${c.overall.fav}%</b> (ROI ${c.overall.roi > 0 ? "+" : ""}${c.overall.roi}%).</div>`;
       body = `<div class="tr-section-title">${escAttr(racingCourse)}</div>` + racingHeadline(c.overall) + compare + detail;
     }
 
-    mainEl.innerHTML = codeToggle + windowToggle + intro + courseSelect + body;
+    mainEl.innerHTML = codeToggle + windowToggle + (racingCourse ? "" : favToggle) + intro + courseSelect + body;
 
     mainEl.querySelectorAll("[data-rc-code]").forEach(a => a.addEventListener("click", () => {
       racingCode = a.dataset.rcCode; racingWindow = "all"; racingCourse = "";
       try { localStorage.setItem("racingCode", racingCode); } catch (e) {}
       renderRacing();
     }));
+    mainEl.querySelectorAll("[data-rc-fb]").forEach(a => a.addEventListener("click", () => { racingFavBand = a.dataset.rcFb; renderRacing(); }));
     mainEl.querySelectorAll("[data-rc-win]").forEach(a => a.addEventListener("click", () => { racingWindow = a.dataset.rcWin; renderRacing(); }));
     mainEl.querySelectorAll("[data-rc-sort]").forEach(a => a.addEventListener("click", () => { racingCourseSort = a.dataset.rcSort; renderRacing(); }));
     mainEl.querySelectorAll("[data-rc-course]").forEach(a => a.addEventListener("click", () => { racingCourse = a.dataset.rcCourse; renderRacing(); window.scrollTo(0, 0); }));
