@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Footy Stat Pack</title>
+<title>Stat Pack</title>
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -87,6 +87,12 @@
 
   /* ---------- League tabs ---------- */
   .tabs {
+    /* Stays pinned to the top of the screen while the page scrolls, so any
+       tab is one tap away however far down a long list you are. */
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: var(--bg);
     display: flex;
     gap: 2px;
     max-width: 920px;
@@ -797,7 +803,7 @@
 <body>
 
   <header>
-    <h1>Footy Stat Pack</h1>
+    <h1>Stat Pack</h1>
   </header>
 
   <nav class="tabs" id="tabs"></nav>
@@ -1026,6 +1032,12 @@
       tabsEl.appendChild(nflBtn);
     }
 
+    const raceBtn = document.createElement("button");
+    raceBtn.className = "tab" + (activeLeague === RACING ? " active" : "");
+    raceBtn.innerHTML = "Racing";
+    raceBtn.addEventListener("click", () => { activeLeague = RACING; footballMenuOpen = false; render(); });
+    tabsEl.appendChild(raceBtn);
+
     const bbBtn = document.createElement("button");
     bbBtn.className = "tab" + (activeLeague === BEST_BETS ? " active" : "");
     bbBtn.innerHTML = "★ Best Bets";
@@ -1053,12 +1065,6 @@
       mcBtn.addEventListener("click", () => { activeLeague = MODEL_CHECK; footballMenuOpen = false; render(); });
       tabsEl.appendChild(mcBtn);
     }
-
-    const raceBtn = document.createElement("button");
-    raceBtn.className = "tab" + (activeLeague === RACING ? " active" : "");
-    raceBtn.innerHTML = "Racing";
-    raceBtn.addEventListener("click", () => { activeLeague = RACING; footballMenuOpen = false; render(); });
-    tabsEl.appendChild(raceBtn);
   }
 
   function metricBlock(title, m, homeTeam, awayTeam) {
@@ -2330,8 +2336,30 @@
     `).join("");
   }
 
+  let lastRenderedView = null;
+
   function render() {
     buildTabs();
+
+    // Because the tab bar is pinned, switching page while scrolled far down
+    // would leave you part-way down the new page. When the page changes,
+    // jump back so the new page starts just under the tab bar (the header
+    // above it is left out of view). In-page toggles don't change the
+    // view, so they never move the scroll position.
+    if (lastRenderedView !== null && lastRenderedView !== activeLeague) {
+      const top = document.querySelector("header").offsetHeight;   // where the tab bar sits unstuck
+      if (window.scrollY > top) window.scrollTo(0, top);
+    }
+    lastRenderedView = activeLeague;
+
+    // Keep the active tab visible in the (horizontally scrolling) tab bar.
+    const activeTab = tabsEl.querySelector(".tab.active");
+    if (activeTab) {
+      const left = activeTab.offsetLeft, right = left + activeTab.offsetWidth;
+      if (left < tabsEl.scrollLeft || right > tabsEl.scrollLeft + tabsEl.clientWidth) {
+        tabsEl.scrollLeft = Math.max(0, left - 20);
+      }
+    }
 
     if (activeLeague === BEST_BETS) {
       renderBestBets();
