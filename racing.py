@@ -256,23 +256,48 @@ def save_done(done: set[str]) -> None:
     DONE_FILE.write_text("\n".join(sorted(done)) + "\n")
 
 
+STATUS_COUNTS: dict[str, int] = defaultdict(int)
+_SHOWN: set[str] = set()
+
+
+def _note(kind: str, detail: str) -> None:
+    """Counts outcomes and prints the first example of each kind."""
+    STATUS_COUNTS[kind] += 1
+    if kind not in _SHOWN:
+        _SHOWN.add(kind)
+        print(f"  first '{kind}': {detail}")
+
+
 def download(file_date: date) -> str | None:
-    """Returns the file text, "" when there's no file for that day (404),
-    or None when the download failed and should be retried next run."""
+    """Returns the file text, "" when Betfair says there is no file for that
+    day (404), or None when the download failed or was refused (403, network
+    trouble) and should be retried next run."""
     url = BASE_URL.format(d=file_date.strftime("%d%m%Y"))
-    req = urllib.request.Request(url, headers={"User-Agent": "footystatpack-racing/1.0"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
+        "Accept": "text/csv,text/plain,*/*",
+        "Referer": "https://promo.betfair.com/betfairsp/prices",
+    })
+    err = "unknown"
     for attempt in range(3):
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
-                return resp.read().decode("utf-8", errors="replace")
+                text = resp.read().decode("utf-8", errors="replace")
+                _note("ok" if text.strip() else "empty file", f"{url} -> HTTP {resp.status}, {len(text)} bytes")
+                return text
         except urllib.error.HTTPError as e:
-            if e.code in (403, 404):
+            if e.code == 404:
+                _note("404 no file", url)
                 return ""
             err = f"HTTP {e.code}"
+            if e.code == 403:
+                _note("403 refused", url)
+                return None
         except Exception as e:  # network blips
             err = str(e)
         time.sleep(2 * (attempt + 1))
-    print(f"  {file_date}: gave up ({err})")
+    _note("failed", f"{url} ({err})")
     return None
 
 
@@ -301,12 +326,22 @@ def update(start: date, end: date, from_dir: Path | None) -> None:
     for i, fd in enumerate(todo, 1):
         text = read_local(from_dir, fd) if from_dir else download(fd)
         if text is None:
+            if (not from_dir and i == 10 and fetched_ok == 0):
+                print("The first 10 downloads all failed - stopping early. "
+                      f"Outcomes so far: {dict(STATUS_COUNTS)}")
+                raise SystemExit(1)
             continue
         fetched_ok += 1
         # A missing file for a recent day may just not be published yet.
         if text or fd < recent_cutoff:
             done.add(fd.isoformat())
-        for r in parse_file(text) if text else []:
+        parsed = parse_file(text) if text.strip() else []
+        if text.strip() and not parsed and "no races parsed" not in _SHOWN:
+            _SHOWN.add("no races parsed")
+            lines = text.splitlines()
+            print(f"  file for {fd} has {len(lines)} line(s) but no usable races. "
+                  f"Start of file: {text[:300]!r}")
+        for r in parsed:
             if r["event_id"] not in races:
                 added += 1
             races[r["event_id"]] = r
@@ -320,6 +355,8 @@ def update(start: date, end: date, from_dir: Path | None) -> None:
     save_races(races)
     save_done(done)
     print(f"Done: {fetched_ok}/{len(todo)} files read, {added} new race(s), {len(races)} total.")
+    if STATUS_COUNTS:
+        print(f"Download outcomes: {dict(STATUS_COUNTS)}")
 
 
 # -------------------------------------------------------------- aggregation
