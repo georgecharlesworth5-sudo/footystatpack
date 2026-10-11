@@ -66,7 +66,7 @@ COLUMNS = [
     "event_id", "date", "time", "course", "race_name", "code", "rtype",
     "furlongs", "runners", "winners", "fav_bsp", "fav_morning", "fav_won",
     "win_bsp", "win_morning", "win_rank", "steam_bsp", "steam_ratio",
-    "steam_won", "season",
+    "steam_won", "season", "sec_bsp", "third_bsp",
 ]
 
 
@@ -214,6 +214,8 @@ def race_row(rows: list[dict]):
         "steam_ratio": steam_ratio,
         "steam_won": steam_won,
         "season": season_of(when.date(), group_of(code)),
+        "sec_bsp": round(runners[1]["_bsp"], 2),
+        "third_bsp": round(runners[2]["_bsp"], 2) if len(runners) >= 3 else "",
     }
 
 
@@ -361,7 +363,7 @@ def read_local(directory: Path, file_date: date) -> str | None:
     return p.read_text(errors="replace") if p.exists() else ""
 
 
-def update(start: date, end: date, from_dir: Path | None) -> None:
+def update(start: date, end: date, from_dir: Path | None, refetch: bool = False) -> None:
     races = load_races()
     done = load_done()
     recent_cutoff = end - timedelta(days=REFETCH_RECENT_DAYS)
@@ -372,7 +374,7 @@ def update(start: date, end: date, from_dir: Path | None) -> None:
     while d <= end + timedelta(days=1):
         if d > date.today():
             break
-        if d.isoformat() not in done or d >= recent_cutoff:
+        if refetch or d.isoformat() not in done or d >= recent_cutoff:
             todo.append(d)
         d += timedelta(days=1)
 
@@ -526,6 +528,72 @@ def winners_by_price(races: list[dict]) -> list[dict]:
             for b in PRICE_ORDER if n and groups.get(b)]
 
 
+SEC_ORDER = ["Under 3.0", "3.0-4.0", "4.0-6.0", "6.0-10", "10+"]
+
+
+def sec_band(bsp: float) -> str:
+    if bsp < 3.0:
+        return "Under 3.0"
+    if bsp < 4.0:
+        return "3.0-4.0"
+    if bsp < 6.0:
+        return "4.0-6.0"
+    if bsp < 10.0:
+        return "6.0-10"
+    return "10+"
+
+
+def second_stats(races: list[dict]) -> dict:
+    """Backing the second favourite in every race of the group: how often it
+    won, the return at BSP (5% commission), its average price, and the
+    average price it won at."""
+    n = len(races)
+    if not n:
+        return {"n": 0}
+    won = [r for r in races if int(r["win_rank"]) == 2]
+    profit = sum(((float(r["sec_bsp"]) - 1) * (1 - COMMISSION)) if int(r["win_rank"]) == 2 else -1 for r in races)
+    return {
+        "n": n,
+        "fav": round(100 * len(won) / n, 1),          # "fav" = win rate, same field name as the favourite tables
+        "roi": round(100 * profit / n, 1),
+        "top3": round(100 * sum(1 for r in races if int(r["win_rank"]) <= 3) / n, 1),
+        "favp": round(statistics.mean(float(r["sec_bsp"]) for r in races), 2),
+        "medw": round(statistics.median(float(r["sec_bsp"]) for r in won), 1) if won else 0,
+        "avgw": round(statistics.mean(float(r["sec_bsp"]) for r in won), 1) if won else 0,
+    }
+
+
+def second_breakdown(races: list[dict], key, order=None) -> list[dict]:
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for r in races:
+        groups[key(r)].append(r)
+    names = order if order else sorted(groups, key=lambda k: -len(groups[k]))
+    return [{"name": name, **second_stats(groups[name])} for name in names if name in groups]
+
+
+def market_position(races: list[dict]) -> list[dict]:
+    """Which horse in the betting wins: favourite, 2nd, 3rd, 4th, 5th or
+    longer. ROI where the price of that position is stored."""
+    n = len(races)
+    if not n:
+        return []
+    out = []
+    labels = {1: "Favourite", 2: "2nd favourite", 3: "3rd favourite", 4: "4th favourite", 5: "5th or longer"}
+    price_key = {1: "fav_bsp", 2: "sec_bsp", 3: "third_bsp"}
+    for pos in range(1, 6):
+        wins = [r for r in races if (int(r["win_rank"]) == pos if pos < 5 else int(r["win_rank"]) >= 5)]
+        row = {"name": labels[pos], "n": len(wins), "share": round(100 * len(wins) / n, 1)}
+        key = price_key.get(pos)
+        if key:
+            priced = [r for r in races if r.get(key) not in ("", None)]
+            if priced and len(priced) >= 0.9 * n:
+                profit = sum(((float(r[key]) - 1) * (1 - COMMISSION)) if int(r["win_rank"]) == pos else -1 for r in priced)
+                row["roi"] = round(100 * profit / len(priced), 1)
+                row["avgp"] = round(statistics.mean(float(r[key]) for r in priced), 2)
+        out.append(row)
+    return out
+
+
 def window_summary(races: list[dict], group: str, with_courses: bool) -> dict:
     out = {
         "overall": stats(races),
@@ -549,6 +617,16 @@ def window_summary(races: list[dict], group: str, with_courses: bool) -> dict:
             "by_field": breakdown(sub, lambda r: field_band(int(r["runners"])), FIELD_ORDER),
         }
     out["filtered"] = filtered
+    out["market_position"] = market_position(races)
+    with_sec = [r for r in races if r.get("sec_bsp") not in ("", None)]
+    if races and len(with_sec) >= 0.9 * len(races):
+        out["second"] = {
+            "overall": second_stats(with_sec),
+            "by_type": second_breakdown(with_sec, lambda r: r["rtype"]),
+            "by_dist": second_breakdown(with_sec, lambda r: dist_band(r["code"], r["furlongs"]), DIST_ORDER[group]),
+            "by_field": second_breakdown(with_sec, lambda r: field_band(int(r["runners"])), FIELD_ORDER),
+            "by_price": second_breakdown(with_sec, lambda r: sec_band(float(r["sec_bsp"])), SEC_ORDER),
+        }
     by_course: dict[str, list[dict]] = defaultdict(list)
     for r in races:
         by_course[r["course"]].append(r)
@@ -564,6 +642,85 @@ def window_summary(races: list[dict], group: str, with_courses: bool) -> dict:
         courses[name] = entry
     out["courses"] = courses
     return out
+
+
+
+GUIDE_MIN = 60          # races needed before a segment gets its own rating
+GUIDE_SHRINK = 40       # pulls small segments toward their parent's rate
+
+
+def _guide_stats(rs: list[dict]) -> dict:
+    n = len(rs)
+    sec_rs = [r for r in rs if r.get("sec_bsp") not in ("", None)]
+    return {
+        "n": n,
+        "fav": sum(int(r["fav_won"]) for r in rs) / n,
+        "sec": (sum(1 for r in sec_rs if int(r["win_rank"]) == 2) / len(sec_rs)) if sec_rs else None,
+        "top3": sum(1 for r in rs if int(r["win_rank"]) <= 3) / n,
+    }
+
+
+def guide_tier(fav: float) -> str:
+    """How much the favourite can be trusted in this kind of race."""
+    if fav >= 0.45:
+        return "Strong"
+    if fav >= 0.35:
+        return "Good"
+    if fav >= 0.27:
+        return "Open"
+    return "Avoid"
+
+
+def build_guide(rows: list[dict]) -> dict:
+    """Race-profile ratings from the last SEASONS_SHOWN seasons of each code.
+
+    Segments are code x race type x field size, falling back to code x race
+    type and then code when a segment is small. Small segments are pulled
+    toward their parent's rate so a lucky run of 40 races doesn't top the
+    list. These describe how predictable a kind of race is, not value: the
+    price already reflects it (see the backtest in the dashboard notes)."""
+    kept = []
+    for group in ("flat", "jumps"):
+        mine = [r for r in rows if group_of(r["code"]) == group]
+        seasons = sorted({r["season"] for r in mine})[-SEASONS_SHOWN:]
+        kept += [r for r in mine if r["season"] in seasons]
+    rows = [r for r in kept if str(r.get("fav_won", "")) != "" and str(r.get("win_rank", "")) != ""]
+
+    by_code: dict = defaultdict(list)
+    by_ct: dict = defaultdict(list)
+    by_seg: dict = defaultdict(list)
+    for r in rows:
+        fb = field_band(int(r["runners"]))
+        by_code[r["code"]].append(r)
+        by_ct[(r["code"], r["rtype"])].append(r)
+        by_seg[(r["code"], r["rtype"], fb)].append(r)
+
+    code_st = {k: _guide_stats(v) for k, v in by_code.items()}
+    ct_st = {k: _guide_stats(v) for k, v in by_ct.items() if len(v) >= GUIDE_MIN}
+
+    def shrunk(st: dict, parent: dict) -> dict:
+        w = st["n"] / (st["n"] + GUIDE_SHRINK)
+        out = {"n": st["n"]}
+        for k in ("fav", "sec", "top3"):
+            if st[k] is None or parent[k] is None:
+                out[k] = st[k]
+            else:
+                out[k] = w * st[k] + (1 - w) * parent[k]
+        return out
+
+    def pack(st: dict) -> dict:
+        return {"n": st["n"], "fav": round(st["fav"] * 100), "sec": None if st["sec"] is None else round(st["sec"] * 100),
+                "top3": round(st["top3"] * 100), "tier": guide_tier(st["fav"])}
+
+    segs = {}
+    for (code, rtype, fb), rs in by_seg.items():
+        if len(rs) < GUIDE_MIN:
+            continue
+        parent = ct_st.get((code, rtype)) or code_st[code]
+        segs[f"{code}|{rtype}|{fb}"] = pack(shrunk(_guide_stats(rs), parent))
+    types = {f"{c}|{t}": pack(st) for (c, t), st in ct_st.items()}
+    codes = {c: pack(st) for c, st in code_st.items()}
+    return {"min_n": GUIDE_MIN, "segments": segs, "types": types, "codes": codes}
 
 
 def build_summary(races: dict[str, dict]) -> dict:
@@ -590,6 +747,7 @@ def build_summary(races: dict[str, dict]) -> dict:
         "source": "Betfair Starting Price files",
         "commission": COMMISSION,
         "races_stored": len(rows),
+        "guide": build_guide(rows),
         "codes": result,
     }
 
@@ -641,11 +799,14 @@ def main() -> int:
     ap.add_argument("--start", help="first race date to cover (YYYY-MM-DD)")
     ap.add_argument("--end", help="last race date (default yesterday)")
     ap.add_argument("--from-dir", help="read dwbfpricesukwin*.csv from this folder")
+    ap.add_argument("--refetch", action="store_true",
+                    help="download every file in range again, even ones already processed "
+                         "(needed once to add new fields to history)")
     args = ap.parse_args()
 
     start = date.fromisoformat(args.start) if args.start else DEFAULT_START
     end = date.fromisoformat(args.end) if args.end else date.today() - timedelta(days=1)
-    update(start, end, Path(args.from_dir) if args.from_dir else None)
+    update(start, end, Path(args.from_dir) if args.from_dir else None, args.refetch)
 
     races = load_races()
     if not races:
