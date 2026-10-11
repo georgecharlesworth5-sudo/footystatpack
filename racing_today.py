@@ -28,7 +28,16 @@ from zoneinfo import ZoneInfo
 
 URL = "https://www.sportinglife.com/api/horse-racing/racing/racecards/{day}"
 OUT_JS = Path(__file__).parent / "racing_today.js"
-UK_COUNTRIES = {"ENG", "SCO", "WAL", "NIR", "GB", "UK"}
+# The feed spells countries inconsistently ("Wale" for Wales, "Eire" for
+# Ireland), so match on the long name too.
+UK_SHORT = {"ENG", "SCO", "SCOT", "WAL", "WALE", "WLS", "NIR", "NI", "GB", "UK"}
+UK_LONG = {"england", "scotland", "wales", "northern ireland", "great britain", "united kingdom"}
+
+
+def is_uk(country: dict) -> bool:
+    short = (country.get("short_name") or "").strip().upper()
+    long_ = (country.get("long_name") or "").strip().lower()
+    return short in UK_SHORT or long_ in UK_LONG
 LONDON = ZoneInfo("Europe/London")
 UTC = ZoneInfo("UTC")
 
@@ -100,15 +109,17 @@ def meetings_from(payload):
     return payload or []
 
 
-def parse(payload, day: str):
+def parse(payload, day: str, skipped=None):
     races = []
+    skipped = skipped if skipped is not None else []
     for m in meetings_from(payload):
         if not isinstance(m, dict):
             continue
         ms = m.get("meeting_summary") or {}
         course = ms.get("course") or {}
-        country = ((course.get("country") or {}).get("short_name") or "").upper()
-        if country and country not in UK_COUNTRIES:
+        country = course.get("country") or {}
+        if country and not is_uk(country):
+            skipped.append(f"{course.get('name', '?')} ({country.get('long_name') or country.get('short_name')})")
             continue
         surface = (ms.get("surface_summary") or "").strip()
         for r in m.get("races") or []:
@@ -154,7 +165,9 @@ def main() -> int:
     except Exception as exc:  # noqa: BLE001 - report any failure, keep old file
         print(f"Could not read the racecard feed for {day}: {exc}")
         return 1
-    races = parse(payload, day)
+    skipped: list[str] = []
+    races = parse(payload, day, skipped)
+    print("Meetings skipped (not UK): " + (", ".join(skipped) or "none"))
     if args.debug:
         for r in races:
             print(r["time"], r["course"], "|", r["name"], "|", r["code"], r["rtype"], r["distance"], r["runners"], "runners")
