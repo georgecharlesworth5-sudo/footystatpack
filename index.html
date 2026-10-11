@@ -596,6 +596,17 @@
   .pct-add:hover { background: var(--surface); }
   .pct-add.in-slip { outline: 1px solid var(--green); border-bottom-color: transparent; }
   .pct-add.in-slip::after { content: " \2713"; font-size: 0.85em; color: var(--green); }
+  .rc-race { border-top: 1px solid var(--rule); padding: 9px 4px; }
+  .rc-race-top { display: flex; align-items: baseline; gap: 8px; }
+  .rc-time { font-weight: 700; min-width: 42px; }
+  .rc-course { font-weight: 600; flex: 1; }
+  .rc-tier { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; padding: 1px 6px; border: 1px solid var(--rule); }
+  .rc-tier-strong { color: var(--green); border-color: var(--green); font-weight: 700; }
+  .rc-tier-good { color: var(--green); }
+  .rc-tier-open { color: var(--meta); }
+  .rc-tier-avoid { color: var(--red); border-color: var(--red); font-weight: 700; }
+  .rc-race-sub { font-size: 12px; color: var(--ink-dim); margin: 2px 0 0 50px; }
+  .rc-race-stats { font-size: 12px; margin: 3px 0 0 50px; }
   .pct-hi { color: var(--green); }
   .pct-lo { color: var(--red); }
   .flag {
@@ -829,6 +840,7 @@
 <script src="bets_log.js"></script>
 <script src="nfl_statpack_data.js"></script>
 <script src="racing_data.js"></script>
+<script src="racing_today.js" onerror="void 0"></script>
 <script>
 (function () {
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0", "I1", "SP1", "D1", "F1", "MLS"];
@@ -1757,6 +1769,9 @@
   let racingCourse = "";
   let racingCourseSort = "races";
   let racingFavBand = "";
+  let racingView = "today";      // "today" or "history"
+  let racingTodayFilter = "";    // "", Strong, Good, Open, Avoid
+  let racingTodaySort = "time";
   try {
     const sv = localStorage.getItem("racingCode");
     if (sv === "flat" || sv === "jumps") racingCode = sv;
@@ -1841,7 +1856,98 @@
       </div></div>`;
   }
 
+  // ---- Today's races, matched to the race-profile ratings ----
+  const RC_TIER_ORDER = ["Strong", "Good", "Open", "Avoid"];
+  const RC_FIELD_BANDS = [[6, "6 or fewer"], [9, "7-9"], [12, "10-12"], [16, "13-16"], [999, "17+"]];
+  const rcFieldBand = n => RC_FIELD_BANDS.find(([max]) => n <= max)[1];
+
+  function racingViewToggle() {
+    return `<div class="tr-sport-toggle">${[["today", "Today's races"], ["history", "History"]]
+      .map(([k, n]) => `<a data-rc-view="${k}" class="${racingView === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
+  }
+  function bindRacingView() {
+    mainEl.querySelectorAll("[data-rc-view]").forEach(a => a.addEventListener("click", () => { racingView = a.dataset.rcView; renderRacing(); }));
+  }
+
+  // Finds the rating for one race: its exact kind (code x type x field
+  // size) if there is enough history, otherwise its type, otherwise its code.
+  function rcLookup(r) {
+    const g = RACING_DATA.guide;
+    if (!g) return null;
+    const seg = g.segments[`${r.code}|${r.rtype}|${rcFieldBand(r.runners)}`];
+    if (seg) return { ...seg, level: "kind" };
+    const ty = g.types[`${r.code}|${r.rtype}`];
+    if (ty) return { ...ty, level: "type" };
+    const cd = g.codes[r.code];
+    return cd ? { ...cd, level: "code" } : null;
+  }
+
+  function rcCourseNote(r) {
+    const grp = r.code === "flat" ? "flat" : "jumps";
+    const codeData = RACING_DATA.codes[grp];
+    if (!codeData) return "";
+    const courses = codeData.windows.all.courses;
+    const key = Object.keys(courses).find(c => c.toLowerCase() === r.course.toLowerCase());
+    if (!key) return "";
+    const c = courses[key].overall;
+    if (c.n < 100) return "";
+    return ` &middot; ${escAttr(key)} favs ${c.fav}% <span class="tr-chip-n">(${grp} avg ${codeData.windows.all.overall.fav}%)</span>`;
+  }
+
+  function renderRacingToday() {
+    const intro = `<div class="bb-intro">Today's UK races, each matched to how that kind of race (flat or jumps, race type and field size) has played out over the last 3 seasons. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
+    const cardOk = typeof RACING_TODAY !== "undefined" && RACING_TODAY.races && RACING_TODAY.races.length;
+    if (!cardOk || !RACING_DATA.guide) {
+      mainEl.innerHTML = racingViewToggle() + intro + `<div class="empty">${!RACING_DATA.guide ? "The race ratings aren't in racing_data.js yet." : "No racecard loaded yet."}<br>${!RACING_DATA.guide ? "Upload the latest racing_data.js." : "It's fetched each morning by the &quot;Update Today's Races&quot; workflow (or run racing_today.py)."}</div>`;
+      bindRacingView();
+      return;
+    }
+    const today = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
+    const stale = RACING_TODAY.date !== today
+      ? `<div class="tr-note"><b>This card is for ${RACING_TODAY.date}</b>, not today. It refreshes each morning.</div>` : "";
+    const rows = RACING_TODAY.races.map(r => ({ ...r, rate: rcLookup(r) })).filter(r => r.rate);
+    const counts = {};
+    rows.forEach(r => { counts[r.rate.tier] = (counts[r.rate.tier] || 0) + 1; });
+
+    const chips = `<div class="tr-sport-toggle" style="flex-wrap:wrap">${[["", `All (${rows.length})`], ...RC_TIER_ORDER.map(t => [t, `${t} (${counts[t] || 0})`])]
+      .map(([k, n]) => `<a data-rc-tf="${k}" class="${racingTodayFilter === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
+    const sorts = [["time", "Time"], ["fav", "Favourite %"], ["sec", "2nd fav %"], ["top3", "Top 3 %"]];
+    const sortLine = `<div class="window-toggle">Sort: ${sorts.map(([k, n]) => `<a class="sort-toggle-link" data-rc-ts="${k}"${racingTodaySort === k ? ' style="color:var(--ink);font-weight:700"' : ""}>${n}</a>`).join(" &middot; ")}</div>`;
+
+    const reliable = rows.filter(r => r.rate.level !== "code");
+    const top = (key, dir, n) => [...reliable].sort((a, b) => dir * ((b.rate[key] ?? -1) - (a.rate[key] ?? -1))).slice(0, n);
+    const li = (r, key) => `<b>${r.time}</b> ${escAttr(r.course)} <span class="tr-chip-n">${r.rate[key]}%</span>`;
+    const summary = rows.length >= 6 ? `<div class="tr-section-title">Today at a glance</div>
+      <div class="tr-note"><b>Favourite most likely:</b> ${top("fav", 1, 3).map(r => li(r, "fav")).join(" &middot; ")}<br>
+      <b>Winner most likely from the top 3 in the betting:</b> ${top("top3", 1, 3).map(r => li(r, "top3")).join(" &middot; ")}<br>
+      <b>Best for a 2nd favourite:</b> ${top("sec", 1, 3).map(r => li(r, "sec")).join(" &middot; ")} <span class="tr-chip-n">(weaker pattern)</span><br>
+      <b>Most open, treat with care:</b> ${top("fav", -1, 3).map(r => li(r, "fav")).join(" &middot; ")}</div>` : "";
+
+    let shown = rows.filter(r => !racingTodayFilter || r.rate.tier === racingTodayFilter);
+    if (racingTodaySort !== "time") shown = [...shown].sort((a, b) => (b.rate[racingTodaySort] ?? -1) - (a.rate[racingTodaySort] ?? -1));
+    const typeLabel = r => `${{ flat: "Flat", hurdle: "Hurdle", chase: "Chase", bumper: "Bumper" }[r.code]} ${r.rtype}`;
+    const list = shown.map(r => `<div class="rc-race">
+      <div class="rc-race-top"><span class="rc-time">${r.time}</span><span class="rc-course">${escAttr(r.course)}</span>
+        <span class="rc-tier rc-tier-${r.rate.tier.toLowerCase()}">${r.rate.tier}</span></div>
+      <div class="rc-race-sub">${escAttr(r.name)}<br>${typeLabel(r)} &middot; ${r.distance || "?"} &middot; ${r.runners} runners${r.going ? " &middot; " + escAttr(r.going) : ""}</div>
+      <div class="rc-race-stats">Fav wins <b>${r.rate.fav}%</b> &middot; 2nd fav <b>${r.rate.sec ?? "-"}%</b> &middot; winner in top 3 <b>${r.rate.top3}%</b>
+        <span class="tr-chip-n">(${r.rate.n} similar races${r.rate.level === "kind" ? "" : r.rate.level === "type" ? ", any field size" : ", broad average only"})</span>${rcCourseNote(r)}</div>
+    </div>`).join("");
+
+    mainEl.innerHTML = racingViewToggle() + intro + stale + chips + summary + sortLine
+      + (shown.length ? list : `<div class="empty">No races in this group today.</div>`)
+      + `<div class="tr-note">Card from Sporting Life, ${escAttr(RACING_TODAY.generated || "")} UK time. Field sizes are declared runners so far and can change. Race kinds and thresholds come from racing.py.</div>`;
+    bindRacingView();
+    mainEl.querySelectorAll("[data-rc-tf]").forEach(a => a.addEventListener("click", () => { racingTodayFilter = a.dataset.rcTf; renderRacingToday(); }));
+    mainEl.querySelectorAll("[data-rc-ts]").forEach(a => a.addEventListener("click", () => { racingTodaySort = a.dataset.rcTs; renderRacingToday(); }));
+  }
+
   function renderRacing() {
+    if (typeof RACING_DATA !== "undefined" && RACING_DATA.codes && racingView === "today") { renderRacingToday(); return; }
+    renderRacingHistory();
+  }
+
+  function renderRacingHistory() {
     if (typeof RACING_DATA === "undefined" || !RACING_DATA.codes) {
       mainEl.innerHTML = `<div class="empty">No racing data yet.<br>It is built by racing.py in the "Update Racing Guide" workflow. Run it once from the Actions tab to load the history, then it updates daily.</div>`;
       return;
@@ -1916,7 +2022,8 @@
       body = `<div class="tr-section-title">${escAttr(racingCourse)}</div>` + racingHeadline(c.overall) + compare + detail;
     }
 
-    mainEl.innerHTML = codeToggle + windowToggle + (racingCourse ? "" : favToggle) + intro + courseSelect + body;
+    mainEl.innerHTML = racingViewToggle() + codeToggle + windowToggle + (racingCourse ? "" : favToggle) + intro + courseSelect + body;
+    bindRacingView();
 
     mainEl.querySelectorAll("[data-rc-code]").forEach(a => a.addEventListener("click", () => {
       racingCode = a.dataset.rcCode; racingWindow = "all"; racingCourse = "";
