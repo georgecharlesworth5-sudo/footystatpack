@@ -1,0 +1,45 @@
+Probe for 2026-10-11, run 2026-10-12 09:23 UK
+UK races found: 4; probing up to 3
+List-level keys on a race: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
+
+=== race 942792: 12:47 Goodwood Alderbrook Handicap (Professional Jump Jockeys) (GBBPlus Race)
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
+race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
+race_stage=WEIGHEDIN winning_time=None result=None
+  pos=1 status=RUNNER Division Day betting={"favourite": {}, "current_odds": "22/1", "historical_odds": ["16/1", "18/1", "20/1"]}
+  pos=2 status=RUNNER Mr Freedom betting={"favourite": {"betting_favourite": "f"}, "current_odds": "11/4", "historical_odds": ["5/1", "9/2", "4/1", "7/2", "3/1"]}
+  pos=3 status=RUNNER Rogue Empire betting={"favourite": {}, "current_odds": "13/2", "historical_odds": ["17/2", "8/1", "15/2", "7/1"]}
+  pos=4 status=RUNNER Fair Dinkum betting={"favourite": {}, "current_odds": "40/1", "historical_odds": ["25/1", "28/1", "33/1"]}
+  pos=5 status=RUNNER Kotari betting={"favourite": {}, "current_odds": "12/1", "historical_odds": ["8/1", "17/2", "9/1", "17/2", "9/1", "10/1", "11/1"]}
+  pos=6 status=RUNNER Carthusian betting={"favourite": {}, "current_odds": "10/3", "historical_odds": ["11/4", "3/1"]}
+  pos=7 status=RUNNER Klycot betting={"favourite": {}, "current_odds": "5/1", "historical_odds": ["11/2"]}
+  pos=8 status=RUNNER Easter Icon betting={"favourite": {}, "current_odds": "125/1", "historical_odds": ["66/1", "80/1", "100/1", "80/1", "100/1", "125/1", "100/1", "125/1", "100/1"]}
+  pos=9 status=RUNNER Aggagio betting={"favourite": {}, "current_odds": "18/1", "historical_odds": ["14/1", "16/1", "14/1", "16/1"]}
+  pos=10 status=RUNNER Poncho betting={"favourite": {}, "current_odds": "25/1", "historical_odds": ["16/1", "14/1", "16/1", "14/1", "16/1", "14/1", "16/1", "18/1", "22/1", "22/1", "25/1"]}
+  pos=11 status=RUNNER Solar Pass betting={"favourite": {}, "current_odds": "9/1", "historical_odds": ["10/1", "9/1", "10/1"]}
+  pos=12 status=RUNNER Arc Zoosve betting={"favourite": {}, "current_odds": "10/1", "historical_odds": ["11/1", "12/1", "11/1", "12/1", "11/1", "12/1", "11/1", "12/1", "11/1"]}
+
+=== race 942793: 13:22 Goodwood Virgin Bet / British EBF Restricted Novice Stakes (GBB Race)
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, trifecta, videos
+race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
+race_stage=WEIGHEDIN winning_time=None result=None
+  pos=1 status=RUNNER Brynmair Gold betting={"favourite": {"betting_favourite": "f"}, "current_odds": "5/6", "historical_odds": ["5/4", "6/5", "5/4", "6/5", "11/10", "1/1", "10/11", "5/6", "4/5", "5/6", "4/5"]}
+  pos=2 status=RUNNER Cornichon betting={"favourite": {}, "current_odds": "5/2", "historical_odds": ["7/4", "15/8", "2/1", "85/40", "9/4"]}
+  pos=3 status=RUNNER War Chest betting={"favourite": {}, "current_odds": "7/2", "historical_odds": []}
+  pos=4 status=RUNNER Seasail betting={"favourite": {}, "current_odds": "28/1", "historical_odds": ["50/1", "33/1", "40/1", "33/1", "40/1", "33/1"]}
+  pos=5 status=RUNNER Binfluencer betting={"favourite": {}, "current_odds": "20/1", "historical_odds": ["20/1", "18/1", "20/1", "20/1", "18/1"]}
+  pos=6 status=RUNNER Angel Childe betting={"favourite": {}, "current_odds": "125/1", "historical_odds": ["66/1", "80/1", "66/1", "80/1", "100/1", "125/1", "100/1"]}
+  pos=7 status=RUNNER Dancingonthestars betting={"favourite": {}, "current_odds": "66/1", "historical_odds": ["50/1", "40/1", "40/1", "50/1", "40/1", "50/1", "40/1", "50/1", "40/1", "50/1", "66/1", "50/1", "66/1", "80/1", "66/1", "80/1"]}
+  pos=8 status=RUNNER At My Expense betting={"favourite": {}, "current_odds": "22/1", "historical_odds": ["33/1", "28/1", "25/1"]}
+
+=== race 942780: 12:27 Chepstow DragonBet / EBF Mares' 'National Hunt' Novices' Hurdle (GBB Race)
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, trifecta, videos
+race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
+race_stage=WEIGHEDIN winning_time=None result=None
+  pos=1 status=RUNNER Divine Diva betting={"favourite": {}, "current_odds": "7/1", "historical_odds": ["5/1", "9/2", "5/1", "11/2", "6/1", "13/2"]}
+  pos=2 status=RUNNER Princess Day betting={"favourite": {"betting_favourite": "f"}, "current_odds": "4/6", "historical_odds": ["8/11", "4/5", "5/6", "8/11"]}
+  pos=3 status=RUNNER Connells Cross betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["16/1", "14/1", "16/1", "14/1"]}
+  pos=4 status=RUNNER Walkinthemournes betting={"favourite": {}, "current_odds": "12/1", "historical_odds": ["12/1", "11/1"]}
+  pos=5 status=RUNNER Kamille Au Kanada betting={"favourite": {}, "current_odds": "10/3", "historical_odds": ["9/2", "4/1", "7/2", "10/3"]}
+  pos=0 status=RUNNER Bath Taverness betting={"favourite": {}, "current_odds": "100/1", "historical_odds": ["66/1", "80/1", "66/1", "80/1"]}
+  pos=0 status=RUNNER Midnight Doyen betting={"favourite": {}, "current_odds": "22/1", "historical_odds": ["25/1", "28/1", "25/1", "28/1", "25/1"]}
