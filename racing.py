@@ -38,6 +38,7 @@ import argparse
 import csv
 import http.cookiejar
 import json
+import math
 import re
 import shutil
 import statistics
@@ -660,6 +661,66 @@ def _guide_stats(rs: list[dict]) -> dict:
     }
 
 
+_LN0 = 2.3          # ln(10) - the field size the slope is centred on
+
+
+def _logit_fit(xs: list[float], ys: list[int], lam: float = 3.0) -> list[float]:
+    """Two-parameter logistic fit y ~ b0 + b1*(x-LN0), slope lightly
+    ridge-penalised. Pure Python (2x2 Newton) so it runs anywhere."""
+    p0 = min(max(sum(ys) / len(ys), 0.01), 0.99)
+    b0, b1 = math.log(p0 / (1 - p0)), 0.0
+    for _ in range(40):
+        g0 = g1 = h00 = h01 = h11 = 0.0
+        for x, y in zip(xs, ys):
+            z = x - _LN0
+            p = 1 / (1 + math.exp(-(b0 + b1 * z)))
+            w = p * (1 - p)
+            g0 += y - p
+            g1 += (y - p) * z
+            h00 += w
+            h01 += w * z
+            h11 += w * z * z
+        g1 -= lam * b1
+        h11 += lam
+        det = h00 * h11 - h01 * h01
+        if abs(det) < 1e-12:
+            break
+        d0 = (h11 * g0 - h01 * g1) / det
+        d1 = (h00 * g1 - h01 * g0) / det
+        b0 += d0
+        b1 += d1
+        if abs(d0) + abs(d1) < 1e-8:
+            break
+    return [round(b0, 4), round(b1, 4)]
+
+
+def _fit_targets(rs: list[dict]) -> dict:
+    xs = [math.log(min(max(int(r["runners"]), 2), 30)) for r in rs]
+    out = {"n": len(rs)}
+    out["fav"] = _logit_fit(xs, [int(r["fav_won"]) for r in rs])
+    out["top3"] = _logit_fit(xs, [1 if int(r["win_rank"]) <= 3 else 0 for r in rs])
+    sec = [(x, 1 if int(r["win_rank"]) == 2 else 0) for x, r in zip(xs, rs) if r.get("sec_bsp") not in ("", None)]
+    out["sec"] = _logit_fit([a for a, _ in sec], [b for _, b in sec]) if len(sec) >= 30 else None
+    return out
+
+
+def build_field_models(rows: list[dict]) -> dict:
+    """How each target (favourite wins, 2nd favourite wins, winner in the
+    top 3) moves with the exact field size, per code x race type. On held-out
+    seasons this beats the field-size bands; distance and course added
+    nothing on top, so they are not in the model."""
+    by_code: dict = defaultdict(list)
+    by_ct: dict = defaultdict(list)
+    for r in rows:
+        by_code[r["code"]].append(r)
+        by_ct[(r["code"], r["rtype"])].append(r)
+    models = {c: _fit_targets(v) for c, v in by_code.items()}
+    for (c, t), v in by_ct.items():
+        if len(v) >= 150:
+            models[f"{c}|{t}"] = _fit_targets(v)
+    return models
+
+
 def guide_tier(fav: float) -> str:
     """How much the favourite can be trusted in this kind of race."""
     if fav >= 0.45:
@@ -720,7 +781,7 @@ def build_guide(rows: list[dict]) -> dict:
         segs[f"{code}|{rtype}|{fb}"] = pack(shrunk(_guide_stats(rs), parent))
     types = {f"{c}|{t}": pack(st) for (c, t), st in ct_st.items()}
     codes = {c: pack(st) for c, st in code_st.items()}
-    return {"min_n": GUIDE_MIN, "segments": segs, "types": types, "codes": codes}
+    return {"min_n": GUIDE_MIN, "segments": segs, "types": types, "codes": codes, "models": build_field_models(rows)}
 
 
 def build_summary(races: dict[str, dict]) -> dict:
