@@ -154,11 +154,68 @@ def parse(payload, day: str, skipped=None):
     return races
 
 
+DETAIL_URL = "https://www.sportinglife.com/api/horse-racing/race/{rid}"
+PROBE_OUT = Path(__file__).parent / "data" / "racing_probe.txt"
+
+
+def probe_results() -> int:
+    """Looks at yesterday's finished races in the feed and writes what it
+    finds (finishing positions, any starting-price fields) to
+    data/racing_probe.txt, so we can see whether a results view is
+    possible. Changes nothing else."""
+    from datetime import timedelta
+    day = (datetime.now(LONDON).date() - timedelta(days=1)).isoformat()
+    lines = [f"Probe for {day}, run {datetime.now(LONDON):%Y-%m-%d %H:%M} UK"]
+    try:
+        payload = fetch(day)
+    except Exception as exc:  # noqa: BLE001
+        lines.append(f"Could not read the card list: {exc}")
+        PROBE_OUT.parent.mkdir(exist_ok=True)
+        PROBE_OUT.write_text("\n".join(lines) + "\n")
+        print("\n".join(lines))
+        return 1
+    ids = []
+    for m in meetings_from(payload):
+        country = ((m.get("meeting_summary") or {}).get("course") or {}).get("country") or {}
+        if country and not is_uk(country):
+            continue
+        for r in (m.get("races") or [])[:2]:
+            rid = ((r.get("race_summary_reference") or {}).get("id"))
+            if rid:
+                ids.append((rid, r.get("course_name"), r.get("time"), r.get("name")))
+    lines.append(f"UK races found: {len(ids)}; probing up to 3")
+    lines.append("List-level keys on a race: " + ", ".join(sorted(((meetings_from(payload)[0].get('races') or [{}])[0]).keys())) if meetings_from(payload) else "no meetings")
+    for rid, course, when, name in ids[:3]:
+        lines.append(f"\n=== race {rid}: {when} {course} {name}")
+        try:
+            req = urllib.request.Request(DETAIL_URL.format(rid=rid), headers={"User-Agent": "Mozilla/5.0", "Accept": "application/json"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                d = json.loads(resp.read().decode("utf-8"))
+        except Exception as exc:  # noqa: BLE001
+            lines.append(f"detail failed: {exc}")
+            continue
+        lines.append("top-level keys: " + ", ".join(sorted(d.keys())))
+        rs = d.get("race_summary") or {}
+        lines.append("race_summary keys: " + ", ".join(sorted(rs.keys())))
+        lines.append(f"race_stage={rs.get('race_stage')} winning_time={d.get('winning_time')} result={str(d.get('result'))[:200]}")
+        for ride in (d.get("rides") or [])[:20]:
+            b = ride.get("betting") or {}
+            lines.append(f"  pos={ride.get('finish_position')} status={ride.get('ride_status')} {(ride.get('horse') or {}).get('name')} betting={json.dumps(b)[:300]}")
+    PROBE_OUT.parent.mkdir(exist_ok=True)
+    PROBE_OUT.write_text("\n".join(lines) + "\n")
+    print("\n".join(lines))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="YYYY-MM-DD (default today, UK time)")
     ap.add_argument("--debug", action="store_true")
+    ap.add_argument("--probe-results", action="store_true",
+                    help="inspect yesterday's results in the feed and write data/racing_probe.txt")
     args = ap.parse_args()
+    if args.probe_results:
+        return probe_results()
     day = args.date or datetime.now(LONDON).date().isoformat()
     try:
         payload = fetch(day)
