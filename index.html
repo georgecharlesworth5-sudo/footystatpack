@@ -1773,6 +1773,7 @@
   let racingView = "today";      // "today" or "history"
   let racingTodayFilter = "";    // "", Strong, Good, Open, Avoid
   let racingTodaySort = "time";
+  let racingTodayRegion = "";    // "", uk, ire
   try {
     const sv = localStorage.getItem("racingCode");
     if (sv === "flat" || sv === "jumps") racingCode = sv;
@@ -1874,7 +1875,9 @@
   // field size, using the fitted curves in RACING_DATA.guide.models.
   // Falls back to the code-level curve for rare race types.
   function rcLookup(r) {
-    const g = RACING_DATA.guide;
+    // Irish races use the Irish ratings once that data is loaded, else the UK ones.
+    const irishOk = r.region === "ire" && typeof RACING_DATA_IRE !== "undefined" && RACING_DATA_IRE.guide && RACING_DATA_IRE.guide.models;
+    const g = irishOk ? RACING_DATA_IRE.guide : RACING_DATA.guide;
     if (!g || !g.models) return null;
     const own = g.models[`${r.code}|${r.rtype}`];
     const m = own || g.models[r.code];
@@ -1886,12 +1889,13 @@
     };
     const fav = pr("fav");
     const tier = fav >= 45 ? "Strong" : fav >= 35 ? "Good" : fav >= 27 ? "Open" : "Avoid";
-    return { n: m.n, fav, sec: pr("sec"), top3: pr("top3"), tier, level: own ? "kind" : "code" };
+    return { n: m.n, fav, sec: pr("sec"), top3: pr("top3"), tier, level: own ? "kind" : "code", src: irishOk || r.region !== "ire" ? (r.region === "ire" ? "ire" : "uk") : "uk-fallback" };
   }
 
   function rcCourseNote(r) {
     const grp = r.code === "flat" ? "flat" : "jumps";
-    const codeData = RACING_DATA.codes[grp];
+    const src = r.region === "ire" && typeof RACING_DATA_IRE !== "undefined" && RACING_DATA_IRE.codes ? RACING_DATA_IRE : RACING_DATA;
+    const codeData = src.codes[grp];
     if (!codeData) return "";
     const courses = codeData.windows.all.courses;
     const key = Object.keys(courses).find(c => c.toLowerCase() === r.course.toLowerCase());
@@ -1902,7 +1906,7 @@
   }
 
   function renderRacingToday() {
-    const intro = `<div class="bb-intro">Today's UK races, each rated from how that kind of race (flat or jumps, race type) has played out over the last ${RACING_DATA.codes.flat.seasons.length} seasons, adjusted for the exact number of runners. Distance and course were tested and added nothing reliable, so they're shown for context only. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
+    const intro = `<div class="bb-intro">Today's UK and Irish races, each rated from how that kind of race (flat or jumps, race type) has played out over the last ${RACING_DATA.codes.flat.seasons.length} seasons, adjusted for the exact number of runners. Distance and course were tested and added nothing reliable, so they're shown for context only. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
     const cardOk = typeof RACING_TODAY !== "undefined" && RACING_TODAY.races && RACING_TODAY.races.length;
     if (!cardOk || !RACING_DATA.guide) {
       mainEl.innerHTML = racingViewToggle() + intro + `<div class="empty">${!RACING_DATA.guide ? "The race ratings aren't in racing_data.js yet." : "No racecard loaded yet."}<br>${!RACING_DATA.guide ? "Upload the latest racing_data.js." : "It's fetched each morning by the &quot;Update Today's Races&quot; workflow (or run racing_today.py)."}</div>`;
@@ -1912,7 +1916,12 @@
     const today = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
     const stale = RACING_TODAY.date !== today
       ? `<div class="tr-note"><b>This card is for ${RACING_TODAY.date}</b>, not today. It refreshes each morning.</div>` : "";
-    const rows = RACING_TODAY.races.map(r => ({ ...r, rate: rcLookup(r) })).filter(r => r.rate);
+    const allRows = RACING_TODAY.races.map(r => ({ region: "uk", ...r, rate: rcLookup({ region: "uk", ...r }) })).filter(r => r.rate);
+    const hasIre = allRows.some(r => r.region === "ire");
+    if (!hasIre) racingTodayRegion = "";
+    const rows = allRows.filter(r => !racingTodayRegion || r.region === racingTodayRegion);
+    const regionToggle = hasIre ? `<div class="tr-sport-toggle">${[["", "All"], ["uk", "UK"], ["ire", "Ireland"]]
+      .map(([k, n]) => `<a data-rc-rg="${k}" class="${racingTodayRegion === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>` : "";
     const counts = {};
     rows.forEach(r => { counts[r.rate.tier] = (counts[r.rate.tier] || 0) + 1; });
 
@@ -1934,17 +1943,18 @@
     if (racingTodaySort !== "time") shown = [...shown].sort((a, b) => (b.rate[racingTodaySort] ?? -1) - (a.rate[racingTodaySort] ?? -1));
     const typeLabel = r => `${{ flat: "Flat", hurdle: "Hurdle", chase: "Chase", bumper: "Bumper" }[r.code]} ${r.rtype}`;
     const list = shown.map(r => `<div class="rc-race">
-      <div class="rc-race-top"><span class="rc-time">${r.time}</span><span class="rc-course">${escAttr(r.course)}</span>
+      <div class="rc-race-top"><span class="rc-time">${r.time}</span><span class="rc-course">${escAttr(r.course)}${r.region === "ire" ? ' <span class="tr-chip-n">IRE</span>' : ""}</span>
         <span class="rc-tier rc-tier-${r.rate.tier.toLowerCase()}">${r.rate.tier}</span></div>
       <div class="rc-race-sub">${escAttr(r.name)}<br>${typeLabel(r)} &middot; ${r.distance || "?"} &middot; ${r.runners} runners${r.going ? " &middot; " + escAttr(r.going) : ""}</div>
       <div class="rc-race-stats">Fav wins <b>${r.rate.fav}%</b> &middot; 2nd fav <b>${r.rate.sec ?? "-"}%</b> &middot; winner in top 3 <b>${r.rate.top3}%</b>
-        <span class="tr-chip-n">(${r.rate.level === "kind" ? `${r.rate.n.toLocaleString("en-GB")} ${r.rtype.toLowerCase()} races` : "broad flat/jumps average only"})</span>${rcCourseNote(r)}</div>
+        <span class="tr-chip-n">(${r.rate.level === "kind" ? `${r.rate.n.toLocaleString("en-GB")} ${r.region === "ire" && r.rate.src === "ire" ? "Irish " : ""}${r.rtype.toLowerCase()} races` : "broad flat/jumps average only"}${r.rate.src === "uk-fallback" ? ", UK ratings used - Irish data not loaded" : ""})</span>${rcCourseNote(r)}</div>
     </div>`).join("");
 
-    mainEl.innerHTML = racingViewToggle() + intro + stale + chips + summary + sortLine
+    mainEl.innerHTML = racingViewToggle() + intro + stale + regionToggle + chips + summary + sortLine
       + (shown.length ? list : `<div class="empty">No races in this group today.</div>`)
-      + `<div class="tr-note">Card from Sporting Life, ${escAttr(RACING_TODAY.generated || "")} UK time. Field sizes are declared runners so far and can change. Race kinds and thresholds come from racing.py.</div>`;
+      + `<div class="tr-note">Card from Sporting Life, ${escAttr(RACING_TODAY.generated || "")} UK time. Irish races use the Irish ratings once the Irish data is loaded. Field sizes are declared runners so far and can change. Race kinds and thresholds come from racing.py.</div>`;
     bindRacingView();
+    mainEl.querySelectorAll("[data-rc-rg]").forEach(a => a.addEventListener("click", () => { racingTodayRegion = a.dataset.rcRg; renderRacingToday(); }));
     mainEl.querySelectorAll("[data-rc-tf]").forEach(a => a.addEventListener("click", () => { racingTodayFilter = a.dataset.rcTf; renderRacingToday(); }));
     mainEl.querySelectorAll("[data-rc-ts]").forEach(a => a.addEventListener("click", () => { racingTodaySort = a.dataset.rcTs; renderRacingToday(); }));
   }
