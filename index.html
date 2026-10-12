@@ -1902,7 +1902,7 @@
   }
 
   function renderRacingToday() {
-    const intro = `<div class="bb-intro">Today's UK races, each rated from how that kind of race (flat or jumps, race type) has played out over the last 3 seasons, adjusted for the exact number of runners. Distance and course were tested and added nothing reliable, so they're shown for context only. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
+    const intro = `<div class="bb-intro">Today's UK races, each rated from how that kind of race (flat or jumps, race type) has played out over the last ${RACING_DATA.codes.flat.seasons.length} seasons, adjusted for the exact number of runners. Distance and course were tested and added nothing reliable, so they're shown for context only. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
     const cardOk = typeof RACING_TODAY !== "undefined" && RACING_TODAY.races && RACING_TODAY.races.length;
     if (!cardOk || !RACING_DATA.guide) {
       mainEl.innerHTML = racingViewToggle() + intro + `<div class="empty">${!RACING_DATA.guide ? "The race ratings aren't in racing_data.js yet." : "No racecard loaded yet."}<br>${!RACING_DATA.guide ? "Upload the latest racing_data.js." : "It's fetched each morning by the &quot;Update Today's Races&quot; workflow (or run racing_today.py)."}</div>`;
