@@ -1869,17 +1869,23 @@
     mainEl.querySelectorAll("[data-rc-view]").forEach(a => a.addEventListener("click", () => { racingView = a.dataset.rcView; renderRacing(); }));
   }
 
-  // Finds the rating for one race: its exact kind (code x type x field
-  // size) if there is enough history, otherwise its type, otherwise its code.
+  // Rates one race from its kind (flat/jumps + race type) and its exact
+  // field size, using the fitted curves in RACING_DATA.guide.models.
+  // Falls back to the code-level curve for rare race types.
   function rcLookup(r) {
     const g = RACING_DATA.guide;
-    if (!g) return null;
-    const seg = g.segments[`${r.code}|${r.rtype}|${rcFieldBand(r.runners)}`];
-    if (seg) return { ...seg, level: "kind" };
-    const ty = g.types[`${r.code}|${r.rtype}`];
-    if (ty) return { ...ty, level: "type" };
-    const cd = g.codes[r.code];
-    return cd ? { ...cd, level: "code" } : null;
+    if (!g || !g.models) return null;
+    const own = g.models[`${r.code}|${r.rtype}`];
+    const m = own || g.models[r.code];
+    if (!m) return null;
+    const z = Math.log(Math.min(Math.max(r.runners, 2), 30)) - 2.3;
+    const pr = k => {
+      const b = m[k] || (g.models[r.code] || {})[k];
+      return b ? Math.round(100 / (1 + Math.exp(-(b[0] + b[1] * z)))) : null;
+    };
+    const fav = pr("fav");
+    const tier = fav >= 45 ? "Strong" : fav >= 35 ? "Good" : fav >= 27 ? "Open" : "Avoid";
+    return { n: m.n, fav, sec: pr("sec"), top3: pr("top3"), tier, level: own ? "kind" : "code" };
   }
 
   function rcCourseNote(r) {
@@ -1895,7 +1901,7 @@
   }
 
   function renderRacingToday() {
-    const intro = `<div class="bb-intro">Today's UK races, each matched to how that kind of race (flat or jumps, race type and field size) has played out over the last 3 seasons. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
+    const intro = `<div class="bb-intro">Today's UK races, each rated from how that kind of race (flat or jumps, race type) has played out over the last 3 seasons, adjusted for the exact number of runners. Distance and course were tested and added nothing reliable, so they're shown for context only. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
     const cardOk = typeof RACING_TODAY !== "undefined" && RACING_TODAY.races && RACING_TODAY.races.length;
     if (!cardOk || !RACING_DATA.guide) {
       mainEl.innerHTML = racingViewToggle() + intro + `<div class="empty">${!RACING_DATA.guide ? "The race ratings aren't in racing_data.js yet." : "No racecard loaded yet."}<br>${!RACING_DATA.guide ? "Upload the latest racing_data.js." : "It's fetched each morning by the &quot;Update Today's Races&quot; workflow (or run racing_today.py)."}</div>`;
@@ -1931,7 +1937,7 @@
         <span class="rc-tier rc-tier-${r.rate.tier.toLowerCase()}">${r.rate.tier}</span></div>
       <div class="rc-race-sub">${escAttr(r.name)}<br>${typeLabel(r)} &middot; ${r.distance || "?"} &middot; ${r.runners} runners${r.going ? " &middot; " + escAttr(r.going) : ""}</div>
       <div class="rc-race-stats">Fav wins <b>${r.rate.fav}%</b> &middot; 2nd fav <b>${r.rate.sec ?? "-"}%</b> &middot; winner in top 3 <b>${r.rate.top3}%</b>
-        <span class="tr-chip-n">(${r.rate.n} similar races${r.rate.level === "kind" ? "" : r.rate.level === "type" ? ", any field size" : ", broad average only"})</span>${rcCourseNote(r)}</div>
+        <span class="tr-chip-n">(${r.rate.level === "kind" ? `${r.rate.n.toLocaleString("en-GB")} ${r.rtype.toLowerCase()} races` : "broad flat/jumps average only"})</span>${rcCourseNote(r)}</div>
     </div>`).join("");
 
     mainEl.innerHTML = racingViewToggle() + intro + stale + chips + summary + sortLine
