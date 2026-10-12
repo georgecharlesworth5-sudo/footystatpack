@@ -51,11 +51,34 @@ from collections import defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-BASE_URL = "https://promo.betfair.com/betfairsp/prices/dwbfpricesukwin{d}.csv"
 DATA_DIR = Path(__file__).parent / "data"
-RACES_CSV = DATA_DIR / "racing_races.csv"
-DONE_FILE = DATA_DIR / "racing_files_done.txt"
-OUT_JS = Path(__file__).parent / "racing_data.js"
+# UK is the default. "--region ire" builds the Irish set from Betfair's
+# Irish files, kept in separate files so the UK data is never touched.
+REGIONS = {
+    "uk":  {"prefix": "dwbfpricesukwin",   "csv": "racing_races.csv",     "done": "racing_files_done.txt",
+            "js": "racing_data.js",     "var": "RACING_DATA"},
+    "ire": {"prefix": "dwbfpricesirewin",  "csv": "racing_races_ire.csv", "done": "racing_files_done_ire.txt",
+            "js": "racing_data_ire.js", "var": "RACING_DATA_IRE"},
+}
+FILE_PREFIX = REGIONS["uk"]["prefix"]
+BASE_URL = "https://promo.betfair.com/betfairsp/prices/{prefix}{{d}}.csv".format(prefix=FILE_PREFIX)
+RACES_CSV = DATA_DIR / REGIONS["uk"]["csv"]
+DONE_FILE = DATA_DIR / REGIONS["uk"]["done"]
+OUT_JS = Path(__file__).parent / REGIONS["uk"]["js"]
+JS_VAR = REGIONS["uk"]["var"]
+REGION = "uk"
+
+
+def use_region(name: str) -> None:
+    global FILE_PREFIX, BASE_URL, RACES_CSV, DONE_FILE, OUT_JS, JS_VAR, REGION
+    cfg = REGIONS[name]
+    REGION = name
+    FILE_PREFIX = cfg["prefix"]
+    BASE_URL = "https://promo.betfair.com/betfairsp/prices/" + FILE_PREFIX + "{d}.csv"
+    RACES_CSV = DATA_DIR / cfg["csv"]
+    DONE_FILE = DATA_DIR / cfg["done"]
+    OUT_JS = Path(__file__).parent / cfg["js"]
+    JS_VAR = cfg["var"]
 
 DEFAULT_START = date(2023, 5, 1)
 REFETCH_RECENT_DAYS = 3        # re-download the newest files each run
@@ -360,7 +383,7 @@ def download(file_date: date) -> str | None:
 
 
 def read_local(directory: Path, file_date: date) -> str | None:
-    p = directory / f"dwbfpricesukwin{file_date.strftime('%d%m%Y')}.csv"
+    p = directory / f"{FILE_PREFIX}{file_date.strftime('%d%m%Y')}.csv"
     return p.read_text(errors="replace") if p.exists() else ""
 
 
@@ -784,6 +807,72 @@ def build_guide(rows: list[dict]) -> dict:
     return {"min_n": GUIDE_MIN, "segments": segs, "types": types, "codes": codes, "models": build_field_models(rows)}
 
 
+def _last_seasons(rows: list[dict]) -> list[dict]:
+    kept = []
+    for group in ("flat", "jumps"):
+        mine = [r for r in rows if group_of(r["code"]) == group]
+        seasons = sorted({r["season"] for r in mine})[-SEASONS_SHOWN:]
+        kept += [r for r in mine if r["season"] in seasons]
+    return kept
+
+
+def build_vs_uk(ire_rows: list[dict], uk_rows: list[dict]) -> dict:
+    """Irish favourite / 2nd favourite / top-3 rates against what UK races
+    of the same kind and field size would predict. This is the fair
+    comparison: Ireland runs a different mix of races (more maidens, bumpers
+    and small fields), so raw averages can differ without Irish racing being
+    any less predictable. z is how many standard errors the gap is."""
+    ire = [r for r in _last_seasons(ire_rows) if str(r.get("win_rank", "")) != ""]
+    uk = [r for r in _last_seasons(uk_rows) if str(r.get("win_rank", "")) != ""]
+    models = build_field_models(uk)
+
+    def expect(r: dict, key: str):
+        m = models.get(f"{r['code']}|{r['rtype']}") or models.get(r["code"])
+        if not m:
+            return None
+        b = m.get(key) or (models.get(r["code"]) or {}).get(key)
+        if not b:
+            return None
+        z = math.log(min(max(int(r["runners"]), 2), 30)) - _LN0
+        return 1 / (1 + math.exp(-(b[0] + b[1] * z)))
+
+    def hit(r: dict, key: str) -> int:
+        if key == "fav":
+            return int(r["fav_won"])
+        if key == "sec":
+            return 1 if int(r["win_rank"]) == 2 else 0
+        return 1 if int(r["win_rank"]) <= 3 else 0
+
+    def block(rs: list[dict]) -> dict:
+        out = {"n": len(rs)}
+        for key in ("fav", "sec", "top3"):
+            pairs = [(hit(r, key), expect(r, key)) for r in rs]
+            pairs = [(h, p) for h, p in pairs if p is not None]
+            if len(pairs) < 20:
+                continue
+            n = len(pairs)
+            actual = sum(h for h, _ in pairs) / n
+            exp = sum(p for _, p in pairs) / n
+            var = sum(p * (1 - p) for _, p in pairs)
+            z = (sum(h for h, _ in pairs) - sum(p for _, p in pairs)) / math.sqrt(var) if var > 0 else 0.0
+            out[key] = {"actual": round(actual * 100, 1), "expected": round(exp * 100, 1), "z": round(z, 2)}
+        return out
+
+    result = {"overall": block(ire), "by_group": {}, "by_code": {}, "by_type": {}}
+    for g in ("flat", "jumps"):
+        result["by_group"][g] = block([r for r in ire if group_of(r["code"]) == g])
+    for c in ("flat", "hurdle", "chase", "bumper"):
+        sub = [r for r in ire if r["code"] == c]
+        if sub:
+            result["by_code"][c] = block(sub)
+    types = sorted({r["rtype"] for r in ire})
+    for t in types:
+        sub = [r for r in ire if r["rtype"] == t]
+        if len(sub) >= 60:
+            result["by_type"][t] = block(sub)
+    return result
+
+
 def build_summary(races: dict[str, dict]) -> dict:
     rows = list(races.values())
     result = {}
@@ -815,7 +904,7 @@ def build_summary(races: dict[str, dict]) -> dict:
 
 def write_js(summary: dict) -> None:
     with open(OUT_JS, "w") as f:
-        f.write("const RACING_DATA = ")
+        f.write(f"const {JS_VAR} = ")
         json.dump(summary, f, separators=(",", ":"))
         f.write(";\n")
     print(f"Wrote {OUT_JS.name} ({OUT_JS.stat().st_size // 1024} KB).")
@@ -859,11 +948,14 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--start", help="first race date to cover (YYYY-MM-DD)")
     ap.add_argument("--end", help="last race date (default yesterday)")
-    ap.add_argument("--from-dir", help="read dwbfpricesukwin*.csv from this folder")
+    ap.add_argument("--from-dir", help="read the Betfair daily files from this folder instead of downloading")
+    ap.add_argument("--region", choices=sorted(REGIONS), default="uk",
+                    help="uk (default) or ire - Irish races, stored and written separately")
     ap.add_argument("--refetch", action="store_true",
                     help="download every file in range again, even ones already processed "
                          "(needed once to add new fields to history)")
     args = ap.parse_args()
+    use_region(args.region)
 
     start = date.fromisoformat(args.start) if args.start else DEFAULT_START
     end = date.fromisoformat(args.end) if args.end else date.today() - timedelta(days=1)
@@ -878,7 +970,17 @@ def main() -> int:
         print(f"Reclassified {changed} stored race(s) with the latest rules.")
         save_races(races)
     label_report(races)
-    write_js(build_summary(races))
+    summary = build_summary(races)
+    if REGION == "ire":
+        uk_csv = DATA_DIR / REGIONS["uk"]["csv"]
+        if uk_csv.exists():
+            with open(uk_csv, newline="") as f:
+                uk_rows = list(csv.DictReader(f))
+            summary["vs_uk"] = build_vs_uk(list(races.values()), uk_rows)
+            print("Added the like-for-like comparison against UK racing.")
+        else:
+            print("No UK data found next to this script, so the like-for-like comparison was skipped.")
+    write_js(summary)
     return 0
 
 
