@@ -82,7 +82,7 @@ def use_region(name: str) -> None:
 
 DEFAULT_START = date(2023, 5, 1)
 REFETCH_RECENT_DAYS = 3        # re-download the newest files each run
-SEASONS_SHOWN = 3              # per code: the latest N seasons (incl. current)
+SEASONS_SHOWN = 5              # per code: the latest N seasons (incl. current)
 COMMISSION = 0.05
 MIN_RUNNERS = 2
 
