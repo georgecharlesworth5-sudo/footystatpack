@@ -1,4 +1,4 @@
-"""Today's UK racecard -> racing_today.js (read by the dashboard's Racing tab).
+"""Today's UK and Irish racecard -> racing_today.js (read by the dashboard's Racing tab).
 
 Source: Sporting Life's public racecard feed
     https://www.sportinglife.com/api/horse-racing/racing/racecards/YYYY-MM-DD
@@ -32,6 +32,16 @@ OUT_JS = Path(__file__).parent / "racing_today.js"
 # Ireland), so match on the long name too.
 UK_SHORT = {"ENG", "SCO", "SCOT", "WAL", "WALE", "WLS", "NIR", "NI", "GB", "UK"}
 UK_LONG = {"england", "scotland", "wales", "northern ireland", "great britain", "united kingdom"}
+
+
+IRE_SHORT = {"IRE", "EIRE", "IRL", "ROI"}
+IRE_LONG = {"eire", "ireland", "republic of ireland"}
+
+
+def is_ire(country: dict) -> bool:
+    short = (country.get("short_name") or "").strip().upper()
+    long_ = (country.get("long_name") or "").strip().lower()
+    return short in IRE_SHORT or long_ in IRE_LONG
 
 
 def is_uk(country: dict) -> bool:
@@ -118,7 +128,8 @@ def parse(payload, day: str, skipped=None):
         ms = m.get("meeting_summary") or {}
         course = ms.get("course") or {}
         country = course.get("country") or {}
-        if country and not is_uk(country):
+        region = "ire" if (country and is_ire(country)) else "uk"
+        if country and region == "uk" and not is_uk(country):
             skipped.append(f"{course.get('name', '?')} ({country.get('long_name') or country.get('short_name')})")
             continue
         surface = (ms.get("surface_summary") or "").strip()
@@ -137,6 +148,7 @@ def parse(payload, day: str, skipped=None):
             code = classify_code(name, surface)
             handicap = bool(r.get("has_handicap"))
             races.append({
+                "region": region,
                 "time": when,
                 "course": r.get("course_name") or course.get("name") or "",
                 "name": name,
@@ -224,16 +236,16 @@ def main() -> int:
         return 1
     skipped: list[str] = []
     races = parse(payload, day, skipped)
-    print("Meetings skipped (not UK): " + (", ".join(skipped) or "none"))
+    print("Meetings skipped (not UK or Irish): " + (", ".join(skipped) or "none"))
     if args.debug:
         for r in races:
             print(r["time"], r["course"], "|", r["name"], "|", r["code"], r["rtype"], r["distance"], r["runners"], "runners")
     if not races:
-        print(f"Feed answered but no UK races were found for {day}. Leaving racing_today.js as it is.")
+        print(f"Feed answered but no UK or Irish races were found for {day}. Leaving racing_today.js as it is.")
         return 1
     data = {"date": day, "generated": datetime.now(LONDON).strftime("%Y-%m-%d %H:%M"), "races": races}
     OUT_JS.write_text("const RACING_TODAY = " + json.dumps(data, separators=(",", ":")) + ";\n")
-    print(f"Wrote {OUT_JS.name}: {len(races)} UK races on {day}.")
+    print(f"Wrote {OUT_JS.name}: {len(races)} races on {day} ({sum(1 for r in races if r['region'] == 'uk')} UK, {sum(1 for r in races if r['region'] == 'ire')} Irish).")
     return 0
 
 
