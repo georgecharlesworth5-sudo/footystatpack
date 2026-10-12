@@ -841,6 +841,7 @@
 <script src="nfl_statpack_data.js"></script>
 <script src="racing_data.js"></script>
 <script src="racing_today.js" onerror="void 0"></script>
+<script src="racing_data_ire.js" onerror="void 0"></script>
 <script>
 (function () {
   const LEAGUE_ORDER = ["E0", "E1", "E2", "E3", "SC0", "I1", "SP1", "D1", "F1", "MLS"];
@@ -1862,7 +1863,7 @@
   const rcFieldBand = n => RC_FIELD_BANDS.find(([max]) => n <= max)[1];
 
   function racingViewToggle() {
-    return `<div class="tr-sport-toggle">${[["today", "Today's races"], ["history", "History"]]
+    return `<div class="tr-sport-toggle">${[["today", "Today's races"], ["history", "History"], ["compare", "UK v Ireland"]]
       .map(([k, n]) => `<a data-rc-view="${k}" class="${racingView === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
   }
   function bindRacingView() {
@@ -1948,8 +1949,104 @@
     mainEl.querySelectorAll("[data-rc-ts]").forEach(a => a.addEventListener("click", () => { racingTodaySort = a.dataset.rcTs; renderRacingToday(); }));
   }
 
+  // ---- UK v Ireland ----
+  function renderRacingCompare() {
+    const toggle = racingViewToggle();
+    const intro = `<div class="bb-intro">Do fewer favourites win in Irish racing? Betfair Starting Price results for Irish and UK races over the same period, compared two ways: the raw averages, and like-for-like (Irish races against UK races of the same kind and number of runners), because Ireland runs a different mix of races.</div>`;
+    if (typeof RACING_DATA_IRE === "undefined" || !RACING_DATA_IRE.codes) {
+      mainEl.innerHTML = toggle + intro + `<div class="empty">The Irish data isn't loaded yet.<br>Build it once from your phone: in a-Shell run <b>python3 racing.py --region ire --start 2023-05-01</b>, then upload racing_data_ire.js and data/racing_races_ire.csv.</div>`;
+      bindRacingView();
+      return;
+    }
+    const UK = RACING_DATA, IE = RACING_DATA_IRE;
+    const code = racingCode === "jumps" ? "jumps" : "flat";
+    const codeToggle = `<div class="tr-sport-toggle">${[["flat", "Flat"], ["jumps", "Jumps"]]
+      .map(([k, n]) => `<a data-rc-code="${k}" class="${code === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
+    const uk = UK.codes[code].windows.all, ie = IE.codes[code] ? IE.codes[code].windows.all : null;
+    if (!ie || !ie.overall.n) {
+      mainEl.innerHTML = toggle + codeToggle + intro + `<div class="empty">No Irish ${code} races stored.</div>`;
+      bindRacingView(); bindCmpCode(); return;
+    }
+    const z2 = (a, b) => {   // two-proportion z for favourite win %
+      const p1 = a.fav / 100, p2 = b.fav / 100, n1 = a.n, n2 = b.n, p = (p1 * n1 + p2 * n2) / (n1 + n2);
+      const se = Math.sqrt(p * (1 - p) * (1 / n1 + 1 / n2));
+      return se ? (p2 - p1) / se : 0;
+    };
+    const diffCell = (a, b) => {
+      if (!a || !b || !a.n || !b.n) return `<span class="tr-be-odds">-</span>`;
+      const d = Math.round((b.fav - a.fav) * 10) / 10, z = z2(a, b);
+      const cls = Math.abs(z) < 2 || Math.min(a.n, b.n) < 30 ? "" : d < 0 ? "pct-lo" : "pct-hi";
+      return `<span class="tr-be-odds ${cls}"><b>${d > 0 ? "+" : ""}${d}</b></span>`;
+    };
+    const row = (label, a, b) => `<div class="tr-be-row">
+      <span class="tr-be-label">${escAttr(label)}</span>
+      <span class="tr-be-hit">${a ? a.fav + "%" : "-"} <span class="tr-chip-n">(${a ? a.n : 0})</span></span>
+      <span class="tr-be-hit">${b ? b.fav + "%" : "-"} <span class="tr-chip-n">(${b ? b.n : 0})</span></span>
+      ${diffCell(a, b)}</div>`;
+    const head = `<div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">UK</span><span class="tr-be-hit">Ireland</span><span class="tr-be-odds">Diff (pts)</span></div>`;
+    const byName = (arr, name) => (arr || []).find(x => x.name === name);
+    const section = (title, ukArr, ieArr, order) => {
+      const names = order || (ieArr || []).map(x => x.name);
+      const rows = names.map(n => ({ n, a: byName(ukArr, n), b: byName(ieArr, n) })).filter(r => r.a || r.b)
+        .map(r => row(r.n, r.a, r.b)).join("");
+      return rows ? `<div class="tr-section-title">${title}</div>${head}${rows}` : "";
+    };
+
+    const o1 = uk.overall, o2 = ie.overall;
+    const headline = `<div class="tr-section-title">Headline</div>${head}${row("Favourite win %", o1, o2)}
+      <div class="tr-be-row"><span class="tr-be-label">Favourite ROI at BSP</span><span class="tr-be-hit">${o1.roi > 0 ? "+" : ""}${o1.roi}%</span><span class="tr-be-hit">${o2.roi > 0 ? "+" : ""}${o2.roi}%</span><span class="tr-be-odds"></span></div>
+      <div class="tr-be-row"><span class="tr-be-label">Winner in top 3</span><span class="tr-be-hit">${o1.top3}%</span><span class="tr-be-hit">${o2.top3}%</span><span class="tr-be-odds"></span></div>
+      <div class="tr-be-row"><span class="tr-be-label">Median winner price</span><span class="tr-be-hit">${o1.medw}</span><span class="tr-be-hit">${o2.medw}</span><span class="tr-be-odds"></span></div>
+      <div class="tr-be-row"><span class="tr-be-label">Avg field size</span><span class="tr-be-hit">-</span><span class="tr-be-hit">-</span><span class="tr-be-odds"></span></div>`.replace(/<div class="tr-be-row"><span class="tr-be-label">Avg field size[\s\S]*?<\/div>/, "");
+
+    const jumpsCodes = code === "jumps"
+      ? section("Hurdle, chase or bumper", uk.by_code.map(m => ({ ...m, name: { hurdle: "Hurdles", chase: "Chases", bumper: "Bumpers" }[m.name] || m.name })), ie.by_code.map(m => ({ ...m, name: { hurdle: "Hurdles", chase: "Chases", bumper: "Bumpers" }[m.name] || m.name }))) : "";
+    const body = headline + jumpsCodes
+      + section("By race type", uk.by_type, ie.by_type)
+      + section("By field size", uk.by_field, ie.by_field, ["6 or fewer", "7-9", "10-12", "13-16", "17+"])
+      + section("By distance", uk.by_dist, ie.by_dist)
+      + section("By the favourite's price", uk.by_favprice, ie.by_favprice, ["Under 2.0", "2.0-3.0", "3.0-5.0", "5.0+"]);
+
+    // Like-for-like: Irish results against UK races of the same kind and field size.
+    let like = "";
+    const v = IE.vs_uk;
+    if (v && v.overall && v.overall.fav) {
+      const verdict = m => {
+        if (!m || !m.fav) return "";
+        const z = m.fav.z, gap = Math.round((m.fav.actual - m.fav.expected) * 10) / 10;
+        if (Math.abs(z) < 2) return `no clear difference (${gap > 0 ? "+" : ""}${gap} pts)`;
+        return z < 0 ? `fewer favourites win: ${gap} pts` : `more favourites win: +${gap} pts`;
+      };
+      const g = v.by_group[code];
+      const lrow = (label, m) => m && m.fav ? `<div class="tr-be-row"><span class="tr-be-label">${escAttr(label)} <span class="tr-chip-n">(${m.n})</span></span>
+        <span class="tr-be-hit">${m.fav.actual}%</span><span class="tr-be-hit">${m.fav.expected}%</span>
+        <span class="tr-be-odds ${Math.abs(m.fav.z) >= 2 && m.n >= 30 ? (m.fav.z < 0 ? "pct-lo" : "pct-hi") : ""}"><b>${m.fav.z > 0 ? "+" : ""}${m.fav.z}</b></span></div>` : "";
+      const lhead = `<div class="tr-be-row tr-be-head"><span class="tr-be-label"></span><span class="tr-be-hit">Irish actual</span><span class="tr-be-hit">UK-like expected</span><span class="tr-be-odds">z</span></div>`;
+      const types = Object.entries(v.by_type).filter(([, m]) => m.fav && (code === "flat" ? true : true)).map(([t, m]) => lrow(t, m)).join("");
+      like = `<div class="tr-section-title">Like-for-like (favourite win %)</div>
+        <div class="tr-note"><b>Overall, Irish ${code} racing: ${verdict(g)}.</b> "Expected" is what UK races of the same kind (flat/jumps, race type) and the same field size would produce. <b>z</b> is how many standard errors apart they are: beyond about 2 (or -2) is unlikely to be chance.${g && g.sec ? `<br>Second favourites: actual ${g.sec.actual}% v ${g.sec.expected}% expected (z ${g.sec.z}). Winner in top 3: ${g.top3.actual}% v ${g.top3.expected}% (z ${g.top3.z}).` : ""}</div>
+        ${lhead}${lrow("All Irish " + code, g)}${lrow("Both codes", v.overall)}
+        <div class="tr-note">By race type (flat and jumps together):</div>${lhead}${types}`;
+    } else {
+      like = `<div class="tr-note">The like-for-like comparison needs the UK data next to racing.py when the Irish set is built. Re-run <b>python3 racing.py --region ire</b> from the same folder as the UK data.</div>`;
+    }
+
+    mainEl.innerHTML = toggle + codeToggle + intro
+      + `<div class="tr-note">Irish data: ${IE.races_stored.toLocaleString("en-GB")} races, ${trFmtDate(IE.codes[code].first_date)} ${IE.codes[code].first_date.slice(0, 4)} to ${trFmtDate(IE.codes[code].last_date)} ${IE.codes[code].last_date.slice(0, 4)}. Difference columns are coloured only when the gap is unlikely to be chance and both samples are at least 30 races.</div>`
+      + like + body;
+    bindRacingView(); bindCmpCode();
+  }
+  function bindCmpCode() {
+    mainEl.querySelectorAll("[data-rc-code]").forEach(a => a.addEventListener("click", () => {
+      racingCode = a.dataset.rcCode;
+      try { localStorage.setItem("racingCode", racingCode); } catch (e) {}
+      renderRacingCompare();
+    }));
+  }
+
   function renderRacing() {
     if (typeof RACING_DATA !== "undefined" && RACING_DATA.codes && racingView === "today") { renderRacingToday(); return; }
+    if (typeof RACING_DATA !== "undefined" && RACING_DATA.codes && racingView === "compare") { renderRacingCompare(); return; }
     renderRacingHistory();
   }
 
