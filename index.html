@@ -1773,6 +1773,7 @@
   let racingView = "today";      // "today" or "history"
   let racingTodayFilter = "";    // "", Strong, Good, Open, Avoid
   let racingTodaySort = "time";
+  let racingTodaySec3 = 0;       // minimum 2nd-favourite top-3 chance (%), 0 = any
   let racingTodayRegion = "";    // "", uk, ire
   try {
     const sv = localStorage.getItem("racingCode");
@@ -1889,7 +1890,8 @@
     };
     const fav = pr("fav");
     const tier = fav >= 45 ? "Strong" : fav >= 35 ? "Good" : fav >= 27 ? "Open" : "Avoid";
-    return { n: m.n, fav, sec: pr("sec"), top3: pr("top3"), tier, level: own ? "kind" : "code", src: irishOk || r.region !== "ire" ? (r.region === "ire" ? "ire" : "uk") : "uk-fallback" };
+    const big = r.runners >= 8;   // top-3 finish is only measured in fields of 8+ (3 places paid)
+    return { n: m.n, fav, sec: pr("sec"), top3: pr("top3"), sec3: big ? pr("sec3") : null, fav3: big ? pr("fav3") : null, tier, level: own ? "kind" : "code", src: irishOk || r.region !== "ire" ? (r.region === "ire" ? "ire" : "uk") : "uk-fallback" };
   }
 
   function rcCourseNote(r) {
@@ -1927,34 +1929,42 @@
 
     const chips = `<div class="tr-sport-toggle" style="flex-wrap:wrap">${[["", `All (${rows.length})`], ...RC_TIER_ORDER.map(t => [t, `${t} (${counts[t] || 0})`])]
       .map(([k, n]) => `<a data-rc-tf="${k}" class="${racingTodayFilter === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
-    const sorts = [["time", "Time"], ["fav", "Favourite %"], ["sec", "2nd fav %"], ["top3", "Top 3 %"]];
+    const hasSec3 = rows.some(r => r.rate.sec3 != null);
+    if (!hasSec3) racingTodaySec3 = 0;
+    const sorts = [["time", "Time"], ["fav", "Favourite %"], ["sec", "2nd fav %"], ["top3", "Top 3 %"], ...(hasSec3 ? [["sec3", "2nd fav top 3 %"]] : [])];
+    const sec3Chips = hasSec3
+      ? `<div class="tr-sport-toggle" style="flex-wrap:wrap"><span class="tr-chip-n" style="align-self:center;margin-right:6px">2nd fav finishes top 3:</span>${[[0, "Any"], [50, "50%+"], [60, "60%+"], [70, "70%+"]]
+          .map(([k, n]) => `<a data-rc-s3="${k}" class="${racingTodaySec3 === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`
+      : `<div class="tr-note">2nd-favourite top-3 chances need place-market data. Run <b>python3 racing.py --places</b> once (and the same with <b>--region ire</b>) to add them.</div>`;
     const sortLine = `<div class="window-toggle">Sort: ${sorts.map(([k, n]) => `<a class="sort-toggle-link" data-rc-ts="${k}"${racingTodaySort === k ? ' style="color:var(--ink);font-weight:700"' : ""}>${n}</a>`).join(" &middot; ")}</div>`;
 
     const reliable = rows.filter(r => r.rate.level !== "code");
-    const top = (key, dir, n) => [...reliable].sort((a, b) => dir * ((b.rate[key] ?? -1) - (a.rate[key] ?? -1))).slice(0, n);
+    const top = (key, dir, n) => reliable.filter(r => r.rate[key] != null).sort((a, b) => dir * ((b.rate[key] ?? -1) - (a.rate[key] ?? -1))).slice(0, n);
     const li = (r, key) => `<b>${r.time}</b> ${escAttr(r.course)} <span class="tr-chip-n">${r.rate[key]}%</span>`;
     const summary = rows.length >= 6 ? `<div class="tr-section-title">Today at a glance</div>
       <div class="tr-note"><b>Favourite most likely:</b> ${top("fav", 1, 3).map(r => li(r, "fav")).join(" &middot; ")}<br>
       <b>Winner most likely from the top 3 in the betting:</b> ${top("top3", 1, 3).map(r => li(r, "top3")).join(" &middot; ")}<br>
       <b>Best for a 2nd favourite:</b> ${top("sec", 1, 3).map(r => li(r, "sec")).join(" &middot; ")} <span class="tr-chip-n">(weaker pattern)</span><br>
-      <b>Most open, treat with care:</b> ${top("fav", -1, 3).map(r => li(r, "fav")).join(" &middot; ")}</div>` : "";
+      ${hasSec3 ? `<b>2nd favourite most likely to finish top 3:</b> ${top("sec3", 1, 3).map(r => li(r, "sec3")).join(" &middot; ")}<br>` : ""}<b>Most open, treat with care:</b> ${top("fav", -1, 3).map(r => li(r, "fav")).join(" &middot; ")}</div>` : "";
 
-    let shown = rows.filter(r => !racingTodayFilter || r.rate.tier === racingTodayFilter);
+    let shown = rows.filter(r => (!racingTodayFilter || r.rate.tier === racingTodayFilter)
+      && (!racingTodaySec3 || (r.rate.sec3 != null && r.rate.sec3 >= racingTodaySec3)));
     if (racingTodaySort !== "time") shown = [...shown].sort((a, b) => (b.rate[racingTodaySort] ?? -1) - (a.rate[racingTodaySort] ?? -1));
     const typeLabel = r => `${{ flat: "Flat", hurdle: "Hurdle", chase: "Chase", bumper: "Bumper" }[r.code]} ${r.rtype}`;
     const list = shown.map(r => `<div class="rc-race">
       <div class="rc-race-top"><span class="rc-time">${r.time}</span><span class="rc-course">${escAttr(r.course)}${r.region === "ire" ? ' <span class="tr-chip-n">IRE</span>' : ""}</span>
         <span class="rc-tier rc-tier-${r.rate.tier.toLowerCase()}">${r.rate.tier}</span></div>
       <div class="rc-race-sub">${escAttr(r.name)}<br>${typeLabel(r)} &middot; ${r.distance || "?"} &middot; ${r.runners} runners${r.going ? " &middot; " + escAttr(r.going) : ""}</div>
-      <div class="rc-race-stats">Fav wins <b>${r.rate.fav}%</b> &middot; 2nd fav <b>${r.rate.sec ?? "-"}%</b> &middot; winner in top 3 <b>${r.rate.top3}%</b>
+      <div class="rc-race-stats">Fav wins <b>${r.rate.fav}%</b> &middot; 2nd fav <b>${r.rate.sec ?? "-"}%</b> &middot; winner in top 3 <b>${r.rate.top3}%</b>${r.rate.sec3 != null ? ` &middot; 2nd fav top 3 <b>${r.rate.sec3}%</b>` : ""}
         <span class="tr-chip-n">(${r.rate.level === "kind" ? `${r.rate.n.toLocaleString("en-GB")} ${r.region === "ire" && r.rate.src === "ire" ? "Irish " : ""}${r.rtype.toLowerCase()} races` : "broad flat/jumps average only"}${r.rate.src === "uk-fallback" ? ", UK ratings used - Irish data not loaded" : ""})</span>${rcCourseNote(r)}</div>
     </div>`).join("");
 
-    mainEl.innerHTML = racingViewToggle() + intro + stale + regionToggle + chips + summary + sortLine
+    mainEl.innerHTML = racingViewToggle() + intro + stale + regionToggle + chips + sec3Chips + summary + sortLine
       + (shown.length ? list : `<div class="empty">No races in this group today.</div>`)
       + `<div class="tr-note">Card from Sporting Life, ${escAttr(RACING_TODAY.generated || "")} UK time. Irish races use the Irish ratings once the Irish data is loaded. Field sizes are declared runners so far and can change. Race kinds and thresholds come from racing.py.</div>`;
     bindRacingView();
     mainEl.querySelectorAll("[data-rc-rg]").forEach(a => a.addEventListener("click", () => { racingTodayRegion = a.dataset.rcRg; renderRacingToday(); }));
+    mainEl.querySelectorAll("[data-rc-s3]").forEach(a => a.addEventListener("click", () => { racingTodaySec3 = +a.dataset.rcS3; renderRacingToday(); }));
     mainEl.querySelectorAll("[data-rc-tf]").forEach(a => a.addEventListener("click", () => { racingTodayFilter = a.dataset.rcTf; renderRacingToday(); }));
     mainEl.querySelectorAll("[data-rc-ts]").forEach(a => a.addEventListener("click", () => { racingTodaySort = a.dataset.rcTs; renderRacingToday(); }));
   }
