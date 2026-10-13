@@ -22969,6 +22969,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_IND_PIT,PIT,Aaron Rodgers,235.0,6.0,0.0
 2026,5,2026_05_BAL_ATL,ATL,Nick Folk,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Calais Campbell,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Matthew Stafford,383.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Trent Williams,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,Cameron Jordan,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Cameron Heyward,0.0,0.0,0.0
@@ -22992,6 +22993,8 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_BAL_ATL,ATL,Jake Matthews,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Morgan Moses,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Jadeveon Clowney,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Davante Adams,0.0,0.0,51.0
+2026,5,2026_05_BUF_LA,LA,Aaron Donald,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Mike Evans,0.0,0.0,113.0
 2026,5,2026_05_SF_SEA,SEA,DeMarcus Lawrence,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SEA,Jason Myers,0.0,0.0,0.0
@@ -23026,6 +23029,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_LV_NE,NE,Hunter Henry,0.0,0.0,44.0
 2026,5,2026_05_DET_ARI,DET,Jared Goff,271.0,1.0,0.0
 2026,5,2026_05_CHI_GB,GB,Javon Hargrave,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Tyler Higbee,0.0,0.0,83.0
 2026,5,2026_05_DET_ARI,ARI,Jacoby Brissett,292.0,19.0,7.0
 2026,5,2026_05_TB_DAL,DAL,Kenny Clark,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,CLE,Maliek Collins,0.0,0.0,0.0
@@ -23075,6 +23079,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DEN_LAC,LAC,J.K. Scott,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,Jacob Martin,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Eddy Pineiro,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Poona Ford,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Marquez Valdes-Scantling,0.0,0.0,22.0
 2026,5,2026_05_LV_NE,LV,Foley Fatukasi,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Tremon Smith,0.0,0.0,0.0
@@ -23100,6 +23105,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_PHI_JAX,JAX,Logan Cooke,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Jeremy Reaves,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,JAX,Dennis Gardeck,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Trent Sherfield,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Charvarius Ward,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,CIN,Tanner Hudson,0.0,0.0,14.0
 2026,5,2026_05_BAL_ATL,ATL,Mike Ford,0.0,0.0,0.0
@@ -23121,10 +23127,12 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_IND_PIT,PIT,Sebastian Joseph-Day,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Fred Warner,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,CIN,Mike Gesicki,0.0,0.0,4.0
+2026,5,2026_05_BUF_LA,BUF,Bradley Chubb,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,Calvin Ridley,0.0,0.0,33.0
 2026,5,2026_05_BAL_ATL,ATL,Mike Hughes,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,Mike McGlinchey,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,CLE,Denzel Ward,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Josh Allen,210.0,121.0,0.0
 2026,5,2026_05_SF_SEA,SEA,Sam Darnold,195.0,5.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Roquan Smith,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Mitch Wishnowsky,0.0,0.0,0.0
@@ -23147,6 +23155,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_MIN_NO,MIN,T.J. Hockenson,0.0,0.0,7.0
 2026,5,2026_05_MIN_NO,MIN,Byron Murphy,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,Zach Allen,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,C.J. Gardner-Johnson,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,Tony Pollard,0.0,52.0,0.0
 2026,5,2026_05_LV_NE,LV,Matt Gay,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,MIN,Andrew Van Ginkel,0.0,0.0,0.0
@@ -23162,9 +23171,12 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_BAL_ATL,BAL,Nick Moore,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Shy Tuttle,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Luke Gifford,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Greg Dortch,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,CHI,Devin Bush,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,CLE,Elgton Jenkins,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Ty Johnson,0.0,0.0,72.0
 2026,5,2026_05_DET_ARI,DET,Tom Kennedy,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Alex Bachman,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,CIN,Drew Sample,0.0,0.0,5.0
 2026,5,2026_05_DET_ARI,ARI,L.J. Collier,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,DK Metcalf,0.0,11.0,12.0
@@ -23173,6 +23185,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_MIN_NO,NO,Noah Fant,0.0,0.0,7.0
 2026,5,2026_05_CHI_GB,CHI,Montez Sweat,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Terry McLaurin,0.0,0.0,62.0
+2026,5,2026_05_BUF_LA,BUF,Greg Gaines,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,David Edwards,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,Cody Barton,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Jerry Tillery,0.0,0.0,0.0
@@ -23180,6 +23193,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_CLE_NYJ,CLE,Quincy Williams,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,CIN,Dexter Lawrence,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,David Montgomery,0.0,11.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Dawson Knox,0.0,0.0,6.0
 2026,5,2026_05_DET_ARI,DET,Devin White,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Daniel Jones,267.0,4.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Quinnen Williams,0.0,0.0,0.0
@@ -23190,6 +23204,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DET_ARI,ARI,Blake Gillikin,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,Tommy Townsend,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,LV,Cody White,0.0,0.0,44.0
+2026,5,2026_05_BUF_LA,BUF,Michael Hoecht,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,TB,Christian Rozeboom,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Tyler Huntley,201.0,20.0,0.0
 2026,5,2026_05_MIN_NO,NO,Juwan Johnson,0.0,0.0,16.0
@@ -23199,6 +23214,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_TB_DAL,TB,Ben Bredeson,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,J.K. Dobbins,0.0,68.0,6.0
 2026,5,2026_05_CIN_MIA,MIA,Joshua Uche,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Tyler Bass,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Aaron Brewer,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Teair Tart,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Nick Westbrook-Ikhine,0.0,0.0,0.0
@@ -23209,6 +23225,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_MIN_NO,MIN,Isaiah Rodgers,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Jonathan Taylor,0.0,45.0,37.0
 2026,5,2026_05_HOU_TEN,HOU,Bryce Hall,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Colby Parkinson,0.0,0.0,3.0
 2026,5,2026_05_MIN_NO,NO,Julian Blackmon,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,MIN,Jauan Jennings,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Javon Kinlaw,0.0,0.0,0.0
@@ -23236,8 +23253,10 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_IND_PIT,PIT,Alex Highsmith,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,D.J. Wonnum,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,CHI,James Lynch,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Kevin Dotson,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Khalid Kareem,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,MIN,Josh Metellus,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Kam Curl,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Justin Herbert,121.0,54.0,0.0
 2026,5,2026_05_TB_DAL,DAL,CeeDee Lamb,0.0,0.0,9.0
 2026,5,2026_05_CIN_MIA,MIA,Willie Gay Jr.,0.0,0.0,0.0
@@ -23270,6 +23289,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DET_ARI,ARI,Roy Lopez,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Ar'Darius Washington,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,JAX,Quintin Morris,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Alaric Jackson,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,NYJ,Jordan Meredith,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,Jaylen Waddle,0.0,9.0,19.0
 2026,5,2026_05_IND_PIT,PIT,Asante Samuel Jr.,0.0,0.0,0.0
@@ -23282,6 +23302,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DET_ARI,ARI,Simi Fehoko,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,GB,Nick Niemann,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,GB,Isaiah McDuffie,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Grant Stuard,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Malik Herring,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,Devon Key,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Naquan Jones,0.0,0.0,0.0
@@ -23294,16 +23315,19 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_CIN_MIA,MIA,Riley Patterson,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,ATL,Ryan Neuzil,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,NYJ,Kene Nwangwu,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Tutu Atwell,0.0,0.0,4.0
 2026,5,2026_05_CIN_MIA,CIN,Evan McPherson,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,Dan Moore Jr.,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Rhamondre Stevenson,0.0,64.0,21.0
 2026,5,2026_05_HOU_TEN,TEN,Kylen Granson,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Tommy Togiai,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Luke Farrell,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Damar Hamlin,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Najee Harris,0.0,9.0,5.0
 2026,5,2026_05_IND_PIT,PIT,Pat Freiermuth,0.0,1.0,44.0
 2026,5,2026_05_CIN_MIA,CIN,Ja'Marr Chase,0.0,0.0,77.0
 2026,5,2026_05_LV_NE,LV,Eric Stokes,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Greg Rousseau,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Milton Williams,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,TB,Kenny Gainwell,0.0,18.0,10.0
 2026,5,2026_05_LV_NE,LV,Patrick Johnson,0.0,0.0,0.0
@@ -23346,7 +23370,9 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_HOU_TEN,TEN,Tony Adams,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,ARI,Bam Knight,0.0,8.0,0.0
 2026,5,2026_05_IND_PIT,IND,Sauce Gardner,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Trent McDuffie,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,CIN,Bryan Cook,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Jaylen Watson,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Cameron Dicker,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Jaylen Warren,0.0,101.0,87.0
 2026,5,2026_05_PHI_JAX,JAX,Travon Walker,0.0,0.0,0.0
@@ -23356,12 +23382,15 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DET_ARI,DET,Jameson Williams,0.0,0.0,47.0
 2026,5,2026_05_HOU_TEN,HOU,Jalen Pitre,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,George Pickens,0.0,0.0,130.0
+2026,5,2026_05_BUF_LA,BUF,James Cook,0.0,111.0,7.0
 2026,5,2026_05_DEN_LAC,DEN,Nik Bonitto,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,Martin Emerson,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Greg Dulcich,0.0,0.0,37.0
 2026,5,2026_05_LV_NE,NE,Marcus Jones,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Terrel Bernard,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Rachaad White,0.0,18.0,2.0
 2026,5,2026_05_PHI_JAX,PHI,Dameon Pierce,0.0,14.0,-2.0
+2026,5,2026_05_BUF_LA,BUF,Khalil Shakir,0.0,0.0,80.0
 2026,5,2026_05_LV_NE,LV,Thomas Booker,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,ARI,Tyler Allgeier,0.0,7.0,9.0
 2026,5,2026_05_TB_DAL,TB,Zyon McCollum,0.0,0.0,0.0
@@ -23371,6 +23400,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DET_ARI,ARI,Teagan Quitoriano,0.0,0.0,15.0
 2026,5,2026_05_DEN_LAC,DEN,Luke Wattenberg,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,John Ridgeway,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Christian Benford,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Malcolm Rodriguez,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Andrew Ogletree,0.0,0.0,4.0
 2026,5,2026_05_MIN_NO,MIN,Theo Jackson,0.0,0.0,0.0
@@ -23383,6 +23413,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_MIN_NO,MIN,Ryan Van Demark,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,Cal Adomitis,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Ben Brown,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Alec Anderson,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Jake Hansen,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,LV,Deven Thompkins,0.0,0.0,8.0
 2026,5,2026_05_LV_NE,NE,Mike Brown,0.0,0.0,0.0
@@ -23393,6 +23424,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_CHI_GB,GB,Daniel Whelan,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Markquese Bell,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Juanyeh Thomas,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Nate Landman,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,ARI,Jack Gibbens,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Kayvon Thibodeaux,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,LV,Nakobe Dean,0.0,0.0,0.0
@@ -23422,6 +23454,8 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_SF_SEA,SF,Brock Purdy,189.0,6.0,0.0
 2026,5,2026_05_TB_DAL,TB,Luke Goedeke,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Isaiah Likely,0.0,0.0,94.0
+2026,5,2026_05_BUF_LA,LA,Kyren Williams,0.0,49.0,27.0
+2026,5,2026_05_BUF_LA,LA,Quentin Lake,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,CIN,Russ Yeast,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Kyle Hamilton,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Jake Ferguson,0.0,0.0,19.0
@@ -23464,10 +23498,12 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_BAL_ATL,ATL,Bijan Robinson,0.0,86.0,32.0
 2026,5,2026_05_SF_SEA,SEA,Jaxon Smith-Njigba,0.0,16.0,102.0
 2026,5,2026_05_TB_DAL,DAL,Luke Schoonmaker,0.0,0.0,9.0
+2026,5,2026_05_BUF_LA,BUF,O'Cyrus Torrence,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,CIN,DJ Turner II,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,Kendre Miller,0.0,30.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Daiyan Henley,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Ji'Ayir Brown,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Dorian Williams,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Darnell Washington,0.0,0.0,12.0
 2026,5,2026_05_DET_ARI,ARI,Michael Wilson,7.0,0.0,30.0
 2026,5,2026_05_CIN_MIA,CIN,Jordan Battle,0.0,0.0,0.0
@@ -23513,10 +23549,12 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_MIN_NO,MIN,Ivan Pace Jr.,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Christian Izien,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,JAX,Kaevon Merriweather,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Anthony Kendall,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Shaka Heyward,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Jacob Saylors,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SEA,Drake Thomas,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,CHI,Darnell Wright,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Dalton Kincaid,0.0,0.0,7.0
 2026,5,2026_05_PHI_JAX,JAX,Anton Harrison,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,JAX,Brenton Strange,0.0,0.0,68.0
 2026,5,2026_05_DET_ARI,DET,Juice Scruggs,0.0,0.0,0.0
@@ -23538,6 +23576,8 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DET_ARI,ARI,Elijah Higgins,0.0,0.0,57.0
 2026,5,2026_05_SF_SEA,SEA,Derick Hall,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,TB,Payne Durham,0.0,0.0,5.0
+2026,5,2026_05_BUF_LA,LA,Ethan Evans,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Desjuan Johnson,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Jonathan Mingo,0.0,0.0,20.0
 2026,5,2026_05_TB_DAL,TB,Calijah Kancey,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Zay Flowers,0.0,13.0,53.0
@@ -23546,10 +23586,15 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_TB_DAL,TB,Yaya Diaby,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,ATL,Gervon Dexter Sr.,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,CHI,Tyrique Stevenson,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Davis Allen,0.0,0.0,24.0
+2026,5,2026_05_BUF_LA,LA,Puka Nacua,0.0,9.0,138.0
+2026,5,2026_05_BUF_LA,LA,Warren McClendon Jr.,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Will Anderson Jr.,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Keeanu Benton,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Tuli Tuipulotu,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,GB,Lukas Van Ness,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Byron Young,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Kobie Turner,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Jahmyr Gibbs,0.0,151.0,56.0
 2026,5,2026_05_PHI_JAX,PHI,Kelee Ringo,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,NYJ,Will McDonald IV,0.0,0.0,0.0
@@ -23610,6 +23655,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_CHI_GB,CHI,Theo Benedet,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Reddy Steward,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Hayden Rucci,0.0,0.0,7.0
+2026,5,2026_05_BUF_LA,LA,Harrison Mevis,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,CLE,Winston Reid,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Brevyn Spann-Ford,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Spencer Shrader,0.0,0.0,0.0
@@ -23622,15 +23668,22 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_MIN_NO,NO,Jayden Price,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,JC Latham,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,Bo Nix,123.0,10.0,0.0
+2026,5,2026_05_BUF_LA,LA,Braden Fiske,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,LV,Jackson Powers-Johnson,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Matt Goncalves,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Blake Corum,0.0,19.0,53.0
 2026,5,2026_05_IND_PIT,PIT,Roman Wilson,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,PHI,Jalyx Hunt,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Payton Wilson,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Tanor Bortolini,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,CHI,Tory Taylor,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,PHI,Will Shipley,0.0,6.0,7.0
+2026,5,2026_05_BUF_LA,LA,Tyler Davis,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Jordan Whittington,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Joe Andreessen,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Charles Woods,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Josh Wallace,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Omar Speights,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Devontez Walker,0.0,0.0,9.0
 2026,5,2026_05_SF_SEA,SEA,AJ Barner,0.0,0.0,20.0
 2026,5,2026_05_CLE_NYJ,NYJ,Braelon Allen,0.0,116.0,0.0
@@ -23649,6 +23702,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_NYG_WAS,NYG,Andru Phillips,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Darius Muasau,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,GB,Kamal Hadden,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Kamren Kinchens,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Justin Eboigbe,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,ATL,Bralen Trice,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Calen Bullock,0.0,0.0,0.0
@@ -23668,14 +23722,20 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_CHI_GB,GB,Javon Bullard,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,Troy Franklin,0.0,0.0,16.0
 2026,5,2026_05_IND_PIT,PIT,Troy Fautanu,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Cole Bishop,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,DeWayne Carter,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Jaylen Wright,0.0,11.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Ray Davis,0.0,2.0,31.0
+2026,5,2026_05_BUF_LA,BUF,Javon Solomon,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Malik Washington,0.0,18.0,43.0
+2026,5,2026_05_BUF_LA,BUF,Tylan Grable,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,NYJ,T'Vondre Sweat,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,PHI,Quinyon Mitchell,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,ATL,Maason Smith,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,JAX,Brian Thomas Jr.,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Zach Frazier,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Mike Sainristil,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Keon Coleman,0.0,0.0,7.0
 2026,5,2026_05_CHI_GB,GB,Jordan Morgan,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,TB,Graham Barton,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Jayden Daniels,199.0,103.0,0.0
@@ -23740,6 +23800,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_CIN_MIA,MIA,Dante Trader Jr.,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Yahya Black,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Oronde Gadsden II,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Jackson Hawes,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,ARI,Denzel Burke,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Ollie Gordon II,0.0,88.0,0.0
 2026,5,2026_05_LV_NE,NE,Andy Borregales,0.0,0.0,0.0
@@ -23768,6 +23829,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_PHI_JAX,JAX,Branson Combs,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Doneiko Slaughter,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,JAX,Danny Striggow,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Keleki Latu,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Dalen Cambre,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Trace Ford,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,DEN,Karene Reid,0.0,0.0,0.0
@@ -23783,8 +23845,10 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_LV_NE,NE,Efton Chism III,0.0,2.0,57.0
 2026,5,2026_05_LV_NE,NE,Elijah Ponder,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,CLE,Carson Schwesinger,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Josaiah Stewart,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Woody Marks,0.0,62.0,23.0
 2026,5,2026_05_HOU_TEN,TEN,Gunnar Helm,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Shaun Dolac,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,LV,Darien Porter,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,Jonas Sanker,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,ARI,Cody Simon,0.0,0.0,0.0
@@ -23802,12 +23866,15 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_HOU_TEN,TEN,Chimere Dike,0.0,0.0,28.0
 2026,5,2026_05_DET_ARI,ARI,Walter Nolen,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,PHI,Jihaad Campbell,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Maxwell Hairston,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Deone Walker,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Cam Skattebo,0.0,59.0,12.0
 2026,5,2026_05_LV_NE,NE,Craig Woodson,0.0,0.0,0.0
 2026,5,2026_05_PHI_JAX,JAX,Travis Hunter,0.0,0.0,9.0
 2026,5,2026_05_PHI_JAX,JAX,Bhayshul Tuten,0.0,72.0,24.0
 2026,5,2026_05_DEN_LAC,DEN,Jahdae Barron,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Mike Green,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,T.J. Sanders,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,DAL,Donovan Ezeiruaku,0.0,0.0,0.0
 2026,5,2026_05_DEN_LAC,LAC,Tre Harris,0.0,0.0,16.0
 2026,5,2026_05_DET_ARI,DET,Tate Ratledge,0.0,0.0,0.0
@@ -23841,6 +23908,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_LV_NE,LV,Malik Benson,0.0,0.0,6.0
 2026,5,2026_05_BAL_ATL,BAL,Ryan Eckley,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,GB,Trey Smack,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Maximus Pulley,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Kapena Gushiken,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,GB,J. Michael Sturdivant,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,BAL,Ethan Burke,0.0,0.0,0.0
@@ -23850,6 +23918,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_TB_DAL,TB,Rueben Bain Jr.,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,NYJ,Kenyon Sadiq,0.0,0.0,3.0
 2026,5,2026_05_MIN_NO,MIN,Caleb Banks,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,TJ Parker,0.0,0.0,0.0
 2026,5,2026_05_CLE_NYJ,CLE,Denzel Boston,0.0,0.0,46.0
 2026,5,2026_05_IND_PIT,IND,CJ Allen,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,WAS,Antonio Williams,0.0,0.0,31.0
@@ -23872,6 +23941,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_CLE_NYJ,CLE,Justin Jefferson,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Jaden Dugger,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,George Gumbs Jr.,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Jalon Kilgore,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,Lorenzo Styles Jr.,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,ARI,Karson Sharar,0.0,0.0,0.0
 2026,5,2026_05_TB_DAL,TB,Bauer Sharp,0.0,0.0,0.0
@@ -23882,6 +23952,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_IND_PIT,IND,Caden Curry,0.0,0.0,0.0
 2026,5,2026_05_BAL_ATL,ATL,Harold Perkins Jr.,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Seth McGowan,0.0,16.0,3.0
+2026,5,2026_05_BUF_LA,BUF,Tommy Doman Jr.,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,IND,Deion Burks,0.0,0.0,0.0
 2026,5,2026_05_NYG_WAS,NYG,Dominic Zvada,0.0,0.0,0.0
 2026,5,2026_05_CIN_MIA,MIA,Rodney McGraw,0.0,0.0,0.0
@@ -23894,17 +23965,22 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_DET_ARI,ARI,Wydett Williams Jr.,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SEA,Avery Smith,0.0,0.0,0.0
 2026,5,2026_05_MIN_NO,NO,Christen Miller,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Davison Igbinosun,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Daylen Everette,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Eli Raridon,0.0,0.0,57.0
 2026,5,2026_05_IND_PIT,PIT,Kaden Wetjen,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Riley Nowakowski,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Gabe Rubio,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Robert Spears-Jennings,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Wesley Bailey,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,LA,Dean Connors,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,TEN,Carnell Tate,0.0,0.0,6.0
 2026,5,2026_05_DET_ARI,DET,Blake Miller,0.0,0.0,0.0
 2026,5,2026_05_HOU_TEN,HOU,Kayden McDonald,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Derrick Moore,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Jimmy Rolder,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Skyler Bell,0.0,0.0,0.0
+2026,5,2026_05_BUF_LA,BUF,Kaleb Elarms-Orr,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Keith Abney II,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,DET,Skyler Gill-Howard,0.0,0.0,0.0
 2026,5,2026_05_LV_NE,NE,Erick Hunter,0.0,0.0,0.0
