@@ -55,12 +55,13 @@ DATA_DIR = Path(__file__).parent / "data"
 # UK is the default. "--region ire" builds the Irish set from Betfair's
 # Irish files, kept in separate files so the UK data is never touched.
 REGIONS = {
-    "uk":  {"prefix": "dwbfpricesukwin",   "csv": "racing_races.csv",     "done": "racing_files_done.txt",
+    "uk":  {"prefix": "dwbfpricesukwin",   "place": "dwbfpricesukplace",  "csv": "racing_races.csv",     "done": "racing_files_done.txt",
             "js": "racing_data.js",     "var": "RACING_DATA"},
-    "ire": {"prefix": "dwbfpricesirewin",  "csv": "racing_races_ire.csv", "done": "racing_files_done_ire.txt",
+    "ire": {"prefix": "dwbfpricesirewin",  "place": "dwbfpricesireplace", "csv": "racing_races_ire.csv", "done": "racing_files_done_ire.txt",
             "js": "racing_data_ire.js", "var": "RACING_DATA_IRE"},
 }
 FILE_PREFIX = REGIONS["uk"]["prefix"]
+PLACE_PREFIX = REGIONS["uk"]["place"]
 BASE_URL = "https://promo.betfair.com/betfairsp/prices/{prefix}{{d}}.csv".format(prefix=FILE_PREFIX)
 RACES_CSV = DATA_DIR / REGIONS["uk"]["csv"]
 DONE_FILE = DATA_DIR / REGIONS["uk"]["done"]
@@ -70,10 +71,11 @@ REGION = "uk"
 
 
 def use_region(name: str) -> None:
-    global FILE_PREFIX, BASE_URL, RACES_CSV, DONE_FILE, OUT_JS, JS_VAR, REGION
+    global PLACE_PREFIX, FILE_PREFIX, BASE_URL, RACES_CSV, DONE_FILE, OUT_JS, JS_VAR, REGION
     cfg = REGIONS[name]
     REGION = name
     FILE_PREFIX = cfg["prefix"]
+    PLACE_PREFIX = cfg["place"]
     BASE_URL = "https://promo.betfair.com/betfairsp/prices/" + FILE_PREFIX + "{d}.csv"
     RACES_CSV = DATA_DIR / cfg["csv"]
     DONE_FILE = DATA_DIR / cfg["done"]
@@ -91,6 +93,7 @@ COLUMNS = [
     "furlongs", "runners", "winners", "fav_bsp", "fav_morning", "fav_won",
     "win_bsp", "win_morning", "win_rank", "steam_bsp", "steam_ratio",
     "steam_won", "season", "sec_bsp", "third_bsp",
+    "places", "fav_pl", "sec_pl", "third_pl",
 ]
 
 
@@ -177,7 +180,7 @@ def _f(value, default=0.0) -> float:
         return default
 
 
-def race_row(rows: list[dict]):
+def race_row(rows: list[dict], place: dict | None = None):
     """One race's runner rows -> a single summary dict, or None when the
     race can't be used (void, abandoned, no prices)."""
     first = rows[0]
@@ -217,6 +220,22 @@ def race_row(rows: list[dict]):
 
     furlongs, rest = parse_event_name(first.get("event_name", ""))
     code = classify_code(rest)
+
+    # Place market: how many places were paid and whether the three
+    # shortest-priced runners were placed. "Placed" is only the same as
+    # "top 3" when exactly three places were paid, so the dashboard only
+    # uses these columns for such races.
+    places = fav_pl = sec_pl = third_pl = ""
+    if place and place["places"] >= 1:
+        flags = place["flags"]
+        places = place["places"]
+
+        def pl(runner):
+            sel = (runner.get("selection_id") or "").strip()
+            return flags[sel] if sel in flags else ""
+        fav_pl = pl(runners[0])
+        sec_pl = pl(runners[1])
+        third_pl = pl(runners[2]) if len(runners) >= 3 else ""
     return {
         "event_id": first["event_id"].strip(),
         "date": when.date().isoformat(),
@@ -240,19 +259,43 @@ def race_row(rows: list[dict]):
         "season": season_of(when.date(), group_of(code)),
         "sec_bsp": round(runners[1]["_bsp"], 2),
         "third_bsp": round(runners[2]["_bsp"], 2) if len(runners) >= 3 else "",
+        "places": places,
+        "fav_pl": fav_pl,
+        "sec_pl": sec_pl,
+        "third_pl": third_pl,
     }
 
 
-def parse_file(text: str) -> list[dict]:
-    reader = csv.DictReader(text.splitlines())
+def _rows(text: str):
+    for row in csv.DictReader(text.splitlines()):
+        yield {(k or "").strip().lower(): (v or "") for k, v in row.items()}
+
+
+def parse_place_file(text: str) -> dict:
+    """Place-market file -> {(event_dt, course): {"places": n, "flags": {selection_id: 0/1}}}.
+    In these files win_lose=1 means the runner was placed."""
+    groups: dict = defaultdict(list)
+    for row in _rows(text):
+        if row.get("event_dt") and row.get("selection_id"):
+            groups[(row["event_dt"].strip(), parse_course(row.get("menu_hint", "")))].append(row)
+    out = {}
+    for key, rows in groups.items():
+        flags = {r["selection_id"].strip(): 1 if str(r.get("win_lose", "")).strip() == "1" else 0 for r in rows}
+        out[key] = {"places": sum(flags.values()), "flags": flags}
+    return out
+
+
+def parse_file(text: str, place_text: str = "") -> list[dict]:
     by_event: dict[str, list[dict]] = defaultdict(list)
-    for row in reader:
-        row = {(k or "").strip().lower(): (v or "") for k, v in row.items()}
+    for row in _rows(text):
         if row.get("event_id"):
             by_event[row["event_id"].strip()].append(row)
+    place_map = parse_place_file(place_text) if place_text and place_text.strip() else {}
     out = []
     for rows in by_event.values():
-        r = race_row(rows)
+        first = rows[0]
+        key = (first.get("event_dt", "").strip(), parse_course(first.get("menu_hint", "")))
+        r = race_row(rows, place_map.get(key))
         if r:
             out.append(r)
     return out
@@ -343,11 +386,12 @@ def _curl_get(url: str):
     return (int(code) if code.strip().isdigit() else 0), body
 
 
-def download(file_date: date) -> str | None:
+def download(file_date: date, prefix: str | None = None) -> str | None:
     """Returns the file text, "" when Betfair says there is no file for that
     day (404), or None when the download failed or was refused (403, network
     trouble) and should be retried next run."""
-    url = BASE_URL.format(d=file_date.strftime("%d%m%Y"))
+    url = ("https://promo.betfair.com/betfairsp/prices/" + (prefix or FILE_PREFIX)
+           + file_date.strftime("%d%m%Y") + ".csv")
     req = urllib.request.Request(url, headers=BROWSER_HEADERS)
     err = "unknown"
     for attempt in range(3):
@@ -382,12 +426,12 @@ def download(file_date: date) -> str | None:
     return None
 
 
-def read_local(directory: Path, file_date: date) -> str | None:
-    p = directory / f"{FILE_PREFIX}{file_date.strftime('%d%m%Y')}.csv"
+def read_local(directory: Path, file_date: date, prefix: str | None = None) -> str | None:
+    p = directory / f"{prefix or FILE_PREFIX}{file_date.strftime('%d%m%Y')}.csv"
     return p.read_text(errors="replace") if p.exists() else ""
 
 
-def update(start: date, end: date, from_dir: Path | None, refetch: bool = False) -> None:
+def update(start: date, end: date, from_dir: Path | None, refetch: bool = False, places: bool = False) -> None:
     races = load_races()
     done = load_done()
     recent_cutoff = end - timedelta(days=REFETCH_RECENT_DAYS)
@@ -398,12 +442,15 @@ def update(start: date, end: date, from_dir: Path | None, refetch: bool = False)
     while d <= end + timedelta(days=1):
         if d > date.today():
             break
-        if refetch or d.isoformat() not in done or d >= recent_cutoff:
+        if (refetch or d.isoformat() not in done or d >= recent_cutoff
+                or (places and f"p:{d.isoformat()}" not in done)):
             todo.append(d)
         d += timedelta(days=1)
 
     print(f"{len(todo)} file(s) to fetch ({len(races)} races already stored).")
     added = fetched_ok = 0
+    use_place = True           # switched off if the place files can't be fetched
+    place_tried = place_ok = 0
     for i, fd in enumerate(todo, 1):
         text = read_local(from_dir, fd) if from_dir else download(fd)
         if text is None:
@@ -416,7 +463,24 @@ def update(start: date, end: date, from_dir: Path | None, refetch: bool = False)
         # A missing file for a recent day may just not be published yet.
         if text or fd < recent_cutoff:
             done.add(fd.isoformat())
-        parsed = parse_file(text) if text.strip() else []
+        ptxt = ""
+        if use_place and text.strip():
+            ptxt = read_local(from_dir, fd, PLACE_PREFIX) if from_dir else download(fd, PLACE_PREFIX)
+            place_tried += 1
+            if ptxt is None:
+                ptxt = ""
+                if place_tried == 10 and place_ok == 0:
+                    print("The first 10 place-file downloads all failed - carrying on without place data. "
+                          "Win results are still being saved.")
+                    use_place = False
+            else:
+                place_ok += 1 if ptxt.strip() else 0
+                if place_tried == 1:
+                    print(f"  first place file for {fd}: {len(ptxt)} bytes"
+                          + ("" if ptxt.strip() else " (empty - no place file that day?)"))
+                if ptxt.strip() or fd < recent_cutoff:
+                    done.add(f"p:{fd.isoformat()}")
+        parsed = parse_file(text, ptxt) if text.strip() else []
         if text.strip() and not parsed and "no races parsed" not in _SHOWN:
             _SHOWN.add("no races parsed")
             lines = text.splitlines()
@@ -724,6 +788,14 @@ def _fit_targets(rs: list[dict]) -> dict:
     out["top3"] = _logit_fit(xs, [1 if int(r["win_rank"]) <= 3 else 0 for r in rs])
     sec = [(x, 1 if int(r["win_rank"]) == 2 else 0) for x, r in zip(xs, rs) if r.get("sec_bsp") not in ("", None)]
     out["sec"] = _logit_fit([a for a, _ in sec], [b for _, b in sec]) if len(sec) >= 30 else None
+    # Top-3 finish of the favourite / 2nd favourite. Only from races where
+    # exactly three places were paid and the field was 8+, so "placed"
+    # really means "finished in the first three".
+    for key, col in (("fav3", "fav_pl"), ("sec3", "sec_pl")):
+        pts = [(x, int(r[col])) for x, r in zip(xs, rs)
+               if str(r.get("places", "")) == "3" and str(r.get(col, "")) in ("0", "1") and int(r["runners"]) >= 8]
+        out[key] = _logit_fit([a for a, _ in pts], [b for _, b in pts]) if len(pts) >= 60 else None
+        out["n_" + key] = len(pts)
     return out
 
 
@@ -951,6 +1023,9 @@ def main() -> int:
     ap.add_argument("--from-dir", help="read the Betfair daily files from this folder instead of downloading")
     ap.add_argument("--region", choices=sorted(REGIONS), default="uk",
                     help="uk (default) or ire - Irish races, stored and written separately")
+    ap.add_argument("--places", action="store_true",
+                    help="also re-process days that were stored before place data existed, so they gain "
+                         "the placed/top-3 columns (needed once)")
     ap.add_argument("--refetch", action="store_true",
                     help="download every file in range again, even ones already processed "
                          "(needed once to add new fields to history)")
@@ -959,7 +1034,7 @@ def main() -> int:
 
     start = date.fromisoformat(args.start) if args.start else DEFAULT_START
     end = date.fromisoformat(args.end) if args.end else date.today() - timedelta(days=1)
-    update(start, end, Path(args.from_dir) if args.from_dir else None, args.refetch)
+    update(start, end, Path(args.from_dir) if args.from_dir else None, args.refetch, args.places)
 
     races = load_races()
     if not races:
