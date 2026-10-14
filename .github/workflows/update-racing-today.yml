@@ -3,12 +3,18 @@ name: Update Today's Races
 # Reads today's UK racecard (times, race names, distances, field sizes) from
 # Sporting Life's public feed and writes racing_today.js, which the Racing
 # tab maps onto the race-profile ratings. No results, prices or tips.
-# Runs a few times a day because declared runners change through the morning.
+# Morning run: today's card. Evening run: tomorrow's card, so the next day's
+# races can be browsed the night before.
 
 on:
   schedule:
-    - cron: '30 6 * * *'
-    - cron: '30 9 * * *'
+    # GitHub's clock is UTC. 08:05 / 20:05 UTC is 09:05 / 21:05 UK time while
+    # the clocks are on British Summer Time (to 25 Oct 2026); after the clocks
+    # go back it becomes 08:05 / 20:05 UK time. Change the hours then if you
+    # want 9am / 9pm exactly (use 9 and 21).
+    # The evening run fetches TOMORROW's card (see the fetch step).
+    - cron: '5 8 * * *'
+    - cron: '5 20 * * *'
   workflow_dispatch:
 
 permissions:
@@ -27,8 +33,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fetch today's card
-        run: python racing_today.py --debug
+      - name: Fetch the card (today's in the morning, tomorrow's in the evening)
+        run: |
+          if [ "$(date -u +%H)" -ge 18 ]; then
+            python racing_today.py --debug --tomorrow
+          else
+            python racing_today.py --debug
+          fi
+      - name: Record outcomes of finished races
+        continue-on-error: true
+        run: python racing_today.py --results
+
       - name: Probe yesterday's results (diagnostic only)
         continue-on-error: true
         run: python racing_today.py --probe-results
@@ -37,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add racing_today.js data/racing_probe.txt
+          git add racing_today.js data/racing_probe.txt racing_results.js data/racing_results.json
           git diff --staged --quiet || git commit -m "Auto-update today's races $(date -u +'%Y-%m-%d %H:%M UTC')"
           for attempt in 1 2 3 4 5; do
             git pull --rebase origin main && git push && break
