@@ -1,41 +1,45 @@
-Probe for 2026-10-12, run 2026-10-13 18:03 UK
-UK races found: 10; probing up to 3
+Probe for 2026-10-13, run 2026-10-14 10:29 UK
+UK races found: 8; probing up to 3
 List-level keys on a race: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 
-=== race 942975: 12:47 Musselburgh Join Racing TV Now Amateur Jockeys' Handicap
+=== race 943874: 12:24 Leicester Every Race Live On Racing TV Nursery
 top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 race_stage=WEIGHEDIN winning_time=None result=None
-  pos=1 status=RUNNER Ibn Altheeb betting={"favourite": {}, "current_odds": "18/1", "historical_odds": ["28/1", "25/1", "22/1", "22/1", "20/1", "22/1", "25/1", "22/1", "20/1"]}
-  pos=2 status=RUNNER Filly Eilish betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["16/1", "18/1"]}
-  pos=3 status=RUNNER Motawaared betting={"favourite": {"betting_favourite": "f"}, "current_odds": "5/4", "historical_odds": ["1/1", "11/10", "10/11", "1/1", "11/10", "6/5"]}
-  pos=4 status=RUNNER Star Start betting={"favourite": {}, "current_odds": "10/1", "historical_odds": ["12/1", "14/1", "12/1", "14/1", "12/1", "14/1", "12/1", "11/1"]}
-  pos=5 status=RUNNER Tee Aitch Aye betting={"favourite": {}, "current_odds": "4/1", "historical_odds": ["5/1", "9/2"]}
-  pos=6 status=RUNNER Pride Of Nepal betting={"favourite": {}, "current_odds": "14/1", "historical_odds": ["12/1"]}
-  pos=7 status=RUNNER Mudita betting={"favourite": {}, "current_odds": "6/1", "historical_odds": ["7/1", "13/2"]}
-  pos=8 status=RUNNER Lone Piper betting={"favourite": {}, "current_odds": "100/1", "historical_odds": ["40/1", "50/1", "66/1", "80/1", "100/1", "125/1"]}
-  pos=0 status=WITHDRAWN Ephron betting={"favourite": {}, "current_odds": "12/1", "historical_odds": ["17/2", "8/1", "17/2", "8/1", "17/2", "9/1", "10/1", "11/1"]}
+  pos=1 status=RUNNER King Of Persia betting={"favourite": {}, "current_odds": "6/1", "historical_odds": ["6/1", "11/2", "6/1", "13/2", "6/1", "6/1", "11/2"]}
+  pos=2 status=RUNNER Banged Up betting={"favourite": {}, "current_odds": "13/2", "historical_odds": ["6/1", "11/2", "6/1"]}
+  pos=3 status=RUNNER Notimetotakeoff betting={"favourite": {}, "current_odds": "11/2", "historical_odds": ["13/2", "6/1", "13/2", "6/1"]}
+  pos=4 status=RUNNER Golden Oasis betting={"favourite": {}, "current_odds": "13/2", "historical_odds": ["13/2", "6/1", "13/2", "6/1", "6/1", "11/2", "6/1", "13/2", "6/1"]}
+  pos=5 status=RUNNER Waiting For Archie betting={"favourite": {}, "current_odds": "13/2", "historical_odds": ["12/1", "11/1", "10/1", "9/1", "17/2", "8/1", "7/1", "13/2", "6/1"]}
+  pos=6 status=RUNNER Ebt's Warrior betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["8/1"]}
+  pos=7 status=RUNNER Adoramus betting={"favourite": {}, "current_odds": "15/2", "historical_odds": ["11/2", "6/1", "13/2", "6/1", "13/2", "15/2", "8/1"]}
+  pos=8 status=RUNNER Mr Montgomery betting={"favourite": {}, "current_odds": "11/1", "historical_odds": ["7/1", "15/2", "8/1", "17/2", "9/1", "10/1"]}
+  pos=9 status=RUNNER Mulvaney's Return betting={"favourite": {"betting_favourite": "f"}, "current_odds": "9/2", "historical_odds": ["11/2", "5/1", "11/2", "5/1", "5/1", "9/2", "5/1"]}
+  pos=10 status=RUNNER Rule Of The Agency betting={"favourite": {}, "current_odds": "66/1", "historical_odds": ["66/1", "80/1"]}
 
-=== race 942976: 13:17 Musselburgh British EBF Novice Stakes (GBB Race)
-top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, tote_win, trifecta, videos
+=== race 943178: 12:54 Leicester British EBF Fillies' Restricted Novice Stakes (GBB Race) (Div 1)
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 race_stage=WEIGHEDIN winning_time=None result=None
-  pos=1 status=RUNNER Vegasmile betting={"favourite": {"betting_favourite": "f"}, "current_odds": "1/4", "historical_odds": ["30/100", "1/3", "30/100", "2/9", "2/7"]}
-  pos=2 status=RUNNER Blue Pete betting={"favourite": {}, "current_odds": "3/1", "historical_odds": ["9/4", "5/2", "11/4"]}
-  pos=3 status=RUNNER Dodgem betting={"favourite": {}, "current_odds": "33/1", "historical_odds": ["50/1", "40/1"]}
-  pos=4 status=RUNNER Sneakin Pete betting={"favourite": {}, "current_odds": "150/1", "historical_odds": ["100/1", "125/1"]}
+  pos=1 status=RUNNER Atlantic Grace betting={"favourite": {"betting_favourite": "f"}, "current_odds": "2/1", "historical_odds": ["15/8", "2/1", "9/4", "5/2", "11/4", "5/2", "9/4"]}
+  pos=2 status=RUNNER Tradittion betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["14/1", "16/1", "14/1"]}
+  pos=3 status=RUNNER Classic Bellini betting={"favourite": {}, "current_odds": "10/1", "historical_odds": ["10/1", "9/1", "10/1", "11/1"]}
+  pos=4 status=RUNNER Lady Foxtrot betting={"favourite": {}, "current_odds": "9/2", "historical_odds": ["7/2", "10/3", "7/2", "4/1", "7/2", "4/1", "4/1", "7/2", "10/3", "7/2", "4/1", "9/2", "4/1"]}
+  pos=5 status=RUNNER Beverleighann betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["40/1", "33/1", "28/1", "25/1", "20/1", "16/1", "14/1", "11/1", "10/1", "9/1", "10/1", "9/1", "9/1"]}
+  pos=6 status=RUNNER Adelaides Turn betting={"favourite": {}, "current_odds": "50/1", "historical_odds": ["50/1", "66/1", "50/1", "66/1", "50/1", "40/1", "50/1", "40/1", "50/1", "40/1"]}
+  pos=7 status=RUNNER Romidijo betting={"favourite": {}, "current_odds": "14/1", "historical_odds": ["12/1", "11/1", "10/1", "11/1", "12/1", "14/1", "12/1"]}
+  pos=8 status=RUNNER Romotoso betting={"favourite": {}, "current_odds": "3/1", "historical_odds": ["9/4", "5/2", "9/4", "2/1", "15/8", "7/4", "15/8", "2/1", "15/8", "7/4", "2/1", "9/4", "5/2", "11/4"]}
+  pos=9 status=RUNNER Kissamee betting={"favourite": {}, "current_odds": "66/1", "historical_odds": ["40/1", "50/1", "66/1", "80/1", "66/1", "80/1", "80/1", "100/1", "125/1", "100/1", "125/1", "125/1", "100/1", "80/1"]}
+  pos=10 status=RUNNER Setubal betting={"favourite": {}, "current_odds": "11/1", "historical_odds": ["20/1", "22/1", "20/1", "22/1", "18/1", "16/1", "14/1", "12/1", "14/1", "12/1"]}
+  pos=11 status=RUNNER Fancied Angel betting={"favourite": {}, "current_odds": "66/1", "historical_odds": ["66/1", "80/1", "66/1", "80/1"]}
+  pos=12 status=RUNNER Massa Go Go betting={"favourite": {}, "current_odds": "300/1", "historical_odds": ["150/1", "300/1", "400/1", "400/1", "300/1", "400/1", "400/1"]}
 
-=== race 943056: 12:37 Worcester Richard Davis Memorial Handicap Chase
-top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
+=== race 943157: 12:45 Hereford Betting.Bet Free Racing Tips Mares' 'National Hunt' Maiden Hurdle (GBB Race)
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, tote_win, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 race_stage=WEIGHEDIN winning_time=None result=None
-  pos=1 status=RUNNER Noble Recall betting={"favourite": {}, "current_odds": "6/1", "historical_odds": ["6/1", "11/2"]}
-  pos=2 status=RUNNER Onehundredneighty betting={"favourite": {"betting_favourite": "f"}, "current_odds": "4/5", "historical_odds": ["4/5", "5/6", "4/5", "5/6"]}
-  pos=3 status=RUNNER Tom Taggle betting={"favourite": {}, "current_odds": "10/1", "historical_odds": ["9/1", "10/1", "9/1"]}
-  pos=4 status=RUNNER Disco Davis betting={"favourite": {}, "current_odds": "66/1", "historical_odds": ["50/1", "66/1", "50/1"]}
-  pos=5 status=RUNNER Calli Black betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["33/1", "28/1", "25/1", "20/1", "18/1"]}
-  pos=6 status=RUNNER Jimmyjeroo betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["12/1", "14/1"]}
-  pos=7 status=RUNNER Rockvale betting={"favourite": {}, "current_odds": "6/1", "historical_odds": ["11/2"]}
-  pos=0 status=NONRUNNER Love Me betting={"favourite": {}, "current_odds": "8/1", "historical_odds": []}
-  pos=0 status=RUNNER Pop's Folly betting={"favourite": {}, "current_odds": "11/1", "historical_odds": ["14/1", "12/1"]}
-  pos=0 status=RUNNER Black Occ betting={"favourite": {}, "current_odds": "25/1", "historical_odds": ["25/1", "28/1", "33/1", "28/1"]}
+  pos=1 status=RUNNER Blue Topaz betting={"favourite": {}, "current_odds": "2/1", "historical_odds": []}
+  pos=2 status=RUNNER Miss Denver betting={"favourite": {"betting_favourite": "f"}, "current_odds": "1/2", "historical_odds": ["4/7", "8/15", "1/2", "8/15", "1/2", "8/15"]}
+  pos=3 status=RUNNER Esther Spring betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["12/1", "14/1", "16/1", "14/1", "16/1", "14/1"]}
+  pos=4 status=RUNNER Upton Fern betting={"favourite": {}, "current_odds": "80/1", "historical_odds": ["50/1", "66/1", "66/1"]}
+  pos=5 status=RUNNER Vajra betting={"favourite": {}, "current_odds": "20/1", "historical_odds": ["18/1"]}
