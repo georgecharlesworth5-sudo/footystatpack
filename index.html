@@ -2424,6 +2424,18 @@
       </div>
     </div>`;
 
+    const lb = block.lowered_bar;
+    const loweredHtml = lb ? `<div class="tr-section-title">Since the lower bar</div>
+      <div class="tr-note">From ${trFmtDate(lb.since)}, goals, corners, cards and BTTS picks only need 82% (was 87%) to reach Best Bets. These are the picks that only exist because of that change, tracked on their own.
+        <div class="tr-form" style="margin-top:8px">
+          <span>New picks (82-87%) <b class="${trPctClass(lb.new.pct, lb.new.total)}">${lb.new.total ? lb.new.pct + "%" : "-"}</b> <span class="tr-chip-n">(${lb.new.hits}/${lb.new.total}${lb.new.total ? ", model said " + lb.new.stated + "%" : ""})</span></span>
+          <span>Old-bar picks, same period <b class="${trPctClass(lb.old_bar_same_period.pct, lb.old_bar_same_period.total)}">${lb.old_bar_same_period.total ? lb.old_bar_same_period.pct + "%" : "-"}</b> <span class="tr-chip-n">(${lb.old_bar_same_period.hits}/${lb.old_bar_same_period.total}${lb.old_bar_same_period.total ? ", model said " + lb.old_bar_same_period.stated + "%" : ""})</span></span>
+          ${lb.pending ? `<span class="tr-chip-n">${lb.pending} pending</span>` : ""}
+        </div>
+        ${lb.by_market.map(m => trBarRow(m.market.charAt(0).toUpperCase() + m.market.slice(1).replace(/_/g, " "), m.hits, m.total, m.pct)).join("")}
+        <div style="margin-top:6px">${lb.new.total < 100 ? `<b>Small sample so far (${lb.new.total} settled).</b> Judge it by whether the hit rate sits near what the model said (the replay behind the change found about 83-87% at these levels), and give it a few hundred picks before drawing conclusions.` : "The test: the hit rate should sit close to what the model said."}</div>
+      </div>` : "";
+
     const leaguesHtml = block.leagues.length > 1
       ? `<div class="tr-section-title">By league</div>` +
         block.leagues.map(l => trBarRow(l.league, l.hits, l.total, l.pct)).join("")
@@ -2432,7 +2444,7 @@
     const recent = BETS_LOG.recent.filter(inSport);
     const pendingMatches = BETS_LOG.pending_matches.filter(inSport);
 
-    mainEl.innerHTML = sportToggle + intro + summaryHtml + leaguesHtml +
+    mainEl.innerHTML = sportToggle + intro + summaryHtml + loweredHtml + leaguesHtml +
       trRecentSection(recent) + trPendingSection(block, pendingMatches);
 
     bindTrSportToggle(renderTrackRecord);
