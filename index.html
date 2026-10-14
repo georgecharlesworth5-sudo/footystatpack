@@ -1916,8 +1916,10 @@
       return;
     }
     const today = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
-    const stale = RACING_TODAY.date !== today
-      ? `<div class="tr-note"><b>This card is for ${RACING_TODAY.date}</b>, not today. It refreshes each morning.</div>` : "";
+    const stale = RACING_TODAY.date === today ? ""
+      : RACING_TODAY.date > today
+        ? `<div class="tr-note"><b>This is the card for ${RACING_TODAY.date} (tomorrow).</b> It switches to the day's own card at the morning refresh.</div>`
+        : `<div class="tr-note"><b>This card is for ${RACING_TODAY.date}</b>, not today. It refreshes each morning and evening.</div>`;
     const allRows = RACING_TODAY.races.map(r => ({ region: "uk", ...r, rate: rcLookup({ region: "uk", ...r }) })).filter(r => r.rate);
     const hasIre = allRows.some(r => r.region === "ire");
     if (!hasIre) racingTodayRegion = "";
