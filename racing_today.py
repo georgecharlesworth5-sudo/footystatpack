@@ -219,6 +219,134 @@ def probe_results() -> int:
     return 0
 
 
+RESULTS_JSON = Path(__file__).parent / "data" / "racing_results.json"
+RESULTS_JS = Path(__file__).parent / "racing_results.js"
+
+
+def to_decimal(odds):
+    """'5/2' -> 3.5, 'Evs'/'EVENS' -> 2.0, '2.5' -> 2.5. None if unreadable."""
+    if odds is None:
+        return None
+    t = str(odds).strip().lower()
+    if t in ("evs", "evens", "even"):
+        return 2.0
+    m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*/\s*(\d+(?:\.\d+)?)", t)
+    if m and float(m.group(2)) > 0:
+        return 1 + float(m.group(1)) / float(m.group(2))
+    try:
+        v = float(t)
+        return v if v > 1 else None
+    except ValueError:
+        return None
+
+
+def score_race(detail):
+    """Reads a finished race's detail and returns the outcome measured against
+    the betting (final odds), or None if the race isn't finished/readable.
+    Ties in the betting at the top make favourite or 2nd favourite ambiguous,
+    and those fields are left as None rather than guessed."""
+    rides = detail.get("rides") or []
+    runners = []
+    for ride in rides:
+        status = str(ride.get("ride_status") or "").upper()
+        if "NON" in status or "WITHDRAW" in status:
+            continue
+        b = ride.get("betting") or {}
+        dec = to_decimal(b.get("current_odds"))
+        pos = ride.get("finish_position")
+        pos = int(pos) if isinstance(pos, (int, float)) or (isinstance(pos, str) and pos.isdigit()) else 0
+        runners.append({"dec": dec, "pos": pos})
+    if len(runners) < 2:
+        return None
+    if not any(r["pos"] == 1 for r in runners):
+        return None                      # not finished (or abandoned)
+    priced = [r for r in runners if r["dec"] is not None]
+    if len(priced) < 2:
+        return None
+    priced.sort(key=lambda r: r["dec"])
+    winners = [r for r in runners if r["pos"] == 1]
+    out = {"ran": len(runners), "fav": None, "fav_pos": None, "sec_pos": None,
+           "win_rank": None, "fav_odds": None}
+    d0, d1 = priced[0]["dec"], priced[1]["dec"]
+    out["fav_odds"] = round(d0, 2)
+    if d0 != d1:                          # a clear favourite
+        out["fav_pos"] = priced[0]["pos"]
+        out["fav"] = 1 if priced[0]["pos"] == 1 else 0
+        if len(priced) < 3 or d1 != priced[2]["dec"]:   # and a clear 2nd favourite
+            out["sec_pos"] = priced[1]["pos"]
+    wdec = winners[0]["dec"]
+    if wdec is not None and len(winners) == 1:
+        out["win_rank"] = 1 + sum(1 for r in priced if r["dec"] < wdec)
+    return out
+
+
+def load_results():
+    try:
+        return json.loads(RESULTS_JSON.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def collect_results(days) -> int:
+    """For each day, reads the card, opens every race, and stores the outcome
+    of those that have finished. Safe to re-run: a race is stored once."""
+    store = load_results()
+    added = 0
+    for day in days:
+        try:
+            payload = fetch(day)
+        except Exception as exc:  # noqa: BLE001
+            print(f"{day}: could not read the card list ({exc})")
+            continue
+        ids = {}
+        for m in meetings_from(payload):
+            for r in m.get("races") or []:
+                rid = (r.get("race_summary_reference") or {}).get("id")
+                if rid:
+                    ids[(r.get("course_name") or "", r.get("time") or "")] = rid
+        races = parse(payload, day)
+        # parse() gives UK-time strings; match back to ids through the raw list
+        raw = {}
+        for m in meetings_from(payload):
+            for r in m.get("races") or []:
+                rid = (r.get("race_summary_reference") or {}).get("id")
+                if rid:
+                    raw[(r.get("course_name") or (m.get("meeting_summary") or {}).get("course", {}).get("name") or "", r.get("name"))] = rid
+        done_here = 0
+        for r in races:
+            key = f"{day}|{r['time']}|{r['course']}"
+            if key in store and store[key].get("ran"):
+                continue
+            rid = raw.get((r["course"], r["name"])) or raw.get((r["course"], re.sub(r"\s*\((GBB|GBBPlus)[^)]*\)\s*$", "", r["name"]).strip()))
+            if not rid:
+                continue
+            try:
+                req = urllib.request.Request(DETAIL_URL.format(rid=rid), headers={"User-Agent": "Mozilla/5.0", "Accept": "application/json"})
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    d = json.loads(resp.read().decode("utf-8"))
+            except Exception as exc:  # noqa: BLE001
+                print(f"  {key}: detail failed ({exc})")
+                continue
+            res = score_race(d)
+            if not res:
+                continue
+            store[key] = {"date": day, "time": r["time"], "course": r["course"], "region": r["region"],
+                          "code": r["code"], "rtype": r["rtype"], "furlongs": r["furlongs"],
+                          "name": r["name"], **res}
+            added += 1
+            done_here += 1
+        print(f"{day}: {done_here} new results ({len(races)} races on the card)")
+    # keep the file to the last ~400 days so it stays small
+    keep = sorted(store, reverse=True)[:6000]
+    store = {k: store[k] for k in keep}
+    RESULTS_JSON.parent.mkdir(exist_ok=True)
+    RESULTS_JSON.write_text(json.dumps(store, separators=(",", ":"), sort_keys=True))
+    rows = sorted(store.values(), key=lambda x: (x["date"], x["time"], x["course"]))
+    RESULTS_JS.write_text("const RACING_RESULTS = " + json.dumps({"updated": datetime.now(LONDON).strftime("%Y-%m-%d %H:%M"), "races": rows}, separators=(",", ":")) + ";\n")
+    print(f"Stored {len(store)} results in total ({added} new).")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="YYYY-MM-DD (default today, UK time)")
@@ -226,7 +354,13 @@ def main() -> int:
     ap.add_argument("--tomorrow", action="store_true", help="fetch tomorrow's card instead of today's")
     ap.add_argument("--probe-results", action="store_true",
                     help="inspect yesterday's results in the feed and write data/racing_probe.txt")
+    ap.add_argument("--results", action="store_true",
+                    help="record the outcomes of yesterday's and today's finished races")
     args = ap.parse_args()
+    if args.results:
+        today = datetime.now(LONDON).date()
+        days = [args.date] if args.date else [(today - timedelta(days=1)).isoformat(), today.isoformat()]
+        return collect_results(days)
     if args.probe_results:
         return probe_results()
     day = args.date or (datetime.now(LONDON).date() + timedelta(days=int(args.tomorrow))).isoformat()
