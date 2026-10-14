@@ -54,11 +54,27 @@ TEAM_WIN_MIN_CONFIDENCE = 0.75
 CORNERS_OVER_7_5_MIN_CONFIDENCE = 0.80
 
 
+# Goals, corners, cards and BTTS get a lower bar than the half-goals markets.
+# A walk-forward replay of the v2 model (Nov 2025 onward, ten leagues, ~3,800
+# matches, form rebuilt from only the games before each one) found these
+# markets calibrated within about a point all the way down the confidence
+# range: picks stated at 82-87% landed ~83-87%, in every league and in both
+# halves of the replay. At the old 87% bar they were being filtered out even
+# though they hit as often as the model said. First-half goals were over-
+# confident from 75% up (stated ~77-82%, landed ~73%) and second-half goals
+# over-confident at 87%+ (stated 88%, landed ~79%), so those keep the old bar.
+# To change how many picks reach Best Bets, change this one number.
+BROAD_MARKET_MIN_CONFIDENCE = 0.82
+BROAD_MARKETS = {"goals", "corners", "cards"}
+
+
 def _over_bar(metric: str, scope: str, line) -> float:
     """Confidence needed for an Over pick - the standard bar, except for
-    match corners Over 7.5 (see above)."""
+    match corners Over 7.5 (see above) and the broad markets (see above)."""
     if metric == "corners" and scope == "match" and line == 7.5:
         return CORNERS_OVER_7_5_MIN_CONFIDENCE
+    if metric in BROAD_MARKETS:
+        return BROAD_MARKET_MIN_CONFIDENCE
     return MIN_CONFIDENCE
 
 METRIC_LABELS = {
@@ -164,6 +180,8 @@ def _bar_for(pick: dict) -> float:
         return TEAM_WIN_MIN_CONFIDENCE
     if pick["direction"] == "Over":
         return _over_bar(pick["metric"], pick["scope"], pick["line"])
+    if pick["metric"] == "btts":
+        return BROAD_MARKET_MIN_CONFIDENCE
     return MIN_CONFIDENCE
 
 
@@ -221,13 +239,13 @@ def compute_best_bets_split(statpack: dict, window_days: int = NEAR_TERM_WINDOW_
                 if not side_ou:
                     continue
                 top_side = max(side_ou, key=lambda ou: ou["over"])
-                if top_side["over"] >= MIN_CONFIDENCE:
+                if top_side["over"] >= _over_bar(metric_key, scope, top_side["line"]):
                     label = f"{team} - Over {top_side['line']} {metric_label}"
                     picks.append(_make_pick(fx, metric_key, scope, team, "Over",
                                              top_side["line"], top_side["over"], label))
 
         g = preds.get("goals")
-        if g and "btts_yes" in g and g["btts_yes"] >= MIN_CONFIDENCE:
+        if g and "btts_yes" in g and g["btts_yes"] >= BROAD_MARKET_MIN_CONFIDENCE:
             label = f"{fx['home_team']} v {fx['away_team']} - BTTS Yes"
             picks.append(_make_pick(fx, "btts", "match", None, "Yes", None, g["btts_yes"], label))
 
