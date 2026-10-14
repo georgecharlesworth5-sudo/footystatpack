@@ -22,7 +22,7 @@ import json
 import re
 import sys
 import urllib.request
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -223,12 +223,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="YYYY-MM-DD (default today, UK time)")
     ap.add_argument("--debug", action="store_true")
+    ap.add_argument("--tomorrow", action="store_true", help="fetch tomorrow's card instead of today's")
     ap.add_argument("--probe-results", action="store_true",
                     help="inspect yesterday's results in the feed and write data/racing_probe.txt")
     args = ap.parse_args()
     if args.probe_results:
         return probe_results()
-    day = args.date or datetime.now(LONDON).date().isoformat()
+    day = args.date or (datetime.now(LONDON).date() + timedelta(days=int(args.tomorrow))).isoformat()
     try:
         payload = fetch(day)
     except Exception as exc:  # noqa: BLE001 - report any failure, keep old file
