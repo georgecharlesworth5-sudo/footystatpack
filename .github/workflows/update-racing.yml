@@ -1,68 +1,55 @@
-name: Update Racing Guide
+name: Update Today's Races
 
-# Builds the UK horse racing revision guide:
-#   racing.py - downloads Betfair's free daily UK win-market price files
-#               (promo.betfair.com/betfairsp/prices), boils each race down
-#               to one row in data/racing_races.csv, and writes
-#               racing_data.js, which the dashboard's Racing tab reads.
-#
-# First run (backfill): Actions -> Update Racing Guide -> Run workflow, and
-# leave "start" as it is. That downloads every day from 1 May 2023 (about
-# 1,250 small files, takes roughly 10-15 minutes) and only has to be done
-# once. After that the daily schedule fetches just the newest day or two.
-#
-# Separate from the football/NFL workflows on purpose: different data
-# source, different files, and nothing here touches bets_log.csv, so it
-# doesn't need to share their concurrency group.
+# Reads today's UK racecard (times, race names, distances, field sizes) from
+# Sporting Life's public feed and writes racing_today.js, which the Racing
+# tab maps onto the race-profile ratings. No results, prices or tips.
+# Morning run: today's card. Evening run: tomorrow's card, so the next day's
+# races can be browsed the night before.
 
 on:
   schedule:
-    # Once a day at 08:00 UTC. Betfair publishes the file for a day's
-    # racing the following morning, so this picks up yesterday's results.
-    - cron: '0 8 * * *'
+    # GitHub's clock is UTC. 08:05 / 20:05 UTC is 09:05 / 21:05 UK time while
+    # the clocks are on British Summer Time (to 25 Oct 2026); after the clocks
+    # go back it becomes 08:05 / 20:05 UK time. Change the hours then if you
+    # want 9am / 9pm exactly (use 9 and 21).
+    # The evening run fetches TOMORROW's card (see the fetch step).
+    - cron: '5 8 * * *'
+    - cron: '5 20 * * *'
   workflow_dispatch:
-    inputs:
-      start:
-        description: 'First race date to cover (YYYY-MM-DD). Leave as is for the full backfill.'
-        required: false
-        default: '2023-05-01'
 
 permissions:
   contents: write
 
 concurrency:
-  group: racing-pipeline
+  group: racing-today
   cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 10
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Build racing data
-        env:
-          START: ${{ github.event.inputs.start }}
+      - name: Fetch the card (today's in the morning, tomorrow's in the evening)
         run: |
-          if [ -n "$START" ]; then
-            python racing.py --start "$START"
+          if [ "$(date -u +%H)" -ge 18 ]; then
+            python racing_today.py --debug --tomorrow
           else
-            python racing.py
+            python racing_today.py --debug
           fi
+      - name: Probe yesterday's results (diagnostic only)
+        continue-on-error: true
+        run: python racing_today.py --probe-results
 
       - name: Commit and push if anything changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/racing_races.csv data/racing_files_done.txt racing_data.js
-          git diff --staged --quiet || git commit -m "Auto-update racing guide $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git add racing_today.js data/racing_probe.txt
+          git diff --staged --quiet || git commit -m "Auto-update today's races $(date -u +'%Y-%m-%d %H:%M UTC')"
           for attempt in 1 2 3 4 5; do
             git pull --rebase origin main && git push && break
             echo "Push attempt $attempt failed - retrying..."
