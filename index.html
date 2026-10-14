@@ -1509,6 +1509,157 @@
     }
   }
 
+  // ---------- Same-game joint probabilities ----------
+  // Multiplying the legs of a same-game slip ignores that they move
+  // together (a home win and over 1.5 goals, say). For legs from one game
+  // we rebuild the game from the model's own expected numbers - goals as
+  // Poisson counts, corners and cards the same, NFL points as bell curves -
+  // work out the exact joint chance on that rebuilt game, and compare it
+  // with the same legs multiplied. That ratio (how much the legs help or hurt
+  // each other) is applied to the model's displayed percentages, so each
+  // leg still carries exactly the % shown on the card. Different kinds of
+  // leg (goals v corners v cards, or NFL points v touchdowns) are treated as
+  // independent, because the model has no joint view of them.
+  const NFL_TEAM_SD = 9.5;   // points scored by one NFL team in a game
+
+  function poissonPmf(lambda, cap) {
+    const out = [Math.exp(-lambda)];
+    let sum = out[0];
+    for (let k = 1; k <= cap && sum < 1 - 1e-10; k++) { out.push(out[k - 1] * lambda / k); sum += out[k]; }
+    return out;
+  }
+  function normPmf(mean, sd, cap) {
+    const cdf = x => 0.5 * (1 + erf((x - mean) / (sd * Math.SQRT2)));
+    const out = [];
+    for (let k = 0; k <= cap; k++) out.push(Math.max(0, cdf(k + 0.5) - cdf(k - 0.5)));
+    const s = out.reduce((a, b) => a + b, 0);
+    return out.map(v => v / s);
+  }
+  function erf(x) {   // Abramowitz-Stegun 7.1.26
+    const s = x < 0 ? -1 : 1; x = Math.abs(x);
+    const t = 1 / (1 + 0.3275911 * x);
+    const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    return s * y;
+  }
+
+  function parseLeg(item) {
+    const [sport, home, away, date, metric, scope, direction, line] = item.key.split("|");
+    return { sport, home, away, date, metric, scope, direction, line: line === "" ? null : Number(line), p: item.confidence };
+  }
+
+  function findPredictions(sport, home, away, date) {
+    const same = fx => fx.home_team === home && fx.away_team === away && fx.date === date;
+    if (sport === "nfl") {
+      const list = (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) || [];
+      const fx = list.find(same);
+      return fx ? fx.predictions : null;
+    }
+    for (const lg of Object.values(data || {})) {
+      const fx = (lg.upcoming_fixtures || []).find(same);
+      if (fx) return fx.predictions;
+    }
+    const cups = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup) ? STATPACK_DATA.efl_cup.fixtures : [];
+    const fx = cups.find(same);
+    return fx ? fx.predictions : null;
+  }
+
+  // Each family returns { joint, indep } on its rebuilt game, or null.
+  function familyRatio(kind, legs, preds) {
+    let vars, evalLeg;
+    if (kind === "goals") {
+      const g = preds.goals, f1 = preds.first_half_goals, f2 = preds.second_half_goals;
+      const halves = legs.some(l => l.metric === "first_half_goals" || l.metric === "second_half_goals");
+      if (!g) return null;
+      if (halves) {
+        if (!f1 || !f2) return null;
+        vars = [poissonPmf(f1.expected_home, 9), poissonPmf(f1.expected_away, 9), poissonPmf(f2.expected_home, 9), poissonPmf(f2.expected_away, 9)];
+      } else {
+        vars = [poissonPmf(g.expected_home, 14), poissonPmf(g.expected_away, 14)];
+      }
+      evalLeg = (l, s) => {
+        const h1 = s[0], a1 = s[1], h2 = halves ? s[2] : 0, a2 = halves ? s[3] : 0;
+        const h = h1 + h2, a = a1 + a2;
+        const pick = (x, y, sc) => sc === "home" ? x : sc === "away" ? y : x + y;
+        if (l.metric === "goals") return pick(h, a, l.scope) > l.line ? 1 : 0;
+        if (l.metric === "first_half_goals") return pick(h1, a1, l.scope) > l.line ? 1 : 0;
+        if (l.metric === "second_half_goals") return pick(h2, a2, l.scope) > l.line ? 1 : 0;
+        if (l.metric === "btts") { const y = h > 0 && a > 0; return (l.direction === "Yes") === y ? 1 : 0; }
+        if (l.metric === "team_win") return l.scope === "home" ? (h > a ? 1 : 0) : (a > h ? 1 : 0);
+        if (l.metric === "draw") return h === a ? 1 : 0;
+        return null;
+      };
+    } else if (kind === "corners" || kind === "cards") {
+      const m = preds[kind];
+      if (!m) return null;
+      const cap = kind === "corners" ? 40 : 16;
+      vars = [poissonPmf(m.expected_home, cap), poissonPmf(m.expected_away, cap)];
+      evalLeg = (l, s) => (l.scope === "home" ? s[0] : l.scope === "away" ? s[1] : s[0] + s[1]) > l.line ? 1 : 0;
+    } else if (kind === "nfl_points") {
+      const m = preds.points;
+      if (!m) return null;
+      vars = [normPmf(m.expected_home, NFL_TEAM_SD, 70), normPmf(m.expected_away, NFL_TEAM_SD, 70)];
+      evalLeg = (l, s) => {
+        if (l.metric === "moneyline") { const d = s[0] - s[1]; const w = d > 0 ? 1 : d === 0 ? 0.5 : 0; return l.scope === "home" ? w : 1 - w; }
+        return (l.scope === "home" ? s[0] : l.scope === "away" ? s[1] : s[0] + s[1]) > l.line ? 1 : 0;
+      };
+    } else return null;
+
+    // Marginals and the joint over every cell of the rebuilt game.
+    const marg = legs.map(() => 0);
+    let joint = 0;
+    const idx = vars.map(() => 0), s = vars.map(() => 0);
+    (function walk(d, w) {
+      if (d === vars.length) {
+        let all = 1;
+        for (let i = 0; i < legs.length; i++) {
+          const v = evalLeg(legs[i], idx);
+          if (v == null) { all = null; break; }
+          marg[i] += w * v; all *= v;
+        }
+        if (all != null) joint += w * all;
+        return;
+      }
+      for (let k = 0; k < vars[d].length; k++) { idx[d] = k; walk(d + 1, w * vars[d][k]); }
+    })(0, 1);
+    const indep = marg.reduce((a, b) => a * b, 1);
+    if (!(indep > 1e-9) || !(joint >= 0)) return null;
+    return { joint, indep };
+  }
+
+  const FAMILY_OF = { goals: "goals", first_half_goals: "goals", second_half_goals: "goals", btts: "goals", team_win: "goals", draw: "goals",
+    corners: "corners", cards: "cards", points: "nfl_points", moneyline: "nfl_points" };
+
+  // Returns { prob, approx } for a set of slip items.
+  function slipJointProb(items) {
+    const games = new Map();
+    items.forEach(i => {
+      const leg = parseLeg(i);
+      const gk = [leg.sport, leg.home, leg.away, leg.date].join("|");
+      if (!games.has(gk)) games.set(gk, []);
+      games.get(gk).push(leg);
+    });
+    let prob = 1, approx = false;
+    for (const legs of games.values()) {
+      const fams = new Map();
+      legs.forEach(l => {
+        const f = FAMILY_OF[l.metric] || ("solo:" + l.metric + l.scope + l.direction + l.line);
+        if (!fams.has(f)) fams.set(f, []);
+        fams.get(f).push(l);
+      });
+      const preds = legs.length > 1 ? findPredictions(legs[0].sport, legs[0].home, legs[0].away, legs[0].date) : null;
+      for (const [f, fl] of fams) {
+        const product = fl.reduce((a, l) => a * l.p, 1);
+        if (fl.length < 2) { prob *= product; continue; }
+        const r = f.startsWith("solo:") || !preds ? null : familyRatio(f, fl, preds);
+        if (!r) { prob *= product; approx = true; continue; }
+        let adj = product * (r.joint / r.indep);
+        const lo = Math.max(0, fl.reduce((a, l) => a + l.p, 0) - (fl.length - 1)), hi = Math.min(...fl.map(l => l.p));
+        prob *= Math.min(hi, Math.max(lo, adj));
+      }
+    }
+    return { prob, approx };
+  }
+
   // ---------- Bet slip ----------
   function slipStats(items) {
     const prob = items.reduce((a, i) => a * i.confidence, 1);
@@ -1518,7 +1669,9 @@
       games.set(g, (games.get(g) || 0) + 1);
     });
     const sameGame = Array.from(games.values()).some(n => n > 1);
-    return { n: items.length, prob, fair: prob > 0 ? 1 / prob : null, sameGame };
+    if (!sameGame) return { n: items.length, prob, fair: prob > 0 ? 1 / prob : null, sameGame, product: prob, productFair: prob > 0 ? 1 / prob : null, approx: false };
+    const j = slipJointProb(items);
+    return { n: items.length, prob: j.prob, fair: j.prob > 0 ? 1 / j.prob : null, sameGame, product: prob, productFair: prob > 0 ? 1 / prob : null, approx: j.approx };
   }
 
   function slipSummaryHtml(items) {
@@ -1526,18 +1679,19 @@
     const st = slipStats(items);
     const lines = [
       `<div class="slip-line"><span>Selections</span><b>${st.n}</b></div>`,
-      `<div class="slip-line"><span>Chance every leg lands (model)</span><b>${(st.prob * 100).toFixed(1)}%</b></div>`,
-      `<div class="slip-line"><span>Fair odds (break-even)</span><b>${st.fair ? st.fair.toFixed(2) : "-"}</b></div>`,
+      `<div class="slip-line"><span>${st.sameGame ? "Chance every leg lands (same-game adjusted)" : "Chance every leg lands (model)"}</span><b>${(st.prob * 100).toFixed(1)}%</b></div>`,
+      `<div class="slip-line"><span>${st.sameGame ? "Adjusted fair odds (break-even)" : "Fair odds (break-even)"}</span><b>${st.fair ? st.fair.toFixed(2) : "-"}</b></div>`,
     ];
+    if (st.sameGame) lines.push(`<div class="slip-line" style="opacity:.7"><span>Legs simply multiplied</span><span>${(st.product * 100).toFixed(1)}% &middot; ${st.productFair ? st.productFair.toFixed(2) : "-"}</span></div>`);
     let notes = `<div class="slip-note">Fair odds are 1 divided by the model's chance. A bookmaker price for the whole slip above that would be value <i>if the model is right</i>. The model's confidence is a rough guide, not a guarantee.</div>`;
-    if (st.sameGame) notes += `<div class="slip-note slip-warn">Some selections are from the same game. They aren't independent (e.g. corners and cards both depend on how the game flows), so the combined % simply multiplies them and is only approximate. Bookmakers often won't accept these in a normal accumulator either.</div>`;
+    if (st.sameGame) notes += `<div class="slip-note slip-warn">Some selections are from the same game, so they move together (a home win and over 1.5 goals, say). The adjusted figure rebuilds that game from the model's expected goals (corners, cards and NFL points the same way) and works out how often the legs land together. Different kinds of leg (goals v corners v cards) are treated as independent, so the figure is still an estimate. Compare a bookmaker's bet-builder price with the <b>adjusted</b> fair odds, not the multiplied ones, and remember builders carry a margin of roughly 5-10%.${st.approx ? " Some legs couldn't be matched to a current fixture, so those are multiplied." : ""}</div>`;
     return `<div class="slip-summary">${lines.join("")}${notes}</div>`;
   }
 
   function slipText(items, name) {
     const st = slipStats(items);
     const rows = items.map(i => `${i.label} (${i.league}, ${i.date}${i.time ? " " + i.time : ""})`);
-    return (name ? name + "\n" : "") + rows.join("\n") + `\nModel chance all ${st.n} land: ${(st.prob * 100).toFixed(1)}% (fair odds ${st.fair ? st.fair.toFixed(2) : "-"})`;
+    return (name ? name + "\n" : "") + rows.join("\n") + `\nModel chance all ${st.n} land: ${(st.prob * 100).toFixed(1)}% (${st.sameGame ? "same-game adjusted " : ""}fair odds ${st.fair ? st.fair.toFixed(2) : "-"})`;
   }
 
   function fmtSavedAt(iso) {
