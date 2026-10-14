@@ -46,6 +46,22 @@ def _parse_date(d: str):
     except (ValueError, TypeError):
         return None
 
+# Same rule as the Today page: a game kicking off after midnight and before
+# 6am UK time (US evening games, mostly) counts as part of the previous day.
+LATE_NIGHT_CUTOFF_HOUR = 6
+
+
+def _late_night_next_day(fx_date, fx_time: str, window_end) -> bool:
+    """True for a fixture dated the day after the window that kicks off
+    before the cutoff hour (e.g. 00:30 UK on the 15th still belongs to the
+    14th's Best Bets, matching the Today tab)."""
+    if not fx_date or fx_date != window_end + timedelta(days=1):
+        return False
+    try:
+        return int(str(fx_time).split(":")[0]) < LATE_NIGHT_CUTOFF_HOUR
+    except (ValueError, IndexError):
+        return False
+
 
 def _eligible_pool(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> list[dict]:
     today = today or date.today()
@@ -53,7 +69,7 @@ def _eligible_pool(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: 
     pool = []
     for fx in pack.get("upcoming_fixtures", []):
         fx_date = _parse_date(fx.get("date", ""))
-        if fx_date and fx_date > window_end:
+        if fx_date and fx_date > window_end and not _late_night_next_day(fx_date, fx.get("time", ""), window_end):
             continue
         if fx.get("low_sample"):
             continue
