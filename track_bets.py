@@ -788,6 +788,69 @@ def _form(settled: list[dict], today: date) -> dict:
     return out
 
 
+# --- The lowered Best Bets bar -------------------------------------------
+# best_bets.py lowered its bar for goals, corners, cards and BTTS from 87% to
+# 82% (BROAD_MARKET_MIN_CONFIDENCE). Picks that only exist because of that
+# change - stated below the old bar - are tracked as their own group so the
+# change can be judged on real results. The group needs no start date: before
+# the change no such pick could be logged, so "since" is just the first
+# one that shows up.
+OLD_BROAD_BAR = 0.87
+BROAD_METRICS = {"goals", "corners", "cards", "btts"}
+
+
+def _broad_market_pick(p: dict) -> bool:
+    # v2 model only: picks logged under the earlier model used different
+    # bars (BTTS especially), so they say nothing about this change.
+    if p.get("sport") not in ("", None, "football") or p.get("model") != "v2":
+        return False
+    if p["metric"] in ("goals", "corners", "cards"):
+        return p["direction"] == "Over"
+    return p["metric"] == "btts" and p["direction"] == "Yes"
+
+
+def _only_because_of_lower_bar(p: dict) -> bool:
+    try:
+        conf = float(p["confidence"])
+    except (TypeError, ValueError):
+        return False
+    if not _broad_market_pick(p) or conf >= OLD_BROAD_BAR:
+        return False
+    # Match corners Over 7.5 already had its own 80% bar before this change.
+    if p["metric"] == "corners" and p["scope"] == "match" and str(p["line"]) in ("7.5", "7.50") and conf >= 0.80:
+        return False
+    return True
+
+
+def _group_stats(rows: list[dict]) -> dict:
+    hits = sum(1 for r in rows if r["result"] == "hit")
+    stated = sum(float(r["confidence"]) for r in rows) / len(rows) if rows else 0.0
+    return {"hits": hits, "total": len(rows), "pct": _pct(hits, len(rows)), "stated": round(stated * 100)}
+
+
+def _lowered_bar(counted: list[dict]) -> dict | None:
+    """counted = shown picks that count toward the record (any status)."""
+    new = [p for p in counted if _only_because_of_lower_bar(p)]
+    if not new:
+        return None
+    since = min(p["logged_date"] for p in new)
+    settled = [p for p in new if p["status"] == "settled"]
+    old = [p for p in counted if p["status"] == "settled" and _broad_market_pick(p)
+           and not _only_because_of_lower_bar(p) and p["logged_date"] >= since
+           and float(p["confidence"]) >= OLD_BROAD_BAR]
+    by_market = {}
+    for p in settled:
+        label = "BTTS" if p["metric"] == "btts" else p["metric"]
+        by_market.setdefault(label, []).append(p)
+    return {
+        "since": since,
+        "new": _group_stats(settled),
+        "old_bar_same_period": _group_stats(old),
+        "pending": sum(1 for p in new if p["status"] == "pending"),
+        "by_market": [{"market": m, **_group_stats(rows)} for m, rows in sorted(by_market.items(), key=lambda kv: -len(kv[1]))],
+    }
+
+
 def _block(picks: list[dict], today: date) -> dict:
     """Everything the dashboard shows for one slice (all / football / nfl)."""
     counted = [p for p in picks if _counts_toward_record(p) and _shown(p)]
@@ -813,6 +876,7 @@ def _block(picks: list[dict], today: date) -> dict:
         # evidence about the market itself, not about the filter.
         "markets": _market_breakdown([p for p in picks if _counts_toward_record(p) and p["status"] == "settled"]),
         "held_back": {"hits": held_hits, "total": len(held), "pct": _pct(held_hits, len(held))},
+        "lowered_bar": _lowered_bar(counted),
         "leagues": _league_breakdown(settled),
         "calibration": _calibration(settled),
         "at_80": _at_80([p for p in picks if _counts_toward_record(p) and p["status"] == "settled"]),
