@@ -96,6 +96,16 @@ def _parse_venue_from_game_id(game_id: str, team: str) -> str | None:
     return None
 
 
+def _num(value) -> float:
+    """Tolerant float for columns that can be blank or 'NA' (EPA columns in
+    particular) - treated as 0.0 rather than dropping the whole row."""
+    try:
+        v = float(value)
+    except (TypeError, ValueError):
+        return 0.0
+    return 0.0 if v != v else v  # v != v is True only for NaN
+
+
 def fetch_team_stats(season: int) -> list[dict]:
     """Fetches one season's team-game stats. Returns [] gracefully on
     failure (e.g. a not-yet-existing future season, or a transient
@@ -120,11 +130,17 @@ def fetch_team_stats(season: int) -> list[dict]:
             rushing_yards = float(row.get("rushing_yards") or 0)
         except ValueError:
             continue
+        # Per-play inputs for the EPA-based points estimate (nfl_model):
+        # plays = pass attempts + sacks taken + carries; epa = passing EPA
+        # + rushing EPA (passing EPA already includes sacks).
+        plays = _num(row.get("attempts")) + _num(row.get("sacks_suffered")) + _num(row.get("carries"))
+        epa = _num(row.get("passing_epa")) + _num(row.get("rushing_epa"))
         rows.append({
             "season": row.get("season"), "week": row.get("week"), "game_id": row.get("game_id"),
             "team": row.get("team"), "opponent_team": row.get("opponent_team"), "venue": venue,
             "passing_tds": passing_tds, "rushing_tds": rushing_tds,
             "passing_yards": passing_yards, "rushing_yards": rushing_yards,
+            "plays": plays, "epa": epa,
         })
     return rows
 
@@ -236,6 +252,10 @@ def build_team_game_rows(team_stats_rows: list[dict], games_rows: list[dict]) ->
                 "rushing_tds_for": row["rushing_tds"], "rushing_tds_against": opponent_row["rushing_tds"],
                 "passing_yards_for": row["passing_yards"], "passing_yards_against": opponent_row["passing_yards"],
                 "rushing_yards_for": row["rushing_yards"], "rushing_yards_against": opponent_row["rushing_yards"],
+                # Per-play inputs (this team's own offence, and the opponent's
+                # offence in the same game = what this team's defence allowed).
+                "plays_for": row["plays"], "plays_against": opponent_row["plays"],
+                "epa_for": row["epa"], "epa_against": opponent_row["epa"],
             })
     return combined
 
@@ -260,7 +280,8 @@ def cache_team_game_data(rows: list[dict], out_path: Path) -> None:
                   "passing_tds_for", "passing_tds_against",
                   "rushing_tds_for", "rushing_tds_against",
                   "passing_yards_for", "passing_yards_against",
-                  "rushing_yards_for", "rushing_yards_against"]
+                  "rushing_yards_for", "rushing_yards_against",
+                  "plays_for", "plays_against", "epa_for", "epa_against"]
     with open(out_path, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
