@@ -26,7 +26,8 @@ exclusion rules, thresholds), this is the only place to change it -
 dashboard.html's JS best-bets code has been removed.
 """
 
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from calibration import split_by_calibration
 
@@ -97,6 +98,7 @@ def _parse_date(d: str):
 
 # Same rule as the Today page: a game kicking off after midnight and before
 # 6am UK time (US evening games, mostly) counts as part of the previous day.
+LONDON = ZoneInfo("Europe/London")
 LATE_NIGHT_CUTOFF_HOUR = 6
 
 
@@ -112,7 +114,24 @@ def _late_night_next_day(fx_date, fx_time: str, window_end) -> bool:
         return False
 
 
-def _eligible_pool(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None) -> list[dict]:
+def _already_kicked_off(fx: dict, now) -> bool:
+    """True once a fixture's kick-off (UK time, as the fixture lists give it)
+    has passed - a pick on a game that's already started isn't a bet you can
+    place any more, and one first seen after kick-off must never be logged."""
+    if now is None:
+        return False
+    fx_date = _parse_date(fx.get("date", ""))
+    if not fx_date:
+        return False
+    try:
+        hh, mm = str(fx.get("time", "")).split(":")[:2]
+        kickoff = datetime(fx_date.year, fx_date.month, fx_date.day, int(hh), int(mm), tzinfo=LONDON)
+    except (ValueError, TypeError):
+        return False        # no usable kick-off time: keep it
+    return kickoff <= now
+
+
+def _eligible_pool(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None, now=None) -> list[dict]:
     """Every fixture, across all leagues, within the near-term window and
     NOT carrying a caution flag - cross-league or thin-sample fixtures
     are still excluded (those reflect genuine uncertainty in the
@@ -135,6 +154,8 @@ def _eligible_pool(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, tod
             if fx_date and fx_date > window_end and not _late_night_next_day(fx_date, fx.get("time", ""), window_end):
                 continue
             if fx.get("cross_league_data") or fx.get("low_sample"):
+                continue
+            if _already_kicked_off(fx, now):
                 continue
             pool.append({**fx, "league_code": code, "league_name": league.get("league_name", code)})
     return pool
@@ -194,7 +215,7 @@ def compute_best_bets(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, 
 
 
 def compute_best_bets_split(statpack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None,
-                            calibration: dict | None = None) -> tuple[list[dict], list[dict]]:
+                            calibration: dict | None = None, now=None) -> tuple[list[dict], list[dict]]:
     """
     Returns (shown, held_back). Every pick is first qualified on the
     model's RAW confidence exactly as before; calibration.py then shifts
@@ -210,7 +231,10 @@ def compute_best_bets_split(statpack: dict, window_days: int = NEAR_TERM_WINDOW_
     first. No fixed length - as long (or short, or empty) as the
     genuinely strong picks for today happen to be.
     """
-    pool = _eligible_pool(statpack, window_days, today)
+    # Real runs (no explicit date) drop games that have already kicked off.
+    if now is None and today is None:
+        now = datetime.now(LONDON)
+    pool = _eligible_pool(statpack, window_days, today, now)
     picks = []
 
     for fx in pool:
