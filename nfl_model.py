@@ -61,6 +61,20 @@ FALLBACK_LEAGUE_RUSHING_YARDS = 115.0
 # results suggest they need their own range.
 FORM_CLAMP = (0.6, 1.6)
 
+# --- Per-play (EPA) points estimate, blended with the per-game one above ---
+# Walk-forward backtest on 2,166 regular-season games (2018-2026, no
+# lookahead): expected points built as (expected plays) x (points per
+# play implied by EPA per play) were clearly more accurate than points
+# per game alone, and a 50/50 blend of the two gave the best moneyline
+# log loss and margin error. Raw points-per-play (without EPA) did NOT
+# beat points-per-game, so it isn't used. The existing STD_MARGIN /
+# STD_TOTAL / STD_TEAM_POINTS widths were re-checked against the blend's
+# residuals (margin ~13.9, total ~14.2, team ~10.0) and left as they are.
+EPA_BLEND_WEIGHT = 0.5     # share of the final expected points that comes from the EPA estimate
+EPA_TO_PPP = 0.28          # points/play per unit of EPA/play deviation (the backtest's learned slope settled at ~0.28)
+CLAMP_PLAYS = (0.8, 1.25)  # pace factor bounds (plays vary far less than scoring does)
+EPA_DEV_CLAMP = (-0.3, 0.3)  # bounds on the combined offence+defence EPA/play deviation from league average
+
 DEFAULT_PASSING_YARDS_LINES = [199.5, 224.5, 249.5]
 DEFAULT_RUSHING_YARDS_LINES = [99.5, 124.5, 149.5]
 
@@ -120,6 +134,71 @@ def expected_points(home_form: dict, away_form: dict, league_avg: dict) -> tuple
     league_home_avg = league_avg.get("home_points") or FALLBACK_LEAGUE_POINTS
     league_away_avg = league_avg.get("away_points") or FALLBACK_LEAGUE_POINTS
     return _expected_stat(home_form, away_form, league_home_avg, league_away_avg, "points_for", "points_against")
+
+
+def _scaled(own_for: float, opp_against: float, league_own: float, bounds: tuple[float, float]) -> float:
+    """league * clamp((own_for / league) * (opp_against / league)) - the same
+    attack-times-defence ratio idea as _expected_stat, with its own bounds."""
+    return league_own * _clamp((own_for / league_own) * (opp_against / league_own), bounds)
+
+
+def expected_points_all(home_form: dict, away_form: dict, league_avg: dict) -> tuple[float, float] | None:
+    """Per-game points estimate from all-games form (see nfl_stats.all_games_form):
+    league home/away average points x each side's attack ratio x the other
+    side's defence ratio, clamped like the venue-split version. Returns None
+    if the all-games fields aren't there, so the caller falls back to the
+    venue-split estimate."""
+    vals = [home_form.get("all_pf_r"), home_form.get("all_pa_r"),
+            away_form.get("all_pf_r"), away_form.get("all_pa_r")]
+    lg_home, lg_away = league_avg.get("home_points"), league_avg.get("away_points")
+    if any(v is None for v in vals) or not lg_home or not lg_away:
+        return None
+    exp_home = lg_home * _clamp(vals[0] * vals[3], FORM_CLAMP)
+    exp_away = lg_away * _clamp(vals[2] * vals[1], FORM_CLAMP)
+    return round(exp_home, 3), round(exp_away, 3)
+
+
+def expected_points_epa(home_form: dict, away_form: dict, league_avg: dict) -> tuple[float, float] | None:
+    """Expected points from per-play data: (expected plays) x (league points
+    per play + EPA_TO_PPP x the matchup's EPA/play edge). Returns None if
+    either team lacks per-play form or the league baselines are missing,
+    in which case the caller sticks with the per-game points estimate."""
+    needed_league = ["home_plays", "away_plays", "home_ppp", "away_ppp", "home_epa_pp", "away_epa_pp"]
+    if any(league_avg.get(k) is None for k in needed_league):
+        return None
+    # Preferred: form built from ALL of each team's games (venue-normalised
+    # by nfl_stats), so this season's games all count rather than only the
+    # ones at the same venue.
+    hf, af = home_form, away_form
+    all_form = [hf.get("all_plays_f_r"), hf.get("all_plays_a_r"), hf.get("all_epa_f_d"), hf.get("all_epa_a_d"),
+                af.get("all_plays_f_r"), af.get("all_plays_a_r"), af.get("all_epa_f_d"), af.get("all_epa_a_d")]
+    if all(v is not None for v in all_form):
+        plays_home = league_avg["home_plays"] * _clamp(hf["all_plays_f_r"] * af["all_plays_a_r"], CLAMP_PLAYS)
+        plays_away = league_avg["away_plays"] * _clamp(af["all_plays_f_r"] * hf["all_plays_a_r"], CLAMP_PLAYS)
+        dev_home = _clamp(hf["all_epa_f_d"] + af["all_epa_a_d"], EPA_DEV_CLAMP)
+        dev_away = _clamp(af["all_epa_f_d"] + hf["all_epa_a_d"], EPA_DEV_CLAMP)
+        return (round(plays_home * (league_avg["home_ppp"] + EPA_TO_PPP * dev_home), 3),
+                round(plays_away * (league_avg["away_ppp"] + EPA_TO_PPP * dev_away), 3))
+
+    # Fallback (older cached data without the all-games fields): venue-split form.
+    needed_form = [home_form.get("plays_for"), home_form.get("plays_against"),
+                   home_form.get("epa_pp_for"), home_form.get("epa_pp_against"),
+                   away_form.get("plays_for"), away_form.get("plays_against"),
+                   away_form.get("epa_pp_for"), away_form.get("epa_pp_against")]
+    if any(v is None for v in needed_form):
+        return None
+
+    plays_home = _scaled(home_form["plays_for"], away_form["plays_against"], league_avg["home_plays"], CLAMP_PLAYS)
+    plays_away = _scaled(away_form["plays_for"], home_form["plays_against"], league_avg["away_plays"], CLAMP_PLAYS)
+
+    dev_home = _clamp((home_form["epa_pp_for"] - league_avg["home_epa_pp"])
+                      + (away_form["epa_pp_against"] - league_avg["home_epa_pp"]), EPA_DEV_CLAMP)
+    dev_away = _clamp((away_form["epa_pp_for"] - league_avg["away_epa_pp"])
+                      + (home_form["epa_pp_against"] - league_avg["away_epa_pp"]), EPA_DEV_CLAMP)
+
+    exp_home = plays_home * (league_avg["home_ppp"] + EPA_TO_PPP * dev_home)
+    exp_away = plays_away * (league_avg["away_ppp"] + EPA_TO_PPP * dev_away)
+    return round(exp_home, 3), round(exp_away, 3)
 
 
 def expected_tds(home_form: dict, away_form: dict, league_avg: dict, td_type: str) -> tuple[float, float]:
@@ -183,7 +262,13 @@ def predict_game(home_form: dict, away_form: dict, league_avg: dict,
     passing_yards_lines = passing_yards_lines or DEFAULT_PASSING_YARDS_LINES
     rushing_yards_lines = rushing_yards_lines or DEFAULT_RUSHING_YARDS_LINES
 
-    exp_home_pts, exp_away_pts = expected_points(home_form, away_form, league_avg)
+    all_games_pts = expected_points_all(home_form, away_form, league_avg)
+    exp_home_pts, exp_away_pts = all_games_pts or expected_points(home_form, away_form, league_avg)
+    per_game_pts = (exp_home_pts, exp_away_pts)
+    epa_pts = expected_points_epa(home_form, away_form, league_avg)
+    if epa_pts is not None:
+        exp_home_pts = round((1 - EPA_BLEND_WEIGHT) * per_game_pts[0] + EPA_BLEND_WEIGHT * epa_pts[0], 3)
+        exp_away_pts = round((1 - EPA_BLEND_WEIGHT) * per_game_pts[1] + EPA_BLEND_WEIGHT * epa_pts[1], 3)
     exp_home_pass_td, exp_away_pass_td = expected_tds(home_form, away_form, league_avg, "passing_tds")
     exp_home_rush_td, exp_away_rush_td = expected_tds(home_form, away_form, league_avg, "rushing_tds")
     exp_home_pass_yd, exp_away_pass_yd = expected_yards(home_form, away_form, league_avg, "passing_yards")
@@ -193,6 +278,9 @@ def predict_game(home_form: dict, away_form: dict, league_avg: dict,
         "points": {
             "expected_home": exp_home_pts, "expected_away": exp_away_pts,
             "expected_total": round(exp_home_pts + exp_away_pts, 1),
+            "model": "blend" if epa_pts is not None else "per_game",
+            "form": "all_games" if all_games_pts is not None else "venue_split",
+            "components": {"per_game": list(per_game_pts), "epa": list(epa_pts) if epa_pts is not None else None},
             "moneyline": moneyline(exp_home_pts, exp_away_pts),
             "total_over_under": total_points_over_under(exp_home_pts, exp_away_pts, total_lines),
             "home_over_under": team_points_over_under(exp_home_pts, team_lines),
