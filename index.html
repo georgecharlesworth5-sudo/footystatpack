@@ -1951,10 +1951,18 @@
       const id = Number(el.dataset.bankId);
       bankSettling = { id, outcome: el.dataset.bankOut, returns: null }; bankDelArmed = null; renderBankroll();
     });
-    mainEl.querySelectorAll("[data-bank-when]").forEach(el => el.addEventListener("change", () => {
-      const bet = bank.bets.find(x => String(x.id) === el.dataset.bankWhen);
-      if (bet) { bet.eventAt = el.value || ""; bankSave(); renderBankroll(); }
-    }));
+    // Save as the time is picked, but only re-sort once the picker is closed (re-rendering mid-pick closes it on phones).
+    mainEl.querySelectorAll("[data-bank-when]").forEach(el => {
+      let dirty = false;
+      const bet = () => bank.bets.find(x => String(x.id) === el.dataset.bankWhen);
+      const save = () => { const t = bet(); if (t) { t.eventAt = el.value || ""; bankSave(); dirty = true; } };
+      el.addEventListener("input", save);
+      el.addEventListener("change", save);
+      el.addEventListener("blur", () => {
+        if (!dirty) return;
+        const y = window.scrollY; renderBankroll(); window.scrollTo(0, y);
+      });
+    });
     on("[data-bank-cancel]", () => { bankSettling = null; renderBankroll(); });
     on("[data-bank-confirm]", el => {
       const b = bank.bets.find(x => x.id === Number(el.dataset.bankConfirm));
