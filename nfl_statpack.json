@@ -3204,14 +3204,20 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.359,
-            "away_win": 0.641
+            "home_win": 0.382,
+            "away_win": 0.618
           },
           "total_over_under": [
             {
+              "line": 39.5,
+              "over": 0.504,
+              "under": 0.496,
+              "expected": 43.9
+            },
+            {
               "line": 40.5,
-              "over": 0.553,
-              "under": 0.447,
+              "over": 0.596,
+              "under": 0.404,
               "expected": 43.9
             },
             {
@@ -3545,8 +3551,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.743,
-            "away_win": 0.257
+            "home_win": 0.739,
+            "away_win": 0.261
           },
           "total_over_under": [
             {
@@ -3898,8 +3904,8 @@
             },
             {
               "line": 43.5,
-              "over": 0.511,
-              "under": 0.489,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 45.4
             },
             {
@@ -4233,8 +4239,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.589,
-            "away_win": 0.411
+            "home_win": 0.592,
+            "away_win": 0.408
           },
           "total_over_under": [
             {
@@ -4250,9 +4256,9 @@
               "expected": 47.7
             },
             {
-              "line": 45.5,
-              "over": 0.504,
-              "under": 0.496,
+              "line": 46.5,
+              "over": 0.489,
+              "under": 0.511,
               "expected": 47.7
             },
             {
@@ -4580,14 +4586,14 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.444,
-            "away_win": 0.556
+            "home_win": 0.454,
+            "away_win": 0.546
           },
           "total_over_under": [
             {
-              "line": 38.5,
-              "over": 0.511,
-              "under": 0.489,
+              "line": 39.5,
+              "over": 0.483,
+              "under": 0.517,
               "expected": 43.7
             },
             {
@@ -5621,8 +5627,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.721,
-            "away_win": 0.279
+            "home_win": 0.714,
+            "away_win": 0.286
           },
           "total_over_under": [
             {
@@ -5968,8 +5974,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.336,
-            "away_win": 0.664
+            "home_win": 0.323,
+            "away_win": 0.677
           },
           "total_over_under": [
             {
@@ -5992,8 +5998,8 @@
             },
             {
               "line": 53.5,
-              "over": 0.5,
-              "under": 0.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 53.3
             }
           ],
@@ -6315,8 +6321,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.532,
-            "away_win": 0.468
+            "home_win": 0.527,
+            "away_win": 0.473
           },
           "total_over_under": [
             {
@@ -6662,8 +6668,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.806,
-            "away_win": 0.194
+            "home_win": 0.809,
+            "away_win": 0.191
           },
           "total_over_under": [
             {
@@ -6686,8 +6692,8 @@
             },
             {
               "line": 51.5,
-              "over": 0.496,
-              "under": 0.504,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 53.8
             }
           ],
@@ -9767,8 +9773,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.451,
-            "away_win": 0.549
+            "home_win": 0.448,
+            "away_win": 0.552
           },
           "total_over_under": [
             {
