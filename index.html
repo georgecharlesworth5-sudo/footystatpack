@@ -1807,7 +1807,8 @@
             <button class="slip-btn primary" data-bank-confirm="${b.id}">Save result</button>
             <button class="slip-btn quiet" data-bank-cancel>Cancel</button></div></div>`;
       } else {
-        action = `<div class="slip-actions" style="margin:8px 0 0">
+        action = `<label class="tr-chip-n" style="display:block;margin-top:8px">Start time (sets the order) <input type="datetime-local" class="slip-name" data-bank-when="${b.id}" value="${escAttr(b.eventAt || "")}" style="width:100%"></label>
+        <div class="slip-actions" style="margin:8px 0 0">
           <button class="slip-btn" data-bank-out="won" data-bank-id="${b.id}">Won</button>
           ${b.kind === "ew" ? `<button class="slip-btn" data-bank-out="placed" data-bank-id="${b.id}">Placed</button>` : ""}
           <button class="slip-btn" data-bank-out="lost" data-bank-id="${b.id}">Lost</button>
@@ -1844,7 +1845,7 @@
           <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
           <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>
         </div>
-        <label>Event date and time (optional, keeps pending bets in order) <input class="slip-name" type="datetime-local" data-bank-f="when" value="${escAttr(d.when || "")}"></label>
+        <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="datetime-local" data-bank-f="when" value="${escAttr(d.when || "")}"></label>
         <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
         <div class="slip-actions"><button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button></div>
         ${bankMsg ? `<div class="slip-note slip-warn">${bankMsg}</div>` : ""}
@@ -1950,6 +1951,10 @@
       const id = Number(el.dataset.bankId);
       bankSettling = { id, outcome: el.dataset.bankOut, returns: null }; bankDelArmed = null; renderBankroll();
     });
+    mainEl.querySelectorAll("[data-bank-when]").forEach(el => el.addEventListener("change", () => {
+      const bet = bank.bets.find(x => String(x.id) === el.dataset.bankWhen);
+      if (bet) { bet.eventAt = el.value || ""; bankSave(); renderBankroll(); }
+    }));
     on("[data-bank-cancel]", () => { bankSettling = null; renderBankroll(); });
     on("[data-bank-confirm]", el => {
       const b = bank.bets.find(x => x.id === Number(el.dataset.bankConfirm));
