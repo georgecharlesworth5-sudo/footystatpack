@@ -345,6 +345,15 @@
   }
   .slip-name { width: 100%; box-sizing: border-box; }
   .slip-x { background: transparent; border: none; color: var(--meta); font-size: 16px; cursor: pointer; padding: 2px 6px; }
+  .bank-form label { display: block; font-family: var(--data); font-size: 12px; color: var(--ink-dim); margin: 8px 0 0; }
+  .bank-form label > select, .bank-form label > input { margin-top: 3px; display: block; }
+  .bank-form .slip-name { width: 100%; }
+  .bank-row { display: flex; gap: 10px; }
+  .bank-row label { flex: 1; }
+  .bank-table td, .bank-table th { font-size: 11px; padding: 5px 3px; }
+  .bank-bet { margin: 10px 0; }
+  .bank-settle { margin-top: 8px; }
+  .slip-btn { min-height: 36px; }
   .slip-summary { background: var(--surface); border: 1px solid var(--rule); padding: 12px 14px; margin: 12px 0; font-family: var(--data); font-size: 12px; }
   .slip-line { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; }
   .slip-line b { font-size: 14px; }
@@ -855,6 +864,7 @@
   const TRACK_RECORD = "__TRACK_RECORD__";
   const MODEL_CHECK = "__MODEL_CHECK__";
   const SLIP = "__SLIP__";
+  const BANKROLL = "__BANKROLL__";
   const RACING = "__RACING__";
   const EFL_CUP = "__EFL_CUP__";
   const CASH_BUILDER = "__CASH_BUILDER__";
@@ -1119,6 +1129,12 @@
     slipBtn.innerHTML = "Bet Slip" + (slip.items.length ? ` <span class="count">${slip.items.length}</span>` : "");
     slipBtn.addEventListener("click", () => { activeLeague = SLIP; footballMenuOpen = false; render(); });
     tabsEl.appendChild(slipBtn);
+
+    const bankBtn = document.createElement("button");
+    bankBtn.className = "tab" + (activeLeague === BANKROLL ? " active" : "");
+    bankBtn.innerHTML = "Bankroll" + (bank && bank.bets.some(b => b.status === "pending") ? ` <span class="count">${bank.bets.filter(b => b.status === "pending").length}</span>` : "");
+    bankBtn.addEventListener("click", () => { activeLeague = BANKROLL; footballMenuOpen = false; render(); });
+    tabsEl.appendChild(bankBtn);
 
     const trBtn = document.createElement("button");
     trBtn.className = "tab" + (activeLeague === TRACK_RECORD ? " active" : "");
@@ -1674,6 +1690,310 @@
     return { prob, approx };
   }
 
+  // ---------- Bankroll: virtual bets ----------
+  // A pretend betting account. Pick a starting bankroll, record bets (stake
+  // and the odds you'd have taken), then mark each Won / Lost / Void and
+  // confirm what it returned. Everything is kept in this browser only
+  // (localStorage), like the bet slip - use "Copy backup" before clearing
+  // site data or switching phones.
+  const BANK_STORE = "virtualBankroll";
+  const BANK_SPORTS = ["Football", "NFL", "Horse racing", "Other"];
+  const EW_TERMS = [["1/4", 4, 3], ["1/5", 5, 3], ["1/4", 4, 2], ["1/5", 5, 4], ["1/4", 4, 4], ["1/3", 3, 2]]; // label, denominator, places
+  let bank = slipLoad(BANK_STORE, null);
+  if (!bank || typeof bank !== "object" || !Array.isArray(bank.bets)) bank = null;
+  let bankView = "all";                 // history filter: all / pending / settled
+  let bankSettling = null;              // { id, outcome } while a result is being confirmed
+  let bankDelArmed = null;
+  let bankDraft = { sport: "Football", kind: "single", desc: "", stake: "", odds: "", ew: 0, fair: null, source: "" };
+  let bankMsg = "";
+
+  function bankSave() { slipSave(BANK_STORE, bank); }
+  const gbp = n => (n < 0 ? "-" : "") + "£" + Math.abs(n).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const gbpSigned = n => (n > 0 ? "+" : "") + gbp(n);
+
+  // "5/2", "2.5", "evs" -> decimal odds, or null
+  function parseOdds(text) {
+    const t = String(text == null ? "" : text).trim().toLowerCase().replace(/\s+/g, "");
+    if (!t) return null;
+    if (t === "evs" || t === "evens" || t === "even") return 2;
+    let m = t.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+    if (m) { const d = Number(m[2]); return d > 0 ? 1 + Number(m[1]) / d : null; }
+    m = t.match(/^\d+(?:\.\d+)?$/);
+    if (m) { const v = Number(t); return v > 1 ? v : null; }
+    return null;
+  }
+  const fmtOdds = d => d == null ? "-" : (Math.round(d * 100) / 100).toFixed(2);
+
+  // Total money out: each way is two equal bets (win + place).
+  const bankOutlay = b => b.stake * (b.kind === "ew" ? 2 : 1);
+
+  // What a bet returns for an outcome, before any manual edit.
+  function bankAutoReturn(b, outcome) {
+    const s = b.stake, o = b.odds;
+    if (outcome === "void") return bankOutlay(b);
+    if (outcome === "lost") return 0;
+    if (b.kind !== "ew") return outcome === "won" ? s * o : 0;
+    const placePart = s * (1 + (o - 1) / (b.ewDen || 4));
+    if (outcome === "won") return s * o + placePart;
+    if (outcome === "placed") return placePart;
+    return 0;
+  }
+
+  function bankStats() {
+    const settled = bank.bets.filter(b => b.status !== "pending");
+    const pending = bank.bets.filter(b => b.status === "pending");
+    const outlayAll = bank.bets.reduce((a, b) => a + bankOutlay(b), 0);
+    const returnsSettled = settled.reduce((a, b) => a + b.returns, 0);
+    const cash = bank.start - outlayAll + returnsSettled;
+    const inPlay = pending.reduce((a, b) => a + bankOutlay(b), 0);
+    const group = (rows) => {
+      const counted = rows.filter(b => b.status !== "void");      // void bets: stake back, not a result
+      const staked = counted.reduce((a, b) => a + bankOutlay(b), 0);
+      const ret = counted.reduce((a, b) => a + b.returns, 0);
+      const wins = counted.filter(b => b.returns > bankOutlay(b) + 1e-9).length;
+      return { n: counted.length, wins, staked, ret, pl: ret - staked, roi: staked > 0 ? (ret - staked) / staked : null };
+    };
+    return { cash, inPlay, total: cash + inPlay, settled, pending, all: group(settled),
+      bySport: BANK_SPORTS.map(s => [s, group(settled.filter(b => b.sport === s))]).filter(([, g]) => g.n > 0),
+      byKind: [["single", "Singles / win"], ["ew", "Each way"], ["builder", "Bet builders"]]
+        .map(([k, n]) => [n, group(settled.filter(b => b.kind === k))]).filter(([, g]) => g.n > 0) };
+  }
+
+  function bankChart(st) {
+    const rows = [...st.settled].sort((a, b) => (a.settledAt || "").localeCompare(b.settledAt || ""));
+    if (rows.length < 2) return "";
+    let run = bank.start;
+    // running total of money out + returns up to each settled bet, counting stakes still pending as spent
+    const pts = [bank.start];
+    rows.forEach(b => { run += b.returns - bankOutlay(b); pts.push(run); });
+    const W = 320, H = 110, pad = 6;
+    const lo = Math.min(...pts, bank.start), hi = Math.max(...pts, bank.start);
+    const span = hi - lo || 1;
+    const x = i => pad + (W - 2 * pad) * (i / (pts.length - 1));
+    const y = v => H - pad - (H - 2 * pad) * ((v - lo) / span);
+    const line = pts.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+    const col = pts[pts.length - 1] >= bank.start ? "var(--green)" : "var(--accent)";
+    return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Bankroll after each settled bet" style="display:block;margin:6px 0">
+      <line x1="${pad}" x2="${W - pad}" y1="${y(bank.start).toFixed(1)}" y2="${y(bank.start).toFixed(1)}" stroke="var(--meta)" stroke-dasharray="3 3" stroke-width="1"/>
+      <polyline points="${line}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="${x(pts.length - 1).toFixed(1)}" cy="${y(pts[pts.length - 1]).toFixed(1)}" r="3" fill="${col}"/>
+    </svg>
+    <div class="tr-chip-n">Money after each settled bet (dashed line = starting bankroll)</div>`;
+  }
+
+  function bankStatRow(label, g) {
+    const cls = g.pl > 0 ? "pct-hi" : g.pl < 0 ? "pct-lo" : "";
+    return `<tr><td>${label}</td><td>${g.n}</td><td>${g.wins} (${g.n ? Math.round(100 * g.wins / g.n) : 0}%)</td><td>${gbp(g.staked)}</td><td class="${cls}">${gbpSigned(g.pl)}</td><td class="${cls}">${g.roi == null ? "-" : (g.roi > 0 ? "+" : "") + (g.roi * 100).toFixed(1) + "%"}</td></tr>`;
+  }
+
+  function bankBetCard(b) {
+    const kindLabel = b.kind === "ew" ? `Each way (${b.ewLabel || "1/4"}, ${b.ewPlaces || 3} places)` : b.kind === "builder" ? "Bet builder" : (b.sport === "Horse racing" ? "Win" : "Single");
+    const when = new Date(b.placedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) + " " + new Date(b.placedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+    const outlay = bankOutlay(b);
+    const settled = b.status !== "pending";
+    const pl = settled ? b.returns - outlay : 0;
+    const chipText = { pending: "PENDING", won: "WON", lost: "LOST", void: "VOID", placed: "PLACED" }[b.status];
+    const chipCls = b.status === "pending" ? "tr-pending" : (b.status === "won" || (b.status === "placed" && pl > 0)) ? "tr-hit" : b.status === "void" ? "tr-pending" : "tr-overdue";
+    const stakeTxt = b.kind === "ew" ? `${gbp(b.stake)} e/w (${gbp(outlay)} total)` : gbp(b.stake);
+    const edge = b.fair ? ` &middot; model fair ${fmtOdds(b.fair)}` : "";
+    let action = "";
+    if (!settled) {
+      if (bankSettling && bankSettling.id === b.id) {
+        const val = bankSettling.returns != null ? bankSettling.returns : Math.round(bankAutoReturn(b, bankSettling.outcome) * 100) / 100;
+        action = `<div class="bank-settle">
+          <div class="tr-chip-n">Result: <b>${bankSettling.outcome === "placed" ? "Placed only" : bankSettling.outcome.charAt(0).toUpperCase() + bankSettling.outcome.slice(1)}</b>. Total returned (stake included, change it for a cash-out or part payout):</div>
+          <div class="slip-actions" style="margin:6px 0 0"><input class="slip-stake bank-ret" inputmode="decimal" value="${val}" style="width:100px" data-bank-ret>
+            <button class="slip-btn primary" data-bank-confirm="${b.id}">Save result</button>
+            <button class="slip-btn quiet" data-bank-cancel>Cancel</button></div></div>`;
+      } else {
+        action = `<div class="slip-actions" style="margin:8px 0 0">
+          <button class="slip-btn" data-bank-out="won" data-bank-id="${b.id}">Won</button>
+          ${b.kind === "ew" ? `<button class="slip-btn" data-bank-out="placed" data-bank-id="${b.id}">Placed</button>` : ""}
+          <button class="slip-btn" data-bank-out="lost" data-bank-id="${b.id}">Lost</button>
+          <button class="slip-btn quiet" data-bank-out="void" data-bank-id="${b.id}">Void</button>
+          <button class="slip-btn quiet" data-bank-del="${b.id}">${bankDelArmed === b.id ? "Tap again to delete" : "Delete"}</button></div>`;
+      }
+    } else {
+      action = `<div class="slip-actions" style="margin:8px 0 0">
+        <button class="slip-btn quiet" data-bank-reopen="${b.id}">Reopen</button>
+        <button class="slip-btn quiet" data-bank-del="${b.id}">${bankDelArmed === b.id ? "Tap again to delete" : "Delete"}</button></div>`;
+    }
+    return `<div class="slip-summary bank-bet">
+      <div class="slip-line"><b>${escAttr(b.desc) || "(no description)"}</b><span class="tr-badge ${chipCls}">${chipText}</span></div>
+      <div class="tr-chip-n">${escAttr(b.sport)} &middot; ${kindLabel} &middot; ${when}</div>
+      <div class="slip-line" style="margin-top:6px"><span>Stake ${stakeTxt} @ ${fmtOdds(b.odds)}${edge}</span>
+        <span>${settled ? `<b class="${pl > 0 ? "pct-hi" : pl < 0 ? "pct-lo" : ""}">${gbpSigned(pl)}</b> <span class="tr-chip-n">(returned ${gbp(b.returns)})</span>` : `<span class="tr-chip-n">to return ${gbp(bankAutoReturn(b, "won"))}</span>`}</span></div>
+      ${action}</div>`;
+  }
+
+  function bankFormHtml(st) {
+    const d = bankDraft, racing = d.sport === "Horse racing";
+    const kindOpts = [["single", racing ? "Win" : "Single"], ...(racing ? [["ew", "Each way"]] : []), ["builder", "Bet builder / multiple"]];
+    if (!kindOpts.some(([k]) => k === d.kind)) d.kind = "single";
+    const dec = parseOdds(d.odds), stake = Number(d.stake);
+    const outlay = stake > 0 ? stake * (d.kind === "ew" ? 2 : 1) : 0;
+    return `<div class="tr-section-title">Place a virtual bet</div>
+      ${d.source ? `<div class="tr-note">Filled in from your ${escAttr(d.source)}. Add the odds you'd have taken and your stake.${d.fair ? ` The model's fair odds for it are <b>${fmtOdds(d.fair)}</b>; a price above that is value if the model is right.` : ""}</div>` : ""}
+      <div class="bank-form">
+        <label>Sport <select class="slip-name" data-bank-f="sport">${BANK_SPORTS.map(s => `<option${s === d.sport ? " selected" : ""}>${s}</option>`).join("")}</select></label>
+        <label>Bet type <select class="slip-name" data-bank-f="kind">${kindOpts.map(([k, n]) => `<option value="${k}"${k === d.kind ? " selected" : ""}>${n}</option>`).join("")}</select></label>
+        ${d.kind === "ew" ? `<label>Each way terms <select class="slip-name" data-bank-f="ew">${EW_TERMS.map((t, i) => `<option value="${i}"${i === Number(d.ew) ? " selected" : ""}>${t[0]} odds, ${t[2]} places</option>`).join("")}</select></label>` : ""}
+        <label>Selection(s) <input class="slip-name" data-bank-f="desc" maxlength="160" placeholder="e.g. Nashville to win + Over 1.5 goals" value="${escAttr(d.desc)}"></label>
+        <div class="bank-row">
+          <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
+          <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="text" placeholder="2.5 or 5/2" value="${escAttr(d.odds)}" style="width:100%"></label>
+        </div>
+        <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
+        <div class="slip-actions"><button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button></div>
+        ${bankMsg ? `<div class="slip-note slip-warn">${bankMsg}</div>` : ""}
+      </div>`;
+  }
+
+  function bankHint(d) {
+    const dec = parseOdds(d.odds), stake = Number(d.stake);
+    const parts = [];
+    if (d.odds && dec == null) parts.push("Odds not recognised - use decimal (2.5) or fractional (5/2, evs).");
+    else if (dec != null) parts.push(`Decimal odds ${fmtOdds(dec)}`);
+    if (stake > 0) {
+      const outlay = stake * (d.kind === "ew" ? 2 : 1);
+      parts.push(`stake out ${gbp(outlay)}`);
+      if (dec != null) {
+        const t = EW_TERMS[Number(d.ew)] || EW_TERMS[0];
+        const ret = d.kind === "ew" ? stake * dec + stake * (1 + (dec - 1) / t[1]) : stake * dec;
+        parts.push(`${d.kind === "ew" ? "if it wins" : "returns"} ${gbp(ret)}`);
+      }
+    }
+    return parts.join(" &middot; ");
+  }
+
+  function renderBankroll() {
+    if (!bank) {
+      mainEl.innerHTML = `<div class="bb-intro">A pretend betting account to test the picks without risking anything. Choose a starting bankroll, record bets with the stake and odds you'd have taken (win, each way or bet builder), then mark each one won or lost and what it returned. It tracks profit and loss overall and by sport.</div>
+        <div class="slip-summary"><div class="slip-line"><span>Starting bankroll (£)</span><input class="slip-stake" id="bank-start" inputmode="decimal" value="1000" style="width:110px"></div>
+        <div class="slip-actions"><button class="slip-btn primary" data-bank-start>Start</button></div>
+        <div class="slip-note">Kept in this browser only. Use "Copy backup" on this page now and then, in case you clear site data or change phone.</div></div>`;
+      bindBankroll();
+      return;
+    }
+    const st = bankStats();
+    const g = st.all;
+    const plCls = g.pl > 0 ? "pct-hi" : g.pl < 0 ? "pct-lo" : "";
+    const header = `<div class="tr-summary">
+      <div class="tr-summary-main"><span class="tr-summary-pct ${st.total > bank.start ? "pct-hi" : st.total < bank.start ? "pct-lo" : ""}">${gbp(st.total)}</span>
+        <span class="tr-summary-label">bankroll (started ${gbp(bank.start)})</span></div>
+      <div class="tr-form">
+        <span>Available <b>${gbp(st.cash)}</b></span>
+        <span>In play <b>${gbp(st.inPlay)}</b> <span class="tr-chip-n">(${st.pending.length} bet${st.pending.length === 1 ? "" : "s"})</span></span>
+        <span>Profit / loss <b class="${plCls}">${gbpSigned(g.pl)}</b></span>
+        <span>ROI <b class="${plCls}">${g.roi == null ? "-" : (g.roi > 0 ? "+" : "") + (g.roi * 100).toFixed(1) + "%"}</b></span>
+        <span>Winning bets <b>${g.wins}/${g.n}</b> <span class="tr-chip-n">(${g.n ? Math.round(100 * g.wins / g.n) : 0}%)</span></span>
+      </div>
+      ${bankChart(st)}</div>`;
+
+    const statsTable = st.settled.length ? `<div class="tr-section-title">Results by sport</div>
+      <table class="rc-score bank-table"><thead><tr><th></th><th>Bets</th><th>Won</th><th>Staked</th><th>P/L</th><th>ROI</th></tr></thead>
+      <tbody>${bankStatRow("Overall", g)}${st.bySport.map(([s, x]) => bankStatRow(s, x)).join("")}</tbody></table>
+      ${st.byKind.length > 1 ? `<div class="tr-section-title">By bet type</div><table class="rc-score bank-table"><thead><tr><th></th><th>Bets</th><th>Won</th><th>Staked</th><th>P/L</th><th>ROI</th></tr></thead><tbody>${st.byKind.map(([n, x]) => bankStatRow(n, x)).join("")}</tbody></table>` : ""}
+      <div class="tr-note">A bet counts as <b>won</b> when it returns more than the money staked (so an each-way bet that only places and pays back less than its two stakes isn't a win). Void bets are given back and left out of the counts. ROI is profit divided by money staked.</div>` : "";
+
+    const shown = bank.bets.filter(b => bankView === "all" || (bankView === "pending" ? b.status === "pending" : b.status !== "pending"))
+      .sort((a, b) => b.placedAt.localeCompare(a.placedAt));
+    const toggle = `<div class="tr-sport-toggle">${[["all", "All"], ["pending", "Pending"], ["settled", "Settled"]]
+      .map(([k, n]) => `<a data-bank-view="${k}" class="${bankView === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
+    const list = shown.length ? shown.map(bankBetCard).join("") : `<div class="empty">${bank.bets.length ? "No bets in this view." : "No bets yet. Add one above, or use the Place as virtual bet button on the Bet Slip tab."}</div>`;
+
+    const tools = `<div class="tr-section-title">Backup and reset</div>
+      <div class="slip-actions"><button class="slip-btn quiet" data-bank-copy>Copy backup</button><button class="slip-btn quiet" data-bank-restore-toggle>Restore from backup</button>
+      <button class="slip-btn quiet" data-bank-reset>${bankDelArmed === "reset" ? "Tap again to reset everything" : "Reset bankroll"}</button></div>
+      <div id="bank-restore-box" style="display:none"><textarea class="slip-name" id="bank-restore-text" rows="4" placeholder="Paste a backup here"></textarea>
+        <div class="slip-actions"><button class="slip-btn primary" data-bank-restore>Restore</button></div></div>
+      <div class="slip-note">Bets are stored in this browser on this device only. The backup is a block of text you can paste back in on another device.</div>`;
+
+    mainEl.innerHTML = header + bankFormHtml(st) + statsTable + `<div class="tr-section-title">Your bets</div>` + toggle + list + tools;
+    bindBankroll();
+  }
+
+  function bankReadDraftField(el) {
+    const f = el.dataset.bankF;
+    bankDraft[f] = el.value;
+    if (f === "sport" || f === "kind") renderBankroll();
+    else { const h = mainEl.querySelector("#bank-hint"); if (h) h.innerHTML = bankHint(bankDraft); }
+  }
+
+  function bindBankroll() {
+    mainEl.querySelectorAll("[data-bank-f]").forEach(el => {
+      el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => bankReadDraftField(el));
+    });
+    const on = (sel, fn) => mainEl.querySelectorAll(sel).forEach(el => el.addEventListener("click", () => fn(el)));
+    on("[data-bank-start]", () => {
+      const v = Number(String(mainEl.querySelector("#bank-start").value).replace(/[£,\s]/g, ""));
+      if (!(v > 0)) return;
+      bank = { start: v, created: new Date().toISOString(), bets: [] }; bankSave(); buildTabs(); renderBankroll();
+    });
+    on("[data-bank-place]", () => {
+      const d = bankDraft, dec = parseOdds(d.odds), stake = Number(String(d.stake).replace(/[£,\s]/g, ""));
+      if (!(stake > 0) || dec == null) { bankMsg = "Enter a stake above zero and valid odds (2.5 or 5/2)."; renderBankroll(); return; }
+      const outlay = stake * (d.kind === "ew" ? 2 : 1);
+      const avail = bankStats().cash;
+      if (outlay > avail + 1e-9) { bankMsg = `That stake is ${gbp(outlay)} but only ${gbp(avail)} is available.`; renderBankroll(); return; }
+      const t = EW_TERMS[Number(d.ew)] || EW_TERMS[0];
+      bank.bets.push({ id: Date.now(), placedAt: new Date().toISOString(), sport: d.sport, kind: d.kind, desc: (d.desc || "").trim(),
+        stake, odds: dec, ewLabel: t[0], ewDen: t[1], ewPlaces: t[2], fair: d.fair || null, status: "pending", returns: null, settledAt: null });
+      bankSave(); bankMsg = ""; bankDraft = { sport: d.sport, kind: "single", desc: "", stake: "", odds: "", ew: 0, fair: null, source: "" };
+      buildTabs(); renderBankroll();
+    });
+    on("[data-bank-clear]", () => { bankDraft = { sport: bankDraft.sport, kind: "single", desc: "", stake: "", odds: "", ew: 0, fair: null, source: "" }; bankMsg = ""; renderBankroll(); });
+    on("[data-bank-view]", el => { bankView = el.dataset.bankView; renderBankroll(); });
+    on("[data-bank-out]", el => {
+      const id = Number(el.dataset.bankId);
+      bankSettling = { id, outcome: el.dataset.bankOut, returns: null }; bankDelArmed = null; renderBankroll();
+    });
+    on("[data-bank-cancel]", () => { bankSettling = null; renderBankroll(); });
+    on("[data-bank-confirm]", el => {
+      const b = bank.bets.find(x => x.id === Number(el.dataset.bankConfirm));
+      const inp = mainEl.querySelector("[data-bank-ret]");
+      const v = Number(String(inp.value).replace(/[£,\s]/g, ""));
+      if (!b || !(v >= 0)) return;
+      b.status = bankSettling.outcome; b.returns = Math.round(v * 100) / 100; b.settledAt = new Date().toISOString();
+      bankSettling = null; bankSave(); buildTabs(); renderBankroll();
+    });
+    on("[data-bank-reopen]", el => {
+      const b = bank.bets.find(x => x.id === Number(el.dataset.bankReopen)); if (!b) return;
+      b.status = "pending"; b.returns = null; b.settledAt = null; bankSave(); buildTabs(); renderBankroll();
+    });
+    on("[data-bank-del]", el => {
+      const id = Number(el.dataset.bankDel);
+      if (bankDelArmed === id) { bank.bets = bank.bets.filter(x => x.id !== id); bankDelArmed = null; bankSave(); buildTabs(); }
+      else bankDelArmed = id;
+      renderBankroll();
+    });
+    on("[data-bank-copy]", el => copyText(JSON.stringify(bank), el));
+    on("[data-bank-restore-toggle]", () => { const box = mainEl.querySelector("#bank-restore-box"); box.style.display = box.style.display === "none" ? "block" : "none"; });
+    on("[data-bank-restore]", () => {
+      try {
+        const v = JSON.parse(mainEl.querySelector("#bank-restore-text").value);
+        if (!v || !(v.start > 0) || !Array.isArray(v.bets)) throw new Error("bad");
+        bank = v; bankSave(); buildTabs(); renderBankroll();
+      } catch (e) { bankMsg = "That doesn't look like a backup."; renderBankroll(); }
+    });
+    on("[data-bank-reset]", () => {
+      if (bankDelArmed === "reset") { bank = null; try { localStorage.removeItem(BANK_STORE); } catch (e) {} bankDelArmed = null; buildTabs(); }
+      else bankDelArmed = "reset";
+      renderBankroll();
+    });
+  }
+
+  // Hand a bet slip over to the Bankroll tab as a draft bet.
+  function bankFromSlip() {
+    const items = slip.items; if (!items.length) return;
+    const sports = new Set(items.map(i => (i.key.split("|")[0] === "nfl" ? "NFL" : "Football")));
+    const st = slipStats(items);
+    bankDraft = { sport: sports.size === 1 ? [...sports][0] : "Other", kind: items.length > 1 ? "builder" : "single",
+      desc: items.map(i => i.label).join(" + ").slice(0, 160), stake: "", odds: "", ew: 0, fair: st.fair || null, source: "bet slip" };
+    bankMsg = "";
+    activeLeague = BANKROLL; footballMenuOpen = false; render(); window.scrollTo(0, 0);
+  }
+
   // ---------- Bet slip ----------
   function slipStats(items) {
     const prob = items.reduce((a, i) => a * i.confidence, 1);
@@ -1728,6 +2048,7 @@
       <div class="slip-actions">
         <button class="slip-btn primary" id="slip-save">Save slip</button>
         <button class="slip-btn quiet" id="slip-copy">Copy as text</button>
+        <button class="slip-btn quiet" id="slip-bank">Place as virtual bet</button>
         <button class="slip-btn quiet" id="slip-clear">Clear</button>
       </div>`
       : `<div class="empty">${slipJustSaved ? "Slip saved below." : "Your slip is empty."}<br>Tap a percentage on any fixture card, or the <b>+</b> on a Best Bets pick, to add it here.</div>`;
@@ -1772,6 +2093,8 @@
     });
     const copyBtn = mainEl.querySelector("#slip-copy");
     if (copyBtn) copyBtn.addEventListener("click", () => copyText(slipText(slip.items, (mainEl.querySelector("#slip-name").value || "").trim()), copyBtn));
+    const bankBtnEl = mainEl.querySelector("#slip-bank");
+    if (bankBtnEl) bankBtnEl.addEventListener("click", bankFromSlip);
     const clearBtn = mainEl.querySelector("#slip-clear");
     if (clearBtn) clearBtn.addEventListener("click", () => { slip = { items: [], stake: "" }; persist(); slipJustSaved = false; buildTabs(); renderSlip(); });
 
@@ -2905,6 +3228,10 @@
     }
     if (activeLeague === SLIP) {
       renderSlip();
+      return;
+    }
+    if (activeLeague === BANKROLL) {
+      renderBankroll();
       return;
     }
     if (activeLeague === RACING) {
