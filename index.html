@@ -1841,7 +1841,7 @@
         <label>Selection(s) <input class="slip-name" data-bank-f="desc" maxlength="160" placeholder="e.g. Nashville to win + Over 1.5 goals" value="${escAttr(d.desc)}"></label>
         <div class="bank-row">
           <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
-          <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="text" placeholder="2.5 or 5/2" value="${escAttr(d.odds)}" style="width:100%"></label>
+          <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>
         </div>
         <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
         <div class="slip-actions"><button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button></div>
