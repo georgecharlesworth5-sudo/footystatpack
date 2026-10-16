@@ -50,6 +50,12 @@ def _parse_date(d: str):
 # Same rule as the Today page: a game kicking off after midnight and before
 # 6am UK time (US evening games, mostly) counts as part of the previous day.
 LONDON = ZoneInfo("Europe/London")
+
+# Picks stay on Best Bets for this many hours after kick-off, so they don't
+# vanish the moment a game starts. They're flagged "started" and are never
+# logged to the Track Record (see track_bets.py) - only picks seen BEFORE
+# kick-off count.
+POST_KICKOFF_GRACE_HOURS = 5
 LATE_NIGHT_CUTOFF_HOUR = 6
 
 
@@ -65,21 +71,33 @@ def _late_night_next_day(fx_date, fx_time: str, window_end) -> bool:
         return False
 
 
-def _already_kicked_off(fx: dict, now) -> bool:
-    """True once a fixture's kick-off (UK time, as the fixture lists give it)
-    has passed - a pick on a game that's already started isn't a bet you can
-    place any more, and one first seen after kick-off must never be logged."""
-    if now is None:
-        return False
+def _kickoff_time(fx: dict):
+    """The fixture's kick-off as an aware UK datetime, or None if unusable."""
     fx_date = _parse_date(fx.get("date", ""))
     if not fx_date:
-        return False
+        return None
     try:
         hh, mm = str(fx.get("time", "")).split(":")[:2]
-        kickoff = datetime(fx_date.year, fx_date.month, fx_date.day, int(hh), int(mm), tzinfo=LONDON)
+        return datetime(fx_date.year, fx_date.month, fx_date.day, int(hh), int(mm), tzinfo=LONDON)
     except (ValueError, TypeError):
-        return False        # no usable kick-off time: keep it
-    return kickoff <= now
+        return None         # no usable kick-off time: keep it
+
+
+def _already_kicked_off(fx: dict, now) -> bool:
+    """True once kick-off has passed."""
+    if now is None:
+        return False
+    kickoff = _kickoff_time(fx)
+    return kickoff is not None and kickoff <= now
+
+
+def _past_grace(fx: dict, now) -> bool:
+    """True once kick-off was more than POST_KICKOFF_GRACE_HOURS ago - the
+    point a pick finally drops off Best Bets."""
+    if now is None:
+        return False
+    kickoff = _kickoff_time(fx)
+    return kickoff is not None and kickoff + timedelta(hours=POST_KICKOFF_GRACE_HOURS) <= now
 
 
 def _eligible_pool(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: date | None = None, now=None) -> list[dict]:
@@ -92,9 +110,9 @@ def _eligible_pool(pack: dict, window_days: int = NEAR_TERM_WINDOW_DAYS, today: 
             continue
         if fx.get("low_sample"):
             continue
-        if _already_kicked_off(fx, now):
+        if _past_grace(fx, now):
             continue
-        pool.append(fx)
+        pool.append({**fx, "started": _already_kicked_off(fx, now)})
     return pool
 
 
@@ -115,6 +133,7 @@ def _make_pick(fx: dict, metric: str, scope: str, team: str | None,
         "line": line,
         "confidence": round(confidence, 3),
         "label": label,
+        **({"started": True} if fx.get("started") else {}),
     }
 
 
