@@ -1789,7 +1789,7 @@
   function bankBetCard(b) {
     const kindLabel = b.kind === "ew" ? `Each way (${b.ewLabel || "1/4"}, ${b.ewPlaces || 3} places)` : b.kind === "builder" ? "Bet builder" : (b.sport === "Horse racing" ? "Win" : "Single");
     const when = new Date(b.placedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) + " " + new Date(b.placedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
-    const evTxt = b.eventAt ? (() => { const e = new Date(b.eventAt); return isNaN(e) ? "" : " &middot; event " + e.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) + " " + e.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }); })() : "";
+    const evTxt = b.eventAt ? (bankWhen(b) ? " &middot; starts " + bankWhen(b) : "") : "";
     const outlay = bankOutlay(b);
     const settled = b.status !== "pending";
     const pl = settled ? b.returns - outlay : 0;
@@ -1807,7 +1807,7 @@
             <button class="slip-btn primary" data-bank-confirm="${b.id}">Save result</button>
             <button class="slip-btn quiet" data-bank-cancel>Cancel</button></div></div>`;
       } else {
-        action = `<label class="tr-chip-n" style="display:block;margin-top:8px">Start time (sets the order) <input type="datetime-local" class="slip-name" data-bank-when="${b.id}" value="${escAttr(b.eventAt || "")}" style="width:100%"></label>
+        action = `<label class="tr-chip-n" style="display:block;margin-top:8px">Start time (sets the order) <input type="time" class="slip-name" data-bank-when="${b.id}" value="${escAttr(bankWhen(b))}" style="width:100%"></label>
         <div class="slip-actions" style="margin:8px 0 0">
           <button class="slip-btn" data-bank-out="won" data-bank-id="${b.id}">Won</button>
           ${b.kind === "ew" ? `<button class="slip-btn" data-bank-out="placed" data-bank-id="${b.id}">Placed</button>` : ""}
@@ -1845,7 +1845,7 @@
           <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
           <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>
         </div>
-        <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="datetime-local" data-bank-f="when" value="${escAttr(d.when || "")}"></label>
+        <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="time" data-bank-f="when" value="${escAttr(bankWhen({ eventAt: d.when }))}"></label>
         <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
         <div class="slip-actions"><button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button></div>
         ${bankMsg ? `<div class="slip-note slip-warn">${bankMsg}</div>` : ""}
@@ -1993,9 +1993,9 @@
   // Hand a bet slip over to the Bankroll tab as a draft bet.
   function slipEarliest(items) {
     const t = items.filter(i => i.date).map(i => `${i.date}T${/^\d{2}:\d{2}/.test(i.time || "") ? i.time.slice(0, 5) : "12:00"}`).sort();
-    return t[0] || "";
+    return t[0] ? t[0].slice(-5) : "";
   }
-  function bankWhen(b) { return b.eventAt || ""; }
+  function bankWhen(b) { return (b.eventAt || "").slice(-5); }   // time of day only (older bets may hold a full date-time)
   function bankOrder(a, b) {
     const ap = a.status === "pending", bp = b.status === "pending";
     if (ap !== bp) return ap ? -1 : 1;                       // pending bets first
