@@ -320,14 +320,23 @@ def build_fixture_card(home_team: str, away_team: str, home_form: dict, away_for
     # small-sample noise (e.g. one match with zero cards makes "cards"
     # look like a guaranteed under). Flag it rather than let it read as
     # equally trustworthy as a fixture backed by a full rolling window.
-    LOW_SAMPLE_THRESHOLD = 5
+    # Since the 70/30 venue blend (stats_engine.VENUE_FORM_WEIGHT), a team's
+    # form also draws on its matches at the other venue, so the test is
+    # the total matches in its form window (home + away), with a floor on
+    # the venue-specific part because that still carries 70% of the weight.
+    LOW_SAMPLE_TOTAL = 8       # matches across both venues
+    LOW_SAMPLE_VENUE = 3       # matches at the venue that carries the main weight
     home_n = home_form["home"].get("matches", 0)
     away_n = away_form["away"].get("matches", 0)
-    if home_n < LOW_SAMPLE_THRESHOLD or away_n < LOW_SAMPLE_THRESHOLD:
+    home_total = home_form.get("overall", {}).get("matches", home_n)
+    away_total = away_form.get("overall", {}).get("matches", away_n)
+    if (home_total < LOW_SAMPLE_TOTAL or away_total < LOW_SAMPLE_TOTAL
+            or home_n < LOW_SAMPLE_VENUE or away_n < LOW_SAMPLE_VENUE):
         card["low_sample"] = True
         card.setdefault("note", "")
         card["note"] = (card["note"] + " " if card["note"] else "") + (
-            f"Thin form sample ({home_n} home / {away_n} away matches) - probabilities here "
+            f"Thin form sample (home side {home_total} matches, {home_n} at home; "
+            f"away side {away_total} matches, {away_n} away) - probabilities here "
             f"can swing hard on a single result. Treat as a rough signal, not a settled read."
         )
     return card
