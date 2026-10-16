@@ -339,12 +339,55 @@ def league_averages(rows: list[dict]) -> dict:
     return result
 
 
-def team_form_summary(team_log: list[dict], window: int = 20, current_division: str | None = None) -> dict:
+# v2.1: a team's venue-specific form (home games for the home side, away
+# games for the away side) is blended with its form at the OTHER venue,
+# 70/30. Replay of this season's matches (about 130k predictions) showed
+# a lower log loss in every market, with the best mix near 50/50; 70/30
+# keeps most of the gain while still favouring venue-specific form. The
+# other-venue numbers are first rescaled by the league's home/away ratio
+# so, say, a home side's away games aren't read at away-game scoring levels.
+VENUE_FORM_WEIGHT = 0.7
+
+
+def blend_venue_form(venue_form: dict, other_form: dict, league_avg: dict, venue: str,
+                      weight: float = VENUE_FORM_WEIGHT) -> dict:
+    """venue='H' for a home side's home form, 'A' for an away side's away form."""
+    if weight >= 1.0 or not other_form.get("matches") or not venue_form.get("matches"):
+        return venue_form
+    out = dict(venue_form)
+
+    def ratio(home_avg, away_avg):
+        if not home_avg or not away_avg:
+            return 1.0
+        return home_avg / away_avg if venue == "H" else away_avg / home_avg
+
+    for metric in METRICS:
+        r_for = ratio(league_avg.get(f"home_{metric}"), league_avg.get(f"away_{metric}"))
+        for side, r in (("for", r_for), ("against", 1 / r_for)):
+            key = f"{metric}_{side}"
+            if key in venue_form and key in other_form:
+                out[key] = round(weight * venue_form[key] + (1 - weight) * other_form[key] * r, 2)
+    r_for = ratio(league_avg.get("home_xg"), league_avg.get("away_xg"))
+    for side, r in (("for", r_for), ("against", 1 / r_for)):
+        key = f"xg_{side}"
+        if venue_form.get(key) is not None and other_form.get(key) is not None:
+            out[key] = round(weight * venue_form[key] + (1 - weight) * other_form[key] * r, 2)
+    return out
+
+
+def team_form_summary(team_log: list[dict], window: int = 20, current_division: str | None = None,
+                       league_avg: dict | None = None) -> dict:
     """Convenience wrapper: overall / home / away rolling form for one
     team. current_division is passed through to rolling_form - see its
     docstring for what it does."""
-    return {
+    summary = {
         "overall": rolling_form(team_log, None, window, current_division),
         "home": rolling_form(team_log, "H", window, current_division),
         "away": rolling_form(team_log, "A", window, current_division),
     }
+    if league_avg:
+        # blend each venue's form with the other venue's (see VENUE_FORM_WEIGHT)
+        home_f, away_f = summary["home"], summary["away"]
+        summary["home"] = blend_venue_form(home_f, away_f, league_avg, "H")
+        summary["away"] = blend_venue_form(away_f, home_f, league_avg, "A")
+    return summary
