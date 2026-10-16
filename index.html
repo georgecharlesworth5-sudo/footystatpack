@@ -1704,7 +1704,7 @@
   let bankView = "all";                 // history filter: all / pending / settled
   let bankSettling = null;              // { id, outcome } while a result is being confirmed
   let bankDelArmed = null;
-  let bankDraft = { sport: "Football", kind: "single", desc: "", stake: "", odds: "", ew: 0, fair: null, source: "" };
+  let bankDraft = { sport: "Football", kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
   let bankMsg = "";
 
   function bankSave() { slipSave(BANK_STORE, bank); }
@@ -1789,6 +1789,7 @@
   function bankBetCard(b) {
     const kindLabel = b.kind === "ew" ? `Each way (${b.ewLabel || "1/4"}, ${b.ewPlaces || 3} places)` : b.kind === "builder" ? "Bet builder" : (b.sport === "Horse racing" ? "Win" : "Single");
     const when = new Date(b.placedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) + " " + new Date(b.placedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+    const evTxt = b.eventAt ? (() => { const e = new Date(b.eventAt); return isNaN(e) ? "" : " &middot; event " + e.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) + " " + e.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }); })() : "";
     const outlay = bankOutlay(b);
     const settled = b.status !== "pending";
     const pl = settled ? b.returns - outlay : 0;
@@ -1820,7 +1821,7 @@
     }
     return `<div class="slip-summary bank-bet">
       <div class="slip-line"><b>${escAttr(b.desc) || "(no description)"}</b><span class="tr-badge ${chipCls}">${chipText}</span></div>
-      <div class="tr-chip-n">${escAttr(b.sport)} &middot; ${kindLabel} &middot; ${when}</div>
+      <div class="tr-chip-n">${escAttr(b.sport)} &middot; ${kindLabel} &middot; ${when}${evTxt}</div>
       <div class="slip-line" style="margin-top:6px"><span>Stake ${stakeTxt} @ ${fmtOdds(b.odds)}${edge}</span>
         <span>${settled ? `<b class="${pl > 0 ? "pct-hi" : pl < 0 ? "pct-lo" : ""}">${gbpSigned(pl)}</b> <span class="tr-chip-n">(returned ${gbp(b.returns)})</span>` : `<span class="tr-chip-n">to return ${gbp(bankAutoReturn(b, "won"))}</span>`}</span></div>
       ${action}</div>`;
@@ -1843,6 +1844,7 @@
           <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
           <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>
         </div>
+        <label>Event date and time (optional, keeps pending bets in order) <input class="slip-name" type="datetime-local" data-bank-f="when" value="${escAttr(d.when || "")}"></label>
         <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
         <div class="slip-actions"><button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button></div>
         ${bankMsg ? `<div class="slip-note slip-warn">${bankMsg}</div>` : ""}
@@ -1897,7 +1899,7 @@
       <div class="tr-note">A bet counts as <b>won</b> when it returns more than the money staked (so an each-way bet that only places and pays back less than its two stakes isn't a win). Void bets are given back and left out of the counts. ROI is profit divided by money staked.</div>` : "";
 
     const shown = bank.bets.filter(b => bankView === "all" || (bankView === "pending" ? b.status === "pending" : b.status !== "pending"))
-      .sort((a, b) => b.placedAt.localeCompare(a.placedAt));
+      .sort(bankOrder);
     const toggle = `<div class="tr-sport-toggle">${[["all", "All"], ["pending", "Pending"], ["settled", "Settled"]]
       .map(([k, n]) => `<a data-bank-view="${k}" class="${bankView === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
     const list = shown.length ? shown.map(bankBetCard).join("") : `<div class="empty">${bank.bets.length ? "No bets in this view." : "No bets yet. Add one above, or use the Place as virtual bet button on the Bet Slip tab."}</div>`;
@@ -1938,11 +1940,11 @@
       if (outlay > avail + 1e-9) { bankMsg = `That stake is ${gbp(outlay)} but only ${gbp(avail)} is available.`; renderBankroll(); return; }
       const t = EW_TERMS[Number(d.ew)] || EW_TERMS[0];
       bank.bets.push({ id: Date.now(), placedAt: new Date().toISOString(), sport: d.sport, kind: d.kind, desc: (d.desc || "").trim(),
-        stake, odds: dec, ewLabel: t[0], ewDen: t[1], ewPlaces: t[2], fair: d.fair || null, status: "pending", returns: null, settledAt: null });
-      bankSave(); bankMsg = ""; bankDraft = { sport: d.sport, kind: "single", desc: "", stake: "", odds: "", ew: 0, fair: null, source: "" };
+        stake, odds: dec, ewLabel: t[0], ewDen: t[1], ewPlaces: t[2], eventAt: d.when || "", fair: d.fair || null, status: "pending", returns: null, settledAt: null });
+      bankSave(); bankMsg = ""; bankDraft = { sport: d.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
       buildTabs(); renderBankroll();
     });
-    on("[data-bank-clear]", () => { bankDraft = { sport: bankDraft.sport, kind: "single", desc: "", stake: "", odds: "", ew: 0, fair: null, source: "" }; bankMsg = ""; renderBankroll(); });
+    on("[data-bank-clear]", () => { bankDraft = { sport: bankDraft.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" }; bankMsg = ""; renderBankroll(); });
     on("[data-bank-view]", el => { bankView = el.dataset.bankView; renderBankroll(); });
     on("[data-bank-out]", el => {
       const id = Number(el.dataset.bankId);
@@ -1984,12 +1986,28 @@
   }
 
   // Hand a bet slip over to the Bankroll tab as a draft bet.
+  function slipEarliest(items) {
+    const t = items.filter(i => i.date).map(i => `${i.date}T${/^\d{2}:\d{2}/.test(i.time || "") ? i.time.slice(0, 5) : "12:00"}`).sort();
+    return t[0] || "";
+  }
+  function bankWhen(b) { return b.eventAt || ""; }
+  function bankOrder(a, b) {
+    const ap = a.status === "pending", bp = b.status === "pending";
+    if (ap !== bp) return ap ? -1 : 1;                       // pending bets first
+    const ae = bankWhen(a), be = bankWhen(b);
+    if (ap) {                                                // pending: soonest event first, undated last
+      if (ae && be) return ae.localeCompare(be) || a.placedAt.localeCompare(b.placedAt);
+      if (ae !== be) return ae ? -1 : 1;
+      return a.placedAt.localeCompare(b.placedAt);
+    }
+    return (be || b.placedAt).localeCompare(ae || a.placedAt);  // settled: most recent first
+  }
   function bankFromSlip() {
     const items = slip.items; if (!items.length) return;
     const sports = new Set(items.map(i => (i.key.split("|")[0] === "nfl" ? "NFL" : "Football")));
     const st = slipStats(items);
     bankDraft = { sport: sports.size === 1 ? [...sports][0] : "Other", kind: items.length > 1 ? "builder" : "single",
-      desc: items.map(i => i.label).join(" + ").slice(0, 160), stake: "", odds: "", ew: 0, fair: st.fair || null, source: "bet slip" };
+      desc: items.map(i => i.label).join(" + ").slice(0, 160), stake: "", odds: "", ew: 1, when: slipEarliest(items), fair: st.fair || null, source: "bet slip" };
     bankMsg = "";
     activeLeague = BANKROLL; footballMenuOpen = false; render(); window.scrollTo(0, 0);
   }
