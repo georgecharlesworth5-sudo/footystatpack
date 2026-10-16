@@ -1447,8 +1447,9 @@
     const nflPicks = (typeof NFL_STATPACK_DATA !== "undefined" && Array.isArray(NFL_STATPACK_DATA.best_bets))
       ? NFL_STATPACK_DATA.best_bets : [];
     // A pick on a game that has already kicked off isn't a bet you can place
-    // any more, so it drops off as soon as the kick-off time passes (the stat
-    // pack itself only re-runs a few times a day).
+    // any more, but it stays visible for a few hours after kick-off (matching
+    // the stat pack's own grace period) so it doesn't vanish mid-game.
+    const BEST_BETS_GRACE_MS = 5 * 3600000;
     const nowMs = Date.now();
     const allPicksRaw = [...footballPicks, ...nflPicks];
     // Exact local kick-off (fixtureTimestamp reads the date as UTC, which in
@@ -1459,11 +1460,11 @@
       const [hh, mm] = (p.time || "23:59").split(":").map(Number);
       return new Date(yy, mo - 1, dd, isNaN(hh) ? 23 : hh, isNaN(mm) ? 59 : mm).getTime();
     };
-    const combined = allPicksRaw.filter(p => kickoffMs(p) > nowMs);
+    const combined = allPicksRaw.filter(p => kickoffMs(p) + BEST_BETS_GRACE_MS > nowMs);
     const startedCount = allPicksRaw.length - combined.length;
 
     if (combined.length === 0) {
-      mainEl.innerHTML = `<div class="empty">${startedCount ? `All ${startedCount} of today's picks are on games that have already started.<br>The next stat pack run brings in the next games.` : `No eligible picks today across any league or sport.`}<br>
+      mainEl.innerHTML = `<div class="empty">${startedCount ? `All ${startedCount} of today's picks are on games that kicked off over 5 hours ago.<br>The next stat pack run brings in the next games.` : `No eligible picks today across any league or sport.`}<br>
         (Fixtures with a thin sample, cross-league, or name-match flag are excluded from Best Bets - check the league tabs for those.)</div>`;
       return;
     }
@@ -1481,7 +1482,7 @@
       ? allPicks.map((p, i) => flatBestBetRow(p, i + 1)).join("")
       : `<div class="bb-empty">No picks match the current filter</div>`;
 
-    mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.${startedCount ? ` <span class="tr-chip-n">${startedCount} pick${startedCount === 1 ? "" : "s"} hidden: the game has already started.</span>` : ""}</div>` +
+    mainEl.innerHTML = `<div class="bb-intro">Every pick today, across every league and sport, that clears its confidence bar. Team-level picks (e.g. one side's own corner count) sit alongside match-level ones with no separate grouping.${startedCount ? ` <span class="tr-chip-n">${startedCount} pick${startedCount === 1 ? "" : "s"} hidden: kicked off more than 5 hours ago.</span>` : ""}</div>` +
       filterRow +
       marketToggleRow +
       bestBetsSortToggle() +
