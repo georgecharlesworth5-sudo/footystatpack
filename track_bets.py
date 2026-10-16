@@ -1000,6 +1000,11 @@ if __name__ == "__main__":
     else:
         print("No nfl_statpack.json found - logging football picks only.")
 
+    # Picks on games that have already kicked off stay visible on the dashboard
+    # for a few hours (best_bets.POST_KICKOFF_GRACE_HOURS) but are flagged
+    # "started" - they're only logged if they were first seen before kick-off.
+    picks = [p for p in picks if not p.get("started")]
+    shadow = [p for p in shadow if not p.get("started")]
     added = log_new_picks(log, picks, today)
     added_shadow = log_new_picks(log, shadow, today, shown=False)
     print(f"Logged {added} new pick(s) + {added_shadow} held-back pick(s).")
