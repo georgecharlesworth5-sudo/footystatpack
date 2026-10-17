@@ -349,7 +349,7 @@
   .bank-form label > select, .bank-form label > input { margin-top: 3px; display: block; }
   .bank-form .slip-name { width: 100%; }
   .bank-row { display: flex; gap: 10px; }
-  .bank-row label { flex: 1; }
+  .bank-row label, .bank-row > div { flex: 1; }
   .bank-table td, .bank-table th { font-size: 11px; padding: 5px 3px; }
   .bank-bet { margin: 10px 0; }
   .bank-settle { margin-top: 8px; }
@@ -1843,7 +1843,10 @@
         ${d.kind === "ew" ? `<label>Each way terms <select class="slip-name" data-bank-f="ew">${EW_TERMS.map((t, i) => `<option value="${i}"${i === Number(d.ew) ? " selected" : ""}>${t[0]} odds, ${t[2]} places</option>`).join("")}</select></label>` : ""}
         <label>Selection(s) <input class="slip-name" data-bank-f="desc" maxlength="160" placeholder="e.g. Nashville to win + Over 1.5 goals" value="${escAttr(d.desc)}"></label>
         <div class="bank-row">
-          <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
+          <div>
+            <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
+            <div class="slip-actions" style="margin:6px 0 0"><button type="button" class="slip-btn quiet" data-bank-add="5">+£5</button><button type="button" class="slip-btn quiet" data-bank-add="10">+£10</button><button type="button" class="slip-btn quiet" data-bank-add="0">Clear</button></div>
+          </div>
           <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>
         </div>
         <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="time" data-bank-f="when" value="${escAttr(bankWhen({ eventAt: d.when }))}"></label>
@@ -1945,6 +1948,16 @@
         stake, odds: dec, ewLabel: t[0], ewDen: t[1], ewPlaces: t[2], eventAt: d.when || "", fair: d.fair || null, status: "pending", returns: null, settledAt: null });
       bankSave(); bankMsg = ""; bankDraft = { sport: d.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
       buildTabs(); renderBankroll();
+    });
+    // Quick-stake buttons: add to the stake box without redrawing the form (keeps the keypad state alone).
+    on("[data-bank-add]", el => {
+      const box = mainEl.querySelector('[data-bank-f="stake"]');
+      const add = Number(el.dataset.bankAdd);
+      const cur = Number(String(box.value).replace(/[£,\s]/g, "")) || 0;
+      const next = add === 0 ? "" : String(Math.round((cur + add) * 100) / 100);
+      box.value = next;
+      bankDraft.stake = next;
+      const h = mainEl.querySelector("#bank-hint"); if (h) h.innerHTML = bankHint(bankDraft);
     });
     on("[data-bank-clear]", () => { bankDraft = { sport: bankDraft.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" }; bankMsg = ""; renderBankroll(); });
     on("[data-bank-view]", el => { bankView = el.dataset.bankView; renderBankroll(); });
