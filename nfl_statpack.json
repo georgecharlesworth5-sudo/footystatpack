@@ -2510,8 +2510,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.638,
-            "away_win": 0.362
+            "home_win": 0.633,
+            "away_win": 0.367
           },
           "total_over_under": [
             {
@@ -2522,8 +2522,8 @@
             },
             {
               "line": 42.5,
-              "over": 0.5,
-              "under": 0.5,
+              "over": 0.489,
+              "under": 0.511,
               "expected": 42.6
             },
             {
@@ -2857,8 +2857,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.444,
-            "away_win": 0.556
+            "home_win": 0.442,
+            "away_win": 0.558
           },
           "total_over_under": [
             {
@@ -2881,8 +2881,8 @@
             },
             {
               "line": 52.5,
-              "over": 0.489,
-              "under": 0.511,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 47.8
             }
           ],
@@ -3204,8 +3204,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.385,
-            "away_win": 0.615
+            "home_win": 0.377,
+            "away_win": 0.623
           },
           "total_over_under": [
             {
@@ -3551,8 +3551,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.739,
-            "away_win": 0.261
+            "home_win": 0.73,
+            "away_win": 0.27
           },
           "total_over_under": [
             {
@@ -3563,8 +3563,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.501,
-              "under": 0.499,
+              "over": 0.496,
+              "under": 0.504,
               "expected": 44.4
             },
             {
@@ -3892,8 +3892,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.8,
-            "away_win": 0.2
+            "home_win": 0.805,
+            "away_win": 0.195
           },
           "total_over_under": [
             {
@@ -4586,14 +4586,14 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.456,
-            "away_win": 0.544
+            "home_win": 0.459,
+            "away_win": 0.541
           },
           "total_over_under": [
             {
               "line": 39.5,
-              "over": 0.483,
-              "under": 0.517,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 43.7
             },
             {
@@ -4933,8 +4933,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.48,
-            "away_win": 0.52
+            "home_win": 0.485,
+            "away_win": 0.515
           },
           "total_over_under": [
             {
@@ -5304,8 +5304,8 @@
             },
             {
               "line": 51.5,
-              "over": 0.504,
-              "under": 0.496,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 57.2
             }
           ],
@@ -5627,8 +5627,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.716,
-            "away_win": 0.284
+            "home_win": 0.711,
+            "away_win": 0.289
           },
           "total_over_under": [
             {
@@ -5639,8 +5639,8 @@
             },
             {
               "line": 41.5,
-              "over": 0.489,
-              "under": 0.511,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 39.8
             },
             {
@@ -5974,8 +5974,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.326,
-            "away_win": 0.674
+            "home_win": 0.318,
+            "away_win": 0.682
           },
           "total_over_under": [
             {
@@ -5998,8 +5998,8 @@
             },
             {
               "line": 53.5,
-              "over": 0.511,
-              "under": 0.489,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 53.3
             }
           ],
@@ -6321,8 +6321,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.53,
-            "away_win": 0.47
+            "home_win": 0.527,
+            "away_win": 0.473
           },
           "total_over_under": [
             {
@@ -6345,8 +6345,8 @@
             },
             {
               "line": 53.5,
-              "over": 0.489,
-              "under": 0.511,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 50.8
             }
           ],
@@ -6668,8 +6668,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.806,
-            "away_win": 0.194
+            "home_win": 0.814,
+            "away_win": 0.186
           },
           "total_over_under": [
             {
@@ -6692,8 +6692,8 @@
             },
             {
               "line": 52.5,
-              "over": 0.489,
-              "under": 0.511,
+              "over": 0.483,
+              "under": 0.517,
               "expected": 53.8
             }
           ],
@@ -7356,8 +7356,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.448,
-            "away_win": 0.552
+            "home_win": 0.454,
+            "away_win": 0.546
           },
           "total_over_under": [
             {
@@ -7697,8 +7697,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.368,
-            "away_win": 0.632
+            "home_win": 0.374,
+            "away_win": 0.626
           },
           "total_over_under": [
             {
@@ -8044,8 +8044,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.592,
-            "away_win": 0.408
+            "home_win": 0.596,
+            "away_win": 0.404
           },
           "total_over_under": [
             {
@@ -8732,8 +8732,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.665,
-            "away_win": 0.335
+            "home_win": 0.662,
+            "away_win": 0.338
           },
           "total_over_under": [
             {
@@ -10814,8 +10814,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.268,
-            "away_win": 0.732
+            "home_win": 0.27,
+            "away_win": 0.73
           },
           "total_over_under": [
             {
@@ -68708,6 +68708,400 @@
       }
     }
   },
-  "best_bets": [],
-  "shadow_picks": []
+  "best_bets": [
+    {
+      "sport": "nfl",
+      "home_team": "Los Angeles Rams",
+      "away_team": "Arizona Cardinals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:05",
+      "metric": "passing_yards",
+      "scope": "home",
+      "team": "Los Angeles Rams",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.933,
+      "label": "Los Angeles Rams - Over 199.5 Passing Yards",
+      "raw_confidence": 0.992
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Las Vegas Raiders",
+      "away_team": "Buffalo Bills",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:25",
+      "metric": "passing_yards",
+      "scope": "home",
+      "team": "Las Vegas Raiders",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.933,
+      "label": "Las Vegas Raiders - Over 199.5 Passing Yards",
+      "raw_confidence": 0.992
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Philadelphia Eagles",
+      "away_team": "Carolina Panthers",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Carolina Panthers",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.929,
+      "label": "Carolina Panthers - Over 199.5 Passing Yards",
+      "raw_confidence": 0.988
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Los Angeles Rams",
+      "away_team": "Arizona Cardinals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:05",
+      "metric": "points",
+      "scope": "home",
+      "team": "Los Angeles Rams",
+      "direction": "Over",
+      "line": 20.5,
+      "confidence": 0.926,
+      "label": "Los Angeles Rams - Over 20.5 Points",
+      "raw_confidence": 0.935
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Jacksonville Jaguars",
+      "away_team": "Houston Texans",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "14:30",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Houston Texans",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.92,
+      "label": "Houston Texans - Over 199.5 Passing Yards",
+      "started": true,
+      "raw_confidence": 0.979
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Cleveland Browns",
+      "away_team": "Baltimore Ravens",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "rushing_yards",
+      "scope": "away",
+      "team": "Baltimore Ravens",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.892,
+      "label": "Baltimore Ravens - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.965
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Las Vegas Raiders",
+      "away_team": "Buffalo Bills",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:25",
+      "metric": "rushing_yards",
+      "scope": "away",
+      "team": "Buffalo Bills",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.892,
+      "label": "Buffalo Bills - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.965
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Las Vegas Raiders",
+      "away_team": "Buffalo Bills",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:25",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Buffalo Bills",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.874,
+      "label": "Buffalo Bills - Over 199.5 Passing Yards",
+      "raw_confidence": 0.933
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Los Angeles Rams",
+      "away_team": "Arizona Cardinals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:05",
+      "metric": "moneyline",
+      "scope": "home",
+      "team": "Los Angeles Rams",
+      "direction": "Los Angeles Rams",
+      "line": null,
+      "confidence": 0.851,
+      "label": "Los Angeles Rams to win",
+      "raw_confidence": 0.852
+    },
+    {
+      "sport": "nfl",
+      "home_team": "New England Patriots",
+      "away_team": "New York Jets",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "moneyline",
+      "scope": "home",
+      "team": "New England Patriots",
+      "direction": "New England Patriots",
+      "line": null,
+      "confidence": 0.804,
+      "label": "New England Patriots to win",
+      "raw_confidence": 0.805
+    }
+  ],
+  "shadow_picks": [
+    {
+      "sport": "nfl",
+      "home_team": "Green Bay Packers",
+      "away_team": "Dallas Cowboys",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "19/10/2026",
+      "time": "01:20",
+      "metric": "passing_yards",
+      "scope": "home",
+      "team": "Green Bay Packers",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.865,
+      "label": "Green Bay Packers - Over 199.5 Passing Yards",
+      "raw_confidence": 0.924
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Los Angeles Rams",
+      "away_team": "Arizona Cardinals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:05",
+      "metric": "points",
+      "scope": "match",
+      "team": null,
+      "direction": "Over",
+      "line": 40.5,
+      "confidence": 0.86,
+      "label": "Los Angeles Rams v Arizona Cardinals - Over 40.5 Total Points",
+      "raw_confidence": 0.881
+    },
+    {
+      "sport": "nfl",
+      "home_team": "New England Patriots",
+      "away_team": "New York Jets",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "rushing_yards",
+      "scope": "home",
+      "team": "New England Patriots",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.858,
+      "label": "New England Patriots - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.93
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Tampa Bay Buccaneers",
+      "away_team": "Pittsburgh Steelers",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Pittsburgh Steelers",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.855,
+      "label": "Pittsburgh Steelers - Over 199.5 Passing Yards",
+      "raw_confidence": 0.914
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Los Angeles Rams",
+      "away_team": "Arizona Cardinals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:05",
+      "metric": "passing_tds",
+      "scope": "home",
+      "team": "Los Angeles Rams",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.847,
+      "label": "Los Angeles Rams - Over 0.5 Passing TDs",
+      "raw_confidence": 0.91
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Las Vegas Raiders",
+      "away_team": "Buffalo Bills",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:25",
+      "metric": "passing_tds",
+      "scope": "home",
+      "team": "Las Vegas Raiders",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.847,
+      "label": "Las Vegas Raiders - Over 0.5 Passing TDs",
+      "raw_confidence": 0.91
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Tampa Bay Buccaneers",
+      "away_team": "Pittsburgh Steelers",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Pittsburgh Steelers",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.846,
+      "label": "Pittsburgh Steelers - Over 0.5 Passing TDs",
+      "raw_confidence": 0.909
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Los Angeles Rams",
+      "away_team": "Arizona Cardinals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:05",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Arizona Cardinals",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.831,
+      "label": "Arizona Cardinals - Over 0.5 Passing TDs",
+      "raw_confidence": 0.894
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Kansas City Chiefs",
+      "away_team": "Los Angeles Chargers",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:25",
+      "metric": "rushing_yards",
+      "scope": "home",
+      "team": "Kansas City Chiefs",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.826,
+      "label": "Kansas City Chiefs - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.898
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Las Vegas Raiders",
+      "away_team": "Buffalo Bills",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "21:25",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Buffalo Bills",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.826,
+      "label": "Buffalo Bills - Over 0.5 Passing TDs",
+      "raw_confidence": 0.889
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Atlanta Falcons",
+      "away_team": "Chicago Bears",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "rushing_yards",
+      "scope": "away",
+      "team": "Chicago Bears",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.809,
+      "label": "Chicago Bears - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.882
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Cleveland Browns",
+      "away_team": "Baltimore Ravens",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Baltimore Ravens",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.809,
+      "label": "Baltimore Ravens - Over 0.5 Passing TDs",
+      "raw_confidence": 0.872
+    },
+    {
+      "sport": "nfl",
+      "home_team": "New York Giants",
+      "away_team": "New Orleans Saints",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "18/10/2026",
+      "time": "18:00",
+      "metric": "passing_tds",
+      "scope": "home",
+      "team": "New York Giants",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.807,
+      "label": "New York Giants - Over 0.5 Passing TDs",
+      "raw_confidence": 0.87
+    }
+  ]
 }
