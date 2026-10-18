@@ -33,6 +33,10 @@ PROP_DECAY = 0.9         # weight multiplier per game further back
 PROP_MIN_GAMES = 8       # fewer recorded games than this: no prop
 PROP_MIN_MINUTES = 20.0  # only rotation players (decayed average minutes)
 PROP_MAX_AGE_DAYS = 330  # ignore a player whose last game is older than this
+LONG_FORM_GAMES = 40     # longer window for the "form40" blend
+LONG_FORM_DECAY = 0.97
+CONTEXT_HALF_LIFE = 45.0  # days: how fast opposition/pace numbers fade
+CONTEXT_STATS = ("pts", "fga", "fta", "poss", "reb", "ast", "tpa", "tpm", "miss", "oreb")
 
 
 def load_team_games(path) -> pd.DataFrame:
@@ -123,12 +127,55 @@ def player_form(player_games: pd.DataFrame, asof) -> dict[int, dict]:
         mins = float(np.average(g["mins"], weights=w))
         if mins < PROP_MIN_MINUTES:
             continue
+        long = pg[pg["athlete_id"] == aid].tail(LONG_FORM_GAMES)
+        lw = LONG_FORM_DECAY ** np.arange(len(long))[::-1]
+        mins40 = float(np.average(long["mins"], weights=lw))
         rec = {"player": g["player"].iloc[-1], "team_id": int(g["team_id"].iloc[-1]),
+               "mins5": float(g["mins"].tail(5).mean()), "mins40": mins40,
                "games": int(len(g)), "mins": round(mins, 1),
                "stale_days": int((asof - g["date"].iloc[-1]).days)}
         for s in PROP_STATS:
             mean = float(np.average(g[s], weights=w))
             sd = float(np.sqrt(np.average((g[s] - mean) ** 2, weights=w)))
-            rec[s] = {"mean": mean, "sd": sd}
+            rec[s] = {"mean": mean, "sd": sd,
+                      "mean40": float(np.average(long[s], weights=lw))}
         out[int(aid)] = rec
+    return out
+
+
+def team_context(games: pd.DataFrame, asof) -> dict | None:
+    """Per-team scoring/shooting profile for the opposition adjustment of
+    player props. For each team: what it does itself ("off") and what
+    opponents do AGAINST it ("def"), as decayed per-game averages relative
+    to the league (0.05 = 5% above average), plus its recent scoring margin.
+
+    Needs the team box-score columns fetch_nba.py writes (fga, fta, tov,
+    oreb, reb, ast, tpa, tpm, fgm); returns None if they're missing, in
+    which case props fall back to form only.
+    """
+    need = {"fgm", "fga", "fta", "tov", "oreb", "reb", "ast", "tpa", "tpm"}
+    if not need.issubset(games.columns):
+        return None
+    asof = pd.Timestamp(asof)
+    g = games[(games["date"] < asof) & (games["stype"] == 2)].dropna(subset=list(need)).copy()
+    if len(g) < 200:
+        return None
+    g["poss"] = g["fga"] + 0.44 * g["fta"] + g["tov"] - g["oreb"]
+    g["miss"] = g["fga"] - g["fgm"]
+    cols = list(CONTEXT_STATS)
+    opp = g[["game_id", "team"] + cols].rename(columns={"team": "opp", **{c: "o_" + c for c in cols}})
+    g = g.merge(opp, on=["game_id", "opp"], how="inner")
+    w = 0.5 ** ((asof - g["date"]).dt.days.to_numpy(dtype=float) / CONTEXT_HALF_LIFE)
+    g["w"] = w
+    wsum = g.groupby("team")["w"].sum()
+    out = {"off": {}, "def": {}, "net": {}}
+    lg = {}
+    for c in cols:
+        off = (g[c] * g["w"]).groupby(g["team"]).sum() / wsum
+        dfn = (g["o_" + c] * g["w"]).groupby(g["team"]).sum() / wsum
+        lg[c] = float((g[c] * g["w"]).sum() / g["w"].sum())
+        out["off"][c] = {int(t): float(v / lg[c] - 1) for t, v in off.items()}
+        out["def"][c] = {int(t): float(v / lg[c] - 1) for t, v in dfn.items()}
+    net = ((g["pts"] - g["o_pts"]) * g["w"]).groupby(g["team"]).sum() / wsum
+    out["net"] = {int(t): float(v) for t, v in net.items()}
     return out
