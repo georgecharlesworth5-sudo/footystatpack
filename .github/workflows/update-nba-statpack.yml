@@ -1,0 +1,72 @@
+name: Update NBA Stat Pack
+
+# Runs the NBA half of the pipeline automatically:
+#   fetch_nba.py           - pulls team box scores, player box scores, the
+#                             schedule and rosters from the sportsdataverse
+#                             hoopR-nba-data repository (ESPN-derived)
+#   nba_build_statpack.py  - fits team ratings + player form, predicts every
+#                             game in the next few days (moneyline, spread,
+#                             totals, team totals, player props), writes
+#                             nba_statpack.json and nba_statpack_data.js
+#   track_bets.py          - logs the NBA picks (SHADOW MODE at first: logged
+#                             and settled, but not shown in Best Bets) and
+#                             settles completed games
+#
+# NBA needs pandas + numpy + pyarrow (the rest of the project is standard
+# library only), so they're installed here rather than for every workflow.
+
+on:
+  schedule:
+    # Once a day, 10:00 UTC (11:00 UK in summer). Last night's US games are in
+    # the data by then, and the day's games haven't tipped off yet (the first
+    # is usually around 17:00 UK). Each field is minute hour day month weekday.
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    # Run manually any time from the Actions tab (or GitHub Mobile:
+    # repo -> Actions -> Update NBA Stat Pack -> Run workflow).
+
+permissions:
+  contents: write   # needed to commit the refreshed data back to the repo
+
+# Shared with the football and NFL workflows: they all run track_bets.py and
+# commit bets_log.csv / bets_log.js, so they queue rather than race.
+concurrency:
+  group: statpack-pipeline
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install NBA dependencies
+        run: pip install pandas numpy pyarrow
+
+      - name: Fetch latest NBA data
+        run: python fetch_nba.py
+
+      - name: Build NBA stat pack
+        run: python nba_build_statpack.py
+
+      - name: Log and reconcile Best Bets
+        run: python track_bets.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/nba_team_games.csv data/nba_player_games.csv data/nba_upcoming.csv data/nba_roster.csv nba_statpack.json nba_statpack_data.js bets_log.csv bets_log.js
+          git diff --staged --quiet || git commit -m "Auto-update NBA stat pack $(date -u +'%Y-%m-%d %H:%M UTC')"
+
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && break
+            echo "Push attempt $attempt failed - retrying..."
+            sleep $((attempt * 5))
+          done
