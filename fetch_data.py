@@ -65,6 +65,8 @@ KEEP_COLUMNS = [
     "HTHG", "HTAG", "HTR",
     "Referee",
     "HS", "AS", "HST", "AST",
+    "HF", "AF",          # fouls committed - not used by the model yet; collected so a
+                          # foul-rate feature for cards can be tested on real history
     "HC", "AC",          # corners
     "HY", "AY", "HR", "AR",  # cards
     "HxG", "AxG",         # expected goals - not documented in football-data.co.uk's
