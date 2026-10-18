@@ -3315,7 +3315,7 @@
   }
 
   // One leader per stat per team (highest expected points / rebounds / assists / threes),
-  // each with the 5 lines the model rates most likely to go over.
+  // each with the 5 lines nearest his average.
   function nbaPropsBlock(fx) {
     const props = fx.props || [];
     if (!props.length) return "";
@@ -3325,7 +3325,7 @@
         const pl = mine.filter(p => ((p.lines || {})[s] || []).length)
           .sort((a, b) => b.expected[s] - a.expected[s])[0];
         if (!pl) return "";
-        const top = pl.lines[s].slice().sort((a, b) => b.over - a.over).slice(0, 5).sort((a, b) => a.line - b.line);
+        const top = nbaCentral(pl.lines[s], "over", 5);   // the 5 lines closest to his average (nearest 50%)
         return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} · <b>${pl.player}</b> (avg ${pl.expected[s]})</span>
           <span class="nba-lines">${top.map(r => `<span class="nba-chip">O${r.line} ${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
             label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</span>`).join("")}</span></div>`;
