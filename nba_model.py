@@ -9,11 +9,12 @@ spreads measured from a walk-forward backtest of a full past season:
     so the raw gap is stretched by MARGIN_SCALE (fitted, ~1.14).
   * game total:                expected = rating total, SD 20.9.
   * team points:               from the expected margin + total, SD 13.
-  * player props:              decayed average of recent games; the SD is
-    the player's own spread widened by PROP_SD_SCALE (a player's recent
-    average is a noisy estimate of his true level, so using his raw
-    spread is over-confident - measured at ~1.25x). Threes use a
-    negative-binomial (counts that skew right near zero) instead.
+  * player props:              decayed average of recent games, adjusted for
+    the opposition and game context (PROP_COEFS: what the opponent concedes,
+    shot volume, pace, home/away, blowout risk, longer-term form, minutes
+    trend). The SD is the player's own spread widened by a fitted per-stat
+    scale. Threes use a negative-binomial (counts that skew right near
+    zero) instead.
 
 All lines are half-points, so there are no pushes.
 """
@@ -29,6 +30,96 @@ PROP_SD_SCALE = 1.25
 PROP_STALE_DAYS = 60       # last game further back than this: widen a little more
 PROP_STALE_SCALE = 1.10
 PROP_SD_FLOOR = {"points": 3.0, "rebounds": 1.5, "assists": 1.2, "threes": 0.8}
+
+
+# Opposition / context adjustment for player props. Fitted by ridge regression on
+# two full seasons of player games (2024-25 and 2025-26, ~32,000 player-games;
+# tested walk-forward: fit on one season, scored on the next - average error fell
+# 1.4-2.5 percent and the probabilities got better calibrated). Each stat's expected
+# value is   form15 x (1 + bias + sum(coef x feature)) , where the features are:
+#   home        +1 home / -1 away
+#   b2b         1 if his team played yesterday
+#   absmargin   |expected margin| / 10  (blowouts cut starters' minutes)
+#   pace        average of both teams' possessions per game vs league (0.05 = 5 percent above)
+#   odef_x      how much the OPPONENT concedes of x vs league (pts, fga=shots,
+#               tpa=threes attempted, tpm, reb, ast, miss=missed shots)
+#   aoff_x/ooff_x  his team's / the opponent's own output of x
+#   form40      his 40-game average vs his 15-game average (a longer memory
+#               stops one hot or cold fortnight dominating)
+#   mintrend    minutes in his last 5 games vs his 40-game norm
+# sd_scale = how much wider than his own game-to-game spread the real misses are.
+PROP_COEFS = {
+    "points": {
+        "coef": {
+            "home": 0.0015,
+            "b2b": 0.0167,
+            "absmargin": -0.0035,
+            "pace": 0.0424,
+            "odef_pts": 0.7299,
+            "odef_fga": 0.2318,
+            "odef_tpa": -0.1522,
+            "form40": 0.653,
+            "mintrend": 0.3101,
+            "bias": -0.0129
+        },
+        "sd_scale": 1.191
+    },
+    "rebounds": {
+        "coef": {
+            "home": 0.0005,
+            "b2b": 0.0053,
+            "absmargin": 0.0075,
+            "pace": 0.3486,
+            "odef_reb": 0.5167,
+            "odef_miss": -0.2373,
+            "aoff_miss": -0.1365,
+            "ooff_oreb": -0.0462,
+            "odef_fga": 0.3089,
+            "form40": 0.8414,
+            "mintrend": 0.4065,
+            "bias": -0.027
+        },
+        "sd_scale": 1.175
+    },
+    "assists": {
+        "coef": {
+            "home": 0.0096,
+            "b2b": -0.009,
+            "absmargin": -0.0027,
+            "pace": 0.255,
+            "odef_ast": 0.512,
+            "odef_pts": 0.3352,
+            "aoff_ast": -0.0484,
+            "form40": 0.7148,
+            "mintrend": 0.5004,
+            "bias": -0.0143
+        },
+        "sd_scale": 1.196
+    },
+    "threes": {
+        "coef": {
+            "home": 0.009,
+            "b2b": -0.0005,
+            "absmargin": 0.0037,
+            "pace": 0.0703,
+            "odef_tpm": 0.0467,
+            "odef_tpa": 0.4732,
+            "ooff_tpa": -0.0106,
+            "form40": 0.8917,
+            "mintrend": 0.3767,
+            "bias": -0.0252
+        },
+        "sd_scale": 1.159
+    }
+}
+
+
+def prop_adjust(stat: str, form15: float, features: dict) -> tuple[float, dict]:
+    """(context-adjusted expected value, each feature's contribution as a fraction)."""
+    c = PROP_COEFS[stat]["coef"]
+    parts = {k: v * features.get(k, 0.0) for k, v in c.items() if k != "bias"}
+    factor = c["bias"] + sum(parts.values())
+    return max(form15 * (1.0 + factor), 0.0), parts
 
 
 def phi(z: float) -> float:
@@ -100,7 +191,7 @@ def total_table(mean: float, sd: float, half_width: float) -> list[dict]:
 
 def prop_dist(stat: str, mean: float, sd: float, stale_days: int) -> tuple[float, float]:
     """(mean, sd used) for a prop."""
-    scale = PROP_SD_SCALE * (PROP_STALE_SCALE if stale_days > PROP_STALE_DAYS else 1.0)
+    scale = PROP_COEFS[stat]["sd_scale"] * (PROP_STALE_SCALE if stale_days > PROP_STALE_DAYS else 1.0)
     return mean, max(sd * scale, PROP_SD_FLOOR[stat])
 
 
