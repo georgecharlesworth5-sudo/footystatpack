@@ -56,7 +56,30 @@ def team_table(tg: pd.DataFrame, ratings, names: dict) -> dict:
     return out
 
 
-def build_fixture(row, ratings, tg, forms, roster_by_team, names) -> dict:
+def _ctx(ctx, kind, stat, team):
+    return ctx[kind][stat].get(team, 0.0) if ctx else 0.0
+
+
+def prop_features(ctx, f, side, team_id, opp_id, b2b, stat) -> dict:
+    """The model's inputs for one player (see nba_model.PROP_COEFS)."""
+    feat = {"home": 1.0 if side == "home" else -1.0, "b2b": float(b2b)}
+    if ctx:
+        net = ctx["net"]
+        feat["absmargin"] = abs(net.get(team_id, 0.0) - net.get(opp_id, 0.0) + (2.0 if side == "home" else -2.0)) / 10.0
+        feat["pace"] = (_ctx(ctx, "off", "poss", team_id) + _ctx(ctx, "off", "poss", opp_id)) / 2.0
+        for c in ("pts", "fga", "tpa", "tpm", "reb", "ast", "miss"):
+            feat["odef_" + c] = _ctx(ctx, "def", c, opp_id)
+        for c in ("miss", "ast", "tpa"):
+            feat["aoff_" + c] = _ctx(ctx, "off", c, team_id)
+        for c in ("oreb", "tpa"):
+            feat["ooff_" + c] = _ctx(ctx, "off", c, opp_id)
+    m = f[stat]["mean"]
+    feat["form40"] = (f[stat]["mean40"] - m) / max(m, 0.5)
+    feat["mintrend"] = max(-0.5, min(0.5, f["mins5"] / max(f["mins40"], 1.0) - 1.0))
+    return feat
+
+
+def build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx=None) -> dict:
     home_id, away_id = int(row["home_id"]), int(row["away_id"])
     start = datetime.strptime(row["start_uk"], "%Y-%m-%d %H:%M").replace(tzinfo=LONDON)
     game_day = start.astimezone(EASTERN).date()
@@ -90,17 +113,31 @@ def build_fixture(row, ratings, tg, forms, roster_by_team, names) -> dict:
             if not f:
                 continue
             lines, exp = {}, {}
+            tid, oid = (home_id, away_id) if side == "home" else (away_id, home_id)
+            form = {}
             for stat in S.PROP_STATS:
-                mean, sd = M.prop_dist(stat, f[stat]["mean"], f[stat]["sd"], f["stale_days"])
+                feat = prop_features(ctx, f, side, tid, oid, hb2b if side == "home" else ab2b, stat)
+                adj, _ = M.prop_adjust(stat, f[stat]["mean"], feat)
+                mean, sd = M.prop_dist(stat, adj, f[stat]["sd"], f["stale_days"])
                 exp[stat] = round(mean, 1)
+                form[stat] = round(f[stat]["mean"], 1)
                 rows = _trim(M.prop_table(stat, mean, sd))
                 if rows:
                     lines[stat] = rows
             props.append({"player": f["player"], "team": tname, "side": side,
                           "mins": f["mins"], "games": f["games"],
-                          "expected": exp, "lines": lines})
+                          "expected": exp, "form": form, "lines": lines})
     props.sort(key=lambda p: -p["mins"])
     card["props"] = props
+    if ctx:
+        pct = lambda v: round(100 * v, 1)
+        card["prop_context"] = {
+            side: {"vs": opp_name,
+                   "points": pct(_ctx(ctx, "def", "pts", oid)), "shots": pct(_ctx(ctx, "def", "fga", oid)),
+                   "rebounds": pct(_ctx(ctx, "def", "reb", oid)), "assists": pct(_ctx(ctx, "def", "ast", oid)),
+                   "threes": pct(_ctx(ctx, "def", "tpa", oid)),
+                   "pace": pct((_ctx(ctx, "off", "poss", home_id) + _ctx(ctx, "off", "poss", away_id)) / 2)}
+            for side, oid, opp_name in (("home", away_id, away), ("away", home_id, home))}
 
     hg, ag = ratings.games_played.get(home_id, 0), ratings.games_played.get(away_id, 0)
     card["home_form_sample"], card["away_form_sample"] = hg, ag
@@ -153,6 +190,8 @@ def build_nba_statpack(data_dir: Path, now=None) -> dict:
     asof = pd.Timestamp(now.date()) + pd.Timedelta(days=1)       # every game dated up to today
     ratings = S.fit_ratings(tg, asof)
     forms = S.player_form(pg, asof)
+    ctx = S.team_context(tg, asof)
+    print(f"[debug] opposition context: {'on' if ctx else 'OFF (team box-score columns missing - props use form only)'}")
     # Only the CURRENT roster counts: a player who moved in the summer is a prop for his new team.
     roster_by_team = roster.groupby("team_id")["athlete_id"].apply(list).to_dict() if len(roster) else {}
     print(f"[debug] ratings for {len(ratings.teams)} teams; prop form for {len(forms)} players")
@@ -162,7 +201,7 @@ def build_nba_statpack(data_dir: Path, now=None) -> dict:
         if int(row["home_id"]) not in ratings.attack or int(row["away_id"]) not in ratings.attack:
             print(f"[debug] skipping {row['away']} @ {row['home']}: no rating yet")
             continue
-        fixtures.append(build_fixture(row, ratings, tg, forms, roster_by_team, names))
+        fixtures.append(build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx))
     teams = team_table(tg, ratings, names)
     pack = {
         "generated": now.strftime("%Y-%m-%d %H:%M"),
