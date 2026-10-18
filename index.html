@@ -835,8 +835,11 @@
   .nba-prop { border-top: 1px solid var(--rule); padding: 2px 0; }
   .nba-prop summary { cursor: pointer; padding: 7px 0; font-size: 13px; font-weight: 600; }
   .nba-exp { display: block; font-weight: 400; font-size: 12px; color: var(--meta); }
-  .nba-stat { margin: 2px 0 8px; font-size: 13px; }
-  .nba-stat-name { display: block; font-size: 12px; color: var(--meta); }
+  .nba-team { font-family: var(--display); font-size: 20px; font-weight: 700; margin: 18px 0 4px; padding-bottom: 4px; border-bottom: 2px solid var(--ink); }
+  .nba-stat { margin: 0 0 14px; font-size: 14px; }
+  .nba-stat-name { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--meta); margin-top: 10px; }
+  .nba-avg { text-transform: none; letter-spacing: 0; margin-left: 6px; }
+  .nba-player { display: block; font-size: 17px; font-weight: 700; color: var(--ink); margin: 1px 0 4px; }
   .nba-lines { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .nba-chip { white-space: nowrap; }
 </style>
@@ -3326,11 +3329,12 @@
           .sort((a, b) => b.expected[s] - a.expected[s])[0];
         if (!pl) return "";
         const top = nbaCentral(pl.lines[s], "over", 5);   // the 5 lines closest to his average (nearest 50%)
-        return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} · <b>${pl.player}</b> (avg ${pl.expected[s]})</span>
+        return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} <span class="nba-avg">avg ${pl.expected[s]}</span></span>
+          <span class="nba-player">${pl.player}</span>
           <span class="nba-lines">${top.map(r => `<span class="nba-chip">O${r.line} ${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
             label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</span>`).join("")}</span></div>`;
       }).join("");
-      return `<div class="metric-split-title" style="margin-top:8px">${name}</div>${rows}`;
+      return `<div class="nba-team">${name}</div>${rows}`;
     };
     return `<div class="metric-card" style="grid-column:1/-1">
       <div class="metric-title">Player props <span style="opacity:0.6">· team leaders, over %</span></div>
