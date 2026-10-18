@@ -831,6 +831,14 @@
     .tr-be-hit { width: 78px; }
     .tr-be-odds { width: 50px; }
   }
+  /* NBA player props */
+  .nba-prop { border-top: 1px solid var(--rule); padding: 2px 0; }
+  .nba-prop summary { cursor: pointer; padding: 7px 0; font-size: 13px; font-weight: 600; }
+  .nba-exp { display: block; font-weight: 400; font-size: 12px; color: var(--meta); }
+  .nba-stat { margin: 2px 0 8px; font-size: 13px; }
+  .nba-stat-name { display: block; font-size: 12px; color: var(--meta); }
+  .nba-lines { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .nba-chip { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -852,6 +860,7 @@
 <script src="statpack_data.js"></script>
 <script src="bets_log.js"></script>
 <script src="nfl_statpack_data.js"></script>
+<script src="nba_statpack_data.js" onerror="void 0"></script>
 <script src="racing_data.js"></script>
 <script src="racing_today.js" onerror="void 0"></script>
 <script src="racing_results.js" onerror="void 0"></script>
@@ -869,13 +878,16 @@
   const EFL_CUP = "__EFL_CUP__";
   const CASH_BUILDER = "__CASH_BUILDER__";
   const NFL = "__NFL__";
+  const NBA = "__NBA__";
   const NEAR_TERM_WINDOW_DAYS = 4; // one weekend round (Fri-Mon) - covers a single gameweek without pulling in next week's fixtures too
   let showFullSeason = false; // toggled by the "Show full season" link in league views
+  let todayFilter = "all";      // Today page: all / football / nfl (/ nba)
+  let todayMenuOpen = false;    // toggled by clicking the "Today" tab
   let footballMenuOpen = false; // toggled by clicking the "Football" tab
   let bestBetsSortMode = "confidence"; // toggled by the sort-order links on the Best Bets tab
   let bestBetsHiddenMetrics = new Set(); // metrics unchecked by the filter row - empty means "show everything"
   let bestBetsMarketOnly = false; // toggled by the "Market-matched only" checkbox
-  let trSport = "all"; // Track Record sport toggle: all / football / nfl
+  let trSport = "all"; // Track Record sport toggle: all / football / nfl / nba
   // NFL "Recent Results" visibility - remembered between visits (per-device).
   let nflHideResults = false;
   try { nflHideResults = localStorage.getItem("nflHideResults") === "1"; } catch (e) {}
@@ -1019,12 +1031,47 @@
     // so clearing tabsEl doesn't remove a stale copy - do that here.
     const staleMenu = document.getElementById("football-dropdown-menu");
     if (staleMenu) staleMenu.remove();
+    const staleToday = document.getElementById("today-dropdown-menu");
+    if (staleToday) staleToday.remove();
 
     const todayBtn = document.createElement("button");
     todayBtn.className = "tab" + (activeLeague === TODAY ? " active" : "");
-    todayBtn.innerHTML = "Today";
-    todayBtn.addEventListener("click", () => { activeLeague = TODAY; footballMenuOpen = false; render(); });
+    todayBtn.innerHTML = `Today${todayFilter === "all" ? "" : " &middot; " + todayLabel()} <span class="chev-dd">${todayMenuOpen ? "▴" : "▾"}</span>`;
+    todayBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // Tapping Today always shows the Today page; if you're already on it, it toggles the menu,
+      // otherwise it opens the menu alongside so the sport can be picked straight away.
+      const wasActive = activeLeague === TODAY;
+      activeLeague = TODAY; footballMenuOpen = false;
+      todayMenuOpen = wasActive ? !todayMenuOpen : true;
+      render();
+    });
     tabsEl.appendChild(todayBtn);
+
+    if (todayMenuOpen) {
+      const counts = {};
+      const all = todayItems();
+      todaySports().forEach(sp => { counts[sp.key] = sp.key === "all" ? all.length : all.filter(fx => fx._kind === sp.key).length; });
+      const menu = document.createElement("div");
+      menu.id = "today-dropdown-menu";
+      menu.className = "football-dropdown";
+      menu.style.minWidth = "160px";
+      todaySports().forEach(sp => {
+        const item = document.createElement("button");
+        item.className = "dropdown-item" + (todayFilter === sp.key ? " active" : "");
+        item.innerHTML = sp.label + ` <span class="count">${counts[sp.key]}</span>`;
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          todayFilter = sp.key; todayMenuOpen = false; activeLeague = TODAY; render();
+        });
+        menu.appendChild(item);
+      });
+      const r = todayBtn.getBoundingClientRect();
+      menu.style.position = "fixed";
+      menu.style.top = `${r.bottom + 4}px`;
+      menu.style.left = `${r.left}px`;
+      document.body.appendChild(menu);
+    }
 
     // Football is a single top-level tab with a dropdown underneath it -
     // every league, EFL Cup, and Cash Builder used to each get their own
@@ -1038,7 +1085,7 @@
     footballBtn.innerHTML = `Football <span class="chev-dd">${footballMenuOpen ? "▴" : "▾"}</span>`;
     footballBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      footballMenuOpen = !footballMenuOpen;
+      footballMenuOpen = !footballMenuOpen; todayMenuOpen = false;
       buildTabs();
     });
     footballWrap.appendChild(footballBtn);
@@ -1056,7 +1103,7 @@
         item.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
         item.addEventListener("click", (e) => {
           e.stopPropagation();
-          activeLeague = code; footballMenuOpen = false; render();
+          activeLeague = code; footballMenuOpen = false; todayMenuOpen = false; render();
         });
         menu.appendChild(item);
       });
@@ -1078,7 +1125,7 @@
         item.innerHTML = "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`;
         item.addEventListener("click", (e) => {
           e.stopPropagation();
-          activeLeague = EFL_CUP; footballMenuOpen = false; render();
+          activeLeague = EFL_CUP; footballMenuOpen = false; todayMenuOpen = false; render();
         });
         menu.appendChild(item);
       }
@@ -1089,7 +1136,7 @@
         item.innerHTML = "Cash Builder";
         item.addEventListener("click", (e) => {
           e.stopPropagation();
-          activeLeague = CASH_BUILDER; footballMenuOpen = false; render();
+          activeLeague = CASH_BUILDER; footballMenuOpen = false; todayMenuOpen = false; render();
         });
         menu.appendChild(item);
       }
@@ -1108,32 +1155,40 @@
       const nflBtn = document.createElement("button");
       nflBtn.className = "tab" + (activeLeague === NFL ? " active" : "");
       nflBtn.innerHTML = "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`;
-      nflBtn.addEventListener("click", () => { activeLeague = NFL; footballMenuOpen = false; render(); });
+      nflBtn.addEventListener("click", () => { activeLeague = NFL; footballMenuOpen = false; todayMenuOpen = false; render(); });
       tabsEl.appendChild(nflBtn);
+    }
+
+    if (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.upcoming_fixtures) {
+      const nbaBtn = document.createElement("button");
+      nbaBtn.className = "tab" + (activeLeague === NBA ? " active" : "");
+      nbaBtn.innerHTML = "NBA " + `<span class="count">${NBA_STATPACK_DATA.upcoming_fixtures.length}</span>`;
+      nbaBtn.addEventListener("click", () => { activeLeague = NBA; footballMenuOpen = false; render(); });
+      tabsEl.appendChild(nbaBtn);
     }
 
     const raceBtn = document.createElement("button");
     raceBtn.className = "tab" + (activeLeague === RACING ? " active" : "");
     raceBtn.innerHTML = "Racing";
-    raceBtn.addEventListener("click", () => { activeLeague = RACING; footballMenuOpen = false; render(); });
+    raceBtn.addEventListener("click", () => { activeLeague = RACING; footballMenuOpen = false; todayMenuOpen = false; render(); });
     tabsEl.appendChild(raceBtn);
 
     const bbBtn = document.createElement("button");
     bbBtn.className = "tab" + (activeLeague === BEST_BETS ? " active" : "");
     bbBtn.innerHTML = "★ Best Bets";
-    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; render(); });
+    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; todayMenuOpen = false; render(); });
     tabsEl.appendChild(bbBtn);
 
     const slipBtn = document.createElement("button");
     slipBtn.className = "tab" + (activeLeague === SLIP ? " active" : "");
     slipBtn.innerHTML = "Bet Slip" + (slip.items.length ? ` <span class="count">${slip.items.length}</span>` : "");
-    slipBtn.addEventListener("click", () => { activeLeague = SLIP; footballMenuOpen = false; render(); });
+    slipBtn.addEventListener("click", () => { activeLeague = SLIP; footballMenuOpen = false; todayMenuOpen = false; render(); });
     tabsEl.appendChild(slipBtn);
 
     const bankBtn = document.createElement("button");
     bankBtn.className = "tab" + (activeLeague === BANKROLL ? " active" : "");
     bankBtn.innerHTML = "Bankroll" + (bank && bank.bets.some(b => b.status === "pending") ? ` <span class="count">${bank.bets.filter(b => b.status === "pending").length}</span>` : "");
-    bankBtn.addEventListener("click", () => { activeLeague = BANKROLL; footballMenuOpen = false; render(); });
+    bankBtn.addEventListener("click", () => { activeLeague = BANKROLL; footballMenuOpen = false; todayMenuOpen = false; render(); });
     tabsEl.appendChild(bankBtn);
 
     const trBtn = document.createElement("button");
@@ -1141,14 +1196,14 @@
     const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
       ? ` ${BETS_LOG.summary.overall.pct}%` : "";
     trBtn.innerHTML = "Track Record" + trPct;
-    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; footballMenuOpen = false; render(); });
+    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; footballMenuOpen = false; todayMenuOpen = false; render(); });
     tabsEl.appendChild(trBtn);
 
     if (typeof BETS_LOG !== "undefined" && BETS_LOG.blocks) {
       const mcBtn = document.createElement("button");
       mcBtn.className = "tab" + (activeLeague === MODEL_CHECK ? " active" : "");
       mcBtn.innerHTML = "Odds &amp; Calibration";
-      mcBtn.addEventListener("click", () => { activeLeague = MODEL_CHECK; footballMenuOpen = false; render(); });
+      mcBtn.addEventListener("click", () => { activeLeague = MODEL_CHECK; footballMenuOpen = false; todayMenuOpen = false; render(); });
       tabsEl.appendChild(mcBtn);
     }
   }
@@ -1366,6 +1421,14 @@
     rushing_tds: "Rushing TDs",
     passing_yards: "Passing Yards",
     rushing_yards: "Rushing Yards",
+    spread: "Spread",
+    rebounds: "Rebounds",
+    assists: "Assists",
+    threes: "Threes",
+    player_points: "Player Points",
+    player_rebounds: "Player Rebounds",
+    player_assists: "Player Assists",
+    player_threes: "Player Threes",
   };
 
   // Checkbox filter row - built dynamically from whichever metrics
@@ -1451,7 +1514,9 @@
     // the stat pack's own grace period) so it doesn't vanish mid-game.
     const BEST_BETS_GRACE_MS = 5 * 3600000;
     const nowMs = Date.now();
-    const allPicksRaw = [...footballPicks, ...nflPicks];
+    const nbaPicks = (typeof NBA_STATPACK_DATA !== "undefined" && Array.isArray(NBA_STATPACK_DATA.best_bets))
+      ? NBA_STATPACK_DATA.best_bets : [];
+    const allPicksRaw = [...footballPicks, ...nflPicks, ...nbaPicks];
     // Exact local kick-off (fixtureTimestamp reads the date as UTC, which in
     // summer time puts every kick-off an hour late - fine for sorting, not here).
     const kickoffMs = p => {
@@ -1580,6 +1645,10 @@
 
   function findPredictions(sport, home, away, date) {
     const same = fx => fx.home_team === home && fx.away_team === away && fx.date === date;
+    if (sport === "nba") {
+      const list = (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.upcoming_fixtures) || [];
+      return list.find(same) || null;     // the whole fixture: the NBA joint model needs its expected margin/total
+    }
     if (sport === "nfl") {
       const list = (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) || [];
       const fx = list.find(same);
@@ -1633,6 +1702,22 @@
         if (l.metric === "moneyline") { const d = s[0] - s[1]; const w = d > 0 ? 1 : d === 0 ? 0.5 : 0; return l.scope === "home" ? w : 1 - w; }
         return (l.scope === "home" ? s[0] : l.scope === "away" ? s[1] : s[0] + s[1]) > l.line ? 1 : 0;
       };
+    } else if (kind === "nba_game") {
+      // Margin and total are independent bell curves (team scores are then (T+M)/2 and (T-M)/2),
+      // so the joint of any moneyline / spread / total legs is a walk over a 2-D grid.
+      const e = preds.expected, m = preds.model;
+      if (!e || !m) return null;
+      vars = [normPmf(e.margin + 60, m.margin_sd, 120), normPmf(e.total - 120, m.total_sd, 200)];
+      evalLeg = (l, s) => {
+        const M = s[0] - 60, T = s[1] + 120, h = (T + M) / 2, a = (T - M) / 2;
+        if (l.metric === "moneyline") return (l.scope === "home" ? M > 0 : M < 0) ? 1 : 0;
+        if (l.metric === "spread") return ((l.scope === "home" ? M : -M) + l.line) > 0 ? 1 : 0;
+        if (l.metric === "points") {
+          const v = l.scope === "home" ? h : l.scope === "away" ? a : T;
+          return (l.direction === "Under" ? v < l.line : v > l.line) ? 1 : 0;
+        }
+        return null;
+      };
     } else return null;
 
     // Marginals and the joint over every cell of the rebuilt game.
@@ -1673,7 +1758,9 @@
     for (const legs of games.values()) {
       const fams = new Map();
       legs.forEach(l => {
-        const f = FAMILY_OF[l.metric] || ("solo:" + l.metric + l.scope + l.direction + l.line);
+        const f = l.sport === "nba"
+          ? (l.scope.startsWith("p:") ? "solo:" + l.metric + l.scope + l.direction + l.line : "nba_game")   // player props: independent
+          : FAMILY_OF[l.metric] || ("solo:" + l.metric + l.scope + l.direction + l.line);
         if (!fams.has(f)) fams.set(f, []);
         fams.get(f).push(l);
       });
@@ -1698,7 +1785,7 @@
   // (localStorage), like the bet slip - use "Copy backup" before clearing
   // site data or switching phones.
   const BANK_STORE = "virtualBankroll";
-  const BANK_SPORTS = ["Football", "NFL", "Horse racing", "Other"];
+  const BANK_SPORTS = ["Football", "NFL", "NBA", "Horse racing", "Other"];
   const EW_TERMS = [["1/4", 4, 3], ["1/5", 5, 3], ["1/4", 4, 2], ["1/5", 5, 4], ["1/4", 4, 4], ["1/3", 3, 2]]; // label, denominator, places
   let bank = slipLoad(BANK_STORE, null);
   if (!bank || typeof bank !== "object" || !Array.isArray(bank.bets)) bank = null;
@@ -2031,12 +2118,12 @@
   }
   function bankFromSlip() {
     const items = slip.items; if (!items.length) return;
-    const sports = new Set(items.map(i => (i.key.split("|")[0] === "nfl" ? "NFL" : "Football")));
+    const sports = new Set(items.map(i => ({ nfl: "NFL", nba: "NBA" }[i.key.split("|")[0]] || "Football")));
     const st = slipStats(items);
     bankDraft = { sport: sports.size === 1 ? [...sports][0] : "Other", kind: items.length > 1 ? "builder" : "single",
       desc: items.map(i => i.label).join(" + ").slice(0, 160), stake: "", odds: "", ew: 1, when: slipEarliest(items), fair: st.fair || null, source: "bet slip" };
     bankMsg = "";
-    activeLeague = BANKROLL; footballMenuOpen = false; render(); window.scrollTo(0, 0);
+    activeLeague = BANKROLL; footballMenuOpen = false; todayMenuOpen = false; render(); window.scrollTo(0, 0);
   }
 
   // ---------- Bet slip ----------
@@ -2175,10 +2262,10 @@
 
   function trCategoryLabel(c, showSport) {
     const isWin = c.metric === "team_win" || c.metric === "moneyline";
-    const base = isWin ? (c.sport === "nfl" ? "Moneyline" : "Team Win")
+    const base = isWin ? (c.sport === "nfl" || c.sport === "nba" ? "Moneyline" : "Team Win")
       : c.metric === "btts" ? `BTTS ${c.direction}`
       : `${ALL_METRIC_LABELS[c.metric] || c.metric} ${c.direction}`;
-    return showSport && c.sport === "nfl" ? `NFL ${base}` : base;
+    return showSport && (c.sport === "nfl" || c.sport === "nba") ? `${c.sport.toUpperCase()} ${base}` : base;
   }
 
   function trBarRow(label, hits, total, pctVal, note) {
@@ -2241,10 +2328,11 @@
 
   function trMarketLabel(m, showSport) {
     const metric = ALL_METRIC_LABELS[m.metric] || m.metric;
-    const base = (m.metric === "team_win" || m.metric === "moneyline") ? (m.sport === "nfl" ? "Team to win (moneyline)" : "Team to win")
+    const base = (m.metric === "team_win" || m.metric === "moneyline") ? (m.sport === "nfl" || m.sport === "nba" ? "Team to win (moneyline)" : "Team to win")
       : m.metric === "btts" ? `BTTS ${m.direction}`
-      : `${m.level === "team" ? "Team" : "Match"} ${metric} ${m.direction} ${m.line}`;
-    return showSport && m.sport === "nfl" ? `NFL ${base}` : base;
+      : m.metric === "spread" ? `Spread ${m.line > 0 ? "+" : ""}${m.line}`
+      : `${m.level === "team" ? "Team" : m.level === "player" ? "Player" : "Match"} ${metric} ${m.direction} ${m.line}`;
+    return showSport && (m.sport === "nfl" || m.sport === "nba") ? `${m.sport.toUpperCase()} ${base}` : base;
   }
 
   function trBreakEvenSection(markets, showSport) {
@@ -2263,9 +2351,9 @@
 
   // All / Football / NFL switch, shared by Track Record and Odds & Calibration.
   function trSportToggleHtml() {
-    const hasNfl = BETS_LOG.blocks.nfl.overall.total > 0 || BETS_LOG.blocks.nfl.pending.total > 0;
-    return `<div class="tr-sport-toggle">${[["all", "All"], ["football", "Football"], ["nfl", "NFL"]]
-      .filter(([key]) => key !== "nfl" || hasNfl)
+    const live = k => BETS_LOG.blocks[k] && (BETS_LOG.blocks[k].overall.total > 0 || BETS_LOG.blocks[k].pending.total > 0);
+    return `<div class="tr-sport-toggle">${[["all", "All"], ["football", "Football"], ["nfl", "NFL"], ["nba", "NBA"]]
+      .filter(([key]) => (key !== "nfl" && key !== "nba") || live(key))
       .map(([key, name]) => `<a data-tr-sport="${key}" class="${trSport === key ? "tr-sport-active" : ""}">${name}</a>`).join("")}</div>`;
   }
 
@@ -2770,13 +2858,13 @@
     }
 
     const block = BETS_LOG.blocks[trSport] || BETS_LOG.blocks.all;
-    const inSport = item => trSport === "all" || item.sport === trSport;
+    const inSport = item => trSport === "all" ? item.sport !== "nba" : item.sport === trSport;   // NBA has its own tab until it goes live
     const overall = block.overall;
 
     const sportToggle = trSportToggleHtml();
 
     const since = BETS_LOG.logging_since ? ` since ${trFmtDate(BETS_LOG.logging_since)}` : "";
-    const intro = `<div class="bb-intro">Every Best Bets pick logged${since}, settled automatically once the result is in. Football results come from football-data.co.uk, NFL from nflverse.</div>`;
+    const intro = `<div class="bb-intro">Every Best Bets pick logged${since}, settled automatically once the result is in. Football results come from football-data.co.uk, NFL from nflverse, NBA from ESPN box scores (via sportsdataverse).${trSport === "nba" ? " <b>NBA is in testing</b>: every pick the model would make is tracked here (not shown in Best Bets) so its record can be judged before it goes live. Player props that voided means the player did not play." : ""}</div>`;
 
     const p = block.pending;
     const pendingBits = [];
@@ -3136,6 +3224,201 @@
     bindNflResultsToggle();
   }
 
+  // ---------- NBA ----------
+  const NBA_STAT_LABELS = { points: "Points", rebounds: "Rebounds", assists: "Assists", threes: "Threes" };
+  const NBA_STAT_SHORT = { points: "pts", rebounds: "reb", assists: "ast", threes: "3pm" };
+  let nbaShowResults = false;
+  let nbaShowRatings = false;
+
+  const nbaLine = l => (l > 0 ? "+" : "") + l;
+  // The n rows whose probability is closest to 50%, back in line order.
+  function nbaCentral(rows, key, n) {
+    return (rows || []).slice().sort((a, b) => Math.abs(a[key] - 0.5) - Math.abs(b[key] - 0.5)).slice(0, n)
+      .sort((a, b) => a.line - b.line);
+  }
+
+  function nbaMoneylineBlock(fx) {
+    const ml = fx.predictions && fx.predictions.moneyline;
+    if (!ml) return "";
+    const top = Math.max(ml.home_win, ml.away_win);
+    const opts = [
+      { label: fx.home_team, pct: ml.home_win, scope: "home" },
+      { label: fx.away_team, pct: ml.away_win, scope: "away" },
+    ];
+    const e = fx.expected || {};
+    const b2b = fx.back_to_back || {};
+    const tags = [b2b.home ? `${fx.home_team} on a back-to-back` : "", b2b.away ? `${fx.away_team} on a back-to-back` : ""].filter(Boolean).join(" · ");
+    return `<div class="mr-block">
+      <div class="metric-title">Moneyline <span style="opacity:0.6">· expected ${e.home_pts}–${e.away_pts}, total ${e.total}</span></div>
+      <div class="mr-row">
+        ${opts.map(o => `<div class="mr-option ${o.pct === top ? "mr-favourite" : ""}">
+          <div class="mr-label">${o.label}</div>
+          <div class="mr-pct ${o.pct === top ? "pct-hi" : ""}">${pctBtn({ metric: "moneyline", scope: o.scope, team: o.label, direction: o.label, label: `${o.label} to win` }, o.pct)}</div>
+        </div>`).join("")}
+      </div>
+      ${tags ? `<div class="sample-note">${tags}</div>` : ""}
+    </div>`;
+  }
+
+  function nbaSpreadCard(fx) {
+    const rows = nbaCentral(fx.predictions && fx.predictions.spread, "home_cover", 7);
+    if (!rows.length) return "";
+    const home = fx.home_team, away = fx.away_team;
+    const col = (team, scope, rowsFor) => `<div class="metric-split-col">
+      <div class="metric-split-title">${team}</div>
+      ${rowsFor.map(r => `<div class="split-ou-row">
+        <span class="split-ou-line">${nbaLine(r.line)}</span>
+        <span class="split-ou-pct">${pctBtn({ metric: "spread", scope, team, direction: "Cover", line: r.line, label: `${team} ${nbaLine(r.line)}` }, r.p)}</span>
+      </div>`).join("")}</div>`;
+    return `<div class="metric-card">
+      <div class="metric-title">Spread <span style="opacity:0.6">· cover %</span></div>
+      <div class="metric-expected">${nbaLine(-fx.expected.margin)}<span class="label">${home} fair line</span></div>
+      <div class="metric-split" style="border-top:none;padding-top:0;margin-top:0">
+        ${col(home, "home", rows.map(r => ({ line: r.line, p: r.home_cover })))}
+        ${col(away, "away", rows.map(r => ({ line: -r.line, p: 1 - r.home_cover })))}
+      </div>
+    </div>`;
+  }
+
+  function nbaOuRows(rows, scope, team, label, fx) {
+    return nbaCentral(rows, "over", 7).map(r => `<div class="split-ou-row">
+      <span class="split-ou-line">${r.line}</span>
+      <span>Over ${pctBtn({ metric: "points", scope, team, direction: "Over", line: r.line, label: `${label} - Over ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.over)}
+        · Under ${pctBtn({ metric: "points", scope, team, direction: "Under", line: r.line, label: `${label} - Under ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.under)}</span>
+    </div>`).join("");
+  }
+
+  function nbaTotalCard(fx) {
+    const t = fx.predictions && fx.predictions.total;
+    if (!t || !t.length) return "";
+    return `<div class="metric-card">
+      <div class="metric-title">Total Points</div>
+      <div class="metric-expected">${fx.expected.total}<span class="label">expected</span></div>
+      ${nbaOuRows(t, "match", null, `${fx.home_team} v ${fx.away_team}`, fx)}
+    </div>`;
+  }
+
+  function nbaTeamTotalsCard(fx) {
+    const tt = fx.predictions && fx.predictions.team_totals;
+    if (!tt) return "";
+    const col = (team, scope, exp) => `<div class="metric-split-col">
+      <div class="metric-split-title">${team}</div>
+      <div class="metric-split-expected">${exp}</div>
+      ${nbaOuRows(tt[scope], scope, team, team, fx)}</div>`;
+    return `<div class="metric-card">
+      <div class="metric-title">Team Totals</div>
+      <div class="metric-split" style="border-top:none;padding-top:0;margin-top:0">
+        ${col(fx.home_team, "home", fx.expected.home_pts)}
+        ${col(fx.away_team, "away", fx.expected.away_pts)}
+      </div>
+    </div>`;
+  }
+
+  function nbaPlayerProp(pl) {
+    const exp = pl.expected || {};
+    const summary = Object.keys(NBA_STAT_SHORT).map(s => `${exp[s]} ${NBA_STAT_SHORT[s]}`).join(" · ");
+    const stats = Object.keys(NBA_STAT_LABELS).map(s => {
+      const rows = ((pl.lines || {})[s] || []).filter(r => r.over >= 0.35 && r.over <= 0.95).slice(0, 7);
+      if (!rows.length) return "";
+      return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]}</span>
+        <span class="nba-lines">${rows.map(r => `<span class="nba-chip">O${r.line} ${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
+          label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</span>`).join("")}</span></div>`;
+    }).join("");
+    return `<details class="nba-prop"><summary>${pl.player}<span class="nba-exp">${summary} · ${pl.mins} min</span></summary>${stats}</details>`;
+  }
+
+  function nbaPropsBlock(fx) {
+    const props = fx.props || [];
+    if (!props.length) return "";
+    const col = (team, side) => `<div class="metric-split-title" style="margin-top:8px">${team}</div>
+      ${props.filter(p => p.side === side).slice(0, 9).map(nbaPlayerProp).join("") || `<div class="split-ou-row"><span class="split-ou-line">No player history yet</span></div>`}`;
+    return `<div class="metric-card" style="grid-column:1/-1">
+      <div class="metric-title">Player props <span style="opacity:0.6">· over %, assumes he plays</span></div>
+      ${col(fx.home_team, "home")}${col(fx.away_team, "away")}
+      <div class="sample-note">Based on each player's last 15 regular-season games. No injury or minutes news is built in - check the team news first.</div>
+    </div>`;
+  }
+
+  function nbaFixtureCard(fx, badge) {
+    slipCtx = { sport: "nba", league: "NBA", fx };
+    try { return nbaFixtureCardHtml(fx, badge); } finally { slipCtx = null; }
+  }
+
+  function nbaFixtureCardHtml(fx, badge) {
+    const flag = fx.early_season ? `<span class="flag">early season</span>` : "";
+    const note = fx.note ? `<div class="note">⚠ ${fx.note.trim()}</div>` : "";
+    const badgeHtml = badge ? `<span class="fixture-badge">${badge}</span>` : "";
+    return `<details class="fixture">
+      <summary>
+        <span class="kickoff">${fx.time || "--:--"}</span>
+        <span class="teams">${fx.home_team}<span class="v">v</span>${fx.away_team}</span>
+        ${badgeHtml}${flag}
+        <span class="chev">▸</span>
+      </summary>
+      <div class="detail">
+        ${note}
+        ${nbaMoneylineBlock(fx)}
+        <div class="metric-grid">
+          ${nbaSpreadCard(fx)}
+          ${nbaTotalCard(fx)}
+          ${nbaTeamTotalsCard(fx)}
+          ${nbaPropsBlock(fx)}
+        </div>
+        <div class="sample-note">Games played this season: ${fx.home_form_sample} (${fx.home_team}), ${fx.away_form_sample} (${fx.away_team})</div>
+      </div>
+    </details>`;
+  }
+
+  function nbaResultsHtml() {
+    const res = (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.recent_results) || [];
+    if (!res.length) return "";
+    if (!nbaShowResults) return `<div class="window-toggle"><a href="#" class="sort-toggle-link" data-nba-toggle="results">Show recent results (${res.length})</a></div>`;
+    const top = t => t ? `${t.player} ${t.points}pts ${t.rebounds}reb ${t.assists}ast` : "";
+    return `<div class="date-group"><div class="date-label">Recent results</div>
+      <div class="window-toggle"><a href="#" class="sort-toggle-link" data-nba-toggle="results">Hide recent results</a></div>
+      ${res.map(g => `<div class="fixture"><div class="detail" style="display:block;padding:10px 12px">
+        <div><b>${g.home_team} ${g.home_score}</b> – <b>${g.away_score} ${g.away_team}</b> <span class="sample-note" style="display:inline">${g.date}</span></div>
+        <div class="sample-note">${top(g.top_scorers.home)}${g.top_scorers.home && g.top_scorers.away ? " · " : ""}${top(g.top_scorers.away)}</div>
+      </div></div>`).join("")}</div>`;
+  }
+
+  function nbaRatingsHtml() {
+    const tf = (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.team_form) || {};
+    const teams = Object.entries(tf).sort((a, b) => b[1].rating - a[1].rating);
+    if (!teams.length) return "";
+    if (!nbaShowRatings) return `<div class="window-toggle"><a href="#" class="sort-toggle-link" data-nba-toggle="ratings">Show team ratings</a></div>`;
+    return `<div class="date-group"><div class="date-label">Team ratings <span style="opacity:.6">· points better than average per game, from the model</span></div>
+      <div class="window-toggle"><a href="#" class="sort-toggle-link" data-nba-toggle="ratings">Hide team ratings</a></div>
+      ${teams.map(([name, t], i) => `<div class="split-ou-row"><span class="split-ou-line">${i + 1}. ${name}</span>
+        <span>${t.rating > 0 ? "+" : ""}${t.rating} · ${t.games ? t.record + " last season/so far" : ""}</span></div>`).join("")}</div>`;
+  }
+
+  function renderNba() {
+    const D = (typeof NBA_STATPACK_DATA !== "undefined") ? NBA_STATPACK_DATA : null;
+    const fixtures = (D && D.upcoming_fixtures) || [];
+    const shadow = D && D.shadow_mode
+      ? `<div class="note" style="margin-bottom:10px">NBA is in testing: its picks are being tracked on the Track Record tab (NBA) but are not in Best Bets yet. The model has no bookmaker prices or injury news, so treat it as a rough guide until the record builds up.</div>` : "";
+    const intro = `<div class="bb-intro">Team scoring ratings (recent games weighted most, last season carrying the early weeks) turn into moneyline, spread, total and team-total probabilities; player props come from each player's last 15 regular-season games. Tap any percentage to add it to your bet slip.</div>`;
+    let body;
+    if (!fixtures.length) {
+      body = `<div class="empty">No NBA games in the next few days.</div>`;
+    } else {
+      const groups = [];
+      let curDate = null, cur = null;
+      sortByKickoff(fixtures).forEach(fx => {
+        if (fx.date !== curDate) { curDate = fx.date; cur = { date: fx.date, items: [] }; groups.push(cur); }
+        cur.items.push(fx);
+      });
+      body = groups.map(g => `<div class="date-group"><div class="date-label">${fmtDate(g.date)}</div>${g.items.map(fx => nbaFixtureCard(fx)).join("")}</div>`).join("");
+    }
+    mainEl.innerHTML = shadow + intro + body + nbaResultsHtml() + nbaRatingsHtml();
+    mainEl.querySelectorAll("[data-nba-toggle]").forEach(a => a.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (a.dataset.nbaToggle === "results") nbaShowResults = !nbaShowResults; else nbaShowRatings = !nbaShowRatings;
+      renderNba();
+    }));
+  }
+
   // ---------- Today ----------
   const LATE_NIGHT_CUTOFF_HOUR = 6;
 
@@ -3147,7 +3430,7 @@
   // kicked off yesterday linger into today's list.
   const POST_KICKOFF_GRACE_HOURS = 4;
 
-  function renderToday() {
+  function todayItems() {
     const now = new Date();
     const windowStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
     const windowEnd = windowStart + (24 + LATE_NIGHT_CUTOFF_HOUR) * 3600000;
@@ -3190,15 +3473,35 @@
       });
     }
 
+    if (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.upcoming_fixtures) {
+      NBA_STATPACK_DATA.upcoming_fixtures.forEach(fx => {
+        if (inWindow(fx)) items.push({ ...fx, _badge: "NBA", _kind: "nba" });
+      });
+    }
+    return items;
+  }
+
+  // Sports offered in the Today dropdown. NBA only appears once its data exists.
+  function todaySports() {
+    const list = [{ key: "all", label: "All" }, { key: "football", label: "Football" }, { key: "nfl", label: "NFL" }];
+    if (typeof NBA_STATPACK_DATA !== "undefined") list.push({ key: "nba", label: "NBA" });
+    return list;
+  }
+  const todayLabel = () => (todaySports().find(x => x.key === todayFilter) || { label: "All" }).label;
+
+  function renderToday() {
+    const all = todayItems();
+    const items = todayFilter === "all" ? all : all.filter(fx => fx._kind === todayFilter);
+    const what = todayFilter === "all" ? "across every league and sport" : `in ${todayLabel()}`;
     if (items.length === 0) {
-      mainEl.innerHTML = `<div class="empty">No games today across any league or sport.</div>`;
+      mainEl.innerHTML = `<div class="empty">No games today ${what}.</div>`;
       return;
     }
 
     const sorted = sortByKickoff(items);
-    const intro = `<div class="bb-intro">Every game today, across every league and sport - ${sorted.length} fixture${sorted.length === 1 ? "" : "s"}, in kickoff order. Late kickoffs after midnight are included as "tonight".</div>`;
+    const intro = `<div class="bb-intro">Every game today ${what} - ${sorted.length} fixture${sorted.length === 1 ? "" : "s"}, in kickoff order. Late kickoffs after midnight are included as "tonight".</div>`;
     mainEl.innerHTML = intro + sorted.map(fx =>
-      fx._kind === "nfl" ? nflFixtureCard(fx, fx._badge) : fixtureCard(fx, fx._badge)
+      fx._kind === "nfl" ? nflFixtureCard(fx, fx._badge) : fx._kind === "nba" ? nbaFixtureCard(fx, fx._badge) : fixtureCard(fx, fx._badge)
     ).join("");
   }
 
@@ -3295,6 +3598,10 @@
       renderNfl();
       return;
     }
+    if (activeLeague === NBA) {
+      renderNba();
+      return;
+    }
     if (activeLeague === TODAY) {
       renderToday();
       return;
@@ -3381,8 +3688,8 @@
   }
 
   document.addEventListener("click", () => {
-    if (footballMenuOpen) {
-      footballMenuOpen = false;
+    if (footballMenuOpen || todayMenuOpen) {
+      footballMenuOpen = false; todayMenuOpen = false;
       buildTabs();
     }
   });
