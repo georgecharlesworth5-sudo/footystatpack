@@ -836,6 +836,7 @@
   .nba-prop summary { cursor: pointer; padding: 7px 0; font-size: 13px; font-weight: 600; }
   .nba-exp { display: block; font-weight: 400; font-size: 12px; color: var(--meta); }
   .nba-team { font-family: var(--display); font-size: 20px; font-weight: 700; margin: 18px 0 4px; padding-bottom: 4px; border-bottom: 2px solid var(--ink); }
+  .nba-ctx { font-size: 12px; color: var(--ink-dim); margin: 0 0 4px; line-height: 1.35; }
   .nba-stat { margin: 0 0 14px; font-size: 14px; }
   .nba-stat-name { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--meta); margin-top: 10px; }
   .nba-avg { text-transform: none; letter-spacing: 0; margin-left: 6px; }
@@ -3329,17 +3330,20 @@
           .sort((a, b) => b.expected[s] - a.expected[s])[0];
         if (!pl) return "";
         const top = nbaCentral(pl.lines[s], "over", 5);   // the 5 lines closest to his average (nearest 50%)
-        return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} <span class="nba-avg">avg ${pl.expected[s]}</span></span>
+        return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} <span class="nba-avg">avg ${pl.expected[s]}${pl.form && Math.abs(pl.form[s] - pl.expected[s]) >= 0.4 ? ` (form ${pl.form[s]})` : ""}</span></span>
           <span class="nba-player">${pl.player}</span>
           <span class="nba-lines">${top.map(r => `<span class="nba-chip">O${r.line} ${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
             label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</span>`).join("")}</span></div>`;
       }).join("");
-      return `<div class="nba-team">${name}</div>${rows}`;
+      const c = (fx.prop_context || {})[side];
+      const sg = v => (v > 0 ? "+" : "") + Math.round(v) + "%";
+      const ctx = c ? `<div class="nba-ctx">vs ${c.vs}: they allow ${sg(c.points)} points, ${sg(c.shots)} shots, ${sg(c.rebounds)} rebounds, ${sg(c.assists)} assists, ${sg(c.threes)} threes attempted vs average · pace ${sg(c.pace)}</div>` : "";
+      return `<div class="nba-team">${name}</div>${ctx}${rows}`;
     };
     return `<div class="metric-card" style="grid-column:1/-1">
       <div class="metric-title">Player props <span style="opacity:0.6">· team leaders, over %</span></div>
       ${team(fx.home_team, "home")}${team(fx.away_team, "away")}
-      <div class="sample-note">Each team's leader in points, rebounds, assists and threes, from his last 15 regular-season games. No injury news is built in - check the team news first.</div>
+      <div class="sample-note">Each team's leader in points, rebounds, assists and threes. Averages start from his last 15 regular-season games, then adjust for the opponent (what they concede, shots, pace), home/away, back-to-backs, blowout risk, his 40-game form and recent minutes. "form" is the unadjusted average. No injury news is built in - check the team news first.</div>
     </div>`;
   }
 
