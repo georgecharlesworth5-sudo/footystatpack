@@ -3249,7 +3249,7 @@
     const b2b = fx.back_to_back || {};
     const tags = [b2b.home ? `${fx.home_team} on a back-to-back` : "", b2b.away ? `${fx.away_team} on a back-to-back` : ""].filter(Boolean).join(" · ");
     return `<div class="mr-block">
-      <div class="metric-title">Moneyline <span style="opacity:0.6">· expected ${e.home_pts}–${e.away_pts}, total ${e.total}</span></div>
+      <div class="metric-title">Moneyline</div>
       <div class="mr-row">
         ${opts.map(o => `<div class="mr-option ${o.pct === top ? "mr-favourite" : ""}">
           <div class="mr-label">${o.label}</div>
@@ -3261,7 +3261,7 @@
   }
 
   function nbaSpreadCard(fx) {
-    const rows = nbaCentral(fx.predictions && fx.predictions.spread, "home_cover", 7);
+    const rows = nbaCentral(fx.predictions && fx.predictions.spread, "home_cover", 5);
     if (!rows.length) return "";
     const home = fx.home_team, away = fx.away_team;
     const col = (team, scope, rowsFor) => `<div class="metric-split-col">
@@ -3281,10 +3281,10 @@
   }
 
   function nbaOuRows(rows, scope, team, label, fx) {
-    return nbaCentral(rows, "over", 7).map(r => `<div class="split-ou-row">
+    return nbaCentral(rows, "over", 5).map(r => `<div class="split-ou-row">
       <span class="split-ou-line">${r.line}</span>
-      <span>Over ${pctBtn({ metric: "points", scope, team, direction: "Over", line: r.line, label: `${label} - Over ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.over)}
-        · Under ${pctBtn({ metric: "points", scope, team, direction: "Under", line: r.line, label: `${label} - Under ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.under)}</span>
+      <span>O ${pctBtn({ metric: "points", scope, team, direction: "Over", line: r.line, label: `${label} - Over ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.over)}
+        · U ${pctBtn({ metric: "points", scope, team, direction: "Under", line: r.line, label: `${label} - Under ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.under)}</span>
     </div>`).join("");
   }
 
@@ -3314,28 +3314,28 @@
     </div>`;
   }
 
-  function nbaPlayerProp(pl) {
-    const exp = pl.expected || {};
-    const summary = Object.keys(NBA_STAT_SHORT).map(s => `${exp[s]} ${NBA_STAT_SHORT[s]}`).join(" · ");
-    const stats = Object.keys(NBA_STAT_LABELS).map(s => {
-      const rows = ((pl.lines || {})[s] || []).filter(r => r.over >= 0.35 && r.over <= 0.95).slice(0, 7);
-      if (!rows.length) return "";
-      return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]}</span>
-        <span class="nba-lines">${rows.map(r => `<span class="nba-chip">O${r.line} ${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
-          label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</span>`).join("")}</span></div>`;
-    }).join("");
-    return `<details class="nba-prop"><summary>${pl.player}<span class="nba-exp">${summary} · ${pl.mins} min</span></summary>${stats}</details>`;
-  }
-
+  // One leader per stat per team (highest expected points / rebounds / assists / threes),
+  // each with the 5 lines the model rates most likely to go over.
   function nbaPropsBlock(fx) {
     const props = fx.props || [];
     if (!props.length) return "";
-    const col = (team, side) => `<div class="metric-split-title" style="margin-top:8px">${team}</div>
-      ${props.filter(p => p.side === side).slice(0, 9).map(nbaPlayerProp).join("") || `<div class="split-ou-row"><span class="split-ou-line">No player history yet</span></div>`}`;
+    const team = (name, side) => {
+      const mine = props.filter(p => p.side === side);
+      const rows = Object.keys(NBA_STAT_LABELS).map(s => {
+        const pl = mine.filter(p => ((p.lines || {})[s] || []).length)
+          .sort((a, b) => b.expected[s] - a.expected[s])[0];
+        if (!pl) return "";
+        const top = pl.lines[s].slice().sort((a, b) => b.over - a.over).slice(0, 5).sort((a, b) => a.line - b.line);
+        return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} · <b>${pl.player}</b> (avg ${pl.expected[s]})</span>
+          <span class="nba-lines">${top.map(r => `<span class="nba-chip">O${r.line} ${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
+            label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</span>`).join("")}</span></div>`;
+      }).join("");
+      return `<div class="metric-split-title" style="margin-top:8px">${name}</div>${rows}`;
+    };
     return `<div class="metric-card" style="grid-column:1/-1">
-      <div class="metric-title">Player props <span style="opacity:0.6">· over %, assumes he plays</span></div>
-      ${col(fx.home_team, "home")}${col(fx.away_team, "away")}
-      <div class="sample-note">Based on each player's last 15 regular-season games. No injury or minutes news is built in - check the team news first.</div>
+      <div class="metric-title">Player props <span style="opacity:0.6">· team leaders, over %</span></div>
+      ${team(fx.home_team, "home")}${team(fx.away_team, "away")}
+      <div class="sample-note">Each team's leader in points, rebounds, assists and threes, from his last 15 regular-season games. No injury news is built in - check the team news first.</div>
     </div>`;
   }
 
