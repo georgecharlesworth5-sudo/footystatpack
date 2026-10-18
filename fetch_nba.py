@@ -91,9 +91,17 @@ def build_team_games(tb: pd.DataFrame) -> pd.DataFrame:
         "home": (tb["team_home_away"] == "home").astype(int),
         "pts": tb["team_score"],
         "opp_pts": tb["opponent_team_score"],
+        # Team box-score detail: feeds the opposition adjustment for player props.
+        "fgm": tb["field_goals_made"], "fga": tb["field_goals_attempted"],
+        "fta": tb["free_throws_attempted"], "tov": tb["turnovers"],
+        "oreb": tb["offensive_rebounds"], "reb": tb["total_rebounds"],
+        "ast": tb["assists"], "tpm": tb["three_point_field_goals_made"],
+        "tpa": tb["three_point_field_goals_attempted"],
     }).dropna(subset=["pts", "opp_pts"])
     out["pts"] = out["pts"].astype(int)
     out["opp_pts"] = out["opp_pts"].astype(int)
+    for c in ("fgm", "fga", "fta", "tov", "oreb", "reb", "ast", "tpm", "tpa"):
+        out[c] = pd.to_numeric(out[c], errors="coerce")
     out = out[out["date"] >= LOOKBACK_START]
     return out.sort_values(["date", "game_id", "home"]).reset_index(drop=True)
 
