@@ -87,41 +87,39 @@
 
   /* ---------- League tabs ---------- */
   .tabs {
-    /* Bottom navigation bar: always on screen, within thumb reach. */
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 920px;
+    /* Navigation bar under the title. Stays pinned to the top of the screen
+       while the page scrolls, so any tab is one tap away. */
+    position: sticky;
+    top: 0;
     z-index: 15;
     background: var(--bg);
     display: flex;
-    border-top: 1px solid var(--rule);
-    padding-bottom: env(safe-area-inset-bottom);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 8px;
+    border-bottom: 1px solid var(--rule);
   }
   .tab {
-    flex: 1 1 0;
+    flex: 1 1 auto;
     min-width: 0;
     text-align: center;
     font-family: var(--data);
-    font-size: 11px;
-    letter-spacing: 0.02em;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     color: var(--meta);
     background: none;
     border: none;
-    border-top: 2px solid transparent;
-    padding: 14px 2px 15px;
+    border-bottom: 3px solid transparent;
+    padding: 18px 5px 15px;
     cursor: pointer;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     transition: color 0.15s;
   }
   .tab:hover { color: var(--ink-dim); }
   .tab.active {
     color: var(--accent);
-    border-top-color: var(--accent);
+    border-bottom-color: var(--accent);
   }
   .tab:focus-visible, .fixture summary:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent);
@@ -841,7 +839,6 @@
   .nba-player { display: block; font-size: 17px; font-weight: 700; color: var(--ink); margin: 1px 0 4px; }
   .nba-lines { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .nba-chip { white-space: nowrap; }
-  body { padding-bottom: 64px; }
   .dropdown-heading { font-family: var(--data); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--meta); padding: 8px 10px 4px; }
   .dropdown-heading:not(:first-child) { border-top: 1px solid var(--rule); margin-top: 6px; padding-top: 12px; }
   .subnav { display: flex; gap: 6px; margin: 0 0 16px; overflow-x: auto; scrollbar-width: none; }
@@ -1034,11 +1031,11 @@
     return availableLeagues.includes(league) || league === EFL_CUP || league === CASH_BUILDER;
   }
 
-  // ---------- Bottom navigation ----------
-  // Five always-visible buttons along the bottom of the screen (thumb reach):
+  // ---------- Navigation bar ----------
+  // Five always-visible buttons under the title:
   // Today, Sports (menu), Best Bets, Slip, Bankroll. Track Record and
   // Odds & Calibration sit beside Bankroll as a small switcher at the top of
-  // those pages (see injectSubnav). The menus open upward from the bar.
+  // those pages (see injectSubnav). The menus open downward from the bar.
   function isSportView(v) {
     return isFootballView(v) || v === NFL || v === NBA || v === RACING;
   }
@@ -1058,13 +1055,14 @@
     return btn;
   }
   function openMenuAbove(menu) {
+    const top = tabsEl.getBoundingClientRect().bottom + 4;
     menu.style.position = "fixed";
-    menu.style.bottom = `${tabsEl.offsetHeight + 6}px`;
+    menu.style.top = `${top}px`;
     menu.style.left = "8px";
     menu.style.right = "8px";
     menu.style.maxWidth = "420px";
     menu.style.minWidth = "0";
-    menu.style.maxHeight = `${Math.max(180, window.innerHeight - tabsEl.offsetHeight - 40)}px`;
+    menu.style.maxHeight = `${Math.max(180, window.innerHeight - top - 12)}px`;
     menu.style.overflowY = "auto";
     document.body.appendChild(menu);
   }
@@ -1101,7 +1099,7 @@
     });
 
     // Sports menu: football leagues, EFL Cup, Cash Builder, NFL, NBA, Racing
-    barButton(`${sportsLabel()} <span class="chev-dd">${footballMenuOpen ? "▾" : "▴"}</span>`, isSportView(activeLeague), () => {
+    barButton(`${sportsLabel()} <span class="chev-dd">${footballMenuOpen ? "▴" : "▾"}</span>`, isSportView(activeLeague), () => {
       footballMenuOpen = !footballMenuOpen; todayMenuOpen = false;
       buildTabs();
     });
@@ -3510,9 +3508,12 @@
     buildTabs();
 
     // Switching page while scrolled down would leave you part-way down the
-    // new page, so jump back to the top when the page changes. In-page
+    // new page, so jump back up to just under the bar when the page changes. In-page
     // toggles don't change the view, so they never move the scroll position.
-    if (lastRenderedView !== null && lastRenderedView !== activeLeague) window.scrollTo(0, 0);
+    if (lastRenderedView !== null && lastRenderedView !== activeLeague) {
+      const top = document.querySelector("header").offsetHeight;   // where the bar sits unstuck
+      if (window.scrollY > top) window.scrollTo(0, top);
+    }
     lastRenderedView = activeLeague;
 
     if (activeLeague === BEST_BETS) {
