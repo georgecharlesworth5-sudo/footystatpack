@@ -1395,3 +1395,11 @@ nfl|Las Vegas Raiders|Buffalo Bills|18/10/2026|passing_tds|away|Over,2026-10-18,
 nfl|Atlanta Falcons|Chicago Bears|18/10/2026|rushing_yards|away|Over,2026-10-18,18/10/2026,NFL,NFL,Atlanta Falcons,Chicago Bears,nfl,rushing_yards,away,Chicago Bears,Over,99.5,0.882,Chicago Bears - Over 99.5 Rushing Yards,pending,,,,0,
 nfl|Cleveland Browns|Baltimore Ravens|18/10/2026|passing_tds|away|Over,2026-10-18,18/10/2026,NFL,NFL,Cleveland Browns,Baltimore Ravens,nfl,passing_tds,away,Baltimore Ravens,Over,0.5,0.872,Baltimore Ravens - Over 0.5 Passing TDs,pending,,,,0,
 nfl|New York Giants|New Orleans Saints|18/10/2026|passing_tds|home|Over,2026-10-18,18/10/2026,NFL,NFL,New York Giants,New Orleans Saints,nfl,passing_tds,home,New York Giants,Over,0.5,0.87,New York Giants - Over 0.5 Passing TDs,pending,,,,0,
+football|Getafe|Vallecano|19/10/2026|cards|away|Over,2026-10-19,19/10/2026,SP1,La Liga,Getafe,Vallecano,football,cards,away,Vallecano,Over,0.5,0.934,Vallecano - Over 0.5 Cards,pending,,,,1,v2
+football|Getafe|Vallecano|19/10/2026|cards|home|Over,2026-10-19,19/10/2026,SP1,La Liga,Getafe,Vallecano,football,cards,home,Getafe,Over,0.5,0.909,Getafe - Over 0.5 Cards,pending,,,,1,v2
+football|Tottenham|Coventry|19/10/2026|cards|home|Over,2026-10-19,19/10/2026,E0,Premier League,Tottenham,Coventry,football,cards,home,Tottenham,Over,0.5,0.883,Tottenham - Over 0.5 Cards,pending,,,,1,v2
+football|Parma|Torino|19/10/2026|cards|away|Over,2026-10-19,19/10/2026,I1,Serie A,Parma,Torino,football,cards,away,Torino,Over,0.5,0.874,Torino - Over 0.5 Cards,pending,,,,1,v2
+football|Tottenham|Coventry|19/10/2026|cards|away|Over,2026-10-19,19/10/2026,E0,Premier League,Tottenham,Coventry,football,cards,away,Coventry,Over,0.5,0.866,Coventry - Over 0.5 Cards,pending,,,,1,v2
+football|Getafe|Vallecano|19/10/2026|cards|match|Over,2026-10-19,19/10/2026,SP1,La Liga,Getafe,Vallecano,football,cards,match,,Over,2.5,0.869,Getafe v Vallecano - Over 2.5 Cards,pending,,,,1,v2
+football|Tottenham|Coventry|19/10/2026|corners|home|Over,2026-10-19,19/10/2026,E0,Premier League,Tottenham,Coventry,football,corners,home,Tottenham,Over,2.5,0.864,Tottenham - Over 2.5 Corners,pending,,,,0,v2
+football|Getafe|Vallecano|19/10/2026|corners|home|Over,2026-10-19,19/10/2026,SP1,La Liga,Getafe,Vallecano,football,corners,home,Getafe,Over,2.5,0.841,Getafe - Over 2.5 Corners,pending,,,,0,v2
