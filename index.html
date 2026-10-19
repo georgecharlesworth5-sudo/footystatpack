@@ -1775,6 +1775,8 @@
   const EW_TERMS = [["1/4", 4, 3], ["1/5", 5, 3], ["1/4", 4, 2], ["1/5", 5, 4], ["1/4", 4, 4], ["1/3", 3, 2]]; // label, denominator, places
   let bank = slipLoad(BANK_STORE, null);
   if (!bank || typeof bank !== "object" || !Array.isArray(bank.bets)) bank = null;
+  let bankShowAllSettled = false;       // history shows only the latest settled bets until expanded
+  const BANK_SETTLED_SHOWN = 10;
   let bankView = "all";                 // history filter: all / pending / settled
   let bankSettling = null;              // { id, outcome } while a result is being confirmed
   let bankDelArmed = null;
@@ -1980,7 +1982,14 @@
       .sort(bankOrder);
     const toggle = `<div class="tr-sport-toggle">${[["all", "All"], ["pending", "Pending"], ["settled", "Settled"]]
       .map(([k, n]) => `<a data-bank-view="${k}" class="${bankView === k ? "tr-sport-active" : ""}">${n}</a>`).join("")}</div>`;
-    const list = shown.length ? shown.map(bankBetCard).join("") : `<div class="empty">${bank.bets.length ? "No bets in this view." : "No bets yet. Add one above, or use the Place as virtual bet button on the Bet Slip tab."}</div>`;
+    // Pending bets always show in full; settled ones are cut to the latest few until expanded.
+    const settledAll = shown.filter(b => b.status !== "pending");
+    const hiddenSettled = bankShowAllSettled ? 0 : Math.max(0, settledAll.length - BANK_SETTLED_SHOWN);
+    const hideSet = new Set(hiddenSettled ? settledAll.slice(BANK_SETTLED_SHOWN).map(b => b.id) : []);
+    const visible = shown.filter(b => !hideSet.has(b.id));
+    const moreLink = settledAll.length > BANK_SETTLED_SHOWN
+      ? `<div class="window-toggle"><a class="sort-toggle-link" data-bank-more="1">${hiddenSettled ? `Show all ${settledAll.length} settled bets (${hiddenSettled} hidden)` : `Show latest ${BANK_SETTLED_SHOWN} settled only`}</a></div>` : "";
+    const list = shown.length ? visible.map(bankBetCard).join("") + moreLink : `<div class="empty">${bank.bets.length ? "No bets in this view." : "No bets yet. Add one above, or use the Place as virtual bet button on the Bet Slip tab."}</div>`;
 
     const tools = `<div class="tr-section-title">Backup and reset</div>
       <div class="slip-actions"><button class="slip-btn quiet" data-bank-copy>Copy backup</button><button class="slip-btn quiet" data-bank-restore-toggle>Restore from backup</button>
@@ -2043,6 +2052,7 @@
       const h = mainEl.querySelector("#bank-hint"); if (h) h.innerHTML = bankHint(bankDraft);
     });
     on("[data-bank-clear]", () => { bankDraft = { sport: bankDraft.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" }; bankMsg = ""; renderBankroll(); });
+    on("[data-bank-more]", () => { const y = window.scrollY; bankShowAllSettled = !bankShowAllSettled; renderBankroll(); window.scrollTo(0, y); });
     on("[data-bank-view]", el => { bankView = el.dataset.bankView; renderBankroll(); });
     on("[data-bank-out]", el => {
       const id = Number(el.dataset.bankId);
@@ -3233,6 +3243,18 @@
       .sort((a, b) => a.line - b.line);
   }
 
+  // Lines worth looking at: those with a probability between 60% and 90%, thinned to n evenly spaced
+  // (so the list runs from the safest to the boldest line that is still a likely hit).
+  // If nothing sits in that band, falls back to the lines nearest 75%.
+  const NBA_CONF_LO = 0.60, NBA_CONF_HI = 0.90;
+  function nbaConfident(rows, key, n) {
+    const inBand = (rows || []).filter(r => r[key] >= NBA_CONF_LO && r[key] <= NBA_CONF_HI).sort((a, b) => b[key] - a[key]);
+    let pick = inBand;
+    if (inBand.length > n) pick = Array.from({ length: n }, (_, i) => inBand[Math.round(i * (inBand.length - 1) / (n - 1))]);
+    if (!pick.length) pick = (rows || []).filter(r => r[key] > 0.5).sort((a, b) => Math.abs(a[key] - 0.75) - Math.abs(b[key] - 0.75)).slice(0, 2).sort((a, b) => b[key] - a[key]);
+    return pick;
+  }
+
   function nbaMoneylineBlock(fx) {
     const ml = fx.predictions && fx.predictions.moneyline;
     if (!ml) return "";
@@ -3257,9 +3279,11 @@
   }
 
   function nbaSpreadCard(fx) {
-    const rows = nbaCentral(fx.predictions && fx.predictions.spread, "home_cover", 5);
-    if (!rows.length) return "";
+    const all = (fx.predictions && fx.predictions.spread) || [];
+    if (!all.length) return "";
     const home = fx.home_team, away = fx.away_team;
+    const homeRows = nbaConfident(all.map(r => ({ line: r.line, p: r.home_cover })), "p", 5);
+    const awayRows = nbaConfident(all.map(r => ({ line: -r.line, p: 1 - r.home_cover })), "p", 5);
     const col = (team, scope, rowsFor) => `<div class="metric-split-col">
       <div class="metric-split-title">${team}</div>
       ${rowsFor.map(r => `<div class="split-ou-row">
@@ -3270,17 +3294,16 @@
       <div class="metric-title">Spread <span style="opacity:0.6">· cover %</span></div>
       <div class="metric-expected">${nbaLine(-fx.expected.margin)}<span class="label">${home} fair line</span></div>
       <div class="metric-split" style="border-top:none;padding-top:0;margin-top:0">
-        ${col(home, "home", rows.map(r => ({ line: r.line, p: r.home_cover })))}
-        ${col(away, "away", rows.map(r => ({ line: -r.line, p: 1 - r.home_cover })))}
+        ${col(home, "home", homeRows)}
+        ${col(away, "away", awayRows)}
       </div>
     </div>`;
   }
 
   function nbaOuRows(rows, scope, team, label, fx) {
-    return nbaCentral(rows, "over", 5).map(r => `<div class="split-ou-row">
-      <span class="split-ou-line">${r.line}</span>
-      <span>O ${pctBtn({ metric: "points", scope, team, direction: "Over", line: r.line, label: `${label} - Over ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.over)}
-        · U ${pctBtn({ metric: "points", scope, team, direction: "Under", line: r.line, label: `${label} - Under ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.under)}</span>
+    return nbaConfident(rows, "over", 5).map(r => `<div class="split-ou-row">
+      <span class="split-ou-line">Over ${r.line}</span>
+      <span>${pctBtn({ metric: "points", scope, team, direction: "Over", line: r.line, label: `${label} - Over ${r.line} ${scope === "match" ? "Total Points" : "Team Points"}` }, r.over)}</span>
     </div>`).join("");
   }
 
@@ -3311,7 +3334,7 @@
   }
 
   // One leader per stat per team (highest expected points / rebounds / assists / threes),
-  // each with the 5 lines nearest his average.
+  // each with up to 5 over lines he is likely to clear (60-90%).
   function nbaPropsBlock(fx) {
     const props = fx.props || [];
     if (!props.length) return "";
@@ -3321,11 +3344,11 @@
         const pl = mine.filter(p => ((p.lines || {})[s] || []).length)
           .sort((a, b) => b.expected[s] - a.expected[s])[0];
         if (!pl) return "";
-        const top = nbaCentral(pl.lines[s], "over", 5);   // the 5 lines closest to his average (nearest 50%)
+        const top = nbaConfident(pl.lines[s], "over", 5);   // lines he is likely to clear (60-90%)
         return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} <span class="nba-avg">avg ${pl.expected[s]}${pl.form && Math.abs(pl.form[s] - pl.expected[s]) >= 0.4 ? ` (form ${pl.form[s]})` : ""}</span></span>
           <span class="nba-player">${pl.player}</span>
-          <span class="nba-lines">${top.map(r => `<span class="nba-chip">O${r.line} ${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
-            label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</span>`).join("")}</span></div>`;
+          <span class="nba-lines">${top.map(r => `<span class="nba-chip">O${r.line} <b>${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
+            label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</b></span>`).join("")}</span></div>`;
       }).join("");
       const c = (fx.prop_context || {})[side];
       const sg = v => (v > 0 ? "+" : "") + Math.round(v) + "%";
@@ -3335,7 +3358,7 @@
     return `<div class="metric-card" style="grid-column:1/-1">
       <div class="metric-title">Player props <span style="opacity:0.6">· team leaders, over %</span></div>
       ${team(fx.home_team, "home")}${team(fx.away_team, "away")}
-      <div class="sample-note">Each team's leader in points, rebounds, assists and threes. Averages start from his last 15 regular-season games, then adjust for the opponent (what they concede, shots, pace), home/away, back-to-backs, blowout risk, his 40-game form and recent minutes. "form" is the unadjusted average. No injury news is built in - check the team news first.</div>
+      <div class="sample-note">Overs only: lines with a 60-90% chance of being cleared, safest first. Each team's leader in points, rebounds, assists and threes. Averages start from his last 15 regular-season games, then adjust for the opponent (what they concede, shots, pace), home/away, back-to-backs, blowout risk, his 40-game form and recent minutes. "form" is the unadjusted average. No injury news is built in - check the team news first.</div>
     </div>`;
   }
 
