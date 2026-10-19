@@ -94,9 +94,10 @@
     z-index: 15;
     background: var(--bg);
     display: flex;
+    gap: 6px;
     max-width: 920px;
     margin: 0 auto;
-    padding: 0 8px;
+    padding: 8px 10px;
     border-bottom: 1px solid var(--rule);
   }
   .tab {
@@ -107,11 +108,10 @@
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.01em;
-    color: var(--meta);
-    background: none;
-    border: none;
-    border-bottom: 3px solid transparent;
-    padding: 18px 5px 15px;
+    color: var(--ink-dim);
+    background: var(--surface);
+    border: 1px solid var(--meta);
+    padding: 13px 4px;
     cursor: pointer;
     white-space: nowrap;
     transition: color 0.15s;
@@ -119,7 +119,8 @@
   .tab:hover { color: var(--ink-dim); }
   .tab.active {
     color: var(--accent);
-    border-bottom-color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
   }
   .tab:focus-visible, .fixture summary:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent);
@@ -339,7 +340,11 @@
     font-family: var(--data); font-size: 14px; color: var(--ink);
     background: var(--bg, transparent); border: 1px solid var(--rule); padding: 5px 7px; width: 70px;
   }
-  .slip-name { width: 100%; box-sizing: border-box; }
+  .slip-name { width: 100%; }
+  .slip-odds, .slip-stake, .slip-name { box-sizing: border-box; }
+  /* 16px stops iPhone Safari zooming (and panning the page sideways) when a box is tapped */
+  .bank-form input, .bank-form select, .bank-form textarea, .bank-settle input, .bank-bet input, .bank-bet select { font-size: 16px; }
+  .bank-form .bank-row > label, .bank-form .bank-row > div { min-width: 0; }
   .slip-x { background: transparent; border: none; color: var(--meta); font-size: 16px; cursor: pointer; padding: 2px 6px; }
   .bank-form label { display: block; font-family: var(--data); font-size: 12px; color: var(--ink-dim); margin: 8px 0 0; }
   .bank-form label > select, .bank-form label > input { margin-top: 3px; display: block; }
@@ -839,11 +844,12 @@
   .nba-player { display: block; font-size: 17px; font-weight: 700; color: var(--ink); margin: 1px 0 4px; }
   .nba-lines { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .nba-chip { white-space: nowrap; }
+  .dropdown-sub { margin: 2px 0 6px 12px; padding-left: 8px; border-left: 2px solid var(--rule); }
   .dropdown-heading { font-family: var(--data); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--meta); padding: 8px 10px 4px; }
   .dropdown-heading:not(:first-child) { border-top: 1px solid var(--rule); margin-top: 6px; padding-top: 12px; }
-  .subnav { display: flex; gap: 6px; margin: 0 0 16px; overflow-x: auto; scrollbar-width: none; }
+  .subnav { display: flex; gap: 6px; margin: 0 0 16px; }
   .subnav::-webkit-scrollbar { display: none; }
-  .subnav-btn { flex: 0 0 auto; font-family: var(--data); font-size: 12px; color: var(--meta); background: none; border: 1px solid var(--rule); padding: 8px 12px; cursor: pointer; white-space: nowrap; }
+  .subnav-btn { flex: 1 1 0; min-width: 0; text-align: center; font-family: var(--data); font-size: 12px; line-height: 1.25; color: var(--meta); background: var(--surface); border: 1px solid var(--rule); padding: 9px 4px; cursor: pointer; }
   .subnav-btn.active { color: var(--accent); border-color: var(--accent); }
 </style>
 </head>
@@ -889,6 +895,7 @@
   let showFullSeason = false; // toggled by the "Show full season" link in league views
   let todayFilter = "all";      // Today page: all / football / nfl (/ nba)
   let todayMenuOpen = false;    // toggled by clicking the "Today" tab
+  let footballSubOpen = false;  // the Football list inside the Sports menu
   let footballMenuOpen = false; // toggled by clicking the "Football" tab
   let bestBetsSortMode = "confidence"; // toggled by the sort-order links on the Best Bets tab
   let bestBetsHiddenMetrics = new Set(); // metrics unchecked by the filter row - empty means "show everything"
@@ -1033,8 +1040,8 @@
 
   // ---------- Navigation bar ----------
   // Five always-visible buttons under the title:
-  // Today, Sports (menu), Best Bets, Slip, Bankroll. Track Record and
-  // Odds & Calibration sit beside Bankroll as a small switcher at the top of
+  // Today, Sports (menu), Slip, Bankroll, Best Bets. Track Record and
+  // Odds & Calibration sit under Best Bets as a small switcher at the top of
   // those pages (see injectSubnav). The menus open downward from the bar.
   function isSportView(v) {
     return isFootballView(v) || v === NFL || v === NBA || v === RACING;
@@ -1080,7 +1087,7 @@
     menu.appendChild(h);
   }
   function go(view) {
-    activeLeague = view; footballMenuOpen = false; todayMenuOpen = false; render();
+    activeLeague = view; footballMenuOpen = false; footballSubOpen = false; todayMenuOpen = false; render();
   }
 
   function buildTabs() {
@@ -1101,16 +1108,17 @@
     // Sports menu: football leagues, EFL Cup, Cash Builder, NFL, NBA, Racing
     barButton(`${sportsLabel()} <span class="chev-dd">${footballMenuOpen ? "▴" : "▾"}</span>`, isSportView(activeLeague), () => {
       footballMenuOpen = !footballMenuOpen; todayMenuOpen = false;
+      footballSubOpen = footballMenuOpen && isFootballView(activeLeague);
       buildTabs();
     });
-
-    barButton("★ Best Bets", activeLeague === BEST_BETS, () => go(BEST_BETS));
 
     barButton("Slip" + (slip.items.length ? ` <span class="count">${slip.items.length}</span>` : ""), activeLeague === SLIP, () => go(SLIP));
 
     const pending = bank ? bank.bets.filter(b => b.status === "pending").length : 0;
-    barButton("Bankroll" + (pending ? ` <span class="count">${pending}</span>` : ""),
-      activeLeague === BANKROLL || activeLeague === TRACK_RECORD || activeLeague === MODEL_CHECK, () => go(BANKROLL));
+    barButton("Bankroll" + (pending ? ` <span class="count">${pending}</span>` : ""), activeLeague === BANKROLL, () => go(BANKROLL));
+
+    // Best Bets is last; Track Record and Odds & Calibration sit under it.
+    barButton("Best Bets", activeLeague === BEST_BETS || activeLeague === TRACK_RECORD || activeLeague === MODEL_CHECK, () => go(BEST_BETS));
 
     if (todayMenuOpen) {
       const all = todayItems();
@@ -1131,20 +1139,25 @@
       menu.id = "football-dropdown-menu";
       menu.className = "football-dropdown";
 
-      menuHeading(menu, "Football");
-      availableLeagues.forEach(code => {
-        const league = data[code];
-        menuItem(menu, league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>',
-          code === activeLeague, () => go(code));
+      menuItem(menu, `Football <span class="chev-dd">${footballSubOpen ? "▴" : "▾"}</span>`, isFootballView(activeLeague), () => {
+        footballSubOpen = !footballSubOpen; buildTabs();
       });
-      const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
-        ? STATPACK_DATA.efl_cup.fixtures : [];
-      if (cupFixtures.length > 0)
-        menuItem(menu, "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`, activeLeague === EFL_CUP, () => go(EFL_CUP));
-      if (typeof CASH_BUILDER_DATA !== "undefined" && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0)
-        menuItem(menu, "Cash Builder", activeLeague === CASH_BUILDER, () => go(CASH_BUILDER));
-
-      menuHeading(menu, "Other sports");
+      if (footballSubOpen) {
+        const sub = document.createElement("div");
+        sub.className = "dropdown-sub";
+        availableLeagues.forEach(code => {
+          const league = data[code];
+          menuItem(sub, league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>',
+            code === activeLeague, () => go(code));
+        });
+        const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
+          ? STATPACK_DATA.efl_cup.fixtures : [];
+        if (cupFixtures.length > 0)
+          menuItem(sub, "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`, activeLeague === EFL_CUP, () => go(EFL_CUP));
+        if (typeof CASH_BUILDER_DATA !== "undefined" && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0)
+          menuItem(sub, "Cash Builder", activeLeague === CASH_BUILDER, () => go(CASH_BUILDER));
+        menu.appendChild(sub);
+      }
       if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures)
         menuItem(menu, "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`, activeLeague === NFL, () => go(NFL));
       if (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.upcoming_fixtures)
@@ -1154,11 +1167,11 @@
     }
   }
 
-  // Switcher shown at the top of Bankroll / Track Record / Odds & Calibration
+  // Switcher shown at the top of Best Bets / Track Record / Odds & Calibration
   function injectSubnav() {
     const hasLog = typeof BETS_LOG !== "undefined" && BETS_LOG.blocks;
     const trPct = (hasLog && BETS_LOG.summary && BETS_LOG.summary.overall.total > 0) ? ` ${BETS_LOG.summary.overall.pct}%` : "";
-    const items = [[BANKROLL, "Bankroll"], [TRACK_RECORD, "Track Record" + trPct]];
+    const items = [[BEST_BETS, "Best Bets"], [TRACK_RECORD, "Track Record" + trPct]];
     if (hasLog) items.push([MODEL_CHECK, "Odds &amp; Calibration"]);
     mainEl.insertAdjacentHTML("afterbegin",
       `<div class="subnav">${items.map(([v, l]) =>
@@ -1856,7 +1869,7 @@
             <button class="slip-btn primary" data-bank-confirm="${b.id}">Save result</button>
             <button class="slip-btn quiet" data-bank-cancel>Cancel</button></div></div>`;
       } else {
-        action = `<label class="tr-chip-n" style="display:block;margin-top:8px">Start time (sets the order) <input type="time" class="slip-name" data-bank-when="${b.id}" value="${escAttr(bankWhen(b))}" style="width:100%"></label>
+        action = `<label class="tr-chip-n" style="display:block;margin-top:8px">Start time (sets the order) <input type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="HH:MM" class="slip-name" data-bank-time data-bank-when="${b.id}" value="${escAttr(bankWhen(b))}" style="width:100%"></label>
         <div class="slip-actions" style="margin:8px 0 0">
           <button class="slip-btn" data-bank-out="won" data-bank-id="${b.id}">Won</button>
           ${b.kind === "ew" ? `<button class="slip-btn" data-bank-out="placed" data-bank-id="${b.id}">Placed</button>` : ""}
@@ -1897,7 +1910,7 @@
           </div>
           <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>
         </div>
-        <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="time" data-bank-f="when" value="${escAttr(bankWhen({ eventAt: d.when }))}"></label>
+        <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="HH:MM" data-bank-time data-bank-f="when" value="${escAttr(bankWhen({ eventAt: d.when }))}"></label>
         <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
         <div class="slip-actions"><button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button></div>
         ${bankMsg ? `<div class="slip-note slip-warn">${bankMsg}</div>` : ""}
@@ -1970,12 +1983,22 @@
 
   function bankReadDraftField(el) {
     const f = el.dataset.bankF;
-    bankDraft[f] = el.value;
+    bankDraft[f] = f === "when" ? bankTimeValue(el.value) : el.value;
     if (f === "sport" || f === "kind") renderBankroll();
     else { const h = mainEl.querySelector("#bank-hint"); if (h) h.innerHTML = bankHint(bankDraft); }
   }
 
+  // Time boxes: type digits only (1930) and the colon is added (19:30).
+  function bankTimeValue(v) { return /^([01]\d|2[0-3]):[0-5]\d$/.test(v) ? v : ""; }   // only a complete, valid time is kept
+  function bankTimeFormat(el, e) {
+    let d = el.value.replace(/\D/g, "").slice(0, 4);
+    const deleting = e && e.inputType && e.inputType.indexOf("delete") === 0;
+    if (!deleting && d.length === 1 && d > "2") d = "0" + d;           // 9 -> 09
+    el.value = d.length > 2 || (d.length === 2 && !deleting) ? d.slice(0, 2) + ":" + d.slice(2) : d;
+  }
+
   function bindBankroll() {
+    mainEl.querySelectorAll("[data-bank-time]").forEach(el => el.addEventListener("input", e => bankTimeFormat(el, e)));
     mainEl.querySelectorAll("[data-bank-f]").forEach(el => {
       el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => bankReadDraftField(el));
     });
@@ -2017,7 +2040,7 @@
     mainEl.querySelectorAll("[data-bank-when]").forEach(el => {
       let dirty = false;
       const bet = () => bank.bets.find(x => String(x.id) === el.dataset.bankWhen);
-      const save = () => { const t = bet(); if (t) { t.eventAt = el.value || ""; bankSave(); dirty = true; } };
+      const save = () => { const t = bet(); if (t) { t.eventAt = bankTimeValue(el.value); bankSave(); dirty = true; } };
       el.addEventListener("input", save);
       el.addEventListener("change", save);
       el.addEventListener("blur", () => {
@@ -3641,8 +3664,8 @@
     return `<div class="freshness-strip"><span class="freshness-chip freshness-${status}"><span class="dot-status"></span>${f.league_name}: ${label}</span></div>`;
   }
 
-  const _rBank = renderBankroll, _rTrack = renderTrackRecord, _rCheck = renderModelCheck;
-  renderBankroll = function () { _rBank(); injectSubnav(); };
+  const _rBest = renderBestBets, _rTrack = renderTrackRecord, _rCheck = renderModelCheck;
+  renderBestBets = function () { _rBest(); injectSubnav(); };
   renderTrackRecord = function () { _rTrack(); injectSubnav(); };
   renderModelCheck = function () { _rCheck(); injectSubnav(); };
 
