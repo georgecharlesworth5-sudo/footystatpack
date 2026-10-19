@@ -1,47 +1,24 @@
-Probe for 2026-10-17, run 2026-10-18 23:15 UK
-UK races found: 12; probing up to 3
+Probe for 2026-10-18, run 2026-10-19 09:01 UK
+UK races found: 2; probing up to 3
 List-level keys on a race: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 
-=== race 944546: 11:55 Ascot Qatar Racing British Champions Day Two-Year-Old Conditions Stakes (GBB Race)
-top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, trifecta, videos
+=== race 944006: 12:50 Sedgefield Michael And Olivia Watson Novices' Hurdle (GBB Race)
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, tote_win, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 race_stage=WEIGHEDIN winning_time=None result=None
-  pos=1 status=RUNNER Night In Vegas betting={"favourite": {}, "current_odds": "5/2", "historical_odds": ["11/4"]}
-  pos=2 status=RUNNER Arapaho Gold betting={"favourite": {"betting_favourite": "f"}, "current_odds": "9/4", "historical_odds": []}
-  pos=3 status=RUNNER Satellite Of Love betting={"favourite": {}, "current_odds": "4/1", "historical_odds": ["4/1", "9/2"]}
-  pos=4 status=RUNNER Confucius betting={"favourite": {}, "current_odds": "20/1", "historical_odds": ["18/1", "20/1", "18/1", "20/1", "22/1"]}
-  pos=5 status=RUNNER Theheatison betting={"favourite": {}, "current_odds": "200/1", "historical_odds": ["200/1", "150/1"]}
-  pos=6 status=RUNNER Inner City Blues betting={"favourite": {}, "current_odds": "7/1", "historical_odds": ["13/2", "6/1", "13/2", "7/1", "15/2", "15/2", "7/1", "15/2"]}
-  pos=7 status=RUNNER Adaay Of Scarlett betting={"favourite": {}, "current_odds": "28/1", "historical_odds": ["25/1", "22/1", "20/1", "22/1", "25/1"]}
-  pos=8 status=RUNNER Oakford betting={"favourite": {}, "current_odds": "25/1", "historical_odds": ["25/1", "33/1", "28/1"]}
-  pos=9 status=RUNNER Speed of Sound betting={"favourite": {}, "current_odds": "14/1", "historical_odds": ["12/1"]}
-  pos=10 status=RUNNER Victory Gold betting={"favourite": {}, "current_odds": "28/1", "historical_odds": ["20/1", "22/1", "25/1", "28/1", "33/1"]}
-  pos=11 status=RUNNER Crusherman betting={"favourite": {}, "current_odds": "100/1", "historical_odds": ["50/1", "66/1", "80/1"]}
+  pos=1 status=RUNNER Tommy Pickles betting={"favourite": {}, "current_odds": "10/11", "historical_odds": ["1/1", "11/10", "6/5", "11/10", "6/5", "5/4", "6/5", "11/10", "1/1"]}
+  pos=2 status=RUNNER Edelak betting={"favourite": {"betting_favourite": "f"}, "current_odds": "4/5", "historical_odds": ["5/6", "4/5", "8/11", "4/6", "8/13", "4/6", "8/11"]}
+  pos=3 status=RUNNER Rock Armour betting={"favourite": {}, "current_odds": "33/1", "historical_odds": ["40/1"]}
 
-=== race 932264: 12:30 Ascot Qatar Racing British Champions Long Distance Cup (Group 1)
+=== race 944007: 13:20 Sedgefield Celebrating 40 Years Of Vickers Bookmakers Conditional Jockeys' Handicap Chase
 top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 race_stage=WEIGHEDIN winning_time=None result=None
-  pos=1 status=RUNNER Mount Atlas betting={"favourite": {}, "current_odds": "33/1", "historical_odds": ["22/1", "25/1", "28/1"]}
-  pos=2 status=RUNNER Queenstown betting={"favourite": {}, "current_odds": "14/1", "historical_odds": ["11/1", "12/1"]}
-  pos=3 status=RUNNER Highwayman betting={"favourite": {"betting_favourite": "f"}, "current_odds": "7/4", "historical_odds": ["9/4", "2/1", "15/8"]}
-  pos=4 status=RUNNER Gregory betting={"favourite": {}, "current_odds": "10/3", "historical_odds": []}
-  pos=5 status=RUNNER Opportunity betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["11/1", "12/1", "14/1"]}
-  pos=6 status=RUNNER Amelia Earhart betting={"favourite": {}, "current_odds": "20/1", "historical_odds": ["22/1", "25/1", "22/1", "20/1", "18/1"]}
-  pos=7 status=RUNNER Amiloc betting={"favourite": {}, "current_odds": "22/1", "historical_odds": ["18/1", "16/1", "18/1", "20/1"]}
-  pos=8 status=RUNNER Caballo De Mar betting={"favourite": {}, "current_odds": "5/1", "historical_odds": ["11/2"]}
-  pos=9 status=RUNNER Daiquiri Bay betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["15/2", "8/1"]}
-  pos=10 status=RUNNER Quickthorn betting={"favourite": {}, "current_odds": "150/1", "historical_odds": []}
-
-=== race 944543: 12:00 Catterick EBF 'Confined' Restricted Maiden Stakes (GBB Race)
-top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, trifecta, videos
-race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
-race_stage=WEIGHEDIN winning_time=None result=None
-  pos=1 status=RUNNER Lion's Den betting={"favourite": {}, "current_odds": "6/1", "historical_odds": ["11/2"]}
-  pos=2 status=RUNNER She Is Mighty betting={"favourite": {}, "current_odds": "33/1", "historical_odds": ["50/1", "40/1", "50/1", "40/1", "33/1", "40/1"]}
-  pos=3 status=RUNNER Northern Exposure betting={"favourite": {}, "current_odds": "80/1", "historical_odds": ["100/1", "80/1", "100/1", "80/1", "66/1"]}
-  pos=4 status=RUNNER Lord Percy betting={"favourite": {}, "current_odds": "5/1", "historical_odds": ["5/1", "9/2", "4/1", "9/2"]}
-  pos=5 status=RUNNER Red Demon betting={"favourite": {}, "current_odds": "20/1", "historical_odds": ["18/1"]}
-  pos=6 status=RUNNER Queens Bandit betting={"favourite": {"betting_favourite": "f"}, "current_odds": "1/3", "historical_odds": ["4/11", "1/3", "4/11", "1/3", "4/11"]}
-  pos=7 status=RUNNER Magnanimous Grecia betting={"favourite": {}, "current_odds": "250/1", "historical_odds": ["200/1"]}
-  pos=0 status=NONRUNNER Shaqra Queen betting={"favourite": {}, "current_odds": "16/1", "historical_odds": []}
+  pos=1 status=RUNNER Royal Time betting={"favourite": {}, "current_odds": "7/1", "historical_odds": ["9/1", "17/2", "8/1", "15/2", "8/1", "15/2"]}
+  pos=2 status=RUNNER Stay Hopeful betting={"favourite": {"betting_favourite": "f"}, "current_odds": "7/4", "historical_odds": ["11/8", "6/4", "13/8"]}
+  pos=3 status=RUNNER Path Of Stars betting={"favourite": {}, "current_odds": "9/2", "historical_odds": ["11/2", "5/1"]}
+  pos=4 status=RUNNER Illogical Logic betting={"favourite": {}, "current_odds": "3/1", "historical_odds": ["9/2", "4/1", "7/2", "10/3"]}
+  pos=0 status=RUNNER Out On Her Own betting={"favourite": {}, "current_odds": "11/2", "historical_odds": ["4/1", "5/1", "11/2", "5/1"]}
+  pos=0 status=RUNNER Fortunate Fella betting={"favourite": {}, "current_odds": "50/1", "historical_odds": ["40/1"]}
+  pos=0 status=NONRUNNER Tom Creen betting={"favourite": {}, "current_odds": "14/1", "historical_odds": []}
+  pos=0 status=RUNNER Kinbara Firstdraft betting={"favourite": {}, "current_odds": "18/1", "historical_odds": ["16/1"]}
