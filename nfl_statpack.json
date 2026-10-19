@@ -2510,8 +2510,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.807,
-            "away_win": 0.193
+            "home_win": 0.799,
+            "away_win": 0.201
           },
           "total_over_under": [
             {
@@ -2533,9 +2533,9 @@
               "expected": 53.7
             },
             {
-              "line": 52.5,
-              "over": 0.489,
-              "under": 0.511,
+              "line": 51.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 53.7
             }
           ],
@@ -2881,8 +2881,8 @@
             },
             {
               "line": 49.5,
-              "over": 0.5,
-              "under": 0.5,
+              "over": 0.522,
+              "under": 0.478,
               "expected": 46.3
             }
           ],
@@ -3215,15 +3215,9 @@
               "expected": 48.4
             },
             {
-              "line": 43.5,
-              "over": 0.517,
-              "under": 0.483,
-              "expected": 48.4
-            },
-            {
               "line": 44.5,
-              "over": 0.608,
-              "under": 0.392,
+              "over": 0.549,
+              "under": 0.451,
               "expected": 48.4
             },
             {
@@ -3551,8 +3545,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.338,
-            "away_win": 0.662
+            "home_win": 0.341,
+            "away_win": 0.659
           },
           "total_over_under": [
             {
@@ -3921,9 +3915,9 @@
               "expected": 49.4
             },
             {
-              "line": 50.5,
-              "over": 0.517,
-              "under": 0.483,
+              "line": 51.5,
+              "over": 0.489,
+              "under": 0.511,
               "expected": 49.4
             }
           ],
@@ -4245,8 +4239,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.612,
-            "away_win": 0.388
+            "home_win": 0.608,
+            "away_win": 0.392
           },
           "total_over_under": [
             {
@@ -4257,8 +4251,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.503,
-              "under": 0.497,
+              "over": 0.498,
+              "under": 0.502,
               "expected": 44.4
             },
             {
@@ -4586,8 +4580,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.703,
-            "away_win": 0.297
+            "home_win": 0.701,
+            "away_win": 0.299
           },
           "total_over_under": [
             {
@@ -4597,9 +4591,9 @@
               "expected": 49.0
             },
             {
-              "line": 43.5,
-              "over": 0.5,
-              "under": 0.5,
+              "line": 42.5,
+              "over": 0.517,
+              "under": 0.483,
               "expected": 49.0
             },
             {
@@ -4933,8 +4927,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.705,
-            "away_win": 0.295
+            "home_win": 0.702,
+            "away_win": 0.298
           },
           "total_over_under": [
             {
@@ -4945,8 +4939,8 @@
             },
             {
               "line": 41.5,
-              "over": 0.511,
-              "under": 0.489,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 38.4
             },
             {
@@ -5280,8 +5274,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.614,
-            "away_win": 0.386
+            "home_win": 0.617,
+            "away_win": 0.383
           },
           "total_over_under": [
             {
@@ -5632,9 +5626,9 @@
           },
           "total_over_under": [
             {
-              "line": 36.5,
-              "over": 0.5,
-              "under": 0.5,
+              "line": 38.5,
+              "over": 0.496,
+              "under": 0.504,
               "expected": 35.6
             },
             {
@@ -5974,8 +5968,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.388,
-            "away_win": 0.612
+            "home_win": 0.376,
+            "away_win": 0.624
           },
           "total_over_under": [
             {
@@ -5985,9 +5979,9 @@
               "expected": 46.5
             },
             {
-              "line": 42.5,
-              "over": 0.517,
-              "under": 0.483,
+              "line": 43.5,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 46.5
             },
             {
@@ -6321,8 +6315,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.601,
-            "away_win": 0.399
+            "home_win": 0.604,
+            "away_win": 0.396
           },
           "total_over_under": [
             {
@@ -6685,9 +6679,9 @@
               "expected": 52.3
             },
             {
-              "line": 46.5,
-              "over": 0.517,
-              "under": 0.483,
+              "line": 47.5,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 52.3
             },
             {
@@ -7362,8 +7356,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.417,
-            "away_win": 0.583
+            "home_win": 0.414,
+            "away_win": 0.586
           },
           "total_over_under": [
             {
@@ -65640,15 +65634,17 @@
       "league_code": "NFL",
       "date": "20/10/2026",
       "time": "01:15",
-      "metric": "points",
+      "metric": "moneyline",
       "scope": "home",
       "team": "San Francisco 49ers",
-      "direction": "Over",
-      "line": 20.5,
-      "confidence": 0.892,
-      "label": "San Francisco 49ers - Over 20.5 Points",
-      "raw_confidence": 0.901
-    },
+      "direction": "San Francisco 49ers",
+      "line": null,
+      "confidence": 0.783,
+      "label": "San Francisco 49ers to win",
+      "raw_confidence": 0.799
+    }
+  ],
+  "shadow_picks": [
     {
       "sport": "nfl",
       "home_team": "San Francisco 49ers",
@@ -65657,17 +65653,15 @@
       "league_code": "NFL",
       "date": "20/10/2026",
       "time": "01:15",
-      "metric": "moneyline",
+      "metric": "points",
       "scope": "home",
       "team": "San Francisco 49ers",
-      "direction": "San Francisco 49ers",
-      "line": null,
-      "confidence": 0.806,
-      "label": "San Francisco 49ers to win",
-      "raw_confidence": 0.807
-    }
-  ],
-  "shadow_picks": [
+      "direction": "Over",
+      "line": 20.5,
+      "confidence": 0.869,
+      "label": "San Francisco 49ers - Over 20.5 Points",
+      "raw_confidence": 0.901
+    },
     {
       "sport": "nfl",
       "home_team": "San Francisco 49ers",
@@ -65681,7 +65675,7 @@
       "team": "San Francisco 49ers",
       "direction": "Over",
       "line": 0.5,
-      "confidence": 0.847,
+      "confidence": 0.85,
       "label": "San Francisco 49ers - Over 0.5 Passing TDs",
       "raw_confidence": 0.91
     }
