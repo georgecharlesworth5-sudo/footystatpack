@@ -87,43 +87,41 @@
 
   /* ---------- League tabs ---------- */
   .tabs {
-    /* Stays pinned to the top of the screen while the page scrolls, so any
-       tab is one tap away however far down a long list you are. */
-    position: sticky;
-    top: 0;
+    /* Bottom navigation bar: always on screen, within thumb reach. */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 920px;
     z-index: 15;
     background: var(--bg);
     display: flex;
-    gap: 2px;
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 0 20px;
-    border-bottom: 1px solid var(--rule);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab, .tab-wrap {
-    flex-shrink: 0;
+    border-top: 1px solid var(--rule);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   .tab {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
     font-family: var(--data);
-    font-size: 12px;
-    letter-spacing: 0.06em;
+    font-size: 11px;
+    letter-spacing: 0.02em;
     color: var(--meta);
     background: none;
     border: none;
-    padding: 12px 14px;
+    border-top: 2px solid transparent;
+    padding: 14px 2px 15px;
     cursor: pointer;
     white-space: nowrap;
-    border-bottom: 2px solid transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: color 0.15s;
   }
   .tab:hover { color: var(--ink-dim); }
   .tab.active {
     color: var(--accent);
-    border-bottom-color: var(--accent);
+    border-top-color: var(--accent);
   }
   .tab:focus-visible, .fixture summary:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent);
@@ -843,6 +841,13 @@
   .nba-player { display: block; font-size: 17px; font-weight: 700; color: var(--ink); margin: 1px 0 4px; }
   .nba-lines { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .nba-chip { white-space: nowrap; }
+  body { padding-bottom: 64px; }
+  .dropdown-heading { font-family: var(--data); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--meta); padding: 8px 10px 4px; }
+  .dropdown-heading:not(:first-child) { border-top: 1px solid var(--rule); margin-top: 6px; padding-top: 12px; }
+  .subnav { display: flex; gap: 6px; margin: 0 0 16px; overflow-x: auto; scrollbar-width: none; }
+  .subnav::-webkit-scrollbar { display: none; }
+  .subnav-btn { flex: 0 0 auto; font-family: var(--data); font-size: 12px; color: var(--meta); background: none; border: 1px solid var(--rule); padding: 8px 12px; cursor: pointer; white-space: nowrap; }
+  .subnav-btn.active { color: var(--accent); border-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -1029,188 +1034,142 @@
     return availableLeagues.includes(league) || league === EFL_CUP || league === CASH_BUILDER;
   }
 
+  // ---------- Bottom navigation ----------
+  // Five always-visible buttons along the bottom of the screen (thumb reach):
+  // Today, Sports (menu), Best Bets, Slip, Bankroll. Track Record and
+  // Odds & Calibration sit beside Bankroll as a small switcher at the top of
+  // those pages (see injectSubnav). The menus open upward from the bar.
+  function isSportView(v) {
+    return isFootballView(v) || v === NFL || v === NBA || v === RACING;
+  }
+  function sportsLabel() {
+    if (isFootballView(activeLeague)) return "Football";
+    if (activeLeague === NFL) return "NFL";
+    if (activeLeague === NBA) return "NBA";
+    if (activeLeague === RACING) return "Racing";
+    return "Sports";
+  }
+  function barButton(html, active, onClick) {
+    const btn = document.createElement("button");
+    btn.className = "tab" + (active ? " active" : "");
+    btn.innerHTML = html;
+    btn.addEventListener("click", (e) => { e.stopPropagation(); onClick(); });
+    tabsEl.appendChild(btn);
+    return btn;
+  }
+  function openMenuAbove(menu) {
+    menu.style.position = "fixed";
+    menu.style.bottom = `${tabsEl.offsetHeight + 6}px`;
+    menu.style.left = "8px";
+    menu.style.right = "8px";
+    menu.style.maxWidth = "420px";
+    menu.style.minWidth = "0";
+    menu.style.maxHeight = `${Math.max(180, window.innerHeight - tabsEl.offsetHeight - 40)}px`;
+    menu.style.overflowY = "auto";
+    document.body.appendChild(menu);
+  }
+  function menuItem(menu, html, active, onClick) {
+    const item = document.createElement("button");
+    item.className = "dropdown-item" + (active ? " active" : "");
+    item.innerHTML = html;
+    item.addEventListener("click", (e) => { e.stopPropagation(); onClick(); });
+    menu.appendChild(item);
+  }
+  function menuHeading(menu, text) {
+    const h = document.createElement("div");
+    h.className = "dropdown-heading";
+    h.textContent = text;
+    menu.appendChild(h);
+  }
+  function go(view) {
+    activeLeague = view; footballMenuOpen = false; todayMenuOpen = false; render();
+  }
+
   function buildTabs() {
     tabsEl.innerHTML = "";
-    // The football dropdown lives on <body>, not inside tabsEl (see below),
-    // so clearing tabsEl doesn't remove a stale copy - do that here.
-    const staleMenu = document.getElementById("football-dropdown-menu");
-    if (staleMenu) staleMenu.remove();
-    const staleToday = document.getElementById("today-dropdown-menu");
-    if (staleToday) staleToday.remove();
+    ["football-dropdown-menu", "today-dropdown-menu"].forEach(id => {
+      const stale = document.getElementById(id);
+      if (stale) stale.remove();
+    });
 
-    const todayBtn = document.createElement("button");
-    todayBtn.className = "tab" + (activeLeague === TODAY ? " active" : "");
-    todayBtn.innerHTML = `Today${todayFilter === "all" ? "" : " &middot; " + todayLabel()} <span class="chev-dd">${todayMenuOpen ? "▴" : "▾"}</span>`;
-    todayBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      // Tapping Today always shows the Today page; if you're already on it, it toggles the menu,
-      // otherwise it opens the menu alongside so the sport can be picked straight away.
+    // Today (tap again, or when not on Today, opens the sport filter)
+    barButton(`Today${todayFilter === "all" ? "" : " &middot; " + todayLabel()}`, activeLeague === TODAY, () => {
       const wasActive = activeLeague === TODAY;
       activeLeague = TODAY; footballMenuOpen = false;
       todayMenuOpen = wasActive ? !todayMenuOpen : true;
       render();
     });
-    tabsEl.appendChild(todayBtn);
 
-    if (todayMenuOpen) {
-      const counts = {};
-      const all = todayItems();
-      todaySports().forEach(sp => { counts[sp.key] = sp.key === "all" ? all.length : all.filter(fx => fx._kind === sp.key).length; });
-      const menu = document.createElement("div");
-      menu.id = "today-dropdown-menu";
-      menu.className = "football-dropdown";
-      menu.style.minWidth = "160px";
-      todaySports().forEach(sp => {
-        const item = document.createElement("button");
-        item.className = "dropdown-item" + (todayFilter === sp.key ? " active" : "");
-        item.innerHTML = sp.label + ` <span class="count">${counts[sp.key]}</span>`;
-        item.addEventListener("click", (e) => {
-          e.stopPropagation();
-          todayFilter = sp.key; todayMenuOpen = false; activeLeague = TODAY; render();
-        });
-        menu.appendChild(item);
-      });
-      const r = todayBtn.getBoundingClientRect();
-      menu.style.position = "fixed";
-      menu.style.top = `${r.bottom + 4}px`;
-      menu.style.left = `${r.left}px`;
-      document.body.appendChild(menu);
-    }
-
-    // Football is a single top-level tab with a dropdown underneath it -
-    // every league, EFL Cup, and Cash Builder used to each get their own
-    // top-level slot, which stopped being manageable once NFL joined
-    // them as a genuinely different sport needing its own space.
-    const footballWrap = document.createElement("div");
-    footballWrap.className = "tab-wrap";
-
-    const footballBtn = document.createElement("button");
-    footballBtn.className = "tab" + (isFootballView(activeLeague) ? " active" : "");
-    footballBtn.innerHTML = `Football <span class="chev-dd">${footballMenuOpen ? "▴" : "▾"}</span>`;
-    footballBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
+    // Sports menu: football leagues, EFL Cup, Cash Builder, NFL, NBA, Racing
+    barButton(`${sportsLabel()} <span class="chev-dd">${footballMenuOpen ? "▾" : "▴"}</span>`, isSportView(activeLeague), () => {
       footballMenuOpen = !footballMenuOpen; todayMenuOpen = false;
       buildTabs();
     });
-    footballWrap.appendChild(footballBtn);
-    tabsEl.appendChild(footballWrap);
+
+    barButton("★ Best Bets", activeLeague === BEST_BETS, () => go(BEST_BETS));
+
+    barButton("Slip" + (slip.items.length ? ` <span class="count">${slip.items.length}</span>` : ""), activeLeague === SLIP, () => go(SLIP));
+
+    const pending = bank ? bank.bets.filter(b => b.status === "pending").length : 0;
+    barButton("Bankroll" + (pending ? ` <span class="count">${pending}</span>` : ""),
+      activeLeague === BANKROLL || activeLeague === TRACK_RECORD || activeLeague === MODEL_CHECK, () => go(BANKROLL));
+
+    if (todayMenuOpen) {
+      const all = todayItems();
+      const menu = document.createElement("div");
+      menu.id = "today-dropdown-menu";
+      menu.className = "football-dropdown";
+      todaySports().forEach(sp => {
+        const n = sp.key === "all" ? all.length : all.filter(fx => fx._kind === sp.key).length;
+        menuItem(menu, sp.label + ` <span class="count">${n}</span>`, todayFilter === sp.key, () => {
+          todayFilter = sp.key; todayMenuOpen = false; activeLeague = TODAY; render();
+        });
+      });
+      openMenuAbove(menu);
+    }
 
     if (footballMenuOpen) {
       const menu = document.createElement("div");
       menu.id = "football-dropdown-menu";
       menu.className = "football-dropdown";
 
+      menuHeading(menu, "Football");
       availableLeagues.forEach(code => {
         const league = data[code];
-        const item = document.createElement("button");
-        item.className = "dropdown-item" + (code === activeLeague ? " active" : "");
-        item.innerHTML = league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>';
-        item.addEventListener("click", (e) => {
-          e.stopPropagation();
-          activeLeague = code; footballMenuOpen = false; todayMenuOpen = false; render();
-        });
-        menu.appendChild(item);
+        menuItem(menu, league.league_name + ' <span class="count">' + league.upcoming_fixtures.length + '</span>',
+          code === activeLeague, () => go(code));
       });
-
       const cupFixtures = (typeof STATPACK_DATA !== "undefined" && STATPACK_DATA.efl_cup)
         ? STATPACK_DATA.efl_cup.fixtures : [];
-      const cashBuilderAvailable = typeof CASH_BUILDER_DATA !== "undefined"
-        && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0;
+      if (cupFixtures.length > 0)
+        menuItem(menu, "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`, activeLeague === EFL_CUP, () => go(EFL_CUP));
+      if (typeof CASH_BUILDER_DATA !== "undefined" && CASH_BUILDER_DATA.chains && CASH_BUILDER_DATA.chains.length > 0)
+        menuItem(menu, "Cash Builder", activeLeague === CASH_BUILDER, () => go(CASH_BUILDER));
 
-      if (cupFixtures.length > 0 || cashBuilderAvailable) {
-        const divider = document.createElement("div");
-        divider.className = "dropdown-divider";
-        menu.appendChild(divider);
-      }
-
-      if (cupFixtures.length > 0) {
-        const item = document.createElement("button");
-        item.className = "dropdown-item" + (activeLeague === EFL_CUP ? " active" : "");
-        item.innerHTML = "EFL Cup " + `<span class="count">${cupFixtures.length}</span>`;
-        item.addEventListener("click", (e) => {
-          e.stopPropagation();
-          activeLeague = EFL_CUP; footballMenuOpen = false; todayMenuOpen = false; render();
-        });
-        menu.appendChild(item);
-      }
-
-      if (cashBuilderAvailable) {
-        const item = document.createElement("button");
-        item.className = "dropdown-item" + (activeLeague === CASH_BUILDER ? " active" : "");
-        item.innerHTML = "Cash Builder";
-        item.addEventListener("click", (e) => {
-          e.stopPropagation();
-          activeLeague = CASH_BUILDER; footballMenuOpen = false; todayMenuOpen = false; render();
-        });
-        menu.appendChild(item);
-      }
-
-      // Appended to <body> with a computed fixed position, rather than
-      // inside footballWrap, so it isn't clipped by .tabs' own horizontal
-      // scroll container (see the .football-dropdown CSS comment).
-      const btnRect = footballBtn.getBoundingClientRect();
-      menu.style.position = "fixed";
-      menu.style.top = `${btnRect.bottom + 4}px`;
-      menu.style.left = `${btnRect.left}px`;
-      document.body.appendChild(menu);
-    }
-
-    if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures) {
-      const nflBtn = document.createElement("button");
-      nflBtn.className = "tab" + (activeLeague === NFL ? " active" : "");
-      nflBtn.innerHTML = "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`;
-      nflBtn.addEventListener("click", () => { activeLeague = NFL; footballMenuOpen = false; todayMenuOpen = false; render(); });
-      tabsEl.appendChild(nflBtn);
-    }
-
-    if (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.upcoming_fixtures) {
-      const nbaBtn = document.createElement("button");
-      nbaBtn.className = "tab" + (activeLeague === NBA ? " active" : "");
-      nbaBtn.innerHTML = "NBA " + `<span class="count">${NBA_STATPACK_DATA.upcoming_fixtures.length}</span>`;
-      nbaBtn.addEventListener("click", () => { activeLeague = NBA; footballMenuOpen = false; render(); });
-      tabsEl.appendChild(nbaBtn);
-    }
-
-    const raceBtn = document.createElement("button");
-    raceBtn.className = "tab" + (activeLeague === RACING ? " active" : "");
-    raceBtn.innerHTML = "Racing";
-    raceBtn.addEventListener("click", () => { activeLeague = RACING; footballMenuOpen = false; todayMenuOpen = false; render(); });
-    tabsEl.appendChild(raceBtn);
-
-    const bbBtn = document.createElement("button");
-    bbBtn.className = "tab" + (activeLeague === BEST_BETS ? " active" : "");
-    bbBtn.innerHTML = "★ Best Bets";
-    bbBtn.addEventListener("click", () => { activeLeague = BEST_BETS; footballMenuOpen = false; todayMenuOpen = false; render(); });
-    tabsEl.appendChild(bbBtn);
-
-    const slipBtn = document.createElement("button");
-    slipBtn.className = "tab" + (activeLeague === SLIP ? " active" : "");
-    slipBtn.innerHTML = "Bet Slip" + (slip.items.length ? ` <span class="count">${slip.items.length}</span>` : "");
-    slipBtn.addEventListener("click", () => { activeLeague = SLIP; footballMenuOpen = false; todayMenuOpen = false; render(); });
-    tabsEl.appendChild(slipBtn);
-
-    const bankBtn = document.createElement("button");
-    bankBtn.className = "tab" + (activeLeague === BANKROLL ? " active" : "");
-    bankBtn.innerHTML = "Bankroll" + (bank && bank.bets.some(b => b.status === "pending") ? ` <span class="count">${bank.bets.filter(b => b.status === "pending").length}</span>` : "");
-    bankBtn.addEventListener("click", () => { activeLeague = BANKROLL; footballMenuOpen = false; todayMenuOpen = false; render(); });
-    tabsEl.appendChild(bankBtn);
-
-    const trBtn = document.createElement("button");
-    trBtn.className = "tab" + (activeLeague === TRACK_RECORD ? " active" : "");
-    const trPct = (typeof BETS_LOG !== "undefined" && BETS_LOG.summary.overall.total > 0)
-      ? ` ${BETS_LOG.summary.overall.pct}%` : "";
-    trBtn.innerHTML = "Track Record" + trPct;
-    trBtn.addEventListener("click", () => { activeLeague = TRACK_RECORD; footballMenuOpen = false; todayMenuOpen = false; render(); });
-    tabsEl.appendChild(trBtn);
-
-    if (typeof BETS_LOG !== "undefined" && BETS_LOG.blocks) {
-      const mcBtn = document.createElement("button");
-      mcBtn.className = "tab" + (activeLeague === MODEL_CHECK ? " active" : "");
-      mcBtn.innerHTML = "Odds &amp; Calibration";
-      mcBtn.addEventListener("click", () => { activeLeague = MODEL_CHECK; footballMenuOpen = false; todayMenuOpen = false; render(); });
-      tabsEl.appendChild(mcBtn);
+      menuHeading(menu, "Other sports");
+      if (typeof NFL_STATPACK_DATA !== "undefined" && NFL_STATPACK_DATA.upcoming_fixtures)
+        menuItem(menu, "NFL " + `<span class="count">${NFL_STATPACK_DATA.upcoming_fixtures.length}</span>`, activeLeague === NFL, () => go(NFL));
+      if (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.upcoming_fixtures)
+        menuItem(menu, "NBA " + `<span class="count">${NBA_STATPACK_DATA.upcoming_fixtures.length}</span>`, activeLeague === NBA, () => go(NBA));
+      menuItem(menu, "Racing", activeLeague === RACING, () => go(RACING));
+      openMenuAbove(menu);
     }
   }
+
+  // Switcher shown at the top of Bankroll / Track Record / Odds & Calibration
+  function injectSubnav() {
+    const hasLog = typeof BETS_LOG !== "undefined" && BETS_LOG.blocks;
+    const trPct = (hasLog && BETS_LOG.summary && BETS_LOG.summary.overall.total > 0) ? ` ${BETS_LOG.summary.overall.pct}%` : "";
+    const items = [[BANKROLL, "Bankroll"], [TRACK_RECORD, "Track Record" + trPct]];
+    if (hasLog) items.push([MODEL_CHECK, "Odds &amp; Calibration"]);
+    mainEl.insertAdjacentHTML("afterbegin",
+      `<div class="subnav">${items.map(([v, l]) =>
+        `<button class="subnav-btn${activeLeague === v ? " active" : ""}" data-subnav="${v}">${l}</button>`).join("")}</div>`);
+  }
+  mainEl.addEventListener("click", (e) => {
+    const b = e.target.closest && e.target.closest("[data-subnav]");
+    if (b && b.dataset.subnav !== activeLeague) go(b.dataset.subnav);
+  });
 
   function metricBlock(title, m, homeTeam, awayTeam, metricKey) {
     if (!m) return "";
@@ -3550,25 +3509,11 @@
   function render() {
     buildTabs();
 
-    // Because the tab bar is pinned, switching page while scrolled far down
-    // would leave you part-way down the new page. When the page changes,
-    // jump back so the new page starts just under the tab bar (the header
-    // above it is left out of view). In-page toggles don't change the
-    // view, so they never move the scroll position.
-    if (lastRenderedView !== null && lastRenderedView !== activeLeague) {
-      const top = document.querySelector("header").offsetHeight;   // where the tab bar sits unstuck
-      if (window.scrollY > top) window.scrollTo(0, top);
-    }
+    // Switching page while scrolled down would leave you part-way down the
+    // new page, so jump back to the top when the page changes. In-page
+    // toggles don't change the view, so they never move the scroll position.
+    if (lastRenderedView !== null && lastRenderedView !== activeLeague) window.scrollTo(0, 0);
     lastRenderedView = activeLeague;
-
-    // Keep the active tab visible in the (horizontally scrolling) tab bar.
-    const activeTab = tabsEl.querySelector(".tab.active");
-    if (activeTab) {
-      const left = activeTab.offsetLeft, right = left + activeTab.offsetWidth;
-      if (left < tabsEl.scrollLeft || right > tabsEl.scrollLeft + tabsEl.clientWidth) {
-        tabsEl.scrollLeft = Math.max(0, left - 20);
-      }
-    }
 
     if (activeLeague === BEST_BETS) {
       renderBestBets();
@@ -3694,6 +3639,11 @@
     const label = f.days_old === 0 ? "today" : f.days_old === 1 ? "1 day ago" : `${f.days_old} days ago`;
     return `<div class="freshness-strip"><span class="freshness-chip freshness-${status}"><span class="dot-status"></span>${f.league_name}: ${label}</span></div>`;
   }
+
+  const _rBank = renderBankroll, _rTrack = renderTrackRecord, _rCheck = renderModelCheck;
+  renderBankroll = function () { _rBank(); injectSubnav(); };
+  renderTrackRecord = function () { _rTrack(); injectSubnav(); };
+  renderModelCheck = function () { _rCheck(); injectSubnav(); };
 
   document.addEventListener("click", () => {
     if (footballMenuOpen || todayMenuOpen) {
