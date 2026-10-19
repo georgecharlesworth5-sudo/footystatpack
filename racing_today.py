@@ -319,6 +319,7 @@ def collect_results(days) -> int:
                 continue
             rid = raw.get((r["course"], r["name"])) or raw.get((r["course"], re.sub(r"\s*\((GBB|GBBPlus)[^)]*\)\s*$", "", r["name"]).strip()))
             if not rid:
+                print(f"  {key}: no race id matched ({r['name']})")
                 continue
             try:
                 req = urllib.request.Request(DETAIL_URL.format(rid=rid), headers={"User-Agent": "Mozilla/5.0", "Accept": "application/json"})
@@ -329,6 +330,10 @@ def collect_results(days) -> int:
                 continue
             res = score_race(d)
             if not res:
+                rides = d.get("rides") or []
+                print(f"  {key}: not scored - {len(rides)} rides, "
+                      f"{sum(1 for x in rides if x.get('finish_position') in (1, '1'))} winner(s), "
+                      f"{sum(1 for x in rides if (x.get('betting') or {}).get('current_odds'))} with odds")
                 continue
             store[key] = {"date": day, "time": r["time"], "course": r["course"], "region": r["region"],
                           "code": r["code"], "rtype": r["rtype"], "furlongs": r["furlongs"],
