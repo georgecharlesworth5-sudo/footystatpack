@@ -20,7 +20,6 @@ athlete_id,player,team_id,team
 2991235,Steven Adams,10,Houston Rockets
 3037789,Bogdan Bogdanovic,10,Houston Rockets
 3102529,Clint Capela,10,Houston Rockets
-984,Tyson Chandler,10,Houston Rockets
 4683860,Quadir Copeland,10,Houston Rockets
 4592857,Isaiah Crawford,10,Houston Rockets
 3202,Kevin Durant,10,Houston Rockets
@@ -97,22 +96,18 @@ athlete_id,player,team_id,team
 3899664,Simone Fontecchio,14,Miami Heat
 4431772,Myron Gardner,14,Miami Heat
 4700818,Vladislav Goldin,14,Miami Heat
-4702784,J'Vonne Hadley,14,Miami Heat
 2528210,Tim Hardaway Jr.,14,Miami Heat
 4431786,Keshad Johnson,14,Miami Heat
 4997528,Nikola Jovic,14,Miami Heat
 4601025,Pelle Larsson,14,Miami Heat
 4278053,Davion Mitchell,14,Miami Heat
 3064482,Bobby Portis,14,Miami Heat
-4431720,Lester Quinones,14,Miami Heat
 4278076,Nick Richards,14,Miami Heat
 4066993,Dru Smith,14,Miami Heat
-4065697,Dennis Smith Jr.,14,Miami Heat
 6475,Klay Thompson,14,Miami Heat
 3059319,Andrew Wiggins,14,Miami Heat
 5164559,Nate Ament,15,Milwaukee Bucks
 5082206,Brayden Burries,15,Milwaukee Bucks
-4432588,John Butler Jr.,15,Milwaukee Bucks
 4997526,Ousmane Dieng,15,Milwaukee Bucks
 4397475,AJ Green,15,Milwaukee Bucks
 4395725,Tyler Herro,15,Milwaukee Bucks
@@ -194,7 +189,6 @@ athlete_id,player,team_id,team
 5107251,Izaiyah Nelson,19,Orlando Magic
 5214637,Noah Penda,19,Orlando Magic
 5239561,Jase Richardson,19,Orlando Magic
-5105875,Mike Sharavjamts,19,Orlando Magic
 4432165,Jalen Suggs,19,Orlando Magic
 6478,Nikola Vucevic,19,Orlando Magic
 4566434,Franz Wagner,19,Orlando Magic
@@ -261,7 +255,6 @@ athlete_id,player,team_id,team
 4703889,Jayson Kent,22,Portland Trail Blazers
 4578893,Vit Krejci,22,Portland Trail Blazers
 6606,Damian Lillard,22,Portland Trail Blazers
-4684737,Jaylen Martin,22,Portland Trail Blazers
 4279888,Ja Morant,22,Portland Trail Blazers
 4066399,Micah Potter,22,Portland Trail Blazers
 4914336,Shaedon Sharpe,22,Portland Trail Blazers
@@ -310,7 +303,6 @@ athlete_id,player,team_id,team
 4433255,Chet Holmgren,25,Oklahoma City Thunder
 5174983,Aday Mara,25,Oklahoma City Thunder
 4683778,Jared McCain,25,Oklahoma City Thunder
-4685802,Robert McCray V,25,Oklahoma City Thunder
 4900671,Ajay Mitchell,25,Oklahoma City Thunder
 5106270,Otega Oweh,25,Oklahoma City Thunder
 5061603,Thomas Sorber,25,Oklahoma City Thunder
@@ -324,7 +316,6 @@ athlete_id,player,team_id,team
 4873138,Ace Bailey,26,Utah Jazz
 4277919,Mo Bamba,26,Utah Jazz
 4065673,Tony Bradley,26,Utah Jazz
-4395997,Terrell Brown Jr.,26,Utah Jazz
 4683766,Isaiah Collier,26,Utah Jazz
 4684793,Kyle Filipowski,26,Utah Jazz
 4433627,Keyonte George,26,Utah Jazz
@@ -348,14 +339,12 @@ athlete_id,player,team_id,team
 5142718,AJ Dybantsa,27,Washington Wizards
 5174563,Kyshawn George,27,Washington Wizards
 2581184,Anthony Gill,27,Washington Wizards
-4708972,Jazian Gortman,27,Washington Wizards
 5238230,Tre Johnson,27,Washington Wizards
 4432819,Tre Mann,27,Washington Wizards
 6609,Khris Middleton,27,Washington Wizards
 5105841,Felix Okpara,27,Washington Wizards
 5144126,Will Riley,27,Washington Wizards
 5160992,Alex Sarr,27,Washington Wizards
-4704043,Steve Settle III,27,Washington Wizards
 4997537,Tristan Vukcevic,27,Washington Wizards
 4606840,Jamir Watkins,27,Washington Wizards
 4277905,Trae Young,27,Washington Wizards
@@ -401,7 +390,6 @@ athlete_id,player,team_id,team
 5170947,AJ Johnson,3,New Orleans Pelicans
 4277813,Herbert Jones,3,New Orleans Pelicans
 3442,DeAndre Jordan,3,New Orleans Pelicans
-4431778,Christian Koloko,3,New Orleans Pelicans
 4683634,Bennedict Mathurin,3,New Orleans Pelicans
 4997538,Karlo Matkovic,3,New Orleans Pelicans
 4576086,Bryce McGowens,3,New Orleans Pelicans
@@ -466,7 +454,6 @@ athlete_id,player,team_id,team
 4683747,Jaylon Tyson,5,Cleveland Cavaliers
 5106261,Ernest Udeh Jr.,5,Cleveland Cavaliers
 4576087,Peyton Watson,5,Cleveland Cavaliers
-6576,Quincy Acy,6,Dallas Mavericks
 4593125,Santi Aldama,6,Dallas Mavericks
 5148538,Tarik Biberovic,6,Dallas Mavericks
 4432582,Max Christie,6,Dallas Mavericks

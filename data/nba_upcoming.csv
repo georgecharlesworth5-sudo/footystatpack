@@ -13,3 +13,5 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909092,22/10/2026,03:00,2026-10-22 03:00,13,Los Angeles Lakers,9,Golden State Warriors,2
 401909841,22/10/2026,03:00,2026-10-22 03:00,22,Portland Trail Blazers,21,Phoenix Suns,2
 401909842,22/10/2026,03:30,2026-10-22 03:30,12,LA Clippers,23,Sacramento Kings,2
+401909093,23/10/2026,00:00,2026-10-23 00:00,20,Philadelphia 76ers,5,Cleveland Cavaliers,2
+401909094,23/10/2026,02:30,2026-10-23 02:30,25,Oklahoma City Thunder,7,Denver Nuggets,2
