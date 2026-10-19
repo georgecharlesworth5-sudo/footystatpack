@@ -65,8 +65,7 @@ KEEP_COLUMNS = [
     "HTHG", "HTAG", "HTR",
     "Referee",
     "HS", "AS", "HST", "AST",
-    "HF", "AF",          # fouls committed - not used by the model yet; collected so a
-                          # foul-rate feature for cards can be tested on real history
+    "HF", "AF",          # fouls
     "HC", "AC",          # corners
     "HY", "AY", "HR", "AR",  # cards
     "HxG", "AxG",         # expected goals - not documented in football-data.co.uk's
@@ -80,7 +79,7 @@ KEEP_COLUMNS = [
 USER_AGENT = "Mozilla/5.0 (compatible; StatPackBot/1.0; personal use)"
 
 
-def _fetch_url(url: str, retries: int = 3, backoff: float = 2.0) -> str:
+def _fetch_url(url: str, retries: int = 4, backoff: float = 3.0) -> str:
     """Fetch a URL as text, with basic retry on transient failures.
     Falls back to an unverified SSL context if the local machine's
     certificate store is misconfigured (common on Windows)."""
@@ -106,6 +105,9 @@ def _fetch_url(url: str, retries: int = 3, backoff: float = 2.0) -> str:
                     return raw.decode("utf-8-sig")
                 except UnicodeDecodeError:
                     return raw.decode("latin-1")
+        except HTTPError as e:
+            last_err = e
+            time.sleep(backoff * (attempt + 1))
         except URLError as e:
             last_err = e
             if isinstance(e.reason, ssl.SSLCertVerificationError) or "CERTIFICATE_VERIFY_FAILED" in str(e):
@@ -115,8 +117,12 @@ def _fetch_url(url: str, retries: int = 3, backoff: float = 2.0) -> str:
                     use_unverified = True
                     continue
             time.sleep(backoff * (attempt + 1))
-        except HTTPError as e:
+        except (TimeoutError, OSError) as e:
+            # A read timeout / dropped connection part-way through a download
+            # is raised as a plain TimeoutError/OSError (not URLError), which
+            # used to crash the whole run. Treat it as a transient failure.
             last_err = e
+            print(f"  [retry] {url}: {e}")
             time.sleep(backoff * (attempt + 1))
     raise RuntimeError(f"Failed to fetch {url} after {retries} attempts: {last_err}")
 
