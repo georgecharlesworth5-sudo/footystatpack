@@ -18,9 +18,11 @@ Standard library only.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import sys
+import time
 import urllib.request
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -209,7 +211,10 @@ def probe_results() -> int:
         lines.append("top-level keys: " + ", ".join(sorted(d.keys())))
         rs = d.get("race_summary") or {}
         lines.append("race_summary keys: " + ", ".join(sorted(rs.keys())))
-        lines.append(f"race_stage={rs.get('race_stage')} winning_time={d.get('winning_time')} result={str(d.get('result'))[:200]}")
+        lines.append(f"race_stage={rs.get('race_stage')} going={rs.get('going')!r} class={rs.get('race_class')!r} winning_time={d.get('winning_time')} result={str(d.get('result'))[:200]}")
+        r0 = (d.get("rides") or [{}])[0]
+        lines.append("ride keys: " + ", ".join(sorted(r0.keys())))
+        lines.append("horse keys: " + ", ".join(sorted((r0.get("horse") or {}).keys())) + f" | jockey={str(r0.get('jockey'))[:120]} | trainer={str(r0.get('trainer'))[:120]}")
         for ride in (d.get("rides") or [])[:20]:
             b = ride.get("betting") or {}
             lines.append(f"  pos={ride.get('finish_position')} status={ride.get('ride_status')} {(ride.get('horse') or {}).get('name')} betting={json.dumps(b)[:300]}")
@@ -221,6 +226,43 @@ def probe_results() -> int:
 
 RESULTS_JSON = Path(__file__).parent / "data" / "racing_results.json"
 RESULTS_JS = Path(__file__).parent / "racing_results.js"
+RUNNERS_CSV = Path(__file__).parent / "data" / "racing_runners.csv"
+RUNNER_COLS = ["date", "time", "course", "region", "code", "rtype", "going", "class", "ran", "horse", "jockey", "trainer",
+               "age", "draw", "weight", "odds", "pos"]
+
+
+def _nm(x):
+    """A name from either a plain string or a {'name': ...} object."""
+    if isinstance(x, dict):
+        return str(x.get("name") or x.get("full_name") or x.get("short_name") or "").strip()
+    return str(x or "").strip()
+
+
+def runner_rows(detail, meta):
+    """One row per runner (non-runners left out): who rode, who trained, the final
+    price and where it finished. Used for going / jockey / trainer analysis later."""
+    out = []
+    for ride in detail.get("rides") or []:
+        status = str(ride.get("ride_status") or "").upper()
+        if "NON" in status or "WITHDRAW" in status:
+            continue
+        horse = ride.get("horse") if isinstance(ride.get("horse"), dict) else {}
+        dec = to_decimal((ride.get("betting") or {}).get("current_odds"))
+        pos = ride.get("finish_position")
+        pos = int(pos) if isinstance(pos, (int, float)) or (isinstance(pos, str) and pos.isdigit()) else 0
+        out.append({**meta, "horse": _nm(horse) or _nm(ride.get("horse")), "jockey": _nm(ride.get("jockey")),
+                    "trainer": _nm(ride.get("trainer")), "age": horse.get("age", ride.get("age", "")),
+                    "draw": ride.get("draw_number", ""), "weight": ride.get("handicap", ""),
+                    "odds": round(dec, 2) if dec else "", "pos": pos})
+    return out
+
+
+def load_runner_keys():
+    try:
+        with open(RUNNERS_CSV, newline="") as f:
+            return {(r["date"], r["time"], r["course"]) for r in csv.DictReader(f)}
+    except OSError:
+        return set()
 
 
 def to_decimal(odds):
@@ -287,10 +329,12 @@ def load_results():
         return {}
 
 
-def collect_results(days) -> int:
+def collect_results(days, pause: float = 0.0) -> int:
     """For each day, reads the card, opens every race, and stores the outcome
     of those that have finished. Safe to re-run: a race is stored once."""
     store = load_results()
+    runner_keys = load_runner_keys()
+    new_runners = []
     added = 0
     for day in days:
         try:
@@ -315,7 +359,8 @@ def collect_results(days) -> int:
         done_here = 0
         for r in races:
             key = f"{day}|{r['time']}|{r['course']}"
-            if key in store and store[key].get("ran"):
+            have_runners = (day, r["time"], r["course"]) in runner_keys
+            if key in store and store[key].get("ran") and "going" in store[key] and have_runners:
                 continue
             rid = raw.get((r["course"], r["name"])) or raw.get((r["course"], re.sub(r"\s*\((GBB|GBBPlus)[^)]*\)\s*$", "", r["name"]).strip()))
             if not rid:
@@ -328,6 +373,8 @@ def collect_results(days) -> int:
             except Exception as exc:  # noqa: BLE001
                 print(f"  {key}: detail failed ({exc})")
                 continue
+            if pause:
+                time.sleep(pause)
             res = score_race(d)
             if not res:
                 rides = d.get("rides") or []
@@ -335,10 +382,20 @@ def collect_results(days) -> int:
                       f"{sum(1 for x in rides if x.get('finish_position') in (1, '1'))} winner(s), "
                       f"{sum(1 for x in rides if (x.get('betting') or {}).get('current_odds'))} with odds")
                 continue
+            rsum = d.get("race_summary") or {}
+            going = (rsum.get("going") or r.get("going") or "").strip()
+            klass = (rsum.get("race_class") or r.get("class") or "").strip()
+            is_new = not (key in store and store[key].get("ran"))
             store[key] = {"date": day, "time": r["time"], "course": r["course"], "region": r["region"],
                           "code": r["code"], "rtype": r["rtype"], "furlongs": r["furlongs"],
-                          "name": r["name"], **res}
-            added += 1
+                          "name": r["name"], "going": going, "class": klass, **res}
+            if not have_runners:
+                meta = {"date": day, "time": r["time"], "course": r["course"], "region": r["region"], "code": r["code"],
+                        "rtype": r["rtype"], "going": going, "class": klass, "ran": res["ran"]}
+                new_runners += runner_rows(d, meta)
+                runner_keys.add((day, r["time"], r["course"]))
+            if is_new:
+                added += 1
             done_here += 1
         print(f"{day}: {done_here} new results ({len(races)} races on the card)")
     # keep the file to the last ~400 days so it stays small
@@ -348,6 +405,16 @@ def collect_results(days) -> int:
     RESULTS_JSON.write_text(json.dumps(store, separators=(",", ":"), sort_keys=True))
     rows = sorted(store.values(), key=lambda x: (x["date"], x["time"], x["course"]))
     RESULTS_JS.write_text("const RACING_RESULTS = " + json.dumps({"updated": datetime.now(LONDON).strftime("%Y-%m-%d %H:%M"), "races": rows}, separators=(",", ":")) + ";\n")
+    if new_runners:
+        RUNNERS_CSV.parent.mkdir(exist_ok=True)
+        fresh = not RUNNERS_CSV.exists()
+        with open(RUNNERS_CSV, "a", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=RUNNER_COLS)
+            if fresh:
+                w.writeheader()
+            w.writerows(new_runners)
+        print(f"Runner rows added: {len(new_runners)} ({sum(1 for x in new_runners if x['jockey'])} with a jockey, "
+              f"{sum(1 for x in new_runners if x['trainer'])} with a trainer, {sum(1 for x in new_runners if x['going'])} with going).")
     print(f"Stored {len(store)} results in total ({added} new).")
     return 0
 
@@ -361,11 +428,16 @@ def main() -> int:
                     help="inspect yesterday's results in the feed and write data/racing_probe.txt")
     ap.add_argument("--results", action="store_true",
                     help="record the outcomes of yesterday's and today's finished races")
+    ap.add_argument("--backfill-days", type=int, default=0,
+                    help="with --results: go back this many days instead of just yesterday and today")
     args = ap.parse_args()
     if args.results:
         today = datetime.now(LONDON).date()
-        days = [args.date] if args.date else [(today - timedelta(days=1)).isoformat(), today.isoformat()]
-        return collect_results(days)
+        if args.backfill_days > 0:
+            days = [(today - timedelta(days=i)).isoformat() for i in range(args.backfill_days, -1, -1)]
+        else:
+            days = [args.date] if args.date else [(today - timedelta(days=1)).isoformat(), today.isoformat()]
+        return collect_results(days, pause=0.2 if args.backfill_days > 0 else 0.0)
     if args.probe_results:
         return probe_results()
     day = args.date or (datetime.now(LONDON).date() + timedelta(days=int(args.tomorrow))).isoformat()

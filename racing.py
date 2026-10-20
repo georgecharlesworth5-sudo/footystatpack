@@ -945,8 +945,41 @@ def build_vs_uk(ire_rows: list[dict], uk_rows: list[dict]) -> dict:
     return result
 
 
+SL_RESULTS = DATA_DIR / "racing_results.json"
+
+
+def sporting_life_rows(after: str) -> list[dict]:
+    """Finished races recorded from Sporting Life (racing_today.py --results),
+    in the same shape as the Betfair rows, for days after the last Betfair day.
+    Only what the ratings need is filled in: favourite won, where the winner
+    ranked in the betting, field size, code and race type. Used when the Betfair
+    download can't run, so the ratings keep learning from new results."""
+    try:
+        store = json.loads(SL_RESULTS.read_text())
+    except (OSError, ValueError):
+        return []
+    out = []
+    for key, r in store.items():
+        if (r.get("region") or "uk") != REGION or r.get("date", "") <= after:
+            continue
+        if r.get("fav") is None or r.get("win_rank") is None or not r.get("ran"):
+            continue                       # tied favourite / dead heat / unpriced: left out, as for Betfair rows
+        code = r.get("code") or ""
+        try:
+            season = season_of(date.fromisoformat(r["date"]), group_of(code))
+        except ValueError:
+            continue
+        out.append({"event_id": "sl:" + key, "date": r["date"], "time": r.get("time", ""), "course": r.get("course", ""),
+                    "code": code, "rtype": r.get("rtype", ""), "runners": r["ran"], "fav_won": int(r["fav"]),
+                    "win_rank": int(r["win_rank"]), "sec_bsp": "1" if r.get("sec_pos") is not None else "",
+                    "season": season, "places": "", "fav_pl": "", "sec_pl": ""})
+    return out
+
+
 def build_summary(races: dict[str, dict]) -> dict:
     rows = list(races.values())
+    last_betfair = max((r["date"] for r in rows), default="")
+    sl = sporting_life_rows(last_betfair)
     result = {}
     for group, label in (("flat", "Flat"), ("jumps", "Jumps")):
         mine = [r for r in rows if group_of(r["code"]) == group]
@@ -966,10 +999,12 @@ def build_summary(races: dict[str, dict]) -> dict:
         }
     return {
         "generated": date.today().isoformat(),
-        "source": "Betfair Starting Price files",
+        "source": "Betfair Starting Price files" + (f" to {last_betfair}, then Sporting Life results" if sl else ""),
         "commission": COMMISSION,
-        "races_stored": len(rows),
-        "guide": build_guide(rows),
+        "races_stored": len(rows) + len(sl),
+        "sl_races": len(sl),
+        "betfair_last": last_betfair,
+        "guide": build_guide(rows + sl),
         "codes": result,
     }
 

@@ -2562,6 +2562,38 @@
       });
     }
     const pct = (x, n) => n ? Math.round(100 * x / n) + "%" : "-";
+    // Going: how the rating's favourite call fares on each ground, once races carry a going.
+    const goingGroup = t => {
+      const g = String(t || "").toLowerCase().split("(")[0].trim();
+      if (!g) return "";
+      if (/standard|slow|fast|sand|poly|tapeta|fibresand|all.?weather/.test(g)) return "All-weather";
+      if (g.includes("heavy")) return "Heavy";
+      if (g.includes("soft") && g.includes("good")) return "Good to soft";
+      if (g.includes("soft")) return "Soft";
+      if (g.includes("good") && g.includes("firm")) return "Good to firm";
+      if (g.includes("firm") || g.includes("hard")) return "Firm";
+      if (g.includes("good")) return "Good";
+      return "";
+    };
+    const goingOrder = ["Firm", "Good to firm", "Good", "Good to soft", "Soft", "Heavy", "All-weather"];
+    const gAcc = {};
+    for (const r of RACING_RESULTS.races) {
+      const gg = goingGroup(r.going);
+      if (!gg) continue;
+      const rate = rcLookup({ region: r.region || "uk", code: r.code, rtype: r.rtype, runners: r.ran });
+      if (!rate) continue;
+      const a = gAcc[gg] || (gAcc[gg] = { n: 0, fav: 0, favN: 0, predFav: 0, top3: 0, top3N: 0, predTop3: 0 });
+      a.n++;
+      if (r.fav != null) { a.favN++; a.fav += r.fav; a.predFav += rate.fav; }
+      if (r.win_rank != null) { a.top3N++; a.top3 += r.win_rank <= 3 ? 1 : 0; a.predTop3 += rate.top3 ?? 0; }
+    }
+    const goingRows = goingOrder.filter(k => gAcc[k]).map(k => { const a = gAcc[k];
+      return `<tr><td>${k}</td><td>${a.n}</td><td>${pct(a.fav, a.favN)}</td><td>${a.favN ? Math.round(a.predFav / a.favN) + "%" : "-"}</td><td>${pct(a.top3, a.top3N)}</td><td>${a.top3N ? Math.round(a.predTop3 / a.top3N) + "%" : "-"}</td></tr>`; }).join("");
+    const goingBlock = goingRows
+      ? `<div class="tr-section-title">By going</div>
+         <div class="tr-note">Same scoring, split by the going on the day. If a going is well above or below its <b>Pred</b>, the ratings are missing something about that ground. Going is recorded from the latest run onward, so these rows start small.</div>
+         <table class="rc-score"><thead><tr><th></th><th>Races</th><th>Fav won</th><th>Pred</th><th>Winner top 3 in betting</th><th>Pred</th></tr></thead><tbody>${goingRows}</tbody></table>`
+      : `<div class="tr-note">Going (ground conditions) is now being recorded with each result. A split of results by going will appear here after the next runs.</div>`;
     const line = (label, a) => a ? `<tr><td>${label}</td><td>${a.n}</td><td>${pct(a.fav, a.favN)}</td><td>${a.favN ? Math.round(a.predFav / a.favN) + "%" : "-"}</td><td>${pct(a.top3, a.top3N)}</td><td>${a.top3N ? Math.round(a.predTop3 / a.top3N) + "%" : "-"}</td><td>${a.sec3N ? pct(a.sec3, a.sec3N) + " / " + Math.round(a.predSec3 / a.sec3N) + "%" : "-"}</td></tr>` : "";
     const rows = [line("All races", acc.all), ...tiers.map(t => line(t, acc[t])), line("UK", acc.Ruk), line("Ireland", acc.Rire)].join("");
     const small = acc.all && acc.all.n < 100 ? `<div class="tr-note"><b>Small sample so far (${acc.all.n} races).</b> Hit rates move a lot on a few results; treat anything under about 100 races per row as noise.</div>` : "";
@@ -2574,6 +2606,7 @@
       <div class="tr-note">Every finished race since recording began, scored against the rating that race kind gets today. <b>Actual</b> = how often it happened, <b>Pred</b> = what the ratings said on average. Updated ${escAttr(RACING_RESULTS.updated || "")} UK time.</div>
       ${small}
       <table class="rc-score"><thead><tr><th></th><th>Races</th><th>Fav won</th><th>Pred</th><th>Winner top 3 in betting</th><th>Pred</th><th>2nd fav top 3 (actual / pred)</th></tr></thead><tbody>${rows}</tbody></table>
+      ${goingBlock}
       <details class="tr-pending-box"><summary>Latest results</summary><div class="tr-pend-body">${recent}</div></details>`;
   }
 
