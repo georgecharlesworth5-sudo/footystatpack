@@ -144,7 +144,7 @@ def picks_for_fixture(fx: dict) -> list[dict]:
     total = preds.get("total")
     if total:
         cands = []
-        for direction, key in (("Over", "over"), ("Under", "under")):
+        for direction, key in (("Over", "over"),):          # Overs only - no Under picks
             r = _best_price(total, key, TOTAL_MIN)
             if r:
                 cands.append(_make_pick(fx, "points", "match", None, direction, r["line"], r[key],
@@ -157,7 +157,7 @@ def picks_for_fixture(fx: dict) -> list[dict]:
         if not tt:
             continue
         cands = []
-        for direction, key in (("Over", "over"), ("Under", "under")):
+        for direction, key in (("Over", "over"),):          # Overs only - no Under picks
             r = _best_price(tt, key, TOTAL_MIN)
             if r:
                 cands.append(_make_pick(fx, "points", scope, team, direction, r["line"], r[key],
