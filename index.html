@@ -887,6 +887,7 @@
 <script src="nba_statpack_data.js" onerror="void 0"></script>
 <script src="racing_data.js"></script>
 <script src="racing_today.js" onerror="void 0"></script>
+<script src="racing_tomorrow.js" onerror="void 0"></script>
 <script src="racing_results.js" onerror="void 0"></script>
 <script src="racing_data_ire.js" onerror="void 0"></script>
 <script>
@@ -2612,18 +2613,26 @@
 
   function renderRacingToday() {
     const intro = `<div class="bb-intro">Today's UK and Irish races, each rated from how that kind of race (flat or jumps, race type) has played out over the last ${RACING_DATA.codes.flat.seasons.length} seasons, adjusted for the exact number of runners. Distance and course were tested and added nothing reliable, so they're shown for context only. <b>Strong</b> = the favourite usually wins, <b>Avoid</b> = wide open, favourites rarely win. This shows how <i>predictable</i> a race is, not whether a price is good value: the market already prices these patterns in, and backtesting found no lasting profit from them.</div>`;
-    const cardOk = typeof RACING_TODAY !== "undefined" && RACING_TODAY.races && RACING_TODAY.races.length;
+    const todayStr = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
+    const cards = [typeof RACING_TODAY !== "undefined" ? RACING_TODAY : null, typeof RACING_TOMORROW !== "undefined" ? RACING_TOMORROW : null]
+      .filter(c => c && c.races && c.races.length);
+    // Prefer the card dated today, whichever file holds it; else the newest earlier one; else the earliest future one.
+    const pick = cards.find(c => c.date === todayStr)
+      || cards.filter(c => c.date < todayStr).sort((a, b) => b.date.localeCompare(a.date))[0]
+      || cards.sort((a, b) => a.date.localeCompare(b.date))[0];
+    const RT = pick || { races: [] };
+    const cardOk = !!pick;
     if (!cardOk || !RACING_DATA.guide) {
       mainEl.innerHTML = racingViewToggle() + intro + `<div class="empty">${!RACING_DATA.guide ? "The race ratings aren't in racing_data.js yet." : "No racecard loaded yet."}<br>${!RACING_DATA.guide ? "Upload the latest racing_data.js." : "It's fetched each morning by the &quot;Update Today's Races&quot; workflow (or run racing_today.py)."}</div>`;
       bindRacingView();
       return;
     }
     const today = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
-    const stale = RACING_TODAY.date === today ? ""
-      : RACING_TODAY.date > today
-        ? `<div class="tr-note"><b>This is the card for ${RACING_TODAY.date} (tomorrow).</b> It switches to the day's own card at the morning refresh.</div>`
-        : `<div class="tr-note"><b>This card is for ${RACING_TODAY.date}</b>, not today. It refreshes each morning and evening.</div>`;
-    const allRows = RACING_TODAY.races.map(r => ({ region: "uk", ...r, rate: rcLookup({ region: "uk", ...r }) })).filter(r => r.rate);
+    const stale = RT.date === today ? ""
+      : RT.date > today
+        ? `<div class="tr-note"><b>This is the card for ${RT.date} (tomorrow).</b> Today's card hasn't loaded yet; it appears at the next refresh.</div>`
+        : `<div class="tr-note"><b>This card is for ${RT.date}</b>, not today. It refreshes each morning and evening.</div>`;
+    const allRows = RT.races.map(r => ({ region: "uk", ...r, rate: rcLookup({ region: "uk", ...r }) })).filter(r => r.rate);
     const hasIre = allRows.some(r => r.region === "ire");
     if (!hasIre) racingTodayRegion = "";
     const rows = allRows.filter(r => !racingTodayRegion || r.region === racingTodayRegion);
@@ -2666,7 +2675,7 @@
 
     mainEl.innerHTML = racingViewToggle() + intro + stale + regionToggle + chips + sec3Chips + summary + sortLine
       + (shown.length ? list : `<div class="empty">No races in this group today.</div>`)
-      + `<div class="tr-note">Card from Sporting Life, ${escAttr(RACING_TODAY.generated || "")} UK time. Irish races use the Irish ratings once the Irish data is loaded. Field sizes are declared runners so far and can change. Race kinds and thresholds come from racing.py.</div>`;
+      + `<div class="tr-note">Card from Sporting Life, ${escAttr(RT.generated || "")} UK time. Irish races use the Irish ratings once the Irish data is loaded. Field sizes are declared runners so far and can change. Race kinds and thresholds come from racing.py.</div>`;
     bindRacingView();
     mainEl.querySelectorAll("[data-rc-rg]").forEach(a => a.addEventListener("click", () => { racingTodayRegion = a.dataset.rcRg; renderRacingToday(); }));
     mainEl.querySelectorAll("[data-rc-s3]").forEach(a => a.addEventListener("click", () => { racingTodaySec3 = +a.dataset.rcS3; renderRacingToday(); }));

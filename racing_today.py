@@ -30,6 +30,7 @@ from zoneinfo import ZoneInfo
 
 URL = "https://www.sportinglife.com/api/horse-racing/racing/racecards/{day}"
 OUT_JS = Path(__file__).parent / "racing_today.js"
+OUT_JS_TOMORROW = Path(__file__).parent / "racing_tomorrow.js"
 # The feed spells countries inconsistently ("Wale" for Wales, "Eire" for
 # Ireland), so match on the long name too.
 UK_SHORT = {"ENG", "SCO", "SCOT", "WAL", "WALE", "WLS", "NIR", "NI", "GB", "UK"}
@@ -440,7 +441,19 @@ def main() -> int:
         return collect_results(days, pause=0.2 if args.backfill_days > 0 else 0.0)
     if args.probe_results:
         return probe_results()
-    day = args.date or (datetime.now(LONDON).date() + timedelta(days=int(args.tomorrow))).isoformat()
+    today = datetime.now(LONDON).date()
+    if args.date:
+        return write_card(args.date, OUT_JS, "RACING_TODAY", args.debug)
+    if args.tomorrow:
+        return write_card((today + timedelta(days=1)).isoformat(), OUT_JS_TOMORROW, "RACING_TOMORROW", args.debug)
+    # Default: refresh BOTH cards every run, so the page always has today's
+    # card even if the morning run is late or missed.
+    rc = write_card(today.isoformat(), OUT_JS, "RACING_TODAY", args.debug)
+    write_card((today + timedelta(days=1)).isoformat(), OUT_JS_TOMORROW, "RACING_TOMORROW", args.debug)
+    return rc
+
+
+def write_card(day: str, out: Path, var: str, debug: bool) -> int:
     try:
         payload = fetch(day)
     except Exception as exc:  # noqa: BLE001 - report any failure, keep old file
@@ -449,15 +462,15 @@ def main() -> int:
     skipped: list[str] = []
     races = parse(payload, day, skipped)
     print("Meetings skipped (not UK or Irish): " + (", ".join(skipped) or "none"))
-    if args.debug:
+    if debug:
         for r in races:
             print(r["time"], r["course"], "|", r["name"], "|", r["code"], r["rtype"], r["distance"], r["runners"], "runners")
     if not races:
-        print(f"Feed answered but no UK or Irish races were found for {day}. Leaving racing_today.js as it is.")
+        print(f"Feed answered but no UK or Irish races were found for {day}. Leaving {out.name} as it is.")
         return 1
     data = {"date": day, "generated": datetime.now(LONDON).strftime("%Y-%m-%d %H:%M"), "races": races}
-    OUT_JS.write_text("const RACING_TODAY = " + json.dumps(data, separators=(",", ":")) + ";\n")
-    print(f"Wrote {OUT_JS.name}: {len(races)} races on {day} ({sum(1 for r in races if r['region'] == 'uk')} UK, {sum(1 for r in races if r['region'] == 'ire')} Irish).")
+    out.write_text(f"const {var} = " + json.dumps(data, separators=(",", ":")) + ";\n")
+    print(f"Wrote {out.name}: {len(races)} races on {day} ({sum(1 for r in races if r['region'] == 'uk')} UK, {sum(1 for r in races if r['region'] == 'ire')} Irish).")
     return 0
 
 
