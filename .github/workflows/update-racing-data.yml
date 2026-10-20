@@ -1,0 +1,56 @@
+name: Update Racing Ratings
+
+# Refreshes the racing history that the race-profile ratings are built from.
+#   racing.py              - downloads Betfair's daily UK price files that
+#                            haven't been processed yet, adds those races to
+#                            data/racing_races.csv and rewrites racing_data.js
+#   racing.py --region ire - the same for Ireland
+#                            (racing_races_ire.csv, racing_data_ire.js)
+# Betfair publishes the file for day D on the morning of D+1, so one run a day
+# in the late morning picks up yesterday's races. Each run only downloads days
+# it has not seen, so after the first catch-up it is a handful of requests.
+#
+# Separate from "Update Today's Races" (racing_today.py), which reads the
+# racecard and records finished-race outcomes for the scorecard.
+
+on:
+  schedule:
+    - cron: '30 11 * * *'     # UTC, once a day
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: racing-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: UK racing history and ratings
+        run: python racing.py
+
+      - name: Irish racing history and ratings
+        continue-on-error: true
+        run: python racing.py --region ire
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/racing_races.csv data/racing_files_done.txt racing_data.js \
+                  data/racing_races_ire.csv data/racing_files_done_ire.txt racing_data_ire.js
+          git diff --staged --quiet || git commit -m "Auto-update racing ratings $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && break
+            echo "Push attempt $attempt failed - retrying..."
+            sleep $((attempt * 5))
+          done
