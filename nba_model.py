@@ -195,6 +195,28 @@ def prop_dist(stat: str, mean: float, sd: float, stale_days: int) -> tuple[float
     return mean, max(sd * scale, PROP_SD_FLOOR[stat])
 
 
+# The fixed marks shown for player props ("20+" means 20 or more = Over 19.5).
+PROP_THRESHOLDS = {"points": [10, 15, 20, 25], "assists": [3, 5, 7, 10], "rebounds": [3, 5, 7, 10], "threes": [1, 2, 3]}
+
+
+def prop_ladder(stat: str, mean: float, sd: float) -> list[dict]:
+    """Probability of reaching each fixed mark for this stat, as Over (mark - 0.5)
+    rows in the same shape as prop_table. Every mark is returned, however
+    unlikely or certain, so the page always shows the same set."""
+    rows = []
+    if stat == "threes":
+        mean = max(mean, 0.05)
+        var = max(sd * sd, mean * 1.05)
+        for k in PROP_THRESHOLDS[stat]:
+            under = nb_cdf(k - 1, mean, var)
+            rows.append({"line": k - 0.5, "over": round(1 - under, 4), "under": round(under, 4)})
+        return rows
+    for k in PROP_THRESHOLDS[stat]:
+        o = p_over(mean, sd, k - 0.5)
+        rows.append({"line": k - 0.5, "over": round(o, 4), "under": round(1 - o, 4)})
+    return rows
+
+
 def prop_table(stat: str, mean: float, sd: float) -> list[dict]:
     rows = []
     if stat == "threes":

@@ -121,7 +121,7 @@ def build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx=None) -> d
                 mean, sd = M.prop_dist(stat, adj, f[stat]["sd"], f["stale_days"])
                 exp[stat] = round(mean, 1)
                 form[stat] = round(f[stat]["mean"], 1)
-                rows = _trim(M.prop_table(stat, mean, sd))
+                rows = M.prop_ladder(stat, mean, sd)          # the fixed marks: 10/15/20/25+ points etc.
                 if rows:
                     lines[stat] = rows
             props.append({"player": f["player"], "team": tname, "side": side,
