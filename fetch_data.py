@@ -88,7 +88,12 @@ def _fetch_url(url: str, retries: int = 4, backoff: float = 3.0) -> str:
 
     for attempt in range(retries):
         try:
-            req = Request(url, headers={"User-Agent": USER_AGENT})
+            # Ask for a fresh copy every time: a throwaway query string plus no-cache
+            # headers, so a cache between GitHub and the site can't hand back an
+            # older version of the CSV than the one the site is serving now.
+            fresh_url = url + ("&" if "?" in url else "?") + f"_={int(time.time())}"
+            req = Request(fresh_url, headers={"User-Agent": USER_AGENT,
+                                              "Cache-Control": "no-cache", "Pragma": "no-cache"})
             context = _UNVERIFIED_CONTEXT if use_unverified else None
             with urlopen(req, timeout=30, context=context) as resp:
                 raw = resp.read()
