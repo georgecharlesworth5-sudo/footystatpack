@@ -5,6 +5,9 @@ name: Update Today's Races
 # tab maps onto the race-profile ratings. No results, prices or tips.
 # Morning run: today's card. Evening run: tomorrow's card, so the next day's
 # races can be browsed the night before.
+# It also records finished races (with going, jockey, trainer, odds and result)
+# and rebuilds the race-profile ratings, which fold in those results whenever
+# Betfair's own history can't be downloaded.
 
 on:
   schedule:
@@ -27,7 +30,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -44,6 +47,12 @@ jobs:
         continue-on-error: true
         run: python racing_today.py --results
 
+      - name: Rebuild the racing ratings (Betfair history if reachable, plus Sporting Life results)
+        continue-on-error: true
+        run: |
+          python racing.py
+          python racing.py --region ire
+
       - name: Probe yesterday's results (diagnostic only)
         continue-on-error: true
         run: python racing_today.py --probe-results
@@ -52,7 +61,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add racing_today.js data/racing_probe.txt racing_results.js data/racing_results.json
+          git add racing_today.js data/racing_probe.txt racing_results.js data/racing_results.json data/racing_runners.csv \
+                  racing_data.js racing_data_ire.js data/racing_races.csv data/racing_races_ire.csv \
+                  data/racing_files_done.txt data/racing_files_done_ire.txt
           git diff --staged --quiet || git commit -m "Auto-update today's races $(date -u +'%Y-%m-%d %H:%M UTC')"
           for attempt in 1 2 3 4 5; do
             git pull --rebase origin main && git push && break

@@ -1,0 +1,50 @@
+name: Racing Backfill
+
+# One-off / occasional: goes back over past days on Sporting Life and records
+# every finished race with its going, class, jockeys, trainers, prices and
+# result. Run it by hand from the Actions tab and choose how many days.
+# Safe to run again: races already stored are skipped.
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'How many days back to cover'
+        default: '60'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: racing-today
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Record past results
+        run: python racing_today.py --results --backfill-days ${{ github.event.inputs.days }}
+      - name: Rebuild the racing ratings
+        continue-on-error: true
+        run: |
+          python racing.py
+          python racing.py --region ire
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add racing_results.js data/racing_results.json data/racing_runners.csv \
+                  racing_data.js racing_data_ire.js data/racing_races.csv data/racing_races_ire.csv \
+                  data/racing_files_done.txt data/racing_files_done_ire.txt
+          git diff --staged --quiet || git commit -m "Racing backfill $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && break
+            echo "Push attempt $attempt failed - retrying..."
+            sleep $((attempt * 5))
+          done
