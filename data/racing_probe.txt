@@ -1,11 +1,13 @@
-Probe for 2026-10-19, run 2026-10-20 00:21 UK
+Probe for 2026-10-19, run 2026-10-20 11:29 UK
 UK races found: 10; probing up to 3
 List-level keys on a race: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 
 === race 944194: 12:53 Pontefract Happy 80th Birthday William 'Bill' Carr Maiden Stakes (GBB Race)
 top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
-race_stage=WEIGHEDIN winning_time=None result=None
+race_stage=WEIGHEDIN going='Soft' class='4' winning_time=None result=None
+ride keys: bet_movements, betting, casualty, cloth_number, commentary, draw_number, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, medication, official_rating, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
+horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 886, 'external_reference': []}, 'name': 'P Mulrennan'} | trainer={'business_reference': {'id': 2792, 'external_reference': []}, 'name': 'P Neville', 'slug': 'p-neville/2792'}
   pos=1 status=RUNNER Longshanks Luke betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["12/1", "11/1", "10/1", "9/1"]}
   pos=2 status=RUNNER War Gaming betting={"favourite": {}, "current_odds": "7/2", "historical_odds": ["7/2", "10/3"]}
   pos=3 status=RUNNER Harmonising betting={"favourite": {}, "current_odds": "12/1", "historical_odds": ["12/1", "11/1"]}
@@ -16,7 +18,9 @@ race_stage=WEIGHEDIN winning_time=None result=None
 === race 944195: 13:23 Pontefract William Hill Price Boosts Every Day Nursery
 top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
-race_stage=WEIGHEDIN winning_time=None result=None
+race_stage=WEIGHEDIN going='Soft' class='5' winning_time=None result=None
+ride keys: bet_movements, betting, casualty, cloth_number, commentary, draw_number, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, medication, official_rating, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
+horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 2922, 'external_reference': []}, 'name': 'D Fentiman'} | trainer={'business_reference': {'id': 32366, 'external_reference': []}, 'name': 'Craig Lidster', 'slug': 'craig-lidster/32366'}
   pos=1 status=RUNNER Craven Force betting={"favourite": {}, "current_odds": "100/1", "historical_odds": ["80/1"]}
   pos=2 status=RUNNER Statten Island betting={"favourite": {}, "current_odds": "18/1", "historical_odds": ["12/1", "14/1", "16/1"]}
   pos=3 status=RUNNER Under Arrest betting={"favourite": {"betting_favourite": "j"}, "current_odds": "11/4", "historical_odds": ["3/1", "11/4", "3/1", "11/4", "3/1"]}
@@ -32,7 +36,9 @@ race_stage=WEIGHEDIN winning_time=None result=None
 === race 944202: 12:47 Bath SW Hire Amateur Jockeys' Handicap
 top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
-race_stage=WEIGHEDIN winning_time=None result=None
+race_stage=WEIGHEDIN going='Good to Soft (Good in places)' class='6' winning_time=None result=None
+ride keys: bet_movements, betting, casualty, cloth_number, commentary, draw_number, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, jockey_claim, medication, official_rating, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
+horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 29160, 'external_reference': []}, 'name': 'Miss Lily Jones'} | trainer={'business_reference': {'id': 139, 'external_reference': []}, 'name': 'N B King', 'slug': 'n-b-king/139'}
   pos=1 status=RUNNER La Trinite betting={"favourite": {}, "current_odds": "11/2", "historical_odds": ["5/1", "9/2", "5/1"]}
   pos=2 status=RUNNER Lilykoy betting={"favourite": {"betting_favourite": "f"}, "current_odds": "11/4", "historical_odds": ["9/4", "2/1", "9/4", "5/2", "11/4", "3/1"]}
   pos=3 status=RUNNER Flamingo Rose betting={"favourite": {}, "current_odds": "10/1", "historical_odds": ["12/1", "11/1", "12/1", "14/1", "12/1", "11/1"]}
