@@ -24,7 +24,6 @@ athlete_id,player,team_id,team
 4592857,Isaiah Crawford,10,Houston Rockets
 3202,Kevin Durant,10,Houston Rockets
 4433192,Tari Eason,10,Houston Rockets
-4709131,Sean Pedulla,10,Houston Rockets
 5105553,Julian Phillips,10,Houston Rockets
 4871144,Alperen Sengun,10,Houston Rockets
 4711272,Reed Sheppard,10,Houston Rockets
@@ -77,7 +76,6 @@ athlete_id,player,team_id,team
 4683774,Bronny James,13,Los Angeles Lakers
 4433599,Arthur Kaluma,13,Los Angeles Lakers
 4433136,Walker Kessler,13,Los Angeles Lakers
-4897943,Dalton Knecht,13,Los Angeles Lakers
 4592691,Jake LaRavia,13,Los Angeles Lakers
 3155535,Kevon Looney,13,Los Angeles Lakers
 4278580,Sandro Mamukelashvili,13,Los Angeles Lakers
@@ -117,7 +115,6 @@ athlete_id,player,team_id,team
 3134907,Kyle Kuzma,15,Milwaukee Bucks
 2991043,Caris LeVert,15,Milwaukee Bucks
 5214989,Bogoljub Markovic,15,Milwaukee Bucks
-4397140,Kevin Porter Jr.,15,Milwaukee Bucks
 4591725,Ryan Rollins,15,Milwaukee Bucks
 4397114,Cormac Ryan,15,Milwaukee Bucks
 4277922,Jericho Sims,15,Milwaukee Bucks
@@ -228,7 +225,6 @@ athlete_id,player,team_id,team
 4432446,Jabari Walker,20,Philadelphia 76ers
 3136193,Devin Booker,21,Phoenix Suns
 4280245,Jamaree Bouyea,21,Phoenix Suns
-4591259,Koby Brea,21,Phoenix Suns
 4066383,Miles Bridges,21,Phoenix Suns
 3155526,Dillon Brooks,21,Phoenix Suns
 4888725,Ryan Dunn,21,Phoenix Suns
@@ -236,13 +232,13 @@ athlete_id,player,team_id,team
 4278585,Collin Gillespie,21,Phoenix Suns
 4278402,Jordan Goodwin,21,Phoenix Suns
 4437244,Jalen Green,21,Phoenix Suns
-4702602,CJ Huntley,21,Phoenix Suns
 4601023,Oso Ighodaro,21,Phoenix Suns
 3913174,Luke Kennard,21,Phoenix Suns
 5203685,Khaman Maluach,21,Phoenix Suns
 5041953,Koa Peat,21,Phoenix Suns
 4066268,Duop Reath,21,Phoenix Suns
 4592714,Pat Spencer,21,Phoenix Suns
+4431695,Drew Timme,21,Phoenix Suns
 4701232,Mark Williams,21,Phoenix Suns
 4683021,Deni Avdija,22,Portland Trail Blazers
 4431736,Toumani Camara,22,Portland Trail Blazers
@@ -266,7 +262,6 @@ athlete_id,player,team_id,team
 4395650,Leaky Black,23,Sacramento Kings
 4433174,Dylan Cardwell,23,Sacramento Kings
 4702384,Nique Clifford,23,Sacramento Kings
-4397654,Adam Flagler,23,Sacramento Kings
 4065732,De'Andre Hunter,23,Sacramento Kings
 4917149,Alex Karaban,23,Sacramento Kings
 3064440,Zach LaVine,23,Sacramento Kings
@@ -365,7 +360,6 @@ athlete_id,player,team_id,team
 4397784,Malachi Smith,28,Toronto Raptors
 4684272,Ja'Kobe Walter,28,Toronto Raptors
 5041935,Cameron Boozer,29,Memphis Grizzlies
-4896372,Walter Clayton Jr.,29,Memphis Grizzlies
 5105817,Carson Cooper,29,Memphis Grizzlies
 4903027,Cedric Coward,29,Memphis Grizzlies
 4600663,Zach Edey,29,Memphis Grizzlies
@@ -376,7 +370,6 @@ athlete_id,player,team_id,team
 5231919,Karim Lopez,29,Memphis Grizzlies
 4683934,Jahmai Mashack,29,Memphis Grizzlies
 4594326,Kris Murray,29,Memphis Grizzlies
-4432185,Micah Peavy,29,Memphis Grizzlies
 4431785,Scotty Pippen Jr.,29,Memphis Grizzlies
 4593016,Quinten Post,29,Memphis Grizzlies
 4595400,Olivier-Maxence Prosper,29,Memphis Grizzlies
@@ -433,7 +426,6 @@ athlete_id,player,team_id,team
 2595516,Norman Powell,4,Chicago Bulls
 4898010,Jaylin Sellers,4,Chicago Bulls
 4397189,Jalen Smith,4,Chicago Bulls
-4432117,Isaiah Stevens,4,Chicago Bulls
 4848625,Dailyn Swain,4,Chicago Bulls
 4431687,Patrick Williams,4,Chicago Bulls
 5095151,Caleb Wilson,4,Chicago Bulls
@@ -468,7 +460,6 @@ athlete_id,player,team_id,team
 4683688,Dereck Lively II,6,Dallas Mavericks
 4278594,Naji Marshall,6,Dallas Mavericks
 3138160,Caleb Martin,6,Dallas Mavericks
-2531367,Dwight Powell,6,Dallas Mavericks
 5211175,Zaccharie Risacher,6,Dallas Mavericks
 4432107,Marcus Sasser,6,Dallas Mavericks
 4278078,P.J. Washington,6,Dallas Mavericks
