@@ -1110,13 +1110,7 @@
       if (stale) stale.remove();
     });
 
-    // Today (tap again, or when not on Today, opens the sport filter)
-    barButton(`Today${todayFilter === "all" ? "" : " &middot; " + todayLabel()}`, activeLeague === TODAY, () => {
-      const wasActive = activeLeague === TODAY;
-      activeLeague = TODAY; footballMenuOpen = false;
-      todayMenuOpen = wasActive ? !todayMenuOpen : true;
-      render();
-    });
+    barButton("Today", activeLeague === TODAY, () => { todayFilter = "all"; go(TODAY); });
 
     // Sports menu: football leagues, EFL Cup, Cash Builder, NFL, NBA, Racing
     barButton(`${sportsLabel()} <span class="chev-dd">${footballMenuOpen ? "▴" : "▾"}</span>`, isSportView(activeLeague), () => {
@@ -1125,27 +1119,14 @@
       buildTabs();
     });
 
-    barButton("Slip" + (slip.items.length ? ` <span class="count">${slip.items.length}</span>` : ""), activeLeague === SLIP, () => go(SLIP));
+    // Track Record and Odds & Calibration sit under Best Bets.
+    barButton("Best Bets", activeLeague === BEST_BETS || activeLeague === TRACK_RECORD || activeLeague === MODEL_CHECK, () => go(BEST_BETS));
+
+    barButton("Bet Slip" + (slip.items.length ? ` <span class="count">${slip.items.length}</span>` : ""), activeLeague === SLIP, () => go(SLIP));
 
     const pending = bank ? bank.bets.filter(b => b.status === "pending").length : 0;
     barButton("Bankroll" + (pending ? ` <span class="count">${pending}</span>` : ""), activeLeague === BANKROLL, () => go(BANKROLL));
 
-    // Best Bets is last; Track Record and Odds & Calibration sit under it.
-    barButton("Best Bets", activeLeague === BEST_BETS || activeLeague === TRACK_RECORD || activeLeague === MODEL_CHECK, () => go(BEST_BETS));
-
-    if (todayMenuOpen) {
-      const all = todayItems();
-      const menu = document.createElement("div");
-      menu.id = "today-dropdown-menu";
-      menu.className = "football-dropdown";
-      todaySports().forEach(sp => {
-        const n = sp.key === "all" ? all.length : all.filter(fx => fx._kind === sp.key).length;
-        menuItem(menu, sp.label + ` <span class="count">${n}</span>`, todayFilter === sp.key, () => {
-          todayFilter = sp.key; todayMenuOpen = false; activeLeague = TODAY; render();
-        });
-      });
-      openMenuAbove(menu);
-    }
 
     if (footballMenuOpen) {
       const menu = document.createElement("div");
