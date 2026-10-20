@@ -15,7 +15,7 @@ on:
     # the clocks are on British Summer Time (to 25 Oct 2026); after the clocks
     # go back it becomes 08:05 / 20:05 UK time. Change the hours then if you
     # want 9am / 9pm exactly (use 9 and 21).
-        - cron: '5 8 * * *'
+    - cron: '5 8 * * *'
     - cron: '5 20 * * *'
   workflow_dispatch:
 
