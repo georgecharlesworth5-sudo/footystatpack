@@ -28587,3 +28587,71 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401859967,2026-06-13,2026,3,5037871,Dylan Harper,24,San Antonio Spurs,31.0,25,5,4,2
 401859967,2026-06-13,2026,3,5061568,Carter Bryant,24,San Antonio Spurs,6.0,0,2,0,0
 401859967,2026-06-13,2026,3,5104157,Victor Wembanyama,24,San Antonio Spurs,38.0,19,14,2,1
+401909088,2026-10-20,2027,2,4251,Paul George,2,Boston Celtics,31.0,38,5,3,7
+401909088,2026-10-20,2027,2,2596112,Javonte Green,8,Detroit Pistons,18.0,19,4,0,5
+401909088,2026-10-20,2027,2,3078576,Derrick White,2,Boston Celtics,36.0,17,1,8,3
+401909088,2026-10-20,2027,2,3157465,Duncan Robinson,8,Detroit Pistons,28.0,21,2,2,5
+401909088,2026-10-20,2027,2,3908845,John Collins,8,Detroit Pistons,25.0,6,5,1,0
+401909088,2026-10-20,2027,2,4065648,Jayson Tatum,2,Boston Celtics,38.0,13,4,11,0
+401909088,2026-10-20,2027,2,4065804,Sam Hauser,2,Boston Celtics,18.0,11,4,1,3
+401909088,2026-10-20,2027,2,4066354,Payton Pritchard,2,Boston Celtics,28.0,17,4,1,2
+401909088,2026-10-20,2027,2,4066372,Kevin Huerter,8,Detroit Pistons,18.0,3,3,2,1
+401909088,2026-10-20,2027,2,4277951,Luka Garza,2,Boston Celtics,8.0,2,2,0,0
+401909088,2026-10-20,2027,2,4278562,Paul Reed,8,Detroit Pistons,17.0,6,6,2,0
+401909088,2026-10-20,2027,2,4351852,Mitchell Robinson,2,Boston Celtics,18.0,4,3,1,0
+401909088,2026-10-20,2027,2,4395702,Isaiah Joe,8,Detroit Pistons,19.0,8,2,2,2
+401909088,2026-10-20,2027,2,4397424,Neemias Queta,2,Boston Celtics,22.0,3,4,2,0
+401909088,2026-10-20,2027,2,4432166,Cade Cunningham,8,Detroit Pistons,35.0,22,4,8,1
+401909088,2026-10-20,2027,2,4433621,Jalen Duren,8,Detroit Pistons,28.0,22,9,1,0
+401909088,2026-10-20,2027,2,4593841,Baylor Scheierman,2,Boston Celtics,18.0,8,3,0,2
+401909088,2026-10-20,2027,2,4683689,Jordan Walsh,2,Boston Celtics,13.0,0,6,1,0
+401909088,2026-10-20,2027,2,4683771,Ronald Holland II,8,Detroit Pistons,3.0,0,1,1,0
+401909088,2026-10-20,2027,2,4684742,Ausar Thompson,8,Detroit Pistons,33.0,11,11,5,0
+401909088,2026-10-20,2027,2,5107199,Daniss Jenkins,8,Detroit Pistons,15.0,3,2,3,1
+401909088,2026-10-20,2027,2,5175647,Hugo Gonzalez,2,Boston Celtics,10.0,0,3,0,0
+401909089,2026-10-20,2027,2,1966,LeBron James,20,Philadelphia 76ers,34.0,14,9,7,0
+401909089,2026-10-20,2027,2,6585,Andre Drummond,18,New York Knicks,24.0,12,14,4,0
+401909089,2026-10-20,2027,2,2528426,Jordan Clarkson,18,New York Knicks,8.0,4,1,1,0
+401909089,2026-10-20,2027,2,2581018,Kentavious Caldwell-Pope,20,Philadelphia 76ers,26.0,10,4,1,2
+401909089,2026-10-20,2027,2,3059318,Joel Embiid,20,Philadelphia 76ers,33.0,13,11,6,2
+401909089,2026-10-20,2027,2,3062679,Josh Hart,18,New York Knicks,30.0,14,7,3,2
+401909089,2026-10-20,2027,2,3136195,Karl-Anthony Towns,18,New York Knicks,24.0,19,12,1,3
+401909089,2026-10-20,2027,2,3147657,Mikal Bridges,18,New York Knicks,33.0,4,3,1,0
+401909089,2026-10-20,2027,2,3914044,Landry Shamet,18,New York Knicks,25.0,5,2,4,1
+401909089,2026-10-20,2027,2,3917376,Jaylen Brown,20,Philadelphia 76ers,35.0,19,8,6,2
+401909089,2026-10-20,2027,2,3934672,Jalen Brunson,18,New York Knicks,34.0,21,5,3,1
+401909089,2026-10-20,2027,2,3934719,OG Anunoby,18,New York Knicks,32.0,10,5,0,1
+401909089,2026-10-20,2027,2,4277869,Jose Alvarado,18,New York Knicks,16.0,8,3,3,2
+401909089,2026-10-20,2027,2,4351851,Anfernee Simons,20,Philadelphia 76ers,25.0,13,2,0,3
+401909089,2026-10-20,2027,2,4431678,Tyrese Maxey,20,Philadelphia 76ers,40.0,28,4,5,2
+401909089,2026-10-20,2027,2,4431823,Miles McBride,18,New York Knicks,14.0,3,1,1,1
+401909089,2026-10-20,2027,2,4432446,Jabari Walker,20,Philadelphia 76ers,3.0,0,0,1,0
+401909089,2026-10-20,2027,2,5105637,Adem Bona,20,Philadelphia 76ers,10.0,0,3,1,0
+401909089,2026-10-20,2027,2,5124612,VJ Edgecombe,20,Philadelphia 76ers,35.0,9,4,1,0
+401909090,2026-10-20,2027,2,6578,Harrison Barnes,24,San Antonio Spurs,9.0,3,0,0,1
+401909090,2026-10-20,2027,2,2991350,Alex Caruso,25,Oklahoma City Thunder,25.0,9,6,1,2
+401909090,2026-10-20,2027,2,3064560,Luke Kornet,24,San Antonio Spurs,13.0,4,1,0,0
+401909090,2026-10-20,2027,2,3133626,Kenrich Williams,25,Oklahoma City Thunder,7.0,3,2,0,1
+401909090,2026-10-20,2027,2,4066259,De'Aaron Fox,24,San Antonio Spurs,32.0,14,7,7,0
+401909090,2026-10-20,2027,2,4222252,Isaiah Hartenstein,25,Oklahoma City Thunder,17.0,4,3,3,0
+401909090,2026-10-20,2027,2,4278073,Shai Gilgeous-Alexander,25,Oklahoma City Thunder,36.0,32,6,4,3
+401909090,2026-10-20,2027,2,4395630,Devin Vassell,24,San Antonio Spurs,31.0,7,3,1,1
+401909090,2026-10-20,2027,2,4395723,Keldon Johnson,24,San Antonio Spurs,20.0,10,4,1,1
+401909090,2026-10-20,2027,2,4432823,Jaylin Williams,25,Oklahoma City Thunder,17.0,5,4,1,1
+401909090,2026-10-20,2027,2,4433255,Chet Holmgren,25,Oklahoma City Thunder,31.0,14,7,2,0
+401909090,2026-10-20,2027,2,4592479,Julian Champagnie,24,San Antonio Spurs,30.0,8,3,1,2
+401909090,2026-10-20,2027,2,4593803,Jalen Williams,25,Oklahoma City Thunder,30.0,12,7,2,1
+401909090,2026-10-20,2027,2,4683692,Cason Wallace,25,Oklahoma City Thunder,19.0,6,3,2,0
+401909090,2026-10-20,2027,2,4683778,Jared McCain,25,Oklahoma City Thunder,22.0,20,2,2,6
+401909090,2026-10-20,2027,2,4684208,Brooks Barnhizer,25,Oklahoma City Thunder,1.0,0,0,0,0
+401909090,2026-10-20,2027,2,4713010,David Jones Garcia,24,San Antonio Spurs,1.0,2,0,0,0
+401909090,2026-10-20,2027,2,4845367,Stephon Castle,24,San Antonio Spurs,28.0,24,7,1,5
+401909090,2026-10-20,2027,2,4900671,Ajay Mitchell,25,Oklahoma City Thunder,23.0,4,5,6,0
+401909090,2026-10-20,2027,2,5037871,Dylan Harper,24,San Antonio Spurs,32.0,18,7,5,0
+401909090,2026-10-20,2027,2,5061568,Carter Bryant,24,San Antonio Spurs,6.0,0,0,1,0
+401909090,2026-10-20,2027,2,5104157,Victor Wembanyama,24,San Antonio Spurs,34.0,12,13,3,0
+401909090,2026-10-20,2027,2,5105337,Maliq Brown,24,San Antonio Spurs,1.0,0,0,1,0
+401909090,2026-10-20,2027,2,5105809,Tarris Reed Jr.,24,San Antonio Spurs,1.0,0,0,0,0
+401909090,2026-10-20,2027,2,5107968,Ja'Kobi Gillespie,24,San Antonio Spurs,1.0,2,0,0,0
+401909090,2026-10-20,2027,2,5174983,Aday Mara,25,Oklahoma City Thunder,12.0,7,2,1,0
+401909090,2026-10-20,2027,2,5241364,Bennett Stirtz,25,Oklahoma City Thunder,1.0,0,0,0,0
