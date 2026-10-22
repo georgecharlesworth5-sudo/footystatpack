@@ -177,6 +177,10 @@ def compute_standings(team_games_rows: list[dict]) -> dict[str, dict]:
     return standings
 
 
+# A season leader must have appeared in at least one of his team's last
+# this-many games (see season_stat_leaders_by_team).
+LEADER_RECENT_GAMES = 2
+
 STAT_LEADER_CATEGORIES = [
     ("passing", "passing_yards"),
     ("rushing", "rushing_yards"),
@@ -240,15 +244,36 @@ def season_stat_leaders_by_team(player_stats_rows: list[dict]) -> dict[str, dict
     this_season_rows = [r for r in player_stats_rows if season_num(r) == current_season]
 
     by_team_player: dict[tuple[str, str], list[dict]] = {}
+    team_weeks: dict[str, set[int]] = {}
     for row in this_season_rows:
         key = (row.get("team"), row.get("player"))
         by_team_player.setdefault(key, []).append(row)
+        try:
+            team_weeks.setdefault(row.get("team"), set()).add(int(row["week"]))
+        except (ValueError, KeyError, TypeError):
+            pass
+
+    # A leader must still be playing: if he has no row in ANY of his team's
+    # last LEADER_RECENT_GAMES games (injured / out), skip him and let the
+    # next-best active player lead instead. Players who qualify keep their
+    # season average as-is - only absent players are passed over.
+    recent_weeks = {
+        team: set(sorted(weeks)[-LEADER_RECENT_GAMES:]) for team, weeks in team_weeks.items()
+    }
 
     # One running best-so-far per (team, category) as we scan every
     # player once, rather than grouping by team first then sorting -
     # simpler and just as cheap at this data size (a few thousand rows).
     best_by_team: dict[str, dict] = {}
     for (team, player), rows in by_team_player.items():
+        played_weeks = set()
+        for r in rows:
+            try:
+                played_weeks.add(int(r["week"]))
+            except (ValueError, KeyError, TypeError):
+                pass
+        if recent_weeks.get(team) and not (played_weeks & recent_weeks[team]):
+            continue                    # hasn't played in his team's recent games
         games = len(rows)
         for category, field in STAT_LEADER_CATEGORIES:
             total = sum(float(r.get(field) or 0) for r in rows)
