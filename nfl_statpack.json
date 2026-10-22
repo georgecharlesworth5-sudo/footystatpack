@@ -2754,9 +2754,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -2766,9 +2766,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -3095,9 +3095,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -3436,20 +3436,20 @@
       "market_blended": true,
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         },
         "away": {
@@ -3777,20 +3777,20 @@
       "market_blended": true,
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         },
         "away": {
@@ -4146,9 +4146,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         }
       },
@@ -4482,15 +4482,15 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -4812,11 +4812,6 @@
       "market_blended": true,
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -4825,6 +4820,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         },
@@ -5165,9 +5165,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -5177,9 +5177,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -5615,8 +5615,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.376,
-            "away_win": 0.624
+            "home_win": 0.373,
+            "away_win": 0.627
           },
           "total_over_under": [
             {
@@ -5986,8 +5986,8 @@
             },
             {
               "line": 53.5,
-              "over": 0.5,
-              "under": 0.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 53.1
             }
           ],
@@ -6217,11 +6217,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -6230,6 +6225,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         }
@@ -6650,8 +6650,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.584,
-            "away_win": 0.416
+            "home_win": 0.579,
+            "away_win": 0.421
           },
           "total_over_under": [
             {
@@ -6894,9 +6894,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -6906,9 +6906,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -7234,15 +7234,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         },
         "away": {
@@ -7576,11 +7576,6 @@
       "market_blended": true,
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -7589,6 +7584,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         },
@@ -7923,6 +7923,11 @@
       "market_blended": true,
       "season_stat_leaders": {
         "home": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -7932,28 +7937,23 @@
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
             "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
-            "games": 6
           }
         },
         "away": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         }
       },
@@ -8379,8 +8379,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.698,
-            "away_win": 0.302
+            "home_win": 0.699,
+            "away_win": 0.301
           },
           "total_over_under": [
             {
@@ -8981,11 +8981,6 @@
           }
         },
         "away": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -8994,6 +8989,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         }
@@ -9664,9 +9664,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -10357,26 +10357,26 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         },
         "away": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         }
       },
@@ -10710,11 +10710,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -10724,6 +10719,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         }
       },
@@ -11058,9 +11058,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -11382,9 +11382,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -11399,9 +11399,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -11750,15 +11750,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         }
       },
@@ -12081,9 +12081,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -12098,9 +12098,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -12415,20 +12415,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         },
         "away": {
@@ -12755,20 +12755,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         },
         "away": {
@@ -13776,9 +13776,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -13798,9 +13798,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -14116,9 +14116,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -14461,9 +14461,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -14800,27 +14800,27 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         },
         "away": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -15475,11 +15475,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -15489,6 +15484,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         },
         "away": {
@@ -16156,9 +16156,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -16172,11 +16172,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -16185,6 +16180,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         }
@@ -16501,9 +16501,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -16841,9 +16841,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -16863,9 +16863,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         }
       },
@@ -17175,11 +17175,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -17189,9 +17184,19 @@
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
             "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
+            "games": 4
           }
         },
         "away": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -17200,11 +17205,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         }
@@ -17515,15 +17515,15 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -17873,9 +17873,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -18195,27 +18195,27 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         },
         "away": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -18875,11 +18875,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -18889,14 +18884,14 @@
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
             "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
+            "games": 6
           }
         },
         "away": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -18905,6 +18900,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         }
@@ -19233,9 +19233,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -19561,9 +19561,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -19901,9 +19901,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -19912,6 +19912,11 @@
           }
         },
         "away": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -19920,11 +19925,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         }
@@ -20938,9 +20938,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -21935,28 +21935,23 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         },
         "away": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -21966,6 +21961,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         }
       },
@@ -22615,6 +22615,11 @@
       },
       "season_stat_leaders": {
         "home": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -22624,18 +22629,13 @@
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
             "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
-            "games": 6
           }
         },
         "away": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -22972,20 +22972,20 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         }
       },
@@ -23301,9 +23301,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -23318,9 +23318,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -24003,9 +24003,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         }
       },
@@ -24316,9 +24316,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -24655,15 +24655,15 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -24995,11 +24995,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -25009,6 +25004,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         },
         "away": {
@@ -25018,9 +25018,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -25680,15 +25680,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         },
         "away": {
@@ -26032,11 +26032,6 @@
           }
         },
         "away": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -26045,6 +26040,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         }
@@ -26712,11 +26712,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -26725,6 +26720,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         }
@@ -27058,9 +27058,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -27397,15 +27397,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         }
       },
@@ -27715,6 +27715,11 @@
       },
       "season_stat_leaders": {
         "home": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -27724,18 +27729,13 @@
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
             "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
-            "games": 6
           }
         },
         "away": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -28418,9 +28418,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -29092,20 +29092,20 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         }
       },
@@ -29432,15 +29432,15 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -29756,9 +29756,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -29778,9 +29778,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -30095,11 +30095,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -30109,23 +30104,28 @@
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
             "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
+            "games": 4
           }
         },
         "away": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         }
       },
@@ -31138,9 +31138,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -31455,11 +31455,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -31469,13 +31464,18 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         },
         "away": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -31806,9 +31806,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         },
         "away": {
@@ -32153,9 +32153,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -32475,20 +32475,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         },
         "away": {
@@ -32821,9 +32821,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -33501,9 +33501,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -33512,11 +33512,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -33525,6 +33520,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         }
@@ -33835,15 +33835,15 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -34186,17 +34186,12 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         },
         "away": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -34206,6 +34201,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         }
       },
@@ -34877,15 +34877,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         }
       },
@@ -35213,9 +35213,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -35535,11 +35535,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -35548,6 +35543,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         },
@@ -35876,9 +35876,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -35892,6 +35892,11 @@
           }
         },
         "away": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -35900,11 +35905,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         }
@@ -36561,9 +36561,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -36896,9 +36896,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -36912,11 +36912,6 @@
           }
         },
         "away": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -36925,6 +36920,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         }
@@ -37235,20 +37235,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         },
         "away": {
@@ -37263,9 +37263,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         }
       },
@@ -37598,9 +37598,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -37932,20 +37932,20 @@
           }
         },
         "away": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         }
       },
@@ -38596,9 +38596,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -38618,9 +38618,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -38941,9 +38941,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -39280,15 +39280,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         },
         "away": {
@@ -39972,11 +39972,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -39986,6 +39981,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         }
       },
@@ -40313,9 +40313,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -40641,9 +40641,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -40652,15 +40652,15 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -41315,11 +41315,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -41329,9 +41324,19 @@
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
             "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
+            "games": 6
           }
         },
         "away": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -41340,11 +41345,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         }
@@ -41995,11 +41995,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -42009,6 +42004,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         },
         "away": {
@@ -42340,15 +42340,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         },
         "away": {
@@ -42358,9 +42358,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -42675,6 +42675,11 @@
       },
       "season_stat_leaders": {
         "home": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -42683,11 +42688,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         },
@@ -42698,9 +42698,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -43355,11 +43355,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -43369,13 +43364,18 @@
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
             "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
+            "games": 6
           }
         },
         "away": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -44035,15 +44035,15 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -44392,20 +44392,20 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         }
       },
@@ -44726,9 +44726,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         },
         "away": {
@@ -44738,9 +44738,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -45412,20 +45412,20 @@
           }
         },
         "away": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         }
       },
@@ -45758,9 +45758,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -46755,11 +46755,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -46768,6 +46763,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         },
@@ -47096,9 +47096,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -47113,9 +47113,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -47440,15 +47440,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         },
         "away": {
@@ -47781,9 +47781,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -47792,11 +47792,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -47805,6 +47800,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         }
@@ -48132,6 +48132,11 @@
           }
         },
         "away": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -48140,11 +48145,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         }
@@ -48461,9 +48461,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -48795,20 +48795,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         },
         "away": {
@@ -48823,9 +48823,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         }
       },
@@ -49135,20 +49135,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         },
         "away": {
@@ -49816,9 +49816,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -49832,11 +49832,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -49846,6 +49841,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         }
       },
@@ -50155,11 +50155,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -50168,6 +50163,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         },
@@ -50501,9 +50501,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -50841,9 +50841,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -50853,9 +50853,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -51856,9 +51856,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -52552,15 +52552,15 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -52892,20 +52892,20 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         }
       },
@@ -53215,20 +53215,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         },
         "away": {
@@ -53238,9 +53238,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -53578,9 +53578,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -54252,15 +54252,15 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -54915,11 +54915,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -54929,13 +54924,18 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         },
         "away": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -55256,9 +55256,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -55272,6 +55272,11 @@
           }
         },
         "away": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -55280,11 +55285,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         }
@@ -55596,9 +55596,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -55941,9 +55941,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -55952,11 +55952,6 @@
           }
         },
         "away": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -55965,6 +55960,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         }
@@ -56286,9 +56286,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         },
         "away": {
@@ -57301,9 +57301,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -57657,15 +57657,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         }
       },
@@ -57975,11 +57975,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -57988,6 +57983,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         },
@@ -58655,20 +58655,20 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Zay Flowers",
-            "avg_yards": 94.2,
-            "games": 5
-          },
           "rushing": {
             "player": "Derrick Henry",
             "avg_yards": 89.0,
             "games": 6
           },
+          "receiving": {
+            "player": "Zay Flowers",
+            "avg_yards": 94.2,
+            "games": 5
+          },
           "passing": {
-            "player": "Lamar Jackson",
-            "avg_yards": 241.8,
-            "games": 4
+            "player": "Tyler Huntley",
+            "avg_yards": 143.0,
+            "games": 3
           }
         },
         "away": {
@@ -58995,6 +58995,11 @@
       },
       "season_stat_leaders": {
         "home": {
+          "passing": {
+            "player": "Josh Allen",
+            "avg_yards": 250.7,
+            "games": 6
+          },
           "rushing": {
             "player": "James Cook",
             "avg_yards": 104.5,
@@ -59003,11 +59008,6 @@
           "receiving": {
             "player": "Dalton Kincaid",
             "avg_yards": 52.5,
-            "games": 6
-          },
-          "passing": {
-            "player": "Josh Allen",
-            "avg_yards": 250.7,
             "games": 6
           }
         },
@@ -59018,9 +59018,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Breece Hall",
-            "avg_yards": 54.3,
-            "games": 3
+            "player": "Braelon Allen",
+            "avg_yards": 52.3,
+            "games": 6
           },
           "receiving": {
             "player": "Garrett Wilson",
@@ -59352,20 +59352,20 @@
           }
         },
         "away": {
-          "passing": {
-            "player": "Michael Penix Jr.",
-            "avg_yards": 236.0,
-            "games": 4
+          "receiving": {
+            "player": "Drake London",
+            "avg_yards": 91.7,
+            "games": 6
           },
           "rushing": {
             "player": "Bijan Robinson",
             "avg_yards": 106.8,
             "games": 6
           },
-          "receiving": {
-            "player": "Drake London",
-            "avg_yards": 91.7,
-            "games": 6
+          "passing": {
+            "player": "Michael Penix Jr.",
+            "avg_yards": 236.0,
+            "games": 4
           }
         }
       },
@@ -60032,11 +60032,6 @@
           }
         },
         "away": {
-          "receiving": {
-            "player": "Tre Harris",
-            "avg_yards": 45.0,
-            "games": 5
-          },
           "passing": {
             "player": "Justin Herbert",
             "avg_yards": 190.2,
@@ -60046,6 +60041,11 @@
             "player": "Omarion Hampton",
             "avg_yards": 48.2,
             "games": 6
+          },
+          "receiving": {
+            "player": "Tre Harris",
+            "avg_yards": 45.0,
+            "games": 5
           }
         }
       },
@@ -60355,11 +60355,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Christian Watson",
-            "avg_yards": 89.7,
-            "games": 6
-          },
           "passing": {
             "player": "Jordan Love",
             "avg_yards": 280.7,
@@ -60368,6 +60363,11 @@
           "rushing": {
             "player": "MarShawn Lloyd",
             "avg_yards": 20.3,
+            "games": 6
+          },
+          "receiving": {
+            "player": "Christian Watson",
+            "avg_yards": 89.7,
             "games": 6
           }
         },
@@ -61376,9 +61376,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Rashee Rice",
-            "avg_yards": 63.3,
-            "games": 3
+            "player": "Travis Kelce",
+            "avg_yards": 59.8,
+            "games": 5
           },
           "passing": {
             "player": "Patrick Mahomes",
@@ -61738,9 +61738,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Drew Lock",
-            "avg_yards": 211.0,
-            "games": 2
+            "player": "Sam Darnold",
+            "avg_yards": 206.6,
+            "games": 5
           },
           "rushing": {
             "player": "Emanuel Wilson",
@@ -62055,11 +62055,6 @@
       },
       "season_stat_leaders": {
         "home": {
-          "passing": {
-            "player": "Kyler Murray",
-            "avg_yards": 165.5,
-            "games": 4
-          },
           "rushing": {
             "player": "Aaron Jones",
             "avg_yards": 82.0,
@@ -62068,6 +62063,11 @@
           "receiving": {
             "player": "Justin Jefferson",
             "avg_yards": 64.5,
+            "games": 4
+          },
+          "passing": {
+            "player": "Kyler Murray",
+            "avg_yards": 165.5,
             "games": 4
           }
         },
@@ -62078,9 +62078,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Kyle Monangai",
-            "avg_yards": 81.0,
-            "games": 4
+            "player": "D'Andre Swift",
+            "avg_yards": 66.3,
+            "games": 6
           },
           "passing": {
             "player": "Caleb Williams",
@@ -62396,9 +62396,9 @@
       "season_stat_leaders": {
         "home": {
           "receiving": {
-            "player": "Mack Hollins",
-            "avg_yards": 52.2,
-            "games": 4
+            "player": "Romeo Doubs",
+            "avg_yards": 43.5,
+            "games": 6
           },
           "rushing": {
             "player": "Rhamondre Stevenson",
@@ -62413,9 +62413,9 @@
         },
         "away": {
           "receiving": {
-            "player": "Caleb Douglas",
-            "avg_yards": 56.5,
-            "games": 2
+            "player": "Malik Washington",
+            "avg_yards": 52.4,
+            "games": 5
           },
           "passing": {
             "player": "Malik Willis",
@@ -62741,9 +62741,9 @@
             "games": 6
           },
           "rushing": {
-            "player": "Travis Etienne",
-            "avg_yards": 42.7,
-            "games": 3
+            "player": "Kendre Miller",
+            "avg_yards": 30.6,
+            "games": 5
           },
           "passing": {
             "player": "Tyler Shough",
@@ -62763,9 +62763,9 @@
             "games": 6
           },
           "passing": {
-            "player": "Baker Mayfield",
-            "avg_yards": 205.0,
-            "games": 3
+            "player": "Jalon Daniels",
+            "avg_yards": 125.2,
+            "games": 4
           }
         }
       },
@@ -63075,15 +63075,15 @@
       },
       "season_stat_leaders": {
         "home": {
-          "receiving": {
-            "player": "Malik Nabers",
-            "avg_yards": 82.3,
-            "games": 6
-          },
           "rushing": {
             "player": "Cam Skattebo",
             "avg_yards": 58.8,
             "games": 5
+          },
+          "receiving": {
+            "player": "Malik Nabers",
+            "avg_yards": 82.3,
+            "games": 6
           },
           "passing": {
             "player": "Jameis Winston",
@@ -63097,15 +63097,15 @@
             "avg_yards": 77.5,
             "games": 4
           },
-          "rushing": {
-            "player": "Saquon Barkley",
-            "avg_yards": 45.5,
-            "games": 4
-          },
           "passing": {
             "player": "Tanner McKee",
             "avg_yards": 215.0,
             "games": 1
+          },
+          "rushing": {
+            "player": "Dameon Pierce",
+            "avg_yards": 24.5,
+            "games": 2
           }
         }
       },
