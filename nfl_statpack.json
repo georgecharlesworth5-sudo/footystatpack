@@ -2534,8 +2534,8 @@
             },
             {
               "line": 50.5,
-              "over": 0.511,
-              "under": 0.489,
+              "over": 0.517,
+              "under": 0.483,
               "expected": 46.3
             }
           ],
@@ -2857,8 +2857,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.42,
-            "away_win": 0.58
+            "home_win": 0.427,
+            "away_win": 0.573
           },
           "total_over_under": [
             {
@@ -3198,8 +3198,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.361,
-            "away_win": 0.639
+            "home_win": 0.378,
+            "away_win": 0.622
           },
           "total_over_under": [
             {
@@ -3221,9 +3221,9 @@
               "expected": 50.9
             },
             {
-              "line": 50.5,
-              "over": 0.489,
-              "under": 0.511,
+              "line": 49.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 50.9
             }
           ],
@@ -3545,8 +3545,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.562,
-            "away_win": 0.438
+            "home_win": 0.513,
+            "away_win": 0.487
           },
           "total_over_under": [
             {
@@ -3563,14 +3563,8 @@
             },
             {
               "line": 48.5,
-              "over": 0.525,
-              "under": 0.475,
-              "expected": 49.4
-            },
-            {
-              "line": 51.5,
-              "over": 0.483,
-              "under": 0.517,
+              "over": 0.512,
+              "under": 0.488,
               "expected": 49.4
             }
           ],
@@ -3892,8 +3886,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.608,
-            "away_win": 0.392
+            "home_win": 0.603,
+            "away_win": 0.397
           },
           "total_over_under": [
             {
@@ -4580,8 +4574,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.719,
-            "away_win": 0.281
+            "home_win": 0.715,
+            "away_win": 0.285
           },
           "total_over_under": [
             {
@@ -5274,14 +5268,14 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.447,
-            "away_win": 0.553
+            "home_win": 0.442,
+            "away_win": 0.558
           },
           "total_over_under": [
             {
               "line": 37.5,
-              "over": 0.489,
-              "under": 0.511,
+              "over": 0.483,
+              "under": 0.517,
               "expected": 35.6
             },
             {
@@ -6656,8 +6650,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.579,
-            "away_win": 0.421
+            "home_win": 0.584,
+            "away_win": 0.416
           },
           "total_over_under": [
             {
@@ -7691,8 +7685,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.568,
-            "away_win": 0.432
+            "home_win": 0.577,
+            "away_win": 0.423
           },
           "total_over_under": [
             {
@@ -7714,9 +7708,9 @@
               "expected": 54.1
             },
             {
-              "line": 52.5,
-              "over": 0.5,
-              "under": 0.5,
+              "line": 51.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 54.1
             }
           ],
@@ -65446,6 +65440,59 @@
       }
     }
   },
-  "best_bets": [],
-  "shadow_picks": []
+  "best_bets": [
+    {
+      "sport": "nfl",
+      "home_team": "Chicago Bears",
+      "away_team": "New England Patriots",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "23/10/2026",
+      "time": "01:15",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "New England Patriots",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.872,
+      "label": "New England Patriots - Over 199.5 Passing Yards",
+      "raw_confidence": 0.918
+    }
+  ],
+  "shadow_picks": [
+    {
+      "sport": "nfl",
+      "home_team": "Chicago Bears",
+      "away_team": "New England Patriots",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "23/10/2026",
+      "time": "01:15",
+      "metric": "passing_yards",
+      "scope": "home",
+      "team": "Chicago Bears",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.854,
+      "label": "Chicago Bears - Over 199.5 Passing Yards",
+      "raw_confidence": 0.9
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Chicago Bears",
+      "away_team": "New England Patriots",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "23/10/2026",
+      "time": "01:15",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "New England Patriots",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.851,
+      "label": "New England Patriots - Over 0.5 Passing TDs",
+      "raw_confidence": 0.909
+    }
+  ]
 }
