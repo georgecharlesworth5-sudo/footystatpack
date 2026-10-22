@@ -1762,6 +1762,7 @@
   let bankView = "all";                 // history filter: all / pending / settled
   let bankSettling = null;              // { id, outcome } while a result is being confirmed
   let bankDelArmed = null;
+  let bankBackupText = "";               // set when the clipboard is blocked: shown in a box to copy by hand
   let bankDraft = { sport: "Football", kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
   let bankMsg = "";
 
@@ -1978,6 +1979,7 @@
       <button class="slip-btn quiet" data-bank-reset>${bankDelArmed === "reset" ? "Tap again to reset everything" : "Reset bankroll"}</button></div>
       <div id="bank-restore-box" style="display:none"><textarea class="slip-name" id="bank-restore-text" rows="4" placeholder="Paste a backup here"></textarea>
         <div class="slip-actions"><button class="slip-btn primary" data-bank-restore>Restore</button></div></div>
+      ${bankBackupText ? `<textarea class="slip-name" id="bank-backup-text" rows="6" readonly></textarea><div class="slip-note">Your clipboard is blocked here, so the backup is shown above. Touch and hold in the box, choose Select all, then Copy.</div>` : ""}
       <div class="slip-note">Bets are stored in this browser on this device only. The backup is a block of text you can paste back in on another device.</div>`;
 
     mainEl.innerHTML = header + bankFormHtml(st) + statsTable + `<div class="tr-section-title">Your bets</div>` + toggle + list + tools;
@@ -2000,7 +2002,22 @@
     el.value = d.length > 2 || (d.length === 2 && !deleting) ? d.slice(0, 2) + ":" + d.slice(2) : d;
   }
 
+  // Copy the backup. (Was calling copyText, which only exists inside renderSlip, so the
+  // button did nothing.) If the browser blocks the clipboard, show the text to copy by hand.
+  async function bankCopy(text, btn) {
+    try {
+      await navigator.clipboard.writeText(text);
+      const o = btn.textContent; btn.textContent = "Copied"; setTimeout(() => { btn.textContent = o; }, 1500);
+    } catch (e) {
+      bankBackupText = text; renderBankroll();
+      const box = mainEl.querySelector("#bank-backup-text");
+      if (box) { box.focus(); box.select(); try { box.setSelectionRange(0, text.length); } catch (e2) {} box.scrollIntoView({ block: "center" }); }
+    }
+  }
+
   function bindBankroll() {
+    const bb = mainEl.querySelector("#bank-backup-text");
+    if (bb) bb.value = bankBackupText;
     mainEl.querySelectorAll("[data-bank-time]").forEach(el => el.addEventListener("input", e => bankTimeFormat(el, e)));
     mainEl.querySelectorAll("[data-bank-f]").forEach(el => {
       el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => bankReadDraftField(el));
@@ -2071,7 +2088,7 @@
       else bankDelArmed = id;
       renderBankroll();
     });
-    on("[data-bank-copy]", el => copyText(JSON.stringify(bank), el));
+    on("[data-bank-copy]", el => bankCopy(JSON.stringify(bank), el));
     on("[data-bank-restore-toggle]", () => { const box = mainEl.querySelector("#bank-restore-box"); box.style.display = box.style.display === "none" ? "block" : "none"; });
     on("[data-bank-restore]", () => {
       try {
