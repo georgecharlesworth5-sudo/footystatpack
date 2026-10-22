@@ -1,15 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909834,22/10/2026,00:00,2026-10-22 00:00,19,Orlando Magic,1,Atlanta Hawks,2
-401909835,22/10/2026,00:00,2026-10-22 00:00,27,Washington Wizards,15,Milwaukee Bucks,2
-401909091,22/10/2026,00:30,2026-10-22 00:30,14,Miami Heat,16,Minnesota Timberwolves,2
-401909836,22/10/2026,00:30,2026-10-22 00:30,17,Brooklyn Nets,30,Charlotte Hornets,2
-401909837,22/10/2026,00:30,2026-10-22 00:30,28,Toronto Raptors,4,Chicago Bulls,2
-401909838,22/10/2026,01:00,2026-10-22 01:00,29,Memphis Grizzlies,26,Utah Jazz,2
-401909839,22/10/2026,01:00,2026-10-22 01:00,3,New Orleans Pelicans,11,Indiana Pacers,2
-401909840,22/10/2026,01:30,2026-10-22 01:30,10,Houston Rockets,6,Dallas Mavericks,2
-401909092,22/10/2026,03:00,2026-10-22 03:00,13,Los Angeles Lakers,9,Golden State Warriors,2
-401909841,22/10/2026,03:00,2026-10-22 03:00,22,Portland Trail Blazers,21,Phoenix Suns,2
-401909842,22/10/2026,03:30,2026-10-22 03:30,12,LA Clippers,23,Sacramento Kings,2
 401909093,23/10/2026,00:00,2026-10-23 00:00,20,Philadelphia 76ers,5,Cleveland Cavaliers,2
 401909094,23/10/2026,02:30,2026-10-23 02:30,25,Oklahoma City Thunder,7,Denver Nuggets,2
 401909848,23/10/2026,21:00,2026-10-23 21:00,15,Milwaukee Bucks,4,Chicago Bulls,2
@@ -32,3 +21,10 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909859,25/10/2026,01:00,2026-10-25 01:00,7,Denver Nuggets,3,New Orleans Pelicans,2
 401909856,25/10/2026,01:30,2026-10-25 01:30,1,Atlanta Hawks,10,Houston Rockets,2
 401909860,25/10/2026,02:00,2026-10-25 02:00,21,Phoenix Suns,9,Golden State Warriors,2
+401909861,25/10/2026,21:00,2026-10-25 21:00,26,Utah Jazz,13,Los Angeles Lakers,2
+401909862,25/10/2026,22:00,2026-10-25 22:00,17,Brooklyn Nets,11,Indiana Pacers,2
+401909863,25/10/2026,23:00,2026-10-25 23:00,18,New York Knicks,19,Orlando Magic,2
+401909864,25/10/2026,23:00,2026-10-25 23:00,16,Minnesota Timberwolves,28,Toronto Raptors,2
+401909865,25/10/2026,23:00,2026-10-25 23:00,25,Oklahoma City Thunder,12,LA Clippers,2
+401909866,25/10/2026,23:30,2026-10-25 23:30,20,Philadelphia 76ers,8,Detroit Pistons,2
+401909867,26/10/2026,01:00,2026-10-26 01:00,23,Sacramento Kings,29,Memphis Grizzlies,2
