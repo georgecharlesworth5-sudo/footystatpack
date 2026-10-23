@@ -28909,3 +28909,48 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401909842,2026-10-21,2027,2,5107897,Jonathan Mogbo,23,Sacramento Kings,8.0,0,0,0,0
 401909842,2026-10-21,2027,2,5142620,Darius Acuff Jr.,23,Sacramento Kings,35.0,12,3,3,0
 401909842,2026-10-21,2027,2,5254165,Keaton Wagler,12,LA Clippers,29.0,15,5,5,3
+401909093,2026-10-22,2027,2,1966,LeBron James,20,Philadelphia 76ers,33.0,17,10,5,1
+401909093,2026-10-22,2027,2,3992,James Harden,5,Cleveland Cavaliers,33.0,16,3,5,3
+401909093,2026-10-22,2027,2,2581018,Kentavious Caldwell-Pope,20,Philadelphia 76ers,25.0,3,3,2,1
+401909093,2026-10-22,2027,2,2995706,Mario Hezonja,5,Cleveland Cavaliers,19.0,10,3,2,0
+401909093,2026-10-22,2027,2,3059318,Joel Embiid,20,Philadelphia 76ers,34.0,24,7,1,1
+401909093,2026-10-22,2027,2,3908809,Donovan Mitchell,5,Cleveland Cavaliers,35.0,32,10,3,2
+401909093,2026-10-22,2027,2,3917376,Jaylen Brown,20,Philadelphia 76ers,38.0,21,8,4,1
+401909093,2026-10-22,2027,2,4066328,Jarrett Allen,5,Cleveland Cavaliers,28.0,14,7,0,0
+401909093,2026-10-22,2027,2,4066757,Sam Merrill,5,Cleveland Cavaliers,24.0,5,5,2,1
+401909093,2026-10-22,2027,2,4351851,Anfernee Simons,20,Philadelphia 76ers,17.0,2,3,0,0
+401909093,2026-10-22,2027,2,4431678,Tyrese Maxey,20,Philadelphia 76ers,42.0,32,3,6,2
+401909093,2026-10-22,2027,2,4432158,Evan Mobley,5,Cleveland Cavaliers,34.0,18,8,2,1
+401909093,2026-10-22,2027,2,4432446,Jabari Walker,20,Philadelphia 76ers,4.0,2,1,0,0
+401909093,2026-10-22,2027,2,4576087,Peyton Watson,5,Cleveland Cavaliers,30.0,8,1,2,0
+401909093,2026-10-22,2027,2,4683747,Jaylon Tyson,5,Cleveland Cavaliers,24.0,3,6,2,0
+401909093,2026-10-22,2027,2,4701233,Craig Porter Jr.,5,Cleveland Cavaliers,8.0,0,3,0,0
+401909093,2026-10-22,2027,2,5023693,Tyrese Proctor,5,Cleveland Cavaliers,5.0,0,0,0,0
+401909093,2026-10-22,2027,2,5105637,Adem Bona,20,Philadelphia 76ers,14.0,2,2,0,0
+401909093,2026-10-22,2027,2,5124612,VJ Edgecombe,20,Philadelphia 76ers,33.0,11,7,6,1
+401909094,2026-10-22,2027,2,3978,DeMar DeRozan,7,Denver Nuggets,28.0,13,2,0,0
+401909094,2026-10-22,2027,2,2991350,Alex Caruso,25,Oklahoma City Thunder,20.0,7,4,5,1
+401909094,2026-10-22,2027,2,3064290,Aaron Gordon,7,Denver Nuggets,29.0,20,6,1,3
+401909094,2026-10-22,2027,2,3112335,Nikola Jokic,7,Denver Nuggets,35.0,13,7,5,1
+401909094,2026-10-22,2027,2,3133626,Kenrich Williams,25,Oklahoma City Thunder,6.0,3,1,1,1
+401909094,2026-10-22,2027,2,3135046,Tyus Jones,7,Denver Nuggets,10.0,2,0,0,0
+401909094,2026-10-22,2027,2,3138196,Cameron Johnson,7,Denver Nuggets,11.0,5,2,1,1
+401909094,2026-10-22,2027,2,3936299,Jamal Murray,7,Denver Nuggets,37.0,6,10,3,0
+401909094,2026-10-22,2027,2,4065813,Alpha Diallo,7,Denver Nuggets,22.0,4,2,3,0
+401909094,2026-10-22,2027,2,4222252,Isaiah Hartenstein,25,Oklahoma City Thunder,23.0,6,6,2,0
+401909094,2026-10-22,2027,2,4277848,Marvin Bagley III,7,Denver Nuggets,11.0,2,3,1,0
+401909094,2026-10-22,2027,2,4278073,Shai Gilgeous-Alexander,25,Oklahoma City Thunder,35.0,17,2,3,3
+401909094,2026-10-22,2027,2,4431767,Christian Braun,7,Denver Nuggets,33.0,7,6,1,1
+401909094,2026-10-22,2027,2,4432823,Jaylin Williams,25,Oklahoma City Thunder,15.0,3,7,3,1
+401909094,2026-10-22,2027,2,4433255,Chet Holmgren,25,Oklahoma City Thunder,28.0,12,17,2,0
+401909094,2026-10-22,2027,2,4433607,DaRon Holmes II,7,Denver Nuggets,2.0,3,1,1,1
+401909094,2026-10-22,2027,2,4433629,Ryan Nembhard,7,Denver Nuggets,2.0,5,1,1,1
+401909094,2026-10-22,2027,2,4565698,Bryce Hopkins,7,Denver Nuggets,2.0,0,1,0,0
+401909094,2026-10-22,2027,2,4593803,Jalen Williams,25,Oklahoma City Thunder,33.0,21,5,3,2
+401909094,2026-10-22,2027,2,4683692,Cason Wallace,25,Oklahoma City Thunder,24.0,9,1,1,3
+401909094,2026-10-22,2027,2,4683778,Jared McCain,25,Oklahoma City Thunder,18.0,4,0,1,0
+401909094,2026-10-22,2027,2,4684208,Brooks Barnhizer,25,Oklahoma City Thunder,2.0,0,0,1,0
+401909094,2026-10-22,2027,2,4698719,Trevon Brazile,7,Denver Nuggets,18.0,4,12,0,0
+401909094,2026-10-22,2027,2,4900671,Ajay Mitchell,25,Oklahoma City Thunder,23.0,12,0,0,0
+401909094,2026-10-22,2027,2,5174983,Aday Mara,25,Oklahoma City Thunder,13.0,2,3,0,0
+401909094,2026-10-22,2027,2,5241364,Bennett Stirtz,25,Oklahoma City Thunder,2.0,0,0,0,0
