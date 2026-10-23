@@ -1765,6 +1765,8 @@
   let bankBackupText = "";               // set when the clipboard is blocked: shown in a box to copy by hand
   let bankDraft = { sport: "Football", kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
   let bankMsg = "";
+  let bankEditing = null;               // id of the bet being edited in the form (null = placing a new bet)
+  let bankDraftSaved = null;            // the half-filled new-bet draft, restored if the edit is cancelled
 
   function bankSave() { slipSave(BANK_STORE, bank); }
   const gbp = n => (n < 0 ? "-" : "") + "£" + Math.abs(n).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -1872,11 +1874,13 @@
           ${b.kind === "ew" ? `<button class="slip-btn" data-bank-out="placed" data-bank-id="${b.id}">Placed</button>` : ""}
           <button class="slip-btn" data-bank-out="lost" data-bank-id="${b.id}">Lost</button>
           <button class="slip-btn quiet" data-bank-out="void" data-bank-id="${b.id}">Void</button>
+          <button class="slip-btn quiet" data-bank-edit="${b.id}">${bankEditing === b.id ? "Editing..." : "Edit"}</button>
           <button class="slip-btn quiet" data-bank-del="${b.id}">${bankDelArmed === b.id ? "Tap again to delete" : "Delete"}</button></div>`;
       }
     } else {
       action = `<div class="slip-actions" style="margin:8px 0 0">
         <button class="slip-btn quiet" data-bank-reopen="${b.id}">Reopen</button>
+        <button class="slip-btn quiet" data-bank-edit="${b.id}">${bankEditing === b.id ? "Editing..." : "Edit"}</button>
         <button class="slip-btn quiet" data-bank-del="${b.id}">${bankDelArmed === b.id ? "Tap again to delete" : "Delete"}</button></div>`;
     }
     return `<div class="slip-summary bank-bet">
@@ -1893,7 +1897,9 @@
     if (!kindOpts.some(([k]) => k === d.kind)) d.kind = "single";
     const dec = parseOdds(d.odds), stake = Number(d.stake);
     const outlay = stake > 0 ? stake * (d.kind === "ew" ? 2 : 1) : 0;
-    return `<div class="tr-section-title">Place a virtual bet</div>
+    const editing = bankEditing != null;
+    return `<div class="tr-section-title">${editing ? "Edit bet" : "Place a virtual bet"}</div>
+      ${editing ? `<div class="tr-note">Editing a placed bet. Change anything, then save. A settled bet keeps its result, and its return is recalculated if you change the stake, odds or each-way terms.</div>` : ""}
       ${d.source ? `<div class="tr-note">Filled in from your ${escAttr(d.source)}. Add the odds you'd have taken and your stake.${d.fair ? ` The model's fair odds for it are <b>${fmtOdds(d.fair)}</b>; a price above that is value if the model is right.` : ""}</div>` : ""}
       <div class="bank-form">
         <label>Sport <select class="slip-name" data-bank-f="sport">${BANK_SPORTS.map(s => `<option${s === d.sport ? " selected" : ""}>${s}</option>`).join("")}</select></label>
@@ -1909,7 +1915,9 @@
         </div>
         <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="HH:MM" data-bank-time data-bank-f="when" value="${escAttr(bankWhen({ eventAt: d.when }))}"></label>
         <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
-        <div class="slip-actions"><button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button></div>
+        <div class="slip-actions">${editing
+          ? `<button class="slip-btn primary" data-bank-save>Save changes</button><button class="slip-btn quiet" data-bank-edit-cancel>Cancel edit</button>`
+          : `<button class="slip-btn primary" data-bank-place>Place bet</button><button class="slip-btn quiet" data-bank-clear>Clear</button>`}</div>
         ${bankMsg ? `<div class="slip-note slip-warn">${bankMsg}</div>` : ""}
       </div>`;
   }
@@ -1940,6 +1948,7 @@
       bindBankroll();
       return;
     }
+    if (bankEditing != null && !bank.bets.some(x => x.id === bankEditing)) { bankEditing = null; if (bankDraftSaved) { bankDraft = bankDraftSaved; bankDraftSaved = null; } }
     const st = bankStats();
     const g = st.all;
     const plCls = g.pl > 0 ? "pct-hi" : g.pl < 0 ? "pct-lo" : "";
@@ -2040,6 +2049,49 @@
       bankSave(); bankMsg = ""; bankDraft = { sport: d.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
       buildTabs(); renderBankroll();
     });
+    // Edit a placed bet: load it into the form at the top, then save the changes back onto the same bet.
+    on("[data-bank-edit]", el => {
+      const b = bank.bets.find(x => x.id === Number(el.dataset.bankEdit)); if (!b) return;
+      if (bankEditing == null) bankDraftSaved = bankDraft;
+      const ewIdx = EW_TERMS.findIndex(t => t[0] === b.ewLabel && t[1] === b.ewDen && t[2] === b.ewPlaces);
+      bankDraft = { sport: b.sport, kind: b.kind, desc: b.desc || "", stake: String(b.stake), odds: String(b.odds), ew: ewIdx >= 0 ? ewIdx : 0,
+        when: b.eventAt || "", fair: b.fair || null, source: "" };
+      bankEditing = b.id; bankMsg = ""; bankDelArmed = null; bankSettling = null;
+      renderBankroll();
+      const f = mainEl.querySelector(".bank-form"); if (f) f.scrollIntoView({ block: "start" });
+    });
+    on("[data-bank-edit-cancel]", () => {
+      bankEditing = null; bankMsg = "";
+      bankDraft = bankDraftSaved || { sport: "Football", kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
+      bankDraftSaved = null; renderBankroll();
+    });
+    on("[data-bank-save]", () => {
+      const b = bank.bets.find(x => x.id === bankEditing); if (!b) { bankEditing = null; renderBankroll(); return; }
+      const d = bankDraft, dec = parseOdds(d.odds), stake = Number(String(d.stake).replace(/[£,\s]/g, ""));
+      if (!(stake > 0) || dec == null) { bankMsg = "Enter a stake above zero and valid odds (2.5 or 5/2)."; renderBankroll(); return; }
+      const t = EW_TERMS[Number(d.ew)] || EW_TERMS[0];
+      const next = { ...b, sport: d.sport, kind: d.kind, desc: (d.desc || "").trim(), stake, odds: dec,
+        ewLabel: t[0], ewDen: t[1], ewPlaces: t[2], eventAt: d.when || "" };
+      const moneyChanged = next.stake !== b.stake || next.odds !== b.odds || next.kind !== b.kind ||
+        (next.kind === "ew" && (next.ewDen !== b.ewDen || next.ewPlaces !== b.ewPlaces));
+      if (b.status === "pending") {
+        // Same check as placing: the new stake must fit in what is available (this bet's old stake is freed up first).
+        const avail = bankStats().cash + bankOutlay(b);
+        if (bankOutlay(next) > avail + 1e-9) { bankMsg = `That stake is ${gbp(bankOutlay(next))} but only ${gbp(avail)} is available.`; renderBankroll(); return; }
+      } else if (moneyChanged) {
+        if (next.status === "placed" && next.kind !== "ew") {
+          // "Placed" only means something for each way, so an edited-away each way bet goes back to pending to be re-settled.
+          next.status = "pending"; next.returns = null; next.settledAt = null;
+        } else {
+          next.returns = Math.round(bankAutoReturn(next, next.status) * 100) / 100;
+        }
+      }
+      Object.assign(b, next);
+      bankEditing = null; bankMsg = "";
+      bankDraft = bankDraftSaved || { sport: d.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
+      bankDraftSaved = null;
+      bankSave(); buildTabs(); renderBankroll();
+    });
     // Quick-stake buttons: add to the stake box without redrawing the form (keeps the keypad state alone).
     on("[data-bank-add]", el => {
       const box = mainEl.querySelector('[data-bank-f="stake"]');
@@ -2119,7 +2171,11 @@
       if (ae !== be) return ae ? -1 : 1;
       return a.placedAt.localeCompare(b.placedAt);
     }
-    return (be || b.placedAt).localeCompare(ae || a.placedAt);  // settled: most recent first
+    // settled: most recently SETTLED first (full timestamps, so days don't interleave);
+    // bets settled in the same batch fall back to event time, then when they were placed.
+    return (b.settledAt || b.placedAt || "").localeCompare(a.settledAt || a.placedAt || "")
+      || (be || "").localeCompare(ae || "")
+      || (b.placedAt || "").localeCompare(a.placedAt || "");
   }
   function bankFromSlip() {
     const items = slip.items; if (!items.length) return;
