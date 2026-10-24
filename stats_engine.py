@@ -15,7 +15,13 @@ from datetime import datetime
 # the extraction logic in build_team_match_log/league_averages - everything
 # else (rolling_form, the Poisson model loop) reads this list rather than
 # hardcoding metric names.
-METRICS = ["goals", "corners", "cards", "first_half_goals", "second_half_goals"]
+METRICS = ["goals", "corners", "cards", "first_half_goals", "second_half_goals",
+           "shots_on_target", "saves"]
+# Metrics that depend on shots-on-target columns (HST/AST), which not every
+# league/season carries. Rows without them store None (never 0 - a blank read
+# as zero would look like "this team never shoots").
+SOT_METRICS = {"shots_on_target", "saves"}
+MIN_SOT_MATCHES = 3  # below this many matches with SoT data, report None (no form)
 
 # Metrics where cross-division quality actually matters enough to adjust
 # for (see TIER_STRENGTH below) - corners/cards aren't primarily a
@@ -88,6 +94,19 @@ def _parse_date(d: str) -> datetime:
     return datetime.min
 
 
+def _sot_and_saves(row: dict, hg: int, ag: int):
+    """(home_sot, away_sot, home_gk_saves, away_gk_saves), all None when the
+    row has no shots-on-target figures. "saves_for" for a team = saves ITS
+    keeper made; "saves_against" = saves made by the keeper it faced."""
+    try:
+        h_sot, a_sot = int(row.get("HST") or ""), int(row.get("AST") or "")
+    except ValueError:
+        return None, None, None, None
+    if h_sot < hg or a_sot < ag:
+        return h_sot, a_sot, None, None  # impossible figures (data glitch) - keep SoT, drop saves
+    return h_sot, a_sot, a_sot - ag, h_sot - hg  # home keeper faces away SoT, concedes ag
+
+
 def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
     """
     Reshape match rows (one row per fixture) into one row per team-appearance,
@@ -136,6 +155,11 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
         except ValueError:
             h_xg = a_xg = None  # not every match has xG - leave as None, not 0
 
+        # Shots on target (HST/AST) and goalkeeper saves. Saves are derived:
+        # a keeper's saves = shots on target faced - goals conceded (so own
+        # goals / blocked-on-line edge cases are folded in; close enough).
+        h_sot, a_sot, h_sv, a_sv = _sot_and_saves(row, hg, ag)
+
         log[home].append({
             "date": dt, "venue": "H", "opponent": away, "div": div,
             "goals_for": hg, "goals_against": ag,
@@ -144,6 +168,8 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
             "first_half_goals_for": hth, "first_half_goals_against": ath,
             "second_half_goals_for": h_2nd, "second_half_goals_against": a_2nd,
             "xg_for": h_xg, "xg_against": a_xg,
+            "shots_on_target_for": h_sot, "shots_on_target_against": a_sot,
+            "saves_for": h_sv, "saves_against": a_sv,
             "referee": row.get("Referee", ""),
         })
         log[away].append({
@@ -154,6 +180,8 @@ def build_team_match_log(rows: list[dict]) -> dict[str, list[dict]]:
             "first_half_goals_for": ath, "first_half_goals_against": hth,
             "second_half_goals_for": a_2nd, "second_half_goals_against": h_2nd,
             "xg_for": a_xg, "xg_against": h_xg,
+            "shots_on_target_for": a_sot, "shots_on_target_against": h_sot,
+            "saves_for": a_sv, "saves_against": h_sv,
             "referee": row.get("Referee", ""),
         })
 
@@ -249,6 +277,11 @@ def rolling_form(team_log: list[dict], venue: str | None = None, window: int = 1
                 weights.append(w * CROSS_DIVISION_WEIGHT_PENALTY if match_div != current_division else w)
         else:
             values, weights = [m[key] for m in matches], base_weights
+        if metric in SOT_METRICS:  # skip matches with no shots-on-target data
+            pairs = [(v, w) for v, w in zip(values, weights) if v is not None]
+            if len(pairs) < MIN_SOT_MATCHES:
+                return None
+            values, weights = zip(*pairs)
         total_w = sum(weights)
         return round(sum(v * w for v, w in zip(values, weights)) / total_w, 2)
 
@@ -296,6 +329,7 @@ def league_averages(rows: list[dict]) -> dict:
     the Poisson model (an attack strength of 1.0 = league average)."""
     n = 0
     xg_n = 0
+    sot_n = sv_n = 0
     totals = defaultdict(float)
     for row in rows:
         try:
@@ -319,6 +353,16 @@ def league_averages(rows: list[dict]) -> dict:
         totals["home_second_half_goals"] += h_2nd
         totals["away_second_half_goals"] += a_2nd
 
+        h_sot, a_sot, h_sv, a_sv = _sot_and_saves(row, hg, ag)
+        if h_sot is not None:
+            sot_n += 1
+            totals["home_shots_on_target"] += h_sot
+            totals["away_shots_on_target"] += a_sot
+            if h_sv is not None:
+                sv_n += 1
+                totals["home_saves"] += h_sv
+                totals["away_saves"] += a_sv
+
         try:
             h_xg, a_xg = float(row.get("HxG") or ""), float(row.get("AxG") or "")
             totals["home_xg"] += h_xg
@@ -330,8 +374,13 @@ def league_averages(rows: list[dict]) -> dict:
     if n == 0:
         return {}
 
-    result = {k: round(v / n, 3) for k, v in totals.items() if not k.endswith("_xg")}
-    result |= {"matches": n}
+    result = {}
+    for k, v in totals.items():
+        if k.endswith("_xg"):
+            continue
+        denom = sot_n if k.endswith("shots_on_target") else sv_n if k.endswith("_saves") else n
+        result[k] = round(v / denom, 3)
+    result |= {"matches": n, "sot_matches": sot_n}
     if xg_n > 0:
         result["home_xg"] = round(totals["home_xg"] / xg_n, 3)
         result["away_xg"] = round(totals["away_xg"] / xg_n, 3)
@@ -365,7 +414,7 @@ def blend_venue_form(venue_form: dict, other_form: dict, league_avg: dict, venue
         r_for = ratio(league_avg.get(f"home_{metric}"), league_avg.get(f"away_{metric}"))
         for side, r in (("for", r_for), ("against", 1 / r_for)):
             key = f"{metric}_{side}"
-            if key in venue_form and key in other_form:
+            if venue_form.get(key) is not None and other_form.get(key) is not None:
                 out[key] = round(weight * venue_form[key] + (1 - weight) * other_form[key] * r, 2)
     r_for = ratio(league_avg.get("home_xg"), league_avg.get("away_xg"))
     for side, r in (("for", r_for), ("against", 1 / r_for)):

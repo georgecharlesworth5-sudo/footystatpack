@@ -36,7 +36,7 @@ for those.
 
 import math
 
-from stats_engine import METRICS
+from stats_engine import METRICS, SOT_METRICS
 
 XG_BLEND_WEIGHT = 0.4  # how much weight xG gets vs actual goals, when both are available
 MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - use actual goals alone
@@ -61,6 +61,12 @@ MIN_XG_SAMPLE = 3      # below this many xG-having matches, trust is too thin - 
 MODEL_VERSION = "v2"
 FORM_SHRINKAGE = 0.7
 
+# Per-metric override of FORM_SHRINKAGE. Shots on target carry more real
+# team signal than corners/cards (walk-forward replay of ~3,400 matches:
+# log loss lowest at ~0.55; saves lowest at ~0.7, as a keeper's saves depend
+# on the opposing attack AND are noisier).
+METRIC_SHRINKAGE = {"shots_on_target": 0.55, "saves": 0.7}
+
 # Match result (home/draw/away) uses its own, lighter shrinkage.
 #
 # Replayed on ~3,200 matches (Nov 2025 onward, nine leagues, form rebuilt
@@ -83,6 +89,8 @@ NB_ALPHA = {
     ("corners", "total"): 0.016, ("corners", "home"): 0.095, ("corners", "away"): 0.101,
     ("cards", "total"): 0.037, ("cards", "home"): 0.029, ("cards", "away"): 0.0,
     ("first_half_goals", "total"): 0.0, ("second_half_goals", "total"): 0.0,
+    ("shots_on_target", "total"): 0.04, ("shots_on_target", "home"): 0.05, ("shots_on_target", "away"): 0.05,
+    ("saves", "total"): 0.04, ("saves", "home"): 0.07, ("saves", "away"): 0.07,
 }
 
 # Per-side O/U lines (a single team's own corner count, not the combined
@@ -92,6 +100,8 @@ PER_SIDE_LINES = {
     "corners": [2.5, 3.5, 4.5, 5.5, 6.5],
     "goals": [0.5, 1.5],
     "cards": [0.5, 1.5],
+    "shots_on_target": [2.5, 3.5, 4.5, 5.5, 6.5],
+    "saves": [1.5, 2.5, 3.5, 4.5],
 }
 
 
@@ -166,7 +176,7 @@ def expected_values(home_form: dict, away_form: dict, league_avg: dict, metric: 
     FORM_SHRINKAGE; match_result passes MATCH_RESULT_SHRINKAGE.
     """
     if shrinkage is None:
-        shrinkage = FORM_SHRINKAGE
+        shrinkage = METRIC_SHRINKAGE.get(metric, FORM_SHRINKAGE)
     for_key = f"{metric}_for"
     against_key = f"{metric}_against"
 
@@ -240,6 +250,17 @@ def match_result(lam_home: float, lam_away: float, max_goals: int = 10) -> dict:
     }
 
 
+def has_metric_data(home_form: dict, away_form: dict, league_avg: dict, metric: str) -> bool:
+    """False when a metric can't be computed honestly - the shots-on-target
+    family needs league averages AND form figures for both sides."""
+    if metric not in SOT_METRICS:
+        return True
+    if not league_avg.get(f"home_{metric}") or not league_avg.get(f"away_{metric}"):
+        return False
+    return all(f.get(f"{metric}_{side}") is not None
+               for f in (home_form, away_form) for side in ("for", "against"))
+
+
 def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: dict,
                      metrics: list[str] | None = None) -> dict:
     """
@@ -272,6 +293,8 @@ def predict_fixture(home_form: dict, away_form: dict, league_avg: dict, lines: d
     result = {}
 
     for metric in (metrics if metrics is not None else METRICS):
+        if not has_metric_data(home_form, away_form, league_avg, metric):
+            continue  # e.g. shots-on-target for a league/team without those columns
         lam_home, lam_away = expected_values(home_form, away_form, league_avg, metric)
         lam_total = lam_home + lam_away
 

@@ -64,6 +64,8 @@ DEFAULT_LINES = {
     "cards": [2.5, 3.5, 4.5],
     "first_half_goals": [0.5, 1.5],
     "second_half_goals": [0.5, 1.5, 2.5],
+    "shots_on_target": [6.5, 7.5, 8.5, 9.5, 10.5],
+    "saves": [4.5, 5.5, 6.5, 7.5],
 }
 
 LEAGUE_NAMES = {

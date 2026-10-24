@@ -1316,8 +1316,10 @@
           ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team, "cards")}
           ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team, "first_half_goals")}
           ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team, "second_half_goals")}
+          ${metricBlock("Shots on Target", p.shots_on_target, fixture.home_team, fixture.away_team, "shots_on_target")}
+          ${metricBlock("Goalkeeper Saves", p.saves, fixture.home_team, fixture.away_team, "saves")}
         </div>
-        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
+        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games${p.shots_on_target ? " · Shots on target / GK saves use each side's shots on target for and against (saves = shots on target faced − goals conceded)" : ""}</div>
       </div>
     </details>`;
   }
@@ -1381,6 +1383,8 @@
     cards: "Cards",
     first_half_goals: "1st-Half Goals",
     second_half_goals: "2nd-Half Goals",
+    shots_on_target: "Shots on Target",
+    saves: "GK Saves",
     btts: "BTTS",
     team_win: "Team Win",
     moneyline: "Moneyline",
@@ -1711,7 +1715,7 @@
   }
 
   const FAMILY_OF = { goals: "goals", first_half_goals: "goals", second_half_goals: "goals", btts: "goals", team_win: "goals", draw: "goals",
-    corners: "corners", cards: "cards", points: "nfl_points", moneyline: "nfl_points" };
+    corners: "corners", cards: "cards", shots_on_target: "shots", saves: "shots", points: "nfl_points", moneyline: "nfl_points" };
 
   // Returns { prob, approx } for a set of slip items.
   function slipJointProb(items) {
@@ -3050,8 +3054,10 @@
           ${metricBlock("Cards", p.cards, fixture.home_team, fixture.away_team)}
           ${metricBlock("1st-Half Goals", p.first_half_goals, fixture.home_team, fixture.away_team)}
           ${metricBlock("2nd-Half Goals", p.second_half_goals, fixture.home_team, fixture.away_team)}
+          ${metricBlock("Shots on Target", p.shots_on_target, fixture.home_team, fixture.away_team, "shots_on_target")}
+          ${metricBlock("Goalkeeper Saves", p.saves, fixture.home_team, fixture.away_team, "saves")}
         </div>
-        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games</div>
+        <div class="sample-note">Form sample: ${fixture.home_form_sample} home games, ${fixture.away_form_sample} away games${p.shots_on_target ? " · Shots on target / GK saves use each side's shots on target for and against (saves = shots on target faced − goals conceded)" : ""}</div>
       </div>
     </details>`;
   }

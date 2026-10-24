@@ -176,10 +176,12 @@ def predict_cross_league_fixture(
 ) -> dict:
     """Same output shape as poisson_model.predict_fixture(), for a
     cross-league (cup) fixture."""
-    from stats_engine import METRICS
+    from stats_engine import METRICS, SOT_METRICS
     result = {}
 
     for metric in METRICS:
+        if metric in SOT_METRICS:
+            continue  # shots-on-target markets aren't modelled across divisions
         lam_home, lam_away = cross_league_expected_values(
             home_form, away_form, home_league_avg, away_league_avg,
             home_league_code, away_league_code,
