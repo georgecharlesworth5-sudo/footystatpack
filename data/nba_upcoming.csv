@@ -1,16 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909848,23/10/2026,21:00,2026-10-23 21:00,15,Milwaukee Bucks,4,Chicago Bulls,2
-401909095,24/10/2026,00:00,2026-10-24 00:00,2,Boston Celtics,18,New York Knicks,2
-401909843,24/10/2026,00:00,2026-10-24 00:00,30,Charlotte Hornets,1,Atlanta Hawks,2
-401909844,24/10/2026,00:00,2026-10-24 00:00,11,Indiana Pacers,6,Dallas Mavericks,2
-401909845,24/10/2026,00:00,2026-10-24 00:00,19,Orlando Magic,16,Minnesota Timberwolves,2
-401909846,24/10/2026,00:00,2026-10-24 00:00,27,Washington Wizards,28,Toronto Raptors,2
-401909847,24/10/2026,01:00,2026-10-24 01:00,14,Miami Heat,8,Detroit Pistons,2
-401909096,24/10/2026,02:30,2026-10-24 02:30,24,San Antonio Spurs,10,Houston Rockets,2
-401909849,24/10/2026,02:30,2026-10-24 02:30,26,Utah Jazz,3,New Orleans Pelicans,2
-401909850,24/10/2026,03:00,2026-10-24 03:00,9,Golden State Warriors,29,Memphis Grizzlies,2
-401909851,24/10/2026,03:00,2026-10-24 03:00,13,Los Angeles Lakers,12,LA Clippers,2
-401909852,24/10/2026,03:00,2026-10-24 03:00,23,Sacramento Kings,22,Portland Trail Blazers,2
 401909853,24/10/2026,23:00,2026-10-24 23:00,30,Charlotte Hornets,14,Miami Heat,2
 401909854,25/10/2026,00:30,2026-10-25 00:30,5,Cleveland Cavaliers,17,Brooklyn Nets,2
 401909855,25/10/2026,00:30,2026-10-25 00:30,20,Philadelphia 76ers,15,Milwaukee Bucks,2
@@ -35,3 +23,7 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909874,27/10/2026,00:30,2026-10-27 00:30,10,Houston Rockets,1,Atlanta Hawks,2
 401909875,27/10/2026,01:00,2026-10-27 01:00,26,Utah Jazz,29,Memphis Grizzlies,2
 401909876,27/10/2026,02:00,2026-10-27 02:00,7,Denver Nuggets,9,Golden State Warriors,2
+401909877,27/10/2026,23:30,2026-10-27 23:30,2,Boston Celtics,17,Brooklyn Nets,2
+401909878,28/10/2026,00:00,2026-10-28 00:00,18,New York Knicks,8,Detroit Pistons,2
+401909879,28/10/2026,00:00,2026-10-28 00:00,24,San Antonio Spurs,23,Sacramento Kings,2
+401909880,28/10/2026,03:00,2026-10-28 03:00,13,Los Angeles Lakers,22,Portland Trail Blazers,2
