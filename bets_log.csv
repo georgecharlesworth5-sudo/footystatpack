@@ -1957,3 +1957,101 @@ nba|Phoenix Suns|Golden State Warriors|25/10/2026|points|away|Over,2026-10-24,25
 nba|Phoenix Suns|Golden State Warriors|25/10/2026|points|p:Devin Booker|Over,2026-10-24,25/10/2026,NBA,NBA,Phoenix Suns,Golden State Warriors,nba,points,p:Devin Booker,Phoenix Suns,Over,19.5,0.875,Devin Booker - Over 19.5 Points (if plays),pending,,,,0,
 nba|Phoenix Suns|Golden State Warriors|25/10/2026|points|p:Jimmy Butler III|Over,2026-10-24,25/10/2026,NBA,NBA,Phoenix Suns,Golden State Warriors,nba,points,p:Jimmy Butler III,Golden State Warriors,Over,9.5,0.9,Jimmy Butler III - Over 9.5 Points (if plays),pending,,,,0,
 nba|Phoenix Suns|Golden State Warriors|25/10/2026|threes|p:Moses Moody|Over,2026-10-24,25/10/2026,NBA,NBA,Phoenix Suns,Golden State Warriors,nba,threes,p:Moses Moody,Golden State Warriors,Over,0.5,0.947,Moses Moody - Over 0.5 Threes (if plays),pending,,,,0,
+football|Ath Bilbao|Getafe|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Bilbao,Getafe,football,cards,away,Getafe,Over,0.5,0.949,Getafe - Over 0.5 Cards,pending,,,,1,v2
+football|Santander|Espanol|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Santander,Espanol,football,cards,away,Espanol,Over,0.5,0.947,Espanol - Over 0.5 Cards,pending,,,,1,v2
+football|Vallecano|Elche|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Vallecano,Elche,football,cards,away,Elche,Over,0.5,0.937,Elche - Over 0.5 Cards,pending,,,,1,v2
+football|Man United|Bournemouth|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,E0,Premier League,Man United,Bournemouth,football,cards,away,Bournemouth,Over,0.5,0.926,Bournemouth - Over 0.5 Cards,pending,,,,1,v2
+football|Valencia|Villarreal|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Valencia,Villarreal,football,cards,away,Villarreal,Over,0.5,0.923,Villarreal - Over 0.5 Cards,pending,,,,1,v2
+football|Motherwell|Hearts|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SC0,Scottish Premiership,Motherwell,Hearts,football,cards,away,Hearts,Over,0.5,0.922,Hearts - Over 0.5 Cards,void,,,,1,v2
+football|Sevilla|Osasuna|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Sevilla,Osasuna,football,cards,away,Osasuna,Over,0.5,0.92,Osasuna - Over 0.5 Cards,pending,,,,1,v2
+football|Sociedad|Levante|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Sociedad,Levante,football,cards,away,Levante,Over,0.5,0.918,Levante - Over 0.5 Cards,pending,,,,1,v2
+football|Santander|Espanol|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Santander,Espanol,football,cards,home,Santander,Over,0.5,0.917,Santander - Over 0.5 Cards,pending,,,,1,v2
+football|Alaves|Malaga|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Alaves,Malaga,football,cards,away,Malaga,Over,0.5,0.914,Malaga - Over 0.5 Cards,pending,,,,1,v2
+football|Ath Madrid|La Coruna|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Madrid,La Coruna,football,cards,away,La Coruna,Over,0.5,0.913,La Coruna - Over 0.5 Cards,pending,,,,1,v2
+football|Sevilla|Osasuna|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Sevilla,Osasuna,football,cards,home,Sevilla,Over,0.5,0.913,Sevilla - Over 0.5 Cards,pending,,,,1,v2
+football|Ath Bilbao|Getafe|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Bilbao,Getafe,football,cards,home,Ath Bilbao,Over,0.5,0.912,Ath Bilbao - Over 0.5 Cards,pending,,,,1,v2
+football|Sociedad|Levante|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Sociedad,Levante,football,cards,home,Sociedad,Over,0.5,0.907,Sociedad - Over 0.5 Cards,pending,,,,1,v2
+football|Barcelona|Real Madrid|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Barcelona,Real Madrid,football,cards,away,Real Madrid,Over,0.5,0.907,Real Madrid - Over 0.5 Cards,pending,,,,1,v2
+football|Celta|Betis|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Celta,Betis,football,cards,away,Betis,Over,0.5,0.905,Betis - Over 0.5 Cards,pending,,,,1,v2
+football|Rennes|Strasbourg|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,F1,Ligue 1,Rennes,Strasbourg,football,cards,away,Strasbourg,Over,0.5,0.904,Strasbourg - Over 0.5 Cards,pending,,,,1,v2
+football|Vallecano|Elche|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Vallecano,Elche,football,cards,home,Vallecano,Over,0.5,0.902,Vallecano - Over 0.5 Cards,pending,,,,1,v2
+football|Hibernian|Celtic|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,SC0,Scottish Premiership,Hibernian,Celtic,football,cards,away,Celtic,Over,0.5,0.899,Celtic - Over 0.5 Cards,void,,,,1,v2
+football|Ath Madrid|La Coruna|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Madrid,La Coruna,football,cards,home,Ath Madrid,Over,0.5,0.89,Ath Madrid - Over 0.5 Cards,pending,,,,1,v2
+football|Sunderland|Leeds|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,E0,Premier League,Sunderland,Leeds,football,cards,away,Leeds,Over,0.5,0.889,Leeds - Over 0.5 Cards,pending,,,,1,v2
+football|Valencia|Villarreal|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Valencia,Villarreal,football,cards,home,Valencia,Over,0.5,0.889,Valencia - Over 0.5 Cards,pending,,,,1,v2
+football|Monaco|Lille|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,F1,Ligue 1,Monaco,Lille,football,cards,away,Lille,Over,0.5,0.889,Lille - Over 0.5 Cards,pending,,,,1,v2
+football|Liverpool|Brighton|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,E0,Premier League,Liverpool,Brighton,football,cards,away,Brighton,Over,0.5,0.888,Brighton - Over 0.5 Cards,pending,,,,1,v2
+football|Monaco|Lille|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Monaco,Lille,football,cards,home,Monaco,Over,0.5,0.888,Monaco - Over 0.5 Cards,pending,,,,1,v2
+football|Alaves|Malaga|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Alaves,Malaga,football,cards,home,Alaves,Over,0.5,0.882,Alaves - Over 0.5 Cards,pending,,,,1,v2
+football|Hoffenheim|Leverkusen|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,D1,Bundesliga,Hoffenheim,Leverkusen,football,cards,home,Hoffenheim,Over,0.5,0.881,Hoffenheim - Over 0.5 Cards,pending,,,,1,v2
+football|Marseille|Le Havre|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,F1,Ligue 1,Marseille,Le Havre,football,cards,away,Le Havre,Over,0.5,0.881,Le Havre - Over 0.5 Cards,pending,,,,1,v2
+football|Crystal Palace|Newcastle|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,E0,Premier League,Crystal Palace,Newcastle,football,cards,away,Newcastle,Over,0.5,0.879,Newcastle - Over 0.5 Cards,pending,,,,1,v2
+football|Hull|Brentford|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,E0,Premier League,Hull,Brentford,football,cards,away,Brentford,Over,0.5,0.879,Brentford - Over 0.5 Cards,pending,,,,1,v2
+football|Santander|Espanol|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Santander,Espanol,football,cards,match,,Over,2.5,0.891,Santander v Espanol - Over 2.5 Cards,pending,,,,1,v2
+football|Barcelona|Real Madrid|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Barcelona,Real Madrid,football,cards,home,Barcelona,Over,0.5,0.878,Barcelona - Over 0.5 Cards,pending,,,,1,v2
+football|Freiburg|Bayern Munich|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,D1,Bundesliga,Freiburg,Bayern Munich,football,cards,away,Bayern Munich,Over,0.5,0.877,Bayern Munich - Over 0.5 Cards,pending,,,,1,v2
+football|Ath Bilbao|Getafe|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Bilbao,Getafe,football,cards,match,,Over,2.5,0.889,Ath Bilbao v Getafe - Over 2.5 Cards,pending,,,,1,v2
+football|Inter|Fiorentina|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,I1,Serie A,Inter,Fiorentina,football,cards,away,Fiorentina,Over,0.5,0.873,Fiorentina - Over 0.5 Cards,pending,,,,1,v2
+football|Hibernian|Celtic|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SC0,Scottish Premiership,Hibernian,Celtic,football,cards,home,Hibernian,Over,0.5,0.872,Hibernian - Over 0.5 Cards,void,,,,1,v2
+football|Paris SG|Lyon|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,F1,Ligue 1,Paris SG,Lyon,football,cards,away,Lyon,Over,0.5,0.866,Lyon - Over 0.5 Cards,pending,,,,1,v2
+football|Hull|Brentford|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,E0,Premier League,Hull,Brentford,football,cards,home,Hull,Over,0.5,0.863,Hull - Over 0.5 Cards,pending,,,,1,v2
+football|Motherwell|Hearts|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SC0,Scottish Premiership,Motherwell,Hearts,football,cards,home,Motherwell,Over,0.5,0.862,Motherwell - Over 0.5 Cards,void,,,,1,v2
+football|Udinese|Milan|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,I1,Serie A,Udinese,Milan,football,cards,away,Milan,Over,0.5,0.86,Milan - Over 0.5 Cards,pending,,,,1,v2
+football|Inter|Fiorentina|25/10/2026|goals|home|Over,2026-10-25,25/10/2026,I1,Serie A,Inter,Fiorentina,football,goals,home,Inter,Over,0.5,0.867,Inter - Over 0.5 Goals,pending,,,,1,v2
+football|Marseille|Le Havre|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Marseille,Le Havre,football,cards,home,Marseille,Over,0.5,0.859,Marseille - Over 0.5 Cards,pending,,,,1,v2
+football|Celta|Betis|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Celta,Betis,football,cards,home,Celta,Over,0.5,0.858,Celta - Over 0.5 Cards,pending,,,,1,v2
+football|Angers|Lorient|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,F1,Ligue 1,Angers,Lorient,football,cards,away,Lorient,Over,0.5,0.857,Lorient - Over 0.5 Cards,pending,,,,1,v2
+football|Hoffenheim|Leverkusen|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,D1,Bundesliga,Hoffenheim,Leverkusen,football,cards,away,Leverkusen,Over,0.5,0.856,Leverkusen - Over 0.5 Cards,pending,,,,1,v2
+football|Lecce|Juventus|25/10/2026|cards|away|Over,2026-10-25,25/10/2026,I1,Serie A,Lecce,Juventus,football,cards,away,Juventus,Over,0.5,0.855,Juventus - Over 0.5 Cards,pending,,,,1,v2
+football|Vallecano|Elche|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Vallecano,Elche,football,cards,match,,Over,2.5,0.866,Vallecano v Elche - Over 2.5 Cards,pending,,,,1,v2
+football|Sunderland|Leeds|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,E0,Premier League,Sunderland,Leeds,football,cards,home,Sunderland,Over,0.5,0.851,Sunderland - Over 0.5 Cards,pending,,,,1,v2
+football|Angers|Lorient|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Angers,Lorient,football,cards,home,Angers,Over,0.5,0.851,Angers - Over 0.5 Cards,pending,,,,1,v2
+football|Los Angeles FC|Los Angeles Galaxy|26/10/2026|goals|home|Over,2026-10-25,26/10/2026,MLS,Major League Soccer,Los Angeles FC,Los Angeles Galaxy,football,goals,home,Los Angeles FC,Over,0.5,0.859,Los Angeles FC - Over 0.5 Goals,pending,,,,1,v2
+football|Man United|Bournemouth|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,E0,Premier League,Man United,Bournemouth,football,cards,home,Man United,Over,0.5,0.847,Man United - Over 0.5 Cards,pending,,,,1,v2
+football|Sevilla|Osasuna|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Sevilla,Osasuna,football,cards,match,,Over,2.5,0.858,Sevilla v Osasuna - Over 2.5 Cards,pending,,,,1,v2
+football|Freiburg|Bayern Munich|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,D1,Bundesliga,Freiburg,Bayern Munich,football,cards,home,Freiburg,Over,0.5,0.845,Freiburg - Over 0.5 Cards,pending,,,,1,v2
+football|Barcelona|Real Madrid|25/10/2026|goals|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Barcelona,Real Madrid,football,goals,home,Barcelona,Over,0.5,0.852,Barcelona - Over 0.5 Goals,pending,,,,1,v2
+football|Lecce|Juventus|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,I1,Serie A,Lecce,Juventus,football,cards,home,Lecce,Over,0.5,0.843,Lecce - Over 0.5 Cards,pending,,,,1,v2
+football|Paris SG|Lyon|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Paris SG,Lyon,football,cards,home,Paris SG,Over,0.5,0.842,Paris SG - Over 0.5 Cards,pending,,,,1,v2
+football|Hoffenheim|Leverkusen|25/10/2026|goals|home|Over,2026-10-25,25/10/2026,D1,Bundesliga,Hoffenheim,Leverkusen,football,goals,home,Hoffenheim,Over,0.5,0.849,Hoffenheim - Over 0.5 Goals,pending,,,,1,v2
+football|Udinese|Milan|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,I1,Serie A,Udinese,Milan,football,cards,home,Udinese,Over,0.5,0.838,Udinese - Over 0.5 Cards,pending,,,,1,v2
+football|Sociedad|Levante|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Sociedad,Levante,football,cards,match,,Over,2.5,0.849,Sociedad v Levante - Over 2.5 Cards,pending,,,,1,v2
+football|Rennes|Strasbourg|25/10/2026|goals|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Rennes,Strasbourg,football,goals,home,Rennes,Over,0.5,0.839,Rennes - Over 0.5 Goals,pending,,,,1,v2
+football|Rennes|Strasbourg|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Rennes,Strasbourg,football,cards,home,Rennes,Over,0.5,0.829,Rennes - Over 0.5 Cards,pending,,,,1,v2
+football|Valencia|Villarreal|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Valencia,Villarreal,football,cards,match,,Over,2.5,0.839,Valencia v Villarreal - Over 2.5 Cards,pending,,,,1,v2
+football|Hibernian|Celtic|25/10/2026|corners|match|Over,2026-10-25,25/10/2026,SC0,Scottish Premiership,Hibernian,Celtic,football,corners,match,,Over,7.5,0.849,Hibernian v Celtic - Over 7.5 Corners,void,,,,1,v2
+football|Inter|Fiorentina|25/10/2026|cards|home|Over,2026-10-25,25/10/2026,I1,Serie A,Inter,Fiorentina,football,cards,home,Inter,Over,0.5,0.825,Inter - Over 0.5 Cards,pending,,,,1,v2
+football|Man United|Bournemouth|25/10/2026|goals|home|Over,2026-10-25,25/10/2026,E0,Premier League,Man United,Bournemouth,football,goals,home,Man United,Over,0.5,0.828,Man United - Over 0.5 Goals,pending,,,,1,v2
+football|Ath Madrid|La Coruna|25/10/2026|goals|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Madrid,La Coruna,football,goals,home,Ath Madrid,Over,0.5,0.825,Ath Madrid - Over 0.5 Goals,pending,,,,1,v2
+football|Marseille|Le Havre|25/10/2026|goals|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Marseille,Le Havre,football,goals,home,Marseille,Over,0.5,0.824,Marseille - Over 0.5 Goals,pending,,,,1,v2
+football|Ath Madrid|La Coruna|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Madrid,La Coruna,football,cards,match,,Over,2.5,0.827,Ath Madrid v La Coruna - Over 2.5 Cards,pending,,,,1,v2
+football|Paris SG|Lyon|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Paris SG,Lyon,football,corners,home,Paris SG,Over,2.5,0.897,Paris SG - Over 2.5 Corners,pending,,,,1,v2
+football|Alaves|Malaga|25/10/2026|cards|match|Over,2026-10-25,25/10/2026,SP1,La Liga,Alaves,Malaga,football,cards,match,,Over,2.5,0.82,Alaves v Malaga - Over 2.5 Cards,pending,,,,1,v2
+football|Ath Madrid|La Coruna|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Madrid,La Coruna,football,corners,home,Ath Madrid,Over,2.5,0.892,Ath Madrid - Over 2.5 Corners,pending,,,,1,v2
+football|Sociedad|Levante|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Sociedad,Levante,football,corners,home,Sociedad,Over,2.5,0.887,Sociedad - Over 2.5 Corners,pending,,,,1,v2
+football|Hibernian|Celtic|25/10/2026|corners|away|Over,2026-10-25,25/10/2026,SC0,Scottish Premiership,Hibernian,Celtic,football,corners,away,Celtic,Over,2.5,0.885,Celtic - Over 2.5 Corners,void,,,,1,v2
+football|Man United|Bournemouth|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,E0,Premier League,Man United,Bournemouth,football,corners,home,Man United,Over,2.5,0.876,Man United - Over 2.5 Corners,pending,,,,0,v2
+football|Hoffenheim|Leverkusen|25/10/2026|goals|match|Over,2026-10-25,25/10/2026,D1,Bundesliga,Hoffenheim,Leverkusen,football,goals,match,,Over,1.5,0.871,Hoffenheim v Leverkusen - Over 1.5 Goals,pending,,,,0,v2
+football|Vallecano|Elche|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Vallecano,Elche,football,corners,home,Vallecano,Over,2.5,0.87,Vallecano - Over 2.5 Corners,pending,,,,0,v2
+football|Ath Bilbao|Getafe|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Ath Bilbao,Getafe,football,corners,home,Ath Bilbao,Over,2.5,0.869,Ath Bilbao - Over 2.5 Corners,pending,,,,0,v2
+football|Liverpool|Brighton|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,E0,Premier League,Liverpool,Brighton,football,corners,home,Liverpool,Over,2.5,0.868,Liverpool - Over 2.5 Corners,pending,,,,0,v2
+football|Barcelona|Real Madrid|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Barcelona,Real Madrid,football,corners,home,Barcelona,Over,2.5,0.865,Barcelona - Over 2.5 Corners,pending,,,,0,v2
+football|Hoffenheim|Leverkusen|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,D1,Bundesliga,Hoffenheim,Leverkusen,football,corners,home,Hoffenheim,Over,2.5,0.858,Hoffenheim - Over 2.5 Corners,pending,,,,0,v2
+football|Marseille|Le Havre|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Marseille,Le Havre,football,corners,home,Marseille,Over,2.5,0.858,Marseille - Over 2.5 Corners,pending,,,,0,v2
+football|Rennes|Strasbourg|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Rennes,Strasbourg,football,corners,home,Rennes,Over,2.5,0.858,Rennes - Over 2.5 Corners,pending,,,,0,v2
+football|Santander|Espanol|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Santander,Espanol,football,corners,home,Santander,Over,2.5,0.853,Santander - Over 2.5 Corners,pending,,,,0,v2
+football|Inter|Fiorentina|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,I1,Serie A,Inter,Fiorentina,football,corners,home,Inter,Over,2.5,0.852,Inter - Over 2.5 Corners,pending,,,,0,v2
+football|Valencia|Villarreal|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Valencia,Villarreal,football,corners,home,Valencia,Over,2.5,0.849,Valencia - Over 2.5 Corners,pending,,,,0,v2
+football|Inter|Fiorentina|25/10/2026|goals|match|Over,2026-10-25,25/10/2026,I1,Serie A,Inter,Fiorentina,football,goals,match,,Over,1.5,0.839,Inter v Fiorentina - Over 1.5 Goals,pending,,,,0,v2
+football|Hibernian|Celtic|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SC0,Scottish Premiership,Hibernian,Celtic,football,corners,home,Hibernian,Over,2.5,0.842,Hibernian - Over 2.5 Corners,void,,,,0,v2
+football|Sunderland|Leeds|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,E0,Premier League,Sunderland,Leeds,football,corners,home,Sunderland,Over,2.5,0.841,Sunderland - Over 2.5 Corners,pending,,,,0,v2
+football|Rennes|Strasbourg|25/10/2026|goals|match|Over,2026-10-25,25/10/2026,F1,Ligue 1,Rennes,Strasbourg,football,goals,match,,Over,1.5,0.836,Rennes v Strasbourg - Over 1.5 Goals,pending,,,,0,v2
+football|Alaves|Malaga|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Alaves,Malaga,football,corners,home,Alaves,Over,2.5,0.84,Alaves - Over 2.5 Corners,pending,,,,0,v2
+football|Freiburg|Bayern Munich|25/10/2026|goals|match|Over,2026-10-25,25/10/2026,D1,Bundesliga,Freiburg,Bayern Munich,football,goals,match,,Over,1.5,0.834,Freiburg v Bayern Munich - Over 1.5 Goals,pending,,,,0,v2
+football|Hull|Brentford|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,E0,Premier League,Hull,Brentford,football,corners,home,Hull,Over,2.5,0.837,Hull - Over 2.5 Corners,pending,,,,0,v2
+football|Sevilla|Osasuna|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,SP1,La Liga,Sevilla,Osasuna,football,corners,home,Sevilla,Over,2.5,0.836,Sevilla - Over 2.5 Corners,pending,,,,0,v2
+football|Los Angeles FC|Los Angeles Galaxy|26/10/2026|goals|match|Over,2026-10-25,26/10/2026,MLS,Major League Soccer,Los Angeles FC,Los Angeles Galaxy,football,goals,match,,Over,1.5,0.828,Los Angeles FC v Los Angeles Galaxy - Over 1.5 Goals,pending,,,,0,v2
+football|Angers|Lorient|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,F1,Ligue 1,Angers,Lorient,football,corners,home,Angers,Over,2.5,0.831,Angers - Over 2.5 Corners,pending,,,,0,v2
+football|Marseille|Le Havre|25/10/2026|goals|match|Over,2026-10-25,25/10/2026,F1,Ligue 1,Marseille,Le Havre,football,goals,match,,Over,1.5,0.823,Marseille v Le Havre - Over 1.5 Goals,pending,,,,0,v2
+football|Santander|Espanol|25/10/2026|corners|away|Over,2026-10-25,25/10/2026,SP1,La Liga,Santander,Espanol,football,corners,away,Espanol,Over,2.5,0.823,Espanol - Over 2.5 Corners,pending,,,,0,v2
+football|Crystal Palace|Newcastle|25/10/2026|corners|home|Over,2026-10-25,25/10/2026,E0,Premier League,Crystal Palace,Newcastle,football,corners,home,Crystal Palace,Over,2.5,0.82,Crystal Palace - Over 2.5 Corners,pending,,,,0,v2
