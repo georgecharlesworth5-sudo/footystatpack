@@ -1,12 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909853,24/10/2026,23:00,2026-10-24 23:00,30,Charlotte Hornets,14,Miami Heat,2
-401909854,25/10/2026,00:30,2026-10-25 00:30,5,Cleveland Cavaliers,17,Brooklyn Nets,2
-401909855,25/10/2026,00:30,2026-10-25 00:30,20,Philadelphia 76ers,15,Milwaukee Bucks,2
-401909857,25/10/2026,01:00,2026-10-25 01:00,4,Chicago Bulls,27,Washington Wizards,2
-401909858,25/10/2026,01:00,2026-10-25 01:00,6,Dallas Mavericks,24,San Antonio Spurs,2
-401909859,25/10/2026,01:00,2026-10-25 01:00,7,Denver Nuggets,3,New Orleans Pelicans,2
-401909856,25/10/2026,01:30,2026-10-25 01:30,1,Atlanta Hawks,10,Houston Rockets,2
-401909860,25/10/2026,02:00,2026-10-25 02:00,21,Phoenix Suns,9,Golden State Warriors,2
 401909861,25/10/2026,21:00,2026-10-25 21:00,26,Utah Jazz,13,Los Angeles Lakers,2
 401909862,25/10/2026,22:00,2026-10-25 22:00,17,Brooklyn Nets,11,Indiana Pacers,2
 401909863,25/10/2026,23:00,2026-10-25 23:00,18,New York Knicks,19,Orlando Magic,2
@@ -27,3 +19,15 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909878,28/10/2026,00:00,2026-10-28 00:00,18,New York Knicks,8,Detroit Pistons,2
 401909879,28/10/2026,00:00,2026-10-28 00:00,24,San Antonio Spurs,23,Sacramento Kings,2
 401909880,28/10/2026,03:00,2026-10-28 03:00,13,Los Angeles Lakers,22,Portland Trail Blazers,2
+401909881,28/10/2026,23:00,2026-10-28 23:00,1,Atlanta Hawks,14,Miami Heat,2
+401909882,28/10/2026,23:00,2026-10-28 23:00,5,Cleveland Cavaliers,27,Washington Wizards,2
+401909883,28/10/2026,23:00,2026-10-28 23:00,8,Detroit Pistons,30,Charlotte Hornets,2
+401909884,28/10/2026,23:00,2026-10-28 23:00,11,Indiana Pacers,20,Philadelphia 76ers,2
+401909885,28/10/2026,23:30,2026-10-28 23:30,28,Toronto Raptors,19,Orlando Magic,2
+401909886,29/10/2026,00:00,2026-10-29 00:00,4,Chicago Bulls,18,New York Knicks,2
+401909887,29/10/2026,00:00,2026-10-29 00:00,15,Milwaukee Bucks,10,Houston Rockets,2
+401909888,29/10/2026,00:00,2026-10-29 00:00,16,Minnesota Timberwolves,9,Golden State Warriors,2
+401909889,29/10/2026,00:00,2026-10-29 00:00,3,New Orleans Pelicans,7,Denver Nuggets,2
+401909890,29/10/2026,01:00,2026-10-29 01:00,26,Utah Jazz,24,San Antonio Spurs,2
+401909891,29/10/2026,01:30,2026-10-29 01:30,6,Dallas Mavericks,25,Oklahoma City Thunder,2
+401909892,29/10/2026,02:30,2026-10-29 02:30,12,LA Clippers,13,Los Angeles Lakers,2
