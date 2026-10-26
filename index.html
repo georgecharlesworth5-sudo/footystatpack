@@ -844,6 +844,8 @@
     .tr-be-hit { width: 78px; }
     .tr-be-odds { width: 50px; }
   }
+  /* stop double-tap zooming the page (pinch zoom still works) */
+  html, body, button, a, input, select, summary, label { touch-action: manipulation; }
   /* NBA player props */
   .nba-prop { border-top: 1px solid var(--rule); padding: 2px 0; }
   .nba-prop summary { cursor: pointer; padding: 7px 0; font-size: 13px; font-weight: 600; }
@@ -853,9 +855,12 @@
   .nba-stat { margin: 0 0 14px; font-size: 14px; }
   .nba-stat-name { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--meta); margin-top: 10px; }
   .nba-avg { text-transform: none; letter-spacing: 0; margin-left: 6px; }
-  .nba-player { display: block; font-size: 17px; font-weight: 700; color: var(--ink); margin: 1px 0 4px; }
+  .nba-player { display: block; font-size: 16px; font-weight: 700; color: var(--ink); margin: 1px 0 1px; }
   .nba-lines { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .nba-chip { white-space: nowrap; }
+  .nba-stat-row { margin: 0 0 10px; }
+  .nba-stat-row .nba-avg { display: block; margin: 0 0 3px; font-size: 12px; color: var(--meta); }
+  .nba-gp { font-size: 11px; font-weight: 400; color: var(--accent); margin-left: 6px; letter-spacing: 0.02em; }
   .dropdown-sub { margin: 2px 0 6px 12px; padding-left: 8px; border-left: 2px solid var(--rule); }
   .dropdown-heading { font-family: var(--data); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--meta); padding: 8px 10px 4px; }
   .dropdown-heading:not(:first-child) { border-top: 1px solid var(--rule); margin-top: 6px; padding-top: 12px; }
@@ -3435,22 +3440,30 @@
     </div>`;
   }
 
-  // One leader per stat per team (highest expected points / rebounds / assists / threes),
-  // each with up to 5 over lines he is likely to clear (60-90%).
+  // Top players per stat per team (ranked by expected points / rebounds / assists / threes),
+  // each with up to 5 over lines he is likely to clear (60-90%). Players on the roster who
+  // have not played this season are left out by the builder; anyone who has missed some of
+  // his team's games this season is tagged so you can check his status.
+  const NBA_PROPS_PER_STAT = { points: 5, rebounds: 4, assists: 4, threes: 4 };
   function nbaPropsBlock(fx) {
     const props = fx.props || [];
     if (!props.length) return "";
     const team = (name, side) => {
       const mine = props.filter(p => p.side === side);
       const rows = Object.keys(NBA_STAT_LABELS).map(s => {
-        const pl = mine.filter(p => ((p.lines || {})[s] || []).length)
-          .sort((a, b) => b.expected[s] - a.expected[s])[0];
-        if (!pl) return "";
-        const top = nbaConfident(pl.lines[s], "over", 5);   // lines he is likely to clear (60-90%)
-        return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]} <span class="nba-avg">avg ${pl.expected[s]}${pl.form && Math.abs(pl.form[s] - pl.expected[s]) >= 0.4 ? ` (form ${pl.form[s]})` : ""}</span></span>
-          <span class="nba-player">${pl.player}</span>
+        const pls = mine.filter(p => ((p.lines || {})[s] || []).length)
+          .sort((a, b) => b.expected[s] - a.expected[s]).slice(0, NBA_PROPS_PER_STAT[s] || 3);
+        if (!pls.length) return "";
+        const items = pls.map(pl => {
+          const top = nbaConfident(pl.lines[s], "over", 5);   // lines he is likely to clear (60-90%)
+          const missed = pl.season_team_gp != null && pl.season_gp < pl.season_team_gp
+            ? ` <span class="nba-gp" title="Games played this season">played ${pl.season_gp} of ${pl.season_team_gp}</span>` : "";
+          return `<div class="nba-stat-row"><span class="nba-player">${pl.player}${missed}</span>
+          <span class="nba-avg">avg ${pl.expected[s]}${pl.form && Math.abs(pl.form[s] - pl.expected[s]) >= 0.4 ? ` (form ${pl.form[s]})` : ""} · ${Math.round(pl.mins)} min</span>
           <span class="nba-lines">${top.map(r => `<span class="nba-chip">O${r.line} <b>${pctBtn({ metric: s, scope: "p:" + pl.player, team: pl.team, direction: "Over", line: r.line,
             label: `${pl.player} - Over ${r.line} ${NBA_STAT_LABELS[s]} (if plays)` }, r.over)}</b></span>`).join("")}</span></div>`;
+        }).join("");
+        return `<div class="nba-stat"><span class="nba-stat-name">${NBA_STAT_LABELS[s]}</span>${items}</div>`;
       }).join("");
       const c = (fx.prop_context || {})[side];
       const sg = v => (v > 0 ? "+" : "") + Math.round(v) + "%";
@@ -3458,9 +3471,9 @@
       return `<div class="nba-team">${name}</div>${ctx}${rows}`;
     };
     return `<div class="metric-card" style="grid-column:1/-1">
-      <div class="metric-title">Player props <span style="opacity:0.6">· team leaders, over %</span></div>
+      <div class="metric-title">Player props <span style="opacity:0.6">· top players per stat, over %</span></div>
       ${team(fx.home_team, "home")}${team(fx.away_team, "away")}
-      <div class="sample-note">Overs only: lines with a 60-90% chance of being cleared, safest first. Each team's leader in points, rebounds, assists and threes. Averages start from his last 15 regular-season games, then adjust for the opponent (what they concede, shots, pace), home/away, back-to-backs, blowout risk, his 40-game form and recent minutes. "form" is the unadjusted average. No injury news is built in - check the team news first.</div>
+      <div class="sample-note">Overs only: lines with a 60-90% chance of being cleared, safest first. Each team's top players in points, rebounds, assists and threes. Averages start from his last 15 regular-season games, then adjust for the opponent (what they concede, shots, pace), home/away, back-to-backs, blowout risk, his 40-game form and recent minutes. "form" is the unadjusted average. Players who have not played at all this season are left out; "played x of y" marks anyone who has missed some of his team's games. No injury news is built in - check the team news first.</div>
     </div>`;
   }
 
