@@ -79,7 +79,7 @@ def prop_features(ctx, f, side, team_id, opp_id, b2b, stat) -> dict:
     return feat
 
 
-def build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx=None) -> dict:
+def build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx=None, appearances=None) -> dict:
     home_id, away_id = int(row["home_id"]), int(row["away_id"])
     start = datetime.strptime(row["start_uk"], "%Y-%m-%d %H:%M").replace(tzinfo=LONDON)
     game_day = start.astimezone(EASTERN).date()
@@ -108,10 +108,13 @@ def build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx=None) -> d
 
     props = []
     for side, tid, tname in (("home", home_id, home), ("away", away_id, away)):
+        tid_team = tid
         for aid in roster_by_team.get(tid, []):
             f = forms.get(aid)
             if not f:
                 continue
+            if appearances is not None and appearances["inactive"].get((int(aid), tid_team)):
+                continue   # on the roster but has not played a game this season (injured / not signed to play)
             lines, exp = {}, {}
             tid, oid = (home_id, away_id) if side == "home" else (away_id, home_id)
             form = {}
@@ -124,9 +127,14 @@ def build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx=None) -> d
                 rows = M.prop_ladder(stat, mean, sd)          # the fixed marks: 10/15/20/25+ points etc.
                 if rows:
                     lines[stat] = rows
-            props.append({"player": f["player"], "team": tname, "side": side,
-                          "mins": f["mins"], "games": f["games"],
-                          "expected": exp, "form": form, "lines": lines})
+            prop = {"player": f["player"], "team": tname, "side": side,
+                    "mins": f["mins"], "games": f["games"],
+                    "expected": exp, "form": form, "lines": lines}
+            if appearances is not None:
+                # games played this season out of the team's games - lets the dashboard flag part-timers
+                prop["season_gp"] = appearances["gp"].get(int(aid), 0)
+                prop["season_team_gp"] = appearances["team_gp"].get(tid_team, 0)
+            props.append(prop)
     props.sort(key=lambda p: -p["mins"])
     card["props"] = props
     if ctx:
@@ -175,6 +183,32 @@ def recent_results(tg: pd.DataFrame, pg: pd.DataFrame, names: dict, days: int = 
     return sorted(out, key=lambda r: (r["date"][6:] + r["date"][3:5] + r["date"][:2], r["game_id"]), reverse=True)
 
 
+# A rostered player who has not appeared in any of his team's games this season is
+# almost certainly out (injury, not yet returned), so he gets no props - the form the
+# model has for him is last season's. Applies once a team has played this many games.
+MIN_TEAM_GAMES_FOR_INACTIVE = 3
+
+
+def season_appearances(pg: pd.DataFrame, roster: pd.DataFrame, asof) -> dict:
+    """Regular-season appearances in the CURRENT season (the latest season in the data)."""
+    out = {"gp": {}, "team_gp": {}, "inactive": {}}
+    if pg.empty or "season" not in pg.columns:
+        return out
+    cur = pg[pg["season_type"] == 2]
+    if cur.empty:
+        return out
+    cur = cur[cur["season"] == cur["season"].max()]
+    cur = cur[pd.to_datetime(cur["date"]) < asof]
+    out["gp"] = cur.groupby("athlete_id")["game_id"].nunique().to_dict()
+    out["team_gp"] = cur.groupby("team_id")["game_id"].nunique().to_dict()
+    for _, r in roster.iterrows() if len(roster) else []:
+        aid, tid = int(r["athlete_id"]), int(r["team_id"])
+        if out["team_gp"].get(tid, 0) >= MIN_TEAM_GAMES_FOR_INACTIVE and out["gp"].get(aid, 0) == 0:
+            out["inactive"][(aid, tid)] = True
+    print(f"[debug] {len(out['inactive'])} rostered player(s) with no appearance this season - no props for them")
+    return out
+
+
 def build_nba_statpack(data_dir: Path, now=None) -> dict:
     now = now or datetime.now(LONDON)
     tg_path = data_dir / "nba_team_games.csv"
@@ -196,12 +230,14 @@ def build_nba_statpack(data_dir: Path, now=None) -> dict:
     roster_by_team = roster.groupby("team_id")["athlete_id"].apply(list).to_dict() if len(roster) else {}
     print(f"[debug] ratings for {len(ratings.teams)} teams; prop form for {len(forms)} players")
 
+    appearances = season_appearances(pg, roster, asof)
+
     fixtures = []
     for _, row in up.iterrows():
         if int(row["home_id"]) not in ratings.attack or int(row["away_id"]) not in ratings.attack:
             print(f"[debug] skipping {row['away']} @ {row['home']}: no rating yet")
             continue
-        fixtures.append(build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx))
+        fixtures.append(build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx, appearances))
     teams = team_table(tg, ratings, names)
     pack = {
         "generated": now.strftime("%Y-%m-%d %H:%M"),
