@@ -1,4 +1,4 @@
-Probe for 2026-10-27, run 2026-10-28 15:02 UK
+Probe for 2026-10-27, run 2026-10-28 23:57 UK
 UK races found: 8; probing up to 3
 List-level keys on a race: age, course_name, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 
