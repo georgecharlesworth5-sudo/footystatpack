@@ -30,6 +30,8 @@ RIDGE = 4.0             # pull towards league average (per team parameter)
 PROP_STATS = ("points", "rebounds", "assists", "threes")
 PROP_GAMES = 15          # most recent games used
 PROP_DECAY = 0.9         # weight multiplier per game further back
+PROP_SEASON_MULT = 3.0    # this season's games count this many times more than last season's
+PROP_MINUTES_DECAY = 0.75  # projected minutes lean harder on his most recent games
 PROP_MIN_GAMES = 8       # fewer recorded games than this: no prop
 PROP_MIN_MINUTES = 20.0  # only rotation players (decayed average minutes)
 PROP_MAX_AGE_DAYS = 330  # ignore a player whose last game is older than this
@@ -116,6 +118,7 @@ def player_form(player_games: pd.DataFrame, asof) -> dict[int, dict]:
     pg = player_games.copy()
     pg["date"] = pd.to_datetime(pg["date"])
     pg = pg[(pg["date"] < asof) & (pg["season_type"] == 2)].sort_values(["athlete_id", "date", "game_id"])
+    cur_season = pg["season"].max() if "season" in pg.columns else None
     out = {}
     for aid, g in pg.groupby("athlete_id"):
         g = g.tail(PROP_GAMES)
@@ -124,6 +127,12 @@ def player_form(player_games: pd.DataFrame, asof) -> dict[int, dict]:
         if (asof - g["date"].iloc[-1]).days > PROP_MAX_AGE_DAYS:
             continue
         w = PROP_DECAY ** np.arange(len(g))[::-1]
+        w_plain = w                      # spread (sd) keeps the plain decay weights
+        wm = PROP_MINUTES_DECAY ** np.arange(len(g))[::-1]
+        if cur_season is not None:
+            # a player's role this season (new team, back from injury) beats last year's games
+            this = np.where(g["season"].to_numpy() == cur_season, PROP_SEASON_MULT, 1.0)
+            w, wm = w * this, wm * this
         mins = float(np.average(g["mins"], weights=w))
         if mins < PROP_MIN_MINUTES:
             continue
@@ -134,9 +143,15 @@ def player_form(player_games: pd.DataFrame, asof) -> dict[int, dict]:
                "mins5": float(g["mins"].tail(5).mean()), "mins40": mins40,
                "games": int(len(g)), "mins": round(mins, 1),
                "stale_days": int((asof - g["date"].iloc[-1]).days)}
+        gm = np.maximum(g["mins"].to_numpy(dtype=float), 1e-6)
+        proj_mins = float(np.average(gm, weights=wm))
         for s in PROP_STATS:
-            mean = float(np.average(g[s], weights=w))
-            sd = float(np.sqrt(np.average((g[s] - mean) ** 2, weights=w)))
+            mean_plain = float(np.average(g[s], weights=w_plain))
+            # per-minute rate over the window x his projected minutes
+            rate = float((g[s].to_numpy(dtype=float) * w).sum() / (gm * w).sum())
+            mean = rate * proj_mins
+            mean = mean if mean > 0 else mean_plain
+            sd = float(np.sqrt(np.average((g[s] - mean_plain) ** 2, weights=w_plain)))
             rec[s] = {"mean": mean, "sd": sd,
                       "mean40": float(np.average(long[s], weights=lw))}
         out[int(aid)] = rec
