@@ -18852,7 +18852,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,1,2026_01_SF_LA,SF,Ashtyn Davis,0.0,0.0,0.0
 2026,1,2026_01_ARI_LAC,ARI,Devin Duvernay,0.0,0.0,0.0
 2026,1,2026_01_ATL_PIT,PIT,Alex Highsmith,0.0,0.0,0.0
-2026,1,2026_01_NO_DET,DET,D.J. Wonnum,0.0,0.0,0.0
+2026,1,2026_01_NO_DET,DET,DJ Wonnum,0.0,0.0,0.0
 2026,1,2026_01_CHI_CAR,CHI,James Lynch,0.0,0.0,0.0
 2026,1,2026_01_ARI_LAC,LAC,Troy Dye,0.0,0.0,0.0
 2026,1,2026_01_SF_LA,LA,Kevin Dotson,0.0,0.0,0.0
@@ -19967,7 +19967,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,2,2026_02_MIA_SF,SF,Ashtyn Davis,0.0,0.0,0.0
 2026,2,2026_02_SEA_ARI,ARI,Devin Duvernay,0.0,0.0,0.0
 2026,2,2026_02_PIT_NE,PIT,Alex Highsmith,0.0,0.0,0.0
-2026,2,2026_02_DET_BUF,DET,D.J. Wonnum,0.0,0.0,0.0
+2026,2,2026_02_DET_BUF,DET,DJ Wonnum,0.0,0.0,0.0
 2026,2,2026_02_MIN_CHI,CHI,James Lynch,0.0,0.0,0.0
 2026,2,2026_02_LV_LAC,LAC,Troy Dye,0.0,0.0,0.0
 2026,2,2026_02_MIA_SF,SF,Khalid Kareem,0.0,0.0,0.0
@@ -21069,7 +21069,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,3,2026_03_NE_JAX,JAX,Ezra Cleveland,0.0,0.0,0.0
 2026,3,2026_03_ARI_SF,SF,Ashtyn Davis,0.0,0.0,0.0
 2026,3,2026_03_ARI_SF,ARI,Devin Duvernay,0.0,0.0,0.0
-2026,3,2026_03_NYJ_DET,DET,D.J. Wonnum,0.0,0.0,0.0
+2026,3,2026_03_NYJ_DET,DET,DJ Wonnum,0.0,0.0,0.0
 2026,3,2026_03_PHI_CHI,CHI,James Lynch,0.0,0.0,0.0
 2026,3,2026_03_LAC_BUF,LAC,Troy Dye,0.0,0.0,0.0
 2026,3,2026_03_ARI_SF,SF,Khalid Kareem,0.0,0.0,0.0
@@ -22169,7 +22169,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,4,2026_04_JAX_CIN,JAX,Ezra Cleveland,0.0,0.0,0.0
 2026,4,2026_04_ARI_NYG,ARI,Devin Duvernay,0.0,0.0,0.0
 2026,4,2026_04_PIT_CLE,PIT,Alex Highsmith,0.0,0.0,0.0
-2026,4,2026_04_DET_CAR,DET,D.J. Wonnum,0.0,0.0,0.0
+2026,4,2026_04_DET_CAR,DET,DJ Wonnum,0.0,0.0,0.0
 2026,4,2026_04_LAC_SEA,LAC,Troy Dye,0.0,0.0,0.0
 2026,4,2026_04_DEN_SF,SF,Khalid Kareem,0.0,0.0,0.0
 2026,4,2026_04_MIA_MIN,MIN,Josh Metellus,0.0,0.0,0.0
@@ -23251,7 +23251,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,5,2026_05_SF_SEA,SF,Ashtyn Davis,0.0,0.0,0.0
 2026,5,2026_05_DET_ARI,ARI,Devin Duvernay,0.0,0.0,0.0
 2026,5,2026_05_IND_PIT,PIT,Alex Highsmith,0.0,0.0,0.0
-2026,5,2026_05_DET_ARI,DET,D.J. Wonnum,0.0,0.0,0.0
+2026,5,2026_05_DET_ARI,DET,DJ Wonnum,0.0,0.0,0.0
 2026,5,2026_05_CHI_GB,CHI,James Lynch,0.0,0.0,0.0
 2026,5,2026_05_BUF_LA,LA,Kevin Dotson,0.0,0.0,0.0
 2026,5,2026_05_SF_SEA,SF,Khalid Kareem,0.0,0.0,0.0
@@ -25261,7 +25261,7 @@ season,week,game_id,team,player,passing_yards,rushing_yards,receiving_yards
 2026,7,2026_07_SF_ATL,SF,Ashtyn Davis,0.0,0.0,0.0
 2026,7,2026_07_DEN_ARI,ARI,Devin Duvernay,0.0,0.0,0.0
 2026,7,2026_07_PIT_NO,PIT,Alex Highsmith,0.0,0.0,0.0
-2026,7,2026_07_GB_DET,DET,D.J. Wonnum,0.0,0.0,0.0
+2026,7,2026_07_GB_DET,DET,DJ Wonnum,0.0,0.0,0.0
 2026,7,2026_07_NE_CHI,CHI,James Lynch,0.0,0.0,0.0
 2026,7,2026_07_LA_LV,LA,Kevin Dotson,0.0,0.0,0.0
 2026,7,2026_07_SF_ATL,SF,Khalid Kareem,0.0,0.0,0.0
