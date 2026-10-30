@@ -80020,3 +80020,245 @@ date,time,course,region,code,rtype,going,class,ran,horse,jockey,trainer,age,draw
 2026-10-30,14:45,Uttoxeter,uk,chase,Handicap,Good,5,11,Kaviar Wood,Conor Ring,Mrs C Williams,6,,10-11,15.0,0
 2026-10-30,14:45,Uttoxeter,uk,chase,Handicap,Good,5,11,Bravethewaves,Toby Wynne,O Greenall & J Guerriero,9,,10-12,13.0,0
 2026-10-30,14:45,Uttoxeter,uk,chase,Handicap,Good,5,11,Kally Des Bruyeres,S Bowen,David Dennis,6,,11-7,4.5,0
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Devil's Brigade,Rowan Scott,E A L Dunlop,3,2,9-10,8.5,1
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Be Frank,Ryan Kavanagh,Ian Williams,6,7,9-6,6.5,2
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Berry Clever,Harry Davies,C A Dwyer,5,13,9-13,5.5,3
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Born A Rebel,C Lee,P Owens,5,8,9-4,17.0,4
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Phone Tag,Oliver Stammers,K Frost,5,4,9-13,13.0,5
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Guilty Verdict,K Shoemark,J R Boyle,3,5,8-13,6.5,6
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Ensor Mews,H Crouch,R M Beckett,3,3,9-6,13.0,7
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Pints In Peace,Finley Marsh,J & S Best,3,6,8-12,81.0,8
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Marsh Benham,Jack Callan,George Baker,7,1,9-13,10.0,9
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Sail On Sailor,Paddy Bradley,S Dow,3,10,9-11,11.0,10
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Zermatt Star,D Nolan,T Coyle & K Wood,3,15,9-9,13.0,11
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Barley,D Fentiman,T D Easterby,7,11,9-9,17.0,12
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Daring Legend,K T O'Neill,M Pattinson,5,9,9-13,41.0,13
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,You Sexy Thing,George Wood,R Spencer,3,14,9-7,11.0,14
+2026-10-30,14:55,Newmarket,uk,flat,Handicap,Good to Soft,5,15,Play Me,Donagh Murphy,J R Boyle,4,12,9-2,26.0,15
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Claude,Aidan Kelly,Ms S J Connell,5,,11-1,5.5,1
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Costacurta,Darragh O'Keeffe,H De Bromhead,6,,11-10,6.0,2
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Farrokh,Sean Flanagan,B Connell,7,,11-7,5.5,3
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Manoir De Mirande,Jack Kennedy,G Elliott,4,,11-8,3.12,4
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Phoenix Arizona,Thomas O'Connor,John Cullen,7,,10-6,13.0,5
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Court Canyon,Keith Donoghue,Ian Donoghue,6,,11-12,8.5,6
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Mercury Mission,James Smith,P Cluskey,7,,11-4,26.0,7
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Kalsman,Caragh Monaghan,L Lennon,8,,10-5,17.0,8
+2026-10-30,15:10,Down Royal,uk,chase,Handicap,Good to Yielding,,9,Sayitfirst,Tom Kelly,D Collins,10,,10-0,23.0,9
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Chico Magnifica,S Bowen,O Murphy,4,,11-2,1.91,1
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Moves Like Mason,Ben Jones,B Pauling,6,,11-13,7.5,2
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Dino Bellagio,Theo Gillard,D McCain Jnr,7,,11-5,5.0,3
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Jeepydoff Meel,Oscar Palmer,Miss L Harrison,8,,10-2,15.0,4
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Coup De Gold,Miss Eleanor Williams,Mrs C Williams,10,,10-8,29.0,5
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Cawthorne Banker,K Brogan,J & A O'Neill,8,,11-4,11.0,6
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Ample Warning,C Gethings,A Ralph,6,,11-6,23.0,7
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Keep Under Wraps,Jack Tudor,O Greenall & J Guerriero,3,,10-2,41.0,8
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Iolaos Du Mou,Tabitha Worsley,T Culhane & S Barclay,8,,11-6,13.0,9
+2026-10-30,15:20,Uttoxeter,uk,hurdle,Handicap,Good,5,10,Solway Staree,Alice Stevens,Miss L Harrison,8,,10-2,151.0,0
+2026-10-30,15:45,Down Royal,uk,chase,Novice,Good,,7,Matin Midi Et Soir,Darragh O'Keeffe,H De Bromhead,4,,11-3,1.5,1
+2026-10-30,15:45,Down Royal,uk,chase,Novice,Good,,7,Zanndabad,Conor Stone-Walsh,A J Martin,7,,11-12,26.0,2
+2026-10-30,15:45,Down Royal,uk,chase,Novice,Good,,7,Port Authority,Danny Gilligan,G Elliott,6,,11-12,5.0,3
+2026-10-30,15:45,Down Royal,uk,chase,Novice,Good,,7,Polepatrick,Keith Donoghue,D A McLoughlin,6,,11-12,13.0,4
+2026-10-30,15:45,Down Royal,uk,chase,Novice,Good,,7,Daydream Nation,Ben Harvey,William Harvey,6,,11-12,11.0,5
+2026-10-30,15:45,Down Royal,uk,chase,Novice,Good,,7,Walks In June,Mike O'Connor,H De Bromhead,6,,11-12,10.0,6
+2026-10-30,15:45,Down Royal,uk,chase,Novice,Good,,7,Maganey,Philip Donovan,S Neville,7,,11-12,51.0,7
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Church Wedding,H Crouch,R M Beckett,3,11,9-7,5.0,1
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Solanna,S M Levey,J Butler,7,3,9-12,23.0,2
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Arundel,David Probert,E A L Dunlop,4,4,10-0,6.0,3
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Eloquencia,R Havlin,James Owen,3,6,9-10,4.0,4
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Dinah Myte,George Bass,J Gallagher,4,12,8-10,7.5,5
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Flag Carrier,N Callan,Brian Toomey,5,9,9-10,34.0,6
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Astronomica,George Wood,Dr J D Scargill,6,13,8-13,17.0,7
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Amused,Donagh Murphy,J R Boyle,4,10,9-10,5.0,8
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Guest House,Callum Shepherd,G G Margarson,3,8,9-10,13.0,9
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Poet's Dawn,Sean Kirrane,T D Easterby,11,2,9-13,19.0,10
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,India Gold,C Lee,Miss Gay Kelleway,3,14,9-5,34.0,11
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Golden Circet,Finley Marsh,J & S Best,6,5,9-8,26.0,12
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,City Of God,William Carson,M J Attwater,4,1,9-9,81.0,13
+2026-10-30,16:05,Newmarket,uk,flat,Handicap,Good to Soft,5,14,Heer's Sadie,Warren Fentiman,J & S Birkett,8,7,8-9,126.0,14
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Lillistar,Joshua Thompson,Micky Hammond,6,,10-2,5.5,1
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Noonetellsmenothin,Jonjo O'Neill Jr.,J & A O'Neill,5,,12-0,4.33,2
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Romany Brown,J J Burke,B I Case,6,,11-11,10.0,3
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Fairly Fulling,Nathan Moscrop,S Corbett,8,,10-12,13.0,4
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Glory Hights,Danny McMenamin,C Grant,10,,10-7,13.0,5
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Helsgetaway,B S Hughes,L Russell & M Scudamore,7,,10-13,8.5,6
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Dramatic License,Callum Bewley,J S Wainwright,6,,11-9,81.0,7
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Bright Legend,Harry Cobden,Faye Bramley,6,,12-0,3.75,8
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Magic Gloves,D R Fox,L Russell & M Scudamore,5,,10-5,8.5,9
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Stylish Recruit,P W Wadge,A M Thomson,8,,11-8,19.0,10
+2026-10-30,16:10,Wetherby,uk,hurdle,Handicap,Good (Good to Firm in places),5,11,Giveupyerauldsins,R P McLernon,Ruth Jefferson,8,,11-0,34.0,11
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Golspie,Dylan Hogan,P Morris,6,4,9-12,4.33,1
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Rory's Gold,Amie Waugh,S Waugh,4,6,10-0,5.0,2
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Titian,Ryan Sexton,Miss J A Camacho,8,10,9-13,21.0,3
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Wicklow Way,J Garritty,M Walford,4,7,9-5,10.0,4
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Sutton Hoo,C J Whiteley,S Hanlon,3,12,9-8,13.0,5
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Freddy Robinson,Faye McManoman,B Ellison,7,9,9-7,23.0,6
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Urban Road,T Eaves,A D Brown,7,14,10-0,13.0,7
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Alembic,Rhys Clutterbuck,Sir Mark Prescott,3,8,9-2,3.5,8
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Yaaser,P Mulrennan,J S Goldie,8,13,9-3,13.0,9
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Bay Dream Believer,Jason Hart,M Walford,7,1,9-8,29.0,10
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Al Muddy,D Swift,S Spencer,6,5,9-12,126.0,11
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Sassy Glory,Rhys Elliott,M Walford,5,11,9-2,29.0,12
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Hill O Rue,K Stott,K A Ryan,4,2,9-5,13.0,13
+2026-10-30,16:15,Newcastle,uk,flat,Handicap,Standard,6,14,Gainsbourg,Shane Gray,D Bourke,8,3,9-6,51.0,14
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Premier Division,Mr H C Swan,G Elliott,5,,11-7,1.44,1
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Ifuknowuknow,Miss A B O'Connor,S G Carey,5,,12-0,8.0,2
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Rokanako,Mr J Dunne,Edward F Power,5,,12-0,15.0,3
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Passenger,Mr F Maguire,D K Weld,7,,12-0,7.0,4
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Gaelic Seer,Mr J L Gleeson,J & T Kiely,4,,10-13,51.0,5
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Getaway Harry,Mr O McGill,Yvonne Latta,4,,11-6,51.0,6
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Silver Song,Mr B M Coonan,Derek O'Connor,4,,10-13,11.0,7
+2026-10-30,16:20,Down Royal,uk,flat,Conditions/Class,Good to Yielding,,8,Hilly Filly,Mr A P Ryan,R O'Sullivan,4,,11-6,17.0,8
+2026-10-30,17:15,Newcastle,uk,flat,Nursery,Standard,5,5,Lady Caroline Lamb,Jason Hart,C Johnston,2,3,9-9,3.12,1
+2026-10-30,17:15,Newcastle,uk,flat,Nursery,Standard,5,5,Zirconic,K Stott,H Palmer,2,5,9-3,13.0,2
+2026-10-30,17:15,Newcastle,uk,flat,Nursery,Standard,5,5,Xochipilli,Jonny Peate,D M Loughnane,2,2,9-6,4.5,3
+2026-10-30,17:15,Newcastle,uk,flat,Nursery,Standard,5,5,Astral Crown,Mark Winn,D O'Meara,2,1,9-7,9.0,4
+2026-10-30,17:15,Newcastle,uk,flat,Nursery,Standard,5,5,Pequenita,P J McDonald,A M Balding,2,4,9-7,2.62,5
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Southern Boulevard,Gary Carroll,G M Lyons,2,4,9-2,1.83,1
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Scolyer,Seamie Heffernan,N Lupini,2,8,9-7,34.0,2
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Pure Power,J Cleary,A P O'Brien,2,5,9-7,7.0,3
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Sapphire Sun,Rory Mulligan,J P Murtagh,2,10,9-2,21.0,4
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Monologue,Jack Kearney,Stephen Thorne,2,1,9-7,6.0,5
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Spotswood,Rory Cleary,K H Clarke,2,9,9-7,67.0,6
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Cultural Change,James Ryan,E Lynam,2,13,9-7,151.0,7
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Rejoinder,Donagh O'Connor,Robson Aguiar,2,6,9-7,5.5,8
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Spring Spirit,Andrew Slattery,W P Browne,2,7,9-2,17.0,9
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Arizona Storm,Leigh Roche,J Nash,2,14,9-7,251.0,10
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Smart Aleck,Nathan Crosse,D Marnane,2,3,9-7,81.0,11
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Moon Gypsy,Patrick McGettigan,J G Burns,2,12,9-2,201.0,12
+2026-10-30,17:30,Dundalk,ire,flat,Maiden,Standard,,13,Yacht Club,Chris Hayes,Daniel McLoughlin,2,2,9-2,26.0,13
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Tactical Blitz,Billy Garritty,L Bailey,3,6,9-4,10.0,1
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Storm Esme,D Allan,T D Easterby,3,2,9-6,4.5,2
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Rousham,Faye McManoman,N Tinkler,3,5,9-1,7.5,3
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Ennoble,Cam Hardie,A Brittain,3,3,9-8,4.0,4
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Brave Traveller,P Mulrennan,B Smart,3,1,9-6,7.0,5
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Try Storm Cat,Rhys Elliott,Jessica Macey,3,9,9-3,13.0,6
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Liquid Cooled,A Mullen,B Haslam,3,8,8-4,19.0,7
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Believeinmenow,Alex Jary,N Tinkler,3,7,9-6,8.5,8
+2026-10-30,17:45,Newcastle,uk,flat,Handicap,Standard,5,9,Kody B,Shane Gray,Craig Lidster,3,4,9-9,12.0,9
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Jordan Breeze,Robyn Donaghue-Leahy,P J Flynn,4,3,9-11,3.5,1
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,One Cool Bear,Patrick McGettigan,A McGuinness,3,12,10-2,6.0,2
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Subiaco,Reese Holohan,Miss Jennifer Anne Lynch,3,8,9-10,6.5,3
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Bye Bye Now,Nicola Burns,J C McConnell,4,4,9-11,13.0,4
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Treasured Royal,Gary Carroll,G P Cromwell,3,1,9-11,19.0,5
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Steel Magnolia,Paddy Harnett,W McCreery,4,10,9-7,19.0,6
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Gaineamh Min,Rory Cleary,S Byrne,3,7,9-7,81.0,7
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Blue Anthem,Sam Coen,A McGuinness,4,17,10-0,4.5,8
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Star Allure,Siobhan Rutledge,C O'Connell,4,13,8-12,51.0,9
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Caislean Ni Cuan,Donagh O'Connor,T Mullins,3,9,9-12,34.0,10
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Whatswrongnow,Orla Tynan,Batt Burke,5,14,9-1,11.0,11
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Spirit Of Eagles,J M Sheridan,W Delahunty,6,16,9-2,34.0,12
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Aughlish,Adam Browne-Souza,C O'Connell,3,11,10-1,67.0,13
+2026-10-30,18:00,Dundalk,ire,flat,Handicap,Standard,,14,Simmering Seas,Jimmy Dalton,Daniel Murphy,3,15,9-12,11.0,14
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Elyam,Jason Hart,M Herrington,4,13,9-2,2.88,1
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Vintage Clarets,Ethan Tindall,R A Fahey,7,4,8-5,10.0,2
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Michaela's Boy,Edward Greatrex,R M H Cowell,6,3,8-13,29.0,3
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Sir Yoshi,S H James,G A Harker,4,10,8-11,21.0,4
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Paddy's Day,Alex Jary,N Tinkler,6,12,8-7,17.0,5
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Forager,P J McDonald,S Pearce,4,11,8-12,41.0,6
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Juan Les Pins,Joanna Mason,M Appleby,9,8,8-5,13.0,7
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Against The Wind,K Stott,K A Ryan,4,9,9-5,4.33,8
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Tatterstall,D Allan,M Dods,6,5,9-6,10.0,9
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Alligator Alley,P Mulrennan,Mrs R Carr,9,6,9-2,51.0,10
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Germanic,Ryan Sexton,Miss J A Camacho,5,7,9-11,9.0,11
+2026-10-30,18:15,Newcastle,uk,flat,Handicap,Standard,3,12,Adrestia,T Eaves,Simon Crisford,4,1,9-9,10.0,12
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,City House,Rory Mulligan,A McGuinness,5,2,8-11,3.75,1
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,All The Girls,Reese Holohan,T G McCourt,3,1,8-9,6.5,2
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,Eddie G,Gavin Ryan,A McGuinness,5,6,8-10,8.5,3
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,Chicago Call,Patrick McGettigan,J P Murtagh,3,4,8-13,5.0,4
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,Frescobaldi,James Ryan,Daniel Murphy,3,7,8-12,41.0,5
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,Thunderbear,Jack Kearney,Stephen Thorne,6,3,9-3,13.0,6
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,Bear On The Run,Gary Carroll,Daniel Murphy,3,5,9-3,8.0,7
+2026-10-30,18:30,Dundalk,ire,flat,Handicap,Standard,,8,Mehman,Chris Hayes,P J F Murphy,7,8,8-8,5.0,8
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Camino Del Ray,Tom Kiely-Marshall,Miss J A Camacho,4,4,9-9,6.5,1
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Cosmos Raj,C J Whiteley,D O'Meara,8,9,9-11,11.0,2
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Criminal Shore,Mark Winn,D O'Meara,4,1,9-4,7.5,3
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Mwafaq,Ethan Tindall,R A Fahey,4,6,9-9,4.5,4
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Coramento,T Eaves,R Craggs,5,14,9-8,7.0,5
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Blue To Blue,D Allan,Ruth Jefferson,3,2,9-10,8.5,6
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Lone Piper,S H James,Phillip Makin,5,8,9-6,51.0,7
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Director's Cut,Jason Hart,R Burdon,3,11,9-7,8.0,8
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Regal Desire,P Mulrennan,B Ellison,3,12,9-8,21.0,9
+2026-10-30,18:45,Newcastle,uk,flat,Handicap,Standard,5,10,Project Geofin,P J McDonald,G R Oldroyd,5,3,9-10,7.0,10
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Wearing Stars,Gary Carroll,H De Bromhead,3,15,9-3,3.25,1
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Lookingforarainbow,Paddy Harnett,Donnacha O'Brien,3,7,9-3,2.2,2
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Riyazanka,Seamie Heffernan,J P Murtagh,3,12,9-3,6.5,3
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Palace Fever,Donagh O'Connor,W McCreery,3,3,9-3,15.0,4
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Positive Thinking,Killian Leonard,N Lupini,3,1,9-8,51.0,5
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Toristar,Robbie Colgan,C Timmons,3,5,9-8,19.0,6
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Jenny Spider,Jack Kearney,G M Lyons,3,6,9-3,51.0,7
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Subtle Shade,J M Sheridan,J P O'Brien,3,8,9-3,8.5,8
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Mothel Abbey,Leigh Roche,P J Flynn,3,4,9-8,151.0,9
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Caption This,Orla Tynan,J Nash,3,9,9-8,201.0,10
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Cape Blue Point,Chris Hayes,D Hogan,3,14,9-3,151.0,11
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Little Miss Rock,Jamie Orr,W Durkan,4,13,9-6,34.0,12
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Black Chicken,Siobhan Rutledge,R O'Sullivan,3,11,9-3,151.0,13
+2026-10-30,19:00,Dundalk,ire,flat,Maiden,Standard,,14,Anaverna,Robert Whearty,M Rice,3,10,9-3,301.0,14
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Sugar Baby,P Mulrennan,P D Niven,8,11,9-4,23.0,1
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Massimo Blue,Edward Greatrex,Dylan Cunha,4,9,10-0,2.75,2
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Winter Crown,Ethan Tindall,L Bailey,6,12,8-10,41.0,3
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Great,Shane Gray,S England,4,13,9-6,5.0,4
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,The Green Man,K Stott,P A Kirby,7,6,9-6,13.0,5
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Tiriac,O McSweeney,P T Midgley,6,2,9-3,5.5,6
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Hectic,Billy Garritty,L Bailey,6,3,9-4,13.0,7
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Bright,Jason Hart,D M Loughnane,6,10,9-6,6.0,8
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Roaring Ralph,Rhys Elliott,M Dods,6,5,9-7,17.0,9
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Invincible Ruby,A Mullen,I Jardine,4,1,9-6,26.0,10
+2026-10-30,19:15,Newcastle,uk,flat,Handicap,Standard,5,11,Bellagio Man,Cam Hardie,A Brittain,8,4,8-11,51.0,11
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Son Of Beauty,Reese Holohan,Stephen Thorne,3,6,9-12,8.0,1
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Daler,Gary Carroll,G M Lyons,4,2,10-1,5.5,2
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Gavoo,Chris Hayes,D Marnane,3,10,9-5,8.5,3
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Golddream,Robbie Colgan,D Marnane,3,14,9-6,8.0,4
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Bishopton,Nicola Burns,N Lupini,4,17,10-0,34.0,5
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Art Gallery,Rory Mulligan,J P Murtagh,3,9,9-10,12.0,6
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Alissam,Jack Kearney,Stephen Thorne,3,7,9-11,9.0,7
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Lady In Gold,J M Sheridan,J P O'Brien,3,4,9-7,15.0,8
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Suir Monad,Andrew Slattery,A Slattery,3,11,9-9,5.0,9
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Time Bender,Jamie Orr,W Durkan,3,5,9-9,26.0,10
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Send Harry,Adam Browne-Souza,Miss E McCutcheon,4,8,9-13,12.0,11
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Stars Will Shine,Paddy Harnett,N Meade,3,3,9-7,26.0,12
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Flame Of Forest,Seamie Heffernan,N Lupini,4,1,9-9,15.0,13
+2026-10-30,19:30,Dundalk,ire,flat,Handicap,Standard,,14,Snow Light,Jared Huggan,D Hogan,3,15,9-13,101.0,14
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Concert Boy,Jason Hart,K Scott,6,6,9-2,5.5,1
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Jamaican Storm,P Mulrennan,B Smart,4,10,10-0,6.0,2
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Tomorrow Day,Rhys Elliott,M D I Usher,5,9,9-2,17.0,3
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Educating Rita,K Stott,P A Kirby,4,7,9-13,4.5,4
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Lanarra,J P Sullivan,R M Smith,3,1,9-0,9.0,5
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Yaajooz,Joanna Mason,M & D Easterby,5,3,10-5,4.0,6
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Bomb Squad,P J McDonald,J Mackie,8,8,9-10,23.0,7
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Clasina,Gina Mangan,John Berry,5,11,9-7,13.0,8
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Viviana,S H James,C Johnston,3,4,9-9,19.0,9
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Taradif,William Pyle,Jessica Macey,3,2,9-11,26.0,10
+2026-10-30,19:45,Newcastle,uk,flat,Handicap,Standard,6,11,Mrbluesky,Greg Fairley,Gary Rutherford,4,5,8-9,101.0,11
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Go Out,James Ryan,Daniel Murphy,4,3,10-1,4.0,1
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Prada's World,J Cleary,N C Kelly,4,10,9-1,11.0,2
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Polanco,Adam Browne-Souza,P F O'Donnell,3,8,9-2,6.0,3
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Searcog,Robbie Colgan,P Magee,4,9,9-1,26.0,4
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Desert Of The Sea,Sadhbh Tormey,T G McCourt,5,4,8-12,13.0,5
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Medieval Night,Jared Huggan,D Hogan,4,1,9-11,17.0,6
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Battle Borne,Nicola Burns,P J McKenna,4,2,9-12,15.0,7
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Captain Ciano,Robert Whearty,T G McCourt,4,6,9-6,15.0,8
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Chester Nimitz,Danny O'Leary,Gerard O'Leary,4,14,10-2,8.5,9
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Storm Eric,Adam Grant,Jamie Flynn,7,15,10-1,6.5,10
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Holly Holy,Jessica O'Gorman,E & P Harty,4,7,10-2,51.0,11
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Tyraxes,Siobhan Rutledge,D Hogan,4,11,9-13,51.0,12
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Whatsin The Stars,Nina Doherty,P W Flynn,3,17,8-8,41.0,13
+2026-10-30,20:00,Dundalk,ire,flat,Handicap,Standard,,14,Sceitimini,Killian Leonard,R Sweeney,3,13,8-12,7.0,14
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Cavallo Pazzo,Shane Gray,D Bourke,7,3,10-0,3.12,1
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Victory Sound,Rhys Elliott,M D I Usher,4,6,9-0,9.5,2
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Wish This,T Eaves,A D Brown,4,10,9-11,10.0,3
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Ey Up He's A Star,K Stott,T Coyle & K Wood,4,5,9-13,4.33,4
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Starliner,William Pyle,Miss L A Perratt,5,9,10-0,5.5,5
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Pit Boss,Billy Garritty,L Bailey,4,2,9-6,10.0,6
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Supreme Lillia,Joanna Mason,G Tutty,3,7,9-7,26.0,7
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,The Cookstown Cafu,C J Whiteley,Fionn McSharry,7,4,9-10,23.0,8
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Kitaab,Aiden Brookes,P A Kirby,7,1,8-10,67.0,9
+2026-10-30,20:20,Newcastle,uk,flat,Handicap,Standard,6,10,Pallas Lord,Jason Hart,D W Whillans,8,8,9-2,19.0,10
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Not Just Any Eagle,Robyn Donaghue-Leahy,P J Flynn,7,8,9-9,9.0,1
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Sunrush,Andrew Slattery,A Slattery,3,5,8-11,7.5,2
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Zoffman,Paddy Harnett,N Meade,7,7,9-2,13.0,3
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Serenity Blue,Sam Coen,A McGuinness,4,2,10-0,2.62,4
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Pillar Of Hope,Patrick McGettigan,P Sweeney,8,6,9-9,11.0,5
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Unterberg,Rory Mulligan,Laura Hourigan,7,1,9-13,13.0,6
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Tribal Moon,Killian Leonard,N C Kelly,5,9,8-8,23.0,7
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Nermal,Adam Browne-Souza,A Slattery,3,3,9-4,4.0,8
+2026-10-30,20:30,Dundalk,ire,flat,Handicap,Standard,,9,Palmezzano,J M Sheridan,D Hogan,4,4,9-0,34.0,9
