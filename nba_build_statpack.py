@@ -60,7 +60,21 @@ def _ctx(ctx, kind, stat, team):
     return ctx[kind][stat].get(team, 0.0) if ctx else 0.0
 
 
-def prop_features(ctx, f, side, team_id, opp_id, b2b, stat) -> dict:
+# Early in a season the opposition numbers (what a team concedes, pace) rest on a handful of
+# games plus last year's roster, so they are pulled towards "no adjustment" until a team has
+# played a fair number of games: weight = n / (n + CONTEXT_SHRINK_GAMES), n = games played by
+# the two teams (average). Replayed on ~84,000 past lines this helped in the first weeks of
+# a season (log loss 0.4241 -> 0.4226) and changed nothing later on.
+CONTEXT_SHRINK_GAMES = 3.0
+
+
+def context_weight(ratings, team_id: int, opp_id: int) -> float:
+    gp = getattr(ratings, "games_played", None) or {}
+    n = (gp.get(team_id, 0) + gp.get(opp_id, 0)) / 2.0
+    return n / (n + CONTEXT_SHRINK_GAMES)
+
+
+def prop_features(ctx, f, side, team_id, opp_id, b2b, stat, ctx_weight: float = 1.0) -> dict:
     """The model's inputs for one player (see nba_model.PROP_COEFS)."""
     feat = {"home": 1.0 if side == "home" else -1.0, "b2b": float(b2b)}
     if ctx:
@@ -73,6 +87,9 @@ def prop_features(ctx, f, side, team_id, opp_id, b2b, stat) -> dict:
             feat["aoff_" + c] = _ctx(ctx, "off", c, team_id)
         for c in ("oreb", "tpa"):
             feat["ooff_" + c] = _ctx(ctx, "off", c, opp_id)
+    for k in list(feat):
+        if k.startswith(("odef_", "aoff_", "ooff_")) or k in ("pace", "absmargin"):
+            feat[k] *= ctx_weight
     m = f[stat]["mean"]
     feat["form40"] = (f[stat]["mean40"] - m) / max(m, 0.5)
     feat["mintrend"] = max(-0.5, min(0.5, f["mins5"] / max(f["mins40"], 1.0) - 1.0))
@@ -119,7 +136,8 @@ def build_fixture(row, ratings, tg, forms, roster_by_team, names, ctx=None, appe
             tid, oid = (home_id, away_id) if side == "home" else (away_id, home_id)
             form = {}
             for stat in S.PROP_STATS:
-                feat = prop_features(ctx, f, side, tid, oid, hb2b if side == "home" else ab2b, stat)
+                feat = prop_features(ctx, f, side, tid, oid, hb2b if side == "home" else ab2b, stat,
+                                     context_weight(ratings, tid, oid))
                 adj, _ = M.prop_adjust(stat, f[stat]["mean"], feat)
                 mean, sd = M.prop_dist(stat, adj, f[stat]["sd"], f["stale_days"])
                 exp[stat] = round(mean, 1)
