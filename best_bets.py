@@ -68,10 +68,35 @@ CORNERS_OVER_7_5_MIN_CONFIDENCE = 0.80
 BROAD_MARKET_MIN_CONFIDENCE = 0.82
 BROAD_MARKETS = {"goals", "corners", "cards"}
 
+# Higher rungs of a line ladder (e.g. a team's Over 1.5 cards, or match Over
+# 8.5 corners) pay much better than the bottom rung (Over 0.5 cards is ~93%
+# but priced ~1.08), so they get a lower bar. Best Bets used to take only each
+# market's highest-PROBABILITY line, which is always the lowest rung, so the
+# list was nearly all "Over 0.5 cards". Now each market offers the HIGHEST line
+# that clears its bar (the bottom rung only if nothing higher does).
+# Calibration (calibration.py) still adjusts every line from its own results.
+LADDER_MIN_CONFIDENCE = 0.75
+
+
+# Lowest line of each broad market's ladder (see poisson_model's lines).
+_BOTTOM_RUNG = {("goals", "match"): 1.5, ("goals", "home"): 0.5, ("goals", "away"): 0.5,
+                ("corners", "match"): 7.5, ("corners", "home"): 2.5, ("corners", "away"): 2.5,
+                ("cards", "match"): 2.5, ("cards", "home"): 0.5, ("cards", "away"): 0.5}
+
+
+def _best_line(ou_list: list, metric: str, scope: str):
+    """The highest line whose Over clears its bar, or None."""
+    for ou in sorted(ou_list, key=lambda o: o["line"], reverse=True):
+        if ou["over"] >= _over_bar(metric, scope, ou["line"]):
+            return ou
+    return None
+
 
 def _over_bar(metric: str, scope: str, line) -> float:
     """Confidence needed for an Over pick - the standard bar, except for
     match corners Over 7.5 (see above) and the broad markets (see above)."""
+    if metric in BROAD_MARKETS and line is not None and line > _BOTTOM_RUNG.get((metric, scope), 0):
+        return LADDER_MIN_CONFIDENCE
     if metric == "corners" and scope == "match" and line == 7.5:
         return CORNERS_OVER_7_5_MIN_CONFIDENCE
     if metric in BROAD_MARKETS:
@@ -266,8 +291,8 @@ def compute_best_bets_split(statpack: dict, window_days: int = NEAR_TERM_WINDOW_
                 continue
 
             if m.get("over_under"):
-                top_over = max(m["over_under"], key=lambda ou: ou["over"])
-                if top_over["over"] >= _over_bar(metric_key, "match", top_over["line"]):
+                top_over = _best_line(m["over_under"], metric_key, "match")
+                if top_over:
                     label = f"{fx['home_team']} v {fx['away_team']} - Over {top_over['line']} {metric_label}"
                     picks.append(_make_pick(fx, metric_key, "match", None, "Over",
                                              top_over["line"], top_over["over"], label))
@@ -282,8 +307,8 @@ def compute_best_bets_split(statpack: dict, window_days: int = NEAR_TERM_WINDOW_
                 side_ou = m.get(side_key)
                 if not side_ou:
                     continue
-                top_side = max(side_ou, key=lambda ou: ou["over"])
-                if top_side["over"] >= _over_bar(metric_key, scope, top_side["line"]):
+                top_side = _best_line(side_ou, metric_key, scope)
+                if top_side:
                     label = f"{team} - Over {top_side['line']} {metric_label}"
                     picks.append(_make_pick(fx, metric_key, scope, team, "Over",
                                              top_side["line"], top_side["over"], label))
