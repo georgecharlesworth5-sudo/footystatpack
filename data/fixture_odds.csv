@@ -1,23 +1,88 @@
 Div,League,Date,Time,HomeTeam,AwayTeam,AvgH,AvgD,AvgA,AvgOver25,AvgUnder25
-E2,League One,27/10/2026,19:45,Leicester,Wigan,1.38,4.89,7.11,1.48,2.52
-E2,League One,27/10/2026,19:45,Luton,Doncaster,1.5,4.47,5.53,1.49,2.47
-E2,League One,27/10/2026,19:45,Milton Keynes Dons,Bromley,1.59,4.16,4.99,1.58,2.25
-E2,League One,27/10/2026,19:45,Oxford,Stockport,3.3,3.72,2,1.6,2.23
-E2,League One,27/10/2026,19:45,Sheffield Weds,Cambridge,2.02,3.63,3.34,1.67,2.12
-E3,League Two,27/10/2026,19:45,Barnet,York,2.04,3.74,3.14,1.5,2.43
-I1,Serie A,27/10/2026,17:30,Sassuolo,Lazio,3.33,3.54,2.09,1.66,2.15
-I1,Serie A,27/10/2026,19:45,Roma,Cagliari,1.31,5.33,9.31,1.61,2.28
-I1,Serie A,27/10/2026,19:45,Torino,Como,4.5,3.8,1.74,1.65,2.17
-I1,Serie A,28/10/2026,17:30,Milan,Bologna,1.62,3.91,5.3,1.81,1.94
-I1,Serie A,28/10/2026,17:30,Parma,Udinese,2.9,3.14,2.49,2.17,1.65
-I1,Serie A,28/10/2026,17:30,Venezia,Inter,7.73,5.47,1.33,1.34,3.17
-I1,Serie A,28/10/2026,19:45,Genoa,Juventus,5.18,3.66,1.68,2.03,1.73
-I1,Serie A,28/10/2026,19:45,Monza,Napoli,4.35,3.89,1.74,1.69,2.11
-I1,Serie A,29/10/2026,17:30,Frosinone,Lecce,1.66,4.13,4.49,1.44,2.67
-I1,Serie A,29/10/2026,19:45,Fiorentina,Atalanta,2.18,3.62,3.01,1.59,2.27
-SC0,Scottish Premiership,28/10/2026,19:45,Aberdeen,Falkirk,2.02,3.47,3.38,1.81,1.93
-SC0,Scottish Premiership,28/10/2026,19:45,Celtic,Dundee United,1.26,5.93,9.08,1.33,3.11
-SC0,Scottish Premiership,28/10/2026,19:45,Dundee,Kilmarnock,1.92,3.7,3.48,1.56,2.32
-SC0,Scottish Premiership,28/10/2026,19:45,St Johnstone,Motherwell,2.45,3.41,2.66,1.77,1.97
-SC0,Scottish Premiership,28/10/2026,19:45,St Mirren,Hibernian,3.24,3.61,2.03,1.63,2.17
-SC0,Scottish Premiership,28/10/2026,20:00,Hearts,Rangers,3.11,3.61,2.1,1.6,2.24
+D1,Bundesliga,30/10/2026,19:30,Elversberg,Mainz,3.1,3.82,2.09,1.44,2.67
+D1,Bundesliga,31/10/2026,14:30,Augsburg,Freiburg,2.95,3.79,2.15,1.45,2.64
+D1,Bundesliga,31/10/2026,14:30,Leverkusen,Stuttgart,1.78,4.27,3.71,1.3,3.38
+D1,Bundesliga,31/10/2026,14:30,M'gladbach,Paderborn,1.97,3.85,3.32,1.47,2.58
+D1,Bundesliga,31/10/2026,14:30,Schalke 04,RB Leipzig,3.78,3.86,1.84,1.43,2.72
+D1,Bundesliga,31/10/2026,14:30,Werder Bremen,Hoffenheim,2.78,3.85,2.24,1.38,2.91
+D1,Bundesliga,31/10/2026,17:30,Bayern Munich,Dortmund,1.32,5.75,7.28,1.23,3.93
+D1,Bundesliga,01/11/2026,14:30,Union Berlin,FC Koln,2.52,3.59,2.53,1.61,2.23
+D1,Bundesliga,01/11/2026,16:30,Ein Frankfurt,Hamburg,1.57,4.44,4.83,1.4,2.79
+E0,Premier League,31/10/2026,12:30,Chelsea,Man United,1.81,3.88,3.93,1.55,2.35
+E0,Premier League,31/10/2026,15:00,Bournemouth,Leeds,2.11,3.38,3.36,1.83,1.9
+E0,Premier League,31/10/2026,15:00,Brentford,Nott'm Forest,2.04,3.64,3.36,1.69,2.09
+E0,Premier League,31/10/2026,15:00,Coventry,Sunderland,3.05,3.32,2.28,1.92,1.82
+E0,Premier League,31/10/2026,15:00,Hull,Ipswich,2.58,3.39,2.62,1.8,1.94
+E0,Premier League,31/10/2026,15:00,Man City,Brighton,1.62,4.37,4.58,1.39,2.84
+E0,Premier League,31/10/2026,17:30,Tottenham,Crystal Palace,1.53,4.35,5.5,1.56,2.31
+E0,Premier League,31/10/2026,20:00,Aston Villa,Fulham,1.93,3.7,3.61,1.66,2.14
+E0,Premier League,01/11/2026,16:30,Liverpool,Arsenal,2.91,3.4,2.33,1.82,1.92
+E0,Premier League,02/11/2026,20:00,Newcastle,Everton,2.28,3.53,2.89,1.67,2.12
+E1,Championship,30/10/2026,20:00,Sheffield United,Wrexham,2.38,3.35,2.88,1.88,1.86
+E1,Championship,31/10/2026,12:30,Lincoln,Birmingham,3.27,3.42,2.12,1.89,1.84
+E1,Championship,31/10/2026,12:30,Norwich,Watford,1.54,4.32,5.24,1.53,2.39
+E1,Championship,31/10/2026,12:30,Stoke,Preston,1.74,3.72,4.43,1.85,1.87
+E1,Championship,31/10/2026,15:00,Bolton,Bristol City,2.82,3.46,2.34,1.76,1.99
+E1,Championship,31/10/2026,15:00,Burnley,Portsmouth,2.11,3.41,3.3,1.86,1.88
+E1,Championship,31/10/2026,15:00,Middlesbrough,Charlton,1.25,5.98,9.89,1.4,2.82
+E1,Championship,31/10/2026,15:00,Millwall,Derby,1.68,3.81,4.76,1.8,1.93
+E1,Championship,31/10/2026,15:00,Southampton,QPR,1.8,3.87,3.93,1.54,2.37
+E1,Championship,31/10/2026,15:00,Swansea,Blackburn,1.78,3.63,4.31,1.84,1.88
+E1,Championship,31/10/2026,15:00,West Ham,West Brom,1.61,4.11,4.86,1.6,2.23
+E1,Championship,31/10/2026,15:00,Wolves,Cardiff,1.65,4.15,4.49,1.45,2.62
+E2,League One,31/10/2026,12:30,Bradford,Huddersfield,2.66,3.41,2.48,1.83,1.9
+E2,League One,31/10/2026,12:30,Leyton Orient,Cambridge,2.68,3.43,2.46,1.79,1.94
+E2,League One,31/10/2026,12:30,Plymouth,Reading,2.29,3.65,2.75,1.52,2.39
+E2,League One,31/10/2026,15:00,Barnsley,Oxford,2.55,3.76,2.41,1.52,2.41
+E2,League One,31/10/2026,15:00,Leicester,Stevenage,1.7,3.96,4.35,1.64,2.15
+E2,League One,31/10/2026,15:00,Mansfield,Notts County,1.77,3.74,4.15,1.75,1.99
+E2,League One,31/10/2026,15:00,Milton Keynes Dons,Doncaster,2.04,3.6,3.28,1.66,2.12
+E2,League One,31/10/2026,15:00,Peterboro,Luton,3.26,3.93,1.96,1.4,2.76
+E2,League One,31/10/2026,15:00,Stockport,AFC Wimbledon,1.25,5.85,9.56,1.44,2.62
+E2,League One,31/10/2026,15:00,Wigan,Bromley,1.85,3.58,3.94,1.81,1.93
+E2,League One,31/10/2026,15:00,Wycombe,Burton,1.51,4.3,5.6,1.65,2.14
+E2,League One,01/11/2026,14:00,Sheffield Weds,Blackpool,1.71,3.93,4.2,1.55,2.34
+E3,League Two,30/10/2026,19:45,Newport County,Chesterfield,4.03,3.66,1.8,1.78,1.95
+E3,League Two,31/10/2026,12:30,Grimsby,York,2.28,3.66,2.72,1.56,2.29
+E3,League Two,31/10/2026,12:30,Port Vale,Rochdale,1.67,3.69,4.77,1.91,1.81
+E3,League Two,31/10/2026,15:00,Accrington,Northampton,2.1,3.28,3.35,2.08,1.68
+E3,League Two,31/10/2026,15:00,Colchester,Walsall,2.56,3.47,2.51,1.75,1.98
+E3,League Two,31/10/2026,15:00,Crewe,Barnet,2.93,3.63,2.16,1.58,2.25
+E3,League Two,31/10/2026,15:00,Fleetwood Town,Bristol Rvs,2.67,3.38,2.45,1.79,1.93
+E3,League Two,31/10/2026,15:00,Oldham,Crawley Town,1.67,4.02,4.38,1.55,2.3
+E3,League Two,31/10/2026,15:00,Salford,Exeter,1.62,3.93,4.88,1.71,2.02
+E3,League Two,31/10/2026,15:00,Shrewsbury,Gillingham,1.94,3.39,3.74,1.99,1.74
+E3,League Two,31/10/2026,15:00,Swindon,Rotherham,2.28,3.51,2.79,1.69,2.06
+E3,League Two,31/10/2026,15:00,Tranmere,Cheltenham,1.86,3.66,3.77,1.7,2.04
+F1,Ligue 1,30/10/2026,18:00,Le Havre,Paris SG,8.33,5.83,1.31,1.36,2.99
+F1,Ligue 1,30/10/2026,18:00,Nice,Rennes,2.56,3.64,2.53,1.61,2.24
+F1,Ligue 1,30/10/2026,20:05,Lille,Lens,2.7,3.41,2.52,1.86,1.87
+F1,Ligue 1,31/10/2026,19:45,Troyes,Le Mans,2.32,3.45,2.89,1.79,1.96
+F1,Ligue 1,01/11/2026,14:00,Strasbourg,Auxerre,1.81,3.86,3.89,1.55,2.34
+F1,Ligue 1,01/11/2026,16:15,Lyon,Angers,1.39,4.9,7.07,1.53,2.4
+F1,Ligue 1,01/11/2026,16:15,Paris FC,Monaco,2.26,3.48,2.94,1.76,1.98
+F1,Ligue 1,01/11/2026,19:45,Marseille,Toulouse,1.9,3.88,3.54,1.52,2.44
+F1,Ligue 1,02/11/2026,19:45,Lorient,Brest,2.44,3.25,2.83,1.99,1.76
+I1,Serie A,31/10/2026,14:00,Bologna,Monza,1.69,3.86,4.73,1.79,1.96
+I1,Serie A,31/10/2026,17:00,Udinese,Roma,5.55,4.36,1.53,1.58,2.3
+I1,Serie A,31/10/2026,19:45,Milan,Inter,3.46,3.72,1.98,1.6,2.25
+I1,Serie A,01/11/2026,11:30,Como,Venezia,1.29,5.75,8.83,1.37,2.91
+I1,Serie A,01/11/2026,14:00,Frosinone,Torino,2.14,3.84,2.95,1.4,2.84
+I1,Serie A,01/11/2026,14:00,Lazio,Cagliari,1.43,4.38,7.12,1.78,1.97
+I1,Serie A,01/11/2026,17:00,Lecce,Genoa,3.17,3.03,2.37,2.33,1.56
+I1,Serie A,01/11/2026,19:45,Juventus,Napoli,2.25,3.25,3.18,1.95,1.8
+I1,Serie A,02/11/2026,17:30,Sassuolo,Fiorentina,2.78,3.63,2.31,1.54,2.35
+I1,Serie A,02/11/2026,19:45,Atalanta,Parma,1.48,4.47,6.12,1.62,2.23
+SC0,Scottish Premiership,31/10/2026,15:00,Kilmarnock,St Johnstone,2.31,3.5,2.78,1.7,2.06
+SC0,Scottish Premiership,31/10/2026,15:00,Motherwell,St Mirren,1.79,3.85,3.87,1.57,2.3
+SC0,Scottish Premiership,01/11/2026,13:00,Falkirk,Celtic,5.97,4.85,1.42,1.42,2.69
+SP1,La Liga,30/10/2026,20:00,Villarreal,Espanol,1.41,4.99,6.71,1.47,2.61
+SP1,La Liga,31/10/2026,13:00,Levante,Ath Madrid,5.32,4.51,1.53,1.52,2.42
+SP1,La Liga,31/10/2026,15:15,Vallecano,Celta,2.37,3.26,2.99,2.07,1.7
+SP1,La Liga,31/10/2026,17:30,Betis,Malaga,1.33,5.36,8.03,1.48,2.54
+SP1,La Liga,31/10/2026,20:00,Barcelona,Alaves,1.1,10.39,19.56,1.2,4.33
+SP1,La Liga,01/11/2026,13:00,Getafe,Sevilla,3.09,2.96,2.45,2.66,1.44
+SP1,La Liga,01/11/2026,15:15,Santander,Real Madrid,9.92,7.27,1.21,1.19,4.39
+SP1,La Liga,01/11/2026,17:30,Elche,Valencia,2.3,3.33,3.01,1.91,1.82
+SP1,La Liga,01/11/2026,20:00,Ath Bilbao,Sociedad,2.12,3.58,3.14,1.65,2.14
+SP1,La Liga,02/11/2026,20:00,La Coruna,Osasuna,2.13,3.22,3.42,2.19,1.63
