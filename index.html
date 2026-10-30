@@ -3362,6 +3362,30 @@
     return pick;
   }
 
+  // Current regular-season records and the gap between the two sides, from team_form.
+  function nbaRecordBlock(fx) {
+    const tf = (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.team_form) || {};
+    const find = (name, id) => tf[name] || Object.values(tf).find(t => t.team_id === id);
+    const parse = t => {
+      const m = t && /^(\d+)-(\d+)$/.exec(t.record || "");
+      return m ? { w: +m[1], l: +m[2] } : null;
+    };
+    const h = parse(find(fx.home_team, fx.home_id)), a = parse(find(fx.away_team, fx.away_id));
+    if (!h || !a) return "";
+    const pct = r => (r.w + r.l) ? (r.w / (r.w + r.l)) : 0;
+    const gap = ((h.w - h.l) - (a.w - a.l)) / 2;   // games ahead/behind: half the difference in (wins - losses)
+    const fmt = g => (Math.abs(g) === 1 ? "1 game" : Math.abs(g).toFixed(Number.isInteger(g) ? 0 : 1) + " games");
+    const gapText = gap === 0 ? "level on record"
+      : `${gap > 0 ? fx.home_team : fx.away_team} ${fmt(gap)} ahead`;
+    const side = (name, r) => `<div class="mr-option"><div class="mr-label">${name}</div>
+      <div class="mr-pct">${r.w}-${r.l}</div><div class="sample-note" style="display:block">${(pct(r) * 100).toFixed(0)}% wins</div></div>`;
+    return `<div class="mr-block">
+      <div class="metric-title">Record this season</div>
+      <div class="mr-row">${side(fx.home_team, h)}${side(fx.away_team, a)}</div>
+      <div class="sample-note">${gapText}${(h.w + h.l) < 5 || (a.w + a.l) < 5 ? " · small sample" : ""}</div>
+    </div>`;
+  }
+
   function nbaMoneylineBlock(fx) {
     const ml = fx.predictions && fx.predictions.moneyline;
     if (!ml) return "";
@@ -3506,6 +3530,7 @@
       </summary>
       <div class="detail">
         ${note}
+        ${nbaRecordBlock(fx)}
         ${nbaMoneylineBlock(fx)}
         <div class="metric-grid">
           ${nbaSpreadCard(fx)}
