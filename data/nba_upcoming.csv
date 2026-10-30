@@ -1,7 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909893,30/10/2026,00:00,2026-10-30 00:00,1,Atlanta Hawks,5,Cleveland Cavaliers,2
-401909894,30/10/2026,00:00,2026-10-30 00:00,3,New Orleans Pelicans,23,Sacramento Kings,2
-401909895,30/10/2026,02:00,2026-10-30 02:00,22,Portland Trail Blazers,29,Memphis Grizzlies,2
 401909277,30/10/2026,23:00,2026-10-30 23:00,27,Washington Wizards,30,Charlotte Hornets,2
 401909278,30/10/2026,23:30,2026-10-30 23:30,2,Boston Celtics,4,Chicago Bulls,2
 401909279,30/10/2026,23:30,2026-10-30 23:30,17,Brooklyn Nets,8,Detroit Pistons,2
@@ -23,3 +20,18 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909904,01/11/2026,22:00,2026-11-01 22:00,11,Indiana Pacers,17,Brooklyn Nets,2
 401909905,02/11/2026,01:30,2026-11-02 01:30,9,Golden State Warriors,12,LA Clippers,2
 401909906,02/11/2026,02:00,2026-11-02 02:00,13,Los Angeles Lakers,28,Toronto Raptors,2
+401909907,03/11/2026,00:00,2026-11-03 00:00,5,Cleveland Cavaliers,25,Oklahoma City Thunder,2
+401909908,03/11/2026,00:30,2026-11-03 00:30,30,Charlotte Hornets,8,Detroit Pistons,2
+401909909,03/11/2026,00:30,2026-11-03 00:30,11,Indiana Pacers,1,Atlanta Hawks,2
+401909910,03/11/2026,00:30,2026-11-03 00:30,18,New York Knicks,17,Brooklyn Nets,2
+401909911,03/11/2026,00:30,2026-11-03 00:30,19,Orlando Magic,27,Washington Wizards,2
+401909912,03/11/2026,00:30,2026-11-03 00:30,20,Philadelphia 76ers,4,Chicago Bulls,2
+401909913,03/11/2026,01:00,2026-11-03 01:00,6,Dallas Mavericks,23,Sacramento Kings,2
+401909914,03/11/2026,01:00,2026-11-03 01:00,29,Memphis Grizzlies,3,New Orleans Pelicans,2
+401909915,03/11/2026,01:00,2026-11-03 01:00,16,Minnesota Timberwolves,15,Milwaukee Bucks,2
+401909916,03/11/2026,01:30,2026-11-03 01:30,10,Houston Rockets,2,Boston Celtics,2
+401909917,03/11/2026,01:30,2026-11-03 01:30,24,San Antonio Spurs,26,Utah Jazz,2
+401909918,03/11/2026,02:00,2026-11-03 02:00,7,Denver Nuggets,22,Portland Trail Blazers,2
+401909919,03/11/2026,03:00,2026-11-03 03:00,9,Golden State Warriors,21,Phoenix Suns,2
+401909920,03/11/2026,03:00,2026-11-03 03:00,12,LA Clippers,28,Toronto Raptors,2
+401909921,03/11/2026,03:00,2026-11-03 03:00,13,Los Angeles Lakers,14,Miami Heat,2
