@@ -28936,16 +28936,16 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401909094,2026-10-22,2027,2,3135046,Tyus Jones,7,Denver Nuggets,10.0,2,0,0,0
 401909094,2026-10-22,2027,2,3138196,Cameron Johnson,7,Denver Nuggets,11.0,5,2,1,1
 401909094,2026-10-22,2027,2,3936299,Jamal Murray,7,Denver Nuggets,37.0,6,10,3,0
-401909094,2026-10-22,2027,2,4065813,Alpha Diallo,7,Denver Nuggets,22.0,4,2,3,0
+401909094,2026-10-22,2027,2,4065813,Alpha Diallo,7,Denver Nuggets,22.0,4,2,2,0
 401909094,2026-10-22,2027,2,4222252,Isaiah Hartenstein,25,Oklahoma City Thunder,23.0,6,6,2,0
-401909094,2026-10-22,2027,2,4277848,Marvin Bagley III,7,Denver Nuggets,11.0,2,3,1,0
+401909094,2026-10-22,2027,2,4277848,Marvin Bagley III,7,Denver Nuggets,11.0,2,3,2,0
 401909094,2026-10-22,2027,2,4278073,Shai Gilgeous-Alexander,25,Oklahoma City Thunder,35.0,17,2,3,3
 401909094,2026-10-22,2027,2,4431767,Christian Braun,7,Denver Nuggets,33.0,7,6,1,1
 401909094,2026-10-22,2027,2,4432823,Jaylin Williams,25,Oklahoma City Thunder,15.0,3,7,3,1
 401909094,2026-10-22,2027,2,4433255,Chet Holmgren,25,Oklahoma City Thunder,28.0,12,17,2,0
-401909094,2026-10-22,2027,2,4433607,DaRon Holmes II,7,Denver Nuggets,2.0,3,1,1,1
+401909094,2026-10-22,2027,2,4433607,DaRon Holmes II,7,Denver Nuggets,2.0,3,0,1,1
 401909094,2026-10-22,2027,2,4433629,Ryan Nembhard,7,Denver Nuggets,2.0,5,1,1,1
-401909094,2026-10-22,2027,2,4565698,Bryce Hopkins,7,Denver Nuggets,2.0,0,1,0,0
+401909094,2026-10-22,2027,2,4565698,Bryce Hopkins,7,Denver Nuggets,2.0,0,2,0,0
 401909094,2026-10-22,2027,2,4593803,Jalen Williams,25,Oklahoma City Thunder,33.0,21,5,3,2
 401909094,2026-10-22,2027,2,4683692,Cason Wallace,25,Oklahoma City Thunder,24.0,9,1,1,3
 401909094,2026-10-22,2027,2,4683778,Jared McCain,25,Oklahoma City Thunder,18.0,4,0,1,0
@@ -30184,8 +30184,8 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401909277,2026-10-30,2027,2,2583632,Royce O'Neale,30,Charlotte Hornets,17.0,7,3,1,2
 401909277,2026-10-30,2027,2,3032979,Dennis Schroder,30,Charlotte Hornets,29.0,8,2,8,1
 401909277,2026-10-30,2027,2,3135045,Grayson Allen,30,Charlotte Hornets,21.0,5,3,2,1
-401909277,2026-10-30,2027,2,4277905,Trae Young,27,Washington Wizards,38.0,21,7,9,1
-401909277,2026-10-30,2027,2,4278129,Deandre Ayton,27,Washington Wizards,17.0,3,3,1,0
+401909277,2026-10-30,2027,2,4277905,Trae Young,27,Washington Wizards,38.0,21,6,9,1
+401909277,2026-10-30,2027,2,4278129,Deandre Ayton,27,Washington Wizards,17.0,3,4,1,0
 401909277,2026-10-30,2027,2,4396971,Naz Reid,30,Charlotte Hornets,31.0,12,11,1,2
 401909277,2026-10-30,2027,2,4432819,Tre Mann,27,Washington Wizards,1.0,0,0,0,0
 401909277,2026-10-30,2027,2,4433249,Moussa Diabate,30,Charlotte Hornets,31.0,10,12,1,0
@@ -30196,7 +30196,7 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401909277,2026-10-30,2027,2,4845374,Bub Carrington,27,Washington Wizards,20.0,9,4,2,3
 401909277,2026-10-30,2027,2,5060701,Christian Anderson,30,Charlotte Hornets,14.0,4,3,3,0
 401909277,2026-10-30,2027,2,5104155,Bilal Coulibaly,27,Washington Wizards,22.0,1,5,1,0
-401909277,2026-10-30,2027,2,5142718,AJ Dybantsa,27,Washington Wizards,30.0,17,8,1,1
+401909277,2026-10-30,2027,2,5142718,AJ Dybantsa,27,Washington Wizards,30.0,17,7,1,1
 401909277,2026-10-30,2027,2,5144126,Will Riley,27,Washington Wizards,1.0,0,0,0,0
 401909277,2026-10-30,2027,2,5160992,Alex Sarr,27,Washington Wizards,29.0,3,8,0,1
 401909277,2026-10-30,2027,2,5174563,Kyshawn George,27,Washington Wizards,32.0,12,3,3,4
@@ -30247,8 +30247,8 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401909279,2026-10-30,2027,2,4684742,Ausar Thompson,8,Detroit Pistons,26.0,11,8,6,0
 401909279,2026-10-30,2027,2,4687718,Josh Minott,17,Brooklyn Nets,3.0,2,0,0,0
 401909279,2026-10-30,2027,2,4700852,Chaz Lanier,8,Detroit Pistons,3.0,6,0,0,2
-401909279,2026-10-30,2027,2,4702177,Keon Ellis,17,Brooklyn Nets,21.0,6,2,1,2
-401909279,2026-10-30,2027,2,4712896,Noah Clowney,17,Brooklyn Nets,22.0,3,8,1,0
+401909279,2026-10-30,2027,2,4702177,Keon Ellis,17,Brooklyn Nets,21.0,6,1,1,2
+401909279,2026-10-30,2027,2,4712896,Noah Clowney,17,Brooklyn Nets,22.0,3,9,1,0
 401909279,2026-10-30,2027,2,5037873,Drake Powell,17,Brooklyn Nets,6.0,0,0,2,0
 401909279,2026-10-30,2027,2,5101761,Mikel Brown Jr.,17,Brooklyn Nets,23.0,10,0,4,0
 401909279,2026-10-30,2027,2,5107173,Danny Wolf,17,Brooklyn Nets,12.0,9,6,2,3
@@ -30570,3 +30570,92 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401909902,2026-10-31,2027,2,5105837,Bruce Thornton,10,Houston Rockets,6.0,5,1,0,1
 401909902,2026-10-31,2027,2,5174983,Aday Mara,25,Oklahoma City Thunder,28.0,7,9,3,0
 401909902,2026-10-31,2027,2,5241364,Bennett Stirtz,25,Oklahoma City Thunder,26.0,11,1,3,3
+401909903,2026-11-01,2027,2,4251,Paul George,2,Boston Celtics,33.0,17,6,8,3
+401909903,2026-11-01,2027,2,6478,Nikola Vucevic,19,Orlando Magic,7.0,2,4,2,0
+401909903,2026-11-01,2027,2,3078576,Derrick White,2,Boston Celtics,34.0,12,2,2,2
+401909903,2026-11-01,2027,2,4065648,Jayson Tatum,2,Boston Celtics,34.0,32,4,7,1
+401909903,2026-11-01,2027,2,4065804,Sam Hauser,2,Boston Celtics,17.0,3,2,0,1
+401909903,2026-11-01,2027,2,4066320,Desmond Bane,19,Orlando Magic,40.0,19,2,1,5
+401909903,2026-11-01,2027,2,4066354,Payton Pritchard,2,Boston Celtics,27.0,7,7,3,0
+401909903,2026-11-01,2027,2,4277847,Wendell Carter Jr.,19,Orlando Magic,35.0,7,10,0,1
+401909903,2026-11-01,2027,2,4277951,Luka Garza,2,Boston Celtics,21.0,12,6,4,2
+401909903,2026-11-01,2027,2,4278572,Jamal Cain,19,Orlando Magic,18.0,5,1,1,1
+401909903,2026-11-01,2027,2,4348700,Goga Bitadze,19,Orlando Magic,5.0,0,1,0,0
+401909903,2026-11-01,2027,2,4397424,Neemias Queta,2,Boston Celtics,27.0,8,8,1,0
+401909903,2026-11-01,2027,2,4566434,Franz Wagner,19,Orlando Magic,40.0,14,6,12,1
+401909903,2026-11-01,2027,2,4593841,Baylor Scheierman,2,Boston Celtics,20.0,10,2,1,2
+401909903,2026-11-01,2027,2,4683689,Jordan Walsh,2,Boston Celtics,13.0,0,3,2,0
+401909903,2026-11-01,2027,2,4702382,Tristan da Silva,19,Orlando Magic,35.0,23,10,2,5
+401909903,2026-11-01,2027,2,4712849,Anthony Black,19,Orlando Magic,33.0,23,8,3,1
+401909903,2026-11-01,2027,2,5175647,Hugo Gonzalez,2,Boston Celtics,14.0,7,1,1,1
+401909903,2026-11-01,2027,2,5239561,Jase Richardson,19,Orlando Magic,26.0,4,1,3,0
+401909904,2026-11-01,2027,2,2580365,Larry Nance Jr.,11,Indiana Pacers,26.0,4,6,1,1
+401909904,2026-11-01,2027,2,3064514,Julius Randle,17,Brooklyn Nets,37.0,20,5,6,4
+401909904,2026-11-01,2027,2,3133603,Kelly Oubre Jr.,11,Indiana Pacers,20.0,11,2,1,2
+401909904,2026-11-01,2027,2,3149673,Pascal Siakam,11,Indiana Pacers,36.0,17,5,5,0
+401909904,2026-11-01,2027,2,3150844,Moritz Wagner,17,Brooklyn Nets,21.0,14,6,0,1
+401909904,2026-11-01,2027,2,3907823,Terance Mann,17,Brooklyn Nets,15.0,0,1,1,0
+401909904,2026-11-01,2027,2,4065731,Jay Huff,11,Indiana Pacers,17.0,0,3,0,0
+401909904,2026-11-01,2027,2,4278104,Michael Porter Jr.,17,Brooklyn Nets,36.0,23,9,3,3
+401909904,2026-11-01,2027,2,4395712,Andrew Nembhard,11,Indiana Pacers,35.0,23,3,4,4
+401909904,2026-11-01,2027,2,4396909,Aaron Nesmith,11,Indiana Pacers,30.0,11,3,4,0
+401909904,2026-11-01,2027,2,4398207,Jalen Slawson,11,Indiana Pacers,18.0,3,5,0,0
+401909904,2026-11-01,2027,2,4431752,Kobe Brown,11,Indiana Pacers,15.0,3,1,1,1
+401909904,2026-11-01,2027,2,4432194,Day'Ron Sharpe,17,Brooklyn Nets,26.0,15,13,4,1
+401909904,2026-11-01,2027,2,4592829,Quenton Jackson,11,Indiana Pacers,24.0,12,3,2,3
+401909904,2026-11-01,2027,2,4702177,Keon Ellis,17,Brooklyn Nets,20.0,0,2,1,0
+401909904,2026-11-01,2027,2,4712896,Noah Clowney,17,Brooklyn Nets,24.0,8,3,0,0
+401909904,2026-11-01,2027,2,5105854,Braden Smith,11,Indiana Pacers,1.0,0,0,0,0
+401909904,2026-11-01,2027,2,5106060,Jarace Walker,11,Indiana Pacers,20.0,6,6,3,2
+401909904,2026-11-01,2027,2,5174655,Chaney Johnson,17,Brooklyn Nets,31.0,2,2,0,0
+401909904,2026-11-01,2027,2,5279130,Nolan Traore,17,Brooklyn Nets,30.0,16,2,6,4
+401909905,2026-11-01,2027,2,3213,Al Horford,9,Golden State Warriors,22.0,9,5,2,3
+401909905,2026-11-01,2027,2,3448,Brook Lopez,12,LA Clippers,19.0,7,2,0,1
+401909905,2026-11-01,2027,2,2990969,Georges Niang,9,Golden State Warriors,21.0,3,1,2,1
+401909905,2026-11-01,2027,2,2991139,Kris Dunn,12,LA Clippers,27.0,12,2,4,0
+401909905,2026-11-01,2027,2,3134903,Gary Payton II,9,Golden State Warriors,15.0,5,2,2,1
+401909905,2026-11-01,2027,2,3936099,Derrick Jones Jr.,12,LA Clippers,28.0,9,7,1,1
+401909905,2026-11-01,2027,2,4066436,De'Anthony Melton,9,Golden State Warriors,28.0,21,6,3,6
+401909905,2026-11-01,2027,2,4066648,Rui Hachimura,12,LA Clippers,30.0,24,7,0,4
+401909905,2026-11-01,2027,2,4396907,Darius Garland,12,LA Clippers,33.0,15,0,7,1
+401909905,2026-11-01,2027,2,4397040,Brandon Williams,9,Golden State Warriors,25.0,17,3,3,2
+401909905,2026-11-01,2027,2,4397886,Charles Bassey,9,Golden State Warriors,20.0,6,10,2,0
+401909905,2026-11-01,2027,2,4398390,Jalen Pickett,12,LA Clippers,6.0,0,2,3,0
+401909905,2026-11-01,2027,2,4432170,Isaiah Jackson,12,LA Clippers,22.0,5,8,2,0
+401909905,2026-11-01,2027,2,4433149,LJ Cryer,9,Golden State Warriors,2.0,0,0,0,0
+401909905,2026-11-01,2027,2,4683935,Blake Wesley,12,LA Clippers,4.0,2,0,0,0
+401909905,2026-11-01,2027,2,4702352,Kobe Sanders,12,LA Clippers,30.0,16,3,0,4
+401909905,2026-11-01,2027,2,4703396,Graham Ike,9,Golden State Warriors,6.0,2,2,0,0
+401909905,2026-11-01,2027,2,4709138,Brandin Podziemski,9,Golden State Warriors,37.0,17,8,8,2
+401909905,2026-11-01,2027,2,4845363,Cam Christie,12,LA Clippers,6.0,3,1,0,1
+401909905,2026-11-01,2027,2,4897262,Will Richard,9,Golden State Warriors,22.0,3,0,3,1
+401909905,2026-11-01,2027,2,4997536,Gui Santos,9,Golden State Warriors,9.0,4,3,1,0
+401909905,2026-11-01,2027,2,5075626,Baba Miller,12,LA Clippers,6.0,2,2,1,0
+401909905,2026-11-01,2027,2,5105832,Nick Martinelli,12,LA Clippers,6.0,10,3,0,2
+401909905,2026-11-01,2027,2,5106258,Gradey Dick,12,LA Clippers,3.0,0,1,0,0
+401909905,2026-11-01,2027,2,5175737,Yaxel Lendeborg,9,Golden State Warriors,34.0,37,4,6,6
+401909905,2026-11-01,2027,2,5254165,Keaton Wagler,12,LA Clippers,19.0,7,4,4,0
+401909906,2026-11-01,2027,2,2993874,Kyle Anderson,28,Toronto Raptors,4.0,2,3,3,0
+401909906,2026-11-01,2027,2,3907498,Matisse Thybulle,13,Los Angeles Lakers,25.0,6,2,3,2
+401909906,2026-11-01,2027,2,3945274,Luka Doncic,13,Los Angeles Lakers,35.0,45,15,6,8
+401909906,2026-11-01,2027,2,4066457,Austin Reaves,13,Los Angeles Lakers,39.0,19,3,4,2
+401909906,2026-11-01,2027,2,4277811,Collin Sexton,13,Los Angeles Lakers,19.0,14,3,3,1
+401909906,2026-11-01,2027,2,4278077,Jarred Vanderbilt,13,Los Angeles Lakers,12.0,4,3,1,0
+401909906,2026-11-01,2027,2,4278580,Sandro Mamukelashvili,13,Los Angeles Lakers,24.0,11,1,1,2
+401909906,2026-11-01,2027,2,4395625,RJ Barrett,28,Toronto Raptors,32.0,22,10,5,4
+401909906,2026-11-01,2027,2,4395724,Immanuel Quickley,28,Toronto Raptors,33.0,12,6,7,3
+401909906,2026-11-01,2027,2,4397014,Quentin Grimes,13,Los Angeles Lakers,26.0,7,1,3,1
+401909906,2026-11-01,2027,2,4431684,Trayce Jackson-Davis,28,Toronto Raptors,9.0,5,5,0,0
+401909906,2026-11-01,2027,2,4431893,Jamison Battle,28,Toronto Raptors,17.0,20,5,0,4
+401909906,2026-11-01,2027,2,4432241,Jamal Shead,28,Toronto Raptors,25.0,9,2,6,2
+401909906,2026-11-01,2027,2,4432737,Jaden Bradley,28,Toronto Raptors,4.0,3,1,2,0
+401909906,2026-11-01,2027,2,4433134,Scottie Barnes,28,Toronto Raptors,36.0,29,6,5,0
+401909906,2026-11-01,2027,2,4433136,Walker Kessler,13,Los Angeles Lakers,31.0,16,15,1,0
+401909906,2026-11-01,2027,2,4592691,Jake LaRavia,13,Los Angeles Lakers,25.0,8,2,4,2
+401909906,2026-11-01,2027,2,4683774,Bronny James,13,Los Angeles Lakers,2.0,0,0,0,0
+401909906,2026-11-01,2027,2,4684272,Ja'Kobe Walter,28,Toronto Raptors,33.0,11,4,2,3
+401909906,2026-11-01,2027,2,4702656,Alijah Martin,28,Toronto Raptors,16.0,5,2,4,1
+401909906,2026-11-01,2027,2,4868423,Jaden Hardy,13,Los Angeles Lakers,1.0,1,0,0,0
+401909906,2026-11-01,2027,2,5093267,Collin Murray-Boyles,28,Toronto Raptors,20.0,4,3,1,0
+401909906,2026-11-01,2027,2,5113969,Cameron Carr,13,Los Angeles Lakers,1.0,0,0,0,0
+401909906,2026-11-01,2027,2,5149115,Allen Graves,28,Toronto Raptors,10.0,3,0,0,0
