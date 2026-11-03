@@ -1,19 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909907,03/11/2026,00:00,2026-11-03 00:00,5,Cleveland Cavaliers,25,Oklahoma City Thunder,2
-401909908,03/11/2026,00:30,2026-11-03 00:30,30,Charlotte Hornets,8,Detroit Pistons,2
-401909909,03/11/2026,00:30,2026-11-03 00:30,11,Indiana Pacers,1,Atlanta Hawks,2
-401909910,03/11/2026,00:30,2026-11-03 00:30,18,New York Knicks,17,Brooklyn Nets,2
-401909911,03/11/2026,00:30,2026-11-03 00:30,19,Orlando Magic,27,Washington Wizards,2
-401909912,03/11/2026,00:30,2026-11-03 00:30,20,Philadelphia 76ers,4,Chicago Bulls,2
-401909913,03/11/2026,01:00,2026-11-03 01:00,6,Dallas Mavericks,23,Sacramento Kings,2
-401909914,03/11/2026,01:00,2026-11-03 01:00,29,Memphis Grizzlies,3,New Orleans Pelicans,2
-401909915,03/11/2026,01:00,2026-11-03 01:00,16,Minnesota Timberwolves,15,Milwaukee Bucks,2
-401909916,03/11/2026,01:30,2026-11-03 01:30,10,Houston Rockets,2,Boston Celtics,2
-401909917,03/11/2026,01:30,2026-11-03 01:30,24,San Antonio Spurs,26,Utah Jazz,2
-401909918,03/11/2026,02:00,2026-11-03 02:00,7,Denver Nuggets,22,Portland Trail Blazers,2
-401909919,03/11/2026,03:00,2026-11-03 03:00,9,Golden State Warriors,21,Phoenix Suns,2
-401909920,03/11/2026,03:00,2026-11-03 03:00,12,LA Clippers,28,Toronto Raptors,2
-401909921,03/11/2026,03:00,2026-11-03 03:00,13,Los Angeles Lakers,14,Miami Heat,2
 401909922,05/11/2026,00:00,2026-11-05 00:00,8,Detroit Pistons,20,Philadelphia 76ers,2
 401909923,05/11/2026,00:00,2026-11-05 00:00,27,Washington Wizards,1,Atlanta Hawks,2
 401909924,05/11/2026,00:30,2026-11-05 00:30,2,Boston Celtics,15,Milwaukee Bucks,2
@@ -30,3 +15,12 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909935,05/11/2026,03:30,2026-11-05 03:30,12,LA Clippers,14,Miami Heat,2
 401909936,06/11/2026,02:00,2026-11-06 02:00,21,Phoenix Suns,19,Orlando Magic,2
 401909937,06/11/2026,03:00,2026-11-06 03:00,9,Golden State Warriors,14,Miami Heat,2
+401909287,07/11/2026,00:00,2026-11-07 00:00,1,Atlanta Hawks,27,Washington Wizards,2
+401909288,07/11/2026,00:00,2026-11-07 00:00,30,Charlotte Hornets,2,Boston Celtics,2
+401909289,07/11/2026,00:30,2026-11-07 00:30,5,Cleveland Cavaliers,20,Philadelphia 76ers,2
+401909290,07/11/2026,01:00,2026-11-07 01:00,6,Dallas Mavericks,26,Utah Jazz,2
+401909291,07/11/2026,01:00,2026-11-07 01:00,29,Memphis Grizzlies,25,Oklahoma City Thunder,2
+401909292,07/11/2026,01:00,2026-11-07 01:00,15,Milwaukee Bucks,28,Toronto Raptors,2
+401909293,07/11/2026,01:00,2026-11-07 01:00,3,New Orleans Pelicans,16,Minnesota Timberwolves,2
+401909294,07/11/2026,03:00,2026-11-07 03:00,13,Los Angeles Lakers,22,Portland Trail Blazers,2
+401909295,07/11/2026,03:00,2026-11-07 03:00,23,Sacramento Kings,24,San Antonio Spurs,2
