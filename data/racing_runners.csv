@@ -81144,3 +81144,297 @@ date,time,course,region,code,rtype,going,class,ran,horse,jockey,trainer,age,draw
 2026-11-03,20:30,Wolverhampton,uk,flat,Handicap,Standard,5,7,Ottoman,S D Bowen,O Greenall & J Guerriero,4,2,9-6,7.0,5
 2026-11-03,20:30,Wolverhampton,uk,flat,Handicap,Standard,5,7,Jodhpur Blue,Billy Loughnane,Ian Williams,5,11,9-9,7.0,6
 2026-11-03,20:30,Wolverhampton,uk,flat,Handicap,Standard,5,7,Glamerous,Gina Mangan,S Hodgson,3,5,8-6,101.0,7
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Alnofoor,Shane Gray,C O'Connell,8,8,8-13,2.5,1
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Albegone,D Allan,T D Easterby,8,2,9-3,11.0,2
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Royal Duke,Rhys Elliott,R M Smith,5,1,8-4,26.0,3
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Justmyluck,William Pyle,Miss L A Perratt,3,10,9-2,26.0,4
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Fear And Fast,Cam Hardie,J S Goldie,4,11,8-7,12.0,5
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Valor Spirit,P Mulrennan,B Smart,3,6,9-7,17.0,6
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Ganesha,Zak Wheatley,Phillip Makin,5,5,8-9,23.0,7
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Thunderstorm Katie,Lauren Young,J S Goldie,5,12,9-9,12.0,8
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Pickersgill,Mikey Sheehy,I Jardine,4,7,9-1,11.0,9
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Edgewater Drive,Greg Fairley,W Storey,5,4,9-0,26.0,10
+2026-11-04,12:05,Musselburgh,uk,flat,Handicap,Soft (Good to Soft in places),5,11,Wen Moon,A Mullen,B Haslam,6,9,9-8,4.0,11
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Campenaerts,Rob Hornby,J G Portman,3,3,9-4,6.0,1
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Vince L'Amour,Jake Dickson,T D Easterby,5,2,9-5,9.5,2
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Maharajas Express,Harry Davies,Ian Williams,6,9,9-8,4.5,3
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Sergeant Mayer,Alex Jary,N Tinkler,5,6,9-9,23.0,4
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Rambuso Creek,Ethan Tindall,M Herrington,7,8,8-6,9.5,5
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Bear Rock,Faye McManoman,M Mullineaux,5,1,9-6,51.0,6
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Fantasy Master,D Egan,R M H Cowell,8,7,9-7,6.0,7
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Emperor Caradoc,D Nolan,P T Midgley,7,10,9-8,12.0,8
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Smart Vision,George Wood,Jessica Macey,5,5,9-6,4.33,9
+2026-11-04,12:45,Nottingham,uk,flat,Handicap,Soft (Heavy in places),5,10,Sonic Si,Rossa Ryan,A W Carroll,4,4,9-8,15.0,10
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Palinca,Darragh O'Keeffe,H De Bromhead,4,,10-6,1.33,1
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Zara's Dream,Danny Mullins,W P Mullins,4,,10-6,4.33,2
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Timandi,Dylan O'Connor,J M Barrett,4,,11-0,67.0,3
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,East Wall,Sean O'Keeffe,P Nolan,4,,10-13,11.0,4
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Gregwell,Tiernan Power Roche,P J Rothwell,4,,10-13,67.0,5
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Mrs Wright,Sean Flanagan,P Nolan,4,,10-6,29.0,6
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Midnight Reign,Eoin Staples,P Nolan,4,,10-13,51.0,7
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Trinity Belle,Shane Markey,R O'Sullivan,4,,10-6,51.0,8
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Soleil D'aure,Jordan Gainford,Jack Doyle,4,,10-13,41.0,9
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,That's It Girl,Conor Stone-Walsh,G P Cromwell,4,,10-6,126.0,10
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Melody D'Arc,Alex Harvey,J C McConnell,4,,10-6,51.0,11
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Vinted Vinnie,J J Slevin,K F O'Donnell,4,,10-13,51.0,12
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Rossie Girl,Ross Berry,P Nolan,4,,10-6,34.0,13
+2026-11-04,13:00,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,A Poets Day Out,Phillip Enright,R Tyner,4,,10-13,51.0,14
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Flying Moonlight,Greg Fairley,A M Thomson,3,4,8-9,3.25,1
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Kartini,P Mulrennan,S Whitaker,4,3,9-10,4.0,2
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Grey Fable,Jason Hart,K Thornton,6,9,9-9,4.5,3
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Naturalia,A Mullen,D W Whillans,5,1,10-0,5.5,4
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Dandy's Angel,Tom Kiely-Marshall,J S Wainwright,9,2,8-11,21.0,5
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Cougar,Joanna Mason,N Kent,7,8,9-0,29.0,6
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Parole Officer,William Pyle,Ewan Whillans,3,11,8-9,23.0,7
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Battosai,S H James,Jack Morland,3,5,9-7,19.0,8
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Kinross Claret,O J Orr,L Russell & M Scudamore,4,7,9-6,19.0,9
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Miss Veronika,D Swift,B Ellison,4,6,9-2,29.0,10
+2026-11-04,13:10,Musselburgh,uk,flat,Handicap,Soft,6,11,Galistra,Rhys Elliott,A D Brown,3,10,8-4,126.0,11
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,St James's Finest,Harry Skelton,D Skelton,5,,11-4,3.5,1
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Order On Time,Sam Twiston-Davies,P F Nicholls,5,,11-4,1.5,2
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Stagge Hyll,Daniel Sansom,J W Mullins,5,,11-4,26.0,3
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Aye Over Tee,Jonjo O'Neill Jr.,J & A O'Neill,4,,11-4,101.0,4
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Lady Bam,Jack Andrews,T Ellis,5,,10-11,251.0,5
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Moonrise Monarch,Callum Pritchard,P Hobbs & J White,4,,11-4,17.0,6
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Jeu Magic,Adam Wedge,Mrs C Williams,4,,11-4,81.0,7
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Horethorne,Freddie Gingell,J Tizzard,4,,11-4,151.0,8
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Just Jaffa,Harry Kimber,Kathy Turner,7,,11-4,301.0,0
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Dance Ifyoucan,Ben Jones,K Woollacott,5,,11-4,29.0,0
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Plan De Stan,Caoilin Quinn,T Symonds,4,,11-4,10.0,0
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,The Two Four,Jack Tudor,Christian Williams,5,,11-4,67.0,0
+2026-11-04,13:25,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,13,Timmie Two,Bryan Carver,I Chanin,4,,11-4,101.0,0
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,An Peann Dearg,Sean O'Keeffe,P Nolan,9,,11-1,19.0,1
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,Mystic Rose,Josh Williamson,P Magee,4,,10-13,11.0,2
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,Euro Agent,Jack Kennedy,G Elliott,5,,10-13,4.5,3
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,Hey Now,Mark Walsh,A McNamara,5,,11-7,6.5,4
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,Le Roi Du Livet,Brian Hayes,P Fenton,5,,11-10,6.0,5
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,Kentucky Beach,Ross Sugrue,P J Rothwell,6,,11-7,11.0,6
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,Old Saxony,Conor Stone-Walsh,P Nolan,5,,10-13,23.0,7
+2026-11-04,13:33,Wexford,ire,hurdle,Novice,Yielding (Yielding to Soft in places),,8,The Besty Woman,Darragh O'Keeffe,H De Bromhead,5,,11-3,2.75,0
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Off Spin,D Allan,Miss Gay Kelleway,4,1,9-6,5.5,1
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Gemini Man,A Mullen,I Jardine,8,5,9-2,4.33,2
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Falaise Blanc,Rhys Elliott,K Scott,4,2,8-9,8.0,3
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Watcha Snoop,Cam Hardie,A Nicol,3,9,9-9,34.0,4
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Alpine Sierra,Lauren Young,J S Goldie,8,8,9-10,4.0,5
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Eagles Dream,Shane Gray,T Davidson,4,4,8-13,9.0,6
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Gemical,Molly Keegan-Price,R Menzies,3,6,8-8,17.0,7
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Idyllic,Greg Fairley,W Storey,5,10,9-6,13.0,8
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,West Sleekburn Lad,O McSweeney,P D Niven,3,3,8-9,11.0,9
+2026-11-04,13:42,Musselburgh,uk,flat,Handicap,Soft,6,10,Hickton,Zak Wheatley,D Carroll,4,7,9-0,17.0,10
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,A Sight To Sea,Harry Skelton,D Skelton,5,,11-4,1.57,1
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,The Lightmaker,Paul O'Brien,Dan Horsford,5,,11-4,5.5,2
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Potter,Liam Harrison,F O'Brien,6,,11-4,26.0,3
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Best Trump,Harry Cobden,J & A O'Neill,5,,11-4,10.0,4
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,One Cool Kid,Stan Sheppard,T Lacey,4,,11-4,29.0,5
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Navarau,Jack Tudor,D Pipe,4,,11-4,81.0,6
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Topsham Tide,Lorcan Williams,J Scott,5,,10-11,21.0,7
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Jerry The Dreamer,C O'Farrell,N P Mulholland,5,,11-4,15.0,8
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Vale Magic,Adam Wedge,Mrs C Williams,4,,11-4,151.0,9
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Champ Kabai,Ben Godfrey,A J Honeyball,4,,11-4,12.0,10
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,The Sky At Night,R P McLernon,C Boultbee-Brooks,5,,11-4,41.0,11
+2026-11-04,13:58,Chepstow,uk,hurdle,Maiden,Good to Soft (Soft in places),4,12,Squib,Freddie Gingell,J Tizzard,4,,11-4,251.0,0
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Walking Saint,Eoin Staples,P Nolan,5,,11-5,4.33,1
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Burning Like Fire,Philip Donovan,D Hogan,4,,11-4,126.0,2
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Lucky Valley,Alan O'Sullivan,Michael Barry,6,,11-5,29.0,3
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,The Farmers Bar,Jordan Gainford,C Collins,4,,11-11,5.0,4
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Caprison,Keith Donoghue,G P Cromwell,4,,11-11,5.0,5
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,John Gun,Paddy Cody,K Purcell,4,,11-11,51.0,6
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Whispered Verdict,Conor Stone-Walsh,G P Cromwell,4,,11-11,15.0,7
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Queen Of The Gales,Mr J P Collins,C Motherway,6,,11-5,26.0,8
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Mcallister,Sean O'Keeffe,P Nolan,5,,11-12,3.0,9
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Thranduil,Ross Berry,P Nolan,5,,11-12,101.0,10
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Poetic Parable,Shane Markey,R O'Sullivan,5,,11-5,41.0,11
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Pat's Prodigies,Ross Sugrue,P J Rothwell,4,,11-4,126.0,12
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Galway Star,Gary Noonan,E McCarthy,4,,11-11,26.0,13
+2026-11-04,14:05,Wexford,ire,hurdle,Maiden,Yielding (Yielding to Soft in places),,14,Eliodam,Kevin Healy,G Elliott,5,,11-12,13.0,14
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Rich Belief,Jason Hart,K Thornton,9,8,10-0,4.33,1
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Galahad Threepwood,Greg Fairley,Ewan Whillans,9,11,8-13,10.0,2
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Queen Roslyn,D Swift,B Ellison,5,4,9-13,5.5,3
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Quercus Robur,Cam Hardie,A Nicol,7,5,10-1,11.0,4
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Storm On Jura,Lauren Young,J S Goldie,4,10,9-6,4.0,5
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Bollin Neil,D Allan,T D Easterby,10,7,9-7,15.0,6
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Neddies Boy,Shane Gray,D Bourke,8,9,9-0,21.0,7
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Ned Broy,A Mullen,I Jardine,5,12,10-2,8.0,8
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Sugarpiehoneybunch,Aiden Brookes,S G West,8,1,9-3,51.0,9
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Charlie Darling,T Eaves,A D Brown,6,2,9-12,12.0,10
+2026-11-04,14:15,Musselburgh,uk,flat,Handicap,Soft,6,11,Nothingbutadream,O J Orr,C Timmons,4,3,9-0,26.0,11
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Royal Poetry,S M Levey,R Hannon,3,2,9-10,11.0,1
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Lady Hornblower,P J McDonald,Jedd O'Keeffe,3,3,9-1,19.0,2
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Tele Red,Pierre-Louis Jamin,K R Burke,9,5,9-7,5.5,3
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Selection,D Nolan,I Furtado,4,1,10-0,11.0,4
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Arbaawy,D Egan,J Butler,3,4,9-9,4.0,5
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Now Maybe,Callum Shepherd,George Baker,3,7,9-13,7.5,6
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Naples,C Lee,Steph Hollinshead,4,6,9-3,34.0,7
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Night Patrol,Rob Hornby,Miss J A Camacho,3,8,9-7,5.5,8
+2026-11-04,14:20,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Love You Back,Warren Fentiman,Jamie & Josh Moore,4,9,9-2,7.0,9
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Mister Mojito,Connor Planas,T Kent,5,9,9-9,9.0,1
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Documenting,Matthew Slater,K Frost,13,7,9-12,23.0,2
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Mythical Composer,Shay Farmer,C G Cox,4,2,9-12,3.0,3
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Kitaro Kich,Jack Callan,George Baker,6,8,9-11,4.0,4
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Rhythm N Rock,Luke Catton,J Butler,8,3,9-5,9.0,5
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Panama Black,Charlie Tucker,Mrs L J Mongan,4,4,9-9,41.0,6
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Arctician,James Glennon,S Dow,8,12,9-7,26.0,7
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Amazonian Dream,Ryan Kavanagh,B R Millman,7,10,9-12,17.0,8
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Cuban Lady,Alfie Redman,P R Chamings,4,11,9-9,34.0,9
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,King Of Ithaca,Harry Vigors,J Tate,6,1,9-8,5.0,10
+2026-11-04,14:25,Kempton,uk,flat,Handicap,Standard / Slow,5,11,Wind Summer,Jack Dace,L A Dace,3,6,9-1,29.0,11
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Agent Tequila,Alex Harvey,J C McConnell,8,,10-11,7.5,1
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,The Cobblers Wife,Danny Mullins,A Mullins,8,,10-10,3.25,2
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Spellacy's Cross,Michael Kenneally,J Barcoe,7,,10-9,8.0,3
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Ardera Gun,Phillip Enright,E Doyle,6,,11-0,3.75,4
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Thurman,Brian Hayes,Colm Murphy,6,,11-1,17.0,5
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Hob's Angel,Josh Williamson,J Barcoe,10,,10-1,15.0,6
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Allroadsleadtorome,Simon Torrens,J C McConnell,5,,11-3,26.0,7
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Rebel Queen,Alan O'Sullivan,C Motherway,4,,11-3,67.0,8
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Butty O Brien,Eoin Walsh,C Collins,10,,11-8,17.0,9
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Ballyminnion Boy,Gary Noonan,E McCarthy,6,,10-13,15.0,10
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Stumblin In,Conor Smithers,W J Martin,7,,10-10,34.0,11
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Reflectionist,Thomas O'Connor,M Fahey,9,,11-12,15.0,0
+2026-11-04,14:37,Wexford,ire,hurdle,Handicap,Yielding (Yielding to Soft in places),,13,Portetta,Dylan O'Connor,J J Hanlon,5,,11-0,21.0,0
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Good Morning Alex,O J Orr,T D Barron,5,1,9-6,9.0,1
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Empirestateofmind,Jason Hart,J & S Quinn,8,10,9-9,4.0,2
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Tolstoy,D Swift,B Ellison,7,5,9-7,4.5,3
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Barley,D Allan,T D Easterby,7,2,9-4,8.0,4
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Motawaared,Lauren Young,J S Goldie,4,4,8-12,4.5,5
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Cavallo Pazzo,Shane Gray,D Bourke,7,6,9-3,8.5,6
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Izzari,Cara Tuke,I Jardine,5,8,9-9,23.0,7
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Quiet Resolve,T Eaves,A D Brown,5,7,9-0,51.0,8
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Ablon,P Mulrennan,R Hannon,4,9,9-9,15.0,9
+2026-11-04,14:45,Musselburgh,uk,flat,Handicap,Soft,5,10,Escape Act,A Mullen,Mrs J C McGregor,5,3,8-4,51.0,10
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Ghost Story,D Egan,J Butler,5,9,8-13,5.5,1
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Glenna,Rob Hornby,T Ward,3,6,9-1,7.5,2
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Bust A Move,Billy Garritty,M & D Easterby,5,4,9-10,19.0,3
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Borjina,Ryan Sexton,E Bethell,3,5,9-7,4.5,4
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Royal Saxo,Rowan Scott,A J Martin,6,8,9-11,13.0,5
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Beach Point,Cieren Fallon,W J Knight,5,1,9-10,8.0,6
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Salvezza,George Downing,E Walker,3,2,9-4,17.0,7
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Lucky Luna,S M Levey,R Hannon,3,3,9-3,8.0,8
+2026-11-04,14:53,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,9,Deedaydiva,Rossa Ryan,A King,3,7,10-0,5.0,9
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Snooker McCrew,Alfie Redman,M Comley,5,10,9-9,4.0,1
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Palliser,Hollie Doyle,A Watson,3,5,9-5,5.5,2
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Valentine Boy,Jack Dace,L A Dace,4,2,9-9,5.0,3
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,South Kensington,Charles Bishop,Adam Kirby,5,3,9-7,13.0,4
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Blue Celestial,Lewis Edmunds,J Tate,3,1,9-4,8.5,5
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Port Erin,David Probert,A W Carroll,6,7,9-9,15.0,6
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Hint Of The Jungle,K T O'Neill,M Murphy,5,6,9-5,41.0,7
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Beachborough Girl,Dylan Hogan,J & S Birkett,4,11,9-7,23.0,8
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Bobacious,Ashley Lewis,M R Hoad,6,14,9-9,41.0,9
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Wield,L Morris,J Parr,3,9,9-8,26.0,10
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Dandy G Boy,Edward Greatrex,W Greatrex,4,12,9-8,8.5,11
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Royal Jet,Molly Gunn,A W Carroll,6,13,9-9,81.0,12
+2026-11-04,15:00,Kempton,uk,flat,Handicap,Standard / Slow,6,13,Soy Loco,Paddy Bradley,S Dow,4,8,9-9,51.0,13
+2026-11-04,15:10,Wexford,ire,chase,Listed,Yielding (Yielding to Soft in places),1,4,The Big Westerner,Darragh O'Keeffe,H De Bromhead,7,,11-3,1.33,1
+2026-11-04,15:10,Wexford,ire,chase,Listed,Yielding (Yielding to Soft in places),1,4,Bossofthebrownies,Josh Williamson,M F Morris,7,,11-0,4.5,2
+2026-11-04,15:10,Wexford,ire,chase,Listed,Yielding (Yielding to Soft in places),1,4,Sandor Clegane,Sean O'Keeffe,P Nolan,9,,10-9,10.0,3
+2026-11-04,15:10,Wexford,ire,chase,Listed,Yielding (Yielding to Soft in places),1,4,Katie Daniels,Conor Stone-Walsh,C Collins,7,,10-2,34.0,4
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,The Resdev Scholar,Joanna Mason,M & D Easterby,3,2,8-9,4.0,1
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Golden Mind,O J Orr,R A Fahey,5,10,9-12,5.0,2
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Hunky Dory,Tom Kiely-Marshall,Miss L A Perratt,4,12,9-5,51.0,3
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Witch Hunter,P Mulrennan,R Hannon,7,4,9-12,9.5,4
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Quest For Fun,D Allan,T D Easterby,8,1,9-4,6.5,5
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Dandy Magic,Lauren Young,J S Goldie,4,8,9-3,11.0,6
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Cargin Bhui,William Pyle,T D Barron,5,9,8-9,23.0,7
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Rhoscolyn,C J Whiteley,D O'Meara,8,11,9-7,7.0,8
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Homestrait,Jason Hart,B Ellison,3,6,9-0,8.0,9
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Count Palatine,Sean Kirrane,M Dods,5,5,9-2,23.0,10
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,County Carlow,A Mullen,B Haslam,3,3,9-3,21.0,11
+2026-11-04,15:17,Musselburgh,uk,flat,Handicap,Soft,3,12,Mudamer,S H James,G A Harker,7,7,9-4,34.0,12
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Venetian Lion,Cieren Fallon,W J Haggas,3,3,9-8,2.25,1
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Dhahabi,D Egan,Ian Williams,8,10,9-9,21.0,2
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Hot Cash,Rose Dawes,J Channon,4,11,9-9,10.0,3
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Al Jolson,Harry Davies,S Crisford,3,5,9-8,11.0,4
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Cogitate,Oliver Carmichael,Eve Johnson Houghton,5,13,9-9,17.0,5
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Susie Sioux,George Wood,J Mackie,6,15,8-13,23.0,6
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Callisto Dream,Ryan Sexton,E Bethell,4,4,9-5,17.0,7
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Physique,C Lee,M Fenton,6,9,9-7,41.0,8
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Zowal,P J McDonald,J & S Quinn,4,2,9-3,19.0,9
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Wyld Bill,Laura Pearson,Gihan Arnolda,5,1,9-12,101.0,10
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Thunder Roar,D Nolan,T Coyle & K Wood,7,7,9-11,5.5,11
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Mertoun,Rossa Ryan,Jane Chapple-Hyam,3,12,9-5,15.0,12
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Talis Evolvere,S M Levey,R Hannon,6,14,9-6,10.0,13
+2026-11-04,15:23,Nottingham,uk,flat,Handicap,Soft (Heavy in places),4,14,Coolree,Faye McManoman,S England,7,6,8-11,67.0,14
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Valentia Light,W Buick,C Appleby,2,5,9-2,5.0,1
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Marrwaa,Callum Rodriguez,Owen Burrows,2,13,9-2,8.5,2
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Red Curry,James Doyle,J & T Gosden,2,1,9-2,4.0,3
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Cloak Of Power,Billy Loughnane,G Boughey,2,3,9-2,8.0,4
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Almanueva,Jason Watson,A M Balding,2,10,9-2,51.0,5
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Noble Light,R Havlin,J & T Gosden,2,12,9-2,9.0,6
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Endearment,Hollie Doyle,W J Haggas,2,2,9-2,13.0,7
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Speaking Tree,K Shoemark,E Walker,2,6,9-2,51.0,8
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Wise Times,Marco Ghiani,M Botti,2,4,9-2,41.0,9
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Choir Of Angels,H Crouch,J Tate,2,14,9-2,101.0,10
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Yamana,Colin Keane,R M Beckett,2,7,9-2,3.75,11
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Final Dash,Daniel Muscutt,J R Fanshawe,2,11,9-2,81.0,12
+2026-11-04,15:30,Kempton,uk,flat,Novice,Standard / Slow,3,13,Tropical Rain,S D Bowen,Ollie Sangster,2,9,9-2,301.0,13
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,I Heard A Rumour,Harry Skelton,D Skelton,5,,11-2,4.5,1
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Gimarias,Toby Wynne,Mrs M Rowley,6,,11-10,7.0,2
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Stung By Tariffs,Sam Twiston-Davies,H D Daly,5,,11-13,10.0,3
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Agent Argylle,J J Burke,R T Phillips,6,,11-3,10.0,4
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Man Maid,James Best,H Dickin,5,,11-11,23.0,5
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,V Power,Tabitha Worsley,T Faulkner,6,,11-1,13.0,6
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Isabella Islay,Stan Sheppard,J Standen,4,,11-11,21.0,7
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Viva Vincente,Adam Wedge,Mrs C Williams,5,,11-2,13.0,8
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Deauville Lady,David Noonan,N J Hawke,5,,10-2,67.0,9
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Nowherenearmilan,Sean Clarke,M Comley,5,,11-1,51.0,10
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Highbury Hill,Murray Dodd,N J Hawke,5,,11-13,9.0,11
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,The Padster,Callum Pritchard,J Tickle,5,,10-12,13.0,0
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Are You Joking,R P McLernon,C E Longsdon,5,,12-0,10.0,0
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Moorefields,Bryan Carver,C Honour,8,,11-9,41.0,0
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Jacksbar,Tristan Durrell,D Skelton,7,,11-6,29.0,0
+2026-11-04,15:40,Chepstow,uk,hurdle,Handicap,Good to Soft (Soft in places),5,16,Midnight Pass,S Bowen,M Keighley,5,,11-4,7.0,0
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,The Big Clubman,Sean O'Keeffe,P Nolan,6,,11-12,2.38,1
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,The Store Boy,Darragh O'Keeffe,H De Bromhead,6,,11-12,5.0,2
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,Mode Avion,Jack Kennedy,G Elliott,4,,11-3,3.75,3
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,Fierce Handay,Simon Torrens,N Meade,6,,11-12,10.0,4
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,Saveforarainyday,Mark Walsh,G P Cromwell,5,,11-5,12.0,5
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,Take Stock,Keith Donoghue,G P Cromwell,5,,11-12,34.0,6
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,Oaks Soldier,Ricky Doyle,Eamon Courtney,6,,11-12,34.0,7
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,Rock On Richie,Conor Stone-Walsh,Tom Dreaper,6,,11-12,101.0,8
+2026-11-04,15:45,Wexford,ire,chase,Novice,Yielding (Yielding to Soft in places),,9,Tackletommywoowoo,Sean Flanagan,P Nolan,6,,11-12,19.0,9
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Bay Breeze,D Fentiman,T D Easterby,7,1,9-8,26.0,1
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Abduction,Lauren Young,J S Goldie,8,8,9-12,8.0,2
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Ashen,P Mulrennan,J S Goldie,4,12,9-8,5.5,3
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Vince Le Prince,D Allan,T D Easterby,6,3,9-8,5.0,4
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Carolus Magnus,Joanna Mason,M & D Easterby,8,5,9-8,8.5,5
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Wobwobwob,Mikey Sheehy,A Keatley,8,6,9-12,5.5,6
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,The Gay Blade,A Mullen,I Jardine,7,7,9-9,13.0,7
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Black Storm,Jason Hart,K Scott,5,11,9-9,8.0,8
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Jkr Cobbler,Cara Tuke,I Jardine,7,9,9-5,12.0,9
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Not Me,T Eaves,A D Brown,5,2,9-8,15.0,10
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,India Gold,Shane Gray,Miss Gay Kelleway,3,4,9-4,23.0,11
+2026-11-04,15:50,Musselburgh,uk,flat,Handicap,Soft,5,12,Yorkshire Glory,Aiden Brookes,B Haslam,5,10,9-9,41.0,12
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Supreme Dancer,Ethan Tindall,R A Fahey,3,5,9-5,26.0,1
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Condotti,Donagh Murphy,H Palmer,4,4,9-9,12.0,2
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Look Back Smiling,D C Costello,N P Mulholland,6,14,9-13,7.5,3
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Born A Rebel,C Lee,P Owens,5,1,9-9,9.0,4
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Crimson Rambler,Liam Wright,M Crawley,3,6,9-6,12.0,5
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Sixfiveseven,Taylor Fisher,F Brennan,6,2,9-10,26.0,6
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Dark Rosa,Rob Hornby,G Nicholls,4,12,9-11,13.0,7
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Just Queen High,Toby Moore,Ian Williams,4,15,9-6,7.5,8
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Law Of Design,Harry Davies,Ian Williams,4,10,9-7,9.5,9
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Launch Time,Rossa Ryan,Cian Hughes,4,8,9-9,7.0,10
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Ravishing Beauty,P J McDonald,Jedd O'Keeffe,5,13,9-5,19.0,11
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Rogers Dream,Rhys Clutterbuck,Gihan Arnolda,5,7,9-5,4.33,12
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Somkiyr,Kaiya Fraser,A Irvine,5,11,9-11,67.0,13
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Special Breeze,William Carson,Adam Kirby,4,9,9-4,34.0,14
+2026-11-04,15:55,Nottingham,uk,flat,Handicap,Soft (Heavy in places),6,15,Mayflower Billy,George Wood,Jessica Macey,3,3,9-6,19.0,15
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Light Of The Stars,W Buick,C Appleby,2,5,9-2,2.0,1
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Poppy Grace,K Shoemark,E Walker,2,2,9-2,15.0,2
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,You're Sensational,R Havlin,J & T Gosden,2,7,9-2,12.0,3
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,El Ghanema,Billy Loughnane,R Varian,2,12,9-2,3.25,4
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Aquila D'oro,H Crouch,Oliver Cole,2,8,9-2,67.0,5
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Princess Aurelia,Charles Bishop,J & A O'Neill,2,3,9-2,151.0,6
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Humble Pyle,Lewis Edmunds,W Muir & C Grassick,2,4,9-2,29.0,7
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Wailaki,David Probert,D Menuisier,2,11,9-2,26.0,8
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Accoya,Hollie Doyle,R Hannon,2,10,9-2,29.0,9
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Cherry Amber,L Morris,Sir Mark Prescott,2,1,9-2,251.0,10
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Coulin Rouge,Jason Watson,George Baker,2,13,9-2,151.0,11
+2026-11-04,16:00,Kempton,uk,flat,Novice,Standard / Slow,3,12,Spicey Bear,Daniel Muscutt,J R Fanshawe,2,6,9-2,8.0,12
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Apache Outlaw,Reese Holohan,A McGuinness,6,4,9-10,2.1,1
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Go Athletico,Camillus Byrne,A McGuinness,8,2,9-6,4.5,2
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Saint Acclaim,Ben Coen,J P Murtagh,3,5,10-2,3.25,3
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Star Allure,Siobhan Rutledge,C O'Connell,4,6,8-10,41.0,4
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Aughlish,Alan Casey,C O'Connell,3,7,9-6,67.0,0
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Venetian,J M Sheridan,D Hogan,6,8,9-6,17.0,0
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Thurso,J Cleary,Gerard O'Leary,4,1,9-2,29.0,0
+2026-11-04,16:05,Dundalk,ire,flat,Selling/Claiming,Standard,,8,Jallaaf,Luke McAteer,A McCann,4,3,8-12,51.0,0
