@@ -1,18 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909922,05/11/2026,00:00,2026-11-05 00:00,8,Detroit Pistons,20,Philadelphia 76ers,2
-401909923,05/11/2026,00:00,2026-11-05 00:00,27,Washington Wizards,1,Atlanta Hawks,2
-401909924,05/11/2026,00:30,2026-11-05 00:30,2,Boston Celtics,15,Milwaukee Bucks,2
-401909925,05/11/2026,00:30,2026-11-05 00:30,17,Brooklyn Nets,30,Charlotte Hornets,2
-401909926,05/11/2026,00:30,2026-11-05 00:30,18,New York Knicks,4,Chicago Bulls,2
-401909927,05/11/2026,01:00,2026-11-05 01:00,29,Memphis Grizzlies,11,Indiana Pacers,2
-401909928,05/11/2026,01:00,2026-11-05 01:00,3,New Orleans Pelicans,26,Utah Jazz,2
-401909929,05/11/2026,01:00,2026-11-05 01:00,25,Oklahoma City Thunder,5,Cleveland Cavaliers,2
-401909930,05/11/2026,01:30,2026-11-05 01:30,10,Houston Rockets,16,Minnesota Timberwolves,2
-401909931,05/11/2026,02:00,2026-11-05 02:00,7,Denver Nuggets,28,Toronto Raptors,2
-401909932,05/11/2026,02:00,2026-11-05 02:00,21,Phoenix Suns,22,Portland Trail Blazers,2
-401909933,05/11/2026,02:30,2026-11-05 02:30,24,San Antonio Spurs,6,Dallas Mavericks,2
-401909934,05/11/2026,03:00,2026-11-05 03:00,23,Sacramento Kings,13,Los Angeles Lakers,2
-401909935,05/11/2026,03:30,2026-11-05 03:30,12,LA Clippers,14,Miami Heat,2
 401909936,06/11/2026,02:00,2026-11-06 02:00,21,Phoenix Suns,19,Orlando Magic,2
 401909937,06/11/2026,03:00,2026-11-06 03:00,9,Golden State Warriors,14,Miami Heat,2
 401909287,07/11/2026,00:00,2026-11-07 00:00,1,Atlanta Hawks,27,Washington Wizards,2
@@ -31,3 +17,10 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909942,08/11/2026,01:30,2026-11-08 01:30,9,Golden State Warriors,19,Orlando Magic,2
 401909943,08/11/2026,02:00,2026-11-08 02:00,21,Phoenix Suns,10,Houston Rockets,2
 401909944,08/11/2026,03:00,2026-11-08 03:00,22,Portland Trail Blazers,24,San Antonio Spurs,2
+401909945,08/11/2026,20:30,2026-11-08 20:30,4,Chicago Bulls,20,Philadelphia 76ers,2
+401909946,08/11/2026,23:00,2026-11-08 23:00,8,Detroit Pistons,13,Los Angeles Lakers,2
+401909947,09/11/2026,00:00,2026-11-09 00:00,16,Minnesota Timberwolves,26,Utah Jazz,2
+401909948,09/11/2026,00:30,2026-11-09 00:30,6,Dallas Mavericks,17,Brooklyn Nets,2
+401909949,09/11/2026,01:00,2026-11-09 01:00,15,Milwaukee Bucks,2,Boston Celtics,2
+401909950,09/11/2026,02:00,2026-11-09 02:00,12,LA Clippers,3,New Orleans Pelicans,2
+401909951,09/11/2026,02:00,2026-11-09 02:00,23,Sacramento Kings,14,Miami Heat,2
