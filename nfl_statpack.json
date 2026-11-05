@@ -2510,14 +2510,14 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.203,
-            "away_win": 0.797
+            "home_win": 0.205,
+            "away_win": 0.795
           },
           "total_over_under": [
             {
               "line": 39.5,
-              "over": 0.517,
-              "under": 0.483,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 46.3
             },
             {
@@ -2857,8 +2857,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.38,
-            "away_win": 0.62
+            "home_win": 0.369,
+            "away_win": 0.631
           },
           "total_over_under": [
             {
@@ -2881,8 +2881,8 @@
             },
             {
               "line": 52.5,
-              "over": 0.504,
-              "under": 0.496,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 50.3
             }
           ],
@@ -3204,8 +3204,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.443,
-            "away_win": 0.557
+            "home_win": 0.438,
+            "away_win": 0.562
           },
           "total_over_under": [
             {
@@ -3215,15 +3215,9 @@
               "expected": 46.2
             },
             {
-              "line": 43.5,
-              "over": 0.511,
-              "under": 0.489,
-              "expected": 46.2
-            },
-            {
               "line": 44.5,
-              "over": 0.548,
-              "under": 0.452,
+              "over": 0.515,
+              "under": 0.485,
               "expected": 46.2
             },
             {
@@ -3551,8 +3545,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.361,
-            "away_win": 0.639
+            "home_win": 0.369,
+            "away_win": 0.631
           },
           "total_over_under": [
             {
@@ -4944,9 +4938,9 @@
           },
           "total_over_under": [
             {
-              "line": 39.5,
-              "over": 0.496,
-              "under": 0.504,
+              "line": 38.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 45.1
             },
             {
@@ -5286,8 +5280,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.316,
-            "away_win": 0.684
+            "home_win": 0.319,
+            "away_win": 0.681
           },
           "total_over_under": [
             {
@@ -5303,15 +5297,9 @@
               "expected": 49.3
             },
             {
-              "line": 47.5,
-              "over": 0.496,
-              "under": 0.504,
-              "expected": 49.3
-            },
-            {
               "line": 48.5,
-              "over": 0.524,
-              "under": 0.476,
+              "over": 0.507,
+              "under": 0.493,
               "expected": 49.3
             }
           ],
@@ -5997,9 +5985,9 @@
               "expected": 54.4
             },
             {
-              "line": 52.5,
-              "over": 0.504,
-              "under": 0.496,
+              "line": 51.5,
+              "over": 0.517,
+              "under": 0.483,
               "expected": 54.4
             }
           ],
@@ -6321,8 +6309,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.631,
-            "away_win": 0.369
+            "home_win": 0.634,
+            "away_win": 0.366
           },
           "total_over_under": [
             {
@@ -6338,9 +6326,9 @@
               "expected": 45.7
             },
             {
-              "line": 46.5,
-              "over": 0.511,
-              "under": 0.489,
+              "line": 45.5,
+              "over": 0.496,
+              "under": 0.504,
               "expected": 45.7
             },
             {
@@ -6668,20 +6656,20 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.799,
-            "away_win": 0.201
+            "home_win": 0.766,
+            "away_win": 0.234
           },
           "total_over_under": [
+            {
+              "line": 39.5,
+              "over": 0.504,
+              "under": 0.496,
+              "expected": 48.7
+            },
             {
               "line": 40.5,
               "over": 0.719,
               "under": 0.281,
-              "expected": 48.7
-            },
-            {
-              "line": 41.5,
-              "over": 0.5,
-              "under": 0.5,
               "expected": 48.7
             },
             {
@@ -7015,8 +7003,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.665,
-            "away_win": 0.335
+            "home_win": 0.667,
+            "away_win": 0.333
           },
           "total_over_under": [
             {
@@ -7033,8 +7021,8 @@
             },
             {
               "line": 47.5,
-              "over": 0.478,
-              "under": 0.522,
+              "over": 0.489,
+              "under": 0.511,
               "expected": 41.3
             },
             {
@@ -7362,8 +7350,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.452,
-            "away_win": 0.548
+            "home_win": 0.449,
+            "away_win": 0.551
           },
           "total_over_under": [
             {
@@ -7380,8 +7368,8 @@
             },
             {
               "line": 45.5,
-              "over": 0.496,
-              "under": 0.504,
+              "over": 0.489,
+              "under": 0.511,
               "expected": 39.6
             },
             {
@@ -8050,8 +8038,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.46,
-            "away_win": 0.54
+            "home_win": 0.473,
+            "away_win": 0.527
           },
           "total_over_under": [
             {
@@ -10132,8 +10120,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.22,
-            "away_win": 0.78
+            "home_win": 0.223,
+            "away_win": 0.777
           },
           "total_over_under": [
             {
@@ -11173,8 +11161,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.326,
-            "away_win": 0.674
+            "home_win": 0.357,
+            "away_win": 0.643
           },
           "total_over_under": [
             {
@@ -11185,8 +11173,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.543,
-              "under": 0.457,
+              "over": 0.586,
+              "under": 0.414,
               "expected": 47.6
             },
             {
@@ -11402,7 +11390,6 @@
           ]
         }
       },
-      "market_blended": true,
       "season_stat_leaders": {
         "home": {
           "passing": {
@@ -11514,8 +11501,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.394,
-            "away_win": 0.606
+            "home_win": 0.39,
+            "away_win": 0.61
           },
           "total_over_under": [
             {
@@ -12208,12 +12195,12 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.521,
-            "away_win": 0.479
+            "home_win": 0.553,
+            "away_win": 0.447
           },
           "total_over_under": [
             {
-              "line": 37.5,
+              "line": 38.5,
               "over": 0.5,
               "under": 0.5,
               "expected": 38.5
@@ -55943,6 +55930,59 @@
       }
     }
   },
-  "best_bets": [],
-  "shadow_picks": []
+  "best_bets": [
+    {
+      "sport": "nfl",
+      "home_team": "Baltimore Ravens",
+      "away_team": "Jacksonville Jaguars",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "06/11/2026",
+      "time": "01:15",
+      "metric": "moneyline",
+      "scope": "away",
+      "team": "Jacksonville Jaguars",
+      "direction": "Jacksonville Jaguars",
+      "line": null,
+      "confidence": 0.792,
+      "label": "Jacksonville Jaguars to win",
+      "raw_confidence": 0.795
+    }
+  ],
+  "shadow_picks": [
+    {
+      "sport": "nfl",
+      "home_team": "Baltimore Ravens",
+      "away_team": "Jacksonville Jaguars",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "06/11/2026",
+      "time": "01:15",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Jacksonville Jaguars",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.852,
+      "label": "Jacksonville Jaguars - Over 0.5 Passing TDs",
+      "raw_confidence": 0.908
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Baltimore Ravens",
+      "away_team": "Jacksonville Jaguars",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "06/11/2026",
+      "time": "01:15",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Jacksonville Jaguars",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.847,
+      "label": "Jacksonville Jaguars - Over 199.5 Passing Yards",
+      "raw_confidence": 0.935
+    }
+  ]
 }
