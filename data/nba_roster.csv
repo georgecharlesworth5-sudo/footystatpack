@@ -31,7 +31,6 @@ athlete_id,player,team_id,team
 4432639,Jabari Smith Jr.,10,Houston Rockets
 3136777,Jae'Sean Tate,10,Houston Rockets
 4684740,Amen Thompson,10,Houston Rockets
-5105837,Bruce Thornton,10,Houston Rockets
 4432827,Oscar Tshiebwe,10,Houston Rockets
 2991230,Fred VanVleet,10,Houston Rockets
 4431752,Kobe Brown,11,Indiana Pacers
@@ -193,7 +192,6 @@ athlete_id,player,team_id,team
 6478,Nikola Vucevic,19,Orlando Magic
 4566434,Franz Wagner,19,Orlando Magic
 4433188,Devin Carter,2,Boston Celtics
-5142621,Chris Cenac Jr.,2,Boston Celtics
 3195,Mike Conley,2,Boston Celtics
 4277951,Luka Garza,2,Boston Celtics
 4251,Paul George,2,Boston Celtics
@@ -358,6 +356,7 @@ athlete_id,player,team_id,team
 4431684,Trayce Jackson-Davis,28,Toronto Raptors
 6450,Kawhi Leonard,28,Toronto Raptors
 4702656,Alijah Martin,28,Toronto Raptors
+4411057,Kevin McCullar Jr.,28,Toronto Raptors
 5093267,Collin Murray-Boyles,28,Toronto Raptors
 3134908,Jakob Poeltl,28,Toronto Raptors
 4395724,Immanuel Quickley,28,Toronto Raptors
@@ -400,6 +399,7 @@ athlete_id,player,team_id,team
 4683742,Julian Reese,3,New Orleans Pelicans
 4431675,Trendon Watford,3,New Orleans Pelicans
 4395628,Zion Williamson,3,New Orleans Pelicans
+5176517,Michael Ajayi,30,Charlotte Hornets
 3135045,Grayson Allen,30,Charlotte Hornets
 5060701,Christian Anderson,30,Charlotte Hornets
 4684269,Kylan Boswell,30,Charlotte Hornets
@@ -440,9 +440,9 @@ athlete_id,player,team_id,team
 3992,James Harden,5,Cleveland Cavaliers
 2995706,Mario Hezonja,5,Cleveland Cavaliers
 4066757,Sam Merrill,5,Cleveland Cavaliers
-5177362,Riley Minix,5,Cleveland Cavaliers
 3908809,Donovan Mitchell,5,Cleveland Cavaliers
 4432158,Evan Mobley,5,Cleveland Cavaliers
+4702134,Norchad Omier,5,Cleveland Cavaliers
 4701233,Craig Porter Jr.,5,Cleveland Cavaliers
 5023693,Tyrese Proctor,5,Cleveland Cavaliers
 5041951,Meleek Thomas,5,Cleveland Cavaliers
