@@ -1,13 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909287,07/11/2026,00:00,2026-11-07 00:00,1,Atlanta Hawks,27,Washington Wizards,2
-401909288,07/11/2026,00:00,2026-11-07 00:00,30,Charlotte Hornets,2,Boston Celtics,2
-401909289,07/11/2026,00:30,2026-11-07 00:30,5,Cleveland Cavaliers,20,Philadelphia 76ers,2
-401909290,07/11/2026,01:00,2026-11-07 01:00,6,Dallas Mavericks,26,Utah Jazz,2
-401909291,07/11/2026,01:00,2026-11-07 01:00,29,Memphis Grizzlies,25,Oklahoma City Thunder,2
-401909292,07/11/2026,01:00,2026-11-07 01:00,15,Milwaukee Bucks,28,Toronto Raptors,2
-401909293,07/11/2026,01:00,2026-11-07 01:00,3,New Orleans Pelicans,16,Minnesota Timberwolves,2
-401909294,07/11/2026,03:00,2026-11-07 03:00,13,Los Angeles Lakers,22,Portland Trail Blazers,2
-401909295,07/11/2026,03:00,2026-11-07 03:00,23,Sacramento Kings,24,San Antonio Spurs,2
 401909938,07/11/2026,22:00,2026-11-07 22:00,11,Indiana Pacers,7,Denver Nuggets,2
 401909939,08/11/2026,00:30,2026-11-08 00:30,1,Atlanta Hawks,17,Brooklyn Nets,2
 401909940,08/11/2026,01:00,2026-11-08 01:00,5,Cleveland Cavaliers,18,New York Knicks,2
@@ -30,3 +21,9 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909957,10/11/2026,01:30,2026-11-10 01:30,10,Houston Rockets,7,Denver Nuggets,2
 401909958,10/11/2026,02:00,2026-11-10 02:00,21,Phoenix Suns,24,San Antonio Spurs,2
 401909959,10/11/2026,03:00,2026-11-10 03:00,9,Golden State Warriors,3,New Orleans Pelicans,2
+401909960,11/11/2026,00:30,2026-11-11 00:30,18,New York Knicks,15,Milwaukee Bucks,2
+401909961,11/11/2026,01:00,2026-11-11 01:00,20,Philadelphia 76ers,2,Boston Celtics,2
+401909962,11/11/2026,02:00,2026-11-11 02:00,21,Phoenix Suns,12,LA Clippers,2
+401909963,11/11/2026,02:00,2026-11-11 02:00,26,Utah Jazz,14,Miami Heat,2
+401909964,11/11/2026,03:00,2026-11-11 03:00,23,Sacramento Kings,19,Orlando Magic,2
+401909965,11/11/2026,04:00,2026-11-11 04:00,22,Portland Trail Blazers,25,Oklahoma City Thunder,2
