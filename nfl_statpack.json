@@ -2510,8 +2510,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.359,
-            "away_win": 0.641
+            "home_win": 0.362,
+            "away_win": 0.638
           },
           "total_over_under": [
             {
@@ -2857,8 +2857,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.442,
-            "away_win": 0.558
+            "home_win": 0.446,
+            "away_win": 0.554
           },
           "total_over_under": [
             {
@@ -3198,8 +3198,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.371,
-            "away_win": 0.629
+            "home_win": 0.368,
+            "away_win": 0.632
           },
           "total_over_under": [
             {
@@ -3222,8 +3222,8 @@
             },
             {
               "line": 51.5,
-              "over": 0.5,
-              "under": 0.5,
+              "over": 0.504,
+              "under": 0.496,
               "expected": 52.7
             }
           ],
@@ -3545,8 +3545,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.745,
-            "away_win": 0.255
+            "home_win": 0.751,
+            "away_win": 0.249
           },
           "total_over_under": [
             {
@@ -3563,8 +3563,8 @@
             },
             {
               "line": 47.5,
-              "over": 0.511,
-              "under": 0.489,
+              "over": 0.5,
+              "under": 0.5,
               "expected": 44.5
             },
             {
@@ -3916,8 +3916,8 @@
             },
             {
               "line": 49.5,
-              "over": 0.522,
-              "under": 0.478,
+              "over": 0.526,
+              "under": 0.474,
               "expected": 49.6
             }
           ],
@@ -4239,8 +4239,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.595,
-            "away_win": 0.405
+            "home_win": 0.602,
+            "away_win": 0.398
           },
           "total_over_under": [
             {
@@ -4251,8 +4251,8 @@
             },
             {
               "line": 42.5,
-              "over": 0.5,
-              "under": 0.5,
+              "over": 0.511,
+              "under": 0.489,
               "expected": 41.6
             },
             {
@@ -4586,14 +4586,14 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.364,
-            "away_win": 0.636
+            "home_win": 0.37,
+            "away_win": 0.63
           },
           "total_over_under": [
             {
               "line": 38.5,
-              "over": 0.504,
-              "under": 0.496,
+              "over": 0.483,
+              "under": 0.517,
               "expected": 45.1
             },
             {
@@ -4933,8 +4933,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.315,
-            "away_win": 0.685
+            "home_win": 0.312,
+            "away_win": 0.688
           },
           "total_over_under": [
             {
@@ -5280,8 +5280,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.362,
-            "away_win": 0.638
+            "home_win": 0.367,
+            "away_win": 0.633
           },
           "total_over_under": [
             {
@@ -5621,8 +5621,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.785,
-            "away_win": 0.215
+            "home_win": 0.78,
+            "away_win": 0.22
           },
           "total_over_under": [
             {
@@ -5645,8 +5645,8 @@
             },
             {
               "line": 51.5,
-              "over": 0.522,
-              "under": 0.478,
+              "over": 0.517,
+              "under": 0.483,
               "expected": 54.4
             }
           ],
@@ -5968,8 +5968,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.633,
-            "away_win": 0.367
+            "home_win": 0.63,
+            "away_win": 0.37
           },
           "total_over_under": [
             {
@@ -5980,8 +5980,8 @@
             },
             {
               "line": 44.5,
-              "over": 0.522,
-              "under": 0.478,
+              "over": 0.519,
+              "under": 0.481,
               "expected": 45.7
             },
             {
@@ -6309,8 +6309,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.768,
-            "away_win": 0.232
+            "home_win": 0.763,
+            "away_win": 0.237
           },
           "total_over_under": [
             {
@@ -6674,8 +6674,8 @@
             },
             {
               "line": 47.5,
-              "over": 0.489,
-              "under": 0.511,
+              "over": 0.496,
+              "under": 0.504,
               "expected": 41.3
             },
             {
@@ -7691,8 +7691,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.472,
-            "away_win": 0.528
+            "home_win": 0.47,
+            "away_win": 0.53
           },
           "total_over_under": [
             {
@@ -8038,8 +8038,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.428,
-            "away_win": 0.572
+            "home_win": 0.46,
+            "away_win": 0.54
           },
           "total_over_under": [
             {
@@ -8052,12 +8052,6 @@
               "line": 44.5,
               "over": 0.41,
               "under": 0.59,
-              "expected": 41.3
-            },
-            {
-              "line": 46.5,
-              "over": 0.511,
-              "under": 0.489,
               "expected": 41.3
             },
             {
@@ -8273,7 +8267,6 @@
           ]
         }
       },
-      "market_blended": true,
       "season_stat_leaders": {
         "home": {
           "receiving": {
@@ -8385,8 +8378,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.407,
-            "away_win": 0.593
+            "home_win": 0.411,
+            "away_win": 0.589
           },
           "total_over_under": [
             {
@@ -8732,8 +8725,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.539,
-            "away_win": 0.461
+            "home_win": 0.536,
+            "away_win": 0.464
           },
           "total_over_under": [
             {
@@ -10461,8 +10454,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.255,
-            "away_win": 0.745
+            "home_win": 0.251,
+            "away_win": 0.749
           },
           "total_over_under": [
             {
@@ -11495,8 +11488,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.58,
-            "away_win": 0.42
+            "home_win": 0.544,
+            "away_win": 0.456
           },
           "total_over_under": [
             {
@@ -11509,12 +11502,6 @@
               "line": 44.5,
               "over": 0.604,
               "under": 0.396,
-              "expected": 48.2
-            },
-            {
-              "line": 47.5,
-              "over": 0.5,
-              "under": 0.5,
               "expected": 48.2
             },
             {
@@ -11730,7 +11717,6 @@
           ]
         }
       },
-      "market_blended": true,
       "season_stat_leaders": {
         "home": {
           "rushing": {
@@ -11842,8 +11828,8 @@
             ]
           },
           "moneyline": {
-            "home_win": 0.521,
-            "away_win": 0.479
+            "home_win": 0.534,
+            "away_win": 0.466
           },
           "total_over_under": [
             {
@@ -54441,6 +54427,417 @@
       }
     }
   },
-  "best_bets": [],
-  "shadow_picks": []
+  "best_bets": [
+    {
+      "sport": "nfl",
+      "home_team": "New Orleans Saints",
+      "away_team": "Cleveland Browns",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Cleveland Browns",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.885,
+      "label": "Cleveland Browns - Over 199.5 Passing Yards",
+      "raw_confidence": 0.971
+    },
+    {
+      "sport": "nfl",
+      "home_team": "San Francisco 49ers",
+      "away_team": "Las Vegas Raiders",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:05",
+      "metric": "moneyline",
+      "scope": "home",
+      "team": "San Francisco 49ers",
+      "direction": "San Francisco 49ers",
+      "line": null,
+      "confidence": 0.781,
+      "label": "San Francisco 49ers to win",
+      "raw_confidence": 0.78
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Seattle Seahawks",
+      "away_team": "Arizona Cardinals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:25",
+      "metric": "moneyline",
+      "scope": "home",
+      "team": "Seattle Seahawks",
+      "direction": "Seattle Seahawks",
+      "line": null,
+      "confidence": 0.764,
+      "label": "Seattle Seahawks to win",
+      "raw_confidence": 0.763
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Kansas City Chiefs",
+      "away_team": "New York Jets",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "moneyline",
+      "scope": "home",
+      "team": "Kansas City Chiefs",
+      "direction": "Kansas City Chiefs",
+      "line": null,
+      "confidence": 0.752,
+      "label": "Kansas City Chiefs to win",
+      "raw_confidence": 0.751
+    }
+  ],
+  "shadow_picks": [
+    {
+      "sport": "nfl",
+      "home_team": "New England Patriots",
+      "away_team": "Green Bay Packers",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:25",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Green Bay Packers",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.859,
+      "label": "Green Bay Packers - Over 199.5 Passing Yards",
+      "raw_confidence": 0.945
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Kansas City Chiefs",
+      "away_team": "New York Jets",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_tds",
+      "scope": "home",
+      "team": "Kansas City Chiefs",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.857,
+      "label": "Kansas City Chiefs - Over 0.5 Passing TDs",
+      "raw_confidence": 0.911
+    },
+    {
+      "sport": "nfl",
+      "home_team": "San Francisco 49ers",
+      "away_team": "Las Vegas Raiders",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:05",
+      "metric": "points",
+      "scope": "home",
+      "team": "San Francisco 49ers",
+      "direction": "Over",
+      "line": 20.5,
+      "confidence": 0.854,
+      "label": "San Francisco 49ers - Over 20.5 Points",
+      "raw_confidence": 0.88
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Miami Dolphins",
+      "away_team": "Detroit Lions",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_tds",
+      "scope": "home",
+      "team": "Miami Dolphins",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.853,
+      "label": "Miami Dolphins - Over 0.5 Passing TDs",
+      "raw_confidence": 0.907
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Miami Dolphins",
+      "away_team": "Detroit Lions",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Detroit Lions",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.853,
+      "label": "Detroit Lions - Over 0.5 Passing TDs",
+      "raw_confidence": 0.907
+    },
+    {
+      "sport": "nfl",
+      "home_team": "San Francisco 49ers",
+      "away_team": "Las Vegas Raiders",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:05",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Las Vegas Raiders",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.853,
+      "label": "Las Vegas Raiders - Over 0.5 Passing TDs",
+      "raw_confidence": 0.907
+    },
+    {
+      "sport": "nfl",
+      "home_team": "New England Patriots",
+      "away_team": "Green Bay Packers",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:25",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Green Bay Packers",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.853,
+      "label": "Green Bay Packers - Over 0.5 Passing TDs",
+      "raw_confidence": 0.907
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Philadelphia Eagles",
+      "away_team": "New York Giants",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "New York Giants",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.844,
+      "label": "New York Giants - Over 199.5 Passing Yards",
+      "raw_confidence": 0.93
+    },
+    {
+      "sport": "nfl",
+      "home_team": "San Francisco 49ers",
+      "away_team": "Las Vegas Raiders",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:05",
+      "metric": "passing_yards",
+      "scope": "home",
+      "team": "San Francisco 49ers",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.841,
+      "label": "San Francisco 49ers - Over 199.5 Passing Yards",
+      "raw_confidence": 0.927
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Miami Dolphins",
+      "away_team": "Detroit Lions",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "rushing_yards",
+      "scope": "away",
+      "team": "Detroit Lions",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.836,
+      "label": "Detroit Lions - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.966
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Philadelphia Eagles",
+      "away_team": "New York Giants",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "rushing_yards",
+      "scope": "away",
+      "team": "New York Giants",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.836,
+      "label": "New York Giants - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.966
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Indianapolis Colts",
+      "away_team": "Dallas Cowboys",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_tds",
+      "scope": "away",
+      "team": "Dallas Cowboys",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.835,
+      "label": "Dallas Cowboys - Over 0.5 Passing TDs",
+      "raw_confidence": 0.889
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Chicago Bears",
+      "away_team": "Tampa Bay Buccaneers",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "09/11/2026",
+      "time": "01:20",
+      "metric": "rushing_yards",
+      "scope": "away",
+      "team": "Tampa Bay Buccaneers",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.822,
+      "label": "Tampa Bay Buccaneers - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.952
+    },
+    {
+      "sport": "nfl",
+      "home_team": "San Francisco 49ers",
+      "away_team": "Las Vegas Raiders",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:05",
+      "metric": "passing_tds",
+      "scope": "home",
+      "team": "San Francisco 49ers",
+      "direction": "Over",
+      "line": 0.5,
+      "confidence": 0.821,
+      "label": "San Francisco 49ers - Over 0.5 Passing TDs",
+      "raw_confidence": 0.875
+    },
+    {
+      "sport": "nfl",
+      "home_team": "San Francisco 49ers",
+      "away_team": "Las Vegas Raiders",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:05",
+      "metric": "rushing_yards",
+      "scope": "home",
+      "team": "San Francisco 49ers",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.814,
+      "label": "San Francisco 49ers - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.944
+    },
+    {
+      "sport": "nfl",
+      "home_team": "San Francisco 49ers",
+      "away_team": "Las Vegas Raiders",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "21:05",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "Las Vegas Raiders",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.813,
+      "label": "Las Vegas Raiders - Over 199.5 Passing Yards",
+      "raw_confidence": 0.899
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Indianapolis Colts",
+      "away_team": "Dallas Cowboys",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "rushing_yards",
+      "scope": "home",
+      "team": "Indianapolis Colts",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.812,
+      "label": "Indianapolis Colts - Over 99.5 Rushing Yards",
+      "raw_confidence": 0.942
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Carolina Panthers",
+      "away_team": "Denver Broncos",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_yards",
+      "scope": "home",
+      "team": "Carolina Panthers",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.806,
+      "label": "Carolina Panthers - Over 199.5 Passing Yards",
+      "raw_confidence": 0.892
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Kansas City Chiefs",
+      "away_team": "New York Jets",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "18:00",
+      "metric": "passing_yards",
+      "scope": "away",
+      "team": "New York Jets",
+      "direction": "Over",
+      "line": 199.5,
+      "confidence": 0.804,
+      "label": "New York Jets - Over 199.5 Passing Yards",
+      "raw_confidence": 0.89
+    },
+    {
+      "sport": "nfl",
+      "home_team": "Atlanta Falcons",
+      "away_team": "Cincinnati Bengals",
+      "league_name": "NFL",
+      "league_code": "NFL",
+      "date": "08/11/2026",
+      "time": "14:30",
+      "metric": "rushing_yards",
+      "scope": "away",
+      "team": "Cincinnati Bengals",
+      "direction": "Over",
+      "line": 99.5,
+      "confidence": 0.745,
+      "label": "Cincinnati Bengals - Over 99.5 Rushing Yards",
+      "started": true,
+      "raw_confidence": 0.875
+    }
+  ]
 }
