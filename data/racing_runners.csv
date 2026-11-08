@@ -82345,3 +82345,94 @@ date,time,course,region,code,rtype,going,class,ran,horse,jockey,trainer,age,draw
 2026-11-07,18:30,Southwell,uk,flat,Handicap,Standard,5,10,Damzon,Molly Gunn,A W Carroll,7,5,8-11,67.0,8
 2026-11-07,18:30,Southwell,uk,flat,Handicap,Standard,5,10,Sisterandbrother,Jack Callan,Joey Ramsden,8,3,9-11,11.0,9
 2026-11-07,18:30,Southwell,uk,flat,Handicap,Standard,5,10,Dollar's Dream,Rhys Elliott,P A Kirby,5,7,9-2,26.0,10
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Shellrunforbriggs,Brian Hayes,M Winters,5,,11-12,2.88,1
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Takenasred,Sam Ewing,S R B Crawford,8,,11-1,17.0,2
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Moylussa,Daniel King,M Magnussen,7,,11-2,3.75,3
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Latopix,Darragh O'Keeffe,H De Bromhead,5,,10-11,21.0,4
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Withabitofluk,Mike O'Connor,H De Bromhead,7,,11-3,21.0,5
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Giant Haystacks,Danny Gilligan,R O'Sullivan,7,,11-0,10.0,6
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Koori Star,Ethan O'Sullivan,Peter Fahey,8,,11-7,8.0,7
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Mywayofthinkin,Mark Walsh,G P Cromwell,7,,11-10,15.0,8
+2026-11-08,12:00,Naas,ire,chase,Handicap,Good to Yielding,,9,Luimneach,Charlie O'Dwyer,C O'Dwyer,9,,11-7,8.0,0
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,The Mourne Rambler,Sam Ewing,N Meade,5,,11-12,1.25,1
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Whisky Lads,Darragh O'Keeffe,H De Bromhead,5,,11-12,8.0,2
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Ignite The Moment,Sean O'Keeffe,P Nolan,4,,11-12,34.0,3
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Low Kick,Jack Kennedy,G Elliott,5,,11-12,6.0,4
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Caman Hill,Phillip Enright,O McKiernan,5,,11-12,9.0,5
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Finest Band,Sean Flanagan,B Connell,5,,11-12,101.0,6
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Marian Place,Philip Byrnes,C Byrnes,6,,11-12,201.0,7
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Rough And Tough,Jordan Gainford,M Mulvany,6,,11-12,101.0,8
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Eagle Doll,Gary Noonan,E McCarthy,6,,11-5,301.0,9
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Ataboymiley,Tiernan Power Roche,P J Rothwell,6,,11-12,301.0,10
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,Fortunate Miss,Kevin Healy,S Cavanagh,4,,11-5,81.0,11
+2026-11-08,12:30,Naas,ire,hurdle,Maiden,Good to Yielding,,12,An Ceanabhan Ban,John Aherne,L Walshe,5,,11-5,301.0,12
+2026-11-08,12:40,Sandown,uk,hurdle,Handicap,Good (Good to Soft in places),3,6,Tune In A Box,Cameron Iles,T Lacey,7,,11-4,4.33,1
+2026-11-08,12:40,Sandown,uk,hurdle,Handicap,Good (Good to Soft in places),3,6,Moab,Hugh Horgan,Miss H C Knight,6,,10-8,3.25,2
+2026-11-08,12:40,Sandown,uk,hurdle,Handicap,Good (Good to Soft in places),3,6,Bowmore,Daire James McConville,C E Longsdon,8,,11-13,3.75,3
+2026-11-08,12:40,Sandown,uk,hurdle,Handicap,Good (Good to Soft in places),3,6,Letterston Lily,James Murray,M Bowen,6,,11-8,4.33,4
+2026-11-08,12:40,Sandown,uk,hurdle,Handicap,Good (Good to Soft in places),3,6,Queenie St Clair,Nathan Andrews,Nick Scholfield,6,,11-8,17.0,5
+2026-11-08,12:40,Sandown,uk,hurdle,Handicap,Good (Good to Soft in places),3,6,Minella Crooner,Fern O'Brien,M Crawley,10,,12-0,67.0,0
+2026-11-08,13:00,Naas,ire,hurdle,Novice,Good to Yielding,,4,Love Me Tender,Paul Townend,W P Mullins,4,,11-6,1.5,1
+2026-11-08,13:00,Naas,ire,hurdle,Novice,Good to Yielding,,4,Bartholomew,Ricky Doyle,M Brassil,4,,11-6,5.5,2
+2026-11-08,13:00,Naas,ire,hurdle,Novice,Good to Yielding,,4,Golden Handshake,Patrick M O'Brien,W Durkan,4,,11-10,15.0,3
+2026-11-08,13:00,Naas,ire,hurdle,Novice,Good to Yielding,,4,Bunker Buster,Philip Byrnes,C Byrnes,4,,11-6,5.0,4
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Minella Machine,Darragh O'Keeffe,H De Bromhead,5,,11-12,1.44,1
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Gold Star Status,Phillip Enright,O McKiernan,5,,11-12,67.0,2
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Straight Bourbon,Conor Clarke,M Magnussen,5,,11-12,251.0,3
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Claude Du Val,Sean Flanagan,B Connell,8,,11-12,12.0,4
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Marine Tycoon,Daniel King,A J Martin,5,,11-12,301.0,5
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Barrow Side Boy,Richard Condon,P A Fahy,4,,11-12,301.0,6
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,No Loose Ends,Tiernan Power Roche,P J Rothwell,5,,11-12,501.0,7
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Coq Noir,Jack Kennedy,G Elliott,5,,11-12,9.0,8
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Muckanagh Lough,Simon Torrens,P T Foley,6,,11-12,15.0,0
+2026-11-08,13:30,Naas,ire,hurdle,Maiden,Good to Yielding,,10,Adaboy Mushy,Kevin Healy,D Queally,4,,11-12,4.0,0
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,River Voyage,Jamie Brace,Miss R Curtis,8,,11-6,8.5,1
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Followango,Miss Eleanor Williams,Mrs C Williams,8,,11-8,12.0,2
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Getaway Theatre,Charlie Hammond,S Edmunds,8,,11-10,7.0,3
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,La Higuera,Isabelle Ryder,T Lawes,7,,11-7,9.0,4
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Mister Barclay,Ned Fox,T Symonds,8,,11-3,15.0,5
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Stratton Oakmont,Harry Cobden,K Woollacott,10,,12-0,11.0,6
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Blue In The West,Shane Quinlan,B Lund,9,,11-0,26.0,7
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Clondaw Royale,R P McLernon,J & A O'Neill,7,,11-5,19.0,8
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Midweek Voices,S Bowen,O Murphy,7,,11-5,2.62,9
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Sparkling Duke,Callum Pritchard,K Woollacott,7,,12-0,10.0,0
+2026-11-08,13:52,Ffos Las,uk,hurdle,Handicap,Soft,4,11,Colonial Empire,David Noonan,Tim Vaughan,9,,11-5,41.0,0
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Le Moulin Rouge,Eoin Staples,P Nolan,5,,10-12,6.5,1
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Balko D'ange,Brian Hayes,P Fenton,6,,11-6,11.0,2
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Beckett Rock,Mike O'Connor,H De Bromhead,7,,11-12,26.0,3
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Harpy Eagle,Michael Kenneally,R P Cody,5,,10-4,9.0,4
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Carrigg Island,Gary Noonan,E McCarthy,6,,10-9,51.0,5
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Mister Pessimistic,Darragh O'Keeffe,H De Bromhead,5,,11-1,7.0,6
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Tinto De Verano,Cian Quirke,Yvonne Latta,6,,10-11,11.0,7
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Donnie Devito,Shane Markey,R O'Sullivan,7,,10-8,23.0,8
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Fraher Field,Alan O'Sullivan,J & T Kiely,6,,10-0,23.0,9
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,The Nagger Reidy,Ms A M Connolly,S G Carey,7,,10-9,17.0,10
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Riskaway,Ethan O'Sullivan,G Elliott,6,,11-5,13.0,11
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Brosna Queen,Conor Stone-Walsh,S G Carey,6,,10-1,21.0,12
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Ballybawn Belter,Peter Smithers,Liz Doyle,8,,10-13,7.5,13
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Daboya,Danny Mullins,R Donohoe,5,,10-12,12.0,14
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Fad Eadrainn,Simon Torrens,P T Foley,8,,10-13,17.0,15
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Avondale,Sean Flanagan,B Connell,6,,10-13,21.0,16
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Park Of Kings,Mark Walsh,P Nolan,8,,10-11,29.0,17
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Daily Present,Sean O'Keeffe,P Nolan,9,,11-0,101.0,0
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Nelson Muntz,Phillip Enright,D H Kelly,7,,10-8,15.0,0
+2026-11-08,14:04,Naas,ire,hurdle,Listed,Good to Yielding,1,20,Rockymountainbleu,Tiernan Power Roche,P J Rothwell,8,,10-5,15.0,0
+2026-11-08,14:15,Sandown,uk,hurdle,Handicap,Good to Soft,3,7,Macktoad,Caoilin Quinn,Jamie & Josh Moore,4,,12-0,5.0,1
+2026-11-08,14:15,Sandown,uk,hurdle,Handicap,Good to Soft,3,7,Jaminska,C Gethings,Mrs J Williams,7,,11-3,3.25,2
+2026-11-08,14:15,Sandown,uk,hurdle,Handicap,Good to Soft,3,7,Lady Magic,G Sheehan,T Symonds,5,,11-0,7.0,3
+2026-11-08,14:15,Sandown,uk,hurdle,Handicap,Good to Soft,3,7,Flash Man,K Brogan,T Lawes,4,,11-1,4.0,4
+2026-11-08,14:15,Sandown,uk,hurdle,Handicap,Good to Soft,3,7,Easter Icon,Megan Bevan,G Brown,7,,10-7,19.0,5
+2026-11-08,14:15,Sandown,uk,hurdle,Handicap,Good to Soft,3,7,St Pancras,Freddie Mitchell,Jamie & Josh Moore,5,,12-0,12.0,6
+2026-11-08,14:15,Sandown,uk,hurdle,Handicap,Good to Soft,3,7,Rascallion,B S Hughes,Miss H C Knight,7,,11-2,8.5,7
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Corner Forward,Harry Cobden,A J Honeyball,5,,11-12,2.25,1
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Jet Joe,Shane Quinlan,Katy Price,5,,10-5,17.0,2
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Nube De Trueno,Shane Fenelon,M Bowen,7,,10-13,29.0,3
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Out Of Focus,Adam Wedge,Mrs C Williams,8,,11-5,8.5,4
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Bound For Glory,Sean Houlihan,R Stephens,4,,11-13,5.0,5
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Nancefordshore,Joe Anderson,G Harris,5,,12-0,13.0,6
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Built By Rossies,S Bowen,O Murphy,7,,12-0,7.0,7
+2026-11-08,14:27,Ffos Las,uk,hurdle,Handicap,Soft,5,8,Billy Butcher,Lee Edwards,Dave Roberts,8,,11-4,13.0,0
+2026-11-08,14:39,Naas,ire,chase,Group/Graded,Good to Yielding,1,4,Irish Panther,Kieren Buckley,E & P Harty,9,,11-1,4.33,1
+2026-11-08,14:39,Naas,ire,chase,Group/Graded,Good to Yielding,1,4,Kopek Des Bordes,Paul Townend,W P Mullins,6,,11-1,1.25,2
+2026-11-08,14:39,Naas,ire,chase,Group/Graded,Good to Yielding,1,4,Westport Cove,Sean O'Keeffe,W P Mullins,8,,11-10,15.0,3
+2026-11-08,14:39,Naas,ire,chase,Group/Graded,Good to Yielding,1,4,Rockstown Girl,Josh Williamson,A McCann,8,,10-4,151.0,4
