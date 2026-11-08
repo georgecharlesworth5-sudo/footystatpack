@@ -31,6 +31,7 @@ athlete_id,player,team_id,team
 4432639,Jabari Smith Jr.,10,Houston Rockets
 3136777,Jae'Sean Tate,10,Houston Rockets
 4684740,Amen Thompson,10,Houston Rockets
+5105837,Bruce Thornton,10,Houston Rockets
 4432827,Oscar Tshiebwe,10,Houston Rockets
 2991230,Fred VanVleet,10,Houston Rockets
 4431752,Kobe Brown,11,Indiana Pacers
@@ -377,6 +378,7 @@ athlete_id,player,team_id,team
 4431785,Scotty Pippen Jr.,29,Memphis Grizzlies
 4593016,Quinten Post,29,Memphis Grizzlies
 4595400,Olivier-Maxence Prosper,29,Memphis Grizzlies
+5105462,Richie Saunders,29,Memphis Grizzlies
 4781746,Javon Small,29,Memphis Grizzlies
 4433083,Cam Spencer,29,Memphis Grizzlies
 4432810,Isaiah Stewart,29,Memphis Grizzlies
@@ -436,10 +438,10 @@ athlete_id,player,team_id,team
 5095151,Caleb Wilson,4,Chicago Bulls
 4066328,Jarrett Allen,5,Cleveland Cavaliers
 3934723,Thomas Bryant,5,Cleveland Cavaliers
-4431734,Tristan Enaruna,5,Cleveland Cavaliers
 3992,James Harden,5,Cleveland Cavaliers
 2995706,Mario Hezonja,5,Cleveland Cavaliers
 4066757,Sam Merrill,5,Cleveland Cavaliers
+5177362,Riley Minix,5,Cleveland Cavaliers
 3908809,Donovan Mitchell,5,Cleveland Cavaliers
 4432158,Evan Mobley,5,Cleveland Cavaliers
 4702134,Norchad Omier,5,Cleveland Cavaliers
