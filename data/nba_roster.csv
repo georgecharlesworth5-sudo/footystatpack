@@ -263,7 +263,6 @@ athlete_id,player,team_id,team
 5142620,Darius Acuff Jr.,23,Sacramento Kings
 4395650,Leaky Black,23,Sacramento Kings
 4433174,Dylan Cardwell,23,Sacramento Kings
-4702384,Nique Clifford,23,Sacramento Kings
 4065732,De'Andre Hunter,23,Sacramento Kings
 4917149,Alex Karaban,23,Sacramento Kings
 3064440,Zach LaVine,23,Sacramento Kings
@@ -295,6 +294,7 @@ athlete_id,player,team_id,team
 5104157,Victor Wembanyama,24,San Antonio Spurs
 4684208,Brooks Barnhizer,25,Oklahoma City Thunder
 2991350,Alex Caruso,25,Oklahoma City Thunder
+4702384,Nique Clifford,25,Oklahoma City Thunder
 5105800,Josh Dix,25,Oklahoma City Thunder
 4278073,Shai Gilgeous-Alexander,25,Oklahoma City Thunder
 4222252,Isaiah Hartenstein,25,Oklahoma City Thunder
@@ -305,7 +305,6 @@ athlete_id,player,team_id,team
 4432185,Micah Peavy,25,Oklahoma City Thunder
 5061603,Thomas Sorber,25,Oklahoma City Thunder
 5241364,Bennett Stirtz,25,Oklahoma City Thunder
-4433159,Dalen Terry,25,Oklahoma City Thunder
 5159925,Nikola Topic,25,Oklahoma City Thunder
 4683692,Cason Wallace,25,Oklahoma City Thunder
 4593803,Jalen Williams,25,Oklahoma City Thunder
