@@ -71,6 +71,7 @@ athlete_id,player,team_id,team
 5254165,Keaton Wagler,12,LA Clippers
 4683935,Blake Wesley,12,LA Clippers
 5113969,Cameron Carr,13,Los Angeles Lakers
+5105817,Carson Cooper,13,Los Angeles Lakers
 3945274,Luka Doncic,13,Los Angeles Lakers
 4397014,Quentin Grimes,13,Los Angeles Lakers
 4868423,Jaden Hardy,13,Los Angeles Lakers
@@ -79,7 +80,6 @@ athlete_id,player,team_id,team
 4433136,Walker Kessler,13,Los Angeles Lakers
 4592691,Jake LaRavia,13,Los Angeles Lakers
 3155535,Kevon Looney,13,Los Angeles Lakers
-4596528,Lawson Lovering,13,Los Angeles Lakers
 4278580,Sandro Mamukelashvili,13,Los Angeles Lakers
 4702972,Chris Manon,13,Los Angeles Lakers
 5114350,AK Okereke,13,Los Angeles Lakers
@@ -130,7 +130,6 @@ athlete_id,player,team_id,team
 3934673,Donte DiVincenzo,16,Minnesota Timberwolves
 4397002,Ayo Dosunmu,16,Minnesota Timberwolves
 4594268,Anthony Edwards,16,Minnesota Timberwolves
-5061585,Isaiah Evans,16,Minnesota Timberwolves
 3032976,Rudy Gobert,16,Minnesota Timberwolves
 4592492,Bones Hyland,16,Minnesota Timberwolves
 4433247,Jonathan Kuminga,16,Minnesota Timberwolves
@@ -193,6 +192,7 @@ athlete_id,player,team_id,team
 6478,Nikola Vucevic,19,Orlando Magic
 4566434,Franz Wagner,19,Orlando Magic
 4433188,Devin Carter,2,Boston Celtics
+5142621,Chris Cenac Jr.,2,Boston Celtics
 3195,Mike Conley,2,Boston Celtics
 4277951,Luka Garza,2,Boston Celtics
 4251,Paul George,2,Boston Celtics
@@ -364,7 +364,6 @@ athlete_id,player,team_id,team
 4397784,Malachi Smith,28,Toronto Raptors
 4684272,Ja'Kobe Walter,28,Toronto Raptors
 5041935,Cameron Boozer,29,Memphis Grizzlies
-5105817,Carson Cooper,29,Memphis Grizzlies
 4903027,Cedric Coward,29,Memphis Grizzlies
 4600663,Zach Edey,29,Memphis Grizzlies
 2991070,Jerami Grant,29,Memphis Grizzlies
@@ -495,7 +494,6 @@ athlete_id,player,team_id,team
 5107199,Daniss Jenkins,8,Detroit Pistons
 4395702,Isaiah Joe,8,Detroit Pistons
 5107818,Isaac Jones,8,Detroit Pistons
-4700852,Chaz Lanier,8,Detroit Pistons
 5258459,Ebuka Okorie,8,Detroit Pistons
 5037878,Ugonna Onyenso,8,Detroit Pistons
 2990962,Taurean Prince,8,Detroit Pistons
