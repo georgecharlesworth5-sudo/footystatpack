@@ -1,14 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909966,12/11/2026,00:00,2026-11-12 00:00,11,Indiana Pacers,27,Washington Wizards,2
-401909967,12/11/2026,00:00,2026-11-12 00:00,18,New York Knicks,5,Cleveland Cavaliers,2
-401909968,12/11/2026,00:00,2026-11-12 00:00,28,Toronto Raptors,2,Boston Celtics,2
-401909969,12/11/2026,01:00,2026-11-12 01:00,4,Chicago Bulls,24,San Antonio Spurs,2
-401909970,12/11/2026,01:00,2026-11-12 01:00,29,Memphis Grizzlies,7,Denver Nuggets,2
-401909971,12/11/2026,01:00,2026-11-12 01:00,15,Milwaukee Bucks,13,Los Angeles Lakers,2
-401909972,12/11/2026,01:00,2026-11-12 01:00,3,New Orleans Pelicans,17,Brooklyn Nets,2
-401909973,12/11/2026,02:00,2026-11-12 02:00,26,Utah Jazz,19,Orlando Magic,2
-401909974,12/11/2026,02:30,2026-11-12 02:30,10,Houston Rockets,9,Golden State Warriors,2
-401909975,12/11/2026,03:00,2026-11-12 03:00,22,Portland Trail Blazers,25,Oklahoma City Thunder,2
 401909976,13/11/2026,00:00,2026-11-13 00:00,20,Philadelphia 76ers,28,Toronto Raptors,2
 401909977,13/11/2026,00:00,2026-11-13 00:00,27,Washington Wizards,8,Detroit Pistons,2
 401909978,13/11/2026,01:00,2026-11-13 01:00,16,Minnesota Timberwolves,6,Dallas Mavericks,2
@@ -27,3 +17,12 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909982,15/11/2026,01:00,2026-11-15 01:00,14,Miami Heat,8,Detroit Pistons,2
 401909983,15/11/2026,01:00,2026-11-15 01:00,29,Memphis Grizzlies,17,Brooklyn Nets,2
 401909984,15/11/2026,01:00,2026-11-15 01:00,16,Minnesota Timberwolves,4,Chicago Bulls,2
+401909985,15/11/2026,18:00,2026-11-15 18:00,20,Philadelphia 76ers,11,Indiana Pacers,2
+401909986,15/11/2026,21:00,2026-11-15 21:00,21,Phoenix Suns,13,Los Angeles Lakers,2
+401909987,15/11/2026,21:30,2026-11-15 21:30,12,LA Clippers,30,Charlotte Hornets,2
+401909988,15/11/2026,22:00,2026-11-15 22:00,26,Utah Jazz,24,San Antonio Spurs,2
+401909989,15/11/2026,23:00,2026-11-15 23:00,2,Boston Celtics,6,Dallas Mavericks,2
+401909990,15/11/2026,23:00,2026-11-15 23:00,28,Toronto Raptors,18,New York Knicks,2
+401909991,16/11/2026,00:00,2026-11-16 00:00,27,Washington Wizards,10,Houston Rockets,2
+401909992,16/11/2026,01:00,2026-11-16 01:00,15,Milwaukee Bucks,1,Atlanta Hawks,2
+401909993,16/11/2026,02:00,2026-11-16 02:00,23,Sacramento Kings,25,Oklahoma City Thunder,2
