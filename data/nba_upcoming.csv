@@ -1,8 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909976,13/11/2026,00:00,2026-11-13 00:00,20,Philadelphia 76ers,28,Toronto Raptors,2
-401909977,13/11/2026,00:00,2026-11-13 00:00,27,Washington Wizards,8,Detroit Pistons,2
-401909978,13/11/2026,01:00,2026-11-13 01:00,16,Minnesota Timberwolves,6,Dallas Mavericks,2
-401909979,13/11/2026,02:00,2026-11-13 02:00,21,Phoenix Suns,30,Charlotte Hornets,2
 401909296,14/11/2026,00:00,2026-11-14 00:00,11,Indiana Pacers,18,New York Knicks,2
 401909297,14/11/2026,00:00,2026-11-14 00:00,19,Orlando Magic,15,Milwaukee Bucks,2
 401909298,14/11/2026,01:00,2026-11-14 01:00,14,Miami Heat,5,Cleveland Cavaliers,2
@@ -26,3 +22,11 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401909991,16/11/2026,00:00,2026-11-16 00:00,27,Washington Wizards,10,Houston Rockets,2
 401909992,16/11/2026,01:00,2026-11-16 01:00,15,Milwaukee Bucks,1,Atlanta Hawks,2
 401909993,16/11/2026,02:00,2026-11-16 02:00,23,Sacramento Kings,25,Oklahoma City Thunder,2
+401909994,17/11/2026,00:00,2026-11-17 00:00,2,Boston Celtics,19,Orlando Magic,2
+401909995,17/11/2026,00:00,2026-11-17 00:00,5,Cleveland Cavaliers,4,Chicago Bulls,2
+401909996,17/11/2026,00:00,2026-11-17 00:00,27,Washington Wizards,29,Memphis Grizzlies,2
+401909997,17/11/2026,00:30,2026-11-17 00:30,17,Brooklyn Nets,20,Philadelphia 76ers,2
+401909998,17/11/2026,00:30,2026-11-17 00:30,14,Miami Heat,10,Houston Rockets,2
+401909999,17/11/2026,01:00,2026-11-17 01:00,16,Minnesota Timberwolves,22,Portland Trail Blazers,2
+401910000,17/11/2026,01:00,2026-11-17 01:00,3,New Orleans Pelicans,9,Golden State Warriors,2
+401910001,17/11/2026,02:00,2026-11-17 02:00,7,Denver Nuggets,21,Phoenix Suns,2
