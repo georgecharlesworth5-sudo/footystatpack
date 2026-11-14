@@ -83044,3 +83044,73 @@ date,time,course,region,code,rtype,going,class,ran,horse,jockey,trainer,age,draw
 2026-11-13,15:50,Southwell,uk,hurdle,Handicap,Good (Good to Soft in places),5,6,The Clonmel Kid,Beau Morgan,P A Kirby,7,,11-9,4.5,4
 2026-11-13,15:50,Southwell,uk,hurdle,Handicap,Good (Good to Soft in places),5,6,Iamcelestialgift,Nick Slatter,D Killahena & G McPherson,8,,10-3,4.5,5
 2026-11-13,15:50,Southwell,uk,hurdle,Handicap,Good (Good to Soft in places),5,6,Luminaries,Ellis Collier,Ewan Whillans,9,,10-6,10.0,6
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Scolyer,Ben Coen,N Lupini,2,4,9-5,10.0,1
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Sharpe Ratio,Declan McDonogh,J P O'Brien,2,6,9-5,19.0,2
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,I Ready,Colin Keane,P W Flynn,2,7,9-10,3.75,3
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Supreme Lord,Donagh O'Connor,Robson Aguiar,2,3,9-10,5.0,4
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Normanton,Robbie Colgan,D Marnane,2,11,9-5,8.0,5
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Matriarchal,Chris Hayes,J Halley,2,5,9-5,34.0,6
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Crayons In The Sky,Jack Kearney,Stephen Thorne,2,8,9-5,2.75,7
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Waysong,Adam Grant,D Dias,2,9,9-5,101.0,8
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Cafe Oh Lait,Killian Leonard,Kevin Coleman,2,2,9-0,201.0,9
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Sonny Hayes,Wayne Lordan,Robson Aguiar,2,1,9-5,19.0,10
+2026-11-13,17:30,Dundalk,ire,flat,Conditions/Class,Standard,,11,Palo,Gavin Ryan,D Dias,2,10,9-5,51.0,11
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Firewalker,Wayne Lordan,Robson Aguiar,3,1,8-9,4.33,1
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,City House,Patrick McGettigan,A McGuinness,5,6,8-12,8.0,2
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Caffu Zafeen,Nina Doherty,P W Flynn,5,10,8-10,7.5,3
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Sir Les Patterson,Jack Kearney,Stephen Thorne,5,8,10-0,3.75,4
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,All The Girls,Nicola Burns,T G McCourt,3,7,8-8,12.0,5
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Chicago Pope,Ben Coen,J P Murtagh,3,9,8-13,9.0,6
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Eddie G,Gavin Ryan,A McGuinness,5,5,8-8,9.0,7
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Daamberdiplomat,Adam Caffrey,A McGuinness,6,3,9-3,26.0,8
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Frescobaldi,Jessica O'Gorman,Daniel Murphy,3,4,8-8,29.0,9
+2026-11-13,18:00,Dundalk,ire,flat,Handicap,Standard,,10,Kerdos,Colin Keane,Stephen Thorne,6,2,9-8,15.0,10
+2026-11-13,18:30,Dundalk,ire,flat,Nursery,Standard,,6,Rock On Johnny,Adam Caffrey,A McGuinness,2,7,9-0,8.0,1
+2026-11-13,18:30,Dundalk,ire,flat,Nursery,Standard,,6,Shenata,Ben Coen,J P Murtagh,2,3,10-0,1.91,2
+2026-11-13,18:30,Dundalk,ire,flat,Nursery,Standard,,6,Closefield Beau,Nathan Crosse,Daniel McLoughlin,2,2,9-12,3.25,3
+2026-11-13,18:30,Dundalk,ire,flat,Nursery,Standard,,6,Angel Invincible,Billy Lee,Daniel McLoughlin,2,4,10-1,19.0,4
+2026-11-13,18:30,Dundalk,ire,flat,Nursery,Standard,,6,Green Sparkle,Declan McDonogh,J P O'Brien,2,5,9-5,13.0,5
+2026-11-13,18:30,Dundalk,ire,flat,Nursery,Standard,,6,Scarlet Dream,Colin Keane,A McGuinness,2,6,9-0,17.0,6
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Doctor Grace,Cillian Rowan,A McGuinness,6,7,9-5,10.0,1
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,In The Minus,Sadhbh Tormey,B Cawley,4,9,9-8,4.5,2
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Young Churchill,Sam Coen,R O'Brien,5,6,9-13,12.0,3
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Chant D'or,Conor Cusack,Daniel McLoughlin,4,5,8-10,5.0,4
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Deluca Chop,Jimmy Dalton,S M Duffy,7,1,9-9,6.5,5
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Jazz Forever,Nina Doherty,P W Flynn,6,15,9-3,17.0,6
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Magna Gee Gee,Robyn Donaghue-Leahy,P J Flynn,4,3,9-10,8.5,7
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Expound,Mel Sheridan,D Hogan,7,10,10-0,26.0,8
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Storm Eric,Adam Grant,Jamie Flynn,7,13,10-1,7.5,9
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Roderick,Camillus Byrne,P Sweeney,10,14,8-13,41.0,10
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Coilins Girl,Patrick McGettigan,J P Murtagh,3,12,9-6,23.0,11
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Chopsticks,Ross Fagan,S M Duffy,6,11,9-5,19.0,12
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Duleek Street,Nicola Burns,J C McConnell,8,2,8-10,21.0,13
+2026-11-13,19:00,Dundalk,ire,flat,Handicap,Standard,,14,Keep It Together,Jessica O'Gorman,D Buckley,8,8,9-1,126.0,14
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Honouramongthieves,Rory Cleary,C W J Farrell,3,9,9-8,15.0,2
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Theorist,Ross Coakley,D P Coakley,3,6,9-8,8.0,1
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Sangreal,Declan McDonogh,J P O'Brien,3,5,9-3,1.5,3
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Kashala,Chris Hayes,D K Weld,3,3,9-3,4.33,4
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Michinaga,Ben Coen,C Weld,3,7,9-8,26.0,5
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Jeffnjoe,Leigh Roche,P J Flynn,3,10,9-8,29.0,6
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Winter Adventure,Colin Keane,N Meade,3,1,9-8,17.0,7
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Nthea Spirit,Gavin Ryan,T Collins,3,4,9-8,251.0,8
+2026-11-13,19:30,Dundalk,ire,flat,Maiden,Standard,,9,Anaverna,Robbie Colgan,M Rice,3,2,9-3,301.0,9
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Xirivella,Colin Keane,N Meade,3,3,9-0,10.0,1
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Star Harbour,Declan McDonogh,A McGuinness,8,7,10-0,5.0,2
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Serenity Blue,Adam Caffrey,A McGuinness,4,11,9-13,3.0,3
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Letiza,Jimmy Dalton,A Slattery,6,1,9-1,9.0,4
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Anvika,Robbie Colgan,S Lavery,5,10,8-13,11.0,5
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Diamond Exchange,Nina Doherty,Mrs J Harrington,4,5,9-6,11.0,6
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Unterberg,Ben Coen,Laura Hourigan,7,4,9-9,9.5,7
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Sonoran,Chris Hayes,D Hogan,4,6,9-6,15.0,8
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,El Galvino,Billy Lee,A Lee,5,9,9-6,13.0,9
+2026-11-13,20:00,Dundalk,ire,flat,Handicap,Standard,,10,Brewing,Wayne Lordan,Kevin Coleman,7,2,8-13,19.0,10
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Glitter And Glory,Patrick McGettigan,Mrs J Harrington,3,7,9-13,3.75,1
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Love Orchid,Colin Keane,N Meade,3,10,9-10,3.5,2
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Glamazon,Luke McAteer,P W Flynn,3,1,9-2,17.0,3
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Phlox,Ben Coen,J P Murtagh,3,3,9-13,9.0,4
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Cherry Hill Girl,Sam Coen,A Slattery,3,12,10-1,9.0,5
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Chloe's Boy,Siobhan Rutledge,H Rogers,3,11,8-10,3.25,6
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Montevetro,Leigh Roche,D Hogan,3,5,9-6,51.0,7
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Mothel Abbey,Robyn Donaghue-Leahy,P J Flynn,3,14,9-2,34.0,8
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Quinchy Lady,Nathan Crosse,J C McConnell,3,4,8-7,51.0,9
+2026-11-13,20:30,Dundalk,ire,flat,Handicap,Standard,,10,Sarfarcat,Rory Cleary,Thomas Coyle,3,13,8-7,126.0,10
