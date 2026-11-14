@@ -309,7 +309,7 @@ def score_race(detail):
     priced.sort(key=lambda r: r["dec"])
     winners = [r for r in runners if r["pos"] == 1]
     out = {"ran": len(runners), "fav": None, "fav_pos": None, "sec_pos": None,
-           "win_rank": None, "fav_odds": None}
+           "win_rank": None, "fav_odds": None, "win_odds": None}
     d0, d1 = priced[0]["dec"], priced[1]["dec"]
     out["fav_odds"] = round(d0, 2)
     if d0 != d1:                          # a clear favourite
@@ -320,7 +320,37 @@ def score_race(detail):
     wdec = winners[0]["dec"]
     if wdec is not None and len(winners) == 1:
         out["win_rank"] = 1 + sum(1 for r in priced if r["dec"] < wdec)
+        out["win_odds"] = round(wdec, 2)          # the winner's final price (decimal)
     return out
+
+
+def backfill_win_odds(store):
+    """Older stored results lack the winner's price. The runner log has every
+    runner's final odds and finishing position, so fill it in from there:
+    only for races with exactly one winner and a readable price."""
+    need = {k for k, v in store.items() if v.get("ran") and v.get("win_odds") is None}
+    if not need:
+        return 0
+    winners = {}
+    try:
+        with open(RUNNERS_CSV, newline="") as f:
+            for r in csv.DictReader(f):
+                if r.get("pos") == "1":
+                    winners.setdefault(f"{r['date']}|{r['time']}|{r['course']}", []).append(r.get("odds"))
+    except OSError:
+        return 0
+    filled = 0
+    for k in need:
+        w = winners.get(k)
+        if w and len(w) == 1:
+            try:
+                dec = float(w[0])
+            except (TypeError, ValueError):
+                continue
+            if dec > 1:
+                store[k]["win_odds"] = round(dec, 2)
+                filled += 1
+    return filled
 
 
 def load_results():
@@ -334,6 +364,7 @@ def collect_results(days, pause: float = 0.0) -> int:
     """For each day, reads the card, opens every race, and stores the outcome
     of those that have finished. Safe to re-run: a race is stored once."""
     store = load_results()
+    print(f"Winner prices filled in for {backfill_win_odds(store)} earlier results.")
     runner_keys = load_runner_keys()
     new_runners = []
     added = 0
