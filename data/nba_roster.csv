@@ -126,6 +126,7 @@ athlete_id,player,team_id,team
 5105623,Kel'el Ware,15,Milwaukee Bucks
 4432816,LaMelo Ball,16,Minnesota Timberwolves
 5279133,Joan Beringer,16,Minnesota Timberwolves
+4433569,Johni Broome,16,Minnesota Timberwolves
 4432247,Jaylen Clark,16,Minnesota Timberwolves
 3934673,Donte DiVincenzo,16,Minnesota Timberwolves
 4397002,Ayo Dosunmu,16,Minnesota Timberwolves
@@ -431,6 +432,7 @@ athlete_id,player,team_id,team
 5044385,Leonard Miller,4,Chicago Bulls
 4432822,Isaac Okoro,4,Chicago Bulls
 2595516,Norman Powell,4,Chicago Bulls
+4593049,Orlando Robinson,4,Chicago Bulls
 4898010,Jaylin Sellers,4,Chicago Bulls
 4397189,Jalen Smith,4,Chicago Bulls
 4848625,Dailyn Swain,4,Chicago Bulls
@@ -438,6 +440,7 @@ athlete_id,player,team_id,team
 5095151,Caleb Wilson,4,Chicago Bulls
 4066328,Jarrett Allen,5,Cleveland Cavaliers
 3934723,Thomas Bryant,5,Cleveland Cavaliers
+4997530,Khalifa Diop,5,Cleveland Cavaliers
 3992,James Harden,5,Cleveland Cavaliers
 2995706,Mario Hezonja,5,Cleveland Cavaliers
 4066757,Sam Merrill,5,Cleveland Cavaliers
@@ -448,6 +451,7 @@ athlete_id,player,team_id,team
 4701233,Craig Porter Jr.,5,Cleveland Cavaliers
 5023693,Tyrese Proctor,5,Cleveland Cavaliers
 5041951,Meleek Thomas,5,Cleveland Cavaliers
+5106268,Nae'Qwan Tomlin,5,Cleveland Cavaliers
 4683747,Jaylon Tyson,5,Cleveland Cavaliers
 5106261,Ernest Udeh Jr.,5,Cleveland Cavaliers
 4576087,Peyton Watson,5,Cleveland Cavaliers
