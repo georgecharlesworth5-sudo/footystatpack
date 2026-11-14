@@ -1794,11 +1794,49 @@
   }
   const fmtOdds = d => d == null ? "-" : (Math.round(d * 100) / 100).toFixed(2);
 
-  // Total money out: each way is two equal bets (win + place).
-  const bankOutlay = b => b.stake * (b.kind === "ew" ? 2 : 1);
+  // Multiples with full cover ("perms"): every combination of the selections is its own line,
+  // each with the same stake. sizes = how many selections per line; n = fixed number of selections
+  // (null = you choose, between min and 8).
+  const BANK_PERMS = {
+    double: { label: "Doubles", sizes: [2], n: null, min: 3 },
+    treble: { label: "Trebles", sizes: [3], n: null, min: 4 },
+    yankee: { label: "Yankee", sizes: [2, 3, 4], n: 4 },
+    l15:    { label: "Lucky 15", sizes: [1, 2, 3, 4], n: 4 },
+    l31:    { label: "Lucky 31", sizes: [1, 2, 3, 4, 5], n: 5 },
+    l63:    { label: "Lucky 63", sizes: [1, 2, 3, 4, 5, 6], n: 6 },
+    heinz:  { label: "Heinz", sizes: [2, 3, 4, 5, 6], n: 6 },
+  };
+  const BANK_PERM_MAX = 8;
+  function bankCombos(n, k) {
+    const out = [];
+    (function go(start, cur) {
+      if (cur.length === k) { out.push(cur.slice()); return; }
+      for (let i = start; i < n; i++) { cur.push(i); go(i + 1, cur); cur.pop(); }
+    })(0, []);
+    return out;
+  }
+  const bankPermLines = (perm, n) => { const p = BANK_PERMS[perm]; return p ? p.sizes.reduce((a, k) => a + bankCombos(n, k).length, 0) : 0; };
+  // Return of a perm: a line with a lost selection pays nothing, a void selection counts as odds 1.0 (the rest of the
+  // line still runs), and a line of all void selections gets its stake back. Pending selections are counted as winners.
+  function bankPermReturn(b, legsOverride) {
+    const p = BANK_PERMS[b.perm], legs = legsOverride || b.legs || [];
+    if (!p) return 0;
+    let ret = 0;
+    p.sizes.forEach(k => bankCombos(legs.length, k).forEach(c => {
+      if (c.some(i => legs[i].res === "lost")) return;
+      ret += b.stake * c.reduce((m, i) => m * (legs[i].res === "void" ? 1 : legs[i].odds), 1);
+    }));
+    return ret;
+  }
+  const bankPermAllIn = b => (b.legs || []).every(l => l.res && l.res !== "pending");
+  const bankPermOutcome = b => (b.legs || []).every(l => l.res === "void") ? "void" : (bankPermReturn(b) > bankOutlay(b) + 1e-9 ? "won" : "lost");
+
+  // Total money out: each way is two equal bets (win + place); a perm is one stake per line.
+  const bankOutlay = b => b.kind === "perm" ? b.stake * bankPermLines(b.perm, (b.legs || []).length) : b.stake * (b.kind === "ew" ? 2 : 1);
 
   // What a bet returns for an outcome, before any manual edit.
   function bankAutoReturn(b, outcome) {
+    if (b.kind === "perm") return bankPermReturn(b);
     const s = b.stake, o = b.odds;
     if (outcome === "void") return bankOutlay(b);
     if (outcome === "lost") return 0;
@@ -1825,7 +1863,7 @@
     };
     return { cash, inPlay, total: cash + inPlay, settled, pending, all: group(settled),
       bySport: BANK_SPORTS.map(s => [s, group(settled.filter(b => b.sport === s))]).filter(([, g]) => g.n > 0),
-      byKind: [["single", "Singles / win"], ["ew", "Each way"], ["builder", "Bet builders"]]
+      byKind: [["single", "Singles / win"], ["ew", "Each way"], ["builder", "Bet builders"], ["perm", "Multiples (Yankee, Lucky 15...)"]]
         .map(([k, n]) => [n, group(settled.filter(b => b.kind === k))]).filter(([, g]) => g.n > 0) };
   }
 
@@ -1857,7 +1895,8 @@
   }
 
   function bankBetCard(b) {
-    const kindLabel = b.kind === "ew" ? `Each way (${b.ewLabel || "1/4"}, ${b.ewPlaces || 3} places)` : b.kind === "builder" ? "Bet builder" : (b.sport === "Horse racing" ? "Win" : "Single");
+    const permP = b.kind === "perm" ? BANK_PERMS[b.perm] : null;
+    const kindLabel = permP ? `${permP.label} (${bankPermLines(b.perm, b.legs.length)} lines)` : b.kind === "ew" ? `Each way (${b.ewLabel || "1/4"}, ${b.ewPlaces || 3} places)` : b.kind === "builder" ? "Bet builder" : (b.sport === "Horse racing" ? "Win" : "Single");
     const when = new Date(b.placedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) + " " + new Date(b.placedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
     const evTxt = b.eventAt ? (bankWhen(b) ? " &middot; starts " + bankWhen(b) : "") : "";
     const outlay = bankOutlay(b);
@@ -1865,7 +1904,10 @@
     const pl = settled ? b.returns - outlay : 0;
     const chipText = { pending: "PENDING", won: "WON", lost: "LOST", void: "VOID", placed: "PLACED" }[b.status];
     const chipCls = b.status === "pending" ? "tr-pending" : (b.status === "won" || (b.status === "placed" && pl > 0)) ? "tr-hit" : b.status === "void" ? "tr-pending" : "tr-overdue";
-    const stakeTxt = b.kind === "ew" ? `${gbp(b.stake)} e/w (${gbp(outlay)} total)` : gbp(b.stake);
+    const stakeTxt = permP ? `${gbp(b.stake)} x ${bankPermLines(b.perm, b.legs.length)} lines (${gbp(outlay)} total)` : b.kind === "ew" ? `${gbp(b.stake)} e/w (${gbp(outlay)} total)` : gbp(b.stake);
+    const resBtn = (i, res, label) => `<button class="slip-btn${b.legs[i].res === res ? " primary" : " quiet"}" data-bank-leg-res="${res}" data-bank-id="${b.id}" data-bank-i="${i}">${label}</button>`;
+    const legsHtml = permP ? `<div class="bank-legs">${b.legs.map((l, i) => `<div class="slip-line" style="margin-top:6px;align-items:center"><span>${escAttr(l.name) || "Selection " + (i + 1)} @ ${fmtOdds(l.odds)}</span>
+        ${settled ? `<span class="tr-chip-n">${{ won: "Won", lost: "Lost", void: "Void", pending: "-" }[l.res || "pending"]}</span>` : `<span class="slip-actions" style="margin:0">${resBtn(i, "won", "W")}${resBtn(i, "lost", "L")}${resBtn(i, "void", "V")}</span>`}</div>`).join("")}</div>` : "";
     const edge = b.fair ? ` &middot; model fair ${fmtOdds(b.fair)}` : "";
     let action = "";
     if (!settled) {
@@ -1877,12 +1919,15 @@
             <button class="slip-btn primary" data-bank-confirm="${b.id}">Save result</button>
             <button class="slip-btn quiet" data-bank-cancel>Cancel</button></div></div>`;
       } else {
+        const permSettle = permP ? (bankPermAllIn(b)
+          ? `<div class="tr-chip-n" style="margin-top:8px">All selections have a result. Return: <b>${gbp(bankPermReturn(b))}</b></div><div class="slip-actions" style="margin:6px 0 0"><button class="slip-btn primary" data-bank-perm-settle="${b.id}">Settle bet</button>`
+          : `<div class="tr-chip-n" style="margin-top:8px">Mark each selection W (won), L (lost) or V (void). The bet settles once every selection has a result.</div><div class="slip-actions" style="margin:6px 0 0">`) : "";
         action = `<label class="tr-chip-n" style="display:block;margin-top:8px">Start time (sets the order) <input type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="HH:MM" class="slip-name" data-bank-time data-bank-when="${b.id}" value="${escAttr(bankWhen(b))}" style="width:100%"></label>
-        <div class="slip-actions" style="margin:8px 0 0">
-          <button class="slip-btn" data-bank-out="won" data-bank-id="${b.id}">Won</button>
-          ${b.kind === "ew" ? `<button class="slip-btn" data-bank-out="placed" data-bank-id="${b.id}">Placed</button>` : ""}
-          <button class="slip-btn" data-bank-out="lost" data-bank-id="${b.id}">Lost</button>
-          <button class="slip-btn quiet" data-bank-out="void" data-bank-id="${b.id}">Void</button>
+        ${permP ? permSettle : `<div class="slip-actions" style="margin:8px 0 0">
+          <button class="slip-btn" data-bank-out="won" data-bank-id="${b.id}">Won</button>`}
+          ${permP ? "" : b.kind === "ew" ? `<button class="slip-btn" data-bank-out="placed" data-bank-id="${b.id}">Placed</button>` : ""}
+          ${permP ? "" : `<button class="slip-btn" data-bank-out="lost" data-bank-id="${b.id}">Lost</button>
+          <button class="slip-btn quiet" data-bank-out="void" data-bank-id="${b.id}">Void</button>`}
           <button class="slip-btn quiet" data-bank-edit="${b.id}">${bankEditing === b.id ? "Editing..." : "Edit"}</button>
           <button class="slip-btn quiet" data-bank-del="${b.id}">${bankDelArmed === b.id ? "Tap again to delete" : "Delete"}</button></div>`;
       }
@@ -1893,16 +1938,41 @@
         <button class="slip-btn quiet" data-bank-del="${b.id}">${bankDelArmed === b.id ? "Tap again to delete" : "Delete"}</button></div>`;
     }
     return `<div class="slip-summary bank-bet">
-      <div class="slip-line"><b>${escAttr(b.desc) || "(no description)"}</b><span class="tr-badge ${chipCls}">${chipText}</span></div>
+      <div class="slip-line"><b>${escAttr(b.desc) || (permP ? permP.label : "(no description)")}</b><span class="tr-badge ${chipCls}">${chipText}</span></div>
       <div class="tr-chip-n">${escAttr(b.sport)} &middot; ${kindLabel} &middot; ${when}${evTxt}</div>
-      <div class="slip-line" style="margin-top:6px"><span>Stake ${stakeTxt} @ ${fmtOdds(b.odds)}${edge}</span>
-        <span>${settled ? `<b class="${pl > 0 ? "pct-hi" : pl < 0 ? "pct-lo" : ""}">${gbpSigned(pl)}</b> <span class="tr-chip-n">(returned ${gbp(b.returns)})</span>` : `<span class="tr-chip-n">to return ${gbp(bankAutoReturn(b, "won"))}</span>`}</span></div>
+      ${legsHtml}
+      <div class="slip-line" style="margin-top:6px"><span>Stake ${stakeTxt}${permP ? "" : " @ " + fmtOdds(b.odds)}${edge}</span>
+        <span>${settled ? `<b class="${pl > 0 ? "pct-hi" : pl < 0 ? "pct-lo" : ""}">${gbpSigned(pl)}</b> <span class="tr-chip-n">(returned ${gbp(b.returns)})</span>` : `<span class="tr-chip-n">${permP ? "if all win " : "to return "}${gbp(bankAutoReturn(b, "won"))}</span>`}</span></div>
       ${action}</div>`;
   }
 
+  // Keep a multiples draft's selection list the right length for its bet type.
+  function bankEnsureLegs(d) {
+    if (!Array.isArray(d.legs)) d.legs = [];
+    if (d.kind !== "perm") return;
+    if (!BANK_PERMS[d.perm]) d.perm = "yankee";
+    const p = BANK_PERMS[d.perm];
+    const want = p.n || Math.min(BANK_PERM_MAX, Math.max(p.min, d.legs.length || 4));
+    while (d.legs.length < want) d.legs.push({ name: "", odds: "" });
+    d.legs.length = want;
+  }
+  // A draft's multiples selections as {name, odds(decimal), res}, or null if any price is unreadable.
+  function bankDraftLegs(d, old) {
+    const out = [];
+    for (let i = 0; i < d.legs.length; i++) {
+      const dec = parseOdds(d.legs[i].odds);
+      if (dec == null) return null;
+      out.push({ name: (d.legs[i].name || "").trim(), odds: dec, res: (old && old[i] && old.length === d.legs.length && old[i].res) || "pending" });
+    }
+    return out;
+  }
+  const bankDraftOutlay = d => d.kind === "perm" ? (Number(d.stake) || 0) * bankPermLines(d.perm, (d.legs || []).length) : (Number(d.stake) || 0) * (d.kind === "ew" ? 2 : 1);
+
   function bankFormHtml(st) {
     const d = bankDraft, racing = d.sport === "Horse racing";
-    const kindOpts = [["single", racing ? "Win" : "Single"], ...(racing ? [["ew", "Each way"]] : []), ["builder", "Bet builder / multiple"]];
+    const kindOpts = [["single", racing ? "Win" : "Single"], ...(racing ? [["ew", "Each way"]] : []), ["builder", "Bet builder / accumulator"], ["perm", "Multiples (Yankee, Lucky 15, Heinz...)"]];
+    bankEnsureLegs(d);
+    const pm = d.kind === "perm" ? BANK_PERMS[d.perm] : null;
     if (!kindOpts.some(([k]) => k === d.kind)) d.kind = "single";
     const dec = parseOdds(d.odds), stake = Number(d.stake);
     const outlay = stake > 0 ? stake * (d.kind === "ew" ? 2 : 1) : 0;
@@ -1913,14 +1983,20 @@
       <div class="bank-form">
         <label>Sport <select class="slip-name" data-bank-f="sport">${BANK_SPORTS.map(s => `<option${s === d.sport ? " selected" : ""}>${s}</option>`).join("")}</select></label>
         <label>Bet type <select class="slip-name" data-bank-f="kind">${kindOpts.map(([k, n]) => `<option value="${k}"${k === d.kind ? " selected" : ""}>${n}</option>`).join("")}</select></label>
+        ${pm ? `<label>Multiple <select class="slip-name" data-bank-f="perm">${Object.entries(BANK_PERMS).map(([k, p]) => `<option value="${k}"${k === d.perm ? " selected" : ""}>${p.label} (${p.n ? p.n + " selections, " : ""}${p.n ? bankPermLines(k, p.n) + " lines" : "every " + (p.sizes[0] === 2 ? "double" : "treble")})</option>`).join("")}</select></label>
+        <div class="bank-legs">${d.legs.map((l, i) => `<div class="bank-row" style="align-items:end;margin-top:6px">
+            <label>Selection ${i + 1} <input class="slip-name" data-bank-leg="${i}" data-bank-leg-f="name" maxlength="80" placeholder="e.g. Arsenal to win" value="${escAttr(l.name)}" style="width:100%"></label>
+            <label>Odds <input class="slip-odds" data-bank-leg="${i}" data-bank-leg-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(l.odds)}" style="width:100%"></label>
+            ${!pm.n && d.legs.length > pm.min ? `<button type="button" class="slip-btn quiet" data-bank-leg-del="${i}" aria-label="Remove selection ${i + 1}">&times;</button>` : ""}</div>`).join("")}
+          ${!pm.n && d.legs.length < BANK_PERM_MAX ? `<div class="slip-actions" style="margin:6px 0 0"><button type="button" class="slip-btn quiet" data-bank-leg-add>+ Add selection</button></div>` : ""}</div>` : ""}
         ${d.kind === "ew" ? `<label>Each way terms <select class="slip-name" data-bank-f="ew">${EW_TERMS.map((t, i) => `<option value="${i}"${i === Number(d.ew) ? " selected" : ""}>${t[0]} odds, ${t[2]} places</option>`).join("")}</select></label>` : ""}
-        <label>Selection(s) <input class="slip-name" data-bank-f="desc" maxlength="160" placeholder="e.g. Nashville to win + Over 1.5 goals" value="${escAttr(d.desc)}"></label>
+        <label>${pm ? "Note (optional)" : "Selection(s)"} <input class="slip-name" data-bank-f="desc" maxlength="160" placeholder="${pm ? "e.g. Saturday football perm" : "e.g. Nashville to win + Over 1.5 goals"}" value="${escAttr(d.desc)}"></label>
         <div class="bank-row">
           <div>
-            <label>${d.kind === "ew" ? "Stake per part (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
+            <label>${d.kind === "ew" ? "Stake per part (£)" : pm ? "Stake per line (£)" : "Stake (£)"} <input class="slip-stake" data-bank-f="stake" inputmode="decimal" placeholder="10" value="${escAttr(d.stake)}" style="width:100%"></label>
             <div class="slip-actions" style="margin:6px 0 0"><button type="button" class="slip-btn quiet" data-bank-add="5">+£5</button><button type="button" class="slip-btn quiet" data-bank-add="10">+£10</button><button type="button" class="slip-btn quiet" data-bank-add="0">Clear</button></div>
           </div>
-          <label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>
+          ${pm ? "" : `<label>Odds <input class="slip-odds" data-bank-f="odds" inputmode="decimal" placeholder="2.5" value="${escAttr(d.odds)}" style="width:100%"></label>`}
         </div>
         <label>Start time (optional, keeps pending bets in order) <input class="slip-name" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="HH:MM" data-bank-time data-bank-f="when" value="${escAttr(bankWhen({ eventAt: d.when }))}"></label>
         <div class="tr-chip-n" id="bank-hint">${bankHint(d)}</div>
@@ -1932,6 +2008,14 @@
   }
 
   function bankHint(d) {
+    if (d.kind === "perm" && BANK_PERMS[d.perm]) {
+      const stake = Number(d.stake), n = d.legs.length, lines = bankPermLines(d.perm, n), parts = [`${BANK_PERMS[d.perm].label}: ${n} selections, ${lines} lines`];
+      if (stake > 0) parts.push(`stake out ${gbp(stake * lines)}`);
+      const legs = bankDraftLegs(d);
+      if (stake > 0 && legs) parts.push(`all win returns ${gbp(bankPermReturn({ perm: d.perm, stake }, legs.map(l => ({ ...l, res: "pending" }))))}`);
+      else if (d.legs.some(l => l.odds) && !legs) parts.push("Fill in valid odds for every selection (2.5 or 5/2).");
+      return parts.join(" &middot; ");
+    }
     const dec = parseOdds(d.odds), stake = Number(d.stake);
     const parts = [];
     if (d.odds && dec == null) parts.push("Odds not recognised - use decimal (2.5) or fractional (5/2, evs).");
@@ -2007,7 +2091,7 @@
   function bankReadDraftField(el) {
     const f = el.dataset.bankF;
     bankDraft[f] = f === "when" ? bankTimeValue(el.value) : el.value;
-    if (f === "sport" || f === "kind") renderBankroll();
+    if (f === "sport" || f === "kind" || f === "perm") { bankEnsureLegs(bankDraft); renderBankroll(); }
     else { const h = mainEl.querySelector("#bank-hint"); if (h) h.innerHTML = bankHint(bankDraft); }
   }
 
@@ -2040,13 +2124,41 @@
     mainEl.querySelectorAll("[data-bank-f]").forEach(el => {
       el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => bankReadDraftField(el));
     });
+    mainEl.querySelectorAll("[data-bank-leg]").forEach(el => el.addEventListener("input", () => {
+      const l = bankDraft.legs[Number(el.dataset.bankLeg)]; if (!l) return;
+      l[el.dataset.bankLegF] = el.value;
+      const h = mainEl.querySelector("#bank-hint"); if (h) h.innerHTML = bankHint(bankDraft);
+    }));
     const on = (sel, fn) => mainEl.querySelectorAll(sel).forEach(el => el.addEventListener("click", () => fn(el)));
+    on("[data-bank-leg-add]", () => { if (bankDraft.legs.length < BANK_PERM_MAX) { bankDraft.legs.push({ name: "", odds: "" }); renderBankroll(); } });
+    on("[data-bank-leg-del]", el => { bankDraft.legs.splice(Number(el.dataset.bankLegDel), 1); bankEnsureLegs(bankDraft); renderBankroll(); });
+    on("[data-bank-leg-res]", el => {
+      const b = bank.bets.find(x => x.id === Number(el.dataset.bankId)); if (!b || !b.legs) return;
+      const l = b.legs[Number(el.dataset.bankI)], r = el.dataset.bankLegRes;
+      l.res = l.res === r ? "pending" : r;
+      bankSave(); const y = window.scrollY; renderBankroll(); window.scrollTo(0, y);
+    });
+    on("[data-bank-perm-settle]", el => {
+      const b = bank.bets.find(x => x.id === Number(el.dataset.bankPermSettle)); if (!b || !bankPermAllIn(b)) return;
+      bankSettling = { id: b.id, outcome: bankPermOutcome(b), returns: null }; bankDelArmed = null; renderBankroll();
+    });
     on("[data-bank-start]", () => {
       const v = Number(String(mainEl.querySelector("#bank-start").value).replace(/[£,\s]/g, ""));
       if (!(v > 0)) return;
       bank = { start: v, created: new Date().toISOString(), bets: [] }; bankSave(); buildTabs(); renderBankroll();
     });
     on("[data-bank-place]", () => {
+      if (bankDraft.kind === "perm") {
+        const d = bankDraft; bankEnsureLegs(d);
+        const stake = Number(String(d.stake).replace(/[£,\s]/g, "")), legs = bankDraftLegs(d);
+        if (!(stake > 0) || !legs) { bankMsg = "Enter a stake above zero and valid odds (2.5 or 5/2) for every selection."; renderBankroll(); return; }
+        const outlay = stake * bankPermLines(d.perm, legs.length), avail = bankStats().cash;
+        if (outlay > avail + 1e-9) { bankMsg = `That stake is ${gbp(outlay)} but only ${gbp(avail)} is available.`; renderBankroll(); return; }
+        bank.bets.push({ id: Date.now(), placedAt: new Date().toISOString(), sport: d.sport, kind: "perm", perm: d.perm, legs, desc: (d.desc || "").trim(),
+          stake, odds: null, eventAt: d.when || "", fair: null, status: "pending", returns: null, settledAt: null });
+        bankSave(); bankMsg = ""; bankDraft = { sport: d.sport, kind: "single", desc: "", stake: "", odds: "", ew: 1, when: "", fair: null, source: "" };
+        buildTabs(); renderBankroll(); return;
+      }
       const d = bankDraft, dec = parseOdds(d.odds), stake = Number(String(d.stake).replace(/[£,\s]/g, ""));
       if (!(stake > 0) || dec == null) { bankMsg = "Enter a stake above zero and valid odds (2.5 or 5/2)."; renderBankroll(); return; }
       const outlay = stake * (d.kind === "ew" ? 2 : 1);
@@ -2063,8 +2175,8 @@
       const b = bank.bets.find(x => x.id === Number(el.dataset.bankEdit)); if (!b) return;
       if (bankEditing == null) bankDraftSaved = bankDraft;
       const ewIdx = EW_TERMS.findIndex(t => t[0] === b.ewLabel && t[1] === b.ewDen && t[2] === b.ewPlaces);
-      bankDraft = { sport: b.sport, kind: b.kind, desc: b.desc || "", stake: String(b.stake), odds: String(b.odds), ew: ewIdx >= 0 ? ewIdx : 0,
-        when: b.eventAt || "", fair: b.fair || null, source: "" };
+      bankDraft = { sport: b.sport, kind: b.kind, desc: b.desc || "", stake: String(b.stake), odds: b.odds == null ? "" : String(b.odds), ew: ewIdx >= 0 ? ewIdx : 0,
+        when: b.eventAt || "", fair: b.fair || null, source: "", perm: b.perm, legs: (b.legs || []).map(l => ({ name: l.name || "", odds: String(l.odds) })) };
       bankEditing = b.id; bankMsg = ""; bankDelArmed = null; bankSettling = null;
       renderBankroll();
       const f = mainEl.querySelector(".bank-form"); if (f) f.scrollIntoView({ block: "start" });
@@ -2077,18 +2189,26 @@
     on("[data-bank-save]", () => {
       const b = bank.bets.find(x => x.id === bankEditing); if (!b) { bankEditing = null; renderBankroll(); return; }
       const d = bankDraft, dec = parseOdds(d.odds), stake = Number(String(d.stake).replace(/[£,\s]/g, ""));
-      if (!(stake > 0) || dec == null) { bankMsg = "Enter a stake above zero and valid odds (2.5 or 5/2)."; renderBankroll(); return; }
+      bankEnsureLegs(d);
+      const permLegs = d.kind === "perm" ? bankDraftLegs(d, b.legs) : null;
+      if (!(stake > 0) || (d.kind === "perm" ? !permLegs : dec == null)) { bankMsg = d.kind === "perm" ? "Enter a stake above zero and valid odds (2.5 or 5/2) for every selection." : "Enter a stake above zero and valid odds (2.5 or 5/2)."; renderBankroll(); return; }
       const t = EW_TERMS[Number(d.ew)] || EW_TERMS[0];
-      const next = { ...b, sport: d.sport, kind: d.kind, desc: (d.desc || "").trim(), stake, odds: dec,
+      const next = d.kind === "perm" ? { ...b, sport: d.sport, kind: "perm", perm: d.perm, legs: permLegs, desc: (d.desc || "").trim(), stake, odds: null, eventAt: d.when || "" } : { ...b, sport: d.sport, kind: d.kind, desc: (d.desc || "").trim(), stake, odds: dec,
         ewLabel: t[0], ewDen: t[1], ewPlaces: t[2], eventAt: d.when || "" };
-      const moneyChanged = next.stake !== b.stake || next.odds !== b.odds || next.kind !== b.kind ||
+      // A multiple whose shape changed (different type or number of selections) loses its results and goes back to pending.
+      if (next.kind === "perm" && b.status !== "pending" && (b.kind !== "perm" || b.perm !== next.perm || (b.legs || []).length !== next.legs.length)) {
+        next.legs = next.legs.map(l => ({ ...l, res: "pending" })); next.status = "pending"; next.returns = null; next.settledAt = null;
+      }
+      const moneyChanged = next.kind === "perm" || next.stake !== b.stake || next.odds !== b.odds || next.kind !== b.kind ||
         (next.kind === "ew" && (next.ewDen !== b.ewDen || next.ewPlaces !== b.ewPlaces));
       if (b.status === "pending") {
         // Same check as placing: the new stake must fit in what is available (this bet's old stake is freed up first).
         const avail = bankStats().cash + bankOutlay(b);
         if (bankOutlay(next) > avail + 1e-9) { bankMsg = `That stake is ${gbp(bankOutlay(next))} but only ${gbp(avail)} is available.`; renderBankroll(); return; }
       } else if (moneyChanged) {
-        if (next.status === "placed" && next.kind !== "ew") {
+        if (next.kind === "perm") {
+          next.returns = Math.round(bankPermReturn(next) * 100) / 100;
+        } else if (next.status === "placed" && next.kind !== "ew") {
           // "Placed" only means something for each way, so an edited-away each way bet goes back to pending to be re-settled.
           next.status = "pending"; next.returns = null; next.settledAt = null;
         } else {
@@ -2612,7 +2732,7 @@
     }
     const tiers = ["Strong", "Good", "Open", "Avoid"];
     const acc = {};
-    const add = (k, f) => { const a = acc[k] || (acc[k] = { n: 0, predFav: 0, fav: 0, favN: 0, predSec: 0, secN: 0, sec3: 0, predSec3: 0, sec3N: 0, top3: 0, predTop3: 0, top3N: 0 }); f(a); };
+    const add = (k, f) => { const a = acc[k] || (acc[k] = { wp: [], n: 0, predFav: 0, fav: 0, favN: 0, predSec: 0, secN: 0, sec3: 0, predSec3: 0, sec3N: 0, top3: 0, predTop3: 0, top3N: 0 }); f(a); };
     let total = 0;
     for (const r of RACING_RESULTS.races) {
       const rate = rcLookup({ region: r.region || "uk", code: r.code, rtype: r.rtype, runners: r.ran });
@@ -2620,6 +2740,7 @@
       total++;
       for (const k of ["all", rate.tier, "R" + (r.region || "uk")]) add(k, a => {
         a.n++;
+        if (r.win_odds != null) a.wp.push(r.win_odds);
         if (r.fav != null) { a.favN++; a.fav += r.fav; a.predFav += rate.fav; }
         if (r.win_rank != null) { a.top3N++; a.top3 += r.win_rank <= 3 ? 1 : 0; a.predTop3 += rate.top3 ?? 0; }
         if (r.sec_pos != null && rate.sec3 != null) { a.sec3N++; a.sec3 += r.sec_pos >= 1 && r.sec_pos <= 3 ? 1 : 0; a.predSec3 += rate.sec3; }
@@ -2658,7 +2779,14 @@
          <div class="tr-note">Same scoring, split by the going on the day. If a going is well above or below its <b>Pred</b>, the ratings are missing something about that ground. Going is recorded from the latest run onward, so these rows start small.</div>
          <table class="rc-score"><thead><tr><th></th><th>Races</th><th>Fav won</th><th>Pred</th><th>Winner top 3 in betting</th><th>Pred</th></tr></thead><tbody>${goingRows}</tbody></table>`
       : `<div class="tr-note">Going (ground conditions) is now being recorded with each result. A split of results by going will appear here after the next runs.</div>`;
-    const line = (label, a) => a ? `<tr><td>${label}</td><td>${a.n}</td><td>${pct(a.fav, a.favN)}</td><td>${a.favN ? Math.round(a.predFav / a.favN) + "%" : "-"}</td><td>${pct(a.top3, a.top3N)}</td><td>${a.top3N ? Math.round(a.predTop3 / a.top3N) + "%" : "-"}</td><td>${a.sec3N ? pct(a.sec3, a.sec3N) + " / " + Math.round(a.predSec3 / a.sec3N) + "%" : "-"}</td></tr>` : "";
+    // Winners' final prices (decimal): the average, with the median beside it because a few big-priced winners drag the average up.
+    const priceCell = a => {
+      if (!a || !a.wp.length) return "-";
+      const w = [...a.wp].sort((x, y) => x - y), mid = w.length >> 1;
+      const med = w.length % 2 ? w[mid] : (w[mid - 1] + w[mid]) / 2;
+      return `${(w.reduce((s, x) => s + x, 0) / w.length).toFixed(2)} <span class="tr-chip-n">(median ${med.toFixed(2)})</span>`;
+    };
+    const line = (label, a) => a ? `<tr><td>${label}</td><td>${a.n}</td><td>${pct(a.fav, a.favN)}</td><td>${a.favN ? Math.round(a.predFav / a.favN) + "%" : "-"}</td><td>${pct(a.top3, a.top3N)}</td><td>${a.top3N ? Math.round(a.predTop3 / a.top3N) + "%" : "-"}</td><td>${a.sec3N ? pct(a.sec3, a.sec3N) + " / " + Math.round(a.predSec3 / a.sec3N) + "%" : "-"}</td><td>${priceCell(a)}</td></tr>` : "";
     const rows = [line("All races", acc.all), ...tiers.map(t => line(t, acc[t])), line("UK", acc.Ruk), line("Ireland", acc.Rire)].join("");
     const small = acc.all && acc.all.n < 100 ? `<div class="tr-note"><b>Small sample so far (${acc.all.n} races).</b> Hit rates move a lot on a few results; treat anything under about 100 races per row as noise.</div>` : "";
     const recent = [...RACING_RESULTS.races].reverse().slice(0, 12).map(r => {
@@ -2667,9 +2795,9 @@
       return `<div class="tr-pend-row"><b>${r.date.slice(5)} ${r.time}</b> ${escAttr(r.course)} ${rate ? `<span class="rc-tier rc-tier-${rate.tier.toLowerCase()}">${rate.tier}</span> predicted fav ${rate.fav}%` : ""} &rarr; ${res}${r.win_rank ? `, winner was ${r.win_rank}${["th","st","nd","rd"][r.win_rank % 100 > 10 && r.win_rank % 100 < 14 ? 0 : Math.min(r.win_rank % 10, 4) % 4]} in the betting` : ""}</div>`;
     }).join("");
     return `<div class="tr-section-title">Results scorecard</div>
-      <div class="tr-note">Every finished race since recording began, scored against the rating that race kind gets today. <b>Actual</b> = how often it happened, <b>Pred</b> = what the ratings said on average. Updated ${escAttr(RACING_RESULTS.updated || "")} UK time.</div>
+      <div class="tr-note">Every finished race since recording began, scored against the rating that race kind gets today. <b>Actual</b> = how often it happened, <b>Pred</b> = what the ratings said on average. <b>Avg winner price</b> = the average final decimal price of the winners (it fills in for earlier races over the next refresh). Updated ${escAttr(RACING_RESULTS.updated || "")} UK time.</div>
       ${small}
-      <table class="rc-score"><thead><tr><th></th><th>Races</th><th>Fav won</th><th>Pred</th><th>Winner top 3 in betting</th><th>Pred</th><th>2nd fav top 3 (actual / pred)</th></tr></thead><tbody>${rows}</tbody></table>
+      <table class="rc-score"><thead><tr><th></th><th>Races</th><th>Fav won</th><th>Pred</th><th>Winner top 3 in betting</th><th>Pred</th><th>2nd fav top 3 (actual / pred)</th><th>Avg winner price</th></tr></thead><tbody>${rows}</tbody></table>
       ${goingBlock}
       <details class="tr-pending-box"><summary>Latest results</summary><div class="tr-pend-body">${recent}</div></details>`;
   }
@@ -3362,30 +3490,6 @@
     return pick;
   }
 
-  // Current regular-season records and the gap between the two sides, from team_form.
-  function nbaRecordBlock(fx) {
-    const tf = (typeof NBA_STATPACK_DATA !== "undefined" && NBA_STATPACK_DATA.team_form) || {};
-    const find = (name, id) => tf[name] || Object.values(tf).find(t => t.team_id === id);
-    const parse = t => {
-      const m = t && /^(\d+)-(\d+)$/.exec(t.record || "");
-      return m ? { w: +m[1], l: +m[2] } : null;
-    };
-    const h = parse(find(fx.home_team, fx.home_id)), a = parse(find(fx.away_team, fx.away_id));
-    if (!h || !a) return "";
-    const pct = r => (r.w + r.l) ? (r.w / (r.w + r.l)) : 0;
-    const gap = ((h.w - h.l) - (a.w - a.l)) / 2;   // games ahead/behind: half the difference in (wins - losses)
-    const fmt = g => (Math.abs(g) === 1 ? "1 game" : Math.abs(g).toFixed(Number.isInteger(g) ? 0 : 1) + " games");
-    const gapText = gap === 0 ? "level on record"
-      : `${gap > 0 ? fx.home_team : fx.away_team} ${fmt(gap)} ahead`;
-    const side = (name, r) => `<div class="mr-option"><div class="mr-label">${name}</div>
-      <div class="mr-pct">${r.w}-${r.l}</div><div class="sample-note" style="display:block">${(pct(r) * 100).toFixed(0)}% wins</div></div>`;
-    return `<div class="mr-block">
-      <div class="metric-title">Record this season</div>
-      <div class="mr-row">${side(fx.home_team, h)}${side(fx.away_team, a)}</div>
-      <div class="sample-note">${gapText}${(h.w + h.l) < 5 || (a.w + a.l) < 5 ? " · small sample" : ""}</div>
-    </div>`;
-  }
-
   function nbaMoneylineBlock(fx) {
     const ml = fx.predictions && fx.predictions.moneyline;
     if (!ml) return "";
@@ -3530,7 +3634,6 @@
       </summary>
       <div class="detail">
         ${note}
-        ${nbaRecordBlock(fx)}
         ${nbaMoneylineBlock(fx)}
         <div class="metric-grid">
           ${nbaSpreadCard(fx)}
