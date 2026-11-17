@@ -1,12 +1,4 @@
 game_id,date,time,start_uk,home_id,home,away_id,away,season_type
-401909994,17/11/2026,00:00,2026-11-17 00:00,2,Boston Celtics,19,Orlando Magic,2
-401909995,17/11/2026,00:00,2026-11-17 00:00,5,Cleveland Cavaliers,4,Chicago Bulls,2
-401909996,17/11/2026,00:00,2026-11-17 00:00,27,Washington Wizards,29,Memphis Grizzlies,2
-401909997,17/11/2026,00:30,2026-11-17 00:30,17,Brooklyn Nets,20,Philadelphia 76ers,2
-401909998,17/11/2026,00:30,2026-11-17 00:30,14,Miami Heat,10,Houston Rockets,2
-401909999,17/11/2026,01:00,2026-11-17 01:00,16,Minnesota Timberwolves,22,Portland Trail Blazers,2
-401910000,17/11/2026,01:00,2026-11-17 01:00,3,New Orleans Pelicans,9,Golden State Warriors,2
-401910001,17/11/2026,02:00,2026-11-17 02:00,7,Denver Nuggets,21,Phoenix Suns,2
 401910002,18/11/2026,00:30,2026-11-18 00:30,28,Toronto Raptors,18,New York Knicks,2
 401910003,18/11/2026,01:00,2026-11-18 01:00,16,Minnesota Timberwolves,22,Portland Trail Blazers,2
 401910004,18/11/2026,01:00,2026-11-18 01:00,24,San Antonio Spurs,8,Detroit Pistons,2
@@ -28,3 +20,13 @@ game_id,date,time,start_uk,home_id,home,away_id,away,season_type
 401910020,20/11/2026,01:00,2026-11-20 01:00,15,Milwaukee Bucks,22,Portland Trail Blazers,2
 401910021,20/11/2026,01:00,2026-11-20 01:00,16,Minnesota Timberwolves,18,New York Knicks,2
 401910022,20/11/2026,01:00,2026-11-20 01:00,24,San Antonio Spurs,12,LA Clippers,2
+401909305,21/11/2026,00:00,2026-11-21 00:00,1,Atlanta Hawks,30,Charlotte Hornets,2
+401909306,21/11/2026,00:30,2026-11-21 00:30,17,Brooklyn Nets,19,Orlando Magic,2
+401909307,21/11/2026,00:30,2026-11-21 00:30,5,Cleveland Cavaliers,11,Indiana Pacers,2
+401909308,21/11/2026,00:30,2026-11-21 00:30,8,Detroit Pistons,28,Toronto Raptors,2
+401909309,21/11/2026,01:00,2026-11-21 01:00,4,Chicago Bulls,27,Washington Wizards,2
+401909310,21/11/2026,01:00,2026-11-21 01:00,25,Oklahoma City Thunder,3,New Orleans Pelicans,2
+401909311,21/11/2026,02:30,2026-11-21 02:30,26,Utah Jazz,21,Phoenix Suns,2
+401909312,21/11/2026,03:00,2026-11-21 03:00,7,Denver Nuggets,10,Houston Rockets,2
+401909313,21/11/2026,03:00,2026-11-21 03:00,13,Los Angeles Lakers,23,Sacramento Kings,2
+401910023,21/11/2026,18:00,2026-11-21 18:00,20,Philadelphia 76ers,15,Milwaukee Bucks,2
