@@ -1,59 +1,53 @@
-Probe for 2026-11-15, run 2026-11-16 18:20 UK
+Probe for 2026-11-16, run 2026-11-17 02:51 UK
 UK races found: 4; probing up to 3
 List-level keys on a race: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 
-=== race 948558: 12:50 Cheltenham mallardjewellers.com Maiden Hurdle (GBB Race)
+=== race 948696: 12:45 Plumpton Weatherbys & Birdie Calendars Novices' Hurdle (GBB Race)
 top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, trifecta, videos
 race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
-race_stage=WEIGHEDIN going='Good' class='2' winning_time=None result=None
-ride keys: bet_movements, betting, casualty, cloth_number, commentary, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, medication, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
-horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 31027, 'external_reference': []}, 'name': 'Jack Hogan'} | trainer={'business_reference': {'id': 127, 'external_reference': []}, 'name': "F O'Brien", 'slug': 'f-o-brien/127'}
-  pos=1 status=RUNNER Get Out Of My Way betting={"favourite": {}, "current_odds": "10/3", "historical_odds": ["9/2", "4/1", "7/2", "10/3", "7/2"]}
-  pos=2 status=RUNNER Wolf Rayet betting={"favourite": {"betting_favourite": "f"}, "current_odds": "7/4", "historical_odds": ["13/8", "11/8", "6/4", "13/8"]}
-  pos=3 status=RUNNER En Or betting={"favourite": {}, "current_odds": "7/1", "historical_odds": ["14/1", "12/1", "11/1", "10/1", "9/1", "17/2", "8/1", "15/2"]}
-  pos=4 status=RUNNER Mourne Crystal betting={"favourite": {}, "current_odds": "7/2", "historical_odds": ["2/1", "9/4", "5/2", "11/4", "5/2", "11/4", "3/1", "10/3"]}
-  pos=5 status=RUNNER Arc Zoosve betting={"favourite": {}, "current_odds": "50/1", "historical_odds": ["80/1", "100/1", "80/1", "100/1", "80/1", "66/1"]}
-  pos=6 status=RUNNER Airds Moss betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["16/1", "14/1"]}
-  pos=7 status=RUNNER Super Junior betting={"favourite": {}, "current_odds": "28/1", "historical_odds": ["28/1", "25/1"]}
-  pos=8 status=RUNNER Island Getaway betting={"favourite": {}, "current_odds": "125/1", "historical_odds": ["100/1"]}
-  pos=9 status=RUNNER Tide Is Turning betting={"favourite": {}, "current_odds": "125/1", "historical_odds": ["100/1"]}
-  pos=10 status=RUNNER Dernier Set betting={"favourite": {}, "current_odds": "150/1", "historical_odds": ["125/1"]}
-  pos=0 status=NONRUNNER Lastbutnotleased betting={"favourite": {}, "current_odds": "7/2", "historical_odds": []}
-  pos=0 status=RUNNER Lion Rose Sivola betting={"favourite": {}, "current_odds": "13/2", "historical_odds": ["9/1", "17/2", "8/1", "17/2", "8/1", "15/2", "7/1"]}
-  pos=0 status=NONRUNNER Made In Reugny betting={"favourite": {}, "current_odds": "9/4", "historical_odds": []}
-  pos=0 status=NONRUNNER Old Habits betting={"favourite": {}, "current_odds": "7/1", "historical_odds": []}
-
-=== race 948559: 13:25 Cheltenham WKD Novices' Limited Handicap Chase (GBB Race)
-top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
-race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
-race_stage=WEIGHEDIN going='Good' class='3' winning_time=None result=None
-ride keys: betting, casualty, cloth_number, commentary, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, medication, official_rating, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
-horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 756, 'external_reference': []}, 'name': 'S Bowen'} | trainer={'business_reference': {'id': 37693, 'external_reference': []}, 'name': 'Faye Bramley', 'slug': 'faye-bramley/37693'}
-  pos=1 status=RUNNER Sony Bill betting={"favourite": {}, "current_odds": "11/1", "historical_odds": []}
-  pos=2 status=RUNNER Pourquoi Pas Papa betting={"favourite": {"betting_favourite": "j"}, "current_odds": "3/1", "historical_odds": ["11/4", "3/1", "11/4"]}
-  pos=3 status=RUNNER Sinchi Roca betting={"favourite": {}, "current_odds": "25/1", "historical_odds": ["28/1", "33/1", "28/1"]}
-  pos=4 status=RUNNER The Gray Ghost betting={"favourite": {}, "current_odds": "5/1", "historical_odds": ["13/2", "6/1", "11/2", "6/1", "11/2", "5/1", "11/2", "5/1", "11/2"]}
-  pos=5 status=RUNNER Turndlightsdownlow betting={"favourite": {}, "current_odds": "10/3", "historical_odds": ["3/1", "11/4", "3/1", "11/4", "3/1"]}
-  pos=0 status=NONRUNNER Kap Ouest betting={"favourite": {}, "current_odds": "14/1", "historical_odds": []}
-  pos=0 status=RUNNER Captain Cool betting={"favourite": {}, "current_odds": "33/1", "historical_odds": ["33/1", "28/1", "33/1", "28/1", "28/1", "33/1", "28/1", "25/1", "28/1", "25/1", "25/1", "28/1"]}
-  pos=0 status=NONRUNNER Crystal Island betting={"favourite": {}, "current_odds": "5/2", "historical_odds": []}
-  pos=0 status=NONRUNNER Blue Carpet betting={"favourite": {}, "current_odds": "10/1", "historical_odds": []}
-  pos=0 status=RUNNER Spectacularsunrise betting={"favourite": {"betting_favourite": "j"}, "current_odds": "3/1", "historical_odds": ["3/1", "10/3", "7/2", "4/1", "7/2", "10/3"]}
-  pos=0 status=NONRUNNER Bill Joyce betting={"favourite": {}, "current_odds": "25/1", "historical_odds": []}
-  pos=0 status=RUNNER Four Springs betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["17/2", "8/1", "15/2", "8/1"]}
-  pos=0 status=NONRUNNER Dig Deep betting={"favourite": {}, "current_odds": "11/1", "historical_odds": []}
-
-=== race 948552: 12:30 Fontwell StoneX Commodities Conditional Jockeys' Handicap Hurdle
-top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
-race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
 race_stage=WEIGHEDIN going='Good to Soft (Good in places)' class='4' winning_time=None result=None
+ride keys: bet_movements, betting, casualty, cloth_number, commentary, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, medication, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
+horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 714, 'external_reference': []}, 'name': 'David Bass'} | trainer={'business_reference': {'id': 429, 'external_reference': []}, 'name': 'C E Longsdon', 'slug': 'c-e-longsdon/429'}
+  pos=1 status=RUNNER Mysterland betting={"favourite": {}, "current_odds": "6/4", "historical_odds": ["6/4", "13/8", "6/4", "11/8", "6/4", "11/8"]}
+  pos=2 status=RUNNER Ar Aghaidh Leat betting={"favourite": {}, "current_odds": "40/1", "historical_odds": ["40/1", "50/1", "66/1", "50/1", "40/1", "50/1", "40/1", "50/1"]}
+  pos=3 status=RUNNER Gold Hill betting={"favourite": {}, "current_odds": "9/1", "historical_odds": ["11/1", "10/1"]}
+  pos=4 status=RUNNER Crock's Bottom betting={"favourite": {}, "current_odds": "50/1", "historical_odds": ["50/1", "66/1"]}
+  pos=5 status=RUNNER Ginolo betting={"favourite": {"betting_favourite": "f"}, "current_odds": "1/1", "historical_odds": ["1/1", "10/11", "1/1", "11/10", "1/1", "10/11"]}
+  pos=0 status=RUNNER Mickey Viking betting={"favourite": {}, "current_odds": "14/1", "historical_odds": ["12/1", "11/1", "12/1"]}
+
+=== race 948697: 13:15 Plumpton Paul Ferguson's Jumpers To Follow Amateur Jockeys' Handicap Hurdle
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
+race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
+race_stage=WEIGHEDIN going='Good to Soft (Good in places)' class='5' winning_time=None result=None
 ride keys: bet_movements, betting, casualty, cloth_number, commentary, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, jockey_claim, medication, official_rating, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
-horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 29432, 'external_reference': []}, 'name': 'James Robottom'} | trainer={'business_reference': {'id': 131, 'external_reference': []}, 'name': 'A J Honeyball', 'slug': 'a-j-honeyball/131'}
-  pos=1 status=RUNNER Marhaba Prince betting={"favourite": {}, "current_odds": "9/1", "historical_odds": ["8/1", "17/2"]}
-  pos=2 status=RUNNER The Sainted Canary betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["8/1", "17/2", "9/1", "17/2", "9/1", "17/2", "8/1", "17/2", "9/1"]}
-  pos=3 status=RUNNER Only One Blue betting={"favourite": {}, "current_odds": "8/1", "historical_odds": ["11/1", "10/1", "9/1", "17/2", "8/1", "15/2"]}
-  pos=4 status=RUNNER Western Cross betting={"favourite": {"betting_favourite": "f"}, "current_odds": "11/10", "historical_odds": ["6/4", "11/8", "5/4", "6/5"]}
-  pos=5 status=RUNNER Kamaxos betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["15/2", "8/1"]}
-  pos=6 status=RUNNER Maccarellu betting={"favourite": {}, "current_odds": "10/1", "historical_odds": ["8/1", "9/1", "10/1", "11/1", "10/1", "11/1"]}
-  pos=0 status=RUNNER Belfrina betting={"favourite": {}, "current_odds": "18/1", "historical_odds": ["18/1", "20/1", "22/1", "20/1"]}
-  pos=0 status=RUNNER Bridge betting={"favourite": {}, "current_odds": "8/1", "historical_odds": ["5/1", "11/2", "6/1", "11/2", "6/1", "13/2", "7/1"]}
+horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 35474, 'external_reference': []}, 'name': 'Mr Harry Hoyles'} | trainer={'business_reference': {'id': 114, 'external_reference': []}, 'name': 'M Keighley', 'slug': 'm-keighley/114'}
+  pos=1 status=RUNNER Prairie Diamond betting={"favourite": {"betting_favourite": "j"}, "current_odds": "10/3", "historical_odds": ["11/2", "5/1", "9/2", "4/1", "7/2", "10/3", "7/2"]}
+  pos=2 status=RUNNER Rip Wheeler betting={"favourite": {}, "current_odds": "9/2", "historical_odds": ["4/1", "7/2", "10/3", "7/2", "4/1"]}
+  pos=3 status=RUNNER Market House betting={"favourite": {"betting_favourite": "j"}, "current_odds": "10/3", "historical_odds": ["10/3", "3/1"]}
+  pos=4 status=RUNNER Bread And Butter betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["11/1", "10/1", "11/1", "12/1", "11/1", "10/1", "9/1", "10/1", "9/1"]}
+  pos=5 status=RUNNER Kandor betting={"favourite": {}, "current_odds": "17/2", "historical_odds": ["7/1", "15/2", "8/1"]}
+  pos=6 status=RUNNER Glitz And Glamour betting={"favourite": {}, "current_odds": "25/1", "historical_odds": ["33/1", "28/1", "33/1", "28/1", "25/1", "28/1"]}
+  pos=7 status=RUNNER Cadillac Ranch betting={"favourite": {}, "current_odds": "5/1", "historical_odds": ["6/1", "11/2"]}
+  pos=8 status=RUNNER Whatsgoingonmarvin betting={"favourite": {}, "current_odds": "16/1", "historical_odds": ["11/1", "12/1", "14/1"]}
+  pos=9 status=RUNNER Nelson Gate betting={"favourite": {}, "current_odds": "50/1", "historical_odds": ["28/1", "33/1", "40/1", "33/1", "40/1"]}
+  pos=10 status=RUNNER Jefe Triunfo betting={"favourite": {}, "current_odds": "11/1", "historical_odds": ["17/2", "9/1", "10/1", "11/1", "12/1", "11/1", "12/1"]}
+  pos=0 status=RUNNER No No Fizz betting={"favourite": {}, "current_odds": "50/1", "historical_odds": ["40/1"]}
+  pos=0 status=RUNNER Girl Of Gold betting={"favourite": {}, "current_odds": "40/1", "historical_odds": ["25/1", "22/1", "25/1", "28/1", "33/1"]}
+
+=== race 949384: 16:30 Wolverhampton All-Weather Championship Is Back Nursery
+top-level keys: betting_forecast, deductions, exacta_win, last_years_winners, number_of_placed_rides, on_course_book_percentage, place_pot, place_win, prizes, quad_pot, race_summary, rides, stewards, straight_forecast, swingers, tote_win, tricast, trifecta, videos
+race_summary keys: age, course_name, course_shortcode, course_surface, date, distance, going, going_shortcode, has_handicap, has_video, hidden, meeting_summary_reference, name, off_time, race_class, race_stage, race_summary_reference, ride_count, time, verdict, winning_time
+race_stage=WEIGHEDIN going='Standard' class='5' winning_time=None result=None
+ride keys: bet_movements, betting, casualty, cloth_number, commentary, draw_number, finish_position, handicap, headgear, horse, horse_lifetime_stats, insights, jockey, medication, official_rating, owner, previous_silk_filename, race_history_stats, ride_description, ride_reference, ride_status, silk_filename, trainer
+horse keys: age, foaled, formsummary, future_entries, horse_reference, last_ran_days, name, previous_results, sex, slug | jockey={'person_reference': {'id': 26455, 'external_reference': []}, 'name': 'Rhys Clutterbuck'} | trainer={'business_reference': {'id': 433, 'external_reference': []}, 'name': 'E A L Dunlop', 'slug': 'e-a-l-dunlop/433'}
+  pos=1 status=RUNNER Lord Ragnar betting={"favourite": {"betting_favourite": "f"}, "current_odds": "5/2", "historical_odds": ["10/3", "3/1", "11/4", "3/1", "11/4"]}
+  pos=2 status=RUNNER Harry's Pop betting={"favourite": {}, "current_odds": "10/3", "historical_odds": ["7/2", "10/3", "3/1"]}
+  pos=3 status=RUNNER Romeo Guest betting={"favourite": {}, "current_odds": "18/1", "historical_odds": ["14/1", "16/1", "18/1", "20/1", "18/1", "20/1"]}
+  pos=4 status=RUNNER Sue's Last Chance betting={"favourite": {}, "current_odds": "10/1", "historical_odds": ["14/1", "12/1", "11/1", "10/1", "11/1", "10/1", "9/1"]}
+  pos=5 status=RUNNER Go Go Girl betting={"favourite": {}, "current_odds": "4/1", "historical_odds": ["3/1", "10/3", "10/3", "7/2"]}
+  pos=6 status=RUNNER Time Teller betting={"favourite": {}, "current_odds": "4/1", "historical_odds": ["9/2", "4/1", "9/2"]}
+  pos=7 status=RUNNER Farasan betting={"favourite": {}, "current_odds": "80/1", "historical_odds": ["66/1", "80/1", "66/1"]}
+  pos=8 status=RUNNER Angel Ang betting={"favourite": {}, "current_odds": "40/1", "historical_odds": []}
+  pos=9 status=RUNNER Pon Pon Dalia betting={"favourite": {}, "current_odds": "9/1", "historical_odds": ["17/2", "9/1", "17/2", "9/1", "10/1", "9/1", "10/1"]}
+  pos=0 status=NONRUNNER Roosike betting={"favourite": {}, "current_odds": "4/1", "historical_odds": []}
+  pos=0 status=NONRUNNER Big Hitter betting={"favourite": {}, "current_odds": "10/1", "historical_odds": []}
