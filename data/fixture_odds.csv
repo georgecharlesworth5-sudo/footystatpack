@@ -1,16 +1,91 @@
 Div,League,Date,Time,HomeTeam,AwayTeam,AvgH,AvgD,AvgA,AvgOver25,AvgUnder25
-E2,League One,14/11/2026,15:00,AFC Wimbledon,Blackpool,2.65,3.4,2.49,1.75,1.98
-E2,League One,14/11/2026,15:00,Milton Keynes Dons,Burton,1.66,3.97,4.56,1.63,2.18
-E2,League One,14/11/2026,15:00,Sheffield Weds,Plymouth,2.28,3.6,2.81,1.55,2.34
-E2,League One,14/11/2026,15:00,Stockport,Reading,1.85,3.75,3.76,1.59,2.23
-E2,League One,14/11/2026,15:00,Wigan,Barnsley,2.31,3.6,2.75,1.55,2.33
-E3,League Two,14/11/2026,12:30,Exeter,Cheltenham,1.89,3.51,3.83,1.92,1.8
-E3,League Two,14/11/2026,15:00,Bristol Rvs,Chesterfield,2.87,3.43,2.27,1.72,2.01
-E3,League Two,14/11/2026,15:00,Colchester,Gillingham,2.08,3.35,3.34,1.9,1.81
-E3,League Two,14/11/2026,15:00,Crewe,Newport County,2.08,3.37,3.32,1.91,1.81
-E3,League Two,14/11/2026,15:00,Port Vale,Accrington,1.96,3.36,3.72,2.03,1.71
-E3,League Two,14/11/2026,15:00,Rochdale,York,4.12,3.9,1.73,1.58,2.24
-E3,League Two,14/11/2026,15:00,Salford,Northampton,1.59,3.84,5.28,1.86,1.84
-E3,League Two,14/11/2026,15:00,Shrewsbury,Oldham,2.52,3.29,2.64,1.9,1.82
-E3,League Two,14/11/2026,15:00,Swindon,Grimsby,3.22,3.67,2.02,1.57,2.26
-E3,League Two,14/11/2026,17:30,Fleetwood Town,Tranmere,1.95,3.51,3.58,1.78,1.94
+D1,Bundesliga,20/11/2026,19:30,Bayern Munich,FC Koln,1.07,12.63,21.5,1.13,5.63
+D1,Bundesliga,21/11/2026,14:30,Ein Frankfurt,Hoffenheim,2.33,3.85,2.65,1.33,3.18
+D1,Bundesliga,21/11/2026,14:30,Elversberg,Freiburg,3.41,3.74,1.97,1.54,2.38
+D1,Bundesliga,21/11/2026,14:30,Leverkusen,Paderborn,1.27,6.16,8.72,1.33,3.16
+D1,Bundesliga,21/11/2026,14:30,M'gladbach,Dortmund,5.03,4.4,1.56,1.46,2.63
+D1,Bundesliga,21/11/2026,14:30,Union Berlin,RB Leipzig,5.59,4.62,1.49,1.41,2.76
+D1,Bundesliga,21/11/2026,17:30,Schalke 04,Stuttgart,3.91,3.98,1.79,1.46,2.63
+D1,Bundesliga,22/11/2026,14:30,Augsburg,Mainz,2.64,3.78,2.34,1.4,2.81
+D1,Bundesliga,22/11/2026,16:30,Werder Bremen,Hamburg,1.67,4.14,4.42,1.51,2.46
+E0,Premier League,21/11/2026,12:30,Man City,Fulham,1.37,5.13,7.17,1.46,2.6
+E0,Premier League,21/11/2026,15:00,Aston Villa,Sunderland,1.76,3.77,4.34,1.75,2.01
+E0,Premier League,21/11/2026,15:00,Bournemouth,Nott'm Forest,1.93,3.54,3.78,1.81,1.93
+E0,Premier League,21/11/2026,15:00,Chelsea,Leeds,1.87,3.66,3.89,1.75,2
+E0,Premier League,21/11/2026,15:00,Coventry,Crystal Palace,2.42,3.5,2.73,1.66,2.14
+E0,Premier League,21/11/2026,15:00,Tottenham,Ipswich,1.52,4.42,5.49,1.56,2.33
+E0,Premier League,21/11/2026,17:30,Newcastle,Arsenal,5.46,4.12,1.57,1.69,2.08
+E0,Premier League,22/11/2026,14:00,Hull,Brighton,6.22,4.41,1.48,1.64,2.19
+E0,Premier League,22/11/2026,16:30,Liverpool,Man United,1.74,4.14,4.08,1.46,2.6
+E0,Premier League,23/11/2026,20:00,Brentford,Everton,2.12,3.51,3.26,1.71,2.05
+E1,Championship,21/11/2026,12:30,Millwall,QPR,2.53,3.46,2.6,1.72,2.04
+E1,Championship,21/11/2026,12:30,Norwich,Cardiff,1.74,4.24,3.86,1.33,3.14
+E1,Championship,21/11/2026,12:30,Southampton,Derby,1.37,4.95,7.18,1.52,2.42
+E1,Championship,21/11/2026,15:00,Bolton,Portsmouth,2.74,3.4,2.44,1.81,1.92
+E1,Championship,21/11/2026,15:00,Lincoln,Wrexham,2.76,3.23,2.5,2.04,1.73
+E1,Championship,21/11/2026,15:00,Middlesbrough,Bristol City,1.38,4.98,6.98,1.5,2.49
+E1,Championship,21/11/2026,15:00,Sheffield United,Watford,1.56,4.15,5.33,1.75,2.01
+E1,Championship,21/11/2026,15:00,Stoke,Birmingham,2.84,3.23,2.44,2.07,1.7
+E1,Championship,21/11/2026,15:00,Swansea,West Brom,2.53,3.28,2.7,1.95,1.8
+E1,Championship,21/11/2026,15:00,West Ham,Preston,1.2,6.95,11.5,1.34,3.14
+E1,Championship,21/11/2026,15:00,Wolves,Charlton,1.32,5.29,8.46,1.57,2.31
+E1,Championship,22/11/2026,12:00,Burnley,Blackburn,1.88,3.7,3.74,1.7,2.06
+E2,League One,20/11/2026,20:00,Barnsley,Sheffield Weds,3.02,3.79,2.08,1.46,2.57
+E2,League One,21/11/2026,12:30,Blackpool,Wigan,2.08,3.5,3.23,1.69,2.07
+E2,League One,21/11/2026,12:30,Reading,Bromley,1.36,5,7.1,1.48,2.52
+E2,League One,21/11/2026,15:00,Bradford,Doncaster,1.64,3.92,4.81,1.72,2.04
+E2,League One,21/11/2026,15:00,Burton,Luton,4.5,3.97,1.67,1.6,2.21
+E2,League One,21/11/2026,15:00,Cambridge,Stockport,3.69,3.82,1.84,1.62,2.18
+E2,League One,21/11/2026,15:00,Huddersfield,Leicester,1.96,3.77,3.33,1.51,2.44
+E2,League One,21/11/2026,15:00,Leyton Orient,AFC Wimbledon,1.74,3.83,4.17,1.72,2.04
+E2,League One,21/11/2026,15:00,Mansfield,Milton Keynes Dons,2.48,3.56,2.57,1.6,2.22
+E2,League One,21/11/2026,15:00,Notts County,Stevenage,2.23,3.32,3.07,2.06,1.7
+E2,League One,21/11/2026,15:00,Oxford,Wycombe,2.32,3.46,2.81,1.67,2.1
+E2,League One,21/11/2026,15:00,Plymouth,Peterboro,1.77,4.05,3.81,1.41,2.72
+E3,League Two,21/11/2026,12:30,Gillingham,Crewe,2.65,3.28,2.5,1.9,1.81
+E3,League Two,21/11/2026,12:30,Newport County,Swindon,1.84,3.6,3.83,1.77,1.95
+E3,League Two,21/11/2026,15:00,Accrington,Salford,3.42,3.51,1.98,1.71,2.03
+E3,League Two,21/11/2026,15:00,Barnet,Port Vale,2.08,3.46,3.22,1.72,2.01
+E3,League Two,21/11/2026,15:00,Cheltenham,Bristol Rvs,2.74,3.45,2.36,1.69,2.05
+E3,League Two,21/11/2026,15:00,Chesterfield,Shrewsbury,1.6,3.89,4.95,1.72,2.02
+E3,League Two,21/11/2026,15:00,Crawley Town,Fleetwood Town,2.98,3.54,2.15,1.62,2.17
+E3,League Two,21/11/2026,15:00,Grimsby,Rotherham,1.55,4.25,5.01,1.54,2.34
+E3,League Two,21/11/2026,15:00,Northampton,Rochdale,1.76,3.55,4.29,1.95,1.77
+E3,League Two,21/11/2026,15:00,Oldham,Exeter,2,3.37,3.48,1.99,1.74
+E3,League Two,21/11/2026,15:00,Tranmere,Colchester,2.19,3.36,3.06,1.82,1.89
+E3,League Two,21/11/2026,15:00,York,Walsall,1.81,3.92,3.71,1.51,2.41
+F1,Ligue 1,20/11/2026,19:45,Troyes,Le Havre,2.18,3.39,3.2,1.85,1.88
+F1,Ligue 1,21/11/2026,16:15,Nice,Paris SG,5.92,4.89,1.44,1.37,2.93
+F1,Ligue 1,21/11/2026,19:45,Lens,Toulouse,1.85,3.83,3.76,1.61,2.23
+F1,Ligue 1,21/11/2026,19:45,Lille,Lyon,2.25,3.26,3.14,2.01,1.75
+F1,Ligue 1,21/11/2026,19:45,Monaco,Auxerre,1.39,4.9,6.84,1.49,2.53
+F1,Ligue 1,21/11/2026,19:45,Strasbourg,Brest,2.18,3.63,2.99,1.62,2.21
+F1,Ligue 1,22/11/2026,14:00,Paris FC,Angers,1.31,5.22,8.7,1.58,2.28
+F1,Ligue 1,22/11/2026,16:15,Lorient,Rennes,2.81,3.4,2.39,1.82,1.91
+F1,Ligue 1,22/11/2026,19:45,Marseille,Le Mans,1.45,4.66,6.06,1.49,2.51
+I1,Serie A,21/11/2026,14:00,Como,Cagliari,1.29,5.57,9.09,1.51,2.45
+I1,Serie A,21/11/2026,14:00,Lazio,Lecce,1.36,4.97,7.79,1.55,2.35
+I1,Serie A,21/11/2026,17:00,Parma,Roma,9.3,5.62,1.28,1.51,2.47
+I1,Serie A,21/11/2026,19:45,Napoli,Torino,1.47,4.45,6.21,1.66,2.15
+I1,Serie A,22/11/2026,11:30,Juventus,Venezia,1.34,5.08,8.08,1.59,2.26
+I1,Serie A,22/11/2026,14:00,Bologna,Udinese,1.71,3.73,4.7,1.86,1.87
+I1,Serie A,22/11/2026,14:00,Sassuolo,Genoa,2.75,3.36,2.47,1.87,1.86
+I1,Serie A,22/11/2026,17:00,Milan,Frosinone,1.52,4.63,5.21,1.34,3.11
+I1,Serie A,22/11/2026,19:45,Atalanta,Inter,4.79,4.44,1.59,1.39,2.86
+I1,Serie A,23/11/2026,19:45,Monza,Fiorentina,3.56,3.79,1.92,1.57,2.3
+SC0,Scottish Premiership,21/11/2026,15:00,Celtic,St Mirren,1.16,7.65,12.63,1.27,3.61
+SC0,Scottish Premiership,21/11/2026,15:00,Falkirk,St Johnstone,1.8,3.72,4,1.7,2.06
+SC0,Scottish Premiership,21/11/2026,15:00,Hibernian,Dundee United,1.95,3.72,3.39,1.57,2.28
+SC0,Scottish Premiership,21/11/2026,15:00,Kilmarnock,Aberdeen,2.62,3.47,2.47,1.66,2.12
+SC0,Scottish Premiership,21/11/2026,17:45,Dundee,Hearts,3.28,3.68,2,1.58,2.27
+SC0,Scottish Premiership,21/11/2026,20:00,Motherwell,Rangers,5.06,4.38,1.54,1.52,2.41
+SP1,La Liga,20/11/2026,20:00,Ath Bilbao,Espanol,1.48,4.38,6.23,1.68,2.11
+SP1,La Liga,21/11/2026,13:00,Alaves,La Coruna,2.17,3.25,3.35,2.13,1.67
+SP1,La Liga,21/11/2026,15:15,Vallecano,Valencia,1.91,3.44,3.93,1.99,1.76
+SP1,La Liga,21/11/2026,17:30,Sevilla,Betis,2.92,3.37,2.34,1.82,1.92
+SP1,La Liga,21/11/2026,20:00,Real Madrid,Celta,1.16,7.68,14.19,1.35,3.07
+SP1,La Liga,22/11/2026,13:00,Barcelona,Villarreal,1.2,7.34,10.31,1.17,4.71
+SP1,La Liga,22/11/2026,15:15,Santander,Sociedad,3.17,4.03,1.99,1.32,3.19
+SP1,La Liga,22/11/2026,17:30,Osasuna,Malaga,1.8,3.53,4.38,1.95,1.78
+SP1,La Liga,22/11/2026,20:00,Getafe,Ath Madrid,5.87,3.86,1.56,1.97,1.77
+SP1,La Liga,23/11/2026,20:00,Levante,Elche,2.15,3.54,3.11,1.66,2.13
