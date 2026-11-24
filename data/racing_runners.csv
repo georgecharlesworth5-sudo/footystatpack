@@ -85326,3 +85326,297 @@ date,time,course,region,code,rtype,going,class,ran,horse,jockey,trainer,age,draw
 2026-11-23,20:30,Wolverhampton,uk,flat,Handicap,Standard,5,10,Pipily,C Lee,T Kent,3,2,9-3,12.0,8
 2026-11-23,20:30,Wolverhampton,uk,flat,Handicap,Standard,5,10,Ecclefechan,K T O'Neill,S Dixon,3,3,9-11,17.0,9
 2026-11-23,20:30,Wolverhampton,uk,flat,Handicap,Standard,5,10,Clatford,Christian Howarth,S Dixon,3,5,9-6,126.0,10
+2026-11-24,11:38,Lingfield,uk,flat,Handicap,Standard,5,7,Kashooda,Jason Watson,A M Balding,3,8,9-6,5.0,1
+2026-11-24,11:38,Lingfield,uk,flat,Handicap,Standard,5,7,Fiefdom,D Egan,S Woods,3,7,9-7,5.0,2
+2026-11-24,11:38,Lingfield,uk,flat,Handicap,Standard,5,7,Division Day,R Havlin,Mrs L Richards,4,1,9-13,8.0,3
+2026-11-24,11:38,Lingfield,uk,flat,Handicap,Standard,5,7,Neswick,Marco Ghiani,M P Tregoning,3,6,9-9,2.2,4
+2026-11-24,11:38,Lingfield,uk,flat,Handicap,Standard,5,7,Fair Dinkum,Taryn Langley,J Scott,6,3,9-4,19.0,5
+2026-11-24,11:38,Lingfield,uk,flat,Handicap,Standard,5,7,Youthful King,Jack Dace,L A Dace,7,5,10-0,13.0,6
+2026-11-24,11:38,Lingfield,uk,flat,Handicap,Standard,5,7,Percy Jones,Charles Bishop,D M Loughnane,7,4,9-9,23.0,7
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Imperial Bede,Jonjo O'Neill Jr.,J & A O'Neill,8,,11-10,2.75,1
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Bravethewaves,Toby Wynne,O Greenall & J Guerriero,9,,10-12,9.5,2
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Grain Trade,R T Dunne,Billy Aprahamian,7,,11-8,9.5,3
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Rap Soul,J M Quinlan,R Bandey,7,,12-0,12.0,4
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Four Decades,Finn Lambert,T Ellis,5,,10-9,15.0,5
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Henry Box Brown,James Turner,Mrs C Williams,9,,10-13,29.0,6
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Dynamite Defense,James Best,S-J Davies,5,,10-2,23.0,7
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,The Paddy Pie,Oscar Palmer,J Parkinson & S Smith,13,,11-6,23.0,8
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Doors Breaker,Jack Tudor,D Pipe,9,,10-2,13.0,0
+2026-11-24,11:56,Southwell,uk,chase,Handicap,Good,5,10,Colby Mayfield,Adam Wedge,J L Flint,6,,10-9,4.0,0
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,True Charm,S M Levey,Lemos Souza,2,1,9-9,9.0,1
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Lilywhite Hart,J F Egan,D K Ivory,2,3,9-8,8.0,2
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Seathegulls,Callum Shepherd,Jamie & Josh Moore,2,4,9-9,5.5,3
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Rocsane,D Egan,G G Margarson,2,5,9-8,5.0,4
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Pride's Queen,Marco Ghiani,M Botti,2,11,9-1,4.5,5
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Lushill,Edward Greatrex,J S Moore,2,8,9-3,15.0,6
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Hemustbeanangel,Jason Watson,R A Teal,2,12,9-6,7.5,7
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Alpha Legend,Jack Callan,M Botti,2,2,8-9,23.0,8
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Postremo,Millie Wonnacott,J S Moore,2,6,9-8,34.0,9
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Havana Grey Star,Charles Bishop,D M Loughnane,2,9,9-5,67.0,10
+2026-11-24,12:08,Lingfield,uk,flat,Nursery,Standard,6,11,Percy Shaw,Jack Dace,C Hills,2,7,9-6,12.0,11
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Sledgehammer,Oakley Brown,A Keatley,6,,11-13,4.0,1
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Peckforton Hills,Jack Tudor,O Greenall & J Guerriero,6,,11-5,5.5,2
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Could Be You,R P McLernon,N P Mulholland,6,,10-9,4.33,3
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Bells Of Ufford,David Noonan,Tim Vaughan,6,,11-2,9.5,4
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Scoro,Harry Reed,L Morgan,6,,10-2,51.0,5
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Danger Nap,Jonjo O'Neill Jr.,J & A O'Neill,5,,11-13,9.0,6
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Vicomte Le Brave,Rian Corcoran,Cynthia Woods,7,,12-0,81.0,7
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Kastellion,Charlie Hammond,Mrs M Rowley,6,,11-13,4.0,0
+2026-11-24,12:26,Southwell,uk,chase,Handicap,Good,5,9,Illico De Montave,Benjamin Poste,Mrs R Gasson,8,,10-2,81.0,0
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Forty Fifty,Paul Townend,W P Mullins,4,,11-12,1.22,1
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Flooring Brandy,Keith Donoghue,G P Cromwell,4,,11-12,11.0,2
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Lake Isle,Ross Berry,Colm Murphy,5,,11-5,41.0,3
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Eamon's Dream,Ben Kennedy,S Fahey,4,,11-12,101.0,4
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Irish Chieftain,Sean O'Keeffe,J Fogarty,5,,11-12,51.0,5
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Baldilou,Phillip Enright,M M McNiff,5,,11-12,51.0,6
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Rickety Kate,John Shinnick,J P O'Brien,4,,11-5,101.0,7
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Loadstone,J J Slevin,J P O'Brien,4,,11-12,67.0,8
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Kiltinan,Josh Younge,M J McDonagh,5,,11-12,101.0,9
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Sapphire Jewel,Michael Kenneally,C Motherway,4,,11-5,21.0,10
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Jetson Jane,Conor Stone-Walsh,P Nolan,4,,11-5,81.0,11
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Pink Sheet Pony,Patrick M O'Brien,J G Carr,4,,11-5,201.0,12
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Well Eliot,Jordan Canavan,J P Flavin,5,,11-12,51.0,13
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Years Of Guessing,Philip Byrnes,R Tyner,4,,11-12,67.0,14
+2026-11-24,12:45,Tramore,ire,hurdle,Maiden,Soft to Heavy,,15,Global Submission,Dylan Johnston,H De Bromhead,6,,11-12,4.0,0
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Delusionofgrandeur,Kielan Woods,F O'Brien,5,,11-4,8.5,1
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Tandy's Bridge,Finn Lambert,T Ellis,5,,11-4,12.0,2
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Popton Point,Luke Scott,J Candlish,5,,10-11,3.75,3
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Beau De Maine,Sam Twiston-Davies,N & W Twiston-Davies,4,,11-4,4.5,4
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Uda Man Dan,J J Burke,D Skelton,4,,11-4,4.33,5
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Ballyboy Prince,Harry Skelton,D Skelton,4,,11-4,7.0,6
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Shah,Jonathan England,S England,5,,11-4,126.0,7
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Grandorado,Jack Tudor,D Pipe,6,,11-4,11.0,8
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Lady Tara,Adam Wedge,R T Phillips,7,,10-11,126.0,9
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Imperial Sea,R T Dunne,C & A Pogson,5,,11-4,81.0,10
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Dressforsuccess,Tristan Durrell,D Skelton,4,,11-4,101.0,11
+2026-11-24,12:56,Southwell,uk,hurdle,Maiden,Good,4,12,Who's The Goat,C O'Farrell,Micky Hammond,6,,11-4,101.0,0
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Naval Cop,Marco Ghiani,Dylan Cunha,2,3,9-9,7.5,1
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Last Dandelion,Jack Dace,S C Williams,2,7,9-9,6.0,2
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Fancied Angel,Charles Bishop,Adam Kirby,2,9,9-2,29.0,3
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,C'est Lui,S M Levey,Dylan Cunha,2,1,9-2,3.75,4
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Dancingonthestars,Connor Planas,Dylan Cunha,2,2,8-6,6.0,5
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Ventura Power,Jack Callan,G Boughey,2,10,9-6,17.0,6
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Past Passion,Olivia Tubb,J G Portman,2,8,9-8,6.0,7
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Lucky Larry,J F Egan,Dylan Cunha,2,5,8-6,34.0,8
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Defiant Dream,Tyler Heard,M D I Usher,2,6,9-1,8.5,9
+2026-11-24,13:08,Lingfield,uk,flat,Nursery,Standard,6,10,Courseyoudo,K T O'Neill,T Lacey,2,4,9-8,26.0,10
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Even Tho,Brian Hayes,W P Mullins,5,,11-7,1.1,1
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Lucky Valley,Alan O'Sullivan,Michael Barry,6,,10-13,9.0,2
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Marie D'angos,Jack Kennedy,G Elliott,4,,10-12,15.0,3
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Howyasox,Ian Power,J Queally,6,,10-13,29.0,4
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Whelkeen View,Sean Flanagan,P Nolan,4,,10-12,26.0,5
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Ma Lumiere,Sean O'Keeffe,M P Fitzgerald,7,,10-13,15.0,6
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Rebel Belle,Carl Millar,D Budds,4,,10-12,29.0,7
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,A Chairde Go Leir,Niall Moore,P A Fahy,4,,10-12,151.0,8
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Gotawinnerinyou,J J Slevin,P A Fahy,4,,10-12,81.0,9
+2026-11-24,13:15,Tramore,ire,hurdle,Maiden,Soft to Heavy,,10,Winged Court,Phillip Enright,P J Duffy,4,,10-12,41.0,0
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Made In Reugny,Harry Skelton,D Skelton,4,,11-4,1.4,1
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Campfield Flyer,Luke Scott,Dr R Newland,4,,11-4,4.0,2
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Riptide,Jack Tudor,D Pipe,4,,11-4,17.0,3
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Gettothebar,Tristan Durrell,D Skelton,4,,11-4,34.0,4
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Avatar Jet,Oakley Brown,D Carroll,5,,11-4,51.0,5
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Yafaarr,Jonathan England,S England,4,,11-4,41.0,6
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,The Two Four,Adam Wedge,Christian Williams,5,,11-4,51.0,7
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Dave's Sister,Daire James McConville,D J Jeffreys,7,,10-11,81.0,8
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Goodbye Earl,Rian Corcoran,D Pipe,4,,11-4,8.0,9
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Look This Way,Liam Harrison,T Ward,4,,10-11,126.0,10
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Chilly Breeze,Philip Armson,M C Chapman,4,,11-4,101.0,11
+2026-11-24,13:26,Southwell,uk,hurdle,Maiden,Good,4,12,Thunder Thief,C J Todd,D Skelton,4,,11-4,151.0,12
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Onefortheditch,Conor Smithers,E F Gallagher,8,,11-12,11.0,1
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Coillte M C G,Brian Hayes,S G Carey,6,,10-10,5.5,2
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Mount Shenshan,Sean Cleary-Farrell,T Mullins,8,,10-10,3.5,3
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Miss Lia,Shane O'Callaghan,P J Rothwell,6,,10-8,8.0,4
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Maxios Prime,Harry Sexton,P J Rothwell,5,,11-7,9.5,5
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Leading Rose,Niall Moore,William P Murphy,6,,10-3,34.0,6
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Dromana Mist,Ms A Power,Patrick Kiely,4,,11-8,4.33,7
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,French Adventure,Sean Flanagan,D M O'Brien,5,,10-10,19.0,8
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Mastertown Miss,Cian Quirke,D H Kelly,4,,11-1,17.0,0
+2026-11-24,13:45,Tramore,ire,hurdle,Handicap,Soft to Heavy,,10,Clash Gold,Mike O'Connor,F J Flood,7,,10-8,34.0,0
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Nobody Told Me,Harry Skelton,D Skelton,6,,10-5,2.62,1
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Yourcardismarked,Sean Quinlan,J Candlish,5,,11-7,2.75,2
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Laplander,S Bowen,T Ward,4,,11-6,17.0,3
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Milady Du Breuil,Jack Tudor,Christian Williams,4,,11-7,67.0,4
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Gaelic Glow,Jonathan England,S England,5,,11-12,13.0,5
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Tenadaay,Kielan Woods,F O'Brien,4,,11-3,41.0,6
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Orbys River,Toby Wynne,S Allwood,8,,10-13,67.0,7
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Troy Story,Lee Edwards,Dave Roberts,4,,11-8,101.0,8
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Cheap Sandwiches,Freddie Gordon,C Gordon,5,,11-1,8.5,9
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Everest,Caoilin Quinn,Jamie & Josh Moore,7,,11-5,17.0,10
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Little Lady Lucy,Laurie Gallacher,N P Mulholland,5,,11-2,26.0,11
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,On Subs,Adam Wedge,Christian Williams,4,,10-11,81.0,0
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Dino Bellagio,B S Hughes,D McCain Jnr,7,,11-7,10.0,0
+2026-11-24,13:56,Southwell,uk,hurdle,Handicap,Good,5,14,Trackman,J M Quinlan,S Pearce,6,,11-8,151.0,0
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Nordic Norm,Marco Ghiani,J R Jenkins,4,12,9-5,13.0,1
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Rey De La Batalla,Harry Davies,S Dow,5,11,9-6,8.0,2
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,North View,Kieren Fox,A W Carroll,5,9,9-8,4.33,3
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Sant Alessio,Taylor Fisher,J Tickle,5,6,9-6,6.5,4
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Way To Dubai,Jason Watson,M Appleby,7,10,9-4,8.0,5
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Spirit Of Breeze,D Egan,Jamie & Josh Moore,6,7,9-6,19.0,6
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,The Bitter Moose,S M Levey,P R Chamings,5,8,9-5,7.0,7
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Dandy G Boy,Edward Greatrex,W Greatrex,4,3,9-4,15.0,8
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Valentine Boy,Jack Dace,L A Dace,4,4,9-8,7.0,9
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Penfolds Grange,Tyler Heard,M Pattinson,4,5,9-7,17.0,10
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Secret Message,Connor Planas,N P Littmoden,4,2,9-6,81.0,11
+2026-11-24,14:08,Lingfield,uk,flat,Handicap,Standard,6,12,Jazzy Baby,Josephine Gordon,Kieran Burke,4,1,9-8,21.0,0
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Le Midnightdancer,Keith Donoghue,G P Cromwell,5,,11-7,13.0,1
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Johnny Cakes,Shane O'Callaghan,P J Rothwell,7,,10-11,6.0,2
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,The Ducks Walk,Ms E L Herbison,N Dooly,8,,11-6,4.5,3
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Lake Chad,Niall Moore,P Fenton,11,,12-0,9.0,4
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Fizzle Rock,Carl Millar,N Slevin,9,,11-5,21.0,5
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Cloonbonniffe,Phillip Enright,M M McNiff,5,,11-6,17.0,6
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Ballinaboola Jet,J J Slevin,R Donohoe,9,,10-8,17.0,7
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Wolfhill,Anna McGuinness,D H Kelly,8,,11-11,11.0,8
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Man Down,Conor Smithers,D Duggan,5,,11-8,11.0,9
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Walkmethroughit,Sean O'Keeffe,Kieran Callaghan,6,,10-11,8.0,10
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Fairy Meadow,Harry Sexton,J J Hanlon,9,,11-5,81.0,11
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Renard De Noir,Peter Smithers,Ms H P Markham,8,,10-3,34.0,12
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Talas Kera,Eoghan Finegan,J G Carr,5,,11-6,8.0,13
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Carrigeen Ardisia,Daniel King,J Barcoe,6,,10-5,51.0,14
+2026-11-24,14:15,Tramore,ire,hurdle,Handicap,Soft to Heavy,,15,Madame Masque,Mike O'Connor,H De Bromhead,7,,11-4,8.0,15
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Typhoon Warrior,Harry Skelton,D Skelton,5,,11-8,5.5,1
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Presenting Milan,Jonjo O'Neill Jr.,Robert Hawker,6,,11-8,6.5,2
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,The Boss Bear,J J Burke,James Owen,6,,11-11,3.5,3
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,In The Purple,S Bowen,O Murphy,5,,11-6,4.33,4
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,At Mangan Bridge,Charlie Hammond,S Edmunds,8,,11-12,15.0,5
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Eternity Rose,Liam Harrison,F O'Brien,5,,11-6,17.0,6
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Ka Mate Du Brivet,Caoilin Quinn,W Greatrex,5,,11-12,13.0,7
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Ballin Bay,Shane Fitzgerald,R Menzies,8,,11-12,51.0,8
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Blazing Duke,Jack Tudor,O Greenall & J Guerriero,5,,11-9,34.0,9
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Laysoft,Peter Kavanagh,J Parkinson & S Smith,4,,11-2,23.0,10
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Stroll On By,B S Hughes,C E Longsdon,9,,11-5,26.0,0
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Starshine Legend,James Best,S-J Davies,5,,11-9,81.0,0
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Magical Arthur,Sean Quinlan,J Candlish,8,,12-0,34.0,0
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Ithaka,C Gethings,A Ralph,10,,11-5,51.0,0
+2026-11-24,14:26,Southwell,uk,hurdle,Handicap,Good,4,15,Smile Back,Adam Wedge,R T Phillips,6,,11-4,13.0,0
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Two And Two,Marco Ghiani,S Hodgson,3,4,9-6,5.5,1
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Sanditon,Jack Callan,C Johnston,4,3,8-13,13.0,2
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Lessay,Dylan Hogan,P Morris,5,6,9-9,4.0,3
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Jackson Street,William Carson,M J Attwater,5,5,8-10,9.0,4
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Teggy Lasso,Jason Watson,M Appleby,4,7,9-2,3.75,5
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Pimentel,Jack Doughty,M P Tregoning,3,11,9-4,19.0,6
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Barnsnape Boy,Jack Dace,J R Boyle,5,9,8-9,29.0,7
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Twitch,Georgia Dobie,Craig Benton,9,2,9-5,7.5,8
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,First Encounter,Connor Planas,J Gallagher,5,8,8-9,41.0,9
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Lahina Bay,D Egan,R Cook & J Bridger,6,13,9-2,19.0,10
+2026-11-24,14:38,Lingfield,uk,flat,Handicap,Standard,6,11,Mount Mogan,R Havlin,Mrs L J Mongan,9,1,9-4,29.0,11
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Rebel Reba,Brian Hayes,W P Mullins,6,,11-5,4.0,1
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Glenary Prince,Mike O'Connor,H De Bromhead,5,,11-12,9.5,2
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Kimy,Alan O'Sullivan,T Mullins,6,,11-5,4.5,3
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Leni's Law,Sean Flanagan,Liz Doyle,7,,11-12,7.0,4
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Let's Go Mans,Keith Donoghue,G P Cromwell,5,,11-12,9.5,5
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,I C U In My Dreams,Ian Power,Conor Houlihan,6,,11-5,17.0,6
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Queen Of The Gales,Mr J P Collins,C Motherway,6,,11-5,67.0,7
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Sekakarma,Harry Sexton,W M Roper,9,,11-12,51.0,8
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Walk In The Clouds,Carl Millar,C Collins,6,,11-5,9.0,9
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Spanish John,Niall Moore,P A Fahy,8,,11-12,41.0,10
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Harry's Dream,Anna McGuinness,P J Rothwell,6,,11-12,67.0,11
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Joshua Chamberlain,Eoghan Finegan,G Keane,9,,11-12,13.0,0
+2026-11-24,14:45,Tramore,ire,chase,Novice,Soft,,13,Kanog Bay,Mr J Dunne,Ian Donoghue,5,,11-12,7.5,0
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Elusive Shine,Jonathan England,S England,6,,10-12,9.5,1
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,The Brave Guy,Sean Quinlan,J Candlish,6,,11-7,4.33,2
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Gimarias,Toby Wynne,Mrs M Rowley,6,,11-12,3.0,3
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Has Troke,Kielan Woods,A M Hales,9,,12-0,6.5,4
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Ocean Walz,Benjamin Poste,Mrs R Gasson,6,,10-13,13.0,5
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Innisfree Lass,Harry Atkins,Joey Ramsden,8,,11-10,23.0,6
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Twp Stori,Philip Armson,S Drinkwater,8,,10-9,19.0,7
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Harrys Hope,J M Quinlan,M Crawley,8,,11-13,6.5,8
+2026-11-24,14:56,Southwell,uk,hurdle,Handicap,Good,5,9,Eyeeye,Mr Henry Bailey,C Ellam,6,,11-0,34.0,9
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Real Gold,K T O'Neill,R Cook & J Bridger,3,8,8-8,81.0,1
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Orange Emperor,Myla Coppins,M Botti,3,6,9-9,3.0,2
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Rovinia,Marco Ghiani,R A Teal,4,10,9-1,7.0,3
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Dandy Khan,Jack Dace,J R Boyle,4,5,9-5,6.5,4
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Tam Lin,Jason Watson,M Appleby,4,13,9-3,5.5,5
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,It's A Mugs Game,Josephine Gordon,J Tickle,3,4,8-9,51.0,6
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Tilsworth Max,Jack Callan,J R Jenkins,6,11,8-13,21.0,7
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Denby's Dream,Kieren Fox,Charlie Pike,3,3,9-6,12.0,8
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Amber Honey,S M Levey,P Phelan,4,7,9-4,8.5,9
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Zoulette,S Donohoe,Ollie Sangster,3,2,9-6,34.0,10
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,So Chic,Liam Wright,Stephanie Cassidy,6,1,8-11,41.0,11
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Lady Delila,D Egan,P Morris,6,12,8-11,29.0,12
+2026-11-24,15:08,Lingfield,uk,flat,Handicap,Standard,6,13,Imelda,Callum Shepherd,D Loughnane,3,9,9-8,15.0,13
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Revolut Ned,Mr B M Coonan,William P Murphy,7,,11-1,11.0,1
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Stily,Sean O'Keeffe,M J McDonagh,6,,10-5,5.5,2
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Another Ocana,Alan O'Sullivan,L J Archdeacon,9,,10-10,8.0,3
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Roccabaker,Cian Quirke,D H Kelly,8,,11-2,7.5,4
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Moorish Castle,J J Slevin,P A Fahy,6,,12-0,21.0,5
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Without Exception,Harry Sexton,P J Rothwell,7,,10-9,8.0,6
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,King Gris,Jack Kennedy,G Elliott,6,,11-5,5.0,7
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Knockbrack Rambler,Phillip Enright,Brendan Walsh,9,,11-9,23.0,8
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Likable Chancer,Shane O'Callaghan,D Howard,12,,10-1,15.0,9
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,God Help Us,Eoin Walsh,E F Gallagher,10,,11-1,29.0,10
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Lough Nigara,Ricky Doyle,E Griffin,9,,12-0,11.0,0
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Ray Gun,Daniel King,J P Flavin,4,,10-5,8.0,0
+2026-11-24,15:15,Tramore,ire,chase,Handicap,Soft,,13,Battle Of Benburb,Mr P Verling,P M Verling,9,,10-1,126.0,0
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,Wild Goose,Aamilah Aswat,K Bailey & M Nicholls,6,,11-10,2.75,1
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,Manuelito,Ben Jones,P Hobbs & J White,6,,12-0,3.0,2
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,Lawrenny,Sean Quinlan,J Candlish,7,,11-9,15.0,3
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,Mister Cessna,Fern O'Brien,F O'Brien,5,,10-13,23.0,4
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,The Cistercian,Charlie Hammond,S Edmunds,6,,11-10,5.5,5
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,Klitschko,B S Hughes,Lucinda Hughes,8,,11-3,10.0,6
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,He's A Latchico,Caoilin Quinn,Jamie & Josh Moore,8,,10-12,29.0,7
+2026-11-24,15:26,Southwell,uk,hurdle,Handicap,Good,3,8,Saligo Bay,Jonathan England,S England,8,,11-1,19.0,8
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Far Far Out,William Carson,A W Carroll,3,2,9-9,3.25,1
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Bennyworth,D Egan,J R Boyle,3,4,9-1,8.5,2
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Venturing,Myla Coppins,A W Carroll,3,13,9-6,19.0,3
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Akrivos,Charles Bishop,Ian Williams,3,3,9-0,15.0,4
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Turton,Harry Davies,A W Carroll,3,7,9-0,29.0,5
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Herstmonceux,Jack Doughty,W Muir & C Grassick,3,5,9-6,4.5,6
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Glamerous,William Carver,S Hodgson,3,10,9-3,126.0,7
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,A Daughters Love,Jack Dace,D Flood,3,6,9-9,5.0,8
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Meritocratic,Oliver Hoodless,James Owen,3,12,9-9,6.5,9
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Intsaar,Remie Morgan,A Watson,3,11,9-9,29.0,10
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Karmacy,K T O'Neill,Andrew Martin,3,8,9-2,67.0,11
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Parole Board,S M Levey,P Phelan,3,14,9-0,26.0,12
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Emerald Reine,Dylan Hogan,J & S Birkett,3,1,9-0,81.0,13
+2026-11-24,15:38,Lingfield,uk,flat,Handicap,Standard,6,14,Baggie Boy,Edward Greatrex,G Harris,3,9,9-4,51.0,14
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Lady Aurora,Miss J Townend,W P Mullins,5,,11-11,2.75,1
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,For My Lady,Miss P Elvin,P J Rothwell,5,,11-11,21.0,2
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Shuil Solas,Miss H Ross,J & T Kiely,5,,11-11,4.0,3
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Lest Ye Forget,Ms A Power,Patrick Kiely,4,,11-11,9.0,4
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Dice In Her Eyes,Miss G Benson,Tom McGuinness,5,,11-11,34.0,5
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Peace Rose,Mrs Holly Conte,Vincent Conte,4,,11-11,501.0,6
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Found It,Miss C Butler,G Elliott,5,,11-11,3.0,7
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Miss Kobe,Ms L A Byrne,J C McConnell,5,,11-11,17.0,8
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,She's Trixy,Anna McGuinness,J C McConnell,4,,11-11,101.0,9
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Mozart's Song,Ms A T O'Reilly,Eamon Courtney,4,,11-11,29.0,10
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Saint Herblaine,Miss N Lockhead Anderson,J P Flavin,4,,11-11,101.0,11
+2026-11-24,15:50,Tramore,ire,flat,Conditions/Class,Soft to Heavy,,12,Allez Yeats,Ms E L Herbison,J Barcoe,7,,11-11,201.0,0
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Diligent Henry,Oliver Carmichael,G Tutty,5,7,8-9,15.0,1
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Mehmar,Harry Vigors,Jack Jones,6,3,8-13,1.73,2
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Megaphone,Mikkel Mortensen,S Dixon,4,1,8-9,29.0,3
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Forever Glamorous,Alexandra Egan,C Mason,3,5,9-5,10.0,4
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Daytona Lady,Olivia Haines,Mrs R Carr,6,13,9-9,9.5,5
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Black Missile,Shay Farmer,Miss J A Camacho,3,4,9-9,7.0,6
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Mister Moet,Ethan Tindall,S Dixon,3,2,8-12,51.0,7
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Papa Don't Preach,Matthew Slater,K Frost,7,10,8-12,41.0,8
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Act Of Violence,Darragh O'Sullivan,A W Carroll,5,9,9-9,17.0,9
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Havana Club,Donagh Murphy,A Wintle,4,11,9-3,41.0,10
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Knicks,Jake Dickson,M & D Easterby,5,8,9-6,15.0,11
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Devil's Angel,Hope Regan,P Morris,10,12,8-9,51.0,12
+2026-11-24,16:30,Wolverhampton,uk,flat,Handicap,Standard,6,13,Goldenstateofmind,Jude Maher,D Loughnane,3,6,9-9,41.0,13
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Fort Mchenry,Paddy Bradley,C Fellowes,2,7,9-7,51.0,1
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Zajal,Billy Loughnane,C Appleby,2,9,9-7,1.5,2
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Radio Bar,K Shoemark,E Walker,2,6,9-7,51.0,3
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,The Great Karoo,Kaiya Fraser,J R Fanshawe,2,2,9-7,15.0,4
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Manitoba,Luke Catton,J & T Gosden,2,5,9-7,4.5,5
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Son Of Vega,L Morris,D M Simcock,2,4,9-7,51.0,6
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Manolin,Callum Hutchinson,A M Balding,2,1,9-7,6.0,7
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Final Conquest,Daniel Muscutt,James Horton,2,8,9-7,41.0,8
+2026-11-24,17:30,Wolverhampton,uk,flat,Maiden,Standard,3,9,Thai Boxer,Finley Marsh,A Wintle,2,3,9-7,301.0,9
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,Haldon Fire,Callum Hutchinson,A M Balding,2,5,9-7,5.0,1
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,Mythical Tale,Billy Loughnane,C Appleby,2,4,9-7,3.75,2
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,Top Scholar,Cieren Fallon,W J Haggas,2,8,9-7,5.0,3
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,Modernist,Colin Keane,J & T Gosden,2,1,9-7,2.2,4
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,Carletto,K Shoemark,E Walker,2,6,9-7,23.0,5
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,Naval Warrior,Jonny Peate,J R Fanshawe,2,2,9-7,41.0,6
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,Sarfraj,Rob Hornby,J G Portman,2,3,9-7,151.0,7
+2026-11-24,18:00,Wolverhampton,uk,flat,Maiden,Standard,3,8,True Knight,Hollie Doyle,E A L Dunlop,2,7,9-7,67.0,8
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Dandana,Callum Rodriguez,S Crisford,3,4,9-6,8.0,1
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Purosangue,Billy Loughnane,R M H Cowell,5,3,9-2,7.0,2
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Desert Falcon,Ryan Sexton,Miss J A Camacho,6,2,9-9,10.0,3
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Alfa Kellenic,L Morris,I Furtado,5,7,9-5,8.5,4
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Silent Strike,Callum Hutchinson,A M Balding,3,1,9-4,5.0,5
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Another Abbot,Cieren Fallon,W J Haggas,4,5,9-6,3.25,6
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Bolo Neighs,Rhys Clutterbuck,R M Beckett,4,6,9-7,9.0,7
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,One And Gone,Ryan Kavanagh,Ian Williams,3,9,9-0,34.0,8
+2026-11-24,19:00,Wolverhampton,uk,flat,Handicap,Standard,3,9,Harry Three,K Shoemark,C G Cox,7,8,9-4,34.0,9
