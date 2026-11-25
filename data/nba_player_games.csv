@@ -33932,7 +33932,7 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401910027,2026-11-21,2027,2,4277956,Jordan Poole,3,New Orleans Pelicans,31.0,25,3,2,3
 401910027,2026-11-21,2027,2,4395630,Devin Vassell,24,San Antonio Spurs,26.0,10,3,2,2
 401910027,2026-11-21,2027,2,4395723,Keldon Johnson,24,San Antonio Spurs,23.0,10,4,4,2
-401910027,2026-11-21,2027,2,4397136,Saddiq Bey,3,New Orleans Pelicans,32.0,2,5,2,0
+401910027,2026-11-21,2027,2,4397136,Saddiq Bey,3,New Orleans Pelicans,32.0,2,4,2,0
 401910027,2026-11-21,2027,2,4592479,Julian Champagnie,24,San Antonio Spurs,25.0,9,3,3,3
 401910027,2026-11-21,2027,2,4703115,Jaron Pierre Jr.,3,New Orleans Pelicans,25.0,6,5,0,2
 401910027,2026-11-21,2027,2,4713010,David Jones Garcia,24,San Antonio Spurs,4.0,0,1,0,0
@@ -33941,7 +33941,7 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401910027,2026-11-21,2027,2,4997538,Karlo Matkovic,3,New Orleans Pelicans,15.0,3,3,0,1
 401910027,2026-11-21,2027,2,5061568,Carter Bryant,24,San Antonio Spurs,20.0,8,3,0,2
 401910027,2026-11-21,2027,2,5061589,Yves Missi,3,New Orleans Pelicans,35.0,9,13,1,0
-401910027,2026-11-21,2027,2,5104157,Victor Wembanyama,24,San Antonio Spurs,32.0,50,19,1,5
+401910027,2026-11-21,2027,2,5104157,Victor Wembanyama,24,San Antonio Spurs,32.0,50,18,1,5
 401910027,2026-11-21,2027,2,5105809,Tarris Reed Jr.,24,San Antonio Spurs,6.0,0,4,0,0
 401910027,2026-11-21,2027,2,5144091,Jeremiah Fears,3,New Orleans Pelicans,34.0,29,5,4,2
 401910027,2026-11-21,2027,2,5170947,AJ Johnson,3,New Orleans Pelicans,8.0,0,0,0,0
@@ -33983,7 +33983,7 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401910029,2026-11-22,2027,2,4701230,Jalen Johnson,1,Atlanta Hawks,30.0,12,11,0,0
 401910029,2026-11-22,2027,2,4869342,Dyson Daniels,1,Atlanta Hawks,39.0,5,14,8,0
 401910029,2026-11-22,2027,2,5106262,Zuby Ejiofor,1,Atlanta Hawks,19.0,4,4,1,0
-401910029,2026-11-22,2027,2,5107199,Daniss Jenkins,8,Detroit Pistons,38.0,11,5,3,1
+401910029,2026-11-22,2027,2,5107199,Daniss Jenkins,8,Detroit Pistons,38.0,11,4,3,1
 401910029,2026-11-22,2027,2,5149077,Kingston Flemings,1,Atlanta Hawks,27.0,10,5,6,1
 401910030,2026-11-22,2027,2,6475,Klay Thompson,14,Miami Heat,23.0,9,6,4,3
 401910030,2026-11-22,2027,2,3059319,Andrew Wiggins,14,Miami Heat,22.0,5,2,1,1
@@ -34342,3 +34342,73 @@ game_id,date,season,season_type,athlete_id,player,team_id,team,mins,points,rebou
 401910045,2026-11-23,2027,2,5106058,Emanuel Sharp,23,Sacramento Kings,13.0,0,1,2,0
 401910045,2026-11-23,2027,2,5107968,Ja'Kobi Gillespie,24,San Antonio Spurs,15.0,3,2,4,1
 401910045,2026-11-23,2027,2,5142620,Darius Acuff Jr.,23,Sacramento Kings,33.0,12,1,4,0
+401909314,2026-11-24,2027,2,2596112,Javonte Green,8,Detroit Pistons,27.0,6,2,1,2
+401909314,2026-11-24,2027,2,3133635,Jevon Carter,19,Orlando Magic,19.0,9,0,0,3
+401909314,2026-11-24,2027,2,3908845,John Collins,8,Detroit Pistons,26.0,12,4,0,2
+401909314,2026-11-24,2027,2,4066320,Desmond Bane,19,Orlando Magic,34.0,21,1,5,4
+401909314,2026-11-24,2027,2,4066372,Kevin Huerter,8,Detroit Pistons,32.0,13,6,5,1
+401909314,2026-11-24,2027,2,4277847,Wendell Carter Jr.,19,Orlando Magic,38.0,9,13,2,1
+401909314,2026-11-24,2027,2,4278562,Paul Reed,8,Detroit Pistons,22.0,9,6,1,0
+401909314,2026-11-24,2027,2,4278572,Jamal Cain,19,Orlando Magic,1.0,0,0,0,0
+401909314,2026-11-24,2027,2,4348700,Goga Bitadze,19,Orlando Magic,13.0,2,8,1,0
+401909314,2026-11-24,2027,2,4395702,Isaiah Joe,8,Detroit Pistons,30.0,21,4,0,5
+401909314,2026-11-24,2027,2,4397449,Elijah Harkless,8,Detroit Pistons,14.0,7,1,2,2
+401909314,2026-11-24,2027,2,4432165,Jalen Suggs,19,Orlando Magic,33.0,4,3,5,0
+401909314,2026-11-24,2027,2,4566434,Franz Wagner,19,Orlando Magic,38.0,20,9,6,0
+401909314,2026-11-24,2027,2,4593034,Alex Morales,19,Orlando Magic,1.0,0,0,0,0
+401909314,2026-11-24,2027,2,4683771,Ronald Holland II,8,Detroit Pistons,17.0,13,3,1,2
+401909314,2026-11-24,2027,2,4684742,Ausar Thompson,8,Detroit Pistons,31.0,6,10,7,0
+401909314,2026-11-24,2027,2,4700852,Chaz Lanier,8,Detroit Pistons,7.0,2,2,0,0
+401909314,2026-11-24,2027,2,4702382,Tristan da Silva,19,Orlando Magic,33.0,16,3,1,4
+401909314,2026-11-24,2027,2,4712849,Anthony Black,19,Orlando Magic,28.0,5,4,2,0
+401909314,2026-11-24,2027,2,5107199,Daniss Jenkins,8,Detroit Pistons,35.0,15,4,10,1
+401909314,2026-11-24,2027,2,5239561,Jase Richardson,19,Orlando Magic,1.0,0,0,0,0
+401909315,2026-11-24,2027,2,4251,Paul George,2,Boston Celtics,33.0,28,4,9,6
+401909315,2026-11-24,2027,2,6583,Anthony Davis,27,Washington Wizards,37.0,33,13,1,1
+401909315,2026-11-24,2027,2,6609,Khris Middleton,27,Washington Wizards,18.0,0,5,0,0
+401909315,2026-11-24,2027,2,3078576,Derrick White,2,Boston Celtics,30.0,6,7,5,2
+401909315,2026-11-24,2027,2,4065648,Jayson Tatum,2,Boston Celtics,37.0,41,6,8,6
+401909315,2026-11-24,2027,2,4065804,Sam Hauser,2,Boston Celtics,22.0,4,3,1,1
+401909315,2026-11-24,2027,2,4066354,Payton Pritchard,2,Boston Celtics,28.0,14,4,2,4
+401909315,2026-11-24,2027,2,4277905,Trae Young,27,Washington Wizards,35.0,17,0,12,1
+401909315,2026-11-24,2027,2,4277951,Luka Garza,2,Boston Celtics,18.0,7,4,0,1
+401909315,2026-11-24,2027,2,4278129,Deandre Ayton,27,Washington Wizards,5.0,0,2,0,0
+401909315,2026-11-24,2027,2,4397251,Ron Harper Jr.,2,Boston Celtics,8.0,2,0,0,0
+401909315,2026-11-24,2027,2,4397424,Neemias Queta,2,Boston Celtics,25.0,21,5,2,0
+401909315,2026-11-24,2027,2,4432819,Tre Mann,27,Washington Wizards,1.0,0,0,1,0
+401909315,2026-11-24,2027,2,4593841,Baylor Scheierman,2,Boston Celtics,19.0,8,4,1,2
+401909315,2026-11-24,2027,2,4683689,Jordan Walsh,2,Boston Celtics,5.0,0,2,1,0
+401909315,2026-11-24,2027,2,4845374,Bub Carrington,27,Washington Wizards,7.0,0,2,0,0
+401909315,2026-11-24,2027,2,5104155,Bilal Coulibaly,27,Washington Wizards,22.0,10,3,1,2
+401909315,2026-11-24,2027,2,5142621,Chris Cenac Jr.,2,Boston Celtics,6.0,0,2,1,0
+401909315,2026-11-24,2027,2,5142718,AJ Dybantsa,27,Washington Wizards,41.0,20,11,7,2
+401909315,2026-11-24,2027,2,5144126,Will Riley,27,Washington Wizards,5.0,5,0,0,1
+401909315,2026-11-24,2027,2,5160992,Alex Sarr,27,Washington Wizards,24.0,7,2,0,1
+401909315,2026-11-24,2027,2,5174563,Kyshawn George,27,Washington Wizards,38.0,24,9,3,4
+401909315,2026-11-24,2027,2,5175647,Hugo Gonzalez,2,Boston Celtics,9.0,0,5,0,0
+401909315,2026-11-24,2027,2,5238230,Tre Johnson,27,Washington Wizards,8.0,0,1,0,0
+401909316,2026-11-24,2027,2,3978,DeMar DeRozan,7,Denver Nuggets,17.0,9,5,1,0
+401909316,2026-11-24,2027,2,6442,Kyrie Irving,6,Dallas Mavericks,34.0,11,5,6,1
+401909316,2026-11-24,2027,2,3064290,Aaron Gordon,7,Denver Nuggets,24.0,1,3,3,0
+401909316,2026-11-24,2027,2,3112335,Nikola Jokic,7,Denver Nuggets,33.0,18,11,5,1
+401909316,2026-11-24,2027,2,3135046,Tyus Jones,7,Denver Nuggets,12.0,2,2,1,0
+401909316,2026-11-24,2027,2,3138160,Caleb Martin,6,Dallas Mavericks,30.0,13,4,4,3
+401909316,2026-11-24,2027,2,3138196,Cameron Johnson,7,Denver Nuggets,34.0,17,5,3,4
+401909316,2026-11-24,2027,2,3936299,Jamal Murray,7,Denver Nuggets,36.0,20,2,3,2
+401909316,2026-11-24,2027,2,4065813,Alpha Diallo,7,Denver Nuggets,3.0,2,1,1,0
+401909316,2026-11-24,2027,2,4277848,Marvin Bagley III,7,Denver Nuggets,12.0,9,3,0,1
+401909316,2026-11-24,2027,2,4278049,Daniel Gafford,6,Dallas Mavericks,27.0,13,6,3,0
+401909316,2026-11-24,2027,2,4278078,P.J. Washington,6,Dallas Mavericks,25.0,14,6,0,1
+401909316,2026-11-24,2027,2,4278594,Naji Marshall,6,Dallas Mavericks,22.0,14,1,2,1
+401909316,2026-11-24,2027,2,4431690,Zeke Nnaji,7,Denver Nuggets,3.0,1,1,0,0
+401909316,2026-11-24,2027,2,4431767,Christian Braun,7,Denver Nuggets,29.0,15,2,4,3
+401909316,2026-11-24,2027,2,4432582,Max Christie,6,Dallas Mavericks,4.0,2,1,0,0
+401909316,2026-11-24,2027,2,4433607,DaRon Holmes II,7,Denver Nuggets,3.0,0,0,0,0
+401909316,2026-11-24,2027,2,4592427,Spencer Jones,7,Denver Nuggets,22.0,7,3,1,1
+401909316,2026-11-24,2027,2,4593125,Santi Aldama,6,Dallas Mavericks,10.0,3,1,0,1
+401909316,2026-11-24,2027,2,4698719,Trevon Brazile,7,Denver Nuggets,12.0,0,3,0,0
+401909316,2026-11-24,2027,2,4701208,Moussa Cisse,6,Dallas Mavericks,2.0,0,0,0,0
+401909316,2026-11-24,2027,2,4873153,Morez Johnson Jr.,6,Dallas Mavericks,19.0,9,10,1,1
+401909316,2026-11-24,2027,2,4896372,Walter Clayton Jr.,6,Dallas Mavericks,14.0,5,2,2,1
+401909316,2026-11-24,2027,2,5041939,Cooper Flagg,6,Dallas Mavericks,31.0,24,6,12,1
+401909316,2026-11-24,2027,2,5211175,Zaccharie Risacher,6,Dallas Mavericks,21.0,12,6,1,1
